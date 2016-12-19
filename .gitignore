@@ -52,3 +52,4 @@ fabric.properties
 # modules.xml
 # .idea/misc.xml
 # *.ipr
+npm-debug.log

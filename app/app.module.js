@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
+var hero_detail_component_1 = require('./hero-detail.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -22,7 +23,8 @@ var AppModule = (function () {
                 forms_1.FormsModule
             ],
             declarations: [
-                app_component_1.AppComponent
+                app_component_1.AppComponent,
+                hero_detail_component_1.HeroDetailComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 
