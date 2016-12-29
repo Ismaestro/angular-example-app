@@ -8,7 +8,7 @@
 # User-specific stuff:
 .idea/workspace.xml
 .idea/tasks.xml
-
+.idea/
 # Sensitive or high-churn files:
 .idea/dataSources/
 .idea/dataSources.ids
@@ -53,3 +53,7 @@ fabric.properties
 # .idea/misc.xml
 # *.ipr
 npm-debug.log
+
+app/*.js
+app/*.map
+node_modules/
