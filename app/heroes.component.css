@@ -57,7 +57,13 @@ button {
 button:hover {
   background-color: #cfd8dc;
 }
-
+button.delete {
+  float:right;
+  margin-top: 2px;
+  margin-right: .8em;
+  background-color: gray !important;
+  color:white;
+}
 
 /*
 Copyright 2016 Google Inc. All Rights Reserved.
