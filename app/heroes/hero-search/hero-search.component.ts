@@ -23,6 +23,7 @@ export class HeroSearchComponent implements OnInit {
     heroes: Observable<Hero[]>;
     private searchTerms = new Subject<string>();
     private showDropDown = false;
+    private searchBox;
 
     constructor(private heroSearchService: HeroSearchService,
                 private router: Router,
@@ -30,7 +31,7 @@ export class HeroSearchComponent implements OnInit {
     }
 
     // Push a search term into the observable stream.
-    search(term: string): void {
+    search(): void {
         this.searchTerms.next(this.searchBox);
     }
 
