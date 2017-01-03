@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Hero } from './../heroes/shared/hero.model';
-import { HeroService } from './../heroes/shared/hero.service';
+import { Hero } from './../shared/hero.model';
+import { HeroService } from './../shared/hero.service';
 
 @Component({
   moduleId: module.id,
-  selector: 'my-dashboard',
-  templateUrl: 'dashboard.component.html',
-  styleUrls: [ 'dashboard.component.css' ]
+  selector: 'hero-top',
+  templateUrl: 'hero-top.component.html',
+  styleUrls: [ 'hero-top.component.css' ]
 })
-export class DashboardComponent implements OnInit {
+export class HeroTopComponent implements OnInit {
 
   heroes: Hero[] = [];
 

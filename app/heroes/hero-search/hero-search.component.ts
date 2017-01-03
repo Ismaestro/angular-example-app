@@ -3,7 +3,9 @@ import {Router}            from '@angular/router';
 import {Observable}        from 'rxjs/Observable';
 import {Subject}           from 'rxjs/Subject';
 
-import {HeroSearchService} from './shared/hero-search.service';
+import {HeroSearchService} from './hero-search.service';
+import {LoggerService} from './../../core/logger.service';
+
 import {Hero} from './../shared/hero.model';
 
 @Component({
@@ -11,25 +13,30 @@ import {Hero} from './../shared/hero.model';
     selector: 'hero-search',
     templateUrl: 'hero-search.component.html',
     styleUrls: ['hero-search.component.css'],
-    providers: [HeroSearchService]
+    providers: [
+        HeroSearchService,
+        LoggerService
+    ]
 })
 
 export class HeroSearchComponent implements OnInit {
     heroes: Observable<Hero[]>;
     private searchTerms = new Subject<string>();
+    private showDropDown = false;
 
     constructor(private heroSearchService: HeroSearchService,
-                private router: Router) {
+                private router: Router,
+                private loggerService: LoggerService) {
     }
 
     // Push a search term into the observable stream.
     search(term: string): void {
-        this.searchTerms.next(term);
+        this.searchTerms.next(this.searchBox);
     }
 
     ngOnInit(): void {
         this.heroes = this.searchTerms
-            .debounceTime(300)        // wait for 300ms pause in events
+            .debounceTime(200)        // wait for 200ms pause in events
             .distinctUntilChanged()   // ignore if next search term is same as previous
             .switchMap(term => term   // switch to new observable each time
                 // return the http search observable
@@ -37,14 +44,20 @@ export class HeroSearchComponent implements OnInit {
                 // or the observable of empty heroes if no search term
                 : Observable.of<Hero[]>([]))
             .catch(error => {
-                // TODO: real error handling
-                console.log(error);
+                this.loggerService.error(error);
                 return Observable.of<Hero[]>([]);
             });
     }
 
     gotoDetail(hero: Hero): void {
-        let link = ['/detail', hero.id];
+        let link = ['/heroes', hero.id];
         this.router.navigate(link);
+        this.showDropDown = false;
+        this.searchBox = null;
+        this.loggerService.log('Moved to hero with id: ' + hero.id);
+    }
+
+    escapePressed(): void {
+        this.showDropDown = false;
     }
 }

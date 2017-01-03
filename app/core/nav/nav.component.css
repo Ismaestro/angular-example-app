@@ -10,10 +10,20 @@ h2 {
     padding-top: 0;
 }
 
+header {
+    display: flex;
+    margin-bottom: 3em;
+}
+
+nav {
+    width: 100%;
+    float: left;
+}
+
 nav a {
     padding: 5px 10px;
     text-decoration: none;
-    margin-top: 10px;
+    margin: 1em 1em 0 0;
     display: inline-block;
     background-color: #eee;
     border-radius: 4px;
@@ -30,4 +40,8 @@ nav a:hover {
 
 nav a.active {
     color: #039be5;
+}
+
+hero-search {
+    float: right;
 }

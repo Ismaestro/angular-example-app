@@ -1,10 +1,14 @@
 <div id="search-component">
-    <h4>Hero Search</h4>
-    <input #searchBox id="search-box" (keyup)="search(searchBox.value)"/>
-    <div>
-        <div *ngFor="let hero of heroes | async"
-             (click)="gotoDetail(hero)" class="search-result">
+    <h4>Find a hero!</h4>
+    <input [(ngModel)]="searchBox" id="search-box"
+           (keyup)="search(searchBox.value)"
+           (focus)="showDropDown=true;"
+           (keydown.escape)="escapePressed()"
+           (keypress)="showDropDown=true"/>
+    <ul *ngIf="showDropDown" class="search-result">
+        <li *ngFor="let hero of heroes | async"
+            (click)="gotoDetail(hero)">
             {{hero.name}}
-        </div>
-    </div>
+        </li>
+    </ul>
 </div>

@@ -1,4 +1,4 @@
-.search-result {
+.search-result li {
     border-bottom: 1px solid gray;
     border-left: 1px solid gray;
     border-right: 1px solid gray;
@@ -9,7 +9,19 @@
     cursor: pointer;
 }
 
+.search-result {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    z-index: 20;
+}
+
 #search-box {
     width: 200px;
     height: 20px;
+}
+
+#search-component h4 {
+    margin: 0;
 }
