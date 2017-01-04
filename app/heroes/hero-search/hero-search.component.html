@@ -1,6 +1,6 @@
 <div id="search-component">
-    <h4>Find a hero!</h4>
-    <input [(ngModel)]="searchBox" id="search-box"
+    <label for="search-box">Find a hero!</label>
+    <input id="search-box" [(ngModel)]="searchBox"
            (keyup)="search()"
            (focus)="showDropDown=true;"
            (keydown.escape)="escapePressed()"

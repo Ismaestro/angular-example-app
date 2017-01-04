@@ -10,8 +10,8 @@
         [class.selected]="hero === selectedHero">
         <span class="badge">{{hero.id}}</span>
         <span>{{hero.name}}</span>
-        <button class="delete"
-                (click)="delete(hero); $event.stopPropagation()">x
+        <button class="remove"
+                (click)="remove(hero); $event.stopPropagation()">x
         </button>
     </li>
 </ul>

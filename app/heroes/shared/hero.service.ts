@@ -1,18 +1,19 @@
 import {Injectable, Inject}    from '@angular/core';
 import {Headers, Http} from '@angular/http';
 
-import {LoggerService} from './../../core/logger.service';
 import {APP_CONFIG, IAppConfig} from './../../app.config';
+import {LoggerService} from './../../core/logger.service';
 import {Hero} from './hero.model';
 
 @Injectable()
 export class HeroService {
-    private heroesUrl = this.appConfig.endpoints.heroes;
     private headers = new Headers({'Content-Type': 'application/json'});
+    private heroesUrl;
 
     constructor(private http: Http,
                 private loggerService: LoggerService,
                 @Inject(APP_CONFIG) private appConfig: IAppConfig) {
+        this.heroesUrl = this.appConfig.endpoints.heroes;
     }
 
     private handleError(error: any): Promise<any> {
@@ -59,7 +60,7 @@ export class HeroService {
             .catch(this.handleError);
     }
 
-    delete(id: number): Promise<void> {
+    remove(id: number): Promise<void> {
         const url = `${this.heroesUrl}/${id}`;
         return this.http.delete(url, {headers: this.headers})
             .toPromise()
