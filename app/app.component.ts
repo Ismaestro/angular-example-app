@@ -1,4 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, Inject} from '@angular/core';
+
+import {APP_CONFIG, IAppConfig} from './app.config';
 
 @Component({
     moduleId: module.id,
@@ -8,5 +10,8 @@ import {Component} from '@angular/core';
 })
 
 export class AppComponent {
-    title = 'Tour of Heroes';
+    constructor(@Inject(APP_CONFIG) private appConfig: IAppConfig) {
+    }
+
+    title = this.appConfig.title;
 }

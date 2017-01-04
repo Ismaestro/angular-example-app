@@ -1,7 +1,7 @@
 <div id="search-component">
     <h4>Find a hero!</h4>
     <input [(ngModel)]="searchBox" id="search-box"
-           (keyup)="search(searchBox.value)"
+           (keyup)="search()"
            (focus)="showDropDown=true;"
            (keydown.escape)="escapePressed()"
            (keypress)="showDropDown=true"/>

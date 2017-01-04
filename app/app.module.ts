@@ -3,6 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule}   from '@angular/forms';
 import {HttpModule}    from '@angular/http';
 
+import {APP_CONFIG, AppConfig} from './app.config';
 import {AppRoutingModule} from './app-routing.module';
 import {CoreModule}       from './core/core.module';
 import {HeroesModule}     from './heroes/heroes.module';
@@ -29,7 +30,9 @@ import './shared/rxjs-extensions';
         AppComponent,
         HeroTopComponent
     ],
-    providers: [],
+    providers: [
+        {provide: APP_CONFIG, useValue: AppConfig}
+    ],
     bootstrap: [AppComponent]
 })
 

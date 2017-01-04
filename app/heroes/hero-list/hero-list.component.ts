@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Inject} from '@angular/core';
 import {Router} from '@angular/router';
 
+import {APP_CONFIG, IAppConfig} from './../../app.config';
 import {Hero} from './../shared/hero.model';
 import {HeroService} from './../shared/hero.service';
 
@@ -15,7 +16,8 @@ export class HeroListComponent implements OnInit {
     heroes: Hero[];
     selectedHero: Hero;
 
-    constructor(private router: Router,
+    constructor(@Inject(APP_CONFIG) private appConfig: IAppConfig,
+                private router: Router,
                 private heroService: HeroService) {
     }
 
@@ -32,7 +34,7 @@ export class HeroListComponent implements OnInit {
     }
 
     gotoDetail(): void {
-        this.router.navigate(['/heroes/', this.selectedHero.id]);
+        this.router.navigate([`/${this.appConfig.routes.heroes}/`, this.selectedHero.id]);
     }
 
     add(name: string): void {

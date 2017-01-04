@@ -1,19 +1,22 @@
-import {Injectable}    from '@angular/core';
+import {Injectable, Inject}    from '@angular/core';
 import {Headers, Http} from '@angular/http';
 
+import {LoggerService} from './../../core/logger.service';
+import {APP_CONFIG, IAppConfig} from './../../app.config';
 import {Hero} from './hero.model';
-import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class HeroService {
-    private heroesUrl = 'api/heroes';
+    private heroesUrl = this.appConfig.endpoints.heroes;
     private headers = new Headers({'Content-Type': 'application/json'});
 
-    constructor(private http: Http) {
+    constructor(private http: Http,
+                private loggerService: LoggerService,
+                @Inject(APP_CONFIG) private appConfig: IAppConfig) {
     }
 
     private handleError(error: any): Promise<any> {
-        console.error('An error occurred', error);
+        this.loggerService.error('An error occurred', error);
         return Promise.reject(error.message || error);
     }
 
@@ -31,11 +34,19 @@ export class HeroService {
         });
     }
 
-    getHero(id: number): Promise<Hero> {
+    getHeroById(id: number): Promise<Hero> {
         const url = `${this.heroesUrl}/${id}`;
         return this.http.get(url)
             .toPromise()
             .then(response => response.json().data as Hero)
+            .catch(this.handleError);
+    }
+
+    create(name: string): Promise<Hero> {
+        return this.http
+            .post(this.heroesUrl, JSON.stringify({name: name}), {headers: this.headers})
+            .toPromise()
+            .then(res => res.json().data)
             .catch(this.handleError);
     }
 
@@ -45,14 +56,6 @@ export class HeroService {
             .put(url, JSON.stringify(hero), {headers: this.headers})
             .toPromise()
             .then(() => hero)
-            .catch(this.handleError);
-    }
-
-    create(name: string): Promise<Hero> {
-        return this.http
-            .post(this.heroesUrl, JSON.stringify({name: name}), {headers: this.headers})
-            .toPromise()
-            .then(res => res.json().data)
             .catch(this.handleError);
     }
 

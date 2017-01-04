@@ -1,12 +1,13 @@
 import {NgModule}             from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
+import {AppConfig} from './../app.config';
 import {HeroListComponent}    from './hero-list/hero-list.component';
 import {HeroDetailComponent}  from './hero-detail/hero-detail.component';
 
 const heroesRoutes: Routes = [
-    {path: 'heroes', component: HeroListComponent},
-    {path: 'heroes/:id', component: HeroDetailComponent}
+    {path: AppConfig.routes.heroes, component: HeroListComponent},
+    {path: AppConfig.routes.heroById, component: HeroDetailComponent}
 ];
 
 @NgModule({
@@ -17,5 +18,6 @@ const heroesRoutes: Routes = [
         RouterModule
     ]
 })
+
 export class HeroRoutingModule {
 }

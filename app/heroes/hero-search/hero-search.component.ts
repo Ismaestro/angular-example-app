@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Inject} from '@angular/core';
 import {Router}            from '@angular/router';
 import {Observable}        from 'rxjs/Observable';
 import {Subject}           from 'rxjs/Subject';
 
+import {APP_CONFIG, IAppConfig} from './../../app.config';
 import {HeroSearchService} from './hero-search.service';
 import {LoggerService} from './../../core/logger.service';
 
@@ -25,7 +26,8 @@ export class HeroSearchComponent implements OnInit {
     private showDropDown = false;
     private searchBox;
 
-    constructor(private heroSearchService: HeroSearchService,
+    constructor(@Inject(APP_CONFIG) private appConfig: IAppConfig,
+                private heroSearchService: HeroSearchService,
                 private router: Router,
                 private loggerService: LoggerService) {
     }
@@ -51,7 +53,7 @@ export class HeroSearchComponent implements OnInit {
     }
 
     gotoDetail(hero: Hero): void {
-        let link = ['/heroes', hero.id];
+        let link = ['/' + this.appConfig.routes.heroes, hero.id];
         this.router.navigate(link);
         this.showDropDown = false;
         this.searchBox = null;
