@@ -1,18 +1,19 @@
-import {NgModule}      from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {FormsModule}   from '@angular/forms';
-import {HttpModule}    from '@angular/http';
+import { NgModule }      from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule }   from '@angular/forms';
+import { HttpModule }    from '@angular/http';
 
-import {APP_CONFIG, AppConfig} from './app.config';
-import {AppRoutingModule} from './app-routing.module';
-import {CoreModule}       from './core/core.module';
-import {HeroesModule}     from './heroes/heroes.module';
+import { APP_CONFIG, AppConfig } from './app.config';
 
-import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
-import {InMemoryDataService}  from './shared/in-memory-data.service';
+import { AppRoutingModule } from './app-routing.module';
+import { CoreModule }       from './core/core.module';
+import { HeroesModule }     from './heroes/heroes.module';
 
-import {AppComponent}       from './app.component';
-import {HeroTopComponent}   from './heroes/hero-top/hero-top.component';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './shared/in-memory-data.service';
+
+import { AppComponent }     from './app.component';
+import { HeroTopComponent } from './heroes/hero-top/hero-top.component';
 
 import './shared/rxjs-extensions';
 
@@ -31,9 +32,9 @@ import './shared/rxjs-extensions';
         HeroTopComponent
     ],
     providers: [
-        {provide: APP_CONFIG, useValue: AppConfig}
+        { provide: APP_CONFIG, useValue: AppConfig }
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [ AppComponent ]
 })
 
 export class AppModule {

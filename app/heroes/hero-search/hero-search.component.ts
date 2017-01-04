@@ -1,19 +1,20 @@
-import {Component, OnInit, Inject} from '@angular/core';
-import {Router}            from '@angular/router';
-import {Observable}        from 'rxjs/Observable';
-import {Subject}           from 'rxjs/Subject';
+import { Component, OnInit, Inject } from '@angular/core';
+import { Router }                    from '@angular/router';
+import { Observable }                from 'rxjs/Observable';
+import { Subject }                   from 'rxjs/Subject';
 
-import {APP_CONFIG, IAppConfig} from './../../app.config';
-import {HeroSearchService} from './hero-search.service';
-import {LoggerService} from './../../core/logger.service';
+import { APP_CONFIG, IAppConfig } from './../../app.config';
+import { LoggerService }          from './../../core/logger.service';
 
-import {Hero} from './../shared/hero.model';
+import { Hero } from './../shared/hero.model';
+
+import { HeroSearchService } from './hero-search.service';
 
 @Component({
     moduleId: module.id,
-    selector: 'hero-search',
+    selector: 'toh-hero-search',
     templateUrl: 'hero-search.component.html',
-    styleUrls: ['hero-search.component.css'],
+    styleUrls: [ 'hero-search.component.css' ],
     providers: [
         HeroSearchService,
         LoggerService
@@ -22,21 +23,24 @@ import {Hero} from './../shared/hero.model';
 
 export class HeroSearchComponent implements OnInit {
     heroes: Observable<Hero[]>;
-    private searchTerms = new Subject<string>();
-    private showDropDown = false;
+    
+    private searchTerms;
+    private showDropDown;
     private searchBox;
-
+    
     constructor(@Inject(APP_CONFIG) private appConfig: IAppConfig,
                 private heroSearchService: HeroSearchService,
                 private router: Router,
                 private loggerService: LoggerService) {
+        this.showDropDown = false;
+        this.searchTerms = new Subject<string>();
     }
-
+    
     // Push a search term into the observable stream.
     search(): void {
         this.searchTerms.next(this.searchBox);
     }
-
+    
     ngOnInit(): void {
         this.heroes = this.searchTerms
             .debounceTime(200)        // wait for 200ms pause in events
@@ -51,15 +55,15 @@ export class HeroSearchComponent implements OnInit {
                 return Observable.of<Hero[]>([]);
             });
     }
-
+    
     gotoDetail(hero: Hero): void {
-        let link = ['/' + this.appConfig.routes.heroes, hero.id];
+        let link = [ '/' + this.appConfig.routes.heroes, hero.id ];
         this.router.navigate(link);
         this.showDropDown = false;
         this.searchBox = null;
         this.loggerService.log('Moved to hero with id: ' + hero.id);
     }
-
+    
     escapePressed(): void {
         this.showDropDown = false;
     }

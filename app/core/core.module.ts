@@ -1,14 +1,14 @@
-import {NgModule, Optional, SkipSelf} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
+import { CommonModule }                 from '@angular/common';
+import { FormsModule }                  from '@angular/forms';
 
-import {throwIfAlreadyLoaded} from './module-import-guard';
+import { throwIfAlreadyLoaded } from './module-import-guard';
+import { LoggerService }        from './logger.service';
 
-import {LoggerService} from './logger.service';
-import {NavComponent} from './nav/nav.component';
+import { HeroesModule }      from './../heroes/heroes.module';
+import { HeroRoutingModule } from './../heroes/heroes-routing.module';
 
-import {HeroesModule}     from './../heroes/heroes.module';
-import {HeroRoutingModule} from './../heroes/heroes-routing.module';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
     imports: [

@@ -42,6 +42,6 @@ nav a.active {
     color: #039be5;
 }
 
-hero-search {
+#search-component {
     float: right;
 }
