@@ -22,12 +22,10 @@ export class HeroFormComponent {
     constructor(private heroService: HeroService) {
         this.hero = new Hero(-1, '', '');
         this.submitted = false;
-        
-        // TODO
-        this.powers = [ 'Really Smart', 'Super Flexible',
-            'Super Hot', 'Weather Changer' ];
+
+        this.heroService.getHeroesPowers().then(powers => this.powers = powers);
     }
-    
+
     onSubmit() {
         this.heroService.create(this.hero)
             .then(hero => {

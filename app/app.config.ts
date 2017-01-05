@@ -16,6 +16,7 @@ export const AppConfig: IAppConfig = {
         heroById: heroesRoute + '/:id'
     },
     endpoints: {
-        heroes: 'api/heroes'
+        heroes: 'api/heroes',
+        heroesPowers: 'api/heroesPowers'
     }
 };

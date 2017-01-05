@@ -7,6 +7,10 @@
         <label>name: </label>
         <input [(ngModel)]="hero.name" placeholder="name"/>
     </div>
+    <div>
+        <label>alterEgo: </label>
+        <input [(ngModel)]="hero.alterEgo" placeholder="alterEgo"/>
+    </div>
     <button (click)="goBack()">Back</button>
-    <button (click)="save()">Save</button>
+    <button (click)="saveHero()">Save hero</button>
 </div>

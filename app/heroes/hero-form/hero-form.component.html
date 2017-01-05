@@ -3,7 +3,7 @@
         <h1>New hero</h1>
         <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
             <div class="form-group">
-                <label for="name">Name</label>
+                <label class="form-label" for="name">Name</label>
                 <input type="text" class="form-control" id="name"
                        required
                        [(ngModel)]="hero.name" name="name"
@@ -14,19 +14,19 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="alterEgo">Alter Ego</label>
+                <label class="form-label" for="alterEgo">Alter Ego</label>
                 <input type="text" class="form-control" id="alterEgo"
                        [(ngModel)]="hero.alterEgo" name="alterEgo">
             </div>
             <div class="form-group">
-                <label for="power">Hero Power</label>
+                <label class="form-label" for="power">Hero Power</label>
                 <select class="form-control" id="power"
                         required
                         [(ngModel)]="hero.power" name="power">
                     <option *ngFor="let power of powers" [value]="power">{{power}}</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-default" [disabled]="!heroForm.form.valid">Create new hero!</button>
+            <button type="submit" class="button form-button" [disabled]="!heroForm.form.valid">Create new hero!</button>
         </form>
     </div>
     <div [hidden]="!submitted">

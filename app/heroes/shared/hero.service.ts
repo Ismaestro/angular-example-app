@@ -24,6 +24,13 @@ export class HeroService {
             .then(response => response.json().data as Hero[])
             .catch(this.handleError);
     }
+
+    getHeroesPowers(): Promise<string[]> {
+        return this.http.get(this.appConfig.endpoints.heroesPowers)
+            .toPromise()
+            .then(response => response.json().data as string[])
+            .catch(this.handleError);
+    }
     
     getHeroById(id: number): Promise<Hero> {
         const url = `${this.heroesUrl}/${id}`;

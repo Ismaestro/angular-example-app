@@ -13,7 +13,7 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    position: fixed;
+    position: absolute;
     z-index: 20;
 }
 
