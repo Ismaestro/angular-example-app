@@ -10,8 +10,9 @@ import { APP_CONFIG, IAppConfig } from './app.config';
 })
 
 export class AppComponent {
-    constructor(@Inject(APP_CONFIG) private appConfig: IAppConfig) {
-    }
+    title: string;
     
-    title = this.appConfig.title;
+    constructor(@Inject(APP_CONFIG) private appConfig: IAppConfig) {
+        this.title = this.appConfig.title;
+    }
 }
