@@ -1,15 +1,14 @@
 <h2>My Heroes</h2>
-<div>
-    <label>Hero name:</label> <input #heroName/>
-    <button (click)="add(heroName.value); heroName.value=''">
-        Add
-    </button>
-</div>
+<br>
+<toh-hero-form [heroes]="heroes"
+               [selectedHero]="selectedHero">
+</toh-hero-form>
+<br>
 <ul class="heroes">
     <li *ngFor="let hero of heroes" (click)="onSelect(hero)"
         [class.selected]="hero === selectedHero">
         <span class="badge">{{hero.id}}</span>
-        <span>{{hero.name}}</span>
+        <span>{{hero.name}} | {{hero.alterEgo}} | {{hero.power}}</span>
         <button class="remove"
                 (click)="remove(hero); $event.stopPropagation()">x
         </button>

@@ -7,6 +7,7 @@ import { HeroRoutingModule } from './heroes-routing.module';
 import { HeroListComponent }   from './hero-list/hero-list.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { HeroFormComponent }   from './hero-form/hero-form.component';
 
 import { HeroService } from './shared/hero.service';
 
@@ -19,7 +20,8 @@ import { HeroService } from './shared/hero.service';
     declarations: [
         HeroListComponent,
         HeroSearchComponent,
-        HeroDetailComponent
+        HeroDetailComponent,
+        HeroFormComponent
     ],
     providers: [
         HeroService
