@@ -15,6 +15,8 @@ import { InMemoryDataService }  from './shared/in-memory-data.service';
 import { AppComponent }     from './app.component';
 import { HeroTopComponent } from './heroes/hero-top/hero-top.component';
 
+import { HighlightDirective } from "./shared/highlight.directive";
+
 import './shared/rxjs-extensions';
 
 @NgModule({
@@ -29,7 +31,8 @@ import './shared/rxjs-extensions';
     ],
     declarations: [
         AppComponent,
-        HeroTopComponent
+        HeroTopComponent,
+        HighlightDirective
     ],
     providers: [
         { provide: APP_CONFIG, useValue: AppConfig }
