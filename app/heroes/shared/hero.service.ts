@@ -10,14 +10,14 @@ import { Hero } from './hero.model';
 export class HeroService {
     private headers;
     private heroesUrl;
-    
+
     constructor(private http: Http,
                 private loggerService: LoggerService,
                 @Inject(APP_CONFIG) private appConfig: IAppConfig) {
         this.heroesUrl = this.appConfig.endpoints.heroes;
         this.headers = new Headers({ 'Content-Type': 'application/json' });
     }
-    
+
     getHeroes(): Promise<Hero[]> {
         return this.http.get(this.heroesUrl)
             .toPromise()
@@ -31,7 +31,7 @@ export class HeroService {
             .then(response => response.json().data as string[])
             .catch(this.handleError);
     }
-    
+
     getHeroById(id: number): Promise<Hero> {
         const url = `${this.heroesUrl}/${id}`;
         return this.http.get(url)
@@ -39,7 +39,7 @@ export class HeroService {
             .then(response => response.json().data as Hero)
             .catch(this.handleError);
     }
-    
+
     create(hero: Hero): Promise<Hero> {
         return this.http
             .post(this.heroesUrl, JSON.stringify({
@@ -51,7 +51,7 @@ export class HeroService {
             .then(res => res.json().data)
             .catch(this.handleError);
     }
-    
+
     update(hero: Hero): Promise<Hero> {
         const url = `${this.heroesUrl}/${hero.id}`;
         return this.http
@@ -60,7 +60,7 @@ export class HeroService {
             .then(() => hero)
             .catch(this.handleError);
     }
-    
+
     remove(id: number): Promise<void> {
         const url = `${this.heroesUrl}/${id}`;
         return this.http.delete(url, { headers: this.headers })
@@ -68,7 +68,7 @@ export class HeroService {
             .then(() => null)
             .catch(this.handleError);
     }
-    
+
     private handleError(error: any): Promise<any> {
         this.loggerService.error('An error occurred', error);
         return Promise.reject(error.message || error);

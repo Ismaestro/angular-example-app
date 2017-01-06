@@ -11,7 +11,7 @@ import { APP_CONFIG, IAppConfig } from './../../app.config';
 
 export class NavComponent {
     menuItems;
-    
+
     constructor(@Inject(APP_CONFIG) private appConfig: IAppConfig) {
         this.menuItems = [
             { link: '/', name: 'Home' },

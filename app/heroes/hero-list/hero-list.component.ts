@@ -15,28 +15,29 @@ import { HeroService } from './../shared/hero.service';
 export class HeroListComponent implements OnInit {
     heroes: Hero[];
     selectedHero: Hero;
-    
+    color: string;
+
     constructor(@Inject(APP_CONFIG) private appConfig: IAppConfig,
                 private router: Router,
                 private heroService: HeroService) {
     }
-    
+
     getHeroes(): void {
         this.heroService.getHeroes().then(heroes => this.heroes = heroes);
     }
-    
+
     ngOnInit(): void {
         this.getHeroes();
     }
-    
+
     onSelect(hero: Hero): void {
         this.selectedHero = hero;
     }
-    
+
     gotoDetail(): void {
         this.router.navigate([ `/${this.appConfig.routes.heroes}/`, this.selectedHero.id ]);
     }
-    
+
     remove(hero: Hero): void {
         this.heroService
             .remove(hero.id)

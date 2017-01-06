@@ -1,3 +1,7 @@
+.form-group {
+    margin: 1em 0 1em 0;
+}
+
 .form-label {
     display: inline-block;
     width: 10%;

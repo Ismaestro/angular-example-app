@@ -6,6 +6,7 @@ import { HttpModule }    from '@angular/http';
 import { APP_CONFIG, AppConfig } from './app.config';
 
 import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './shared/shared.module';
 import { CoreModule }       from './core/core.module';
 import { HeroesModule }     from './heroes/heroes.module';
 
@@ -14,8 +15,6 @@ import { InMemoryDataService }  from './shared/in-memory-data.service';
 
 import { AppComponent }     from './app.component';
 import { HeroTopComponent } from './heroes/hero-top/hero-top.component';
-
-import { HighlightDirective } from "./shared/highlight.directive";
 
 import './shared/rxjs-extensions';
 
@@ -27,12 +26,12 @@ import './shared/rxjs-extensions';
         InMemoryWebApiModule.forRoot(InMemoryDataService),
         AppRoutingModule,
         CoreModule,
-        HeroesModule
+        HeroesModule,
+        SharedModule
     ],
     declarations: [
         AppComponent,
-        HeroTopComponent,
-        HighlightDirective
+        HeroTopComponent
     ],
     providers: [
         { provide: APP_CONFIG, useValue: AppConfig }

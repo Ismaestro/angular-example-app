@@ -14,11 +14,11 @@ import { HeroService } from './../shared/hero.service';
 export class HeroFormComponent {
     @Input() heroes: Hero[];
     @Input() selectedHero: Hero;
-    
+
     hero: Hero;
     submitted: boolean;
     powers: string[];
-    
+
     constructor(private heroService: HeroService) {
         this.hero = new Hero(-1, '', '');
         this.submitted = false;

@@ -11,7 +11,7 @@ import { APP_CONFIG, IAppConfig } from './app.config';
 
 export class AppComponent {
     title: string;
-    
+
     constructor(@Inject(APP_CONFIG) private appConfig: IAppConfig) {
         this.title = this.appConfig.title;
     }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule }  from '@angular/forms';
 
 import { HeroRoutingModule } from './heroes-routing.module';
+import { SharedModule } from "../shared/shared.module";
 
 import { HeroListComponent }   from './hero-list/hero-list.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
@@ -15,6 +16,7 @@ import { HeroService } from './shared/hero.service';
     imports: [
         CommonModule,
         FormsModule,
+        SharedModule,
         HeroRoutingModule
     ],
     declarations: [
