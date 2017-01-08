@@ -63,8 +63,8 @@ npm-debug.log
 .idea/
 *.swp
 
-/src/**.*.js
-/src/**.*.js.map
+src/**.*.js
+src/**.*.js.map
 
 # Angular #
 *.ngfactory.ts

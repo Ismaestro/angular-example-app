@@ -1,0 +1,6 @@
+<header>
+    <nav>
+        <a *ngFor="let item of menuItems" routerLink="{{item.link}}" routerLinkActive="active">{{item.name}}</a>
+    </nav>
+    <toh-hero-search></toh-hero-search>
+</header>
