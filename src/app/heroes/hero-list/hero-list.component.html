@@ -1,0 +1,29 @@
+<toh-hero-form [heroes]="heroes"
+               [selectedHero]="selectedHero">
+</toh-hero-form>
+<br>
+<h4>Pick a highlight color</h4>
+<div>
+  <input type="radio" name="colors" (click)="color='lightgreen'">Green
+  <input type="radio" name="colors" (click)="color='yellow'">Yellow
+  <input type="radio" name="colors" (click)="color='cyan'">Cyan
+</div>
+<br>
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes" (click)="onSelect(hero)"
+      [class.selected]="hero === selectedHero"
+      [tohHighlight]="color" defaultColor="violet">
+    <span class="badge">{{hero.id}}</span>
+    <span>{{hero.name}} | {{hero.alterEgo}} | {{hero.power}}</span>
+    <button class="remove"
+            (click)="remove(hero); $event.stopPropagation()">x
+    </button>
+  </li>
+</ul>
+<div *ngIf="selectedHero">
+  <h2>
+    {{selectedHero.name | uppercase}} is my hero
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>
