@@ -11,6 +11,11 @@ export class HeroService {
   private headers;
   private heroesUrl;
 
+  private static handleError(error: any): Promise<any> {
+    window.alert(error._body);
+    return Promise.reject(error.message || error);
+  }
+
   constructor(private http: Http,
               @Inject(APP_CONFIG) private appConfig: IAppConfig) {
     this.heroesUrl = this.appConfig.endpoints.heroes;
@@ -66,10 +71,5 @@ export class HeroService {
       .toPromise()
       .then(() => null)
       .catch(HeroService.handleError);
-  }
-
-  private static handleError(error: any): Promise<any> {
-    window.alert(error._body);
-    return Promise.reject(error.message || error);
   }
 }
