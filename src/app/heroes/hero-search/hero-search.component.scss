@@ -1,0 +1,29 @@
+:host(toh-hero-search) {
+  h4 {
+    margin: 0;
+  }
+
+  .search-result {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    z-index: 20;
+
+    li {
+      border-bottom: 1px solid lightgray;
+      border-left: 1px solid lightgray;
+      border-right: 1px solid lightgray;
+      width: 200px;
+      height: 2em;
+      padding: 5px;
+      background-color: white;
+      cursor: pointer;
+    }
+  }
+
+  #search-box {
+    width: 200px;
+    border-radius: 15px 15px 0 0;
+  }
+}

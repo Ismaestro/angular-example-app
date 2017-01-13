@@ -19,12 +19,6 @@
       "alterEgo": "bombi"
     },
     {
-      "id": 14,
-      "name": "Celeritas",
-      "power": "Super Hot",
-      "alterEgo": "cele"
-    },
-    {
       "id": 15,
       "name": "Magneta",
       "power": "Really Smart",
@@ -47,12 +41,6 @@
       "name": "Magma",
       "power": "Super Flexible",
       "alterEgo": "cold"
-    },
-    {
-      "id": 20,
-      "name": "Tornado",
-      "power": "Really Smart",
-      "alterEgo": "torny"
     }
   ]
 }

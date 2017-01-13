@@ -9,6 +9,6 @@ describe('angular-hero-cli App', function () {
 
   it('Title', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Tour of Heroes');
+    expect(page.getParagraphText()).toEqual('Top Heroes');
   });
 });

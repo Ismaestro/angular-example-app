@@ -1,0 +1,17 @@
+:host(toh-hero-top) {
+  h3 {
+    margin-bottom: 1em;
+  }
+
+  .card-block {
+    background-color: #808080;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+
+    .card-title {
+      text-align: center;
+      margin: 0;
+    }
+  }
+}

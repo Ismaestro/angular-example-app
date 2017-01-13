@@ -1,16 +1,23 @@
 <div *ngIf="hero">
-  <h2>{{hero.name}} details!</h2>
-  <div>
-    <label>id: </label>{{hero.id}}
-  </div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="hero.name" placeholder="name"/>
-  </div>
-  <div>
-    <label>alterEgo: </label>
-    <input [(ngModel)]="hero.alterEgo" placeholder="alterEgo"/>
-  </div>
-  <button (click)="goBack()">Back</button>
-  <button (click)="saveHero()">Save hero</button>
+    <h2>{{hero.name}} details!</h2>
+    <div class="input-group">
+        <span class="input-group-addon" id="hero-id">Id</span>
+        <input type="text" class="form-control" placeholder="Id" aria-describedby="hero-id"
+               [value]="hero.id" disabled>
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon" id="hero-name">Name</span>
+        <input type="text" class="form-control" placeholder="Name" aria-describedby="hero-name"
+               [(ngModel)]="hero.name">
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon" id="hero-alter-ego">Alter ego</span>
+        <input type="text" class="form-control" placeholder="Alter ego" aria-describedby="hero-alter-ego"
+               [(ngModel)]="hero.alterEgo">
+    </div>
+    <br>
+    <button class="btn btn-secondary" (click)="goBack()">Back</button>
+    <button class="btn btn-primary" (click)="saveHero()">Save hero</button>
 </div>

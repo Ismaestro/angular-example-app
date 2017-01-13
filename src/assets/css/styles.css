@@ -1,23 +1,26 @@
-h2 {
-  color: #444;
-  font-weight: lighter;
+* {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
 body {
-  margin: 2em;
+    margin: 2em;
 }
 
-body, input[text], button {
-  color: #888;
-  font-family: Cambria, Georgia, "Helvetica Neue", Helvetica, sans-serif;
+body {
+    color: #888;
+    font-family: Cambria, Georgia, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+h2 {
+    color: #444;
+    font-weight: lighter;
+}
+
+h3 {
+    text-align: center;
 }
 
 button {
-  cursor: pointer;
-  padding: 0.2em;
-  font-size: 14px
+    cursor: pointer !important;
 }
 
-* {
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-}

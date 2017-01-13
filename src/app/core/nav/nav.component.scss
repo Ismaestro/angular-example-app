@@ -1,0 +1,32 @@
+header {
+  display: flex;
+  margin-bottom: 3em;
+
+  nav {
+    width: 100%;
+    float: left;
+
+    a {
+      padding: 15px 20px;
+      text-decoration: none;
+      margin: 0 1em 0 0;
+      display: inline-block;
+      background-color: #eee;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    a:visited, a:link {
+      color: #607D8B;
+    }
+
+    a:hover {
+      color: #039be5;
+      background-color: #CFD8DC;
+    }
+
+    a.active {
+      color: #039be5;
+    }
+  }
+}

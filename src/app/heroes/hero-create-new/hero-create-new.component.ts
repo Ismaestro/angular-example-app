@@ -1,13 +1,13 @@
 import {Component, Input} from '@angular/core';
 
-import {Hero} from './../shared/hero.model';
+import {Hero} from '../shared/hero.model';
 
-import {HeroService} from './../shared/hero.service';
+import {HeroService} from '../shared/hero.service';
 
 @Component({
-  selector: 'toh-hero-form',
-  templateUrl: './hero-form.component.html',
-  styleUrls: ['./hero-form.component.css']
+  selector: 'toh-hero-create-new',
+  templateUrl: 'hero-create-new.component.html',
+  styleUrls: ['hero-create-new.component.scss']
 })
 
 export class HeroFormComponent {
@@ -15,12 +15,10 @@ export class HeroFormComponent {
   @Input() selectedHero: Hero;
 
   hero: Hero;
-  submitted: boolean;
   powers: string[];
 
   constructor(private heroService: HeroService) {
     this.hero = new Hero(-1, '', '');
-    this.submitted = false;
 
     this.heroService.getHeroesPowers().then(powers => this.powers = powers);
   }
@@ -30,7 +28,6 @@ export class HeroFormComponent {
       .then(hero => {
         this.heroes.push(hero);
         this.selectedHero = null;
-        this.submitted = true;
       });
   }
 }

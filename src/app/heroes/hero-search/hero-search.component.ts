@@ -14,7 +14,7 @@ import {HeroSearchService} from './hero-search.service';
 @Component({
   selector: 'toh-hero-search',
   templateUrl: './hero-search.component.html',
-  styleUrls: ['./hero-search.component.css'],
+  styleUrls: ['./hero-search.component.scss'],
   providers: [
     HeroSearchService,
     LoggerService
@@ -23,15 +23,13 @@ import {HeroSearchService} from './hero-search.service';
 
 export class HeroSearchComponent implements OnInit {
   heroes: Observable<Hero[]>;
-
-  private searchTerms;
-  private showDropDown;
-  private searchBox;
+  searchTerms;
+  showDropDown;
+  searchBox;
 
   constructor(@Inject(APP_CONFIG) private appConfig: IAppConfig,
               private heroSearchService: HeroSearchService,
-              private router: Router,
-              private loggerService: LoggerService) {
+              private router: Router) {
     this.showDropDown = false;
     this.searchTerms = new Subject<string>();
   }
@@ -51,7 +49,7 @@ export class HeroSearchComponent implements OnInit {
         // or the observable of empty heroes if no search term
         : Observable.of<Hero[]>([]))
       .catch(error => {
-        this.loggerService.error(error);
+        LoggerService.error(error);
         return Observable.of<Hero[]>([]);
       });
   }
@@ -61,7 +59,7 @@ export class HeroSearchComponent implements OnInit {
     this.router.navigate(link);
     this.showDropDown = false;
     this.searchBox = null;
-    this.loggerService.log('Moved to hero with id: ' + hero.id);
+    LoggerService.log('Moved to hero with id: ' + hero.id);
   }
 
   escapePressed(): void {

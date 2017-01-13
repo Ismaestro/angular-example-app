@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 
-import {Hero} from './../shared/hero.model';
+import {Hero} from '../shared/hero.model';
 
-import {HeroService} from './../shared/hero.service';
+import {HeroService} from '../shared/hero.service';
 
 @Component({
   selector: 'toh-hero-top',
   templateUrl: './hero-top.component.html',
-  styleUrls: ['./hero-top.component.css']
+  styleUrls: ['./hero-top.component.scss']
 })
 export class HeroTopComponent implements OnInit {
 

@@ -8,7 +8,7 @@ import {HeroService}  from '../shared/hero.service';
 @Component({
   selector: 'toh-hero-detail',
   templateUrl: './hero-detail.component.html',
-  styleUrls: ['./hero-detail.component.css']
+  styleUrls: ['./hero-detail.component.scss']
 })
 
 export class HeroDetailComponent implements OnInit {

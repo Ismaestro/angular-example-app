@@ -10,13 +10,14 @@ import {HeroService} from '../shared/hero.service';
 @Component({
   selector: 'toh-hero-list',
   templateUrl: './hero-list.component.html',
-  styleUrls: ['./hero-list.component.css']
+  styleUrls: ['./hero-list.component.scss']
 })
 
 export class HeroListComponent implements OnInit {
   heroes: Hero[];
   selectedHero: Hero;
   color: string;
+  createNewHero: boolean;
 
   constructor(@Inject(APP_CONFIG) private appConfig: IAppConfig,
               private router: Router,

@@ -5,8 +5,7 @@ import {IAppConfig} from './config/iapp.config';
 
 @Component({
   selector: 'toh-app',
-  templateUrl: './app.component.html',
-  styleUrls: [],
+  templateUrl: './app.component.html'
 })
 
 export class AppComponent {

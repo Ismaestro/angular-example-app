@@ -4,8 +4,6 @@ import {Headers, Http}      from '@angular/http';
 import {APP_CONFIG} from '../../config/app.config';
 import {IAppConfig} from '../../config/iapp.config';
 
-import {LoggerService} from '../../core/logger.service';
-
 import {Hero} from './hero.model';
 
 @Injectable()
@@ -23,14 +21,14 @@ export class HeroService {
     return this.http.get(this.heroesUrl)
       .toPromise()
       .then(response => response.json() as Hero[])
-      .catch(this.handleError);
+      .catch(HeroService.handleError);
   }
 
   getHeroesPowers(): Promise<string[]> {
     return this.http.get(this.appConfig.endpoints.heroesPowers)
       .toPromise()
       .then(response => response.json() as string[])
-      .catch(this.handleError);
+      .catch(HeroService.handleError);
   }
 
   getHeroById(id: number): Promise<Hero> {
@@ -38,7 +36,7 @@ export class HeroService {
     return this.http.get(url)
       .toPromise()
       .then(response => response.json() as Hero)
-      .catch(this.handleError);
+      .catch(HeroService.handleError);
   }
 
   create(hero: Hero): Promise<Hero> {
@@ -50,7 +48,7 @@ export class HeroService {
       }), {headers: this.headers})
       .toPromise()
       .then(res => res.json())
-      .catch(this.handleError);
+      .catch(HeroService.handleError);
   }
 
   update(hero: Hero): Promise<Hero> {
@@ -59,7 +57,7 @@ export class HeroService {
       .put(url, JSON.stringify(hero), {headers: this.headers})
       .toPromise()
       .then(() => hero)
-      .catch(this.handleError);
+      .catch(HeroService.handleError);
   }
 
   remove(id: number): Promise<void> {
@@ -67,10 +65,10 @@ export class HeroService {
     return this.http.delete(url, {headers: this.headers})
       .toPromise()
       .then(() => null)
-      .catch(this.handleError);
+      .catch(HeroService.handleError);
   }
 
-  private handleError(error: any): Promise<any> {
+  private static handleError(error: any): Promise<any> {
     window.alert(error._body);
     return Promise.reject(error.message || error);
   }

@@ -1,6 +1,14 @@
 <header>
-  <nav>
-    <a *ngFor="let item of menuItems" routerLink="{{item.link}}" routerLinkActive="active">{{item.name}}</a>
-  </nav>
-  <toh-hero-search></toh-hero-search>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+        <a class="navbar-brand" href="/">{{title}}</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active" routerLinkActive="active"
+                    *ngFor="let item of menuItems" routerLink="{{item.link}}">
+                    <a class="nav-link">{{item.name}}</a>
+                </li>
+            </ul>
+        </div>
+        <toh-hero-search></toh-hero-search>
+    </nav>
 </header>

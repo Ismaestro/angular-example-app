@@ -1,0 +1,15 @@
+:host(toh-hero-create-new) {
+  .form-control {
+    width: inherit !important;
+  }
+
+  .alert-danger {
+    display: inline-block;
+    margin-top: 1em;
+  }
+
+  .new-hero {
+    width: 35%;
+    float: right;
+  }
+}

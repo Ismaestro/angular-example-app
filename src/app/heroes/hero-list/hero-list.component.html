@@ -1,29 +1,57 @@
-<toh-hero-form [heroes]="heroes"
-               [selectedHero]="selectedHero">
-</toh-hero-form>
-<br>
-<h4>Pick a highlight color</h4>
-<div>
-  <input type="radio" name="colors" (click)="color='lightgreen'">Green
-  <input type="radio" name="colors" (click)="color='yellow'">Yellow
-  <input type="radio" name="colors" (click)="color='cyan'">Cyan
-</div>
-<br>
-<h2>My Heroes</h2>
-<ul class="heroes">
-  <li *ngFor="let hero of heroes" (click)="onSelect(hero)"
-      [class.selected]="hero === selectedHero"
-      [tohHighlight]="color" defaultColor="violet">
-    <span class="badge">{{hero.id}}</span>
-    <span>{{hero.name}} | {{hero.alterEgo}} | {{hero.power}}</span>
-    <button class="remove"
-            (click)="remove(hero); $event.stopPropagation()">x
+<h2>
+    Heroes list
+    <button class="btn btn-success"
+            (click)="createNewHero = !createNewHero">
+        <i class="fa fa-plus" aria-hidden="true"></i>
     </button>
-  </li>
-</ul>
-<div *ngIf="selectedHero">
-  <h2>
-    {{selectedHero.name | uppercase}} is my hero
-  </h2>
-  <button (click)="gotoDetail()">View Details</button>
+</h2>
+<div>
+    <div class="hero-list">
+        <h3>Pick a highlight color</h3>
+        <div class="color-picker">
+            <label class="custom-control custom-radio">
+                <input id="color1" name="radio" type="radio" class="custom-control-input" (click)="color='orange'">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">Orange</span>
+            </label>
+            <label class="custom-control custom-radio">
+                <input id="color2" name="radio" type="radio" class="custom-control-input" (click)="color='yellow'">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">Yellow</span>
+            </label>
+            <label class="custom-control custom-radio">
+                <input id="color3" name="radio" type="radio" class="custom-control-input" (click)="color='cyan'">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">Cyan</span>
+            </label>
+        </div>
+
+        <ul class="list-group">
+            <li class="list-group-item"
+                *ngFor="let hero of heroes" (click)="onSelect(hero)"
+                [class.selected]="hero === selectedHero"
+                [tohHighlight]="color" defaultColor="lightgreen">
+                <div class="hero-info">
+                    <span class="badge badge-default badge-pill">{{hero.id}}</span>
+                    {{hero.name}} | {{hero.alterEgo}} | {{hero.power}}
+                </div>
+                <div class="hero-actions">
+                    <button *ngIf="hero === selectedHero" class="btn btn-info"
+                            (click)="gotoDetail()">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn-danger"
+                            (click)="remove(hero); $event.stopPropagation()">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="new-hero">
+        <toh-hero-create-new *ngIf="createNewHero"
+                             [heroes]="heroes"
+                             [selectedHero]="selectedHero">
+        </toh-hero-create-new>
+    </div>
 </div>
