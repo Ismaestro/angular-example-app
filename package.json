@@ -5,7 +5,7 @@
   "angular-cli": {},
   "scripts": {
     "start": "npm run server | npm run ng",
-    "server": "json-server --port 3000 --watch src/server/db.json --routes src/server/routes.json",
+    "server": "json-server --port 3000 --watch server/db.json --routes server/routes.json",
     "ng": "ng serve --proxy-config proxy.conf.json",
     "tslint": "tslint \"src/**/*.ts\"; exit 0",
     "test": "ng test",

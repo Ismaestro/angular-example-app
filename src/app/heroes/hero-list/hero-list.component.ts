@@ -6,6 +6,7 @@ import {IAppConfig} from '../../config/iapp.config';
 
 import {Hero} from '../shared/hero.model';
 import {HeroService} from '../shared/hero.service';
+declare const $:any;
 
 @Component({
   selector: 'toh-hero-list',
@@ -16,6 +17,7 @@ import {HeroService} from '../shared/hero.service';
 export class HeroListComponent implements OnInit {
   heroes: Hero[];
   selectedHero: Hero;
+  heroToRemove: Hero;
   color: string;
   createNewHero: boolean;
 
@@ -40,14 +42,20 @@ export class HeroListComponent implements OnInit {
     this.router.navigate([`/${this.appConfig.routes.heroes}/`, this.selectedHero.id]);
   }
 
-  remove(hero: Hero): void {
+  remove(): void {
+    $('#askForRemove').modal('hide');
     this.heroService
-      .remove(hero.id)
+      .remove(this.heroToRemove.id)
       .then(() => {
-        this.heroes = this.heroes.filter(h => h !== hero);
-        if (this.selectedHero === hero) {
+        this.heroes = this.heroes.filter(h => h !== this.heroToRemove);
+        if (this.selectedHero === this.heroToRemove) {
           this.selectedHero = null;
         }
       });
+  }
+
+  showRemoveModal(hero: Hero): void {
+    this.heroToRemove = hero;
+    $('#askForRemove').modal('show');
   }
 }
