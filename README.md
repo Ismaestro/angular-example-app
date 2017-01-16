@@ -4,11 +4,13 @@ Sample app made with :heart:
 
 ### Demo
 
+![angular-2-sample-project](http://i65.tinypic.com/1jqhx2.jpg)
+
 ## Based on
 Angular 2, Bootstrap 4, Angular CLI and more plugins like ng2 translate
 
 ## How can I support developers?
-- Star our GitHub repo :star:
+- Star the GitHub repo :star:
 - Create pull requests, submit bugs, suggest new features or documentation updates :wrench:
 
 ## Features
