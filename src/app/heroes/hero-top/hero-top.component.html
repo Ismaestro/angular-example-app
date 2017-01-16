@@ -1,8 +1,10 @@
-<h3>Top Heroes</h3>
-<div class="row">
-    <div class="col" *ngFor="let hero of heroes" [routerLink]="['/heroes/', hero.id]">
-        <div class="card-block">
-            <h4 class="card-title">{{hero.name}}</h4>
+<div class="container">
+    <h3>Top Heroes</h3>
+    <div class="row">
+        <div class="col" *ngFor="let hero of heroes" [routerLink]="['/heroes/', hero.id]">
+            <div class="card-block">
+                <h4 class="card-title">{{hero.name}}</h4>
+            </div>
         </div>
     </div>
 </div>

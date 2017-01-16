@@ -2,13 +2,27 @@
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
-body {
-    margin: 2em;
+html {
+    position: relative;
+    min-height: 100%;
 }
 
 body {
+    margin-bottom: 60px;
     color: #888;
     font-family: Cambria, Georgia, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.container {
+    max-width: 100%;
+    padding: 0;
+    width: 100%;
+    margin: 0;
+}
+
+.container .container {
+    width: 80%;
+    margin: 0 auto;
 }
 
 h2 {
@@ -24,3 +38,16 @@ button {
     cursor: pointer !important;
 }
 
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: #f5f5f5;
+    padding: 0 6em 0 6em;
+}
+
+.footer > .container {
+    padding: 0;
+}
