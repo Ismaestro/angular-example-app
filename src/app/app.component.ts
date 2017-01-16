@@ -1,7 +1,5 @@
-import {Component, Inject} from '@angular/core';
-
-import {APP_CONFIG} from './config/app.config';
-import {IAppConfig} from './config/iapp.config';
+import {Component} from '@angular/core';
+import {TranslateService}  from 'ng2-translate';
 
 @Component({
   selector: 'toh-app',
@@ -9,9 +7,11 @@ import {IAppConfig} from './config/iapp.config';
 })
 
 export class AppComponent {
-  title: string;
+  private translateService: TranslateService;
 
-  constructor(@Inject(APP_CONFIG) private appConfig: IAppConfig) {
-    this.title = this.appConfig.title;
+  constructor(translateService: TranslateService) {
+    this.translateService = translateService;
+    this.translateService.setDefaultLang('en');
+    this.translateService.use('en');
   }
 }

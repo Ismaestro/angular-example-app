@@ -1,9 +1,9 @@
 <div class="container">
-    <toh-nav [title]="'Tour of heroes'"></toh-nav>
+    <toh-nav [title]="'tourOfHeroes' | translate"></toh-nav>
     <router-outlet></router-outlet>
 </div>
 <footer class="footer">
     <div class="container">
-        <span class="text-muted">Tour of heroes @2016.</span>
+        <span class="text-muted">{{ 'tourOfHeroes' | translate }} @2016.</span>
     </div>
 </footer>

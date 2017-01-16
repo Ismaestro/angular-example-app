@@ -6,7 +6,7 @@ import {IAppConfig} from '../../config/iapp.config';
 
 import {Hero} from '../shared/hero.model';
 import {HeroService} from '../shared/hero.service';
-declare const $:any;
+declare const $: any;
 
 @Component({
   selector: 'toh-hero-list',

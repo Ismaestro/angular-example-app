@@ -1,7 +1,9 @@
-import {NgModule}      from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {FormsModule}   from '@angular/forms';
-import {HttpModule}    from '@angular/http';
+import {NgModule}                         from '@angular/core';
+import {BrowserModule}                    from '@angular/platform-browser';
+import {FormsModule}                      from '@angular/forms';
+import {Http, HttpModule}                 from '@angular/http';
+import {TranslateModule, TranslateLoader} from 'ng2-translate';
+import {TranslateLoaderFactory}           from './app.translate.factory';
 
 import {APP_CONFIG, AppConfig} from './config/app.config';
 
@@ -18,6 +20,11 @@ import {HeroTopComponent} from './heroes/hero-top/hero-top.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    TranslateModule.forRoot({
+      provide: TranslateLoader,
+      useFactory: TranslateLoaderFactory,
+      deps: [Http]
+    }),
     AppRoutingModule,
     CoreModule,
     HeroesModule,

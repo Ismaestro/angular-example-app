@@ -6,7 +6,6 @@ export let APP_CONFIG = new OpaqueToken('app.config');
 
 let heroesRoute = 'heroes';
 export const AppConfig: IAppConfig = {
-  title: 'Tour of Heroes',
   routes: {
     heroes: heroesRoute,
     heroById: heroesRoute + '/:id'

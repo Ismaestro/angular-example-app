@@ -1,6 +1,9 @@
-import {NgModule}     from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule}  from '@angular/forms';
+import {NgModule}                         from '@angular/core';
+import {CommonModule}                     from '@angular/common';
+import {FormsModule}                      from '@angular/forms';
+import {Http}                             from '@angular/http';
+import {TranslateModule, TranslateLoader} from 'ng2-translate';
+import {TranslateLoaderFactory}           from '../app.translate.factory';
 
 import {HeroRoutingModule} from './heroes-routing.module';
 import {SharedModule}      from '../shared/shared.module';
@@ -16,6 +19,11 @@ import {HeroService} from './shared/hero.service';
   imports: [
     CommonModule,
     FormsModule,
+    TranslateModule.forRoot({
+      provide: TranslateLoader,
+      useFactory: TranslateLoaderFactory,
+      deps: [Http]
+    }),
     SharedModule,
     HeroRoutingModule
   ],

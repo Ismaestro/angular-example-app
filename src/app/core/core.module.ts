@@ -1,6 +1,9 @@
-import {NgModule, Optional, SkipSelf} from '@angular/core';
-import {CommonModule}                 from '@angular/common';
-import {FormsModule}                  from '@angular/forms';
+import {NgModule, Optional, SkipSelf}     from '@angular/core';
+import {CommonModule}                     from '@angular/common';
+import {FormsModule}                      from '@angular/forms';
+import {Http}                             from '@angular/http';
+import {TranslateModule, TranslateLoader} from 'ng2-translate';
+import {TranslateLoaderFactory}           from '../app.translate.factory';
 
 import {throwIfAlreadyLoaded} from './module-import-guard';
 import {LoggerService}        from './logger.service';
@@ -10,12 +13,18 @@ import {HeroRoutingModule} from '../heroes/heroes-routing.module';
 
 import {NavComponent} from './nav/nav.component';
 
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     HeroRoutingModule,
-    HeroesModule
+    HeroesModule,
+    TranslateModule.forRoot({
+      provide: TranslateLoader,
+      useFactory: TranslateLoaderFactory,
+      deps: [Http]
+    }),
   ],
   exports: [
     NavComponent

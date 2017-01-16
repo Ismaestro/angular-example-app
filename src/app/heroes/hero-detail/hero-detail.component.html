@@ -1,6 +1,6 @@
 <div class="container">
     <div *ngIf="hero">
-        <h2>{{hero.name}} details!</h2>
+        <h2>{{hero.name}} {{ 'details' | translate }}!</h2>
         <div class="input-group">
             <span class="input-group-addon" id="hero-id">Id</span>
             <input type="text" class="form-control" placeholder="Id" aria-describedby="hero-id"
@@ -8,7 +8,7 @@
         </div>
         <br>
         <div class="input-group">
-            <span class="input-group-addon" id="hero-name">Name</span>
+            <span class="input-group-addon" id="hero-name">{{ 'name' | translate }}</span>
             <input type="text" class="form-control" placeholder="Name" aria-describedby="hero-name"
                    [(ngModel)]="hero.name">
         </div>
@@ -19,7 +19,7 @@
                    [(ngModel)]="hero.alterEgo">
         </div>
         <br>
-        <button class="btn btn-secondary" (click)="goBack()">Back</button>
-        <button class="btn btn-primary" (click)="saveHero()">Save hero</button>
+        <button class="btn btn-secondary" (click)="goBack()">{{ 'back' | translate }}</button>
+        <button class="btn btn-primary" (click)="saveHero()">{{ 'saveHero' | translate }}</button>
     </div>
 </div>

@@ -1,6 +1,6 @@
 <div class="container">
     <h2>
-        Heroes list
+        {{ 'heroesList' | translate }}
         <button class="btn btn-success"
                 (click)="createNewHero = !createNewHero">
             <i class="fa fa-plus" aria-hidden="true"></i>
@@ -8,22 +8,22 @@
     </h2>
     <div>
         <div class="hero-list">
-            <h3>Pick a highlight color</h3>
+            <h3>{{ 'pickColor' | translate }}</h3>
             <div class="color-picker">
                 <label class="custom-control custom-radio">
                     <input id="color1" name="radio" type="radio" class="custom-control-input" (click)="color='orange'">
                     <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description">Orange</span>
+                    <span class="custom-control-description">{{ 'orange' | translate }}</span>
                 </label>
                 <label class="custom-control custom-radio">
                     <input id="color2" name="radio" type="radio" class="custom-control-input" (click)="color='yellow'">
                     <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description">Yellow</span>
+                    <span class="custom-control-description">{{ 'yellow' | translate }}</span>
                 </label>
                 <label class="custom-control custom-radio">
                     <input id="color3" name="radio" type="radio" class="custom-control-input" (click)="color='cyan'">
                     <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description">Cyan</span>
+                    <span class="custom-control-description">{{ 'cyan' | translate }}</span>
                 </label>
             </div>
 
@@ -51,18 +51,20 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Alert</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">{{ 'alert' | translate }}</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    Do you want to remove the hero?
+                                    {{ 'sureRemoveHero' | translate}}
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ 'cancel' |
+                                        translate}}
+                                    </button>
                                     <button type="button" class="btn btn-primary" (click)="remove()">
-                                        Remove hero
+                                        {{ 'remove' | translate}}
                                     </button>
                                 </div>
                             </div>
