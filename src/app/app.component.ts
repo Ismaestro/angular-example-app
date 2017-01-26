@@ -1,7 +1,7 @@
-import {Component, Inject} from '@angular/core';
+import {Component} from '@angular/core';
+import {Title} from '@angular/platform-browser';
 
-import {APP_CONFIG} from './config/app.config';
-import {IAppConfig} from './config/iapp.config';
+import {environment} from '../environments/environment';
 
 @Component({
   selector: 'toh-app',
@@ -11,7 +11,7 @@ import {IAppConfig} from './config/iapp.config';
 export class AppComponent {
   title: string;
 
-  constructor(@Inject(APP_CONFIG) private appConfig: IAppConfig) {
-    this.title = this.appConfig.title;
+  constructor(private titleService: Title) {
+    titleService.setTitle(environment.title);
   }
 }
