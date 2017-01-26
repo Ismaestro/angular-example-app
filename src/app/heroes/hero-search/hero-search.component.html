@@ -1,4 +1,4 @@
-<input id="search-box" type="text" class="form-control" placeholder="Find a hero!"
+<input id="search-box" type="text" class="form-control" placeholder="{{ 'findHero' | translate }}!"
        [(ngModel)]="searchBox"
        (keyup)="search()"
        (focus)="showDropDown=true;"

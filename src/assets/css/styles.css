@@ -2,13 +2,36 @@
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
-body {
-    margin: 2em;
+html {
+    position: relative;
+    min-height: 100%;
 }
 
 body {
+    margin-bottom: 60px;
     color: #888;
     font-family: Cambria, Georgia, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.container {
+    max-width: 100%;
+    padding: 0;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container .container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.main-container {
+    margin-bottom: 5em;
+}
+
+.center {
+    text-align: center;
 }
 
 h2 {
@@ -23,4 +46,3 @@ h3 {
 button {
     cursor: pointer !important;
 }
-

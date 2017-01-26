@@ -1,78 +1,83 @@
-<h2>
-    Heroes list
-    <button class="btn btn-success"
-            (click)="createNewHero = !createNewHero">
-        <i class="fa fa-plus" aria-hidden="true"></i>
-    </button>
-</h2>
-<div>
-    <div class="hero-list">
-        <h3>Pick a highlight color</h3>
-        <div class="color-picker">
-            <label class="custom-control custom-radio">
-                <input id="color1" name="radio" type="radio" class="custom-control-input" (click)="color='orange'">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">Orange</span>
-            </label>
-            <label class="custom-control custom-radio">
-                <input id="color2" name="radio" type="radio" class="custom-control-input" (click)="color='yellow'">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">Yellow</span>
-            </label>
-            <label class="custom-control custom-radio">
-                <input id="color3" name="radio" type="radio" class="custom-control-input" (click)="color='cyan'">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">Cyan</span>
-            </label>
-        </div>
+<div class="container">
+    <h2>
+        {{ 'heroesList' | translate }}
+        <button class="btn btn-success"
+                (click)="createNewHero = !createNewHero">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+        </button>
+    </h2>
+    <div>
+        <div class="hero-list">
+            <h3>{{ 'pickColor' | translate }}</h3>
+            <div class="color-picker">
+                <label class="custom-control custom-radio">
+                    <input id="color1" name="radio" type="radio" class="custom-control-input" (click)="color='orange'">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">{{ 'orange' | translate }}</span>
+                </label>
+                <label class="custom-control custom-radio">
+                    <input id="color2" name="radio" type="radio" class="custom-control-input" (click)="color='yellow'">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">{{ 'yellow' | translate }}</span>
+                </label>
+                <label class="custom-control custom-radio">
+                    <input id="color3" name="radio" type="radio" class="custom-control-input" (click)="color='cyan'">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">{{ 'cyan' | translate }}</span>
+                </label>
+            </div>
 
-        <ul class="list-group">
-            <li class="list-group-item"
-                *ngFor="let hero of heroes" (click)="onSelect(hero)"
-                [class.selected]="hero === selectedHero"
-                [tohHighlight]="color" defaultColor="lightgreen">
-                <div class="hero-info">
-                    <span class="badge badge-default badge-pill">{{hero.id}}</span>
-                    {{hero.name}} | {{hero.alterEgo}} | {{hero.power}}
-                </div>
-                <div class="hero-actions">
-                    <button *ngIf="hero === selectedHero" class="btn btn-info"
-                            (click)="gotoDetail()">
-                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                    </button>
-                    <button class="btn btn-danger"
-                            (click)="showRemoveModal(hero)">
-                        <i class="fa fa-times" aria-hidden="true"></i>
-                    </button>
-                </div>
-                <div class="modal fade" id="askForRemove" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Alert</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                Do you want to remove the hero?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                <button type="button" class="btn btn-primary" (click)="remove()">
-                                    Remove hero
-                                </button>
+            <ul class="list-group">
+                <li class="list-group-item"
+                    *ngFor="let hero of heroes" (click)="onSelect(hero)"
+                    [class.selected]="hero === selectedHero"
+                    [tohHighlight]="color" defaultColor="lightgreen">
+                    <div class="hero-info">
+                        <span class="badge badge-default badge-pill">{{hero.id}}</span>
+                        {{hero.name}} | {{hero.alterEgo}} | {{hero.power}}
+                    </div>
+                    <div class="hero-actions">
+                        <button *ngIf="hero === selectedHero" class="btn btn-info"
+                                (click)="gotoDetail()">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </button>
+                        <button class="btn btn-danger"
+                                (click)="showRemoveModal(hero)">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="modal fade" id="askForRemove" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">{{ 'alert' | translate }}</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    {{ 'sureRemoveHero' | translate}}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ 'cancel' |
+                                        translate}}
+                                    </button>
+                                    <button type="button" class="btn btn-primary" (click)="remove()">
+                                        {{ 'remove' | translate}}
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <div class="new-hero">
-        <toh-hero-create-new *ngIf="createNewHero"
-                             [heroes]="heroes"
-                             [selectedHero]="selectedHero">
-        </toh-hero-create-new>
+                </li>
+            </ul>
+        </div>
+        <div class="new-hero">
+            <toh-hero-create-new *ngIf="createNewHero"
+                                 [heroes]="heroes"
+                                 [selectedHero]="selectedHero">
+            </toh-hero-create-new>
+        </div>
     </div>
 </div>

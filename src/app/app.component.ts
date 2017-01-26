@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {TranslateService}  from 'ng2-translate';
 import {Title} from '@angular/platform-browser';
 
 import {environment} from '../environments/environment';
@@ -9,9 +10,14 @@ import {environment} from '../environments/environment';
 })
 
 export class AppComponent {
-  title: string;
+  private translateService: TranslateService;
 
-  constructor(private titleService: Title) {
+  constructor(translateService: TranslateService,
+              private titleService: Title) {
     titleService.setTitle(environment.title);
+
+    this.translateService = translateService;
+    this.translateService.setDefaultLang('en');
+    this.translateService.use('en');
   }
 }

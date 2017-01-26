@@ -9,6 +9,16 @@
                 </li>
             </ul>
         </div>
+        <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" id="languagesDropdown" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-globe" aria-hidden="true"></i> {{ 'language' | translate }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="languagesDropdown">
+                <a class="dropdown-item" (click)="changeLanguage('en')">{{ 'english' | translate }}</a>
+                <a class="dropdown-item" (click)="changeLanguage('es')">{{ 'spanish' | translate }}</a>
+            </div>
+        </div>
         <toh-hero-search></toh-hero-search>
     </nav>
 </header>

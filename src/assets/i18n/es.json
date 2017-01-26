@@ -1,0 +1,30 @@
+{
+  "home": "Inicio",
+  "heroesList": "Lista de heroes",
+  "tourOfHeroes": "Tour de los heroes",
+  "language": "Idioma",
+  "english": "Inglés",
+  "spanish": "Español",
+  "orange": "Naranja",
+  "yellow": "Amarillo",
+  "cyan": "Cian",
+  "name": "Nombre",
+  "nameRequired": "El nombre es obligatorio",
+  "hero-top": {
+    "title": "Top Heroes"
+  },
+  "hero-create-new": {
+    "newHero": "Nuevo heroe"
+  },
+  "heroPower": "Poder del heroe",
+  "details": "info",
+  "saveHero": "Guardar heroe",
+  "createNewHero": "Crear nuevo heroe",
+  "pickColor": "Escoge un color para resaltar",
+  "alert": "Alerta",
+  "sureRemoveHero": "¿Estas seguro de que quieres eliminar el heroe?",
+  "cancel": "Cancelar",
+  "remove": "Eliminar",
+  "findHero": "Busca un heroe",
+  "back": "Atras"
+}
