@@ -1,4 +1,4 @@
-# Sample App with Angular 2 + Typescript + Angular CLI + Bootstrap 4
+# Sample App with Angular 4 + Typescript + Angular CLI + Bootstrap 4
 
 Sample app made with :heart:
 
@@ -7,7 +7,7 @@ Sample app made with :heart:
 ![angular-2-sample-project](http://i65.tinypic.com/1jqhx2.jpg)
 
 ## Based on
-Angular 2, Bootstrap 4, Angular CLI and more plugins like ng2 translate
+Angular 4, Bootstrap 4, Angular CLI and more plugins like ng2 translate
 
 ## How can I support developers?
 - Star the GitHub repo :star:
@@ -19,7 +19,7 @@ Angular 2, Bootstrap 4, Angular CLI and more plugins like ng2 translate
 * Responsive layout
 * Bootstrap 4 CSS Framework
 * Sass
-* Angular 2
+* Angular 4
 * jQuery
 
 Enjoy :metal:
