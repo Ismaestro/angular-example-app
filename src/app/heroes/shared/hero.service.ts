@@ -12,7 +12,6 @@ export class HeroService {
   private heroesUrl;
 
   private static handleError(error: any): Promise<any> {
-    window.alert(error._body);
     return Promise.reject(error.message || error);
   }
 

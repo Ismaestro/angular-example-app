@@ -1,5 +1,5 @@
 <div class="container">
-    <div *ngIf="hero">
+    <div *ngIf="hero; else noHero">
         <h2>{{hero.name}} {{ 'details' | translate }}!</h2>
         <div class="input-group">
             <span class="input-group-addon" id="hero-id">Id</span>
@@ -22,4 +22,7 @@
         <button class="btn btn-secondary" (click)="goBack()">{{ 'back' | translate }}</button>
         <button class="btn btn-primary" (click)="saveHero()">{{ 'saveHero' | translate }}</button>
     </div>
+    <ng-template #noHero>
+        <p>{{'noHero' | translate}}</p>
+    </ng-template>
 </div>

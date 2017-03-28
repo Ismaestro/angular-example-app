@@ -26,5 +26,6 @@
   "cancel": "Cancelar",
   "remove": "Eliminar",
   "findHero": "Busca un heroe",
-  "back": "Atras"
+  "back": "Atras",
+  "noHero": "No hay heroe!"
 }
