@@ -25,8 +25,8 @@ export class HeroFormComponent {
 
   onSubmit() {
     this.heroService.create(this.hero)
-      .then(hero => {
-        this.heroes.push(hero);
+      .then(heroes => {
+        this.heroes = heroes;
         this.selectedHero = null;
       });
   }

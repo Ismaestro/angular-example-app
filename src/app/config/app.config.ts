@@ -11,7 +11,7 @@ export const AppConfig: IAppConfig = {
     heroById: heroesRoute + '/:id'
   },
   endpoints: {
-    heroes: 'api/heroes',
-    heroesPowers: 'api/heroesPowers'
+    heroes: 'https://jsonblob.com/api/jsonBlob/11ba5f87-5997-11e7-ae4c-997a6628ed33',
+    heroesPowers: 'https://jsonblob.com/api/jsonBlob/f8234363-5991-11e7-ae4c-eb7c024ddb08'
   }
 };

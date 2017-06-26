@@ -3,7 +3,22 @@
 <head>
   <meta charset="utf-8">
     <meta http-equiv="Content-Security-Policy"
-          content="default-src 'self' ws://localhost:4200;script-src 'self' 'unsafe-eval';style-src 'self' 'unsafe-inline';font-src 'self';img-src 'self' data:;connect-src 'self' ws://localhost:4200">
+          content="
+          default-src 'self'
+          ws://localhost:4200
+          https://jsonblob.com;
+
+          script-src 'self' 'unsafe-eval';
+
+          style-src 'self' 'unsafe-inline';
+
+          font-src 'self';
+
+          img-src 'self' data:;
+
+          connect-src 'self'
+          ws://localhost:4200
+          https://jsonblob.com;">
   <title>Angular Tour of Heroes</title>
   <base href="/">
 

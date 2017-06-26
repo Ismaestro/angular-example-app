@@ -36,20 +36,28 @@ export class HeroService {
   }
 
   getHeroById(id: number): Promise<Hero> {
-    const url = `${this.heroesUrl}/${id}`;
+    const url = `${this.heroesUrl}`;
     return this.http.get(url)
       .toPromise()
-      .then(response => response.json() as Hero)
+      .then((response) => {
+        const heroesWithId = response.json().filter((hero) => {
+          return hero.id === id;
+        });
+        return heroesWithId.length === 1 ? heroesWithId[0] : {};
+      })
       .catch(HeroService.handleError);
   }
 
-  create(hero: Hero): Promise<Hero> {
+  create(hero: Hero): Promise<Array<Hero>> {
+    let allHeroes = JSON.parse(localStorage.getItem('heroes'));
+    allHeroes.push({
+      id: '' + parseInt((Math.random() * (99999 - 100 + 1)), 10) + 100,
+      name: hero.name,
+      alterEgo: hero.alterEgo,
+      power: hero.power
+    });
     return this.http
-      .post(this.heroesUrl, JSON.stringify({
-        name: hero.name,
-        alterEgo: hero.alterEgo,
-        power: hero.power
-      }), {headers: this.headers})
+      .put(this.heroesUrl, JSON.stringify(allHeroes), {headers: this.headers})
       .toPromise()
       .then(res => res.json())
       .catch(HeroService.handleError);
@@ -66,7 +74,7 @@ export class HeroService {
 
   remove(id: number): Promise<void> {
     const url = `${this.heroesUrl}/${id}`;
-    return this.http.delete(url, {headers: this.headers})
+    return this.http.put(url, {headers: this.headers})
       .toPromise()
       .then(() => null)
       .catch(HeroService.handleError);
