@@ -16,18 +16,22 @@ export class HeroFormComponent {
 
   hero: Hero;
   powers: string[];
+  error: string;
 
   constructor(private heroService: HeroService) {
-    this.hero = new Hero(-1, '', '');
+    this.hero = new Hero('', '', '');
 
     this.heroService.getHeroesPowers().then(powers => this.powers = powers);
   }
 
   onSubmit() {
     this.heroService.create(this.hero)
-      .then(heroes => {
-        this.heroes = heroes;
+      .then(() => {
         this.selectedHero = null;
+      }, (response) => {
+        if (response.status === 500) {
+          this.error = 'heroDuplicated';
+        }
       });
   }
 }

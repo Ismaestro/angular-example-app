@@ -1,5 +1,5 @@
-import {Injectable, Inject} from '@angular/core';
-import {Headers, Http}      from '@angular/http';
+import {EventEmitter, Inject, Injectable} from '@angular/core';
+import {Headers, Http} from '@angular/http';
 
 import {APP_CONFIG} from '../../config/app.config';
 import {IAppConfig} from '../../config/iapp.config';
@@ -8,6 +8,8 @@ import {Hero} from './hero.model';
 
 @Injectable()
 export class HeroService {
+  refreshHeroes$: EventEmitter<any>;
+
   private headers;
   private heroesUrl;
 
@@ -17,6 +19,8 @@ export class HeroService {
 
   constructor(private http: Http,
               @Inject(APP_CONFIG) private appConfig: IAppConfig) {
+    this.refreshHeroes$ = new EventEmitter();
+
     this.heroesUrl = this.appConfig.endpoints.heroes;
     this.headers = new Headers({'Content-Type': 'application/json'});
   }
@@ -36,30 +40,27 @@ export class HeroService {
   }
 
   getHeroById(id: number): Promise<Hero> {
-    const url = `${this.heroesUrl}`;
+    const url = `${this.heroesUrl}/${id}`;
     return this.http.get(url)
       .toPromise()
-      .then((response) => {
-        const heroesWithId = response.json().filter((hero) => {
-          return hero.id === id;
-        });
-        return heroesWithId.length === 1 ? heroesWithId[0] : {};
-      })
+      .then(response => response.json() as Hero)
       .catch(HeroService.handleError);
   }
 
   create(hero: Hero): Promise<Array<Hero>> {
-    let allHeroes = JSON.parse(localStorage.getItem('heroes'));
-    allHeroes.push({
-      id: '' + parseInt((Math.random() * (99999 - 100 + 1)), 10) + 100,
-      name: hero.name,
-      alterEgo: hero.alterEgo,
-      power: hero.power
-    });
     return this.http
-      .put(this.heroesUrl, JSON.stringify(allHeroes), {headers: this.headers})
+      .post(this.heroesUrl, JSON.stringify({
+        id: hero.id,
+        name: hero.name,
+        alterEgo: hero.alterEgo,
+        power: hero.power
+      }), {headers: this.headers})
       .toPromise()
-      .then(res => res.json())
+      .then(res => {
+        const heroes = res.json();
+        this.refreshHeroes$.emit(heroes);
+        return heroes;
+      })
       .catch(HeroService.handleError);
   }
 
@@ -72,9 +73,9 @@ export class HeroService {
       .catch(HeroService.handleError);
   }
 
-  remove(id: number): Promise<void> {
+  remove(id: string): Promise<void> {
     const url = `${this.heroesUrl}/${id}`;
-    return this.http.put(url, {headers: this.headers})
+    return this.http.delete(url, {headers: this.headers})
       .toPromise()
       .then(() => null)
       .catch(HeroService.handleError);

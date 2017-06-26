@@ -1,5 +1,10 @@
 <h3>{{ 'hero-create-new.newHero' | translate }}</h3>
-<form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+<form (ngSubmit)="onSubmit()" #heroForm="ngForm" id="new-hero-form">
+    <div class="form-group">
+        <label class="form-label" for="id">Id</label>
+        <input type="text" class="form-control" id="id"
+               [(ngModel)]="hero.id" name="id">
+    </div>
     <div class="form-group">
         <label class="form-label" for="name">{{ 'name' | translate }}</label>
         <input type="text" class="form-control" id="name"
@@ -24,6 +29,9 @@
             <option *ngFor="let power of powers" [value]="power">{{power}}</option>
         </select>
     </div>
-    <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">{{ 'createNewHero' | translate }}!
-    </button>
+    <div class="form-group alert alert-danger" *ngIf="error">{{error | translate}}</div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">{{ 'createNewHero' | translate }}!
+        </button>
+    </div>
 </form>

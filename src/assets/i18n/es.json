@@ -27,5 +27,6 @@
   "remove": "Eliminar",
   "findHero": "Busca un heroe",
   "back": "Atras",
-  "noHero": "No hay heroe!"
+  "noHero": "No hay heroe!",
+  "heroDuplicated": "El id del heroe ya está cogido!"
 }

@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  title: 'Tour of heroes in prod'
+  title: 'Tour of heroes'
 };

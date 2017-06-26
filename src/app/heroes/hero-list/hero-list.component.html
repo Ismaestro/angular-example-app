@@ -2,13 +2,14 @@
     <h2>
         {{ 'heroesList' | translate }}
         <button class="btn btn-success"
+                *ngIf="!createNewHero"
                 (click)="createNewHero = !createNewHero">
             <i class="fa fa-plus" aria-hidden="true"></i>
         </button>
     </h2>
     <div>
         <div class="hero-list">
-            <h3>{{ 'pickColor' | translate }}</h3>
+            <h3 class="text-left">{{ 'pickColor' | translate }}</h3>
             <div class="color-picker">
                 <label class="custom-control custom-radio">
                     <input id="color1" name="radio" type="radio" class="custom-control-input" (click)="color='orange'">
@@ -73,7 +74,7 @@
                 </li>
             </ul>
         </div>
-        <div class="new-hero">
+        <div class="new-hero" >
             <toh-hero-create-new *ngIf="createNewHero"
                                  [heroes]="heroes"
                                  [selectedHero]="selectedHero">

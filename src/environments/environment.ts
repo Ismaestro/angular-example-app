@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  title: 'Tour of heroes in dev'
+  title: 'Tour of heroes [DEV]'
 };

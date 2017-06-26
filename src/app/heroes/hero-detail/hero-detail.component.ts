@@ -1,9 +1,9 @@
-import {Component, OnInit}      from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
-import {Location}               from '@angular/common';
+import {Location} from '@angular/common';
 
-import {Hero}         from '../shared/hero.model';
-import {HeroService}  from '../shared/hero.service';
+import {Hero} from '../shared/hero.model';
+import {HeroService} from '../shared/hero.service';
 
 @Component({
   selector: 'toh-hero-detail',

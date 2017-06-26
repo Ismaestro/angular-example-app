@@ -1,12 +1,13 @@
 import {Component} from '@angular/core';
-import {TranslateService}  from 'ng2-translate';
+import {TranslateService} from 'ng2-translate';
 import {Title} from '@angular/platform-browser';
 
 import {environment} from '../environments/environment';
 
 @Component({
   selector: 'toh-app',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  styles: ['./app.component.scss']
 })
 
 export class AppComponent {

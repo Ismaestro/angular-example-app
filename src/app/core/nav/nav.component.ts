@@ -1,5 +1,5 @@
 import {Component, Inject, Input} from '@angular/core';
-import {TranslateService}         from 'ng2-translate';
+import {TranslateService} from 'ng2-translate';
 
 import {APP_CONFIG} from '../../config/app.config';
 import {IAppConfig} from '../../config/iapp.config';
@@ -14,6 +14,7 @@ export class NavComponent {
   @Input() title: string;
 
   menuItems: any[];
+  language: string;
 
   private translateService: TranslateService;
 
@@ -24,6 +25,21 @@ export class NavComponent {
         {link: '/' + this.appConfig.routes.heroes, name: texts['heroesList']}
       ];
     });
+
+    this.loadLanguageLabel();
+  }
+
+  private loadLanguageLabel() {
+    switch (this.translateService.currentLang) {
+      case 'en':
+        this.language = 'english';
+        break;
+      case 'es':
+        this.language = 'spanish';
+        break;
+      default:
+        this.language = 'language';
+    }
   }
 
   constructor(@Inject(APP_CONFIG) private appConfig: IAppConfig,
@@ -33,7 +49,8 @@ export class NavComponent {
   }
 
   changeLanguage(language: string): void {
-    this.translateService.use(language);
-    this.loadMenus();
+    this.translateService.use(language).subscribe(() => {
+      this.loadMenus();
+    });
   }
 }

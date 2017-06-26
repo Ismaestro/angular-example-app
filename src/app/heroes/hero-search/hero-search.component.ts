@@ -1,10 +1,10 @@
-import {Component, OnInit, Inject} from '@angular/core';
-import {Router}                    from '@angular/router';
-import {Observable}                from 'rxjs/Observable';
-import {Subject}                   from 'rxjs/Subject';
+import {Component, Inject, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {Observable} from 'rxjs/Observable';
+import {Subject} from 'rxjs/Subject';
 
-import {APP_CONFIG}    from '../../config/app.config';
-import {IAppConfig}    from '../../config/iapp.config';
+import {APP_CONFIG} from '../../config/app.config';
+import {IAppConfig} from '../../config/iapp.config';
 import {LoggerService} from '../../core/logger.service';
 
 import {Hero} from '../shared/hero.model';

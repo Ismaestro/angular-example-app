@@ -1,4 +1,4 @@
-import {Component, OnInit, Inject} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
 import {APP_CONFIG} from '../../config/app.config';
@@ -24,6 +24,7 @@ export class HeroListComponent implements OnInit {
   constructor(@Inject(APP_CONFIG) private appConfig: IAppConfig,
               private router: Router,
               private heroService: HeroService) {
+    this.heroService.refreshHeroes$.subscribe(heroes => this.heroes = heroes);
   }
 
   getHeroes(): void {
