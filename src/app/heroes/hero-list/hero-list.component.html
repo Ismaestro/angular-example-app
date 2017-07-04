@@ -73,6 +73,7 @@
                     </div>
                 </li>
             </ul>
+            <div class="alert alert-danger" *ngIf="error">{{error | translate}}</div>
         </div>
         <div class="new-hero" >
             <toh-hero-create-new *ngIf="createNewHero"

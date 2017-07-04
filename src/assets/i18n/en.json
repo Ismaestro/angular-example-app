@@ -28,5 +28,6 @@
   "findHero": "Find a hero",
   "back": "Back",
   "noHero": "There is no hero!",
-  "heroDuplicated": "Hero id is already taken"
+  "heroDuplicated": "Hero id is already taken",
+  "heroDefault": "It's a default hero, you cannot delete it"
 }

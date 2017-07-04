@@ -20,6 +20,7 @@ export class HeroListComponent implements OnInit {
   heroToRemove: Hero;
   color: string;
   createNewHero: boolean;
+  error: string;
 
   constructor(@Inject(APP_CONFIG) private appConfig: IAppConfig,
               private router: Router,
@@ -54,6 +55,10 @@ export class HeroListComponent implements OnInit {
         this.heroes = this.heroes.filter(h => h !== this.heroToRemove);
         if (this.selectedHero === this.heroToRemove) {
           this.selectedHero = null;
+        }
+      }, (response) => {
+        if (response.status === 500) {
+          this.error = 'heroDefault';
         }
       });
   }

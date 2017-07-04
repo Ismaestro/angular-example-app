@@ -28,5 +28,6 @@
   "findHero": "Busca un heroe",
   "back": "Atras",
   "noHero": "No hay heroe!",
-  "heroDuplicated": "El id del heroe ya está cogido!"
+  "heroDuplicated": "El id del heroe ya está cogido!",
+  "heroDefault": "Los heroes por defecto, no se pueden borrar!"
 }
