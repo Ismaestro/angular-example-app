@@ -17,7 +17,7 @@ Angular 4, Bootstrap 4, Angular CLI and more plugins like ng2 translate
 
 `npm start`
 
-`npm deploy` (fork to do this)
+`npm run deploy` (fork to do this)
 
 ## How can I support developers?
 - Star the GitHub repo :star:
