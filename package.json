@@ -4,7 +4,6 @@
   "license": "MIT",
   "scripts": {
     "start": "ng serve",
-    "deploy": "npm version; git commit add -A; git commit -m 'New release'; git push; ng build --prod --base-href /angular4-sample-app/ && angular-cli-ghpages",
     "tslint": "tslint \"src/**/*.ts\"; exit 0",
     "test": "ng test",
     "e2e": "npm run pree2e | protractor",
