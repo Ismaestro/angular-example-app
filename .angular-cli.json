@@ -1,7 +1,6 @@
 {
   "project": {
-    "version": "1.0.0-beta.24",
-    "name": "angular-hero-cli"
+    "name": "angular4-sample-app"
   },
   "apps": [
     {
@@ -18,14 +17,10 @@
       "prefix": "toh",
       "mobile": false,
       "styles": [
-        "../node_modules/bootstrap/dist/css/bootstrap.css",
-        "../node_modules/font-awesome/css/font-awesome.css",
-        "assets/css/styles.css"
+        "assets/css/styles.css",
+        "assets/css/reset.css"
       ],
       "scripts": [
-        "../node_modules/jquery/dist/jquery.js",
-        "../node_modules/tether/dist/js/tether.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
@@ -35,7 +30,6 @@
     }
   ],
   "addons": [
-    "../node_modules/font-awesome/fonts/*.+(otf|eot|svg|ttf|woff|woff2)"
   ],
   "packages": [],
   "e2e": {

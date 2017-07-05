@@ -6,7 +6,6 @@ import {IAppConfig} from '../../config/iapp.config';
 
 import {Hero} from '../shared/hero.model';
 import {HeroService} from '../shared/hero.service';
-declare const $: any;
 
 @Component({
   selector: 'toh-hero-list',
@@ -48,7 +47,7 @@ export class HeroListComponent implements OnInit {
   }
 
   remove(): void {
-    $('#askForRemove').modal('hide');
+    /*$('#askForRemove').modal('hide');
     this.heroService
       .remove(this.heroToRemove.id)
       .then(() => {
@@ -60,11 +59,11 @@ export class HeroListComponent implements OnInit {
         if (response.status === 500) {
           this.error = 'heroDefault';
         }
-      });
+      });*/
   }
 
   showRemoveModal(hero: Hero): void {
     this.heroToRemove = hero;
-    $('#askForRemove').modal('show');
+    // $('#askForRemove').modal('show');
   }
 }

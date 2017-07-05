@@ -4,30 +4,23 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Security-Policy"
           content="
-          default-src 'self'
-          ws://localhost:4200
+          default-src 'self' 'unsafe-inline' 'unsafe-eval'
+          data:
+          https://*.gstatic.com
+          https://*.googleapis.com
           https://ghbtns.com
-          https://tour-of-heroes-sample-app.herokuapp.com;
+          https://*.herokuapp.com
 
-          script-src 'self' 'unsafe-eval';
-
-          style-src 'self' 'unsafe-inline';
-
-          font-src 'self';
-
-          img-src 'self' data:;
-
-          connect-src 'self'
-          ws://localhost:4200
-          https://ghbtns.com
-          https://tour-of-heroes-sample-app.herokuapp.com;">
+          ws://localhost:4200;
+    ">
     <title>Angular Tour of Heroes</title>
     <base href="/">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-<toh-app>Loading...</toh-app>
+<toh-app>SPINNER</toh-app>
 </body>
 </html>

@@ -1,12 +1,12 @@
-<input id="search-box" type="text" class="form-control" placeholder="{{ 'findHero' | translate }}!"
-       [(ngModel)]="searchBox"
-       (keyup)="search()"
-       (focus)="showDropDown=true;"
-       (keydown.escape)="escapePressed()"
-       (keypress)="showDropDown=true"/>
-<ul *ngIf="showDropDown" class="search-result">
-    <li *ngFor="let hero of heroes | async"
-        (click)="gotoDetail(hero)">
+<md-input-container>
+    <input mdInput placeholder="{{ 'findHero' | translate }}!"
+           [mdAutocomplete]="auto" [formControl]="heroes">
+</md-input-container>
+
+<md-autocomplete #auto="mdAutocomplete">
+    <md-option *ngFor="let state of filteredStates | async"
+               (click)="gotoDetail(hero)"
+               [value]="hero">
         {{hero.name}}
-    </li>
-</ul>
+    </md-option>
+</md-autocomplete>

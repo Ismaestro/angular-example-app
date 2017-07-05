@@ -14,10 +14,12 @@ import {HeroesModule} from './heroes/heroes.module';
 
 import {AppComponent} from './app.component';
 import {HeroTopComponent} from './heroes/hero-top/hero-top.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     TranslateModule.forRoot({

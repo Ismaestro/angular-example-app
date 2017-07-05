@@ -1,70 +1,64 @@
-<div class="container">
+<div>
     <h2>
         {{ 'heroesList' | translate }}
-        <button class="btn btn-success"
-                *ngIf="!createNewHero"
+        <button *ngIf="!createNewHero"
                 (click)="createNewHero = !createNewHero">
-            <i class="fa fa-plus" aria-hidden="true"></i>
         </button>
     </h2>
     <div>
-        <div class="hero-list">
-            <h3 class="text-left">{{ 'pickColor' | translate }}</h3>
-            <div class="color-picker">
-                <label class="custom-control custom-radio">
-                    <input id="color1" name="radio" type="radio" class="custom-control-input" (click)="color='orange'">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description">{{ 'orange' | translate }}</span>
+        <div>
+            <h3>{{ 'pickColor' | translate }}</h3>
+            <div>
+                <label>
+                    <input id="color1" name="radio" type="radio" (click)="color='orange'">
+                    <span></span>
+                    <span>{{ 'orange' | translate }}</span>
                 </label>
-                <label class="custom-control custom-radio">
-                    <input id="color2" name="radio" type="radio" class="custom-control-input" (click)="color='yellow'">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description">{{ 'yellow' | translate }}</span>
+                <label>
+                    <input id="color2" name="radio" type="radio" (click)="color='yellow'">
+                    <span></span>
+                    <span>{{ 'yellow' | translate }}</span>
                 </label>
-                <label class="custom-control custom-radio">
-                    <input id="color3" name="radio" type="radio" class="custom-control-input" (click)="color='cyan'">
-                    <span class="custom-control-indicator"></span>
-                    <span class="custom-control-description">{{ 'cyan' | translate }}</span>
+                <label>
+                    <input id="color3" name="radio" type="radio" (click)="color='cyan'">
+                    <span></span>
+                    <span>{{ 'cyan' | translate }}</span>
                 </label>
             </div>
 
-            <ul class="list-group">
-                <li class="list-group-item"
-                    *ngFor="let hero of heroes" (click)="onSelect(hero)"
+            <ul>
+                <li *ngFor="let hero of heroes" (click)="onSelect(hero)"
                     [class.selected]="hero === selectedHero"
                     [tohHighlight]="color" defaultColor="lightgreen">
-                    <div class="hero-info">
-                        <span class="badge badge-default badge-pill">{{hero.id}}</span>
+                    <div>
+                        <span>{{hero.id}}</span>
                         {{hero.name}} | {{hero.alterEgo}} | {{hero.power}}
                     </div>
-                    <div class="hero-actions">
-                        <button *ngIf="hero === selectedHero" class="btn btn-info"
+                    <div>
+                        <button *ngIf="hero === selectedHero"
                                 (click)="gotoDetail()">
-                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                         </button>
-                        <button class="btn btn-danger"
-                                (click)="showRemoveModal(hero)">
-                            <i class="fa fa-times" aria-hidden="true"></i>
+                        <button (click)="showRemoveModal(hero)">
                         </button>
                     </div>
-                    <div class="modal fade" id="askForRemove" tabindex="-1" role="dialog"
+                    <div tabindex="-1" role="dialog"
                          aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">{{ 'alert' | translate }}</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <div role="document">
+                            <div>
+                                <div>
+                                    <h5>{{ 'alert' | translate }}</h5>
+                                    <button type="button" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="modal-body">
+                                <div>
                                     {{ 'sureRemoveHero' | translate}}
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ 'cancel' |
+                                <div>
+                                    <button type="button" data-dismiss="modal">{{ 'cancel' |
                                         translate}}
                                     </button>
-                                    <button type="button" class="btn btn-primary" (click)="remove()">
+                                    <button type="button" (click)="remove()">
                                         {{ 'remove' | translate}}
                                     </button>
                                 </div>
@@ -73,9 +67,9 @@
                     </div>
                 </li>
             </ul>
-            <div class="alert alert-danger" *ngIf="error">{{error | translate}}</div>
+            <div *ngIf="error">{{error | translate}}</div>
         </div>
-        <div class="new-hero" >
+        <div>
             <toh-hero-create-new *ngIf="createNewHero"
                                  [heroes]="heroes"
                                  [selectedHero]="selectedHero">

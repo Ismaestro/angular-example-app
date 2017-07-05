@@ -1,25 +1,31 @@
 <header>
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-        <a class="navbar-brand" href="/angular4-sample-app/">{{title}}</a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active" routerLinkActive="active"
-                    *ngFor="let item of menuItems" routerLink="{{item.link}}">
-                    <a class="nav-link">{{item.name}}</a>
-                </li>
-            </ul>
-        </div>
-        <iframe src="https://ghbtns.com/github-btn.html?user=ismaestro&repo=angular4-sample-app&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
-        <div class="dropdown">
-            <a class="btn btn-secondary dropdown-toggle" id="languagesDropdown" data-toggle="dropdown"
-               aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-globe" aria-hidden="true"></i> {{ language | translate }}
-            </a>
-            <div class="dropdown-menu" aria-labelledby="languagesDropdown">
-                <a class="dropdown-item" (click)="changeLanguage('en')">{{ 'english' | translate }}</a>
-                <a class="dropdown-item" (click)="changeLanguage('es')">{{ 'spanish' | translate }}</a>
+    <nav>
+        <a md-raised-button href="/angular4-sample-app/">{{title | uppercase}}</a>
+        <a md-raised-button *ngFor="let item of menuItems" routerLink="{{item.link}}">
+            {{item.name | uppercase}}
+        </a>
+        <div class="right-menu">
+            <iframe src="https://ghbtns.com/github-btn.html?user=ismaestro&repo=angular4-sample-app&type=star&count=true&size=small" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+            <toh-hero-search></toh-hero-search>
+            <div>
+                <button md-icon-button [mdMenuTriggerFor]="menu">
+                    <md-icon>language</md-icon>
+                </button>
+                <md-menu #menu="mdMenu">
+                    <button md-menu-item (click)="changeLanguage('en')">
+                        <md-icon>flag</md-icon>
+                        <span>
+                        {{ 'english' | translate }}
+                    </span>
+                    </button>
+                    <button md-menu-item (click)="changeLanguage('es')">
+                        <md-icon>flag</md-icon>
+                        <span>
+                        {{ 'spanish' | translate }}
+                    </span>
+                    </button>
+                </md-menu>
             </div>
         </div>
-        <toh-hero-search></toh-hero-search>
     </nav>
 </header>
