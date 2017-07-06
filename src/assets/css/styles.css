@@ -1,1 +1,9 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.flex-spacer {
+    flex-grow: 1;
+}

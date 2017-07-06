@@ -1,20 +1,15 @@
 nav {
-  display: block;
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
   padding: 8px 16px;
   color: white;
-  height: 2em;
+  height: 3em;
   background: #3f51b5;
+  margin-bottom: 1em;
 
   .mat-raised-button {
     color: #3f51b5;
     margin-right: 1em;
-  }
-
-  .right-menu {
-    float: right;
-    display: flex;
-    align-items: center;
   }
 }

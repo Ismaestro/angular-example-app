@@ -42,6 +42,7 @@
     "karma-remap-istanbul": "0.6.0",
     "ng2-translate": "5.0.0",
     "protractor": "5.1.2",
+    "roboto-fontface": "^0.7.0",
     "rxjs": "5.4.1",
     "ts-helpers": "1.1.2",
     "ts-node": "3.0.0",

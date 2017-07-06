@@ -2,7 +2,17 @@
   display: flex;
   align-items: center;
 
-  .mat-input-wrapper {
-    padding-bottom: 0;
+  /deep/ .mat-input-placeholder {
+    color: white;
+  }
+
+  /deep/ .mat-input-underline {
+    background-color: white;
+    height: 2px;
+    bottom: 1.5em;
+  }
+
+  /deep/ .mat-input-infix {
+    border-top: 1.2em solid transparent;
   }
 }

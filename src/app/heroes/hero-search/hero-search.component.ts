@@ -1,11 +1,11 @@
-import {Component, Inject} from '@angular/core';
-import {Router} from '@angular/router';
-import {APP_CONFIG} from '../../config/app.config';
-import {IAppConfig} from '../../config/iapp.config';
-import {LoggerService} from '../../core/logger.service';
-import {Hero} from '../shared/hero.model';
-import {FormControl} from '@angular/forms';
-import {HeroService} from '../shared/hero.service';
+import {Component, Inject} from "@angular/core";
+import {Router} from "@angular/router";
+import {APP_CONFIG} from "../../config/app.config";
+import {IAppConfig} from "../../config/iapp.config";
+import {LoggerService} from "../../core/logger.service";
+import {Hero} from "../shared/hero.model";
+import {FormControl} from "@angular/forms";
+import {HeroService} from "../shared/hero.service";
 
 @Component({
   selector: 'toh-hero-search',

@@ -11,8 +11,6 @@ import {IAppConfig} from '../../config/iapp.config';
 })
 
 export class NavComponent {
-  @Input() title: string;
-
   menuItems: any[];
   language: string;
 
