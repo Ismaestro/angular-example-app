@@ -1,4 +1,8 @@
 :host(toh-hero-search) {
   display: flex;
   align-items: center;
+
+  .mat-input-wrapper {
+    padding-bottom: 0;
+  }
 }

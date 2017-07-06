@@ -1,12 +1,11 @@
 <md-input-container>
     <input mdInput placeholder="{{ 'findHero' | translate }}!"
-           [mdAutocomplete]="auto" [formControl]="heroes">
+           [mdAutocomplete]="heroesAutocomplete" [formControl]="heroFormControl">
 </md-input-container>
 
-<md-autocomplete #auto="mdAutocomplete">
-    <md-option *ngFor="let state of filteredStates | async"
-               (click)="gotoDetail(hero)"
-               [value]="hero">
+<md-autocomplete #heroesAutocomplete="mdAutocomplete">
+    <md-option *ngFor="let hero of filteredHeroes"
+               (click)="gotoDetail(hero)">
         {{hero.name}}
     </md-option>
 </md-autocomplete>
