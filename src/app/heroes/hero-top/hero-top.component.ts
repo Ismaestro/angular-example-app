@@ -16,11 +16,13 @@ import {IAppConfig} from '../../config/iapp.config';
 export class HeroTopComponent implements OnInit {
 
   heroes: Hero[] = null;
+  canVote = false;
 
   constructor(@Inject(APP_CONFIG) private appConfig: IAppConfig,
               private heroService: HeroService,
               private snackBar: MdSnackBar,
               private translateService: TranslateService) {
+    this.checkIfUserCanVote();
   }
 
   ngOnInit(): void {
@@ -34,12 +36,13 @@ export class HeroTopComponent implements OnInit {
   like(hero) {
     this.translateService.get(['saved', 'heroLikeMaximum'], {'value': this.appConfig.votesLimit}).subscribe(
       (texts) => {
-        if (Number(localStorage.getItem('votes')) < this.appConfig.votesLimit) {
+        if (this.canVote) {
           this.heroService.like(hero.id).subscribe(() => {
             hero.likes += 1;
             this.snackBar.open(texts['saved'], 'OK', {
               duration: this.appConfig.snackBarDuration,
             });
+            this.checkIfUserCanVote();
           });
         } else {
           this.snackBar.open(texts['heroLikeMaximum'], 'OK', {
@@ -48,5 +51,9 @@ export class HeroTopComponent implements OnInit {
         }
       }
     );
+  }
+
+  private checkIfUserCanVote() {
+    this.canVote = Number(localStorage.getItem('votes')) < this.appConfig.votesLimit;
   }
 }

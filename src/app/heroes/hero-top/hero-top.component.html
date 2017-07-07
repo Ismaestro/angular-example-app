@@ -15,7 +15,8 @@
                 <div class="flex-spacer"></div>
                 <div class="hero-likes">
                     {{hero.likes}}
-                    <md-icon mdTooltip="{{'likeTooltip' | translate}}" [mdTooltipPosition]="'above'"
+                    <md-icon mdTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}"
+                             [mdTooltipPosition]="'above'"
                              class="like-icon" (click)="like(hero)">favorite</md-icon>
                 </div>
             </md-card-header>

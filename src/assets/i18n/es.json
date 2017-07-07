@@ -33,5 +33,6 @@
   "topHeroes": "Heroes más votados",
   "saved": "Guardado!",
   "heroLikeMaximum": "El límite de votos es {{value}}!",
-  "likeTooltip": "Si te quedan créditos, puedes votar :)"
+  "canVote": "Puedes votar :)",
+  "cannotVote": "No puedes votar más :("
 }
