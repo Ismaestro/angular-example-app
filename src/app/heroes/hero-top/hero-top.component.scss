@@ -1,0 +1,40 @@
+#top-heroes-title {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 300;
+  padding: 1em;
+}
+
+.hero-card {
+  width: 70%;
+}
+
+.hero-header-image {
+  background-size: cover;
+}
+
+.hero-likes {
+  align-items: center;
+  display: flex;
+  padding-bottom: 1em;
+}
+
+.like-icon {
+  color: #DC143C;
+  cursor: pointer;
+}
+
+/deep/ .mat-card-image {
+  margin-bottom: -28px !important;
+}
+
+.progress-bar {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 5px;
+}
+
+.progress-spinner {
+  margin: 0 auto;
+}

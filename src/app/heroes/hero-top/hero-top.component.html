@@ -1,10 +1,29 @@
-<div>
-    <h3>{{ 'hero-top.title' | translate }}</h3>
-    <div>
-        <div *ngFor="let hero of heroes" [routerLink]="['/heroes/', hero.id]">
-            <div>
-                <h4>{{hero.name}}</h4>
-            </div>
-        </div>
-    </div>
-</div>
+<section class="progress-bar">
+    <md-progress-bar
+        [color]="'primary'"
+        [mode]="'none'">
+    </md-progress-bar>
+</section>
+<h1 id="top-heroes-title">{{'topHeroes' | translate}}</h1>
+<md-progress-spinner *ngIf="!heroes"
+    class="progress-spinner"
+    [color]="'primary'"
+    [mode]="'indeterminate'">
+</md-progress-spinner>
+<md-grid-list cols="2" rowHeight="400px" *ngIf="heroes">
+    <md-grid-tile *ngFor="let hero of heroes">
+        <md-card class="hero-card">
+            <md-card-header>
+                <div md-card-avatar class="hero-header-image"
+                     [ngStyle]="{'background-image': 'url(/assets/images/heroes/' + hero.id + '-mini.jpg)'}"></div>
+                <md-card-title>{{hero.name}}</md-card-title>
+                <md-card-subtitle>{{hero.alterEgo}}</md-card-subtitle>
+                <div class="flex-spacer"></div>
+                <div class="hero-likes">
+                    {{hero.likes}} <md-icon class="like-icon" (click)="like(hero)">favorite</md-icon>
+                </div>
+            </md-card-header>
+            <img md-card-image src="/assets/images/heroes/{{hero.id}}.jpg">
+        </md-card>
+    </md-grid-tile>
+</md-grid-list>

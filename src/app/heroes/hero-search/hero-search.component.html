@@ -5,8 +5,8 @@
 
 <md-autocomplete #heroesAutocomplete="mdAutocomplete">
     <md-option *ngFor="let hero of filteredHeroes"
-               (onSelectionChange)="gotoDetail(hero)"
-               (click)="gotoDetail(hero)"
+               (onSelectionChange)="searchHero(hero)"
+               (click)="searchHero(hero)"
                [value]="hero.name">
         {{hero.name}}
     </md-option>

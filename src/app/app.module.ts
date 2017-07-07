@@ -13,8 +13,8 @@ import {CoreModule} from './core/core.module';
 import {HeroesModule} from './heroes/heroes.module';
 
 import {AppComponent} from './app.component';
-import {HeroTopComponent} from './heroes/hero-top/hero-top.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MaterialModule} from './shared/material.module';
 
 @NgModule({
   imports: [
@@ -30,11 +30,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AppRoutingModule,
     CoreModule,
     HeroesModule,
-    SharedModule
+    SharedModule,
+    MaterialModule
   ],
   declarations: [
-    AppComponent,
-    HeroTopComponent
+    AppComponent
   ],
   providers: [
     {provide: APP_CONFIG, useValue: AppConfig}

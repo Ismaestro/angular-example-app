@@ -29,5 +29,8 @@
   "back": "Atras",
   "noHero": "No hay heroe!",
   "heroDuplicated": "El id del heroe ya está cogido!",
-  "heroDefault": "Los heroes por defecto, no se pueden borrar!"
+  "heroDefault": "Los heroes por defecto, no se pueden borrar!",
+  "topHeroes": "Los cuatro heroes más votados",
+  "saved": "Guardado!",
+  "heroLikeMaximum": "El límite de votos es {{value}}!"
 }

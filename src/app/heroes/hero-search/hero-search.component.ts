@@ -43,8 +43,8 @@ export class HeroSearchComponent {
       : this.heroes;
   }
 
-  gotoDetail(hero: Hero): void {
-    this.router.navigate(['/' + this.appConfig.routes.heroes, hero.id]);
+  searchHero(hero: Hero): void {
     LoggerService.log('Moved to hero with id: ' + hero.id);
+    window.open('https://www.google.es/search?q=' + hero.name, '_blank');
   }
 }

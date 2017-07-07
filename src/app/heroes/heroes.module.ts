@@ -15,6 +15,7 @@ import {HeroFormComponent} from './hero-create-new/hero-create-new.component';
 
 import {HeroService} from './shared/hero.service';
 import {MaterialModule} from '../shared/material.module';
+import {HeroTopComponent} from './hero-top/hero-top.component';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import {MaterialModule} from '../shared/material.module';
     HeroListComponent,
     HeroSearchComponent,
     HeroDetailComponent,
-    HeroFormComponent
+    HeroFormComponent,
+    HeroTopComponent
   ],
   providers: [
     HeroService

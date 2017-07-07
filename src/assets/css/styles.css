@@ -7,3 +7,7 @@
 .flex-spacer {
     flex-grow: 1;
 }
+
+.progress-spinner {
+    height: 60px !important;
+}

@@ -19,9 +19,7 @@ export class HeroFormComponent {
   error: string;
 
   constructor(private heroService: HeroService) {
-    this.hero = new Hero('', '', '');
-
-    this.heroService.getHeroesPowers().then(powers => this.powers = powers);
+    this.hero = new Hero(null, '', '', 0);
   }
 
   onSubmit() {

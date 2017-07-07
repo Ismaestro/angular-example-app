@@ -32,13 +32,6 @@ export class HeroService {
       .catch(HeroService.handleError);
   }
 
-  getHeroesPowers(): Promise<string[]> {
-    return this.http.get(this.appConfig.endpoints.heroesPowers)
-      .toPromise()
-      .then(response => response.json() as string[])
-      .catch(HeroService.handleError);
-  }
-
   getHeroById(id: number): Promise<Hero> {
     const url = `${this.heroesUrl}/${id}`;
     return this.http.get(url)
@@ -52,8 +45,7 @@ export class HeroService {
       .post(this.heroesUrl, JSON.stringify({
         id: hero.id,
         name: hero.name,
-        alterEgo: hero.alterEgo,
-        power: hero.power
+        alterEgo: hero.alterEgo
       }), {headers: this.headers})
       .toPromise()
       .then(res => {
@@ -70,6 +62,18 @@ export class HeroService {
       .put(url, JSON.stringify(hero), {headers: this.headers})
       .toPromise()
       .then(() => hero)
+      .catch(HeroService.handleError);
+  }
+
+  likeHero(id: number): Promise<Hero> {
+    const url = `${this.heroesUrl}/${id}/like`;
+    return this.http
+      .post(url, {}, {headers: this.headers})
+      .toPromise()
+      .then((response) => {
+        localStorage.setItem('votes', '' + (Number(localStorage.getItem('votes')) + 1));
+        return response;
+      })
       .catch(HeroService.handleError);
   }
 

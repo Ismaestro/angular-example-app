@@ -1,8 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 
 import {Hero} from '../shared/hero.model';
 
 import {HeroService} from '../shared/hero.service';
+import {MdSnackBar} from '@angular/material';
+import {TranslateService} from 'ng2-translate';
+import {APP_CONFIG} from '../../config/app.config';
+import {IAppConfig} from '../../config/iapp.config';
 
 @Component({
   selector: 'toh-hero-top',
@@ -11,13 +15,33 @@ import {HeroService} from '../shared/hero.service';
 })
 export class HeroTopComponent implements OnInit {
 
-  heroes: Hero[] = [];
+  heroes: Hero[] = null;
 
-  constructor(private heroService: HeroService) {
+  constructor(@Inject(APP_CONFIG) private appConfig: IAppConfig,
+              private heroService: HeroService,
+              private snackBar: MdSnackBar,
+              private translateService: TranslateService) {
   }
 
   ngOnInit(): void {
-    this.heroService.getHeroes()
-      .then(heroes => this.heroes = heroes.slice(1, 5));
+    this.heroService.getHeroes().then((heroes) => {
+      this.heroes = heroes.sort((a, b) => {
+        return b.likes - a.likes;
+      }).slice(0, 4);
+    });
+  }
+
+  like(hero) {
+    this.translateService.get(['saved', 'heroLikeMaximum'],
+      {'value': this.appConfig.votesLimit}).subscribe((texts) => {
+      if (Number(localStorage.getItem('votes')) < this.appConfig.votesLimit) {
+        this.heroService.likeHero(hero.id).then(() => {
+          hero.likes += 1;
+          this.snackBar.open(texts['saved'], 'OK');
+        });
+      } else {
+        this.snackBar.open(texts['heroLikeMaximum'], 'OK');
+      }
+    });
   }
 }

@@ -29,5 +29,8 @@
   "back": "Back",
   "noHero": "There is no hero!",
   "heroDuplicated": "Hero id is already taken",
-  "heroDefault": "It's a default hero, you cannot delete it"
+  "heroDefault": "It's a default hero, you cannot delete it",
+  "topHeroes": "Four heroes most liked",
+  "saved": "Saved!",
+  "heroLikeMaximum": "The limit of votes is {{value}}!"
 }

@@ -24,6 +24,10 @@ footer, header, menu, nav, section {
     display: block;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     line-height: 1;
 }

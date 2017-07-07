@@ -3,12 +3,12 @@
   align-items: center;
 
   /deep/ .mat-input-placeholder {
+    font-weight: 100;
     color: white;
   }
 
   /deep/ .mat-input-underline {
     background-color: white;
-    height: 2px;
     bottom: 1.5em;
   }
 
