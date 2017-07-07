@@ -19,3 +19,12 @@ a {
 snack-bar-container {
     background: #3f51b5 !important;
 }
+
+.mat-menu-content {
+    background: #3f51b5;
+}
+
+.mat-menu-item, .mat-menu-item .mat-icon {
+    color: white;
+    font-weight: 100;
+}
