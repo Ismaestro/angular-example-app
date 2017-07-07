@@ -17,7 +17,6 @@ export class HeroListComponent implements OnInit {
   heroes: Hero[];
   selectedHero: Hero;
   heroToRemove: Hero;
-  color: string;
   createNewHero: boolean;
   error: string;
 

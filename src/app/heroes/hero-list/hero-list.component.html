@@ -7,29 +7,9 @@
     </h2>
     <div>
         <div>
-            <h3>{{ 'pickColor' | translate }}</h3>
-            <div>
-                <label>
-                    <input id="color1" name="radio" type="radio" (click)="color='orange'">
-                    <span></span>
-                    <span>{{ 'orange' | translate }}</span>
-                </label>
-                <label>
-                    <input id="color2" name="radio" type="radio" (click)="color='yellow'">
-                    <span></span>
-                    <span>{{ 'yellow' | translate }}</span>
-                </label>
-                <label>
-                    <input id="color3" name="radio" type="radio" (click)="color='cyan'">
-                    <span></span>
-                    <span>{{ 'cyan' | translate }}</span>
-                </label>
-            </div>
-
             <ul>
                 <li *ngFor="let hero of heroes" (click)="onSelect(hero)"
-                    [class.selected]="hero === selectedHero"
-                    [tohHighlight]="color" defaultColor="lightgreen">
+                    [class.selected]="hero === selectedHero">
                     <div>
                         <span>{{hero.id}}</span>
                         {{hero.name}} | {{hero.alterEgo}} | {{hero.power}}

@@ -13,34 +13,9 @@ import {ProgressBarService} from '../../shared/services/progress-bar.service';
 
 export class NavComponent {
   menuItems: any[];
-  language: string;
   progressBarMode: string;
 
   private translateService: TranslateService;
-
-  private loadMenus(): void {
-    this.translateService.get(['home', 'heroesList'], {}).subscribe((texts: string) => {
-      this.menuItems = [
-        {link: '/', name: texts['home']},
-        {link: '/' + this.appConfig.routes.heroes, name: texts['heroesList']}
-      ];
-    });
-
-    this.loadLanguageLabel();
-  }
-
-  private loadLanguageLabel() {
-    switch (this.translateService.currentLang) {
-      case 'en':
-        this.language = 'english';
-        break;
-      case 'es':
-        this.language = 'spanish';
-        break;
-      default:
-        this.language = 'language';
-    }
-  }
 
   constructor(@Inject(APP_CONFIG) private appConfig: IAppConfig,
               private progressBarService: ProgressBarService,
@@ -56,6 +31,15 @@ export class NavComponent {
   changeLanguage(language: string): void {
     this.translateService.use(language).subscribe(() => {
       this.loadMenus();
+    });
+  }
+
+  private loadMenus(): void {
+    this.translateService.get(['home', 'heroesList'], {}).subscribe((texts: string) => {
+      this.menuItems = [
+        {link: '/', name: texts['home']},
+        {link: '/' + this.appConfig.routes.heroes, name: texts['heroesList']}
+      ];
     });
   }
 }
