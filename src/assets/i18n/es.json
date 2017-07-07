@@ -32,5 +32,6 @@
   "heroDefault": "Los heroes por defecto, no se pueden borrar!",
   "topHeroes": "Heroes más votados",
   "saved": "Guardado!",
-  "heroLikeMaximum": "El límite de votos es {{value}}!"
+  "heroLikeMaximum": "El límite de votos es {{value}}!",
+  "likeTooltip": "Si te quedan créditos, puedes votar :)"
 }

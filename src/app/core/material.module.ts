@@ -9,7 +9,7 @@ import {
   MdProgressBarModule,
   MdProgressSpinnerModule,
   MdSliderModule,
-  MdSnackBarModule
+  MdSnackBarModule, MdTooltipModule
 } from '@angular/material';
 import {NgModule} from '@angular/core';
 
@@ -25,7 +25,8 @@ import {NgModule} from '@angular/core';
     MdInputModule,
     MdGridListModule,
     MdSnackBarModule,
-    MdProgressSpinnerModule
+    MdProgressSpinnerModule,
+    MdTooltipModule
   ],
   exports: [
     MdButtonModule,
@@ -38,7 +39,8 @@ import {NgModule} from '@angular/core';
     MdInputModule,
     MdGridListModule,
     MdSnackBarModule,
-    MdProgressSpinnerModule
+    MdProgressSpinnerModule,
+    MdTooltipModule
   ],
 })
 

@@ -15,7 +15,8 @@
                 <div class="flex-spacer"></div>
                 <div class="hero-likes">
                     {{hero.likes}}
-                    <md-icon class="like-icon" (click)="like(hero)">favorite</md-icon>
+                    <md-icon mdTooltip="{{'likeTooltip' | translate}}" [mdTooltipPosition]="'above'"
+                             class="like-icon" (click)="like(hero)">favorite</md-icon>
                 </div>
             </md-card-header>
             <img md-card-image src="/assets/images/heroes/{{hero.id}}.jpg">
