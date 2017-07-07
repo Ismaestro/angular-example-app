@@ -24,24 +24,29 @@ export class HeroTopComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.heroService.getHeroes().then((heroes) => {
+    this.heroService.get().subscribe((heroes) => {
       this.heroes = heroes.sort((a, b) => {
         return b.likes - a.likes;
-      }).slice(0, 4);
+      }).slice(0, this.appConfig.topHeroesLimit);
     });
   }
 
   like(hero) {
-    this.translateService.get(['saved', 'heroLikeMaximum'],
-      {'value': this.appConfig.votesLimit}).subscribe((texts) => {
-      if (Number(localStorage.getItem('votes')) < this.appConfig.votesLimit) {
-        this.heroService.likeHero(hero.id).then(() => {
-          hero.likes += 1;
-          this.snackBar.open(texts['saved'], 'OK');
-        });
-      } else {
-        this.snackBar.open(texts['heroLikeMaximum'], 'OK');
+    this.translateService.get(['saved', 'heroLikeMaximum'], {'value': this.appConfig.votesLimit}).subscribe(
+      (texts) => {
+        if (Number(localStorage.getItem('votes')) < this.appConfig.votesLimit) {
+          this.heroService.like(hero.id).subscribe(() => {
+            hero.likes += 1;
+            this.snackBar.open(texts['saved'], 'OK', {
+              duration: this.appConfig.snackBarDuration,
+            });
+          });
+        } else {
+          this.snackBar.open(texts['heroLikeMaximum'], 'OK', {
+            duration: this.appConfig.snackBarDuration
+          });
+        }
       }
-    });
+    );
   }
 }

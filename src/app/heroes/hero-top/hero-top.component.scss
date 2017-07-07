@@ -2,7 +2,7 @@
   text-align: center;
   font-size: 1.5em;
   font-weight: 300;
-  padding: 1em;
+  padding: 1em 0 0;
 }
 
 .hero-card {
@@ -26,13 +26,6 @@
 
 /deep/ .mat-card-image {
   margin-bottom: -28px !important;
-}
-
-.progress-bar {
-  display: flex;
-  align-content: center;
-  align-items: center;
-  height: 5px;
 }
 
 .progress-spinner {

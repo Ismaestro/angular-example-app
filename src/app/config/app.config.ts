@@ -13,5 +13,7 @@ export const AppConfig: IAppConfig = {
   endpoints: {
     heroes: 'https://heroes-app-devel.herokuapp.com/heroes'
   },
-  votesLimit: 2
+  votesLimit: 2,
+  topHeroesLimit: 4,
+  snackBarDuration: 2000
 };

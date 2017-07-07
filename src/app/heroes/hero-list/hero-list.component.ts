@@ -28,9 +28,8 @@ export class HeroListComponent implements OnInit {
   }
 
   getHeroes(): void {
-    this.heroService.getHeroes().then((heroes) => {
+    this.heroService.get().subscribe((heroes) => {
       this.heroes = heroes;
-      localStorage.setItem('heroes', JSON.stringify(heroes));
     });
   }
 
@@ -48,18 +47,18 @@ export class HeroListComponent implements OnInit {
 
   remove(): void {
     /*$('#askForRemove').modal('hide');
-    this.heroService
-      .remove(this.heroToRemove.id)
-      .then(() => {
-        this.heroes = this.heroes.filter(h => h !== this.heroToRemove);
-        if (this.selectedHero === this.heroToRemove) {
-          this.selectedHero = null;
-        }
-      }, (response) => {
-        if (response.status === 500) {
-          this.error = 'heroDefault';
-        }
-      });*/
+     this.heroService
+     .remove(this.heroToRemove.id)
+     .then(() => {
+     this.heroes = this.heroes.filter(h => h !== this.heroToRemove);
+     if (this.selectedHero === this.heroToRemove) {
+     this.selectedHero = null;
+     }
+     }, (response) => {
+     if (response.status === 500) {
+     this.error = 'heroDefault';
+     }
+     });*/
   }
 
   showRemoveModal(hero: Hero): void {

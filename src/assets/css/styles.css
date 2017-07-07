@@ -4,10 +4,18 @@
     font-family: 'Roboto', sans-serif;
 }
 
+a {
+    cursor: pointer;
+}
+
 .flex-spacer {
     flex-grow: 1;
 }
 
 .progress-spinner {
     height: 60px !important;
+}
+
+snack-bar-container {
+    background: #3f51b5 !important;
 }

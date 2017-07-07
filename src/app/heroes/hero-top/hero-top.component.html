@@ -1,14 +1,8 @@
-<section class="progress-bar">
-    <md-progress-bar
-        [color]="'primary'"
-        [mode]="'none'">
-    </md-progress-bar>
-</section>
 <h1 id="top-heroes-title">{{'topHeroes' | translate}}</h1>
 <md-progress-spinner *ngIf="!heroes"
-    class="progress-spinner"
-    [color]="'primary'"
-    [mode]="'indeterminate'">
+                     class="progress-spinner"
+                     [color]="'primary'"
+                     [mode]="'indeterminate'">
 </md-progress-spinner>
 <md-grid-list cols="2" rowHeight="400px" *ngIf="heroes">
     <md-grid-tile *ngFor="let hero of heroes">
@@ -20,7 +14,8 @@
                 <md-card-subtitle>{{hero.alterEgo}}</md-card-subtitle>
                 <div class="flex-spacer"></div>
                 <div class="hero-likes">
-                    {{hero.likes}} <md-icon class="like-icon" (click)="like(hero)">favorite</md-icon>
+                    {{hero.likes}}
+                    <md-icon class="like-icon" (click)="like(hero)">favorite</md-icon>
                 </div>
             </md-card-header>
             <img md-card-image src="/assets/images/heroes/{{hero.id}}.jpg">

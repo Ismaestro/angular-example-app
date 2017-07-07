@@ -4,7 +4,9 @@
             {{item.name | uppercase}}
         </a>
         <div class="flex-spacer"></div>
-        <iframe src="https://ghbtns.com/github-btn.html?user=ismaestro&repo=angular4-sample-app&type=star&count=true&size=small" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+        <iframe
+            src="https://ghbtns.com/github-btn.html?user=ismaestro&repo=angular4-sample-app&type=star&count=true&size=small"
+            frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
         <toh-hero-search></toh-hero-search>
         <button md-icon-button [mdMenuTriggerFor]="menu">
             <md-icon>public</md-icon>
@@ -24,4 +26,10 @@
             </button>
         </md-menu>
     </nav>
+    <section class="progress-bar">
+        <md-progress-bar
+            [color]="'primary'"
+            [mode]="progressBarMode">
+        </md-progress-bar>
+    </section>
 </header>

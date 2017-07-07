@@ -23,13 +23,12 @@ export class HeroFormComponent {
   }
 
   onSubmit() {
-    this.heroService.create(this.hero)
-      .then(() => {
-        this.selectedHero = null;
-      }, (response) => {
-        if (response.status === 500) {
-          this.error = 'heroDuplicated';
-        }
-      });
+    this.heroService.create(this.hero).subscribe(() => {
+      this.selectedHero = null;
+    }, (response) => {
+      if (response.status === 500) {
+        this.error = 'heroDuplicated';
+      }
+    });
   }
 }

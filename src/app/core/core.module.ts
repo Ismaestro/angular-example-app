@@ -13,7 +13,7 @@ import {HeroRoutingModule} from '../heroes/heroes-routing.module';
 
 import {NavComponent} from './nav/nav.component';
 import {FooterComponent} from './footer/footer.component';
-import {MaterialModule} from '../shared/material.module';
+import {MaterialModule} from './material.module';
 
 
 @NgModule({
