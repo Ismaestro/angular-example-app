@@ -11,7 +11,7 @@ export const AppConfig: IAppConfig = {
     heroById: heroesRoute + '/:id'
   },
   endpoints: {
-    heroes: 'https://heroes-app-devel.herokuapp.com/heroes'
+    heroes: 'https://tour-of-heroes-sample-app.herokuapp.com/heroes'
   },
   votesLimit: 2,
   topHeroesLimit: 4,
