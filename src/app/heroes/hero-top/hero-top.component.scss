@@ -1,27 +1,9 @@
-#top-heroes-title {
-  text-align: center;
-  font-size: 1.5em;
-  font-weight: 300;
-  padding: 1em 0 0;
-}
-
 .hero-card {
   width: 70%;
 }
 
 .hero-header-image {
   background-size: cover;
-}
-
-.hero-likes {
-  align-items: center;
-  display: flex;
-  padding-bottom: 1em;
-}
-
-.like-icon {
-  color: #DC143C;
-  cursor: pointer;
 }
 
 /deep/ .mat-card-image {

@@ -1,10 +1,10 @@
 import {
   MdAutocompleteModule,
   MdButtonModule,
-  MdCardModule,
+  MdCardModule, MdDialogModule,
   MdGridListModule,
   MdIconModule,
-  MdInputModule,
+  MdInputModule, MdListModule,
   MdMenuModule,
   MdProgressBarModule,
   MdProgressSpinnerModule,
@@ -26,7 +26,9 @@ import {NgModule} from '@angular/core';
     MdGridListModule,
     MdSnackBarModule,
     MdProgressSpinnerModule,
-    MdTooltipModule
+    MdTooltipModule,
+    MdListModule,
+    MdDialogModule
   ],
   exports: [
     MdButtonModule,
@@ -40,7 +42,9 @@ import {NgModule} from '@angular/core';
     MdGridListModule,
     MdSnackBarModule,
     MdProgressSpinnerModule,
-    MdTooltipModule
+    MdTooltipModule,
+    MdListModule,
+    MdDialogModule
   ],
 })
 

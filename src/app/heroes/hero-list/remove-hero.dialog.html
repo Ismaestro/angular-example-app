@@ -1,0 +1,6 @@
+<h2 md-dialog-title>{{'removeHero' | translate}}</h2>
+<md-dialog-content>{{'areYouSure' | translate}}</md-dialog-content>
+<md-dialog-actions>
+    <button md-button md-dialog-close>{{'no' | translate}}</button>
+    <button md-button [md-dialog-close]="true">{{'yes' | translate}}</button>
+</md-dialog-actions>

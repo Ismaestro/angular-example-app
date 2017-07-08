@@ -1,4 +1,4 @@
-<h1 id="top-heroes-title">{{'topHeroes' | translate}}</h1>
+<h1 class="section-title">{{'topHeroes' | translate}}</h1>
 <md-progress-spinner *ngIf="!heroes"
                      class="progress-spinner"
                      [color]="'primary'"
@@ -13,7 +13,7 @@
                 <md-card-title>{{hero.name}}</md-card-title>
                 <md-card-subtitle>{{hero.alterEgo}}</md-card-subtitle>
                 <div class="flex-spacer"></div>
-                <div class="hero-likes">
+                <div class="hero-actions">
                     {{hero.likes}}
                     <md-icon mdTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}"
                              [mdTooltipPosition]="'above'"

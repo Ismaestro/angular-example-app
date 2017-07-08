@@ -3,8 +3,6 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {Hero} from '../shared/hero.model';
 
 import {HeroService} from '../shared/hero.service';
-import {MdSnackBar} from '@angular/material';
-import {TranslateService} from 'ng2-translate';
 import {APP_CONFIG} from '../../config/app.config';
 import {IAppConfig} from '../../config/iapp.config';
 
@@ -19,10 +17,8 @@ export class HeroTopComponent implements OnInit {
   canVote = false;
 
   constructor(@Inject(APP_CONFIG) private appConfig: IAppConfig,
-              private heroService: HeroService,
-              private snackBar: MdSnackBar,
-              private translateService: TranslateService) {
-    this.checkIfUserCanVote();
+              private heroService: HeroService) {
+    this.canVote = this.heroService.checkIfUserCanVote();
   }
 
   ngOnInit(): void {
@@ -34,26 +30,8 @@ export class HeroTopComponent implements OnInit {
   }
 
   like(hero) {
-    this.translateService.get(['saved', 'heroLikeMaximum'], {'value': this.appConfig.votesLimit}).subscribe(
-      (texts) => {
-        if (this.canVote) {
-          this.heroService.like(hero.id).subscribe(() => {
-            hero.likes += 1;
-            this.snackBar.open(texts['saved'], 'OK', {
-              duration: this.appConfig.snackBarDuration,
-            });
-            this.checkIfUserCanVote();
-          });
-        } else {
-          this.snackBar.open(texts['heroLikeMaximum'], 'OK', {
-            duration: this.appConfig.snackBarDuration
-          });
-        }
-      }
-    );
-  }
-
-  private checkIfUserCanVote() {
-    this.canVote = Number(localStorage.getItem('votes')) < this.appConfig.votesLimit;
+    this.heroService.like(hero).subscribe(() => {
+      this.canVote = this.heroService.checkIfUserCanVote();
+    });
   }
 }

@@ -8,12 +8,20 @@ a {
     cursor: pointer;
 }
 
+.section-title {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 300;
+    padding: 1em 0 0;
+}
+
 .flex-spacer {
     flex-grow: 1;
 }
 
 .progress-spinner {
     height: 60px !important;
+    margin: 2em auto;
 }
 
 snack-bar-container {
@@ -27,4 +35,33 @@ snack-bar-container {
 .mat-menu-item, .mat-menu-item .mat-icon {
     color: white;
     font-weight: 100;
+}
+
+.hero-actions {
+    align-items: center;
+    display: flex;
+    padding-bottom: 1em;
+}
+
+.like-icon {
+    color: #DC143C;
+    cursor: pointer;
+}
+
+.mat-raised-button[disabled] {
+    background: #bbb !important;
+}
+
+.mat-dialog-container {
+    background: #3f51b5;
+    color: white;
+}
+
+.mat-dialog-content {
+    text-align: center;
+    padding: 1em 24px !important;
+}
+
+.mat-dialog-title {
+    text-align: center;
 }

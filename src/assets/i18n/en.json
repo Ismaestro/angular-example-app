@@ -33,5 +33,16 @@
   "saved": "Saved!",
   "heroLikeMaximum": "The limit of votes is {{value}}!",
   "canVote": "Can vote :)",
-  "cannotVote": "Cannot vote anymore :("
+  "cannotVote": "Cannot vote anymore :(",
+  "createHero": "Create a hero",
+  "realName": "Real name",
+  "create": "Create",
+  "realNameRequired": "Real name is required",
+  "errorHasOcurred": "An error has ocurred",
+  "heroCreated": "Hero created!",
+  "removeHero": "Delete hero",
+  "areYouSure": "Are you sure?",
+  "no": "No",
+  "yes": "Yes",
+  "heroRemoved": "Hero has gone :("
 }

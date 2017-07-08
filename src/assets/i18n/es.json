@@ -33,5 +33,16 @@
   "saved": "Guardado!",
   "heroLikeMaximum": "El límite de votos es {{value}}!",
   "canVote": "Puedes votar :)",
-  "cannotVote": "No puedes votar más :("
+  "cannotVote": "No puedes votar más :(",
+  "createHero": "Añadir un heroe",
+  "realName": "Nombre real",
+  "create": "Crear",
+  "realNameRequired": "Nombre real es obligatorio",
+  "errorHasOcurred": "Ha ocurrido un error",
+  "heroCreated": "Heroe creado!",
+  "removeHero": "Eliminar heroe",
+  "areYouSure": "¿Estas seguro?",
+  "no": "No",
+  "yes": "Yes",
+  "heroRemoved": "El heroe nos ha dejado :("
 }

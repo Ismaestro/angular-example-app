@@ -1,0 +1,47 @@
+#left {
+  width: 50%;
+  float: left;
+  margin-left: 6%;
+}
+
+#right {
+  margin-left: 50%;
+  text-align: center;
+  padding-right: 17%;
+}
+
+.clear {
+  clear: both;
+}
+
+.mat-list {
+  margin: 0 auto;
+  display: table;
+
+  /deep/ .mat-list-text {
+    text-align: left !important;
+  }
+}
+
+.hero-actions {
+  padding-bottom: 0;
+
+  .remove-icon {
+    padding-left: 0.5em;
+    color: darkslategrey;
+    cursor: pointer;
+  }
+}
+
+form {
+  display: grid;
+  width: 80%;
+  margin: 0 auto;
+
+  .mat-raised-button {
+    color: white;
+    background: #3f51b5;
+    width: 50%;
+    margin: 0 auto;
+  }
+}

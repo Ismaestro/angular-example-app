@@ -15,5 +15,5 @@ export const AppConfig: IAppConfig = {
   },
   votesLimit: 2,
   topHeroesLimit: 4,
-  snackBarDuration: 2000
+  snackBarDuration: 3000
 };

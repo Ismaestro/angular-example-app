@@ -1,59 +1,56 @@
-<div>
-    <h2>
-        {{ 'heroesList' | translate }}
-        <button *ngIf="!createNewHero"
-                (click)="createNewHero = !createNewHero">
-        </button>
-    </h2>
+<div id="left">
+    <h2 class="section-title">{{ 'heroesList' | translate }}</h2>
     <div>
-        <div>
-            <ul>
-                <li *ngFor="let hero of heroes" (click)="onSelect(hero)"
-                    [class.selected]="hero === selectedHero">
-                    <div>
-                        <span>{{hero.id}}</span>
-                        {{hero.name}} | {{hero.alterEgo}} | {{hero.power}}
-                    </div>
-                    <div>
-                        <button *ngIf="hero === selectedHero"
-                                (click)="gotoDetail()">
-                        </button>
-                        <button (click)="showRemoveModal(hero)">
-                        </button>
-                    </div>
-                    <div tabindex="-1" role="dialog"
-                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div role="document">
-                            <div>
-                                <div>
-                                    <h5>{{ 'alert' | translate }}</h5>
-                                    <button type="button" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div>
-                                    {{ 'sureRemoveHero' | translate}}
-                                </div>
-                                <div>
-                                    <button type="button" data-dismiss="modal">{{ 'cancel' |
-                                        translate}}
-                                    </button>
-                                    <button type="button" (click)="remove()">
-                                        {{ 'remove' | translate}}
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <div *ngIf="error">{{error | translate}}</div>
-        </div>
-        <div>
-            <toh-hero-create-new *ngIf="createNewHero"
-                                 [heroes]="heroes"
-                                 [selectedHero]="selectedHero">
-            </toh-hero-create-new>
-        </div>
+        <md-progress-spinner *ngIf="!heroes"
+                             class="progress-spinner"
+                             [color]="'primary'"
+                             [mode]="'indeterminate'">
+        </md-progress-spinner>
+        <md-list>
+            <md-list-item *ngFor="let hero of heroes">
+                <img *ngIf="hero.default" md-list-avatar src="/assets/images/heroes/{{hero.id}}-mini.jpg">
+                <img *ngIf="!hero.default" md-list-avatar src="/assets/images/heroes/default.png">
+                <h3 md-line> {{hero.name}} </h3>
+                <p md-line>
+                    <span>{{hero.alterEgo}}</span>
+                </p>
+                <div class="hero-actions">
+                    {{hero.likes}}
+                    <md-icon mdTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}"
+                             [mdTooltipPosition]="'above'"
+                             class="like-icon" (click)="like(hero)">
+                        favorite
+                    </md-icon>
+                    <md-icon class="remove-icon" *ngIf="!hero.default" (click)="remove(hero)">
+                        delete
+                    </md-icon>
+                </div>
+            </md-list-item>
+        </md-list>
     </div>
 </div>
+<div id="right">
+    <h2 class="section-title">{{ 'createHero' | translate }}</h2>
+    <div>
+        <form [formGroup]="newHeroForm" #form="ngForm" (ngSubmit)="createNewHero(newHeroForm.value)">
+            <md-input-container class="input-container">
+                <input mdInput type="text"
+                       placeholder="{{'name' | translate}}"
+                       formControlName="name">
+            </md-input-container>
+
+            <md-input-container class="input-container">
+                <input mdInput type="text"
+                       placeholder="{{'realName' | translate}}"
+                       formControlName="alterEgo">
+            </md-input-container>
+
+            <button md-raised-button type="submit" [disabled]="!newHeroForm.valid">
+                {{'create' | translate}}
+            </button>
+
+            <div *ngIf="error">{{error | translate}}</div>
+        </form>
+    </div>
+</div>
+<div class="clear"></div>

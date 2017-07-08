@@ -1,11 +1,8 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-
-import {APP_CONFIG} from '../../config/app.config';
-import {IAppConfig} from '../../config/iapp.config';
-
+import {Component, ViewChild} from '@angular/core';
 import {Hero} from '../shared/hero.model';
 import {HeroService} from '../shared/hero.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {MdDialog} from '@angular/material';
 
 @Component({
   selector: 'toh-hero-list',
@@ -13,55 +10,71 @@ import {HeroService} from '../shared/hero.service';
   styleUrls: ['./hero-list.component.scss']
 })
 
-export class HeroListComponent implements OnInit {
+export class HeroListComponent {
   heroes: Hero[];
-  selectedHero: Hero;
-  heroToRemove: Hero;
-  createNewHero: boolean;
+  newHeroForm: FormGroup;
+  canVote = false;
   error: string;
+  @ViewChild('form') myNgForm; // just to call resetForm method
 
-  constructor(@Inject(APP_CONFIG) private appConfig: IAppConfig,
-              private router: Router,
-              private heroService: HeroService) {
-    this.heroService.refreshHeroes$.subscribe(heroes => this.heroes = heroes);
-  }
+  constructor(private heroService: HeroService,
+              private dialog: MdDialog,
+              private formBuilder: FormBuilder) {
+    this.canVote = this.heroService.checkIfUserCanVote();
 
-  getHeroes(): void {
+    this.newHeroForm = this.formBuilder.group({
+      'name': ['', [Validators.required]],
+      'alterEgo': ['', [Validators.required]]
+    });
+
     this.heroService.get().subscribe((heroes) => {
-      this.heroes = heroes;
+      this.heroes = heroes.sort((a, b) => {
+        return b.likes - a.likes;
+      });
     });
   }
 
-  ngOnInit(): void {
-    this.getHeroes();
+  like(hero) {
+    this.heroService.like(hero).subscribe(() => {
+      this.canVote = this.heroService.checkIfUserCanVote();
+    });
   }
 
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
+  createNewHero(newHero) {
+    this.heroService.create(newHero).subscribe((heroes) => {
+      this.heroes = heroes.sort((a, b) => {
+        return b.likes - a.likes;
+      });
+      this.myNgForm.resetForm();
+    }, (response) => {
+      if (response.status === 500) {
+        this.error = 'errorHasOcurred';
+      }
+    });
   }
 
-  gotoDetail(): void {
-    this.router.navigate([`/${this.appConfig.routes.heroes}/`, this.selectedHero.id]);
+  remove(hero): void {
+    let dialogRef = this.dialog.open(RemoveHeroDialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.heroService.remove(hero.id).subscribe((heroes) => {
+          this.heroes = heroes;
+        }, (response) => {
+          if (response.status === 500) {
+            this.error = 'heroDefault';
+          }
+        });
+      }
+    });
   }
+}
 
-  remove(): void {
-    /*$('#askForRemove').modal('hide');
-     this.heroService
-     .remove(this.heroToRemove.id)
-     .then(() => {
-     this.heroes = this.heroes.filter(h => h !== this.heroToRemove);
-     if (this.selectedHero === this.heroToRemove) {
-     this.selectedHero = null;
-     }
-     }, (response) => {
-     if (response.status === 500) {
-     this.error = 'heroDefault';
-     }
-     });*/
-  }
+@Component({
+  selector: 'toh-remove-hero-dialog',
+  templateUrl: './remove-hero.dialog.html',
+})
 
-  showRemoveModal(hero: Hero): void {
-    this.heroToRemove = hero;
-    // $('#askForRemove').modal('show');
+export class RemoveHeroDialogComponent {
+  constructor() {
   }
 }
