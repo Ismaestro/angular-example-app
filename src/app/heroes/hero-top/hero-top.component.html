@@ -9,7 +9,7 @@
         <md-card class="hero-card">
             <md-card-header>
                 <div md-card-avatar class="hero-header-image"
-                     [ngStyle]="{'background-image': 'url(/assets/images/heroes/' + hero.id + '-mini.jpg)'}"></div>
+                     [ngStyle]="{'background-image': 'url(assets/images/heroes/' + hero.id + '-mini.jpg)'}"></div>
                 <md-card-title>{{hero.name}}</md-card-title>
                 <md-card-subtitle>{{hero.alterEgo}}</md-card-subtitle>
                 <div class="flex-spacer"></div>
@@ -20,7 +20,7 @@
                              class="like-icon" (click)="like(hero)">favorite</md-icon>
                 </div>
             </md-card-header>
-            <img md-card-image src="/assets/images/heroes/{{hero.id}}.jpg">
+            <img md-card-image src="assets/images/heroes/{{hero.id}}.jpg">
         </md-card>
     </md-grid-tile>
 </md-grid-list>

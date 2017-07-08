@@ -8,8 +8,8 @@
         </md-progress-spinner>
         <md-list>
             <md-list-item *ngFor="let hero of heroes">
-                <img *ngIf="hero.default" md-list-avatar src="/assets/images/heroes/{{hero.id}}-mini.jpg">
-                <img *ngIf="!hero.default" md-list-avatar src="/assets/images/heroes/default.png">
+                <img *ngIf="hero.default" md-list-avatar src="assets/images/heroes/{{hero.id}}-mini.jpg">
+                <img *ngIf="!hero.default" md-list-avatar src="assets/images/heroes/default.png">
                 <h3 md-line> {{hero.name}} </h3>
                 <p md-line>
                     <span>{{hero.alterEgo}}</span>
