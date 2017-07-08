@@ -6,7 +6,7 @@ Sample app made with much :heart:
 
 Live demo [here](https://ismaestro.github.io/angular4-sample-app/)!
 
-![angular4-sample-app](http://i65.tinypic.com/n3kxax.jpg)
+![angular4-sample-app](http://i68.tinypic.com/4vst21.jpg)
 
 ## Usage
 
