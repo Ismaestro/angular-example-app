@@ -17,7 +17,8 @@
                     {{hero.likes}}
                     <md-icon mdTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}"
                              [mdTooltipPosition]="'above'"
-                             class="like-icon" (click)="like(hero)">favorite</md-icon>
+                             class="like-icon" (click)="like(hero)">favorite
+                    </md-icon>
                 </div>
             </md-card-header>
             <img md-card-image src="assets/images/heroes/{{hero.id}}.jpg">

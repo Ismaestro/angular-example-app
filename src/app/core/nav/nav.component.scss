@@ -1,21 +1,33 @@
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  padding: 8px 16px;
-  color: white;
-  height: 3em;
-  background: #3f51b5;
+:host(toh-nav) {
+  padding-top: 5em;
+  display: grid;
 
-  .mat-raised-button {
-    color: #3f51b5;
-    margin-right: 1em;
-  }
+  header {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
 
-  .progress-bar {
-    display: flex;
-    align-content: center;
-    align-items: center;
-    height: 5px;
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 8px 16px;
+      color: white;
+      height: 3em;
+      background: #3f51b5;
+
+      .mat-raised-button {
+        color: #3f51b5;
+        margin-right: 1em;
+      }
+
+      .progress-bar {
+        display: flex;
+        align-content: center;
+        align-items: center;
+        height: 5px;
+      }
+    }
   }
 }
+

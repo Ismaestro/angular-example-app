@@ -1,15 +1,18 @@
 import {
   MdAutocompleteModule,
   MdButtonModule,
-  MdCardModule, MdDialogModule,
+  MdCardModule,
+  MdDialogModule,
   MdGridListModule,
   MdIconModule,
-  MdInputModule, MdListModule,
+  MdInputModule,
+  MdListModule,
   MdMenuModule,
   MdProgressBarModule,
   MdProgressSpinnerModule,
   MdSliderModule,
-  MdSnackBarModule, MdTooltipModule
+  MdSnackBarModule,
+  MdTooltipModule
 } from '@angular/material';
 import {NgModule} from '@angular/core';
 
