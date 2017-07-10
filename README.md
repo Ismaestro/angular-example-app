@@ -4,9 +4,9 @@ Sample app made with much :heart:
 
 ### Demo
 
-Live demo [here](https://ismaestro.github.io/angular4-sample-app/)!
+Live demo [here](https://ismaestro.github.io/angular-example-app/)!
 
-![angular4-sample-app](http://i68.tinypic.com/4vst21.jpg)
+![angular-example-app](http://i68.tinypic.com/4vst21.jpg)
 
 ## Usage
 
