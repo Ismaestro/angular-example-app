@@ -31,3 +31,18 @@
   }
 }
 
+@media (max-width: 425px) {
+  :host(toh-nav) {
+    padding-top: 0;
+
+    header {
+      position: relative;
+
+      nav {
+        height: 7em;
+        display: flex;
+        padding: 1em 2em 0;
+      }
+    }
+  }
+}

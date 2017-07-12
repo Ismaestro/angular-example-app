@@ -6,7 +6,7 @@
 
 Live demo [here](https://ismaestro.github.io/angular4-example-app/)!
 
-![angular4-example-app](http://i68.tinypic.com/4vst21.jpg)
+![angular4-example-app](http://i68.tinypic.com/2jbwkyd.jpg)
 
 ## Usage
 

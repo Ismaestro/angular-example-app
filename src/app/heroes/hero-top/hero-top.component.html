@@ -4,8 +4,8 @@
                      [color]="'primary'"
                      [mode]="'indeterminate'">
 </md-progress-spinner>
-<md-grid-list cols="2" rowHeight="400px" *ngIf="heroes">
-    <md-grid-tile *ngFor="let hero of heroes">
+<div id="heroes-list" *ngIf="heroes">
+    <ng-container *ngFor="let hero of heroes">
         <md-card class="hero-card">
             <md-card-header>
                 <div md-card-avatar class="hero-header-image"
@@ -23,5 +23,5 @@
             </md-card-header>
             <img md-card-image src="assets/images/heroes/{{hero.id}}.jpg">
         </md-card>
-    </md-grid-tile>
-</md-grid-list>
+    </ng-container>
+</div>

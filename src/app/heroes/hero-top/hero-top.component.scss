@@ -1,5 +1,10 @@
+#heroes-list {
+  margin: 2em;
+}
+
 .hero-card {
-  width: 70%;
+  width: 45%;
+  margin: 2em auto;
 }
 
 .hero-header-image {
@@ -12,4 +17,11 @@
 
 .progress-spinner {
   margin: 0 auto;
+}
+
+@media (max-width: 425px) {
+  .hero-card {
+    width: 80%;
+    margin: 0 auto;
+  }
 }
