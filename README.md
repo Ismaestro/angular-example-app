@@ -1,6 +1,6 @@
-# Sample app with Angular 4 + Typescript + Angular CLI + Angular Material
+# Example app with Angular 4 + Typescript + Angular CLI + Angular Material
 
-Sample app made with much :heart:
+> ### Example app made with much  :heart: . Contains CRUD, official style guide, patterns, etc. This project, tries to be a base-project example.
 
 ### Demo
 
@@ -29,7 +29,7 @@ Live demo [here](https://ismaestro.github.io/angular-example-app/)!
 
 ## How can I support developers?
 - Star the GitHub repo :star:
-- Create pull requests, submit bugs, suggest new features or documentation updates :wrench:
+- Create **pull requests, submit bugs, suggest new features** or documentation updates :wrench:
 
 ## Server
 
