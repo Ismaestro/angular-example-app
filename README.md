@@ -4,9 +4,9 @@
 
 ### Demo
 
-Live demo [here](https://ismaestro.github.io/angular-example-app/)!
+Live demo [here](https://ismaestro.github.io/angular4-example-app/)!
 
-![angular-example-app](http://i68.tinypic.com/4vst21.jpg)
+![angular4-example-app](http://i68.tinypic.com/4vst21.jpg)
 
 ## Usage
 

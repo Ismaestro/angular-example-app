@@ -1,10 +1,10 @@
 {
-  "name": "angular-example-app",
+  "name": "angular4-example-app",
   "version": "1.0.8",
   "license": "MIT",
   "scripts": {
     "start": "ng serve",
-    "deploy": "npm version patch; ng build --prod --base-href /angular-example-app/ && angular-cli-ghpages",
+    "deploy": "npm version patch; ng build --prod --base-href /angular4-example-app/ && angular-cli-ghpages",
     "tslint": "tslint \"src/**/*.ts\"; exit 0",
     "test": "ng test",
     "e2e": "npm run pree2e | protractor",

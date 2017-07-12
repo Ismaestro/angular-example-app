@@ -1,6 +1,6 @@
 import {AngularTOHPage} from './app.po';
 
-describe('angular-hero-cli App', function () {
+describe('angular4-hero-cli App', function () {
   let page: AngularTOHPage;
 
   beforeEach(() => {
