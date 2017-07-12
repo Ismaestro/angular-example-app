@@ -1,6 +1,6 @@
 # Example app with Angular 4 + Typescript + Angular CLI + Angular Material
 
-> ### Example app made with much  :heart: . Contains CRUD, official style guide, patterns, etc. This project, tries to be a base-project example.
+> ### Base project made with much  :heart: . Contains CRUD, official style guide, patterns, etc.
 
 ### Demo
 
