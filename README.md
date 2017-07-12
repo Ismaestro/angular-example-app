@@ -10,11 +10,15 @@ Live demo [here](https://ismaestro.github.io/angular-example-app/)!
 
 ## Usage
 
-`npm i`
+Install: `npm i`
 
-`npm start`
+Run: `npm start` and go to `localhost:4200`
 
-`npm run deploy` (fork to do this)
+Test: `npm run test` and `npm run e2e`
+
+Build: `ng build --prod`
+
+Deploy: `npm run deploy` (fork to do this)
 
 ## Features
 * Angular 4
