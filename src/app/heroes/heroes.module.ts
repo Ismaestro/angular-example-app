@@ -12,7 +12,6 @@ import {HeroListComponent, RemoveHeroDialogComponent} from './hero-list/hero-lis
 import {HeroSearchComponent} from './hero-search/hero-search.component';
 
 import {HeroService} from './shared/hero.service';
-import {MaterialModule} from '../core/material.module';
 import {HeroTopComponent} from './hero-top/hero-top.component';
 
 @NgModule({
@@ -26,8 +25,7 @@ import {HeroTopComponent} from './hero-top/hero-top.component';
     }),
     SharedModule,
     HeroRoutingModule,
-    ReactiveFormsModule,
-    MaterialModule
+    ReactiveFormsModule
   ],
   declarations: [
     HeroListComponent,

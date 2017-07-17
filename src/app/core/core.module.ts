@@ -13,7 +13,7 @@ import {HeroRoutingModule} from '../heroes/heroes-routing.module';
 
 import {NavComponent} from './nav/nav.component';
 import {FooterComponent} from './footer/footer.component';
-import {MaterialModule} from './material.module';
+import {SharedModule} from '../shared/modules/shared.module';
 
 
 @NgModule({
@@ -27,7 +27,7 @@ import {MaterialModule} from './material.module';
       useFactory: TranslateLoaderFactory,
       deps: [Http]
     }),
-    MaterialModule
+    SharedModule
   ],
   exports: [
     NavComponent,

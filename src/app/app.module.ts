@@ -14,7 +14,6 @@ import {HeroesModule} from './heroes/heroes.module';
 
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MaterialModule} from './core/material.module';
 
 @NgModule({
   imports: [
@@ -30,8 +29,7 @@ import {MaterialModule} from './core/material.module';
     AppRoutingModule,
     CoreModule,
     HeroesModule,
-    SharedModule,
-    MaterialModule
+    SharedModule
   ],
   declarations: [
     AppComponent
