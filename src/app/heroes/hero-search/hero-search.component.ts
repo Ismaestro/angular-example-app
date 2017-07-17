@@ -17,6 +17,7 @@ export class HeroSearchComponent {
   heroes: Array<Hero> = [];
   heroFormControl: FormControl;
   filteredHeroes: any;
+  heroesAutocomplete: any;
 
   constructor(private heroService: HeroService) {
     this.heroFormControl = new FormControl();
