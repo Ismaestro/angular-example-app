@@ -2,6 +2,10 @@
 
 > ### Base project made with much  :heart: . Contains CRUD, official style guide, patterns, etc.
 
+![node version](https://img.shields.io/badge/node-7.10.0-green.svg)
+![npm version](https://img.shields.io/badge/npm-4.2.0-green.svg)
+![angular-cli version](https://img.shields.io/badge/angular.cli-1.0.0-green.svg)
+
 ### Demo
 
 Live demo [here](https://ismaestro.github.io/angular4-example-app/)!
