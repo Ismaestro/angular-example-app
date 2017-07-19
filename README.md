@@ -14,13 +14,7 @@ Live demo [here](https://ismaestro.github.io/angular4-example-app/)!
 
 ## Usage
 
-See [prerequisites](https://github.com/angular/angular-cli#prerequisites)!
-
-Install:
-```
-npm install -g @angular/cli
-npm i
-```
+Install: `npm i`
 
 Run: `npm start` and go to `localhost:4200`
 
