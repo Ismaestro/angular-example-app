@@ -12,6 +12,10 @@
     "postversion": "git push"
   },
   "private": true,
+  "engines": {
+    "node": ">= 6.9.0",
+    "npm": ">= 3.0.0"
+  },
   "devDependencies": {
     "@angular/animations": "4.2.4",
     "@angular/cli": "1.1.3",
