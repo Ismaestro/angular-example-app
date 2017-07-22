@@ -4,8 +4,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {HeroTopComponent} from './heroes/hero-top/hero-top.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/', pathMatch: 'full'},
-  {path: '', component: HeroTopComponent}
+  {path: '', component: HeroTopComponent},
+  {path: '**', redirectTo: '/heroes-list', pathMatch: 'full' },
 ];
 
 @NgModule({
