@@ -1,6 +1,6 @@
 {
   "name": "angular-example-app",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "license": "MIT",
   "scripts": {
     "start": "ng serve",
