@@ -41,7 +41,7 @@ Deploy: `npm run deploy` (fork to do this)
 
 ## Server
 
-This repo is using an API which is [a simple app](https://github.com/Ismaestro/tour-of-heroes-sample-app) in NodeJS deployed on Heroku, to create, modify and delete heroes
+This repo is using an API which is [a simple app](https://github.com/Ismaestro/nodejs-example-app) in NodeJS deployed on Heroku and using PostGreSQL, to create, modify and delete heroes
 
 Enjoy :metal:
 
