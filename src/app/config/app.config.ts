@@ -4,10 +4,10 @@ import {IAppConfig} from './iapp.config';
 
 export let APP_CONFIG = new OpaqueToken('app.config');
 
-let heroesRoute = 'heroes';
+let heroesRoute = 'heroes-list';
 export const AppConfig: IAppConfig = {
   routes: {
-    heroes: heroesRoute,
+    heroesList: heroesRoute,
     heroById: heroesRoute + '/:id'
   },
   endpoints: {

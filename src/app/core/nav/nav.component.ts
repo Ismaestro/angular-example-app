@@ -38,7 +38,7 @@ export class NavComponent {
     this.translateService.get(['home', 'heroesList'], {}).subscribe((texts: string) => {
       this.menuItems = [
         {link: '/', name: texts['home']},
-        {link: '/' + this.appConfig.routes.heroes, name: texts['heroesList']}
+        {link: '/' + this.appConfig.routes.heroesList, name: texts['heroesList']}
       ];
     });
   }
