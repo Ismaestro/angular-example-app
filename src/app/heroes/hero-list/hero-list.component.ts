@@ -41,10 +41,8 @@ export class HeroListComponent {
   }
 
   createNewHero(newHero) {
-    this.heroService.create(newHero).subscribe((heroes) => {
-      this.heroes = heroes.sort((a, b) => {
-        return b.likes - a.likes;
-      });
+    this.heroService.create(newHero).subscribe((newHeroWithId) => {
+      this.heroes.push(newHeroWithId);
       this.myNgForm.resetForm();
     }, (response) => {
       if (response.status === 500) {
@@ -53,12 +51,12 @@ export class HeroListComponent {
     });
   }
 
-  remove(hero): void {
+  remove(heroToRemove): void {
     let dialogRef = this.dialog.open(RemoveHeroDialogComponent);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.heroService.remove(hero.id).subscribe((heroes) => {
-          this.heroes = heroes;
+        this.heroService.remove(heroToRemove.id).subscribe(() => {
+          this.heroes = this.heroes.filter(hero => hero.id !== heroToRemove.id);
         }, (response) => {
           if (response.status === 500) {
             this.error = 'heroDefault';

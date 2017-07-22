@@ -6,7 +6,7 @@ import {IAppConfig} from '../../config/iapp.config';
 
 import {Hero} from './hero.model';
 import {Observable} from 'rxjs/Observable';
-import {MdSnackBar} from '@angular/material';
+import {MdSnackBar, MdSnackBarConfig} from '@angular/material';
 import {TranslateService} from 'ng2-translate';
 
 @Injectable()
@@ -15,7 +15,7 @@ export class HeroService {
 
   private headers;
   private heroesUrl;
-  private translations: Array<string>;
+  private translations: any;
 
 
   private handleError(error: any): Promise<any> {
@@ -50,7 +50,7 @@ export class HeroService {
       .catch(this.handleError);
   }
 
-  create(hero: Hero): Observable<Array<Hero>> {
+  create(hero: Hero): Observable<Hero> {
     this.request$.emit('starting');
     return this.http
       .post(this.heroesUrl, JSON.stringify({
@@ -59,9 +59,7 @@ export class HeroService {
       }), {headers: this.headers})
       .map(res => {
         this.request$.emit('finished');
-        this.snackBar.open(this.translations['heroCreated'], 'OK', {
-          duration: this.appConfig.snackBarDuration
-        });
+        this.showSnackBar('heroCreated');
         return res.json();
       })
       .catch(this.handleError);
@@ -77,17 +75,12 @@ export class HeroService {
           this.request$.emit('finished');
           localStorage.setItem('votes', '' + (Number(localStorage.getItem('votes')) + 1));
           hero.likes += 1;
-          this.snackBar.open(this.translations['saved'], 'OK', {
-            duration: this.appConfig.snackBarDuration,
-          });
+          this.showSnackBar('saved');
           return response;
         })
         .catch(this.handleError);
     } else {
-      this.snackBar.open(this.translations['heroLikeMaximum'], 'OK', {
-        duration: this.appConfig.snackBarDuration
-      });
-
+      this.showSnackBar('heroLikeMaximum');
       return Observable.of('');
     }
   }
@@ -102,11 +95,15 @@ export class HeroService {
     return this.http.delete(url, {headers: this.headers})
       .map((response) => {
         this.request$.emit('finished');
-        this.snackBar.open(this.translations['heroRemoved'], 'OK', {
-          duration: this.appConfig.snackBarDuration
-        });
+        this.showSnackBar('heroRemoved');
         return response.json() as Hero[];
       })
       .catch(this.handleError);
+  }
+
+  showSnackBar(name) {
+    const config: any = new MdSnackBarConfig();
+    config.duration = this.appConfig.snackBarDuration;
+    this.snackBar.open(this.translations[name], 'OK', config);
   }
 }
