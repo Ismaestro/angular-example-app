@@ -5,7 +5,7 @@ export class AngularTOHPage {
     return browser.get('/');
   }
 
-  getParagraphText() {
-    return element(by.css('toh-hero-top h3')).getText();
+  getNumberHeroes() {
+    return element.all(by.css('toh-hero-top #heroes-list md-card')).count();
   }
 }

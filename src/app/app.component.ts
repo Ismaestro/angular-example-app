@@ -26,7 +26,7 @@ export class AppComponent {
       if (event instanceof NavigationEnd) {
         switch (event.urlAfterRedirects) {
           case '/':
-            this.title.setTitle('Angular4 Example App');
+            this.title.setTitle('Angular Example App');
             this.meta.updateTag({
               name: 'description',
               content: 'Angular 4 Example app with Angular CLI, Angular Material and more'
