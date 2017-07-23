@@ -65,3 +65,12 @@ snack-bar-container {
 .mat-dialog-title {
     text-align: center;
 }
+
+.hero-header-image {
+    background-size: cover;
+}
+
+.mat-card-image {
+    margin-bottom: -28px !important;
+    border-top: 1px solid #eee;
+}

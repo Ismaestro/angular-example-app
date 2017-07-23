@@ -50,6 +50,16 @@ export class HeroService {
       .catch(this.handleError);
   }
 
+  getById(heroId): Observable<Hero> {
+    this.request$.emit('starting');
+    return this.http.get(this.heroesUrl + '/' + heroId)
+      .map(response => {
+        this.request$.emit('finished');
+        return response.json() as Hero;
+      })
+      .catch(this.handleError);
+  }
+
   create(hero: Hero): Observable<Hero> {
     this.request$.emit('starting');
     return this.http

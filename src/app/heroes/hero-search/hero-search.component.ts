@@ -1,8 +1,11 @@
-import {Component} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {LoggerService} from '../../core/logger.service';
 import {Hero} from '../shared/hero.model';
 import {FormControl} from '@angular/forms';
 import {HeroService} from '../shared/hero.service';
+import {Router} from '@angular/router';
+import {IAppConfig} from '../../config/iapp.config';
+import {APP_CONFIG} from '../../config/app.config';
 
 @Component({
   selector: 'toh-hero-search',
@@ -19,7 +22,9 @@ export class HeroSearchComponent {
   filteredHeroes: any;
   heroesAutocomplete: any;
 
-  constructor(private heroService: HeroService) {
+  constructor(private heroService: HeroService,
+              @Inject(APP_CONFIG) private appConfig: IAppConfig,
+              private router: Router) {
     this.heroFormControl = new FormControl();
 
     this.heroService.get().subscribe((heroes) => {
@@ -35,12 +40,12 @@ export class HeroSearchComponent {
   }
 
   filterHeroes(val: string) {
-    return val ? this.heroes.filter(hero => hero.name.toLowerCase().indexOf(val.toLowerCase()) === 0)
+    return val ? this.heroes.filter(hero => hero.name.toLowerCase().indexOf(val.toLowerCase()) === 0 && hero['default'])
       : this.heroes;
   }
 
   searchHero(hero: Hero): void {
     LoggerService.log('Moved to hero with id: ' + hero.id);
-    window.open('https://www.google.es/search?q=' + hero.name, '_blank');
+    this.router.navigate([this.appConfig.routes.heroById + hero.id])
   }
 }

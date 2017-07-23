@@ -44,5 +44,6 @@
   "areYouSure": "Are you sure?",
   "no": "No",
   "yes": "Yes",
-  "heroRemoved": "Hero has gone :("
+  "heroRemoved": "Hero has gone :(",
+  "heroDetail": "Hero detail"
 }

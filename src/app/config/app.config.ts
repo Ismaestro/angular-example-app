@@ -4,11 +4,10 @@ import {IAppConfig} from './iapp.config';
 
 export let APP_CONFIG = new OpaqueToken('app.config');
 
-let heroesRoute = 'heroes-list';
 export const AppConfig: IAppConfig = {
   routes: {
-    heroesList: heroesRoute,
-    heroById: heroesRoute + '/:id'
+    heroesList: 'heroes-list',
+    heroById: 'heroes/'
   },
   endpoints: {
     heroes: 'https://nodejs-example-app.herokuapp.com/heroes'

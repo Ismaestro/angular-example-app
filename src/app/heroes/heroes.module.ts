@@ -13,6 +13,7 @@ import {HeroSearchComponent} from './hero-search/hero-search.component';
 
 import {HeroService} from './shared/hero.service';
 import {HeroTopComponent} from './hero-top/hero-top.component';
+import {HeroDetailComponent} from './hero-detail/hero-detail.component';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import {HeroTopComponent} from './hero-top/hero-top.component';
     HeroListComponent,
     HeroSearchComponent,
     HeroTopComponent,
-    RemoveHeroDialogComponent
+    RemoveHeroDialogComponent,
+    HeroDetailComponent
   ],
   entryComponents: [
     RemoveHeroDialogComponent

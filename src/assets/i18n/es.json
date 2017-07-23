@@ -44,5 +44,6 @@
   "areYouSure": "¿Estas seguro?",
   "no": "No",
   "yes": "Yes",
-  "heroRemoved": "El heroe nos ha dejado :("
+  "heroRemoved": "El heroe nos ha dejado :(",
+  "heroDetail": "Detalle del heroe"
 }

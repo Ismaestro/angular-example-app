@@ -20,7 +20,7 @@
         "assets/css/reset.css",
         "assets/css/loading.css",
         "../node_modules/roboto-fontface/css/roboto/roboto-fontface.css",
-        "assets/css/styles.css"
+        "assets/css/styles.scss"
       ],
       "scripts": [
       ],
