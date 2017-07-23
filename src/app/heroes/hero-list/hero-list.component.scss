@@ -45,3 +45,18 @@ form {
     margin: 0 auto;
   }
 }
+
+@media (max-width: 680px) {
+  #left {
+    width: 100%;
+    float: none;
+    margin: 0 auto;
+  }
+
+  #right {
+    margin: 1em auto 0;
+    width: 90%;
+    float: none;
+    padding: 0;
+  }
+}

@@ -42,6 +42,7 @@ export class HeroListComponent {
 
   createNewHero(newHero) {
     this.heroService.create(newHero).subscribe((newHeroWithId) => {
+      console.log(newHeroWithId);
       this.heroes.push(newHeroWithId);
       this.myNgForm.resetForm();
     }, (response) => {

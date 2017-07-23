@@ -31,7 +31,7 @@
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 680px) {
   :host(toh-nav) {
     padding-top: 0;
 
@@ -42,6 +42,10 @@
         height: 7em;
         display: flex;
         padding: 1em 2em 0;
+
+        iframe {
+          margin-top: 0.5em;
+        }
       }
     }
   }
