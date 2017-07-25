@@ -10,11 +10,13 @@ branches:
 
 before_script:
   - npm install
-  - npm start
-  - npm run e2e
 
 script:
   - ng build --prod
+  - angular-cli-ghpages
+
+after_script:
+  - npm run e2e
 
 notifications:
   email:

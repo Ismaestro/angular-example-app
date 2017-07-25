@@ -13,7 +13,7 @@ exports.config = {
     'browserName': 'chrome'
   },
   directConnect: true,
-  baseUrl: 'http://localhost:4200/',
+  baseUrl: 'https://ismaestro.github.io/angular4-example-app/',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
