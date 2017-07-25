@@ -15,9 +15,6 @@ script:
   - ng build --prod
   - angular-cli-ghpages
 
-after_script:
-  - npm run e2e
-
 notifications:
   email:
     on_failure: change
