@@ -5,6 +5,7 @@
 ![node version](https://img.shields.io/badge/node-7.10.0-green.svg)
 ![npm version](https://img.shields.io/badge/npm-4.2.0-green.svg)
 ![angular-cli version](https://img.shields.io/badge/angular.cli-1.0.0-green.svg)
+![travis](https://travis-ci.org/Ismaestro/angular4-example-app.svg?branch=master)
 
 ### Demo
 
