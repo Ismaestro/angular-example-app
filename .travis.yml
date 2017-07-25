@@ -9,8 +9,9 @@ branches:
     - master
 
 before_script:
-  - npm install -g @angular/cli
   - npm install
+  - npm start
+  - npm run e2e
 
 script:
   - ng build --prod
