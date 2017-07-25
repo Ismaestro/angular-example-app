@@ -10,10 +10,11 @@ branches:
 
 before_script:
   - npm install
+  - npm install -g angular-cli-ghpages
 
 script:
   - ng build --prod
-  - angular-cli-ghpages
+  - angular-cli-ghpages --repo=https://GH_TOKEN@github.com/Ismaestro/angular4-example-app.git --name="New release" --email=ramossilvanismael@gmail.com
 
 notifications:
   email:
