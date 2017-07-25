@@ -1,4 +1,4 @@
-# Example app with Angular 4 + Typescript + Angular CLI + Angular Material
+# Example app with Angular 4 + Angular CLI + Angular Material + Travis CI
 
 > ### Base project made with much  :heart: . Contains CRUD, official style guide, patterns, etc.
 
@@ -33,8 +33,9 @@ Deploy: `npm run deploy` (fork to do this)
 * Angular Material
 * Internationalization
 * Sass
-* Tests with Protractor
+* Tests e2e with Protractor
 * Github pages deploy ready
+* Travis CI
 
 ## How can I support developers?
 - Star the GitHub repo :star:
