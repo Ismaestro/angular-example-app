@@ -11,6 +11,7 @@ import {ActivatedRoute} from '@angular/router';
 
 export class HeroDetailComponent {
   hero: Hero;
+  canVote: boolean;
 
   constructor(private heroesService: HeroService,
               private activatedRoute: ActivatedRoute) {
@@ -18,6 +19,12 @@ export class HeroDetailComponent {
       this.heroesService.getById(params['id']).subscribe((hero) => {
         this.hero = hero;
       });
+    });
+  }
+
+  like(hero) {
+    this.heroesService.like(hero).subscribe(() => {
+      this.canVote = this.heroesService.checkIfUserCanVote();
     });
   }
 }

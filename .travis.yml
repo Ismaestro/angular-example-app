@@ -1,8 +1,21 @@
 #.travis.yml
 
+sudo: required
+
+dist: trusty
+
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
 language: node_js
+
 node_js:
-  - "6.9"
+  - 6
+  - 7
 
 branches:
   only:
@@ -13,10 +26,8 @@ before_script:
   - npm install -g angular-cli-ghpages
 
 script:
-  - ng serve &
-  - sleep 20
-  - webdriver-manager update --standalone false --gecko false
-  - protractor
+  - npm run lint
+  - npm run e2e
   - ng build --prod --base-href /angular4-example-app/
   - angular-cli-ghpages --repo=https://GH_TOKEN@github.com/Ismaestro/angular4-example-app.git --name="New release" --email=ramossilvanismael@gmail.com
 
