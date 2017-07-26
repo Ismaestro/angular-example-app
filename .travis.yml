@@ -13,6 +13,10 @@ before_script:
   - npm install -g angular-cli-ghpages
 
 script:
+  - ng serve &
+  - sleep 20
+  - webdriver-manager update --standalone false --gecko false
+  - protractor
   - ng build --prod --base-href /angular4-example-app/
   - angular-cli-ghpages --repo=https://GH_TOKEN@github.com/Ismaestro/angular4-example-app.git --name="New release" --email=ramossilvanismael@gmail.com
 
