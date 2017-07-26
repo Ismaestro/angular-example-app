@@ -19,9 +19,9 @@ Install: `npm i`
 
 Run: `npm start` and go to `localhost:4200`
 
-Test: `npm run test` and `npm run e2e`
+Tests: `npm run test` and `npm run e2e`
 
-Build: `ng build --prod`
+Build: `npm run build`
 
 Deploy: `npm run deploy` (fork to do this)
 
@@ -37,14 +37,23 @@ Deploy: `npm run deploy` (fork to do this)
 * Github pages deploy ready
 * Travis CI
 
+## Travis CI
+We use Travis CI to run this tasks in order:
+* Linter
+* Tests e2e
+* Build for production
+* Deploy in Github pages
+
+:)
+
 ## How can I support developers?
 - Star the GitHub repo :star:
 - Create **pull requests, submit bugs, suggest new features** or documentation updates :wrench:
 
 ## Server
 
-This repo is using an API which is [a simple app](https://github.com/Ismaestro/nodejs-example-app) in NodeJS deployed on Heroku and using PostGreSQL, to create, modify and delete heroes
+This repo is using an API which is [another example app](https://github.com/Ismaestro/nodejs-example-app) in NodeJS deployed on Heroku and using PostGreSQL, to create, modify and delete heroes
 
 Enjoy :metal:
 
-I'm always happy to hear your feedback!
+We are always happy to hear your feedback!

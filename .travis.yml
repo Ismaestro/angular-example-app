@@ -30,8 +30,8 @@ before_script:
 script:
   - npm run lint
   - npm run e2e
-  - ng build --prod --base-href /angular4-example-app/
-  - angular-cli-ghpages --repo=https://GH_TOKEN@$GH_REPO --name="New release" --email=ramossilvanismael@gmail.com
+  - ng build --prod --base-href /$PROJECT_NAME/
+  - angular-cli-ghpages --repo=https://GH_TOKEN@$GH_REPO --name="New release" --email=$EMAIL
 
 notifications:
   email:

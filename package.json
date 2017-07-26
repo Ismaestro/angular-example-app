@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "ng serve",
+    "build": "ng build --prod",
     "deploy": "ng build --prod --base-href /angular4-example-app/ && angular-cli-ghpages",
     "test": "ng test",
     "test:once": "ng test --watch=false",
