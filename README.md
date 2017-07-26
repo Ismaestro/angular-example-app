@@ -19,15 +19,15 @@ Live DEMO [here](https://ismaestro.github.io/angular4-example-app/)!
 
 `npm start` - Starts the app. Then go to `localhost:4200`
 
-`npm run e2e` - Run end to end tests with protractor
+`npm run e2e` - Runs end to end tests with protractor
 
-`npm run build` - Build the app for production
+`npm run build` - Builds the app for production
 
-`npm run build` - Runs the linter (tslint)
+`npm run lint` - Runs the linter (tslint)
 
 `npm run ci` - Executes linter and e2e tests
 
-`npm run deploy` - Build the app and deploy to Github pages (fork to do this)
+`npm run deploy` - Builds the app and deploy to Github pages (fork to do this)
 
 ## Features
 * Angular 4
