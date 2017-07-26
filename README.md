@@ -9,7 +9,7 @@
 
 ### DEMO
 
-Live DEMO <a href="https://ismaestro.github.io/angular4-example-app/" target="_blank">here</a>!
+Live DEMO [here](https://ismaestro.github.io/angular4-example-app/)!
 
 ![angular-example-app](http://i68.tinypic.com/2jbwkyd.jpg)
 
