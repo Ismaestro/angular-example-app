@@ -15,15 +15,19 @@ Live DEMO [here](https://ismaestro.github.io/angular4-example-app/)!
 
 ## Usage
 
-Install: `npm i`
+`npm i` - Installs everything needed
 
-Run: `npm start` and go to `localhost:4200`
+`npm start` - Starts the app. Then go to `localhost:4200`
 
-Tests: `npm run test` and `npm run e2e`
+`npm run e2e` - Run end to end tests with protractor
 
-Build: `npm run build`
+`npm run build` - Build the app for production
 
-Deploy: `npm run deploy` (fork to do this)
+`npm run build` - Runs the linter (tslint)
+
+`npm run ci` - Executes linter and e2e tests
+
+`npm run deploy` - Build the app and deploy to Github pages (fork to do this)
 
 ## Features
 * Angular 4
@@ -35,7 +39,6 @@ Deploy: `npm run deploy` (fork to do this)
 * Sass
 * Tests e2e with Protractor
 * Github pages deploy ready
-* Travis CI
 
 ## Travis CI
 We use Travis CI to run this tasks in order:
@@ -43,7 +46,6 @@ We use Travis CI to run this tasks in order:
 * Tests e2e
 * Build for production
 * Deploy in Github pages
-
 :)
 
 ## How can I support developers?
