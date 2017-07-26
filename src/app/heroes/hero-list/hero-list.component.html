@@ -8,10 +8,12 @@
         </md-progress-spinner>
         <md-list>
             <md-list-item *ngFor="let hero of heroes">
-                <img *ngIf="hero.default" md-list-avatar src="assets/images/heroes/{{hero.id}}-mini.jpg">
-                <img *ngIf="!hero.default" md-list-avatar src="assets/images/heroes/default.png">
-                <h3 md-line> {{hero.name}} </h3>
-                <p md-line>
+                <img *ngIf="hero.default" class="cp"
+                     (click)="seeHeroDetails(hero);" md-list-avatar src="assets/images/heroes/{{hero.id}}-mini.jpg">
+                <img *ngIf="!hero.default"
+                     (click)="seeHeroDetails(hero);" md-list-avatar src="assets/images/heroes/default.png">
+                <h3 md-line [ngClass]="{'cp': hero.default}" (click)="seeHeroDetails(hero);"> {{hero.name}} </h3>
+                <p md-line [ngClass]="{'cp': hero.default}" (click)="seeHeroDetails(hero);">
                     <span>{{hero.alterEgo}}</span>
                 </p>
                 <div class="hero-actions">
@@ -21,7 +23,8 @@
                              class="like-icon" (click)="like(hero)">
                         favorite
                     </md-icon>
-                    <md-icon class="remove-icon" *ngIf="!hero.default" (click)="remove(hero)">
+                    <md-icon class="remove-icon" *ngIf="!hero.default"
+                             (click)="remove(hero);">
                         delete
                     </md-icon>
                 </div>

@@ -9,7 +9,8 @@
     "test": "ng test",
     "test:once": "ng test --watch=false",
     "e2e": "ng e2e",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "ci": "npm run lint && npm run e2e"
   },
   "private": true,
   "engines": {

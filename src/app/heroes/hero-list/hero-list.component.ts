@@ -1,8 +1,11 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, Inject, ViewChild} from '@angular/core';
 import {Hero} from '../shared/hero.model';
 import {HeroService} from '../shared/hero.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MdDialog} from '@angular/material';
+import {APP_CONFIG} from '../../config/app.config';
+import {IAppConfig} from '../../config/iapp.config';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'toh-hero-list',
@@ -19,6 +22,8 @@ export class HeroListComponent {
 
   constructor(private heroService: HeroService,
               private dialog: MdDialog,
+              @Inject(APP_CONFIG) private appConfig: IAppConfig,
+              private router: Router,
               private formBuilder: FormBuilder) {
     this.canVote = this.heroService.checkIfUserCanVote();
 
@@ -50,6 +55,12 @@ export class HeroListComponent {
         this.error = 'errorHasOcurred';
       }
     });
+  }
+
+  seeHeroDetails(hero) {
+    if (hero.default) {
+      this.router.navigate([this.appConfig.routes.heroById + hero.id]);
+    }
   }
 
   remove(heroToRemove): void {
