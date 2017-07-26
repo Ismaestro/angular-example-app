@@ -7,9 +7,9 @@
 ![angular-cli version](https://img.shields.io/badge/angular.cli-1.0.0-green.svg)
 ![travis](https://travis-ci.org/Ismaestro/angular4-example-app.svg?branch=master)
 
-### Demo
+### DEMO
 
-Live demo [here](https://ismaestro.github.io/angular4-example-app/)!
+Live DEMO [here](https://ismaestro.github.io/angular4-example-app/)!
 
 ![angular-example-app](http://i68.tinypic.com/2jbwkyd.jpg)
 
