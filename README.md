@@ -2,12 +2,9 @@
 
 > ### Base project made with much  :heart: . Contains CRUD, official style guide, patterns, etc.
 
-![node version](https://img.shields.io/badge/node-7.10.0-green.svg)
-![npm version](https://img.shields.io/badge/npm-4.2.0-green.svg)
-![angular-cli version](https://img.shields.io/badge/angular.cli-1.0.0-green.svg)
 ![travis](https://travis-ci.org/Ismaestro/angular4-example-app.svg?branch=master)
-[![Join the chat at https://gitter.im/angular4-example-app/Lobby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/angular4-example-app/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![devDependency Status](https://david-dm.org/ismaestro/angular4-example-app/dev-status.svg)](https://david-dm.org/ismaestro/angular4-example-app#info=devDependencies)
+[![Join the chat at https://gitter.im/angular4-example-app/Lobby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/angular4-example-app/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ### DEMO
 
