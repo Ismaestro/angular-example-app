@@ -33,6 +33,9 @@ script:
   - ng build --prod --base-href /$PROJECT_NAME/
   - angular-cli-ghpages --repo=https://GH_TOKEN@$GH_REPO --name="New release" --email=$EMAIL
 
+after_success:
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+
 notifications:
   email:
     on_failure: change
