@@ -10,6 +10,6 @@ describe('Angular Example App', function () {
 
   it('Number of heroes', () => {
     page.navigateTo();
-    expect(page.getNumberHeroes()).toBe(AppConfig.topHeroesLimit);
+    expect<any>(page.getNumberHeroes()).toBe(AppConfig.topHeroesLimit);
   });
 });
