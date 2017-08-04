@@ -6,7 +6,7 @@ export class LoggerService {
     console.log(msg);
   }
 
-  static error(msg: string, obj?: any) {
+  static error(msg: string, obj = {}) {
     console.error(msg, obj);
   }
 }
