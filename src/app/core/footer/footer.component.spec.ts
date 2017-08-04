@@ -1,9 +1,9 @@
 import {async, TestBed} from '@angular/core/testing';
 import {APP_BASE_HREF} from '@angular/common';
 import {AppModule} from '../../app.module';
-import {HeroListComponent} from './hero-list.component';
+import {FooterComponent} from './footer.component';
 
-describe('HeroListComponent', () => {
+describe('FooterComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [AppModule
@@ -14,8 +14,8 @@ describe('HeroListComponent', () => {
     }).compileComponents();
   }));
 
-  it('should create hero list component', (() => {
-    const fixture = TestBed.createComponent(HeroListComponent);
+  it('should create footer component', (() => {
+    const fixture = TestBed.createComponent(FooterComponent);
     const component = fixture.debugElement.componentInstance;
     expect(component).toBeTruthy();
   }));
