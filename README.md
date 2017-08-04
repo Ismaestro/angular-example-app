@@ -22,6 +22,8 @@ Live DEMO [here](https://ismaestro.github.io/angular4-example-app/)!
 
 `npm start` - Starts the app. Then go to `localhost:4200`
 
+`npm run test` - Runs unit tests with karma and jasmine
+
 `npm run e2e` - Runs end to end tests with protractor
 
 `npm run build` - Builds the app for production
