@@ -1,5 +1,6 @@
-import {TranslateStaticLoader} from 'ng2-translate';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient} from '@angular/common/http';
 
-export function TranslateLoaderFactory(http: any) {
-  return new TranslateStaticLoader(http, 'assets/i18n', '.json');
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
 }

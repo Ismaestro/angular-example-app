@@ -1,9 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
-import {Http, HttpModule} from '@angular/http';
-import {TranslateLoader, TranslateModule} from 'ng2-translate';
-import {TranslateLoaderFactory} from './app.translate.factory';
 
 import {APP_CONFIG, AppConfig} from './config/app.config';
 
@@ -14,17 +11,22 @@ import {HeroesModule} from './heroes/heroes.module';
 
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {HttpLoaderFactory} from './app.translate.factory';
 
 @NgModule({
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     TranslateModule.forRoot({
-      provide: TranslateLoader,
-      useFactory: TranslateLoaderFactory,
-      deps: [Http]
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
     }),
     AppRoutingModule,
     CoreModule,

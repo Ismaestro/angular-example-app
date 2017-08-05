@@ -1,9 +1,6 @@
 import {NgModule, Optional, SkipSelf} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import {Http} from '@angular/http';
-import {TranslateLoader, TranslateModule} from 'ng2-translate';
-import {TranslateLoaderFactory} from '../app.translate.factory';
 
 import {throwIfAlreadyLoaded} from './module-import-guard';
 import {LoggerService} from './logger.service';
@@ -22,11 +19,6 @@ import {SharedModule} from '../shared/modules/shared.module';
     FormsModule,
     HeroRoutingModule,
     HeroesModule,
-    TranslateModule.forRoot({
-      provide: TranslateLoader,
-      useFactory: TranslateLoaderFactory,
-      deps: [Http]
-    }),
     SharedModule
   ],
   exports: [

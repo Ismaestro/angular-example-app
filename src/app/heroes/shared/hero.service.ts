@@ -1,5 +1,5 @@
 import {EventEmitter, Inject, Injectable} from '@angular/core';
-import {Headers, Http} from '@angular/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 import {APP_CONFIG} from '../../config/app.config';
 import {IAppConfig} from '../../config/iapp.config';
@@ -7,13 +7,13 @@ import {IAppConfig} from '../../config/iapp.config';
 import {Hero} from './hero.model';
 import {Observable} from 'rxjs/Observable';
 import {MdSnackBar, MdSnackBarConfig} from '@angular/material';
-import {TranslateService} from 'ng2-translate';
+import {TranslateService} from '@ngx-translate/core';
 
 @Injectable()
 export class HeroService {
   request$: EventEmitter<any>;
 
-  private headers: Headers;
+  private headers: HttpHeaders;
   private heroesUrl: string;
   private translations: any;
 
@@ -22,14 +22,14 @@ export class HeroService {
     return Promise.reject(error.message || error);
   }
 
-  constructor(private http: Http,
+  constructor(private http: HttpClient,
               private translateService: TranslateService,
               private snackBar: MdSnackBar,
               @Inject(APP_CONFIG) private appConfig: IAppConfig) {
     this.request$ = new EventEmitter();
 
     this.heroesUrl = this.appConfig.endpoints.heroes;
-    this.headers = new Headers({'Content-Type': 'application/json'});
+    this.headers = new HttpHeaders({'Content-Type': 'application/json'});
 
     this.translateService.get(['heroCreated', 'saved', 'heroLikeMaximum', 'heroRemoved'], {
       'value': this.appConfig.votesLimit
@@ -43,7 +43,7 @@ export class HeroService {
     return this.http.get(this.heroesUrl)
       .map(response => {
         this.request$.emit('finished');
-        return response.json() as Hero[];
+        return response;
       })
       .catch(this.handleError);
   }
@@ -53,7 +53,7 @@ export class HeroService {
     return this.http.get(this.heroesUrl + '/' + heroId)
       .map(response => {
         this.request$.emit('finished');
-        return response.json() as Hero;
+        return response;
       })
       .catch(this.handleError);
   }
@@ -65,10 +65,10 @@ export class HeroService {
         name: hero.name,
         alterEgo: hero.alterEgo
       }), {headers: this.headers})
-      .map(res => {
+      .map(response => {
         this.request$.emit('finished');
         this.showSnackBar('heroCreated');
-        return res.json();
+        return response;
       })
       .catch(this.handleError);
   }

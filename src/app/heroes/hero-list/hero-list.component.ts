@@ -70,6 +70,7 @@ export class HeroListComponent {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.heroService.deleteHeroById(heroToRemove.id).subscribe(() => {
+          this.heroService.showSnackBar('heroRemoved');
           this.heroes = this.heroes.filter(hero => hero.id !== heroToRemove.id);
         }, (response) => {
           if (response.status === 500) {

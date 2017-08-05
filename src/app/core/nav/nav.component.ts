@@ -1,5 +1,5 @@
 import {Component, Inject} from '@angular/core';
-import {TranslateService} from 'ng2-translate';
+import {TranslateService} from '@ngx-translate/core';
 
 import {APP_CONFIG} from '../../config/app.config';
 import {IAppConfig} from '../../config/iapp.config';
