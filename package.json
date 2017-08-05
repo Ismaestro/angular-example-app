@@ -5,7 +5,7 @@
   "scripts": {
     "start": "ng serve",
     "build": "ng build --prod",
-    "deploy": "ng build --prod --base-href /angular4-example-app/ && angular-cli-ghpages",
+    "deploy": "ng build --prod --base-href / && angular-cli-ghpages",
     "test": "ng test --watch=false --code-coverage",
     "e2e": "ng e2e",
     "lint": "ng lint",
