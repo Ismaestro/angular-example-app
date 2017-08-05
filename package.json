@@ -11,7 +11,7 @@
     "lint": "ng lint",
     "ci": "npm run lint && npm run test && npm run e2e",
     "sme": "ng build && source-map-explorer dist/main.bundle.js",
-    "release": "standard-version"
+    "release": "standard-version && git push --follow-tags origin master"
   },
   "private": true,
   "engines": {
