@@ -12,7 +12,7 @@
 
 ### DEMO
 
-Live DEMO [here](https://ismaestro.github.io/angular4-example-app/)!
+Live DEMO [here](http://angularexampleapp.com/)!
 
 ![angular-example-app](http://i68.tinypic.com/2jbwkyd.jpg)
 
