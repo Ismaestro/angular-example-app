@@ -16,7 +16,7 @@ export class HeroDetailComponent {
   constructor(private heroService: HeroService,
               private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe((params: any) => {
-      this.heroService.getById(params['id']).subscribe((hero) => {
+      this.heroService.getHeroById(params['id']).subscribe((hero) => {
         this.hero = hero;
       });
     });

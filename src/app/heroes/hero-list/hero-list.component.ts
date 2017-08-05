@@ -33,7 +33,7 @@ export class HeroListComponent {
       'alterEgo': ['', [Validators.required]]
     });
 
-    this.heroService.get().subscribe((heroes) => {
+    this.heroService.getAllHeroes().subscribe((heroes) => {
       this.heroes = heroes.sort((a, b) => {
         return b.likes - a.likes;
       });
@@ -49,7 +49,7 @@ export class HeroListComponent {
   }
 
   createNewHero(newHero) {
-    this.heroService.create(newHero).subscribe((newHeroWithId) => {
+    this.heroService.createHero(newHero).subscribe((newHeroWithId) => {
       this.heroes.push(newHeroWithId);
       this.myNgForm.resetForm();
     }, (response) => {
@@ -69,7 +69,7 @@ export class HeroListComponent {
     let dialogRef = this.dialog.open(RemoveHeroDialogComponent);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.heroService.remove(heroToRemove.id).subscribe(() => {
+        this.heroService.deleteHeroById(heroToRemove.id).subscribe(() => {
           this.heroes = this.heroes.filter(hero => hero.id !== heroToRemove.id);
         }, (response) => {
           if (response.status === 500) {

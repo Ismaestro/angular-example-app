@@ -22,7 +22,7 @@ export class HeroTopComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.heroService.get().subscribe((heroes) => {
+    this.heroService.getAllHeroes().subscribe((heroes) => {
       this.heroes = heroes.sort((a, b) => {
         return b.likes - a.likes;
       }).slice(0, this.appConfig.topHeroesLimit);

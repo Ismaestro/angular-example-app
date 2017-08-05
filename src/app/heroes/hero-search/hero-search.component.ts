@@ -27,7 +27,7 @@ export class HeroSearchComponent {
               private router: Router) {
     this.heroFormControl = new FormControl();
 
-    this.heroService.get().subscribe((heroes) => {
+    this.heroService.getAllHeroes().subscribe((heroes) => {
       this.heroes = heroes;
 
       this.heroFormControl.valueChanges

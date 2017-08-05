@@ -3,6 +3,7 @@ import {HeroService} from './hero.service';
 import {AppModule} from '../../app.module';
 import {APP_BASE_HREF} from '@angular/common';
 import {AppConfig} from '../../config/app.config';
+import {Hero} from './hero.model';
 
 describe('HeroService', () => {
   let heroService;
@@ -21,26 +22,26 @@ describe('HeroService', () => {
   });
 
   it('should contains heroes', async(() => {
-    heroService.get().subscribe((data: any) => {
+    heroService.getAllHeroes().subscribe((data: any) => {
       expect(data.length).toBeGreaterThan(AppConfig.topHeroesLimit);
     });
   }));
 
   it('should get hero by id 1', async(() => {
-    heroService.getById('1').subscribe((hero) => {
+    heroService.getHeroById('1').subscribe((hero) => {
       expect(hero.id).toEqual(1);
     });
   }));
 
   it('should fail getting hero by no id', async(() => {
-    heroService.getById('noId').subscribe(() => {
+    heroService.getHeroById('noId').subscribe(() => {
     }, (error) => {
       expect(error).toEqual(jasmine.any(TypeError));
     });
   }));
 
   it('should create hero', async(() => {
-    heroService.create({
+    heroService.createHero({
       'name': 'test',
       'alterEgo': 'test'
     }).subscribe((hero) => {
@@ -67,7 +68,7 @@ describe('HeroService', () => {
   }));
 
   it('should delete a hero', async(() => {
-    heroService.remove(newHeroCreated.id).subscribe((response) => {
+    heroService.deleteHeroById(newHeroCreated.id).subscribe((response) => {
       expect(response.status).toBe(200);
     });
   }));

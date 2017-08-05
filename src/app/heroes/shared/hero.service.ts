@@ -17,10 +17,8 @@ export class HeroService {
   private heroesUrl: string;
   private translations: any;
 
-
   private handleError(error: any): Promise<any> {
     this.request$.emit('finished');
-
     return Promise.reject(error.message || error);
   }
 
@@ -40,7 +38,7 @@ export class HeroService {
     });
   }
 
-  get(): Observable<Hero[]> {
+  getAllHeroes(): Observable<Hero[]> {
     this.request$.emit('starting');
     return this.http.get(this.heroesUrl)
       .map(response => {
@@ -50,7 +48,7 @@ export class HeroService {
       .catch(this.handleError);
   }
 
-  getById(heroId): Observable<Hero> {
+  getHeroById(heroId: string): Observable<Hero> {
     this.request$.emit('starting');
     return this.http.get(this.heroesUrl + '/' + heroId)
       .map(response => {
@@ -60,7 +58,7 @@ export class HeroService {
       .catch(this.handleError);
   }
 
-  create(hero: Hero): Observable<Hero> {
+  createHero(hero: any): Observable<Hero> {
     this.request$.emit('starting');
     return this.http
       .post(this.heroesUrl, JSON.stringify({
@@ -75,7 +73,7 @@ export class HeroService {
       .catch(this.handleError);
   }
 
-  like(hero) {
+  like(hero: Hero) {
     if (this.checkIfUserCanVote()) {
       this.request$.emit('starting');
       const url = `${this.heroesUrl}/${hero.id}/like`;
@@ -95,11 +93,11 @@ export class HeroService {
     }
   }
 
-  checkIfUserCanVote() {
+  checkIfUserCanVote(): boolean {
     return Number(localStorage.getItem('votes')) < this.appConfig.votesLimit;
   }
 
-  remove(id: string): Observable<Array<Hero>> {
+  deleteHeroById(id: string): Observable<Array<Hero>> {
     this.request$.emit('starting');
     const url = `${this.heroesUrl}/${id}`;
     return this.http.delete(url, {headers: this.headers})
@@ -111,7 +109,7 @@ export class HeroService {
       .catch(this.handleError);
   }
 
-  showSnackBar(name) {
+  showSnackBar(name): void {
     const config: any = new MdSnackBarConfig();
     config.duration = this.appConfig.snackBarDuration;
     this.snackBar.open(this.translations[name], 'OK', config);
