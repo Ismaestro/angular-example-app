@@ -1,6 +1,6 @@
 {
   "name": "angular-example-app",
-  "version": "1.0.23",
+  "version": "1.1.0",
   "license": "MIT",
   "scripts": {
     "start": "ng serve",
@@ -10,7 +10,8 @@
     "e2e": "ng e2e",
     "lint": "ng lint",
     "ci": "npm run lint && npm run test && npm run e2e",
-    "sme": "ng build && source-map-explorer dist/main.bundle.js"
+    "sme": "ng build && source-map-explorer dist/main.bundle.js",
+    "release": "standard-version"
   },
   "private": true,
   "engines": {
@@ -57,6 +58,7 @@
     "protractor": "5.1.2",
     "roboto-fontface": "0.8.0",
     "source-map-explorer": "1.4.0",
+    "standard-version": "^4.2.0",
     "ts-helpers": "1.1.2",
     "ts-node": "3.3.0",
     "tslint": "5.5.0",
