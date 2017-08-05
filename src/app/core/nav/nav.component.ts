@@ -4,6 +4,7 @@ import {TranslateService} from 'ng2-translate';
 import {APP_CONFIG} from '../../config/app.config';
 import {IAppConfig} from '../../config/iapp.config';
 import {ProgressBarService} from '../../shared/services/progress-bar.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'toh-nav',
@@ -12,14 +13,16 @@ import {ProgressBarService} from '../../shared/services/progress-bar.service';
 })
 
 export class NavComponent {
+  appConfig: any;
   menuItems: any[];
   progressBarMode: string;
 
   private translateService: TranslateService;
 
-  constructor(@Inject(APP_CONFIG) private appConfig: IAppConfig,
+  constructor(@Inject(APP_CONFIG) appConfig: IAppConfig,
               private progressBarService: ProgressBarService,
               translateService: TranslateService) {
+    this.appConfig = appConfig;
     this.translateService = translateService;
     this.loadMenus();
 

@@ -4,4 +4,5 @@ export interface IAppConfig {
   votesLimit: number;
   topHeroesLimit: number;
   snackBarDuration: number;
+  repositoryURL: string;
 }

@@ -27,6 +27,11 @@
         align-items: center;
         height: 5px;
       }
+
+      .image-icon {
+        width: 20px;
+        height: 20px;
+      }
     }
   }
 }
@@ -42,9 +47,17 @@
         height: 7em;
         display: flex;
         padding: 1em 2em 0;
+      }
+    }
+  }
+}
 
-        iframe {
-          margin-top: 0.5em;
+@media (max-width: 425px) {
+  :host(toh-nav) {
+    header {
+      nav {
+        toh-hero-search {
+          width: 75%;
         }
       }
     }

@@ -4,9 +4,6 @@
             {{item.name | uppercase}}
         </a>
         <div class="flex-spacer"></div>
-        <iframe
-            src="https://ghbtns.com/github-btn.html?user=ismaestro&repo=angular4-example-app&type=star&count=true&size=small"
-            frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
         <toh-hero-search></toh-hero-search>
         <button md-icon-button [mdMenuTriggerFor]="menu">
             <md-icon>public</md-icon>
@@ -25,6 +22,9 @@
             </span>
             </button>
         </md-menu>
+        <a class="image-icon" href="{{appConfig.repositoryURL}}" target="_blank">
+            <img src="assets/images/github-circle-white-transparent.svg">
+        </a>
     </nav>
     <section class="progress-bar">
         <md-progress-bar
