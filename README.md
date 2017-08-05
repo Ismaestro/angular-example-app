@@ -9,6 +9,7 @@
 [![dependency Status](https://david-dm.org/ismaestro/angular4-example-app.svg)](https://david-dm.org/ismaestro/angular4-example-app#info=dependencies)
 [![devDependency Status](https://david-dm.org/ismaestro/angular4-example-app/dev-status.svg)](https://david-dm.org/ismaestro/angular4-example-app#info=devDependencies)
 [![peerDependencies Status](https://david-dm.org/ismaestro/angular4-example-app/peer-status.svg)](https://david-dm.org/ismaestro/angular4-example-app?type=peer)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![Join the chat at https://gitter.im/angular4-example-app/Lobby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/angular4-example-app/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ### DEMO
@@ -38,6 +39,8 @@ Live DEMO [here](http://angularexampleapp.com/)!
 `npm run deploy` - Builds the app and deploy to Github pages (fork to do this)
 
 `npm run sme` - Builds and runs source map explorer, really cool :)
+
+`npm run release` - Builds and runs source map explorer, really cool :)
 
 **Windows: use precompilation to speed up**
 `tsc --project tsconfig.json`
