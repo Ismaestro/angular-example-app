@@ -6,6 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/Ismaestro/angular4-example-app/badge.svg?branch=master)](https://coveralls.io/github/Ismaestro/angular4-example-app?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9d190a60fc864060ac054ba17a4e92e4)](https://www.codacy.com/app/Ismaestro/angular4-example-app?utm_source=github.com&utm_medium=referral&utm_content=Ismaestro/angular4-example-app&utm_campaign=badger)
 [![Known Vulnerabilities](https://snyk.io/test/github/ismaestro/angular4-example-app/badge.svg)](https://snyk.io/test/github/ismaestro/angular4-example-app)
+[![dependency Status](https://david-dm.org/ismaestro/angular4-example-app.svg)](https://david-dm.org/ismaestro/angular4-example-app#info=dependencies)
 [![devDependency Status](https://david-dm.org/ismaestro/angular4-example-app/dev-status.svg)](https://david-dm.org/ismaestro/angular4-example-app#info=devDependencies)
 [![peerDependencies Status](https://david-dm.org/ismaestro/angular4-example-app/peer-status.svg)](https://david-dm.org/ismaestro/angular4-example-app?type=peer)
 [![Join the chat at https://gitter.im/angular4-example-app/Lobby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/angular4-example-app/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -15,10 +16,11 @@
 Live DEMO [here](http://angularexampleapp.com/)!
 
 ![angular-example-app](http://i68.tinypic.com/2jbwkyd.jpg)
+[![angular-example-app](http://i68.tinypic.com/2jbwkyd.jpg)](http://angularexampleapp.com/)
 
 ## Usage
 
-**Warning: we strongly recommend node >=v6.5.0 and npm >=3.10.3**
+**Warning: we strongly recommend node >=v6.9.0 and npm >=3.0.0**
 
 `npm i` - Installs everything needed
 
@@ -35,6 +37,8 @@ Live DEMO [here](http://angularexampleapp.com/)!
 `npm run ci` - Executes linter and e2e tests
 
 `npm run deploy` - Builds the app and deploy to Github pages (fork to do this)
+
+`npm run sme` - Builds and runs source map explorer, really cool :)
 
 **Windows: use precompilation to speed up**
 `tsc --project tsconfig.json`
