@@ -13,8 +13,8 @@ import {TranslateService} from 'ng2-translate';
 export class HeroService {
   request$: EventEmitter<any>;
 
-  private headers;
-  private heroesUrl;
+  private headers: Headers;
+  private heroesUrl: string;
   private translations: any;
 
 
@@ -91,7 +91,7 @@ export class HeroService {
         .catch(this.handleError);
     } else {
       this.showSnackBar('heroLikeMaximum');
-      return Observable.of('');
+      return Observable.throw('maximum votes');
     }
   }
 
@@ -106,7 +106,7 @@ export class HeroService {
       .map((response) => {
         this.request$.emit('finished');
         this.showSnackBar('heroRemoved');
-        return response.json() as Hero[];
+        return response;
       })
       .catch(this.handleError);
   }

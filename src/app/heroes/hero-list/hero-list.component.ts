@@ -6,6 +6,7 @@ import {MdDialog} from '@angular/material';
 import {APP_CONFIG} from '../../config/app.config';
 import {IAppConfig} from '../../config/iapp.config';
 import {Router} from '@angular/router';
+import {LoggerService} from '../../core/logger.service';
 
 @Component({
   selector: 'toh-hero-list',
@@ -42,12 +43,13 @@ export class HeroListComponent {
   like(hero) {
     this.heroService.like(hero).subscribe(() => {
       this.canVote = this.heroService.checkIfUserCanVote();
+    }, (error) => {
+      LoggerService.error('maximum votes limit reached', error);
     });
   }
 
   createNewHero(newHero) {
     this.heroService.create(newHero).subscribe((newHeroWithId) => {
-      console.log(newHeroWithId);
       this.heroes.push(newHeroWithId);
       this.myNgForm.resetForm();
     }, (response) => {

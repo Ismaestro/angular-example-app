@@ -18,5 +18,6 @@ describe('HeroListComponent', () => {
     const fixture = TestBed.createComponent(HeroListComponent);
     const component = fixture.debugElement.componentInstance;
     expect(component).toBeTruthy();
+    component.seeHeroDetails({'id': 1, 'default': true})
   }));
 });
