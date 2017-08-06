@@ -36,7 +36,7 @@ export class AppComponent {
             this.title.setTitle('Heroes list');
             this.meta.updateTag({
               name: 'description',
-              content: 'List of heroes'
+              content: 'List of super-heroes'
             });
             break;
         }
