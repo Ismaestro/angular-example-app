@@ -35,6 +35,7 @@ script:
 
 after_success:
   - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
+      echo "deploy!";
       angular-cli-ghpages --repo=https://GH_TOKEN@$GH_REPO --name="New release" --email=$EMAIL;
     fi'
 
