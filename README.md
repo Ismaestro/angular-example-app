@@ -40,7 +40,7 @@ Live DEMO [here](http://angularexampleapp.com/)!
 
 `npm run sme` - Builds and runs source map explorer, really cool :)
 
-`npm run release` - Builds and runs source map explorer, really cool :)
+`npm run release` - Creates a new release using standard-version
 
 **Windows: use precompilation to speed up**
 `tsc --project tsconfig.json`
