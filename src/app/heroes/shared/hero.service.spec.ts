@@ -3,7 +3,9 @@ import {HeroService} from './hero.service';
 import {AppModule} from '../../app.module';
 import {APP_BASE_HREF} from '@angular/common';
 import {AppConfig} from '../../config/app.config';
-import {Hero} from './hero.model';
+
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/startWith';
 
 describe('HeroService', () => {
   let heroService;
@@ -63,13 +65,13 @@ describe('HeroService', () => {
     localStorage.setItem('votes', String(0));
     expect(heroService.checkIfUserCanVote()).toBe(true);
     heroService.like(newHeroCreated).subscribe((response) => {
-      expect(response.status).toBe(200);
+      expect(response).toEqual({});
     });
   }));
 
   it('should delete a hero', async(() => {
     heroService.deleteHeroById(newHeroCreated.id).subscribe((response) => {
-      expect(response.status).toBe(200);
+      expect(response).toEqual({});
     });
   }));
 });
