@@ -21,6 +21,12 @@
                 {{ 'spanish' | translate }}
             </span>
             </button>
+            <button md-menu-item (click)="changeLanguage('pt-br')">
+                <md-icon>flag</md-icon>
+                <span>
+                {{ 'portuguese' | translate }}
+            </span>
+            </button>
         </md-menu>
         <a class="image-icon" href="{{appConfig.repositoryURL}}" target="_blank">
             <img src="assets/images/github-circle-white-transparent.svg">
