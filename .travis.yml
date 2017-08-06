@@ -32,9 +32,11 @@ script:
   - npm run test
   - npm run e2e
   - ng build --prod --base-href /
-  - angular-cli-ghpages --repo=https://GH_TOKEN@$GH_REPO --name="New release" --email=$EMAIL
 
 after_success:
+  - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" &&
+  angular-cli-ghpages --repo=https://GH_TOKEN@$GH_REPO --name="New release" --email=$EMAIL
+
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
 notifications:
