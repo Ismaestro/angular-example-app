@@ -34,8 +34,7 @@ script:
   - ng build --prod --base-href /
 
 after_success:
-  - echo $TRAVIS_PULL_REQUEST
-  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then angular-cli-ghpages --repo=https://GH_TOKEN@$GH_REPO --name="New release" --email=$EMAIL; fi'
+  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then angular-cli-ghpages --repo=https://$GH_TOKEN@$GH_REPO --name="New release" --email=$EMAIL; fi'
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
 notifications:
