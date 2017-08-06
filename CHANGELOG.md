@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/Ismaestro/angular4-example-app/compare/v2.0.1...v2.1.0) (2017-08-06)
+
+
+### Bug Fixes
+
+* **unit tests:** solved problem with rx operators ([37521da](https://github.com/Ismaestro/angular4-example-app/commit/37521da))
+
+
+### Features
+
+* **github icon:** removed iframe and added simple icon ([ff75a08](https://github.com/Ismaestro/angular4-example-app/commit/ff75a08))
+* **readme:** added release command ([ca4e250](https://github.com/Ismaestro/angular4-example-app/commit/ca4e250))
+* **standar-version:** added module to create changelog automatically ([7944dac](https://github.com/Ismaestro/angular4-example-app/commit/7944dac))
+* **translation:** moved to ngx-translate ([db72c0f](https://github.com/Ismaestro/angular4-example-app/commit/db72c0f))
+
+
+
 <a name="2.0.1"></a>
 ## [2.0.1](https://github.com/Ismaestro/angular4-example-app/compare/v1.1.0...v2.0.1) (2017-08-05)
 
