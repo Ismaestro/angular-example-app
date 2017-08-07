@@ -4,6 +4,9 @@ import {AppModule} from '../../app.module';
 import {NavComponent} from './nav.component';
 
 describe('NavComponent', () => {
+  let fixture;
+  let component;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [AppModule
@@ -12,11 +15,12 @@ describe('NavComponent', () => {
         {provide: APP_BASE_HREF, useValue: '/'}
       ],
     }).compileComponents();
+
+    fixture = TestBed.createComponent(NavComponent);
+    component = fixture.debugElement.componentInstance;
   }));
 
   it('should create nav component', (() => {
-    const fixture = TestBed.createComponent(NavComponent);
-    const component = fixture.debugElement.componentInstance;
     expect(component).toBeTruthy();
   }));
 });

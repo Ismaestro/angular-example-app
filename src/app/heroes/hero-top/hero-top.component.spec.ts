@@ -4,6 +4,9 @@ import {AppModule} from '../../app.module';
 import {HeroTopComponent} from './hero-top.component';
 
 describe('HeroTopComponent', () => {
+  let fixture;
+  let component;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [AppModule
@@ -12,11 +15,12 @@ describe('HeroTopComponent', () => {
         {provide: APP_BASE_HREF, useValue: '/'}
       ],
     }).compileComponents();
+
+    fixture = TestBed.createComponent(HeroTopComponent);
+    component = fixture.debugElement.componentInstance;
   }));
 
   it('should create hero top component', (() => {
-    const fixture = TestBed.createComponent(HeroTopComponent);
-    const component = fixture.debugElement.componentInstance;
     expect(component).toBeTruthy();
   }));
 });

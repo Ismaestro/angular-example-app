@@ -4,6 +4,9 @@ import {AppModule} from '../../app.module';
 import {FooterComponent} from './footer.component';
 
 describe('FooterComponent', () => {
+  let fixture;
+  let component;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [AppModule
@@ -12,11 +15,12 @@ describe('FooterComponent', () => {
         {provide: APP_BASE_HREF, useValue: '/'}
       ],
     }).compileComponents();
+
+    fixture = TestBed.createComponent(FooterComponent);
+    component = fixture.debugElement.componentInstance;
   }));
 
   it('should create footer component', (() => {
-    const fixture = TestBed.createComponent(FooterComponent);
-    const component = fixture.debugElement.componentInstance;
     expect(component).toBeTruthy();
   }));
 });

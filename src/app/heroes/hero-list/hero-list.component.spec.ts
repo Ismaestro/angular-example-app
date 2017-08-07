@@ -4,6 +4,9 @@ import {AppModule} from '../../app.module';
 import {HeroListComponent} from './hero-list.component';
 
 describe('HeroListComponent', () => {
+  let fixture;
+  let component;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [AppModule
@@ -12,11 +15,12 @@ describe('HeroListComponent', () => {
         {provide: APP_BASE_HREF, useValue: '/'}
       ],
     }).compileComponents();
+
+    fixture = TestBed.createComponent(HeroListComponent);
+    component = fixture.debugElement.componentInstance;
   }));
 
   it('should create hero list component', (() => {
-    const fixture = TestBed.createComponent(HeroListComponent);
-    const component = fixture.debugElement.componentInstance;
     expect(component).toBeTruthy();
     component.seeHeroDetails({'id': 1, 'default': true})
   }));

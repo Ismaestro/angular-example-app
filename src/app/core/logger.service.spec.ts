@@ -1,19 +1,21 @@
-import {inject, TestBed} from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 import {LoggerService} from './logger.service';
 
 describe('LoggerService', () => {
+  let loggerService;
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
         LoggerService
       ]
     });
+
+    loggerService = TestBed.get(LoggerService);
   });
 
-  it('Should log without errors',
-    inject([LoggerService], (loggerService) => {
-      expect(loggerService).toBeDefined();
-      LoggerService.error('This is an error');
-      LoggerService.log('This is an log');
-    }));
+  it('should log without errors', (() => {
+    expect(loggerService).toBeDefined();
+    expect(LoggerService.error('This is an error')).toBeUndefined();
+    expect(LoggerService.log('This is a log')).toBeUndefined();
+  }));
 });

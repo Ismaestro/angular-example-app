@@ -4,6 +4,9 @@ import {APP_BASE_HREF} from '@angular/common';
 import {AppModule} from './app.module';
 
 describe('AppComponent', () => {
+  let fixture;
+  let component;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [AppModule
@@ -12,11 +15,12 @@ describe('AppComponent', () => {
         {provide: APP_BASE_HREF, useValue: '/'}
       ],
     }).compileComponents();
+
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.debugElement.componentInstance;
   }));
 
   it('should create the app', (() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   }));
 });

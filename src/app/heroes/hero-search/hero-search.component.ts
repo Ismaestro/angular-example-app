@@ -17,7 +17,7 @@ import {APP_CONFIG} from '../../config/app.config';
 })
 
 export class HeroSearchComponent {
-  heroes: Array<Hero> = [];
+  defaultHeroes: Array<Hero> = [];
   heroFormControl: FormControl;
   filteredHeroes: any;
   heroesAutocomplete: any;
@@ -28,7 +28,7 @@ export class HeroSearchComponent {
     this.heroFormControl = new FormControl();
 
     this.heroService.getAllHeroes().subscribe((heroes) => {
-      this.heroes = heroes;
+      this.defaultHeroes = heroes.filter(hero => hero['default']);
 
       this.heroFormControl.valueChanges
         .startWith(null)
@@ -40,8 +40,8 @@ export class HeroSearchComponent {
   }
 
   filterHeroes(val: string) {
-    return val ? this.heroes.filter(hero => hero.name.toLowerCase().indexOf(val.toLowerCase()) === 0 && hero['default'])
-      : this.heroes;
+    return val ? this.defaultHeroes.filter(hero => hero.name.toLowerCase().indexOf(val.toLowerCase()) === 0 && hero['default'])
+      : this.defaultHeroes;
   }
 
   searchHero(hero: Hero): void {
