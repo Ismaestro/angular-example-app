@@ -24,7 +24,7 @@ Live DEMO [here](http://angularexampleapp.com/)!
 
 `npm i` - Installs everything needed
 
-`npm start` - Starts the app. Then go to `localhost:4200`
+`npm start` - Starts the app. Then, go to `localhost:4200`
 
 `npm run test` - Runs unit tests with karma and jasmine
 
@@ -34,9 +34,9 @@ Live DEMO [here](http://angularexampleapp.com/)!
 
 `npm run lint` - Runs the linter (tslint)
 
-`npm run ci` - Executes linter and e2e tests
+`npm run ci` - Executes linter and tests
 
-`npm run deploy` - Builds the app and deploy to Github pages (fork to do this)
+`npm run deploy` - Builds the app and deploy it to Github pages (angular-cli-ghpages) (fork to do this)
 
 `npm run sme` - Builds and runs source map explorer, really cool :)
 
