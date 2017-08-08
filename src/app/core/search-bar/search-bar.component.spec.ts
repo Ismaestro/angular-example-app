@@ -1,10 +1,10 @@
 import {async, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {APP_BASE_HREF} from '@angular/common';
 import {AppModule} from '../../app.module';
-import {HeroSearchComponent} from './hero-search.component';
-import {HeroService} from '../shared/hero.service';
+import {HeroService} from '../../heroes/shared/hero.service';
+import {SearchBarComponent} from './search-bar.component';
 
-describe('HeroSearchComponent', () => {
+describe('SearchBarComponent', () => {
   let fixture;
   let component;
   let heroService;
@@ -19,7 +19,7 @@ describe('HeroSearchComponent', () => {
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(HeroSearchComponent);
+    fixture = TestBed.createComponent(SearchBarComponent);
     component = fixture.debugElement.componentInstance;
     heroService = TestBed.get(HeroService);
   }));

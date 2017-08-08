@@ -6,11 +6,9 @@ import {HeroRoutingModule} from './heroes-routing.module';
 import {SharedModule} from '../shared/modules/shared.module';
 
 import {HeroListComponent, RemoveHeroDialogComponent} from './hero-list/hero-list.component';
-import {HeroSearchComponent} from './hero-search/hero-search.component';
-
 import {HeroService} from './shared/hero.service';
-import {HeroTopComponent} from './hero-top/hero-top.component';
 import {HeroDetailComponent} from './hero-detail/hero-detail.component';
+import {HeroesComponent} from './heroes.component';
 
 @NgModule({
   imports: [
@@ -21,9 +19,8 @@ import {HeroDetailComponent} from './hero-detail/hero-detail.component';
     ReactiveFormsModule
   ],
   declarations: [
+    HeroesComponent,
     HeroListComponent,
-    HeroSearchComponent,
-    HeroTopComponent,
     RemoveHeroDialogComponent,
     HeroDetailComponent
   ],
@@ -32,9 +29,6 @@ import {HeroDetailComponent} from './hero-detail/hero-detail.component';
   ],
   providers: [
     HeroService
-  ],
-  exports: [
-    HeroSearchComponent
   ]
 })
 

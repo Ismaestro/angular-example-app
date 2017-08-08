@@ -1,10 +1,9 @@
 import {Component, Inject} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 
-import {APP_CONFIG} from '../../config/app.config';
+import {APP_CONFIG, AppConfig} from '../../config/app.config';
 import {IAppConfig} from '../../config/iapp.config';
 import {ProgressBarService} from '../../shared/services/progress-bar.service';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -41,7 +40,7 @@ export class NavComponent {
     this.translateService.get(['home', 'heroesList'], {}).subscribe((texts: string) => {
       this.menuItems = [
         {link: '/', name: texts['home']},
-        {link: '/' + this.appConfig.routes.heroesList, name: texts['heroesList']}
+        {link: '/' + AppConfig.routes.heroes, name: texts['heroesList']}
       ];
     });
   }

@@ -53,6 +53,7 @@ Live DEMO [here](http://angularexampleapp.com/)!
 * Responsive layout
 * Angular Material
 * Internationalization
+* Lazy loading modules
 * Sample unit tests with Jasmine and Karma including code coverage
 * End-to-end tests with Protractor
 * Github pages deploy ready

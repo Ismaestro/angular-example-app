@@ -7,13 +7,14 @@ import {APP_CONFIG, AppConfig} from './config/app.config';
 import {AppRoutingModule} from './app-routing.module';
 import {SharedModule} from './shared/modules/shared.module';
 import {CoreModule} from './core/core.module';
-import {HeroesModule} from './heroes/heroes.module';
 
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpLoaderFactory} from './app.translate.factory';
+import {HeroTopComponent} from './heroes/hero-top/hero-top.component';
+import {HeroService} from './heroes/shared/hero.service';
 
 @NgModule({
   imports: [
@@ -30,14 +31,15 @@ import {HttpLoaderFactory} from './app.translate.factory';
     }),
     AppRoutingModule,
     CoreModule,
-    HeroesModule,
     SharedModule
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    HeroTopComponent
   ],
   providers: [
-    {provide: APP_CONFIG, useValue: AppConfig}
+    {provide: APP_CONFIG, useValue: AppConfig},
+    HeroService
   ],
   bootstrap: [AppComponent]
 })

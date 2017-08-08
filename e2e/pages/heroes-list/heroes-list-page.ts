@@ -3,7 +3,7 @@ import {AppConfig} from '../../../src/app/config/app.config';
 
 export class HeroesListPage {
   static navigateTo() {
-    return browser.get(AppConfig.routes.heroesList);
+    return browser.get(AppConfig.routes.heroes);
   }
 
   static getNumberHeroes() {

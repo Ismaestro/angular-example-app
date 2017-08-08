@@ -1,25 +1,24 @@
 import {NgModule, Optional, SkipSelf} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {throwIfAlreadyLoaded} from './module-import-guard';
 import {LoggerService} from './logger.service';
 
-import {HeroesModule} from '../heroes/heroes.module';
-import {HeroRoutingModule} from '../heroes/heroes-routing.module';
-
 import {NavComponent} from './nav/nav.component';
 import {FooterComponent} from './footer/footer.component';
 import {SharedModule} from '../shared/modules/shared.module';
+import {RouterModule} from '@angular/router';
+import {SearchBarComponent} from './search-bar/search-bar.component';
 
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    HeroRoutingModule,
-    HeroesModule,
-    SharedModule
+    RouterModule,
+    SharedModule,
+    ReactiveFormsModule
   ],
   exports: [
     NavComponent,
@@ -27,7 +26,8 @@ import {SharedModule} from '../shared/modules/shared.module';
   ],
   declarations: [
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    SearchBarComponent
   ],
   providers: [
     LoggerService

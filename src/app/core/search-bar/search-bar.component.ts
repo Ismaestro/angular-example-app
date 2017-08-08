@@ -1,29 +1,27 @@
-import {Component, Inject} from '@angular/core';
-import {LoggerService} from '../../core/logger.service';
-import {Hero} from '../shared/hero.model';
+import {Component} from '@angular/core';
+import {LoggerService} from '../logger.service';
+import {Hero} from '../../heroes/shared/hero.model';
 import {FormControl} from '@angular/forms';
-import {HeroService} from '../shared/hero.service';
+import {HeroService} from '../../heroes/shared/hero.service';
 import {Router} from '@angular/router';
-import {IAppConfig} from '../../config/iapp.config';
-import {APP_CONFIG} from '../../config/app.config';
+import {AppConfig} from '../../config/app.config';
 
 @Component({
-  selector: 'app-hero-search',
-  templateUrl: './hero-search.component.html',
-  styleUrls: ['./hero-search.component.scss'],
+  selector: 'app-search-bar',
+  templateUrl: './search-bar.component.html',
+  styleUrls: ['./search-bar.component.scss'],
   providers: [
     LoggerService
   ]
 })
 
-export class HeroSearchComponent {
+export class SearchBarComponent {
   defaultHeroes: Array<Hero> = [];
   heroFormControl: FormControl;
   filteredHeroes: any;
   heroesAutocomplete: any;
 
   constructor(private heroService: HeroService,
-              @Inject(APP_CONFIG) private appConfig: IAppConfig,
               private router: Router) {
     this.heroFormControl = new FormControl();
 
@@ -46,6 +44,6 @@ export class HeroSearchComponent {
 
   searchHero(hero: Hero): void {
     LoggerService.log('Moved to hero with id: ' + hero.id);
-    this.router.navigate([this.appConfig.routes.heroById + hero.id])
+    this.router.navigate([AppConfig.routes.heroes + '/' + hero.id])
   }
 }

@@ -5,10 +5,17 @@ import {AppConfig} from '../config/app.config';
 
 import {HeroListComponent} from './hero-list/hero-list.component';
 import {HeroDetailComponent} from './hero-detail/hero-detail.component';
+import {HeroesComponent} from './heroes.component';
 
 const heroesRoutes: Routes = [
-  {path: AppConfig.routes.heroesList, component: HeroListComponent},
-  {path: AppConfig.routes.heroById + ':id', component: HeroDetailComponent},
+  {
+    path: '',
+    component: HeroesComponent,
+    children: [
+      {path: '', component: HeroListComponent},
+      {path: ':id', component: HeroDetailComponent}
+    ]
+  }
 ];
 
 @NgModule({
