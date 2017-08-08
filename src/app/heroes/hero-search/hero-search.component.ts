@@ -8,7 +8,7 @@ import {IAppConfig} from '../../config/iapp.config';
 import {APP_CONFIG} from '../../config/app.config';
 
 @Component({
-  selector: 'toh-hero-search',
+  selector: 'app-hero-search',
   templateUrl: './hero-search.component.html',
   styleUrls: ['./hero-search.component.scss'],
   providers: [

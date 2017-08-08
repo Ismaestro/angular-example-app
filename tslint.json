@@ -91,13 +91,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "toh",
+      "app",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "toh",
+      "app",
       "kebab-case"
     ],
     "use-input-property-decorator": true,

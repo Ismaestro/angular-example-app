@@ -1,4 +1,4 @@
-:host(toh-nav) {
+:host(app-nav) {
   padding-top: 0em;
   padding-bottom: 4em;
   display: grid;
@@ -38,7 +38,7 @@
 }
 
 @media (max-width: 680px) {
-  :host(toh-nav) {
+  :host(app-nav) {
     padding-top: 0;
 
     header {
@@ -54,10 +54,10 @@
 }
 
 @media (max-width: 425px) {
-  :host(toh-nav) {
+  :host(app-nav) {
     header {
       nav {
-        toh-hero-search {
+        app-hero-search {
           width: 75%;
         }
       }

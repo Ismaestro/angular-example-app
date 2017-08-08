@@ -7,7 +7,7 @@ import {APP_CONFIG} from '../../config/app.config';
 import {IAppConfig} from '../../config/iapp.config';
 
 @Component({
-  selector: 'toh-hero-top',
+  selector: 'app-hero-top',
   templateUrl: './hero-top.component.html',
   styleUrls: ['./hero-top.component.scss']
 })

@@ -7,7 +7,7 @@ import {ProgressBarService} from '../../shared/services/progress-bar.service';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'toh-nav',
+  selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })

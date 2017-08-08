@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
 import {LoggerService} from '../../core/logger.service';
 
 @Component({
-  selector: 'toh-hero-list',
+  selector: 'app-hero-list',
   templateUrl: './hero-list.component.html',
   styleUrls: ['./hero-list.component.scss']
 })
@@ -83,7 +83,7 @@ export class HeroListComponent {
 }
 
 @Component({
-  selector: 'toh-remove-hero-dialog',
+  selector: 'app-remove-hero-dialog',
   templateUrl: './remove-hero.dialog.html',
 })
 

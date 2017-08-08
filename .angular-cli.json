@@ -20,7 +20,7 @@
       "test": "test.ts",
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
-      "prefix": "toh",
+      "prefix": "app",
       "styles": [
         "assets/css/reset.css",
         "assets/css/loading.css",
