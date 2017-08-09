@@ -2,11 +2,14 @@ import {async, TestBed} from '@angular/core/testing';
 import {APP_BASE_HREF} from '@angular/common';
 import {AppModule} from '../../app.module';
 import {HeroDetailComponent} from './hero-detail.component';
+import {HeroesModule} from '../heroes.module';
 
 describe('HeroDetailComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [AppModule
+      imports: [
+        AppModule,
+        HeroesModule
       ],
       providers: [
         {provide: APP_BASE_HREF, useValue: '/'}

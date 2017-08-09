@@ -2,6 +2,7 @@ import {async, TestBed} from '@angular/core/testing';
 import {APP_BASE_HREF} from '@angular/common';
 import {AppModule} from '../../app.module';
 import {HeroListComponent} from './hero-list.component';
+import {HeroesModule} from '../heroes.module';
 
 describe('HeroListComponent', () => {
   let fixture;
@@ -9,7 +10,9 @@ describe('HeroListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [AppModule
+      imports: [
+        AppModule,
+        HeroesModule
       ],
       providers: [
         {provide: APP_BASE_HREF, useValue: '/'}
