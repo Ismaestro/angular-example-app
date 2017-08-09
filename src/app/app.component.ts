@@ -6,7 +6,7 @@ import {NavigationEnd, Router} from '@angular/router';
 import {AppConfig} from './config/app.config';
 
 @Component({
-  selector: 'app',
+  selector: 'app-root',
   templateUrl: './app.component.html'
 })
 
