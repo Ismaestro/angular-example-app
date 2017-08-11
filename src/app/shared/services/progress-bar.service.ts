@@ -16,7 +16,7 @@ export class ProgressBarService {
         if (this.requestsRunning === 1) {
           this.updateProgressBar$.emit('query');
         }
-      } else if (this.requestsRunning >= 0) {
+      } else if (this.requestsRunning > 0) {
         this.requestsRunning--;
         if (this.requestsRunning === 0) {
           this.updateProgressBar$.emit('none');
