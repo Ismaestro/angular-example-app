@@ -6,6 +6,8 @@ import {TranslateModule} from '@ngx-translate/core';
 import {AppRoutingModule} from './app-routing.module';
 import {HeroTopComponent} from './heroes/hero-top/hero-top.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {APP_CONFIG, AppConfig} from './config/app.config';
+import {HeroService} from './heroes/shared/hero.service';
 
 describe('AppComponent', () => {
   let fixture;
@@ -23,7 +25,9 @@ describe('AppComponent', () => {
         HeroTopComponent
       ],
       providers: [
-        {provide: APP_BASE_HREF, useValue: '/'}
+        {provide: APP_CONFIG, useValue: AppConfig},
+        {provide: APP_BASE_HREF, useValue: '/'},
+        HeroService
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
@@ -34,5 +38,17 @@ describe('AppComponent', () => {
 
   it('should create the app', (() => {
     expect(component).toBeTruthy();
+  }));
+
+  it('should change title meta tag in root path', async(() => {
+    component.router.navigate(['/']).then(() => {
+      expect(component.title.getTitle()).toBe('Angular Example App');
+    });
+  }));
+
+  it('should change title meta tag in heroes path', async(() => {
+    component.router.navigate(['/' + AppConfig.routes.heroes]).then(() => {
+      expect(component.title.getTitle()).toBe('Heroes list');
+    });
   }));
 });
