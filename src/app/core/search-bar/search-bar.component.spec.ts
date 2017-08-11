@@ -42,7 +42,7 @@ describe('SearchBarComponent', () => {
     expect(component).toBeTruthy();
   }));
 
-  it('should create hero search component', fakeAsync(() => {
+  it('should get all heroes', fakeAsync(() => {
     fixture.detectChanges();
     spyOn(heroService, 'getAllHeroes').and.returnValue(Promise.resolve(true));
     tick();
