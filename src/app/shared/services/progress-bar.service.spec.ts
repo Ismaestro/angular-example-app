@@ -10,6 +10,7 @@ import {APP_CONFIG, AppConfig} from '../../config/app.config';
 
 describe('ProgressBarService', () => {
   let progressBarService;
+  let heroService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -25,9 +26,17 @@ describe('ProgressBarService', () => {
     });
 
     progressBarService = TestBed.get(ProgressBarService);
+    heroService = TestBed.get(HeroService);
   });
 
-  it('should contains heroes', (() => {
+  it('should not be requestsRunning', (() => {
+    expect(progressBarService.requestsRunning).toBe(0);
+  }));
+
+  it('should increase and decrease the counter of requests running', (() => {
+    heroService.request$.emit('starting');
+    expect(progressBarService.requestsRunning).toBe(1);
+    heroService.request$.emit('finished');
     expect(progressBarService.requestsRunning).toBe(0);
   }));
 });
