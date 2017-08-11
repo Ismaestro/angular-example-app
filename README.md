@@ -43,17 +43,17 @@ Live DEMO [here](http://angularexampleapp.com/)!
 `npm run release` - Creates a new release using standard-version
 
 **Windows: use precompilation to speed up**
+
 `tsc --project tsconfig.json`
 `npm start`
 
 ## Features
-* Angular 4
-* TypeScript
-* Angular CLI
 * Responsive layout
-* Angular Material
 * Internationalization
 * Lazy loading modules
+* Progress bar active, if a request is pending (events)
+* CRUD: create, update and remove heroes
+* Search bar, to look for heroes
 * Sample unit tests with Jasmine and Karma including code coverage
 * End-to-end tests with Protractor
 * Github pages deploy ready
@@ -70,111 +70,6 @@ We use Travis CI to run this tasks in order:
 ## Contributing
 - Please see the CONTRIBUTING file for guidelines.
 - Create **pull requests, submit bugs, suggest new features** or documentation updates :wrench:
-
-## Folder Structure
-
-```
-├── CODE_OF_CONDUCT.md
-├── CONTRIBUTING.md
-├── e2e <- e2e tests
-│   ├── app.e2e-spec.ts
-│   ├── app.po.ts
-│   └── tsconfig.e2e.json
-├── karma.conf.js
-├── LICENSE
-├── package.json
-├── package-lock.json <- npm 5
-├── protractor.conf.js
-├── README.md
-├── src
-│   ├── app
-│   │   ├── app.component.html
-│   │   ├── app.component.spec.ts
-│   │   ├── app.component.ts
-│   │   ├── app.module.ts
-│   │   ├── app-routing.module.ts
-│   │   ├── app.translate.factory.ts
-│   │   ├── config <- app configuration (constants)
-│   │   │   ├── app.config.ts
-│   │   │   └── iapp.config.ts
-│   │   ├── core <- core module imported just once
-│   │   │   ├── core.module.ts
-│   │   │   ├── footer
-│   │   │   │   ├── footer.component.html
-│   │   │   │   ├── footer.component.scss
-│   │   │   │   ├── footer.component.spec.ts
-│   │   │   │   └── footer.component.ts
-│   │   │   ├── logger.service.spec.ts
-│   │   │   ├── logger.service.ts
-│   │   │   ├── module-import-guard.ts
-│   │   │   └── nav
-│   │   │       ├── nav.component.html
-│   │   │       ├── nav.component.scss
-│   │   │       ├── nav.component.spec.ts
-│   │   │       └── nav.component.ts
-│   │   ├── heroes
-│   │   │   ├── hero-detail
-│   │   │   │   ├── hero-detail.component.html
-│   │   │   │   ├── hero-detail.component.scss
-│   │   │   │   ├── hero-detail.component.spec.ts
-│   │   │   │   └── hero-detail.component.ts
-│   │   │   ├── heroes.module.ts
-│   │   │   ├── heroes-routing.module.ts
-│   │   │   ├── hero-list
-│   │   │   │   ├── hero-list.component.html
-│   │   │   │   ├── hero-list.component.scss
-│   │   │   │   ├── hero-list.component.spec.ts
-│   │   │   │   ├── hero-list.component.ts
-│   │   │   │   └── remove-hero.dialog.html
-│   │   │   ├── hero-search
-│   │   │   │   ├── hero-search.component.html
-│   │   │   │   ├── hero-search.component.scss
-│   │   │   │   ├── hero-search.component.spec.ts
-│   │   │   │   └── hero-search.component.ts
-│   │   │   ├── hero-top
-│   │   │   │   ├── hero-top.component.html
-│   │   │   │   ├── hero-top.component.scss
-│   │   │   │   ├── hero-top.component.spec.ts
-│   │   │   │   └── hero-top.component.ts
-│   │   │   └── shared
-│   │   │       ├── hero.model.ts
-│   │   │       ├── hero.service.spec.ts
-│   │   │       └── hero.service.ts
-│   │   └── shared
-│   │       ├── modules
-│   │       │   ├── material.module.ts
-│   │       │   └── shared.module.ts
-│   │       └── services
-│   │           └── progress-bar.service.ts
-│   ├── assets
-│   │   ├── css
-│   │   │   ├── loading.css
-│   │   │   ├── reset.css
-│   │   │   └── styles.scss
-│   │   ├── i18n <- internationalization files
-│   │   │   ├── en.json
-│   │   │   └── es.json
-│   │   └── images
-│   │       ├── angular.svg
-│   │       └── heroes
-│   │           ├── 1.jpg
-│   │           ├── ...
-│   │           └── 1-mini.jpg
-
-│   ├── CNAME
-│   ├── environments
-│   │   ├── environment.prod.ts
-│   │   └── environment.ts
-│   ├── favicon.ico
-│   ├── index.html
-│   ├── main.ts
-│   ├── polyfills.ts
-│   ├── test.ts
-│   ├── tsconfig.app.json
-│   └── tsconfig.spec.json
-├── tsconfig.json
-└── tslint.json
-```
 
 ## Server
 
