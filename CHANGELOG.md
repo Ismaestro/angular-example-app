@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.3.0"></a>
+# [2.3.0](https://github.com/Ismaestro/angular4-example-app/compare/v2.2.1...v2.3.0) (2017-08-11)
+
+
+### Bug Fixes
+
+* **async:** solved problem with async pipe in e2e tests ([0b87437](https://github.com/Ismaestro/angular4-example-app/commit/0b87437))
+* **prefix:** solved problem with root component ([7338fcd](https://github.com/Ismaestro/angular4-example-app/commit/7338fcd))
+* **unit tests:** solved problem with unit tests on lazy loaded modules ([b357ed4](https://github.com/Ismaestro/angular4-example-app/commit/b357ed4))
+
+
+### Features
+
+* **e2e:** added heroes list e2e tests and refactor some functions ([2052bee](https://github.com/Ismaestro/angular4-example-app/commit/2052bee))
+* **lazy loading:** lazy loading heroes module ([c86c69d](https://github.com/Ismaestro/angular4-example-app/commit/c86c69d))
+* **loading:** updated loading spinner ([8fbed76](https://github.com/Ismaestro/angular4-example-app/commit/8fbed76))
+* **prefix:** modified prefix to app ([79a808a](https://github.com/Ismaestro/angular4-example-app/commit/79a808a))
+* **readme:** added modal and toasts feature ([259a36d](https://github.com/Ismaestro/angular4-example-app/commit/259a36d))
+* **readme:** updated some features ([9f7b98b](https://github.com/Ismaestro/angular4-example-app/commit/9f7b98b))
+* **unit tests:** added test and fixed problem with no default heroes in search component. Refactor some other tests. ([8f54f2a](https://github.com/Ismaestro/angular4-example-app/commit/8f54f2a))
+
+
+
 <a name="2.2.1"></a>
 ## [2.2.1](https://github.com/Ismaestro/angular4-example-app/compare/v2.2.0...v2.2.1) (2017-08-07)
 
