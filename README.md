@@ -57,6 +57,7 @@ Live DEMO [here](http://angularexampleapp.com/)!
 * Modal and toasts (snakbar)!
 * Sample unit tests with Jasmine and Karma including code coverage
 * End-to-end tests with Protractor
+* ES6 Promises
 * Github pages deploy ready
 * Following the [best practices](https://angular.io/guide/styleguide)!
 
