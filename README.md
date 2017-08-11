@@ -54,6 +54,7 @@ Live DEMO [here](http://angularexampleapp.com/)!
 * Progress bar active, if a request is pending (events)
 * CRUD: create, update and remove heroes
 * Search bar, to look for heroes
+* Modal and toasts (snakbar)!
 * Sample unit tests with Jasmine and Karma including code coverage
 * End-to-end tests with Protractor
 * Github pages deploy ready
