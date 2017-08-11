@@ -11,6 +11,7 @@ import {TestsModule} from '../../shared/modules/tests.module';
 describe('NavComponent', () => {
   let fixture;
   let component;
+  let progressBarService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -32,9 +33,22 @@ describe('NavComponent', () => {
 
     fixture = TestBed.createComponent(NavComponent);
     component = fixture.debugElement.componentInstance;
+    progressBarService = TestBed.get(ProgressBarService);
   }));
 
   it('should create nav component', (() => {
     expect(component).toBeTruthy();
+  }));
+
+  it('should update progress bar', (() => {
+    expect(component.progressBarMode).toBeUndefined();
+    progressBarService.updateProgressBar$.emit('query');
+    expect(component.progressBarMode).toBe('query');
+  }));
+
+  it('should change language to spanish', (() => {
+    expect(component.translateService.currentLang).toBeUndefined();
+    component.changeLanguage('es');
+    expect(component.translateService.currentLang).toBe('es');
   }));
 });
