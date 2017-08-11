@@ -1,7 +1,7 @@
 import {async, TestBed} from '@angular/core/testing';
-import {APP_BASE_HREF} from '@angular/common';
-import {AppModule} from '../../app.module';
 import {FooterComponent} from './footer.component';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {TranslateModule} from '@ngx-translate/core';
 
 describe('FooterComponent', () => {
   let fixture;
@@ -9,11 +9,13 @@ describe('FooterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [AppModule
+      imports: [
+        TranslateModule.forRoot()
       ],
-      providers: [
-        {provide: APP_BASE_HREF, useValue: '/'}
+      declarations: [
+        FooterComponent
       ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
 
     fixture = TestBed.createComponent(FooterComponent);

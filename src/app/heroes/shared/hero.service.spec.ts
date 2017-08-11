@@ -2,10 +2,12 @@ import {async, TestBed} from '@angular/core/testing';
 import {HeroService} from './hero.service';
 import {AppModule} from '../../app.module';
 import {APP_BASE_HREF} from '@angular/common';
-import {AppConfig} from '../../config/app.config';
+import {APP_CONFIG, AppConfig} from '../../config/app.config';
 
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/startWith';
+import {TestsModule} from '../../shared/modules/tests.module';
+import {TranslateModule} from '@ngx-translate/core';
 
 describe('HeroService', () => {
   let heroService;
@@ -13,8 +15,12 @@ describe('HeroService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [AppModule],
+      imports: [
+        TestsModule,
+        TranslateModule.forRoot()
+      ],
       providers: [
+        {provide: APP_CONFIG, useValue: AppConfig},
         {provide: APP_BASE_HREF, useValue: '/'},
         HeroService
       ]

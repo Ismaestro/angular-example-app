@@ -3,6 +3,9 @@ import {APP_BASE_HREF} from '@angular/common';
 import {AppModule} from '../../app.module';
 import {HeroListComponent} from './hero-list.component';
 import {HeroesModule} from '../heroes.module';
+import {TestsModule} from '../../shared/modules/tests.module';
+import {TranslateModule} from '@ngx-translate/core';
+import {APP_CONFIG, AppConfig} from '../../config/app.config';
 
 describe('HeroListComponent', () => {
   let fixture;
@@ -11,10 +14,12 @@ describe('HeroListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        AppModule,
+        TestsModule,
+        TranslateModule.forRoot(),
         HeroesModule
       ],
       providers: [
+        {provide: APP_CONFIG, useValue: AppConfig},
         {provide: APP_BASE_HREF, useValue: '/'}
       ],
     }).compileComponents();
@@ -25,6 +30,5 @@ describe('HeroListComponent', () => {
 
   it('should create hero list component', (() => {
     expect(component).toBeTruthy();
-    component.seeHeroDetails({'id': 1, 'default': true})
   }));
 });

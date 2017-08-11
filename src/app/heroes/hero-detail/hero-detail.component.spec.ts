@@ -3,16 +3,21 @@ import {APP_BASE_HREF} from '@angular/common';
 import {AppModule} from '../../app.module';
 import {HeroDetailComponent} from './hero-detail.component';
 import {HeroesModule} from '../heroes.module';
+import {TestsModule} from '../../shared/modules/tests.module';
+import {APP_CONFIG, AppConfig} from '../../config/app.config';
+import {TranslateModule} from '@ngx-translate/core';
 
 describe('HeroDetailComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        AppModule,
+        TestsModule,
+        TranslateModule.forRoot(),
         HeroesModule
       ],
       providers: [
-        {provide: APP_BASE_HREF, useValue: '/'}
+        {provide: APP_CONFIG, useValue: AppConfig},
+        {provide: APP_BASE_HREF, useValue: '/'},
       ],
     }).compileComponents();
   }));
