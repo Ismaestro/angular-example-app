@@ -29,16 +29,16 @@ describe('ProgressBarService', () => {
     heroService = TestBed.get(HeroService);
   });
 
-  fit('should not be requestsRunning', (() => {
+  it('should not be requestsRunning', (() => {
     const instance = new ProgressBarService(heroService);
     expect(instance).toBeTruthy();
   }));
 
-  fit('should not be requestsRunning', (() => {
+  it('should not be requestsRunning', (() => {
     expect(progressBarService.requestsRunning).toBe(0);
   }));
 
-  fit('should increase and decrease the counter of requests running', (() => {
+  it('should increase and decrease the counter of requests running', (() => {
     heroService.request$.emit('starting');
     heroService.request$.emit('starting');
     expect(progressBarService.requestsRunning).toBe(2);
