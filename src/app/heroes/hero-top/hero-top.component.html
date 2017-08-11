@@ -4,8 +4,8 @@
                      [color]="'primary'"
                      [mode]="'indeterminate'">
 </md-progress-spinner>
-<div id="heroes-list" *ngIf="heroes">
-    <ng-container *ngFor="let hero of heroes">
+<div id="heroes-list">
+    <ng-container *ngFor="let hero of heroes | async">
         <md-card class="hero-card">
             <md-card-header>
                 <div md-card-avatar class="hero-header-image"
