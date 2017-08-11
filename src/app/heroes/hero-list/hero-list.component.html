@@ -9,7 +9,8 @@
         <md-list>
             <md-list-item *ngFor="let hero of heroes">
                 <img *ngIf="hero.default" class="cp"
-                     (click)="seeHeroDetails(hero);" md-list-avatar src="assets/images/heroes/{{hero.id}}-thumbnail.jpg">
+                     (click)="seeHeroDetails(hero);" md-list-avatar
+                     src="assets/images/heroes/{{hero.id}}-thumbnail.jpg">
                 <img *ngIf="!hero.default"
                      (click)="seeHeroDetails(hero);" md-list-avatar src="assets/images/heroes/default.png">
                 <h3 md-line [ngClass]="{'cp': hero.default}" (click)="seeHeroDetails(hero);"> {{hero.name}} </h3>

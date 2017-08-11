@@ -2,16 +2,11 @@ import {async, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {HeroService} from '../../heroes/shared/hero.service';
 import {SearchBarComponent} from './search-bar.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-import {RouterModule} from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
-import {MaterialModule} from '../../shared/modules/material.module';
 import {APP_CONFIG, AppConfig} from '../../config/app.config';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from '../../app-routing.module';
 import {HeroTopComponent} from '../../heroes/hero-top/hero-top.component';
 import {APP_BASE_HREF} from '@angular/common';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {BrowserModule} from '@angular/platform-browser';
 import {TestsModule} from '../../shared/modules/tests.module';
 
 describe('SearchBarComponent', () => {

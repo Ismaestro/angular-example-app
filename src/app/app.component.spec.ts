@@ -1,7 +1,6 @@
 import {async, TestBed} from '@angular/core/testing';
 import {AppComponent} from './app.component';
 import {APP_BASE_HREF} from '@angular/common';
-import {AppModule} from './app.module';
 import {TestsModule} from './shared/modules/tests.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {AppRoutingModule} from './app-routing.module';

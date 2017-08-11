@@ -1,8 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
-import {AppConfig} from '../config/app.config';
-
 import {HeroListComponent} from './hero-list/hero-list.component';
 import {HeroDetailComponent} from './hero-detail/hero-detail.component';
 import {HeroesComponent} from './heroes.component';

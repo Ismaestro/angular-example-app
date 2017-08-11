@@ -1,6 +1,5 @@
 import {async, TestBed} from '@angular/core/testing';
 import {APP_BASE_HREF} from '@angular/common';
-import {AppModule} from '../../app.module';
 import {HeroTopComponent} from './hero-top.component';
 import {HeroService} from '../shared/hero.service';
 import {TestsModule} from '../../shared/modules/tests.module';
