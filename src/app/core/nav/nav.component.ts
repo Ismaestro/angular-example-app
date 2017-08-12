@@ -25,7 +25,7 @@ export class NavComponent {
     this.translateService = translateService;
     this.loadMenus();
 
-    this.progressBarService.updateProgressBar$.subscribe((mode) => {
+    this.progressBarService.updateProgressBar$.subscribe((mode: string) => {
       this.progressBarMode = mode;
     });
   }
@@ -37,7 +37,7 @@ export class NavComponent {
   }
 
   private loadMenus(): void {
-    this.translateService.get(['home', 'heroesList'], {}).subscribe((texts: string) => {
+    this.translateService.get(['home', 'heroesList'], {}).subscribe((texts: any) => {
       this.menuItems = [
         {link: '/', name: texts['home']},
         {link: '/' + AppConfig.routes.heroes, name: texts['heroesList']}

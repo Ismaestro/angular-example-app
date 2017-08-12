@@ -1,8 +1,7 @@
-import {EventEmitter, Inject, Injectable} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
-import {APP_CONFIG} from '../../config/app.config';
-import {IAppConfig} from '../../config/iapp.config';
+import {AppConfig} from '../../config/app.config';
 
 import {Hero} from './hero.model';
 import {Observable} from 'rxjs/Observable';
@@ -24,15 +23,14 @@ export class HeroService {
 
   constructor(private http: HttpClient,
               private translateService: TranslateService,
-              private snackBar: MdSnackBar,
-              @Inject(APP_CONFIG) private appConfig: IAppConfig) {
+              private snackBar: MdSnackBar) {
     this.request$ = new EventEmitter();
 
-    this.heroesUrl = this.appConfig.endpoints.heroes;
+    this.heroesUrl = AppConfig.endpoints.heroes;
     this.headers = new HttpHeaders({'Content-Type': 'application/json'});
 
     this.translateService.get(['heroCreated', 'saved', 'heroLikeMaximum', 'heroRemoved'], {
-      'value': this.appConfig.votesLimit
+      'value': AppConfig.votesLimit
     }).subscribe((texts) => {
       this.translations = texts;
     });
@@ -94,10 +92,10 @@ export class HeroService {
   }
 
   checkIfUserCanVote(): boolean {
-    return Number(localStorage.getItem('votes')) < this.appConfig.votesLimit;
+    return Number(localStorage.getItem('votes')) < AppConfig.votesLimit;
   }
 
-  deleteHeroById(id: string): Observable<Array<Hero>> {
+  deleteHeroById(id: any): Observable<Array<Hero>> {
     this.request$.emit('starting');
     const url = `${this.heroesUrl}/${id}`;
     return this.http.delete(url, {headers: this.headers})
@@ -111,7 +109,7 @@ export class HeroService {
 
   showSnackBar(name): void {
     const config: any = new MdSnackBarConfig();
-    config.duration = this.appConfig.snackBarDuration;
+    config.duration = AppConfig.snackBarDuration;
     this.snackBar.open(this.translations[name], 'OK', config);
   }
 }

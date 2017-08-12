@@ -31,46 +31,46 @@ export class HeroListComponent {
       'alterEgo': ['', [Validators.required]]
     });
 
-    this.heroService.getAllHeroes().subscribe((heroes) => {
+    this.heroService.getAllHeroes().subscribe((heroes: Array<Hero>) => {
       this.heroes = heroes.sort((a, b) => {
         return b.likes - a.likes;
       });
     });
   }
 
-  like(hero) {
+  like(hero: Hero) {
     this.heroService.like(hero).subscribe(() => {
       this.canVote = this.heroService.checkIfUserCanVote();
-    }, (error) => {
+    }, (error: Response) => {
       LoggerService.error('maximum votes limit reached', error);
     });
   }
 
-  createNewHero(newHero) {
+  createNewHero(newHero: Hero) {
     this.heroService.createHero(newHero).subscribe((newHeroWithId) => {
       this.heroes.push(newHeroWithId);
       this.myNgForm.resetForm();
-    }, (response) => {
+    }, (response: Response) => {
       if (response.status === 500) {
         this.error = 'errorHasOcurred';
       }
     });
   }
 
-  seeHeroDetails(hero) {
+  seeHeroDetails(hero): void {
     if (hero.default) {
       this.router.navigate([AppConfig.routes.heroes + '/' + hero.id]);
     }
   }
 
-  remove(heroToRemove): void {
+  remove(heroToRemove: Hero): void {
     let dialogRef = this.dialog.open(RemoveHeroDialogComponent);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.heroService.deleteHeroById(heroToRemove.id).subscribe(() => {
           this.heroService.showSnackBar('heroRemoved');
           this.heroes = this.heroes.filter(hero => hero.id !== heroToRemove.id);
-        }, (response) => {
+        }, (response: Response) => {
           if (response.status === 500) {
             this.error = 'heroDefault';
           }

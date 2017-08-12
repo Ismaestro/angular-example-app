@@ -11,9 +11,8 @@ import {AppConfig} from './config/app.config';
 })
 
 export class AppComponent {
-  private translateService: TranslateService;
 
-  constructor(translateService: TranslateService,
+  constructor(private translateService: TranslateService,
               private title: Title,
               private meta: Meta,
               private router: Router) {
@@ -22,7 +21,7 @@ export class AppComponent {
     this.translateService.setDefaultLang('en');
     this.translateService.use('en');
 
-    this.router.events.subscribe((event) => {
+    this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {
         switch (event.urlAfterRedirects) {
           case '/':

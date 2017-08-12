@@ -25,7 +25,7 @@ export class SearchBarComponent {
               private router: Router) {
     this.heroFormControl = new FormControl();
 
-    this.heroService.getAllHeroes().subscribe((heroes) => {
+    this.heroService.getAllHeroes().subscribe((heroes: Array<Hero>) => {
       this.defaultHeroes = heroes.filter(hero => hero['default']);
 
       this.heroFormControl.valueChanges
@@ -37,7 +37,7 @@ export class SearchBarComponent {
     });
   }
 
-  filterHeroes(val: string) {
+  filterHeroes(val: string): Hero[] {
     return val ? this.defaultHeroes.filter(hero => hero.name.toLowerCase().indexOf(val.toLowerCase()) === 0 && hero['default'])
       : this.defaultHeroes;
   }

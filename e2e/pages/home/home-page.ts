@@ -1,11 +1,11 @@
 import {browser, by, element} from 'protractor';
 
 export class HomePage {
-  static navigateTo() {
+  static navigateTo(): any {
     return browser.get('/');
   }
 
-  static getNumberHeroes() {
+  static getNumberHeroes(): any {
     return element.all(by.css('#heroes-list md-card')).count();
   }
 }

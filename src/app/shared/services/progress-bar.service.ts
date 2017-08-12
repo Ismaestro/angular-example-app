@@ -10,7 +10,7 @@ export class ProgressBarService {
   constructor(private heroService: HeroService) {
     this.updateProgressBar$ = new EventEmitter();
 
-    this.heroService.request$.subscribe((type) => {
+    this.heroService.request$.subscribe((type: string) => {
       if (type === 'starting') {
         this.requestsRunning++;
         if (this.requestsRunning === 1) {

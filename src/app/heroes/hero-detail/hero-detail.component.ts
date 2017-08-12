@@ -16,13 +16,13 @@ export class HeroDetailComponent {
   constructor(private heroService: HeroService,
               private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe((params: any) => {
-      this.heroService.getHeroById(params['id']).subscribe((hero) => {
+      this.heroService.getHeroById(params['id']).subscribe((hero: Hero) => {
         this.hero = hero;
       });
     });
   }
 
-  like(hero) {
+  like(hero: Hero) {
     this.heroService.like(hero).subscribe(() => {
       this.canVote = this.heroService.checkIfUserCanVote();
     });
