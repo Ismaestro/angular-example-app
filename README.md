@@ -6,11 +6,16 @@
 [![Coverage Status](https://coveralls.io/repos/github/Ismaestro/angular4-example-app/badge.svg?branch=master)](https://coveralls.io/github/Ismaestro/angular4-example-app?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9d190a60fc864060ac054ba17a4e92e4)](https://www.codacy.com/app/Ismaestro/angular4-example-app?utm_source=github.com&utm_medium=referral&utm_content=Ismaestro/angular4-example-app&utm_campaign=badger)
 [![Known Vulnerabilities](https://snyk.io/test/github/ismaestro/angular4-example-app/badge.svg)](https://snyk.io/test/github/ismaestro/angular4-example-app)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+
 [![dependency Status](https://david-dm.org/ismaestro/angular4-example-app.svg)](https://david-dm.org/ismaestro/angular4-example-app#info=dependencies)
 [![devDependency Status](https://david-dm.org/ismaestro/angular4-example-app/dev-status.svg)](https://david-dm.org/ismaestro/angular4-example-app#info=devDependencies)
 [![peerDependencies Status](https://david-dm.org/ismaestro/angular4-example-app/peer-status.svg)](https://david-dm.org/ismaestro/angular4-example-app?type=peer)
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+
 [![Join the chat at https://gitter.im/angular4-example-app/Lobby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/angular4-example-app/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+[![GitHub forks](https://img.shields.io/github/forks/ismaestro/angular4-example-app.svg?style=social&label=Fork)](https://github.com/ismaestro/angular4-example-app/fork)
+[![GitHub stars](https://img.shields.io/github/stars/ismaestro/angular4-example-app.svg?style=social&label=Star)](https://github.com/ismaestro/angular4-example-app)
 
 ### DEMO
 
