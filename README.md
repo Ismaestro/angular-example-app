@@ -21,7 +21,7 @@
 
 Live DEMO [here](http://angularexampleapp.com/)!
 
-[![angular-example-app](http://i68.tinypic.com/foj4t5.jpg)](http://angularexampleapp.com/)
+[![angular-example-app](http://thumbsnap.com/i/aIpN07i3.png?0812)](http://angularexampleapp.com/)
 
 ## Usage
 
