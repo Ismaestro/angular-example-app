@@ -52,4 +52,28 @@ describe('SearchBarComponent', () => {
       expect(hero.default).toBe(true);
     }
   }));
+
+  it('should filter heroes array', (() => {
+    component.defaultHeroes = [
+      {
+        'id': 1,
+        'name': 'batman',
+        'default': true
+      },
+      {
+        'id': 2,
+        'name': 'spiderman',
+        'default': false
+      }
+    ];
+    expect(component.filterHeroes('batman').length).toBe(1);
+    expect(component.filterHeroes('spiderman').length).toBe(0);
+    expect(component.filterHeroes().length).toBe(2);
+  }));
+
+  it('should search for a hero', async(() => {
+    component.searchHero({id: 1}).then((redirection) => {
+      expect(redirection).toBe(true);
+    });
+  }));
 });

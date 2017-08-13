@@ -42,8 +42,8 @@ export class SearchBarComponent {
       : this.defaultHeroes;
   }
 
-  searchHero(hero: Hero): void {
+  searchHero(hero: Hero): Promise<boolean> {
     LoggerService.log('Moved to hero with id: ' + hero.id);
-    this.router.navigate([AppConfig.routes.heroes + '/' + hero.id])
+    return this.router.navigate([AppConfig.routes.heroes + '/' + hero.id])
   }
 }
