@@ -34,11 +34,11 @@ describe('HeroTopComponent', () => {
     heroService = TestBed.get(HeroService);
   }));
 
-  fit('should create hero top component', (() => {
+  it('should create hero top component', (() => {
     expect(component).toBeTruthy();
   }));
 
-  fit('should initialice component', fakeAsync(() => {
+  it('should initialice component', fakeAsync(() => {
     fixture.detectChanges();
     spyOn(heroService, 'getAllHeroes').and.returnValue(Promise.resolve(true));
     tick();
@@ -46,14 +46,14 @@ describe('HeroTopComponent', () => {
     expect(component.heroes.length).toBe(AppConfig.topHeroesLimit);
   }));
 
-  fit('should like a hero', async(() => {
+  it('should like a hero', async(() => {
     localStorage.setItem('votes', String(AppConfig.votesLimit - 1));
     component.like({id: 1}).then((result) => {
       expect(result).toBe(true);
     });
   }));
 
-  fit('should not like a hero', async(() => {
+  it('should not like a hero', async(() => {
     localStorage.setItem('votes', String(AppConfig.votesLimit));
     component.like({id: 1}).then(() => {
     }, (error) => {
