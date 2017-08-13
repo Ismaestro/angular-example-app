@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 
 import {Hero} from '../shared/hero.model';
 
@@ -10,16 +10,14 @@ import {AppConfig} from '../../config/app.config';
   templateUrl: './hero-top.component.html',
   styleUrls: ['./hero-top.component.scss']
 })
-export class HeroTopComponent implements OnInit {
+export class HeroTopComponent {
 
   heroes: Hero[] = null;
   canVote = false;
 
   constructor(private heroService: HeroService) {
     this.canVote = this.heroService.checkIfUserCanVote();
-  }
 
-  ngOnInit(): void {
     this.heroService.getAllHeroes().subscribe((heroes) => {
       this.heroes = heroes.sort((a, b) => {
         return b.likes - a.likes;
@@ -27,9 +25,14 @@ export class HeroTopComponent implements OnInit {
     });
   }
 
-  like(hero: Hero): void {
-    this.heroService.like(hero).subscribe(() => {
-      this.canVote = this.heroService.checkIfUserCanVote();
-    });
+  like(hero: Hero): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.heroService.like(hero).subscribe(() => {
+        this.canVote = this.heroService.checkIfUserCanVote();
+        resolve(true);
+      }, (error) => {
+        reject(error);
+      });
+    })
   }
 }
