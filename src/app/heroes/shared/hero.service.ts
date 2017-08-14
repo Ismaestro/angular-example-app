@@ -52,9 +52,7 @@ export class HeroService {
   }
 
   getHeroById(heroId: string): Observable<Hero> {
-    console.log('222');
     this.request$.emit('starting');
-    console.log('333');
     return this.http.get(this.heroesUrl + '/' + heroId)
       .map(response => {
         this.request$.emit('finished');
