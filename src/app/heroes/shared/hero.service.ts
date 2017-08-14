@@ -7,6 +7,7 @@ import {Hero} from './hero.model';
 import {Observable} from 'rxjs/Observable';
 import {MdSnackBar, MdSnackBarConfig} from '@angular/material';
 import {TranslateService} from '@ngx-translate/core';
+import {LoggerService} from '../../core/logger.service';
 
 @Injectable()
 export class HeroService {
@@ -16,9 +17,13 @@ export class HeroService {
   private heroesUrl: string;
   private translations: any;
 
-  private handleError(error: any): Promise<any> {
+  private handleError(error: any) {
+    LoggerService.error('sever error:', error);
     this.request$.emit('finished');
-    return Promise.reject(error.message || error);
+    if (error instanceof Response) {
+      return Observable.throw(error.json()['error'] || 'backend server error');
+    }
+    return Observable.throw(error || 'backend server error');
   }
 
   constructor(private http: HttpClient,
@@ -43,17 +48,19 @@ export class HeroService {
         this.request$.emit('finished');
         return response;
       })
-      .catch(this.handleError);
+      .catch(error => this.handleError(error));
   }
 
   getHeroById(heroId: string): Observable<Hero> {
+    console.log('222');
     this.request$.emit('starting');
+    console.log('333');
     return this.http.get(this.heroesUrl + '/' + heroId)
       .map(response => {
         this.request$.emit('finished');
         return response;
       })
-      .catch(this.handleError);
+      .catch(error => this.handleError(error));
   }
 
   createHero(hero: any): Observable<Hero> {
@@ -68,7 +75,7 @@ export class HeroService {
         this.showSnackBar('heroCreated');
         return response;
       })
-      .catch(this.handleError);
+      .catch(error => this.handleError(error));
   }
 
   like(hero: Hero) {
@@ -84,7 +91,7 @@ export class HeroService {
           this.showSnackBar('saved');
           return response;
         })
-        .catch(this.handleError);
+        .catch(error => this.handleError(error));
     } else {
       this.showSnackBar('heroLikeMaximum');
       return Observable.throw('maximum votes');
@@ -104,7 +111,7 @@ export class HeroService {
         this.showSnackBar('heroRemoved');
         return response;
       })
-      .catch(this.handleError);
+      .catch(error => this.handleError(error));
   }
 
   showSnackBar(name): void {

@@ -16,15 +16,22 @@ export class HeroDetailComponent {
   constructor(private heroService: HeroService,
               private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe((params: any) => {
-      this.heroService.getHeroById(params['id']).subscribe((hero: Hero) => {
-        this.hero = hero;
-      });
+      if (params['id']) {
+        this.heroService.getHeroById(params['id']).subscribe((hero: Hero) => {
+          this.hero = hero;
+        });
+      }
     });
   }
 
   like(hero: Hero) {
-    this.heroService.like(hero).subscribe(() => {
-      this.canVote = this.heroService.checkIfUserCanVote();
+    return new Promise((resolve, reject) => {
+      this.heroService.like(hero).subscribe(() => {
+        this.canVote = this.heroService.checkIfUserCanVote();
+        resolve(true);
+      }, (error) => {
+        reject(error);
+      });
     });
   }
 }

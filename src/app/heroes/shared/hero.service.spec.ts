@@ -7,6 +7,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/startWith';
 import {TestsModule} from '../../shared/modules/tests.module';
 import {TranslateModule} from '@ngx-translate/core';
+import {HttpErrorResponse} from '@angular/common/http';
 
 describe('HeroService', () => {
   let heroService;
@@ -43,7 +44,7 @@ describe('HeroService', () => {
   it('should fail getting hero by no id', async(() => {
     heroService.getHeroById('noId').subscribe(() => {
     }, (error) => {
-      expect(error).toEqual(jasmine.any(TypeError));
+      expect(error).toEqual(jasmine.any(HttpErrorResponse));
     });
   }));
 
