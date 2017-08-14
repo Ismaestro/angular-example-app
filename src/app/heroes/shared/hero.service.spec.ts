@@ -8,6 +8,7 @@ import 'rxjs/add/operator/startWith';
 import {TestsModule} from '../../shared/modules/tests.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {HttpErrorResponse} from '@angular/common/http';
+import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
 
 describe('HeroService', () => {
   let heroService;
@@ -46,6 +47,32 @@ describe('HeroService', () => {
     }, (error) => {
       expect(error).toEqual(jasmine.any(HttpErrorResponse));
     });
+  }));
+
+  it('should fail creating empty hero', async(() => {
+    heroService.createHero({}).subscribe(() => {
+    }, (error) => {
+      expect(error).toEqual(jasmine.any(HttpErrorResponse));
+    });
+  }));
+
+  it('should fail deleting noId hero', async(() => {
+    heroService.deleteHeroById('noId').subscribe(() => {
+    }, (error) => {
+      expect(error).toEqual(jasmine.any(HttpErrorResponse));
+    });
+  }));
+
+  it('should fail like empty hero', async(() => {
+    localStorage.setItem('votes', String(0));
+    heroService.like('noId').subscribe(() => {
+    }, (error) => {
+      expect(error).toEqual(jasmine.any(HttpErrorResponse));
+    });
+  }));
+
+  it('should return json response error', async(() => {
+    expect(heroService.handleError(new Response('noId'))).toEqual(jasmine.any(ErrorObservable));
   }));
 
   it('should create hero', async(() => {

@@ -18,7 +18,6 @@ export class HeroService {
   private translations: any;
 
   private handleError(error: any) {
-    LoggerService.error('sever error:', error);
     this.request$.emit('finished');
     if (error instanceof Response) {
       return Observable.throw(error.json()['error'] || 'backend server error');
