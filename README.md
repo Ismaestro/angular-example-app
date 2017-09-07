@@ -12,6 +12,7 @@
 [![devDependency Status](https://david-dm.org/ismaestro/angular4-example-app/dev-status.svg)](https://david-dm.org/ismaestro/angular4-example-app#info=devDependencies)
 [![peerDependencies Status](https://david-dm.org/ismaestro/angular4-example-app/peer-status.svg)](https://david-dm.org/ismaestro/angular4-example-app?type=peer)
 
+[![npm](https://img.shields.io/badge/demo-online-brightgreen.svg)](http://angularexampleapp.com/)
 [![Join the chat at https://gitter.im/angular4-example-app/Lobby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/angular4-example-app/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 [![GitHub forks](https://img.shields.io/github/forks/ismaestro/angular4-example-app.svg?style=social&label=Fork)](https://github.com/ismaestro/angular4-example-app/fork)
@@ -41,7 +42,7 @@ Live DEMO [here](http://angularexampleapp.com/)!
 
 `npm run ci` - Executes linter and tests
 
-`npm run deploy` - Builds the app and deploy it to Github pages (angular-cli-ghpages) (fork to do this)
+`npm run deploy` - Builds the app and deploy it to Github pages (angular-cli-ghpages) (fork to do this and remove CNAME file)
 
 `npm run sme` - Builds and runs source map explorer, really cool :)
 
