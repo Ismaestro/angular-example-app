@@ -29,17 +29,16 @@ import {HeroService} from './heroes/shared/hero.service';
         deps: [HttpClient]
       }
     }),
-    AppRoutingModule,
+    SharedModule.forRoot(),
     CoreModule,
-    SharedModule
+    AppRoutingModule
   ],
   declarations: [
     AppComponent,
     HeroTopComponent
   ],
   providers: [
-    {provide: APP_CONFIG, useValue: AppConfig},
-    HeroService
+    {provide: APP_CONFIG, useValue: AppConfig}
   ],
   bootstrap: [AppComponent]
 })
