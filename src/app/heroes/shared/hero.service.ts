@@ -7,7 +7,6 @@ import {Hero} from './hero.model';
 import {Observable} from 'rxjs/Observable';
 import {MdSnackBar, MdSnackBarConfig} from '@angular/material';
 import {TranslateService} from '@ngx-translate/core';
-import {LoggerService} from '../../core/logger.service';
 
 @Injectable()
 export class HeroService {
