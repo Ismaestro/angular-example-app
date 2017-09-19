@@ -8,6 +8,7 @@
     "deploy": "ng build --prod --base-href / && angular-cli-ghpages",
     "test": "ng test --watch=false --code-coverage",
     "e2e": "ng e2e",
+    "e2e:watch": "watch 'ng e2e -s false' src e2e --wait=1",
     "lint": "ng lint",
     "ci": "npm run lint && npm run test && npm run e2e",
     "sme": "ng build && source-map-explorer dist/main.bundle.js",
@@ -63,6 +64,7 @@
     "ts-helpers": "1.1.2",
     "ts-node": "3.3.0",
     "tslint": "5.7.0",
-    "typescript": "2.3.4"
+    "typescript": "2.3.4",
+    "watch": "^1.0.2"
   }
 }
