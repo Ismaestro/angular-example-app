@@ -24,6 +24,9 @@ import {HeroesComponent} from './heroes.component';
     RemoveHeroDialogComponent,
     HeroDetailComponent
   ],
+  entryComponents: [
+    RemoveHeroDialogComponent
+  ],
   providers: [
     HeroService
   ]
