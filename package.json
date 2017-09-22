@@ -19,30 +19,30 @@
     "npm": ">= 3.0.0"
   },
   "dependencies": {
-    "@angular/animations": "4.4.1",
-    "@angular/common": "4.4.1",
-    "@angular/compiler": "4.4.1",
-    "@angular/core": "4.4.1",
-    "@angular/forms": "4.4.1",
-    "@angular/http": "4.4.1",
-    "@angular/platform-browser": "4.4.1",
-    "@angular/platform-browser-dynamic": "4.4.1",
-    "@angular/router": "4.4.1",
+    "@angular/animations": "4.4.3",
+    "@angular/common": "4.4.3",
+    "@angular/compiler": "4.4.3",
+    "@angular/core": "4.4.3",
+    "@angular/forms": "4.4.3",
+    "@angular/http": "4.4.3",
+    "@angular/platform-browser": "4.4.3",
+    "@angular/platform-browser-dynamic": "4.4.3",
+    "@angular/router": "4.4.3",
     "core-js": "2.5.1",
     "rxjs": "5.4.3",
-    "zone.js": "0.8.16"
+    "zone.js": "0.8.17"
   },
   "devDependencies": {
-    "@angular/cdk": "2.0.0-beta.10",
-    "@angular/cli": "1.4.2",
-    "@angular/compiler-cli": "4.4.1",
-    "@angular/material": "2.0.0-beta.10",
-    "@angular/platform-server": "4.4.1",
+    "@angular/cdk": "2.0.0-beta.11",
+    "@angular/cli": "1.4.3",
+    "@angular/compiler-cli": "4.4.3",
+    "@angular/material": "2.0.0-beta.11",
+    "@angular/platform-server": "4.4.3",
     "@ngx-translate/core": "8.0.0",
     "@ngx-translate/http-loader": "2.0.0",
     "@types/jasmine": "2.6.0",
     "@types/jasminewd2": "2.0.3",
-    "@types/node": "8.0.28",
+    "@types/node": "8.0.29",
     "angular-cli-ghpages": "0.5.1",
     "codelyzer": "3.2.0",
     "coveralls": "2.13.1",
@@ -63,6 +63,6 @@
     "ts-helpers": "1.1.2",
     "ts-node": "3.3.0",
     "tslint": "5.7.0",
-    "typescript": "2.3.4"
+    "typescript": "2.5.2"
   }
 }
