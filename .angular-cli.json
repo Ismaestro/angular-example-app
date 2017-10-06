@@ -28,7 +28,6 @@
         "assets/css/styles.scss"
       ],
       "scripts": [
-        "assets/js/gtm.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
