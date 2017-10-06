@@ -2,6 +2,51 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.4.0"></a>
+# [2.4.0](https://github.com/Ismaestro/angular4-example-app/compare/v2.3.0...v2.4.0) (2017-10-06)
+
+
+### Bug Fixes
+
+* **gtm:** added angular cli insertion in scripts section ([9b5189f](https://github.com/Ismaestro/angular4-example-app/commit/9b5189f))
+* **gtm:** added exception in CSP header for gtm ([25092a0](https://github.com/Ismaestro/angular4-example-app/commit/25092a0))
+* **gtm:** added google analytics exception in CSP header ([bec72fa](https://github.com/Ismaestro/angular4-example-app/commit/bec72fa))
+* **gtm:** test in head tag ([16de712](https://github.com/Ismaestro/angular4-example-app/commit/16de712))
+* **lint:** added break line in polyfills file ([61816ff](https://github.com/Ismaestro/angular4-example-app/commit/61816ff))
+* **lock:** test with no package lock ([a846995](https://github.com/Ismaestro/angular4-example-app/commit/a846995))
+* **nav:** solved problem with padding bottom ([787e2b1](https://github.com/Ismaestro/angular4-example-app/commit/787e2b1))
+* **progress bar:** solved problem with negative number of requests ([eb24c46](https://github.com/Ismaestro/angular4-example-app/commit/eb24c46))
+
+
+### Features
+
+* **angular:** new versions, and added utils service for modernizr lib ([e33e924](https://github.com/Ismaestro/angular4-example-app/commit/e33e924))
+* **e2e tests:** added support for e2e tests with watch ([bba965b](https://github.com/Ismaestro/angular4-example-app/commit/bba965b))
+* **format code:** reformat code ([c113649](https://github.com/Ismaestro/angular4-example-app/commit/c113649))
+* **gtm:** added google tag manager js ([38c63c7](https://github.com/Ismaestro/angular4-example-app/commit/38c63c7))
+* **lazy loading:** updated shared module ([0cbfcd5](https://github.com/Ismaestro/angular4-example-app/commit/0cbfcd5))
+* **loading:** updated spinner to a different one ([dc11b1e](https://github.com/Ismaestro/angular4-example-app/commit/dc11b1e))
+* **progress bar:** added test to validate number of requests and it's counter value ([4f19077](https://github.com/Ismaestro/angular4-example-app/commit/4f19077))
+* **readme:** added star and fork badges ([18440fc](https://github.com/Ismaestro/angular4-example-app/commit/18440fc))
+* **readme:** updated demo image ([8551a1d](https://github.com/Ismaestro/angular4-example-app/commit/8551a1d))
+* **readme:** updated demo image ([c261575](https://github.com/Ismaestro/angular4-example-app/commit/c261575))
+* **readme:** updated deploy command documentation ([9307876](https://github.com/Ismaestro/angular4-example-app/commit/9307876))
+* **readme:** updated info to add es6 promises feature ([4393865](https://github.com/Ismaestro/angular4-example-app/commit/4393865))
+* **readme:** updated unit tests message ([c2e5ee2](https://github.com/Ismaestro/angular4-example-app/commit/c2e5ee2))
+* **test:** added app component router tests cases ([024378a](https://github.com/Ismaestro/angular4-example-app/commit/024378a))
+* **test:** added nav unit tests ([e53390c](https://github.com/Ismaestro/angular4-example-app/commit/e53390c))
+* **tests:** added constructor test for nav component ([09819b5](https://github.com/Ismaestro/angular4-example-app/commit/09819b5))
+* **tests:** added hero detail tests and solved problem with getting by id with no id :) ([ae1f3a4](https://github.com/Ismaestro/angular4-example-app/commit/ae1f3a4))
+* **tests:** added hero service tests ([4fcf5ed](https://github.com/Ismaestro/angular4-example-app/commit/4fcf5ed))
+* **tests:** added more tests for search bar component ([4e296f2](https://github.com/Ismaestro/angular4-example-app/commit/4e296f2))
+* **tests:** added more tests for top heroes component ([636077a](https://github.com/Ismaestro/angular4-example-app/commit/636077a))
+* **types:** added node types ([f35c40f](https://github.com/Ismaestro/angular4-example-app/commit/f35c40f))
+* **types:** added some types to many functions ([65fd2c5](https://github.com/Ismaestro/angular4-example-app/commit/65fd2c5))
+* **versions:** upgraded module versions ([b4e8b92](https://github.com/Ismaestro/angular4-example-app/commit/b4e8b92))
+* **versions:** upgraded module versions ([4e931db](https://github.com/Ismaestro/angular4-example-app/commit/4e931db))
+
+
+
 <a name="2.3.0"></a>
 # [2.3.0](https://github.com/Ismaestro/angular4-example-app/compare/v2.2.1...v2.3.0) (2017-08-11)
 
