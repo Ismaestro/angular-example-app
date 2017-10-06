@@ -6,6 +6,10 @@
           content="
           default-src 'self' 'unsafe-inline' 'unsafe-eval'
           data:
+
+          http://*.google-analytics.com
+
+          https://*.google-analytics.com
           https://angularexampleapp.com
           https://*.googletagmanager.com
           https://*.gstatic.com
@@ -20,24 +24,12 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="canonical" href="http://angularexampleapp.com/">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-      w[l] = w[l] || [];
-      w[l].push({
-        'gtm.start': new Date().getTime(), event: 'gtm.js'
-      });
-      var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true;
-      j.src =
-        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-TF7QP5M');
-    </script>
-    <!-- End Google Tag Manager -->
 </head>
 <body>
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TF7QP5M" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+
 <app-root>
     <div class="loading-page">
         <div class="spinner">
@@ -48,12 +40,5 @@
         </div>
     </div>
 </app-root>
-
-<!-- Google Tag Manager (noscript) -->
-<noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TF7QP5M"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
-<!-- End Google Tag Manager (noscript) -->
 </body>
 </html>
