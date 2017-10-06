@@ -7,6 +7,6 @@ export class HeroesListPage {
   }
 
   static getNumberHeroes(): any {
-    return element.all(by.css('#left md-list-item')).count();
+    return element.all(by.css('#left mat-list-item')).count();
   }
 }

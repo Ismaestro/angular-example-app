@@ -65,12 +65,14 @@ Live DEMO [here](http://angularexampleapp.com/)!
 * End-to-end tests with Protractor
 * ES6 Promises
 * Github pages deploy ready
+* Google Tag Manager
+* Modernizr (browser features detection)
 * Following the [best practices](https://angular.io/guide/styleguide)!
 
 ## Travis CI
 We use Travis CI to run this tasks in order:
 * Linter
-* Tests e2e
+* Tests
 * Build for production
 * Deploy in Github pages
 :)

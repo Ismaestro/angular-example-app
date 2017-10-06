@@ -44,6 +44,10 @@ form {
     width: 50%;
     margin: 0 auto;
   }
+
+  .mat-form-field {
+    width: 100%;
+  }
 }
 
 @media (max-width: 680px) {

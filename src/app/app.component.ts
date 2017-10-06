@@ -4,6 +4,8 @@ import {Meta, Title} from '@angular/platform-browser';
 
 import {NavigationEnd, Router} from '@angular/router';
 import {AppConfig} from './config/app.config';
+import {UtilsService} from './shared/services/utils.service';
+
 
 @Component({
   selector: 'app-root',
@@ -15,6 +17,7 @@ export class AppComponent {
   constructor(private translateService: TranslateService,
               private title: Title,
               private meta: Meta,
+              private utilsService: UtilsService,
               private router: Router) {
 
     this.translateService = translateService;
@@ -41,5 +44,9 @@ export class AppComponent {
         }
       }
     });
+
+    this.utilsService.checkBrowserFeatures();
   }
+
+
 }

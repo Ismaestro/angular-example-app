@@ -2,7 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {Hero} from '../shared/hero.model';
 import {HeroService} from '../shared/hero.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {MdDialog} from '@angular/material';
+import {MatDialog} from '@angular/material';
 import {AppConfig} from '../../config/app.config';
 import {Router} from '@angular/router';
 import {LoggerService} from '../../core/logger.service';
@@ -21,7 +21,7 @@ export class HeroListComponent {
   @ViewChild('form') myNgForm; // just to call resetForm method
 
   constructor(private heroService: HeroService,
-              private dialog: MdDialog,
+              private dialog: MatDialog,
               private router: Router,
               private formBuilder: FormBuilder) {
     this.canVote = this.heroService.checkIfUserCanVote();

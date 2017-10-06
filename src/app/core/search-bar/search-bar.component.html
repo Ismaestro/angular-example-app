@@ -1,12 +1,12 @@
-<md-input-container>
-    <input mdInput placeholder="{{ 'findHero' | translate }}!"
-           [mdAutocomplete]="heroesAutocomplete" [formControl]="heroFormControl">
-</md-input-container>
+<mat-input-container>
+    <input matInput placeholder="{{ 'findHero' | translate }}!"
+           [matAutocomplete]="heroesAutocomplete" [formControl]="heroFormControl">
+</mat-input-container>
 
-<md-autocomplete #heroesAutocomplete="mdAutocomplete">
-    <md-option *ngFor="let hero of filteredHeroes"
+<mat-autocomplete #heroesAutocomplete="matAutocomplete">
+    <mat-option *ngFor="let hero of filteredHeroes"
                (onSelectionChange)="searchHero(hero)"
                [value]="hero.name">
         {{hero.name}}
-    </md-option>
-</md-autocomplete>
+    </mat-option>
+</mat-autocomplete>

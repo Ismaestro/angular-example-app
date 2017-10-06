@@ -5,7 +5,7 @@ import {AppConfig} from '../../config/app.config';
 
 import {Hero} from './hero.model';
 import {Observable} from 'rxjs/Observable';
-import {MdSnackBar, MdSnackBarConfig} from '@angular/material';
+import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
 import {TranslateService} from '@ngx-translate/core';
 
 @Injectable()
@@ -26,7 +26,7 @@ export class HeroService {
 
   constructor(private http: HttpClient,
               private translateService: TranslateService,
-              private snackBar: MdSnackBar) {
+              private snackBar: MatSnackBar) {
     this.request$ = new EventEmitter();
 
     this.heroesUrl = AppConfig.endpoints.heroes;
@@ -111,7 +111,7 @@ export class HeroService {
   }
 
   showSnackBar(name): void {
-    const config: any = new MdSnackBarConfig();
+    const config: any = new MatSnackBarConfig();
     config.duration = AppConfig.snackBarDuration;
     this.snackBar.open(this.translations[name], 'OK', config);
   }

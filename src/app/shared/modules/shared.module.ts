@@ -3,6 +3,7 @@ import {ProgressBarService} from '../services/progress-bar.service';
 import {MaterialModule} from './material.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {HeroService} from '../../heroes/shared/hero.service';
+import {UtilsService} from '../services/utils.service';
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ export class SharedModule {
     return {
       ngModule: SharedModule,
       providers: [
-        ProgressBarService, HeroService
+        ProgressBarService, HeroService, UtilsService
       ]
     };
   }

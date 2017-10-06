@@ -1,55 +1,55 @@
 <div id="left">
     <h2 class="section-title">{{ 'heroesList' | translate }}</h2>
     <div>
-        <md-progress-spinner *ngIf="!heroes"
+        <mat-progress-spinner *ngIf="!heroes"
                              class="progress-spinner"
                              [color]="'primary'"
                              [mode]="'indeterminate'">
-        </md-progress-spinner>
-        <md-list>
-            <md-list-item *ngFor="let hero of heroes">
+        </mat-progress-spinner>
+        <mat-list>
+            <mat-list-item *ngFor="let hero of heroes">
                 <img *ngIf="hero.default" class="cp"
-                     (click)="seeHeroDetails(hero);" md-list-avatar
+                     (click)="seeHeroDetails(hero);" mat-list-avatar
                      src="assets/images/heroes/{{hero.id}}-thumbnail.jpg">
                 <img *ngIf="!hero.default"
-                     (click)="seeHeroDetails(hero);" md-list-avatar src="assets/images/heroes/default.png">
-                <h3 md-line [ngClass]="{'cp': hero.default}" (click)="seeHeroDetails(hero);"> {{hero.name}} </h3>
-                <p md-line [ngClass]="{'cp': hero.default}" (click)="seeHeroDetails(hero);">
+                     (click)="seeHeroDetails(hero);" mat-list-avatar src="assets/images/heroes/default.png">
+                <h3 mat-line [ngClass]="{'cp': hero.default}" (click)="seeHeroDetails(hero);"> {{hero.name}} </h3>
+                <p mat-line [ngClass]="{'cp': hero.default}" (click)="seeHeroDetails(hero);">
                     <span>{{hero.alterEgo}}</span>
                 </p>
                 <div class="hero-actions">
                     {{hero.likes}}
-                    <md-icon mdTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}"
-                             [mdTooltipPosition]="'above'"
+                    <mat-icon matTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}"
+                             [matTooltipPosition]="'above'"
                              class="like-icon" (click)="like(hero)">
                         favorite
-                    </md-icon>
-                    <md-icon class="remove-icon" *ngIf="!hero.default"
+                    </mat-icon>
+                    <mat-icon class="remove-icon" *ngIf="!hero.default"
                              (click)="remove(hero);">
                         delete
-                    </md-icon>
+                    </mat-icon>
                 </div>
-            </md-list-item>
-        </md-list>
+            </mat-list-item>
+        </mat-list>
     </div>
 </div>
 <div id="right">
     <h2 class="section-title">{{ 'createHero' | translate }}</h2>
     <div>
         <form [formGroup]="newHeroForm" #form="ngForm" (ngSubmit)="createNewHero(newHeroForm.value)">
-            <md-input-container class="input-container">
-                <input mdInput type="text"
+            <mat-input-container class="input-container">
+                <input matInput type="text"
                        placeholder="{{'name' | translate}}"
                        formControlName="name">
-            </md-input-container>
+            </mat-input-container>
 
-            <md-input-container class="input-container">
-                <input mdInput type="text"
+            <mat-input-container class="input-container">
+                <input matInput type="text"
                        placeholder="{{'realName' | translate}}"
                        formControlName="alterEgo">
-            </md-input-container>
+            </mat-input-container>
 
-            <button md-raised-button type="submit" [disabled]="!newHeroForm.valid">
+            <button mat-raised-button type="submit" [disabled]="!newHeroForm.valid">
                 {{'create' | translate}}
             </button>
 

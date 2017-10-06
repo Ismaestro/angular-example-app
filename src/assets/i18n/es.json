@@ -46,5 +46,6 @@
   "no": "No",
   "yes": "Yes",
   "heroRemoved": "El heroe nos ha dejado :(",
-  "heroDetail": "Detalle del heroe"
+  "heroDetail": "Detalle del heroe",
+  "updateBrowser": "Estas usando un navegador antiguo, por favor actualiza la versión y recarga la página."
 }

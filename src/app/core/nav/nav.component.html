@@ -1,41 +1,41 @@
 <header>
     <nav>
-        <a md-raised-button *ngFor="let item of menuItems" routerLink="{{item.link}}">
+        <a mat-raised-button *ngFor="let item of menuItems" routerLink="{{item.link}}">
             {{item.name | uppercase}}
         </a>
         <div class="flex-spacer"></div>
         <app-search-bar></app-search-bar>
-        <button md-icon-button [mdMenuTriggerFor]="menu">
-            <md-icon>public</md-icon>
+        <button mat-icon-button [matMenuTriggerFor]="matmenu">
+            <mat-icon>public</mat-icon>
         </button>
-        <md-menu #menu="mdMenu">
-            <button md-menu-item (click)="changeLanguage('en')">
-                <md-icon>flag</md-icon>
+        <mat-menu #matmenu="matMenu">
+            <button mat-menu-item (click)="changeLanguage('en')">
+                <mat-icon>flag</mat-icon>
                 <span>
                 {{ 'english' | translate }}
             </span>
             </button>
-            <button md-menu-item (click)="changeLanguage('es')">
-                <md-icon>flag</md-icon>
+            <button mat-menu-item (click)="changeLanguage('es')">
+                <mat-icon>flag</mat-icon>
                 <span>
                 {{ 'spanish' | translate }}
             </span>
             </button>
-            <button md-menu-item (click)="changeLanguage('pt-br')">
-                <md-icon>flag</md-icon>
+            <button mat-menu-item (click)="changeLanguage('pt-br')">
+                <mat-icon>flag</mat-icon>
                 <span>
                 {{ 'portuguese' | translate }}
             </span>
             </button>
-        </md-menu>
+        </mat-menu>
         <a class="image-icon" href="{{appConfig.repositoryURL}}" target="_blank">
             <img src="assets/images/github-circle-white-transparent.svg">
         </a>
     </nav>
     <section class="progress-bar">
-        <md-progress-bar
+        <mat-progress-bar
             [color]="'primary'"
             [mode]="progressBarMode">
-        </md-progress-bar>
+        </mat-progress-bar>
     </section>
 </header>

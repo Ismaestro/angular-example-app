@@ -8,6 +8,7 @@ import {HeroTopComponent} from './heroes/hero-top/hero-top.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {APP_CONFIG, AppConfig} from './config/app.config';
 import {HeroService} from './heroes/shared/hero.service';
+import {UtilsService} from './shared/services/utils.service';
 
 describe('AppComponent', () => {
   let fixture;
@@ -27,7 +28,8 @@ describe('AppComponent', () => {
       providers: [
         {provide: APP_CONFIG, useValue: AppConfig},
         {provide: APP_BASE_HREF, useValue: '/'},
-        HeroService
+        HeroService,
+        UtilsService
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();

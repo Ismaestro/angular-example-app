@@ -6,6 +6,6 @@ export class HomePage {
   }
 
   static getNumberHeroes(): any {
-    return element.all(by.css('#heroes-list md-card')).count();
+    return element.all(by.css('#heroes-list mat-card')).count();
   }
 }
