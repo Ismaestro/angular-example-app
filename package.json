@@ -8,6 +8,8 @@
     "deploy": "ng build --prod --base-href / && angular-cli-ghpages",
     "test": "ng test --watch=false --code-coverage",
     "e2e": "ng e2e",
+    "e2e:home": "ng e2e --serve false --prod --specs=./e2e/pages/home/**/*.e2e-spec.ts",
+    "e2e:heroeslist": "ng e2e --serve false --prod --specs=./e2e/pages/heroes-list/**/*.e2e-spec.ts",
     "lint": "ng lint",
     "ci": "npm run lint && npm run test && npm run e2e",
     "sme": "ng build && source-map-explorer dist/main.bundle.js",

@@ -34,7 +34,9 @@ Live DEMO [here](http://angularexampleapp.com/)!
 
 `npm run test` - Runs unit tests with karma and jasmine
 
-`npm run e2e` - Runs end to end tests with protractor
+`npm run e2e` - Runs end to end tests
+
+`npm run e2e:home` - Runs end to end tests only for the home directory. There are more of this commands for development purposes
 
 `npm run build` - Builds the app for production
 
