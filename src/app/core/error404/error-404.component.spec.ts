@@ -8,7 +8,7 @@ import {ProgressBarService} from '../../shared/services/progress-bar.service';
 import {TestsModule} from '../../shared/modules/tests.module';
 import {Error404Component} from './error-404.component';
 
-fdescribe('Error404Component', () => {
+describe('Error404Component', () => {
   let fixture;
   let component;
   let progressBarService;
