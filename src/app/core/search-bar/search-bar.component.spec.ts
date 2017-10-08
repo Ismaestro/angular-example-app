@@ -8,6 +8,7 @@ import {AppRoutingModule} from '../../app-routing.module';
 import {HeroTopComponent} from '../../heroes/hero-top/hero-top.component';
 import {APP_BASE_HREF} from '@angular/common';
 import {TestsModule} from '../../shared/modules/tests.module';
+import {Error404Component} from '../error404/error-404.component';
 
 describe('SearchBarComponent', () => {
   let fixture;
@@ -23,7 +24,8 @@ describe('SearchBarComponent', () => {
       ],
       declarations: [
         SearchBarComponent,
-        HeroTopComponent
+        HeroTopComponent,
+        Error404Component
       ],
       providers: [
         {provide: APP_CONFIG, useValue: AppConfig},

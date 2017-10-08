@@ -9,6 +9,7 @@ import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {APP_CONFIG, AppConfig} from './config/app.config';
 import {HeroService} from './heroes/shared/hero.service';
 import {UtilsService} from './shared/services/utils.service';
+import {Error404Component} from './core/error404/error-404.component';
 
 describe('AppComponent', () => {
   let fixture;
@@ -23,7 +24,8 @@ describe('AppComponent', () => {
       ],
       declarations: [
         AppComponent,
-        HeroTopComponent
+        HeroTopComponent,
+        Error404Component
       ],
       providers: [
         {provide: APP_CONFIG, useValue: AppConfig},

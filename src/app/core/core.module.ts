@@ -23,8 +23,7 @@ import {Error404Component} from './error404/error-404.component';
   ],
   exports: [
     NavComponent,
-    FooterComponent,
-    Error404Component
+    FooterComponent
   ],
   declarations: [
     NavComponent,
