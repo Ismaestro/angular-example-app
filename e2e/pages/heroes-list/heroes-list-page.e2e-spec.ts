@@ -2,7 +2,6 @@ import {HeroesListPage} from './heroes-list-page';
 
 describe('Home page', function () {
   let page;
-  const defaultHeroes = 9;
 
   beforeEach(() => {
     page = new HeroesListPage();
@@ -10,6 +9,6 @@ describe('Home page', function () {
 
   it('should contains equal or more heroes than default ones', () => {
     HeroesListPage.navigateTo();
-    expect<any>(HeroesListPage.getNumberHeroes()).toBeGreaterThanOrEqual(defaultHeroes);
+    expect<any>(HeroesListPage.getNumberHeroes()).toBeGreaterThanOrEqual(8);
   });
 });
