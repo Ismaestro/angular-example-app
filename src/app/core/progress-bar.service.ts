@@ -1,5 +1,5 @@
 import {EventEmitter, Injectable} from '@angular/core';
-import {HeroService} from '../../heroes/shared/hero.service';
+import {HeroService} from '../heroes/shared/hero.service';
 
 @Injectable()
 export class ProgressBarService {

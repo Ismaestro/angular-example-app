@@ -8,7 +8,6 @@ import {HeroTopComponent} from './heroes/hero-top/hero-top.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {APP_CONFIG, AppConfig} from './config/app.config';
 import {HeroService} from './heroes/shared/hero.service';
-import {UtilsService} from './shared/services/utils.service';
 import {Error404Component} from './core/error404/error-404.component';
 
 describe('AppComponent', () => {
@@ -30,8 +29,7 @@ describe('AppComponent', () => {
       providers: [
         {provide: APP_CONFIG, useValue: AppConfig},
         {provide: APP_BASE_HREF, useValue: '/'},
-        HeroService,
-        UtilsService
+        HeroService
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
@@ -54,5 +52,9 @@ describe('AppComponent', () => {
     component.router.navigate(['/' + AppConfig.routes.heroes]).then(() => {
       expect(component.title.getTitle()).toBe('Heroes list');
     });
+  }));
+
+  it('should check browser features', (() => {
+    expect(component.checkBrowserFeatures()).toBeTruthy();
   }));
 });
