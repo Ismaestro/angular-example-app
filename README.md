@@ -36,7 +36,7 @@ Live DEMO [here](http://angularexampleapp.com/)!
 
 `npm run e2e` - Runs end to end tests
 
-`npm run e2e:home` - Runs end to end tests only for the home directory. There are more of this commands for development purposes
+`npm run e2e:home` - Runs end to end tests only for the home directory. There are more commands like this one, for development purposes
 
 `npm run build` - Builds the app for production
 
@@ -89,7 +89,7 @@ This repo is using an API which is [a minimal app](https://github.com/Ismaestro/
 
 ## Contributors
 
-Thanks to all contributors and they support!
+Thanks to all contributors and their support!
 
 ## License
 
