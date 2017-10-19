@@ -1,23 +1,17 @@
 footer {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   padding: 8px 16px;
   color: white;
-  height: 3.6em;
   background: #3f51b5;
   margin-top: 2em;
   position: sticky;
   top: 100%;
 
   img {
-    height: 4em;
+    width: 25%;
   }
+}
 
-  @media (max-width: 360px) {
-    height: 50%;
-    text-align: center;
-    display: block;
-    padding-top: 1em;
-  }
+.footer-xs {
+  text-align: center;
+  padding-top: 1em;
 }

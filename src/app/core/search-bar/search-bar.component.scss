@@ -1,7 +1,4 @@
 :host(app-search-bar) {
-  display: flex;
-  align-items: center;
-
   /deep/ .mat-input-placeholder {
     font-weight: 100;
     color: white;

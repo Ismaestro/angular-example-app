@@ -56,7 +56,7 @@ Live DEMO [here](http://angularexampleapp.com/)!
 `npm start`
 
 ## Features
-* Responsive layout
+* Responsive layout (flex layout module)
 * Internationalization
 * Lazy loading modules
 * Progress bar active, if a request is pending (events)
