@@ -48,7 +48,7 @@ describe('AppComponent', () => {
     });
   }));
 
-  it('should change title meta tag in heroes path', async(() => {
+  fit('should change title meta tag in heroes path', async(() => {
     component.router.navigate(['/' + AppConfig.routes.heroes]).then(() => {
       expect(component.title.getTitle()).toBe('Heroes list');
     });
