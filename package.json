@@ -13,7 +13,8 @@
     "lint": "ng lint",
     "ci": "npm run lint && npm run test && npm run e2e",
     "sme": "ng build && source-map-explorer dist/main.bundle.js",
-    "release": "standard-version && git push --follow-tags origin master"
+    "release": "standard-version && git push --follow-tags origin master",
+    "docker": "docker build -t angularexampleapp . && docker run -d -p 4200:80 angularexampleapp"
   },
   "private": true,
   "engines": {

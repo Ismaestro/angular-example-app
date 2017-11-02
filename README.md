@@ -1,4 +1,4 @@
-# Example app with Angular 4 + Angular CLI + Angular Material + Travis CI
+# Example app with Angular 4 + Angular CLI + Angular Material + Docker
 
 > ### Base project made with much  :heart: . Contains CRUD, official style guide, patterns, etc.
 
@@ -50,6 +50,8 @@ Live DEMO [here](http://angularexampleapp.com/)!
 
 `npm run release` - Creates a new release using standard-version
 
+`npm run docker` - Builds the docker image and run the container
+
 **Windows: use precompilation to speed up**
 
 `tsc --project tsconfig.json`
@@ -70,6 +72,16 @@ Live DEMO [here](http://angularexampleapp.com/)!
 * Google Tag Manager
 * Modernizr (browser features detection)
 * Following the [best practices](https://angular.io/guide/styleguide)!
+
+## Docker
+
+You can build the image and run the container with Docker. The configuration is in the nginx folder if you want to change it.
+
+`docker build -t angularexampleapp .`
+
+`docker run -d -p 4200:80 angularexampleapp`
+
+Thanks to [avatsaev](https://github.com/avatsaev/angular4-docker-example)! 
 
 ## Travis CI
 We use Travis CI to run this tasks in order:
