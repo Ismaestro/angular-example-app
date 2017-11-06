@@ -24,6 +24,7 @@ describe('HeroListComponent', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeroListComponent);
+    fixture.detectChanges();
     component = fixture.debugElement.componentInstance;
   }));
 

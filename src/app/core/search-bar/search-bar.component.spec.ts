@@ -36,6 +36,7 @@ describe('SearchBarComponent', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(SearchBarComponent);
+    fixture.detectChanges();
     component = fixture.debugElement.componentInstance;
     heroService = TestBed.get(HeroService);
   }));
@@ -45,7 +46,6 @@ describe('SearchBarComponent', () => {
   }));
 
   it('should get all heroes', fakeAsync(() => {
-    fixture.detectChanges();
     spyOn(heroService, 'getAllHeroes').and.returnValue(Promise.resolve(true));
     tick();
     fixture.detectChanges();
@@ -71,11 +71,5 @@ describe('SearchBarComponent', () => {
     expect(component.filterHeroes('batman').length).toBe(1);
     expect(component.filterHeroes('spiderman').length).toBe(0);
     expect(component.filterHeroes().length).toBe(2);
-  }));
-
-  it('should search for a hero', async(() => {
-    component.searchHero({id: 1}).then((redirection) => {
-      expect(redirection).toBe(true);
-    });
   }));
 });

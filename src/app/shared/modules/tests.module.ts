@@ -7,7 +7,6 @@ import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterTestingModule} from '@angular/router/testing';
-import {CoreModule} from '../../core/core.module';
 
 @NgModule({
   exports: [

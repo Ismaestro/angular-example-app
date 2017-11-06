@@ -30,6 +30,7 @@ describe('HeroTopComponent', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeroTopComponent);
+    fixture.detectChanges();
     component = fixture.debugElement.componentInstance;
     heroService = TestBed.get(HeroService);
   }));

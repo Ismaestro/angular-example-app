@@ -1,4 +1,4 @@
-import {AppConfig} from '../../../src/app/config/app.config';
+import {AppConfig} from '../../src/app/config/app.config';
 import {HomePage} from './home-page';
 
 describe('Home page', function () {

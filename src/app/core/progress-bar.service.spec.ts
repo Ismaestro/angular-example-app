@@ -1,8 +1,5 @@
 import {TestBed} from '@angular/core/testing';
 import {ProgressBarService} from './progress-bar.service';
-
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/startWith';
 import {HeroService} from '../heroes/shared/hero.service';
 import {TestsModule} from '../shared/modules/tests.module';
 import {TranslateModule} from '@ngx-translate/core';

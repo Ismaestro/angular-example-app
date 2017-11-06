@@ -32,6 +32,7 @@ describe('NavComponent', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(NavComponent);
+    fixture.detectChanges();
     component = fixture.debugElement.componentInstance;
     progressBarService = TestBed.get(ProgressBarService);
   }));

@@ -2,9 +2,6 @@ import {async, TestBed} from '@angular/core/testing';
 import {HeroService} from './hero.service';
 import {APP_BASE_HREF} from '@angular/common';
 import {APP_CONFIG, AppConfig} from '../../config/app.config';
-
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/startWith';
 import {TestsModule} from '../../shared/modules/tests.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {HttpErrorResponse} from '@angular/common/http';

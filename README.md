@@ -1,4 +1,4 @@
-# Example app with Angular 4 + Angular CLI + Angular Material + Docker
+# Example app with Angular 5 + Angular CLI + Angular Material + Docker
 
 > ### Base project made with much  :heart: . Contains CRUD, official style guide, patterns, etc.
 

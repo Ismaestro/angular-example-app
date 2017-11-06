@@ -15,5 +15,8 @@
       "es2017",
       "dom"
     ]
+  },
+  "angularCompilerOptions": {
+    "preserveWhitespaces": false
   }
 }

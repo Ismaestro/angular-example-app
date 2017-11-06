@@ -19,6 +19,7 @@ describe('FooterComponent', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(FooterComponent);
+    fixture.detectChanges();
     component = fixture.debugElement.componentInstance;
   }));
 

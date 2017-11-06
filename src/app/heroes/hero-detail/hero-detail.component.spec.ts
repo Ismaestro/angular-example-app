@@ -27,6 +27,7 @@ describe('HeroDetailComponent', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeroDetailComponent);
+    fixture.detectChanges();
     component = fixture.debugElement.componentInstance;
     heroService = TestBed.get(HeroService);
   }));

@@ -1,8 +1,8 @@
 <h1 class="section-title">{{'heroDetail' | translate}}</h1>
 <mat-progress-spinner *ngIf="!hero"
-                     class="progress-spinner"
-                     [color]="'primary'"
-                     [mode]="'indeterminate'">
+                      class="progress-spinner"
+                      [color]="'primary'"
+                      [mode]="'indeterminate'">
 </mat-progress-spinner>
 <div id="heroe-detail" *ngIf="hero">
     <ng-container>
@@ -16,8 +16,8 @@
                 <div class="hero-actions">
                     {{hero.likes}}
                     <mat-icon matTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}"
-                             [matTooltipPosition]="'above'"
-                             class="like-icon" (click)="like(hero)">favorite
+                              [matTooltipPosition]="'above'"
+                              class="like-icon" (click)="like(hero)">favorite
                     </mat-icon>
                 </div>
             </mat-card-header>

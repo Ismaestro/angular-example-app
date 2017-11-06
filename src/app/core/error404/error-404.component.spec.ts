@@ -32,6 +32,7 @@ describe('Error404Component', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(Error404Component);
+    fixture.detectChanges();
     component = fixture.debugElement.componentInstance;
     progressBarService = TestBed.get(ProgressBarService);
   }));

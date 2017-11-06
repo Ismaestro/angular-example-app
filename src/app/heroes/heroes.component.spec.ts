@@ -21,6 +21,7 @@ describe('HeroesComponent', () => {
 
   it('should create heroes component', (() => {
     const fixture = TestBed.createComponent(HeroesComponent);
+    fixture.detectChanges();
     const component = fixture.debugElement.componentInstance;
     expect(component).toBeTruthy();
   }));
