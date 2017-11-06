@@ -15,5 +15,5 @@ export const AppConfig: IAppConfig = {
   votesLimit: 3,
   topHeroesLimit: 4,
   snackBarDuration: 3000,
-  repositoryURL: 'https://github.com/Ismaestro/angular4-example-app'
+  repositoryURL: 'https://github.com/Ismaestro/angular5-example-app'
 };
