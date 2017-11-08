@@ -1,4 +1,4 @@
-import {EventEmitter, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 import {AppConfig} from '../../config/app.config';
@@ -10,14 +10,11 @@ import {TranslateService} from '@ngx-translate/core';
 
 @Injectable()
 export class HeroService {
-  request$: EventEmitter<any>;
-
   private headers: HttpHeaders;
   private heroesUrl: string;
   private translations: any;
 
   private handleError(error: any) {
-    this.request$.emit('finished');
     if (error instanceof Response) {
       return Observable.throw(error.json()['error'] || 'backend server error');
     }
@@ -27,8 +24,6 @@ export class HeroService {
   constructor(private http: HttpClient,
               private translateService: TranslateService,
               private snackBar: MatSnackBar) {
-    this.request$ = new EventEmitter();
-
     this.heroesUrl = AppConfig.endpoints.heroes;
     this.headers = new HttpHeaders({'Content-Type': 'application/json'});
 
@@ -40,34 +35,28 @@ export class HeroService {
   }
 
   getAllHeroes(): Observable<Hero[]> {
-    this.request$.emit('starting');
     return this.http.get(this.heroesUrl)
       .map(response => {
-        this.request$.emit('finished');
         return response;
       })
       .catch(error => this.handleError(error));
   }
 
   getHeroById(heroId: string): Observable<Hero> {
-    this.request$.emit('starting');
     return this.http.get(this.heroesUrl + '/' + heroId)
       .map(response => {
-        this.request$.emit('finished');
         return response;
       })
       .catch(error => this.handleError(error));
   }
 
   createHero(hero: any): Observable<Hero> {
-    this.request$.emit('starting');
     return this.http
       .post(this.heroesUrl, JSON.stringify({
         name: hero.name,
         alterEgo: hero.alterEgo
       }), {headers: this.headers})
       .map(response => {
-        this.request$.emit('finished');
         this.showSnackBar('heroCreated');
         return response;
       })
@@ -76,12 +65,10 @@ export class HeroService {
 
   like(hero: Hero) {
     if (this.checkIfUserCanVote()) {
-      this.request$.emit('starting');
       const url = `${this.heroesUrl}/${hero.id}/like`;
       return this.http
         .post(url, {}, {headers: this.headers})
         .map((response) => {
-          this.request$.emit('finished');
           localStorage.setItem('votes', '' + (Number(localStorage.getItem('votes')) + 1));
           hero.likes += 1;
           this.showSnackBar('saved');
@@ -99,11 +86,9 @@ export class HeroService {
   }
 
   deleteHeroById(id: any): Observable<Array<Hero>> {
-    this.request$.emit('starting');
     const url = `${this.heroesUrl}/${id}`;
     return this.http.delete(url, {headers: this.headers})
       .map((response) => {
-        this.request$.emit('finished');
         this.showSnackBar('heroRemoved');
         return response;
       })

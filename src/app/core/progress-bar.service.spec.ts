@@ -27,7 +27,7 @@ describe('ProgressBarService', () => {
   });
 
   it('should not be requestsRunning', (() => {
-    const instance = new ProgressBarService(heroService);
+    const instance = new ProgressBarService();
     expect(instance).toBeTruthy();
   }));
 
@@ -36,14 +36,14 @@ describe('ProgressBarService', () => {
   }));
 
   it('should increase and decrease the counter of requests running', (() => {
-    heroService.request$.emit('starting');
-    heroService.request$.emit('starting');
+    progressBarService.increase();
+    progressBarService.increase();
     expect(progressBarService.requestsRunning).toBe(2);
-    heroService.request$.emit('finished');
+    progressBarService.decrease();
     expect(progressBarService.requestsRunning).toBe(1);
-    heroService.request$.emit('finished');
+    progressBarService.decrease();
     expect(progressBarService.requestsRunning).toBe(0);
-    heroService.request$.emit('finished');
+    progressBarService.decrease();
     expect(progressBarService.requestsRunning).toBe(0);
   }));
 });

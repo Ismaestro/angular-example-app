@@ -82,6 +82,8 @@ import 'rxjs/add/observable/throw';
 
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/startWith';
+import 'rxjs/add/operator/do';
+
 
 /**
  * Need to import hammer for Angular Material support.

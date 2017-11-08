@@ -61,7 +61,7 @@ Live DEMO [here](http://angularexampleapp.com/)!
 * Responsive layout (flex layout module)
 * Internationalization
 * Lazy loading modules
-* Progress bar active, if a request is pending (events)
+* Interceptors and Events (Progress bar active, if a request is pending)
 * CRUD: create, update and remove heroes
 * Search bar, to look for heroes
 * Modal and toasts (snakbar)!

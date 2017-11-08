@@ -1,5 +1,4 @@
 import {EventEmitter, Injectable} from '@angular/core';
-import {HeroService} from '../heroes/shared/hero.service';
 
 @Injectable()
 export class ProgressBarService {
@@ -7,21 +6,27 @@ export class ProgressBarService {
 
   private requestsRunning = 0;
 
-  constructor(private heroService: HeroService) {
+  constructor() {
     this.updateProgressBar$ = new EventEmitter();
+  }
 
-    this.heroService.request$.subscribe((type: string) => {
-      if (type === 'starting') {
-        this.requestsRunning++;
-        if (this.requestsRunning === 1) {
-          this.updateProgressBar$.emit('query');
-        }
-      } else if (this.requestsRunning > 0) {
-        this.requestsRunning--;
-        if (this.requestsRunning === 0) {
-          this.updateProgressBar$.emit('none');
-        }
+  public list(): number {
+    return this.requestsRunning;
+  }
+
+  public increase(): void {
+    this.requestsRunning++;
+    if (this.requestsRunning === 1) {
+      this.updateProgressBar$.emit('query');
+    }
+  }
+
+  public decrease(): void {
+    if (this.requestsRunning > 0) {
+      this.requestsRunning--;
+      if (this.requestsRunning === 0) {
+        this.updateProgressBar$.emit('none');
       }
-    });
+    }
   }
 }
