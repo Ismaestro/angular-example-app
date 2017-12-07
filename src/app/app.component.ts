@@ -51,7 +51,7 @@ export class AppComponent {
 
   checkBrowserFeatures() {
     let supported = true;
-    for (let feature in Modernizr) {
+    for (const feature in Modernizr) {
       if (Modernizr.hasOwnProperty(feature) &&
         typeof Modernizr[feature] === 'boolean' && Modernizr[feature] === false) {
         supported = false;

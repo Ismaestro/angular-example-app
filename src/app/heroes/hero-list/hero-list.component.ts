@@ -8,6 +8,16 @@ import {Router} from '@angular/router';
 import {LoggerService} from '../../core/logger.service';
 
 @Component({
+  selector: 'app-remove-hero-dialog',
+  templateUrl: './remove-hero.dialog.html',
+})
+
+export class RemoveHeroDialogComponent {
+  constructor() {
+  }
+}
+
+@Component({
   selector: 'app-hero-list',
   templateUrl: './hero-list.component.html',
   styleUrls: ['./hero-list.component.scss']
@@ -64,7 +74,7 @@ export class HeroListComponent {
   }
 
   remove(heroToRemove: Hero): void {
-    let dialogRef = this.dialog.open(RemoveHeroDialogComponent);
+    const dialogRef = this.dialog.open(RemoveHeroDialogComponent);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.heroService.deleteHeroById(heroToRemove.id).subscribe(() => {
@@ -77,15 +87,5 @@ export class HeroListComponent {
         });
       }
     });
-  }
-}
-
-@Component({
-  selector: 'app-remove-hero-dialog',
-  templateUrl: './remove-hero.dialog.html',
-})
-
-export class RemoveHeroDialogComponent {
-  constructor() {
   }
 }

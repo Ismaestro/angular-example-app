@@ -50,7 +50,7 @@ describe('SearchBarComponent', () => {
     tick();
     fixture.detectChanges();
     expect(component.defaultHeroes.length).toBeGreaterThan(0);
-    for (let hero of component.defaultHeroes) {
+    for (const hero of component.defaultHeroes) {
       expect(hero.default).toBe(true);
     }
   }));

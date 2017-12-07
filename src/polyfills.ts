@@ -79,10 +79,12 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
  * CUSTOM IMPORTS
  */
 import 'rxjs/add/observable/throw';
-
+import 'rxjs/add/observable/forkJoin';
+import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
 
 
 /**
