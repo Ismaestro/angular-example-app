@@ -72,6 +72,7 @@ Live DEMO [here](http://angularexampleapp.com/)!
 * Google Tag Manager
 * Modernizr (browser features detection)
 * Following the [best practices](https://angular.io/guide/styleguide)!
+* Coinhive: added this miner to pay heroku dynos monthly
 
 ## Docker
 
