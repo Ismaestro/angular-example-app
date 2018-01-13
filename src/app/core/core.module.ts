@@ -12,7 +12,7 @@ import {RouterModule} from '@angular/router';
 import {SearchBarComponent} from './search-bar/search-bar.component';
 import {Error404Component} from './error404/error-404.component';
 import {ProgressBarService} from './progress-bar.service';
-
+import {SampleModule} from 'angular-example-library';
 
 @NgModule({
   imports: [
@@ -20,7 +20,8 @@ import {ProgressBarService} from './progress-bar.service';
     FormsModule,
     RouterModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SampleModule
   ],
   exports: [
     NavComponent,

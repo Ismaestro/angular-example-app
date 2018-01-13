@@ -15,15 +15,14 @@ export class NavComponent {
   appConfig: any;
   menuItems: any[];
   progressBarMode: string;
-
-  private translateService: TranslateService;
+  currentLang: string;
 
   constructor(@Inject(APP_CONFIG) appConfig: IAppConfig,
               private progressBarService: ProgressBarService,
-              translateService: TranslateService) {
+              private translateService: TranslateService) {
     this.appConfig = appConfig;
-    this.translateService = translateService;
     this.loadMenus();
+    this.currentLang = this.translateService.currentLang;
 
     this.progressBarService.updateProgressBar$.subscribe((mode: string) => {
       this.progressBarMode = mode;

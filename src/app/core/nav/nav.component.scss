@@ -37,7 +37,17 @@
       img {
         vertical-align: middle;
       }
+
+      #today {
+        font-size: 0.7em;
+      }
     }
+  }
+}
+
+@media (max-width: 807px) {
+  #today {
+    width: 50%;
   }
 }
 
@@ -53,6 +63,14 @@
         height: 7em;
         display: flex;
         padding: 1em 2em 0;
+
+        > div {
+          margin-top: 1em;
+        }
+
+        #today {
+          margin-top: 1em;
+        }
       }
     }
   }

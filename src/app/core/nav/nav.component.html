@@ -1,10 +1,13 @@
 <header>
     <nav>
         <div fxFlex fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center">
-            <div fxFlex="50">
+            <div fxFlex="40">
                 <a mat-raised-button *ngFor="let item of menuItems" routerLink="{{item.link}}">
                     {{item.name | uppercase}}
                 </a>
+            </div>
+            <div fxFlex="20" id="today">
+                <sample-component [locale]="currentLang"></sample-component>
             </div>
             <div fxFlex class="text-right">
                 <app-search-bar></app-search-bar>

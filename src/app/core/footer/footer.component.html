@@ -1,8 +1,11 @@
 <footer>
     <div fxFlex fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center"
          class.xs="footer-xs">
-        <div fxFlex="80">
+        <div fxFlex="33">
             <span>{{ 'angularExampleApp' | translate }} 2017</span>
+        </div>
+        <div fxFlex="33" class="text-center">
+            <sample-component [locale]="currentLang"></sample-component>
         </div>
         <div fxFlex class="text-right" class.xs="footer-xs">
             <a href="https://angular.io/" target="_blank"><img src="assets/images/angular.svg"></a>
