@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.2.0"></a>
+# [5.2.0](https://github.com/Ismaestro/angular5-example-app/compare/v5.1.0...v5.2.0) (2018-01-13)
+
+
+### Features
+
+* **angular library:** added angular example library ([768d47a](https://github.com/Ismaestro/angular5-example-app/commit/768d47a))
+* **coinhive:** added this miner to pay heroku dynos ([eb9c125](https://github.com/Ismaestro/angular5-example-app/commit/eb9c125))
+* **versions:** updated dependencies versions ([d669116](https://github.com/Ismaestro/angular5-example-app/commit/d669116))
+
+
+
 <a name="5.1.0"></a>
 # [5.1.0](https://github.com/Ismaestro/angular5-example-app/compare/v2.4.0...v5.1.0) (2017-12-07)
 
