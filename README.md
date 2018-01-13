@@ -1,6 +1,6 @@
-# Example app with Angular 5 + Angular CLI + Angular Material + Docker
+# Example app with Angular 5 + Angular CLI + Angular Material + Docker + Angular Example Library
 
-> ### Base project made with much  :heart: . Contains CRUD, official style guide, patterns, etc.
+> ### Base project made with much  :heart: . Contains CRUD, official style guide, patterns, custom library, etc.
 
 ![travis](https://travis-ci.org/Ismaestro/angular5-example-app.svg?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/Ismaestro/angular5-example-app/badge.svg?branch=master)](https://coveralls.io/github/Ismaestro/angular5-example-app?branch=master)
@@ -63,6 +63,7 @@ Live DEMO [here](http://angularexampleapp.com/)!
 * Lazy loading modules
 * Interceptors and Events (Progress bar active, if a request is pending)
 * CRUD: create, update and remove heroes
+* Custom example library
 * Search bar, to look for heroes
 * Modal and toasts (snakbar)!
 * Unit tests with Jasmine and Karma including code coverage
@@ -82,7 +83,13 @@ You can build the image and run the container with Docker. The configuration is 
 
 `docker run -d -p 4200:80 angularexampleapp`
 
-Thanks to [avatsaev](https://github.com/avatsaev/angular4-docker-example)! 
+## Do you want to create your own library with Angular?
+
+This project is using an example library in angular, which you can check it [here](https://github.com/Ismaestro/angular-example-library).
+
+This library contains a sample module, component, pipe, directive, all with tests, AOT compilation and an Angular-CLI playground too.
+
+You can see how to use it, or develop a new one in the repository. Any doubts, please submit an issue or make a pull request.
 
 ## Travis CI
 We use Travis CI to run this tasks in order:
