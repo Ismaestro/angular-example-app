@@ -65,6 +65,7 @@ Live DEMO [here](http://angularexampleapp.com/)!
 * CRUD: create, update and remove heroes
 * Custom example library
 * Search bar, to look for heroes
+* Custom loading page
 * Modal and toasts (snakbar)!
 * Unit tests with Jasmine and Karma including code coverage
 * End-to-end tests with Protractor
