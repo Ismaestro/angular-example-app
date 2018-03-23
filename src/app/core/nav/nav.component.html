@@ -15,23 +15,29 @@
                     <mat-icon>public</mat-icon>
                 </button>
                 <mat-menu #matmenu="matMenu">
+                    <button mat-menu-item (click)="changeLanguage('zh')">
+                        <mat-icon>flag</mat-icon>
+                        <span>
+                            Chinese
+                        </span>
+                    </button>
                     <button mat-menu-item (click)="changeLanguage('en')">
                         <mat-icon>flag</mat-icon>
                         <span>
-                English
-            </span>
+                            English
+                        </span>
                     </button>
                     <button mat-menu-item (click)="changeLanguage('es')">
                         <mat-icon>flag</mat-icon>
                         <span>
-                Español
-            </span>
+                            Español
+                        </span>
                     </button>
                     <button mat-menu-item (click)="changeLanguage('pt-br')">
                         <mat-icon>flag</mat-icon>
                         <span>
-                Português
-            </span>
+                            Português
+                        </span>
                     </button>
                 </mat-menu>
                 <a class="image-icon" href="{{appConfig.repositoryURL}}" target="_blank">
@@ -41,9 +47,7 @@
         </div>
     </nav>
     <section class="progress-bar">
-        <mat-progress-bar
-            [color]="'primary'"
-            [mode]="progressBarMode">
+        <mat-progress-bar [color]="'primary'" [mode]="progressBarMode">
         </mat-progress-bar>
     </section>
 </header>
