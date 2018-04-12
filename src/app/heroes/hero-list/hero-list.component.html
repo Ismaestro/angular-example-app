@@ -18,7 +18,7 @@
                     <span>{{hero.alterEgo}}</span>
                 </p>
                 <div class="hero-actions">
-                    {{hero.likes}}
+                    {{hero.likes | number:'.0'}}
                     <mat-icon matTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}"
                               [matTooltipPosition]="'above'"
                               class="like-icon" (click)="like(hero)">
@@ -55,6 +55,11 @@
 
             <div *ngIf="error">{{error | translate}}</div>
         </form>
+    </div>
+
+    <div id="heroes-json">
+        <h2 class="section-title">{{ 'firstTwoHeroesById' | translate }}</h2>
+        <pre>{{heroes | slice:1:3 | json}}</pre>
     </div>
 </div>
 <div class="clear"></div>

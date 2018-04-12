@@ -46,5 +46,6 @@
   "heroDetail": "Detalhes do herói",
   "error404": "Erro 404",
   "mayTheForce": "Que a força te acompanhe",
-  "updateBrowser": "Você está usando um navegador antigo, atualize a versão e recarregue a página."
+  "updateBrowser": "Você está usando um navegador antigo, atualize a versão e recarregue a página.",
+  "firstTwoHeroesById": "Heróis (1-2)"
 }

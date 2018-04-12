@@ -65,6 +65,7 @@ Live DEMO [here](http://angularexampleapp.com/)!
 * CRUD: create, update and remove heroes
 * Custom example library
 * Search bar, to look for heroes
+* Angular Pipes
 * Custom loading page
 * Modal and toasts (snakbar)!
 * Unit tests with Jasmine and Karma including code coverage

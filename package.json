@@ -3,7 +3,7 @@
   "version": "5.2.0",
   "license": "MIT",
   "scripts": {
-    "start": "ng serve",
+    "start": "ng serve --aot",
     "build": "ng build --prod",
     "deploy": "ng build --prod --base-href / && angular-cli-ghpages",
     "test": "ng test --watch=false --code-coverage",
@@ -41,6 +41,7 @@
     "@angular/cdk": "5.1.1",
     "@angular/cli": "1.6.7",
     "@angular/compiler-cli": "5.2.3",
+    "@angular/language-service": "^5.2.9",
     "@angular/material": "5.1.1",
     "@angular/platform-server": "5.2.3",
     "@ngx-translate/core": "9.1.1",

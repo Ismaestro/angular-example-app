@@ -46,5 +46,6 @@
   "heroDetail": "Hero detail",
   "error404": "404 Error",
   "mayTheForce": "May the force be with you",
-  "updateBrowser": "You are using an old browser, please update it and reload the page."
+  "updateBrowser": "You are using an old browser, please update it and reload the page.",
+  "firstTwoHeroesById": "Heroes (1-2)"
 }
