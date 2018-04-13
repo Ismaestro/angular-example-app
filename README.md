@@ -63,6 +63,7 @@ Live DEMO [here](http://angularexampleapp.com/)!
 * Lazy loading modules
 * Interceptors and Events (Progress bar active, if a request is pending)
 * CRUD: create, update and remove heroes
+* Service Workers!
 * Custom example library
 * Search bar, to look for heroes
 * Angular Pipes

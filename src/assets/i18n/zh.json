@@ -47,5 +47,6 @@
   "error404": "404 错误",
   "mayTheForce": "愿力量与你同在",
   "updateBrowser": "您正在使用一个旧版本浏览器，请更新它并重新加载页面。",
-  "firstTwoHeroesById": "英雄 (1-2)"
+  "firstTwoHeroesById": "英雄 (1-2)",
+  "offlineMessage": "沒有連接，我們無法加載任何東西!"
 }

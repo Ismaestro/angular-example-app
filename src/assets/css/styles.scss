@@ -105,3 +105,16 @@ pre {
   text-align: left;
   word-wrap: break-word;
 }
+
+.offline-error {
+  font-size: 1em;
+  font-weight: 300;
+  padding: 1rem;
+  text-align: center;
+
+  span {
+    transform: rotate(90deg);
+    font-size: 0.8em;
+    display: inline-flex;
+  }
+}

@@ -21,9 +21,7 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-      "stylesUrls": [
-        ""
-      ],
+      "serviceWorker": true,
       "styles": [
         "assets/css/reset.css",
         "assets/css/loading.css",
@@ -63,6 +61,7 @@
   },
   "defaults": {
     "styleExt": "css",
-    "component": {}
+    "component": {
+    }
   }
 }

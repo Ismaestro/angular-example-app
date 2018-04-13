@@ -15,6 +15,8 @@ declare const Modernizr;
 
 export class AppComponent {
 
+  isOnline = navigator.onLine;
+
   constructor(private translateService: TranslateService,
               private title: Title,
               private meta: Meta,

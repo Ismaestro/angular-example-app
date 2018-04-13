@@ -47,5 +47,6 @@
   "error404": "Error 404",
   "mayTheForce": "Que la fuerza te acompañe",
   "updateBrowser": "Estas usando un navegador antiguo, por favor actualiza la versión y recarga la página.",
-  "firstTwoHeroesById": "Heroes (1-2)"
+  "firstTwoHeroesById": "Heroes (1-2)",
+  "offlineMessage": "Sin conexión no podemos cargar nada!"
 }
