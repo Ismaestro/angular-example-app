@@ -11,10 +11,10 @@
             <ng-container *ngFor="let hero of heroes">
                 <mat-card class="hero-card">
                     <mat-card-header>
-                        <div mat-card-avatar class="hero-header-image"
+                        <div (click)="seeHeroDetails(hero)" mat-card-avatar class="hero-header-image"
                              [ngStyle]="{'background-image': 'url(assets/images/heroes/' + hero.id + '-thumbnail.jpg)'}"></div>
-                        <mat-card-title>{{hero.name}}</mat-card-title>
-                        <mat-card-subtitle>{{hero.alterEgo}}</mat-card-subtitle>
+                        <mat-card-title (click)="seeHeroDetails(hero)">{{hero.name}}</mat-card-title>
+                        <mat-card-subtitle (click)="seeHeroDetails(hero)">{{hero.alterEgo}}</mat-card-subtitle>
                         <div class="flex-spacer"></div>
                         <div class="hero-actions">
                             {{hero.likes}}
@@ -24,7 +24,7 @@
                             </mat-icon>
                         </div>
                     </mat-card-header>
-                    <img mat-card-image src="assets/images/heroes/{{hero.id}}.jpg">
+                    <img (click)="seeHeroDetails(hero)" mat-card-image src="assets/images/heroes/{{hero.id}}.jpg">
                 </mat-card>
             </ng-container>
         </div>

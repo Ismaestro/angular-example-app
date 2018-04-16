@@ -1,9 +1,8 @@
 import {Component} from '@angular/core';
-
 import {Hero} from '../shared/hero.model';
-
 import {HeroService} from '../shared/hero.service';
 import {AppConfig} from '../../config/app.config';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-hero-top',
@@ -15,7 +14,8 @@ export class HeroTopComponent {
   heroes: Hero[] = null;
   canVote = false;
 
-  constructor(private heroService: HeroService) {
+  constructor(private heroService: HeroService,
+              private router: Router) {
     this.canVote = this.heroService.checkIfUserCanVote();
 
     this.heroService.getAllHeroes().subscribe((heroes) => {
@@ -34,5 +34,11 @@ export class HeroTopComponent {
         reject(error);
       });
     });
+  }
+
+  seeHeroDetails(hero): void {
+    if (hero.default) {
+      this.router.navigate([AppConfig.routes.heroes + '/' + hero.id]);
+    }
   }
 }
