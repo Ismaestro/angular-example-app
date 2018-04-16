@@ -22,6 +22,12 @@
     "node": ">= 6.9.0",
     "npm": ">= 3.0.0"
   },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "not ie <= 10",
+    "not ie_mob <= 10"
+  ],
   "dependencies": {
     "@angular/animations": "5.2.3",
     "@angular/common": "5.2.3",
