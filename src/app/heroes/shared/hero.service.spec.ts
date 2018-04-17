@@ -85,17 +85,27 @@ describe('HeroService', () => {
   it('should not like a hero because no votes', async(() => {
     localStorage.setItem('votes', String(AppConfig.votesLimit));
     expect(heroService.checkIfUserCanVote()).toBe(false);
-    heroService.like(newHeroCreated).subscribe(() => {
-    }, (error) => {
-      expect(error).toBe('maximum votes');
+    heroService.createHero({
+      'name': 'test',
+      'alterEgo': 'test'
+    }).subscribe((hero) => {
+      heroService.like(hero).subscribe(() => {
+      }, (error) => {
+        expect(error).toBe('maximum votes');
+      });
     });
   }));
 
   it('should like a hero', async(() => {
     localStorage.setItem('votes', String(0));
     expect(heroService.checkIfUserCanVote()).toBe(true);
-    heroService.like(newHeroCreated).subscribe((response) => {
-      expect(response).toEqual({});
+    heroService.createHero({
+      'name': 'test',
+      'alterEgo': 'test'
+    }).subscribe((hero) => {
+      heroService.like(hero).subscribe((response) => {
+        expect(response).toEqual({});
+      });
     });
   }));
 
