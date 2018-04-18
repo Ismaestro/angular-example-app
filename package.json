@@ -3,7 +3,7 @@
   "version": "5.2.0",
   "license": "MIT",
   "scripts": {
-    "start": "ng serve --aot",
+    "start": "ng serve --aot --open",
     "http-server": "http-server dist/ -c-1",
     "build": "ng build --prod",
     "deploy": "ng build --prod --base-href / && angular-cli-ghpages",
