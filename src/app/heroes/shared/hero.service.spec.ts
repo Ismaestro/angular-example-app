@@ -9,7 +9,6 @@ import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
 
 describe('HeroService', () => {
   let heroService;
-  let newHeroCreated;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -77,7 +76,6 @@ describe('HeroService', () => {
       'name': 'test',
       'alterEgo': 'test'
     }).subscribe((hero) => {
-      newHeroCreated = hero;
       expect(hero.id).not.toBeNull();
     });
   }));
@@ -110,8 +108,13 @@ describe('HeroService', () => {
   }));
 
   it('should delete a hero', async(() => {
-    heroService.deleteHeroById(newHeroCreated.id).subscribe((response) => {
-      expect(response).toEqual({});
+    heroService.createHero({
+      'name': 'test',
+      'alterEgo': 'test'
+    }).subscribe((hero) => {
+      heroService.deleteHeroById(hero.id).subscribe((response) => {
+        expect(response).toEqual({});
+      });
     });
   }));
 });
