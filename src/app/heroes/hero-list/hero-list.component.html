@@ -13,8 +13,8 @@
                      src="assets/images/heroes/{{hero.id}}-thumbnail.jpg">
                 <img *ngIf="!hero.default"
                      (click)="seeHeroDetails(hero);" mat-list-avatar src="assets/images/heroes/default.png">
-                <h3 mat-line [ngClass]="{'cp': hero.default}" (click)="seeHeroDetails(hero);"> {{hero.name}} </h3>
-                <p mat-line [ngClass]="{'cp': hero.default}" (click)="seeHeroDetails(hero);">
+                <h3 mat-line [class.cp]="hero.default" (click)="seeHeroDetails(hero);"> {{hero.name}} </h3>
+                <p mat-line [class.cp]="hero.default" (click)="seeHeroDetails(hero);">
                     <span>{{hero.alterEgo}}</span>
                 </p>
                 <div class="hero-actions">
