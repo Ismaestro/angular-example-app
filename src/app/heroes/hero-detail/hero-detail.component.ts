@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Hero} from '../shared/hero.model';
 import {HeroService} from '../shared/hero.service';
 import {ActivatedRoute} from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-hero-detail',
@@ -15,6 +16,7 @@ export class HeroDetailComponent implements OnInit {
   canVote: boolean;
 
   constructor(private heroService: HeroService,
+              private location: Location,
               private activatedRoute: ActivatedRoute) {
   }
 
@@ -34,5 +36,9 @@ export class HeroDetailComponent implements OnInit {
         reject(error);
       });
     });
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

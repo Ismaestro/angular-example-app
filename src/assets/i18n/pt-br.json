@@ -48,5 +48,6 @@
   "mayTheForce": "Que a força te acompanhe",
   "updateBrowser": "Você está usando um navegador antigo, atualize a versão e recarregue a página.",
   "firstTwoHeroesById": "Heróis (1-2)",
-  "offlineMessage": "Sem conexão não podemos carregar nada!"
+  "offlineMessage": "Sem conexão não podemos carregar nada!",
+  "goBack": "Voltar"
 }
