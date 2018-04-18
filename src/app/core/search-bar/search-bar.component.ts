@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {LoggerService} from '../logger.service';
 import {Hero} from '../../heroes/shared/hero.model';
 import {FormControl} from '@angular/forms';
@@ -15,16 +15,19 @@ import {AppConfig} from '../../config/app.config';
   ]
 })
 
-export class SearchBarComponent {
-  defaultHeroes: Array<Hero> = [];
+export class SearchBarComponent implements OnInit {
+
+  defaultHeroes: Array<Hero>;
   heroFormControl: FormControl;
   filteredHeroes: any;
-  heroesAutocomplete: any;
 
   constructor(private heroService: HeroService,
               private router: Router) {
+    this.defaultHeroes = [];
     this.heroFormControl = new FormControl();
+  }
 
+  ngOnInit() {
     this.heroService.getAllHeroes().subscribe((heroes: Array<Hero>) => {
       this.defaultHeroes = heroes.filter(hero => hero['default']);
 

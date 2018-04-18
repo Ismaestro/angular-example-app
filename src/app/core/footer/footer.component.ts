@@ -8,10 +8,12 @@ import {TranslateService} from '@ngx-translate/core';
 })
 
 export class FooterComponent {
+
   currentLang: string;
-  currentDate = Date.now();
+  currentDate: number;
 
   constructor(private translateService: TranslateService) {
     this.currentLang = this.translateService.currentLang;
+    this.currentDate = Date.now();
   }
 }

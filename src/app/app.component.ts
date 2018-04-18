@@ -1,7 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {Meta, Title} from '@angular/platform-browser';
-
 import {NavigationEnd, Router} from '@angular/router';
 import {AppConfig} from './config/app.config';
 import {MatSnackBar} from '@angular/material';
@@ -13,17 +12,19 @@ declare const Modernizr;
   templateUrl: './app.component.html'
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  isOnline = navigator.onLine;
+  isOnline: boolean;
 
   constructor(private translateService: TranslateService,
               private title: Title,
               private meta: Meta,
               private snackBar: MatSnackBar,
               private router: Router) {
+    this.isOnline = navigator.onLine;
+  }
 
-    this.translateService = translateService;
+  ngOnInit() {
     this.translateService.setDefaultLang('en');
     this.translateService.use('en');
 

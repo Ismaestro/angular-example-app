@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Hero} from '../shared/hero.model';
 import {HeroService} from '../shared/hero.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -23,7 +23,8 @@ export class RemoveHeroDialogComponent {
   styleUrls: ['./hero-list.component.scss']
 })
 
-export class HeroListComponent {
+export class HeroListComponent implements OnInit {
+
   heroes: Hero[];
   newHeroForm: FormGroup;
   canVote = false;
@@ -40,7 +41,9 @@ export class HeroListComponent {
       'name': ['', [Validators.required]],
       'alterEgo': ['', [Validators.required]]
     });
+  }
 
+  ngOnInit() {
     this.heroService.getAllHeroes().subscribe((heroes: Array<Hero>) => {
       this.heroes = heroes.sort((a, b) => {
         return b.likes - a.likes;

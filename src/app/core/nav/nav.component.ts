@@ -1,4 +1,4 @@
-import {Component, Inject} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 
 import {APP_CONFIG, AppConfig} from '../../config/app.config';
@@ -11,7 +11,8 @@ import {ProgressBarService} from '../progress-bar.service';
   styleUrls: ['./nav.component.scss']
 })
 
-export class NavComponent {
+export class NavComponent implements OnInit {
+
   appConfig: any;
   menuItems: any[];
   progressBarMode: string;
@@ -21,9 +22,11 @@ export class NavComponent {
               private progressBarService: ProgressBarService,
               private translateService: TranslateService) {
     this.appConfig = appConfig;
-    this.loadMenus();
     this.currentLang = this.translateService.currentLang;
+  }
 
+  ngOnInit() {
+    this.loadMenus();
     this.progressBarService.updateProgressBar$.subscribe((mode: string) => {
       this.progressBarMode = mode;
     });

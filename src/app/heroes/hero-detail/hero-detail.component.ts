@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Hero} from '../shared/hero.model';
 import {HeroService} from '../shared/hero.service';
 import {ActivatedRoute} from '@angular/router';
@@ -9,12 +9,16 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./hero-detail.component.scss']
 })
 
-export class HeroDetailComponent {
+export class HeroDetailComponent implements OnInit {
+
   hero: Hero;
   canVote: boolean;
 
   constructor(private heroService: HeroService,
               private activatedRoute: ActivatedRoute) {
+  }
+
+  ngOnInit() {
     this.activatedRoute.params.subscribe((params: any) => {
       if (params['id']) {
         this.heroService.getHeroById(params['id']).subscribe((hero: Hero) => {
