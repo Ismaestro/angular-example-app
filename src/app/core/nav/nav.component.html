@@ -7,7 +7,7 @@
                 </a>
             </div>
             <div fxFlex="20" id="today">
-                <sample-component [locale]="currentLang"></sample-component>
+                <sample-component *ngIf="currentLang" [locale]="currentLang"></sample-component>
             </div>
             <div fxFlex class="text-right">
                 <app-search-bar></app-search-bar>
