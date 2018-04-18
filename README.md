@@ -24,7 +24,9 @@
 
 ## Getting started
 
-**Warning: strongly recommended node >=v6.9.0 and npm >=3.0.0**
+**Warning**
+
+> Verify that you are running at least node 6.9.x and npm 3.x.x by running node -v and npm -v in a terminal/console window. Older versions produce errors, but newer versions are fine.
 
 1. Go to project folder and install dependencies:
  ```bash
