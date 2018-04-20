@@ -6,6 +6,7 @@ import {TestsModule} from '../../shared/modules/tests.module';
 import {APP_CONFIG, AppConfig} from '../../config/app.config';
 import {TranslateModule} from '@ngx-translate/core';
 import {HeroService} from '../shared/hero.service';
+import {ActivatedRoute, convertToParamMap} from '@angular/router';
 
 describe('HeroDetailComponent', () => {
   let fixture;
@@ -22,6 +23,16 @@ describe('HeroDetailComponent', () => {
       providers: [
         {provide: APP_CONFIG, useValue: AppConfig},
         {provide: APP_BASE_HREF, useValue: '/'},
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            snapshot: {
+              paramMap: convertToParamMap({
+                id: '1'
+              })
+            }
+          }
+        },
         HeroService
       ],
     }).compileComponents();
