@@ -1,5 +1,7 @@
+@import "mixins";
+
 #heroes-list {
-  margin: 2em;
+  margin: 2rem;
 }
 
 .hero-header-image, mat-card-title, mat-card-subtitle, .mat-card-image {
@@ -7,20 +9,20 @@
 }
 
 .hero-card {
-  margin: 2em auto;
+  @include push--auto(2rem);
 }
 
 .progress-spinner {
-  margin: 0 auto;
+  @include push--auto();
 }
 
 @media (max-width: 680px) {
   .hero-card {
     width: 80%;
-    margin: 0 auto;
+    @include push--auto();
   }
 
   .mat-card {
-    margin-bottom: 2em;
+    margin-bottom: 2rem;
   }
 }

@@ -1,11 +1,13 @@
+@import "mixins";
+
 img {
-  margin: 0 auto;
+  @include push--auto();
   display: block;
 }
 
 .explanation {
-  margin: 1em 0;
+  margin: 1rem 0;
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   font-weight: 300;
 }

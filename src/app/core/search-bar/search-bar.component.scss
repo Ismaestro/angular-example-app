@@ -1,15 +1,17 @@
+@import "mixins";
+
 :host(app-search-bar) {
   /deep/ .mat-input-placeholder {
     font-weight: 100;
-    color: white;
+    color: $secondary--color;
   }
 
   /deep/ .mat-input-underline {
-    background-color: white;
-    bottom: 1.5em;
+    background-color: $secondary--color;
+    bottom: 1.5rem;
   }
 
   /deep/ .mat-input-infix {
-    border-top: 1.2em solid transparent;
+    border-top: 1.2rem solid transparent;
   }
 }

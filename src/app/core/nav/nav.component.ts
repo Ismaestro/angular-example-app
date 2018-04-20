@@ -22,10 +22,10 @@ export class NavComponent implements OnInit {
               private progressBarService: ProgressBarService,
               private translateService: TranslateService) {
     this.appConfig = appConfig;
-    this.currentLang = this.translateService.currentLang;
   }
 
   ngOnInit() {
+    this.currentLang = this.translateService.currentLang;
     this.loadMenus();
     this.progressBarService.updateProgressBar$.subscribe((mode: string) => {
       this.progressBarMode = mode;

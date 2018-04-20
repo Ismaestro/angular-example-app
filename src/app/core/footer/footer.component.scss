@@ -1,8 +1,10 @@
+@import "mixins";
+
 footer {
-  padding: 8px 16px;
-  color: white;
-  background: #3f51b5;
-  margin-top: 2em;
+  padding: calculateRem(8px) calculateRem(16px);
+  color: $secondary--color;
+  background: $primary--color;
+  margin-top: 2rem;
   position: sticky;
   top: 100%;
 
@@ -13,5 +15,5 @@ footer {
 
 .footer-xs {
   text-align: center;
-  padding-top: 1em;
+  padding-top: 1rem;
 }

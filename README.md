@@ -58,22 +58,29 @@ npm run docker           | Builds the docker image and run the container
 ## Features
 
 * Responsive layout (flex layout module)
+* SASS (most used functions and mixins)
+* Modal and toasts (snakbar)!
+
+* CRUD: create, update and remove heroes
+* Search bar, to look for heroes
+* Custom loading page
+
+* Angular Pipes
+* Interceptors and Events (Progress bar active, if a request is pending)
 * Internationalization
 * Lazy loading modules
-* Interceptors and Events (Progress bar active, if a request is pending)
-* CRUD: create, update and remove heroes
 * Service Workers
-* Custom example library
-* Search bar, to look for heroes
-* Angular Pipes
-* Custom loading page
-* Modal and toasts (snakbar)!
+
+* Custom [example library](https://github.com/Ismaestro/angular-example-library)
+
+* Modernizr (browser features detection)
+* Google Tag Manager
+* Github pages deploy ready
+
 * Unit tests with Jasmine and Karma including code coverage
 * End-to-end tests with Protractor
-* ES6 Promises
-* Github pages deploy ready
-* Google Tag Manager
-* Modernizr (browser features detection)
+* ES6 Promises and Observables
+
 * Following the [best practices](https://angular.io/guide/styleguide)!
 
 ## Docker

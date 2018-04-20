@@ -1,3 +1,5 @@
+@import "mixins";
+
 #left {
   width: 50%;
   float: left;
@@ -15,7 +17,7 @@
 }
 
 .mat-list {
-  margin: 0 auto;
+  @include push--auto();
   display: table;
 
   /deep/ .mat-list-text {
@@ -27,7 +29,7 @@
   padding-bottom: 0;
 
   .remove-icon {
-    padding-left: 0.5em;
+    padding-left: 0.5rem;
     color: darkslategrey;
     cursor: pointer;
   }
@@ -36,13 +38,13 @@
 form {
   display: grid;
   width: 80%;
-  margin: 0 auto;
+  @include push--auto();
 
   .mat-raised-button {
-    color: white;
-    background: #3f51b5;
+    color: $secondary--color;
+    background: $primary--color;
     width: 50%;
-    margin: 0 auto;
+    @include push--auto();
   }
 
   .mat-form-field {
@@ -62,7 +64,7 @@ form {
   #left {
     width: 100%;
     float: none;
-    margin: 0 auto;
+    @include push--auto();
   }
 
   #right {

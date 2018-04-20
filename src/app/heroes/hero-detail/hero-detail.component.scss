@@ -1,10 +1,18 @@
+@import "mixins";
+
 #heroe-detail {
   width: 65%;
-  margin: 0 auto;
-  margin-top: 2em;
+  @include push--auto();
+  margin-top: 2rem;
 }
 
 button {
-  margin: 2rem auto;
+  @include push--auto(2rem);
   display: block;
+}
+
+@media (max-width: 600px) {
+  #heroe-detail {
+    width: 90%;
+  }
 }

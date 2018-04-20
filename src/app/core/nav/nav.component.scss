@@ -1,6 +1,8 @@
+@import "mixins";
+
 :host(app-nav) {
   padding-top: 0;
-  padding-bottom: 5em;
+  padding-bottom: 6.5rem;
   display: grid;
 
   header {
@@ -12,26 +14,26 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      padding: 8px 16px;
-      color: white;
-      height: 4em;
-      background: #3f51b5;
+      padding: calculateRem(8px) calculateRem(16px);
+      color: $secondary--color;
+      height: 4rem;
+      background: $primary--color;
 
       .mat-raised-button {
-        color: #3f51b5;
-        margin-right: 1em;
+        color: $primary--color;
+        margin-right: 1rem;
       }
 
       .progress-bar {
         display: flex;
         align-content: center;
         align-items: center;
-        height: 5px;
+        height: calculateRem(5px);
       }
 
       .image-icon {
-        width: 20px;
-        height: 20px;
+        width: calculateRem(20px);
+        height: calculateRem(20px);
       }
 
       img {
@@ -39,7 +41,7 @@
       }
 
       #today {
-        font-size: 0.7em;
+        font-size: 0.7rem;
       }
     }
   }
@@ -54,22 +56,22 @@
 @media (max-width: 680px) {
   :host(app-nav) {
     padding-top: 0;
-    padding-bottom: 1em;
+    padding-bottom: 1rem;
 
     header {
       position: relative;
 
       nav {
-        height: 7em;
+        height: 7rem;
         display: flex;
-        padding: 1em 2em 0;
+        padding: 1rem 2rem 0;
 
         > div {
-          margin-top: 1em;
+          margin-top: 1rem;
         }
 
         #today {
-          margin-top: 1em;
+          margin-top: 1rem;
         }
       }
     }

@@ -94,8 +94,8 @@ describe('HeroService', () => {
       }, (error) => {
         expect(error).toBe('maximum votes');
         heroService.deleteHeroById(hero.id).subscribe((response) => {
-        expect(response).toEqual({});
-      });
+          expect(response).toEqual({});
+        });
       });
     });
   }));
@@ -109,9 +109,9 @@ describe('HeroService', () => {
     }).subscribe((hero) => {
       heroService.like(hero).subscribe((response) => {
         expect(response).toEqual({});
-        heroService.deleteHeroById(hero.id).subscribe((response) => {
-        expect(response).toEqual({});
-      });
+        heroService.deleteHeroById(hero.id).subscribe((res) => {
+          expect(res).toEqual({});
+        });
       });
     });
   }));
