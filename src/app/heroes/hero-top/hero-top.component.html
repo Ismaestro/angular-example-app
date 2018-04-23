@@ -1,9 +1,9 @@
 <div fxLayout="row">
     <div fxFlex="10" fxFlex.gt-sm="20"></div>
     <div fxFlex="90" fxFlex.gt-sm="80">
-        <h1 class="section-title">{{'topHeroes' | translate}}</h1>
+        <h1 class="header__title">{{'topHeroes' | translate}}</h1>
         <mat-progress-spinner *ngIf="!heroes"
-                              class="progress-spinner"
+                              class="progress__spinner"
                               [color]="'primary'"
                               [mode]="'indeterminate'">
         </mat-progress-spinner>
@@ -11,7 +11,7 @@
             <ng-container *ngFor="let hero of heroes">
                 <mat-card class="hero-card">
                     <mat-card-header>
-                        <div (click)="seeHeroDetails(hero)" mat-card-avatar class="hero-header-image"
+                        <div (click)="seeHeroDetails(hero)" mat-card-avatar class="hero-header__image"
                              [ngStyle]="{'background-image': 'url(assets/images/heroes/' + hero.id + '-thumbnail.jpg)'}"></div>
                         <mat-card-title (click)="seeHeroDetails(hero)">{{hero.name}}</mat-card-title>
                         <mat-card-subtitle (click)="seeHeroDetails(hero)">{{hero.alterEgo}}</mat-card-subtitle>
@@ -20,7 +20,7 @@
                             {{hero.likes}}
                             <mat-icon matTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}"
                                       [matTooltipPosition]="'above'"
-                                      class="like-icon" (click)="like(hero)">favorite
+                                      class="icon__like--red" (click)="like(hero)">favorite
                             </mat-icon>
                         </div>
                     </mat-card-header>

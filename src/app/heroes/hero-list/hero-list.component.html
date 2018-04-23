@@ -1,8 +1,8 @@
 <div id="left">
-    <h2 class="section-title">{{ 'heroesList' | translate }}</h2>
+    <h2 class="header__title">{{ 'heroesList' | translate }}</h2>
     <div>
         <mat-progress-spinner *ngIf="!heroes"
-                              class="progress-spinner"
+                              class="progress__spinner"
                               [color]="'primary'"
                               [mode]="'indeterminate'">
         </mat-progress-spinner>
@@ -21,10 +21,10 @@
                     {{hero.likes | number:'.0'}}
                     <mat-icon matTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}"
                               [matTooltipPosition]="'above'"
-                              class="like-icon" (click)="like(hero)">
+                              class="icon__like--red" (click)="like(hero)">
                         favorite
                     </mat-icon>
-                    <mat-icon class="remove-icon" *ngIf="!hero.default"
+                    <mat-icon class="icon__remove" *ngIf="!hero.default"
                               (click)="remove(hero);">
                         delete
                     </mat-icon>
@@ -34,7 +34,7 @@
     </div>
 </div>
 <div id="right">
-    <h2 class="section-title">{{ 'createHero' | translate }}</h2>
+    <h2 class="header__title">{{ 'createHero' | translate }}</h2>
     <div>
         <form [formGroup]="newHeroForm" #form="ngForm" (ngSubmit)="createNewHero(newHeroForm.value)">
             <mat-input-container class="input-container">
@@ -58,7 +58,7 @@
     </div>
 
     <div id="heroes-json">
-        <h2 class="section-title">{{ 'firstTwoHeroesById' | translate }}</h2>
+        <h2 class="header__title">{{ 'firstTwoHeroesById' | translate }}</h2>
         <pre>{{heroes | slice:0:2 | json}}</pre>
     </div>
 </div>

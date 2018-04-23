@@ -9,7 +9,7 @@
             <div fxFlex="20" id="today" *ngIf="currentLang">
                 <sample-component [locale]="currentLang"></sample-component>
             </div>
-            <div fxFlex class="text-right">
+            <div fxFlex class="text--right">
                 <app-search-bar></app-search-bar>
                 <button mat-icon-button [matMenuTriggerFor]="matmenu">
                     <mat-icon>public</mat-icon>
@@ -40,7 +40,7 @@
                         </span>
                     </button>
                 </mat-menu>
-                <a class="image-icon" href="{{appConfig.repositoryURL}}" target="_blank">
+                <a class="icon__image" href="{{appConfig.repositoryURL}}" target="_blank">
                     <img src="assets/images/github-circle-white-transparent.svg">
                 </a>
             </div>

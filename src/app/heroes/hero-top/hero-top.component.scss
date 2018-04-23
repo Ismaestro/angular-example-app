@@ -4,7 +4,7 @@
   margin: 2rem;
 }
 
-.hero-header-image, mat-card-title, mat-card-subtitle, .mat-card-image {
+.hero-header__image, mat-card-title, mat-card-subtitle, .mat-card-image {
   cursor: pointer;
 }
 
@@ -12,7 +12,7 @@
   @include push--auto(2rem);
 }
 
-.progress-spinner {
+.progress__spinner {
   @include push--auto();
 }
 

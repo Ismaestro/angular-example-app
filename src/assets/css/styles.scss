@@ -9,7 +9,7 @@ a, .cp {
     cursor: pointer;
 }
 
-.section-title {
+.header__title {
     text-align: center;
     font-size: 1.5rem;
     font-weight: 300;
@@ -20,22 +20,9 @@ a, .cp {
     flex-grow: 1;
 }
 
-.progress-spinner {
+.progress__spinner {
     height: calculateRem(60px) !important;
     @include push--auto(2rem);
-}
-
-snack-bar-container {
-    background: $primary--color !important;
-}
-
-.mat-menu-content {
-    background: $primary--color;
-}
-
-.mat-menu-item, .mat-menu-item .mat-icon {
-    color: $secondary--color;
-    font-weight: 100;
 }
 
 .hero-actions {
@@ -44,48 +31,20 @@ snack-bar-container {
     padding-bottom: 1rem;
 }
 
-.like-icon {
+.icon__like--red {
     color: $red;
     cursor: pointer;
 }
 
-.mat-raised-button[disabled] {
-    background: $grey !important;
-}
-
-.mat-dialog-container {
-    background: $primary--color;
-    color: $secondary--color;
-}
-
-.mat-dialog-content {
-    text-align: center;
-    padding: 1rem calculateRem(24px) !important;
-}
-
-.mat-dialog-title {
-    text-align: center;
-}
-
-.hero-header-image {
+.hero-header__image {
     background-size: cover;
 }
 
-.mat-card-image {
-    margin-bottom: -28px !important;
-    border-top: 1px solid $light-grey;
-}
-
-.mat-list-avatar {
-    height: calculateRem(55px) !important;
-    width: calculateRem(55px) !important;
-}
-
-.text-center {
+.text--center {
     text-align: center;
 }
 
-.text-right {
+.text--right {
     text-align: right;
 }
 
@@ -118,4 +77,47 @@ pre {
         font-size: 0.8rem;
         display: inline-flex;
     }
+}
+
+// MATERIAL
+
+snack-bar-container {
+    background: $primary--color !important;
+}
+
+.mat-menu-content {
+    background: $primary--color;
+}
+
+.mat-menu-item, .mat-menu-item .mat-icon {
+    color: $secondary--color;
+    font-weight: 100;
+}
+
+.mat-raised-button[disabled] {
+    background: $grey !important;
+}
+
+.mat-dialog-container {
+    background: $primary--color;
+    color: $secondary--color;
+}
+
+.mat-dialog-content {
+    text-align: center;
+    padding: 1rem calculateRem(24px) !important;
+}
+
+.mat-dialog-title {
+    text-align: center;
+}
+
+.mat-list-avatar {
+    height: calculateRem(55px) !important;
+    width: calculateRem(55px) !important;
+}
+
+.mat-card-image {
+    margin-bottom: -28px !important;
+    border-top: 1px solid $light-grey;
 }
