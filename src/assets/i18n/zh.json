@@ -49,5 +49,6 @@
   "updateBrowser": "您正在使用一个旧版本浏览器，请更新它并重新加载页面。",
   "firstTwoHeroesById": "英雄 (1-2)",
   "offlineMessage": "沒有連接，我們無法加載任何東西!",
-  "goBack": "回來"
+  "goBack": "回來",
+  "snapshot": "快照"
 }

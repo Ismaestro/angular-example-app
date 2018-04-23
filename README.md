@@ -68,6 +68,7 @@ npm run docker           | Builds the docker image and run the container
 * Internationalization
 * Lazy loading modules
 * Service Workers
+* Dynamic Imports
 * Custom [example library](https://github.com/Ismaestro/angular-example-library)
 * Modernizr (browser features detection)
 * Google Tag Manager

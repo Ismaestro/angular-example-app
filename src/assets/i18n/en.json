@@ -49,5 +49,6 @@
   "updateBrowser": "You are using an old browser, please update it and reload the page.",
   "firstTwoHeroesById": "Heroes (1-2)",
   "offlineMessage": "Without connection we can not load anything!",
-  "goBack": "Go back"
+  "goBack": "Go back",
+  "snapshot": "Snapshot"
 }

@@ -38,6 +38,14 @@ export class HeroDetailComponent implements OnInit {
     });
   }
 
+  dynamicImport() {
+    import('html2canvas').then(html2canvas => {
+      html2canvas(document.getElementById('heroe-detail')).then((canvas) => {
+        window.open().document.write('<img src="' + canvas.toDataURL() + '" />');
+      });
+    });
+  }
+
   goBack(): void {
     this.location.back();
   }
