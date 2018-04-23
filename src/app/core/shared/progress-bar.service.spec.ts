@@ -1,9 +1,9 @@
 import {TestBed} from '@angular/core/testing';
 import {ProgressBarService} from './progress-bar.service';
-import {HeroService} from '../heroes/shared/hero.service';
-import {TestsModule} from '../shared/modules/tests.module';
+import {HeroService} from '../../heroes/shared/hero.service';
+import {TestsModule} from '../../shared/modules/tests.module';
 import {TranslateModule} from '@ngx-translate/core';
-import {APP_CONFIG, AppConfig} from '../config/app.config';
+import {APP_CONFIG, AppConfig} from '../../config/app.config';
 
 describe('ProgressBarService', () => {
   let progressBarService;

@@ -1,6 +1,6 @@
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import {LoggerService} from '../../core/logger.service';
+import {LoggerService} from '../../core/shared/logger.service';
 
 export class TimingInterceptor implements HttpInterceptor {
   constructor() {

@@ -46,7 +46,7 @@ describe('SearchBarComponent', () => {
   }));
 
   it('should get all heroes', fakeAsync(() => {
-    spyOn(heroService, 'getAllHeroes').and.returnValue(Promise.resolve(true));
+    spyOn(heroService, 'getHeroes').and.returnValue(Promise.resolve(true));
     tick();
     fixture.detectChanges();
     expect(component.defaultHeroes.length).toBeGreaterThan(0);

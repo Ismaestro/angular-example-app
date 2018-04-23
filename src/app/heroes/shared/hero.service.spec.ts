@@ -5,7 +5,6 @@ import {APP_CONFIG, AppConfig} from '../../config/app.config';
 import {TestsModule} from '../../shared/modules/tests.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {HttpErrorResponse} from '@angular/common/http';
-import {ErrorObservable} from 'rxjs/observable/ErrorObservable';
 
 describe('HeroService', () => {
   let heroService;
@@ -27,7 +26,7 @@ describe('HeroService', () => {
   });
 
   it('should contains heroes', async(() => {
-    heroService.getAllHeroes().subscribe((data: any) => {
+    heroService.getHeroes().subscribe((data: any) => {
       expect(data.length).toBeGreaterThan(AppConfig.topHeroesLimit);
     });
   }));
@@ -67,10 +66,6 @@ describe('HeroService', () => {
     });
   }));
 
-  it('should return json response error', async(() => {
-    expect(heroService.handleError(new Response('noId'))).toEqual(jasmine.any(ErrorObservable));
-  }));
-
   it('should create hero', async(() => {
     heroService.createHero({
       'name': 'test',
@@ -85,7 +80,7 @@ describe('HeroService', () => {
 
   it('should not like a hero because no votes', async(() => {
     localStorage.setItem('votes', String(AppConfig.votesLimit));
-    expect(heroService.checkIfUserCanVote()).toBe(false);
+    expect(HeroService.checkIfUserCanVote()).toBe(false);
     heroService.createHero({
       'name': 'test',
       'alterEgo': 'test'
@@ -102,7 +97,7 @@ describe('HeroService', () => {
 
   it('should like a hero', async(() => {
     localStorage.setItem('votes', String(0));
-    expect(heroService.checkIfUserCanVote()).toBe(true);
+    expect(HeroService.checkIfUserCanVote()).toBe(true);
     heroService.createHero({
       'name': 'test',
       'alterEgo': 'test'

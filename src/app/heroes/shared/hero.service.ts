@@ -1,31 +1,31 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-
 import {AppConfig} from '../../config/app.config';
-
 import {Hero} from './hero.model';
 import {Observable} from 'rxjs/Observable';
+import {of} from 'rxjs/observable/of';
+import {catchError, tap} from 'rxjs/operators';
 import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
 import {TranslateService} from '@ngx-translate/core';
+import {LoggerService} from '../../core/shared/logger.service';
+
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
 
 @Injectable()
 export class HeroService {
-  private headers: HttpHeaders;
   private heroesUrl: string;
   private translations: any;
 
-  private handleError(error: any) {
-    if (error instanceof Response) {
-      return Observable.throw(error.json()['error'] || 'backend server error');
-    }
-    return Observable.throw(error || 'backend server error');
+  static checkIfUserCanVote(): boolean {
+    return Number(localStorage.getItem('votes')) < AppConfig.votesLimit;
   }
 
   constructor(private http: HttpClient,
               private translateService: TranslateService,
               private snackBar: MatSnackBar) {
     this.heroesUrl = AppConfig.endpoints.heroes;
-    this.headers = new HttpHeaders({'Content-Type': 'application/json'});
 
     this.translateService.get(['heroCreated', 'saved', 'heroLikeMaximum', 'heroRemoved'], {
       'value': AppConfig.votesLimit
@@ -34,65 +34,76 @@ export class HeroService {
     });
   }
 
-  getAllHeroes(): Observable<Hero[]> {
-    return this.http.get(this.heroesUrl)
-      .map(response => {
-        return response;
-      })
-      .catch(error => this.handleError(error));
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // TODO: better job of transforming error for user consumption
+      LoggerService.log(`${operation} failed: ${error.message}`);
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
   }
 
-  getHeroById(heroId: string): Observable<Hero> {
-    return this.http.get(this.heroesUrl + '/' + heroId)
-      .map(response => {
-        return response;
-      })
-      .catch(error => this.handleError(error));
+  getHeroes(): Observable<Hero[]> {
+    return this.http.get<Hero[]>(this.heroesUrl)
+      .pipe(
+        tap(heroes => LoggerService.log(`fetched heroes`)),
+        catchError(this.handleError('getHeroes', []))
+      );
   }
 
-  createHero(hero: any): Observable<Hero> {
-    return this.http
-      .post(this.heroesUrl, JSON.stringify({
-        name: hero.name,
-        alterEgo: hero.alterEgo
-      }), {headers: this.headers})
-      .map(response => {
+  getHeroById(id: string): Observable<Hero> {
+    const url = `${this.heroesUrl}/${id}`;
+    return this.http.get<Hero>(url).pipe(
+      tap(() => LoggerService.log(`fetched hero id=${id}`)),
+      catchError(this.handleError<Hero>(`getHero id=${id}`))
+    );
+  }
+
+  createHero(hero: Hero): Observable<Hero> {
+    return this.http.post<Hero>(this.heroesUrl, JSON.stringify({
+      name: hero.name,
+      alterEgo: hero.alterEgo
+    }), httpOptions).pipe(
+      tap((heroSaved: Hero) => {
+        LoggerService.log(`added hero w/ id=${heroSaved.id}`);
         this.showSnackBar('heroCreated');
-        return response;
-      })
-      .catch(error => this.handleError(error));
-  }
-
-  like(hero: Hero) {
-    if (this.checkIfUserCanVote()) {
-      const url = `${this.heroesUrl}/${hero.id}/like`;
-      return this.http
-        .post(url, {}, {headers: this.headers})
-        .map((response) => {
-          localStorage.setItem('votes', '' + (Number(localStorage.getItem('votes')) + 1));
-          hero.likes += 1;
-          this.showSnackBar('saved');
-          return response;
-        })
-        .catch(error => this.handleError(error));
-    } else {
-      this.showSnackBar('heroLikeMaximum');
-      return Observable.throw('maximum votes');
-    }
-  }
-
-  checkIfUserCanVote(): boolean {
-    return Number(localStorage.getItem('votes')) < AppConfig.votesLimit;
+      }),
+      catchError(this.handleError<Hero>('addHero'))
+    );
   }
 
   deleteHeroById(id: any): Observable<Array<Hero>> {
     const url = `${this.heroesUrl}/${id}`;
-    return this.http.delete(url, {headers: this.headers})
-      .map((response) => {
-        this.showSnackBar('heroRemoved');
-        return response;
-      })
-      .catch(error => this.handleError(error));
+
+    return this.http.delete<Array<Hero>>(url, httpOptions).pipe(
+      tap(() => LoggerService.log(`deleted hero id=${id}`)),
+      catchError(this.handleError<Array<Hero>>('deleteHero'))
+    );
+  }
+
+  like(hero: Hero) {
+    if (HeroService.checkIfUserCanVote()) {
+      const url = `${this.heroesUrl}/${hero.id}/like`;
+      return this.http
+        .post(url, {}, httpOptions)
+        .pipe(
+          tap(() => {
+            LoggerService.log(`updated hero id=${hero.id}`);
+            localStorage.setItem('votes', '' + (Number(localStorage.getItem('votes')) + 1));
+            hero.likes += 1;
+            this.showSnackBar('saved');
+          }),
+          catchError(this.handleError<any>('updateHero'))
+        );
+    } else {
+      this.showSnackBar('heroLikeMaximum');
+      return Observable.throw('maximum votes');
+    }
   }
 
   showSnackBar(name): void {

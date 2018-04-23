@@ -30,7 +30,7 @@ export class HeroDetailComponent implements OnInit {
   like(hero: Hero) {
     return new Promise((resolve, reject) => {
       this.heroService.like(hero).subscribe(() => {
-        this.canVote = this.heroService.checkIfUserCanVote();
+        this.canVote = HeroService.checkIfUserCanVote();
         resolve(true);
       }, (error) => {
         reject(error);

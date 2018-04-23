@@ -41,7 +41,7 @@ describe('HeroTopComponent', () => {
 
   it('should initialice component', fakeAsync(() => {
     fixture.detectChanges();
-    spyOn(heroService, 'getAllHeroes').and.returnValue(Promise.resolve(true));
+    spyOn(heroService, 'getHeroes').and.returnValue(Promise.resolve(true));
     tick();
     fixture.detectChanges();
     expect(component.heroes.length).toBe(AppConfig.topHeroesLimit);
@@ -60,6 +60,6 @@ describe('HeroTopComponent', () => {
     }, (error) => {
       expect(error).toBe('maximum votes');
     });
-    expect(heroService.checkIfUserCanVote()).toBe(false);
+    expect(HeroService.checkIfUserCanVote()).toBe(false);
   }));
 });

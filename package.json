@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@angular/cdk": "5.2.4",
-    "@angular/cli": "1.7.4",
+    "@angular/cli": "1.7.3",
     "@angular/compiler-cli": "5.2.10",
     "@angular/language-service": "5.2.10",
     "@angular/material": "5.2.4",

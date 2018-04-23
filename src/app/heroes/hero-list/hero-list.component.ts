@@ -5,7 +5,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MatDialog} from '@angular/material';
 import {AppConfig} from '../../config/app.config';
 import {Router} from '@angular/router';
-import {LoggerService} from '../../core/logger.service';
+import {LoggerService} from '../../core/shared/logger.service';
 
 @Component({
   selector: 'app-remove-hero-dialog',
@@ -35,7 +35,7 @@ export class HeroListComponent implements OnInit {
               private dialog: MatDialog,
               private router: Router,
               private formBuilder: FormBuilder) {
-    this.canVote = this.heroService.checkIfUserCanVote();
+    this.canVote = HeroService.checkIfUserCanVote();
 
     this.newHeroForm = this.formBuilder.group({
       'name': ['', [Validators.required]],
@@ -44,7 +44,7 @@ export class HeroListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.heroService.getAllHeroes().subscribe((heroes: Array<Hero>) => {
+    this.heroService.getHeroes().subscribe((heroes: Array<Hero>) => {
       this.heroes = heroes.sort((a, b) => {
         return b.likes - a.likes;
       });
@@ -53,7 +53,7 @@ export class HeroListComponent implements OnInit {
 
   like(hero: Hero) {
     this.heroService.like(hero).subscribe(() => {
-      this.canVote = this.heroService.checkIfUserCanVote();
+      this.canVote = HeroService.checkIfUserCanVote();
     }, (error: Response) => {
       LoggerService.error('maximum votes limit reached', error);
     });

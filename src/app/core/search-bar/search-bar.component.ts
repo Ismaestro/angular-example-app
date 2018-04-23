@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {LoggerService} from '../logger.service';
+import {LoggerService} from '../shared/logger.service';
 import {Hero} from '../../heroes/shared/hero.model';
 import {FormControl} from '@angular/forms';
 import {HeroService} from '../../heroes/shared/hero.service';
@@ -28,7 +28,7 @@ export class SearchBarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.heroService.getAllHeroes().subscribe((heroes: Array<Hero>) => {
+    this.heroService.getHeroes().subscribe((heroes: Array<Hero>) => {
       this.defaultHeroes = heroes.filter(hero => hero['default']);
 
       this.heroFormControl.valueChanges
