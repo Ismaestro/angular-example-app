@@ -26,7 +26,7 @@
 
 **Warning**
 
-> Verify that you are running at least node 6.9.x and npm 3.x.x by running node -v and npm -v in a terminal/console window. Older versions produce errors, but newer versions are fine.
+> Verify that you are running at least node 8.9.x and npm 5.x.x by running node -v and npm -v in a terminal/console window. Older versions produce errors, but newer versions are fine.
 
 1. Go to project folder and install dependencies:
  ```bash
@@ -46,7 +46,6 @@ npm i                    | Installs everything needed
 npm start                | Starts the app. Then, go to `localhost:4200`
 npm run test             | Runs unit tests with karma and jasmine
 npm run e2e              | Runs end to end tests
-npm run e2e:home         | Runs end to end tests only for the home directory
 npm run build            | Builds the app for production
 npm run lint             | Runs the linter (tslint)
 npm run ci               | Executes linter and tests
@@ -94,6 +93,8 @@ This library contains a sample module, component, pipe, directive, all with test
 
 You can see how to use it, or develop a new one in the repository. Any doubts, please submit an issue or make a pull request.
 
+
+
 ## Travis CI
 We use Travis CI to run this tasks in order:
 * Linter
@@ -120,4 +121,4 @@ MIT
 
 Enjoy :metal:
 
-We are always happy to hear your feedback!
+I'm always happy to hear your feedback!
