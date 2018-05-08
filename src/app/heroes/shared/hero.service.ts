@@ -1,9 +1,8 @@
+import {Observable, of, throwError as observableThrowError} from 'rxjs';
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {AppConfig} from '../../config/app.config';
 import {Hero} from './hero.model';
-import {Observable} from 'rxjs/Observable';
-import {of} from 'rxjs/observable/of';
 import {catchError, tap} from 'rxjs/operators';
 import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
 import {TranslateService} from '@ngx-translate/core';
@@ -102,7 +101,7 @@ export class HeroService {
         );
     } else {
       this.showSnackBar('heroLikeMaximum');
-      return Observable.throw('maximum votes');
+      return observableThrowError('maximum votes');
     }
   }
 

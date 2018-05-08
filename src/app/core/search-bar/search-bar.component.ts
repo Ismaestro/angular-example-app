@@ -1,3 +1,4 @@
+import {map, startWith} from 'rxjs/operators';
 import {Component, OnInit} from '@angular/core';
 import {LoggerService} from '../shared/logger.service';
 import {Hero} from '../../heroes/shared/hero.model';
@@ -31,9 +32,9 @@ export class SearchBarComponent implements OnInit {
     this.heroService.getHeroes().subscribe((heroes: Array<Hero>) => {
       this.defaultHeroes = heroes.filter(hero => hero['default']);
 
-      this.heroFormControl.valueChanges
-        .startWith(null)
-        .map(value => this.filterHeroes(value))
+      this.heroFormControl.valueChanges.pipe(
+        startWith(null),
+        map(value => this.filterHeroes(value)))
         .subscribe(heroesFiltered => {
           this.filteredHeroes = heroesFiltered;
         });

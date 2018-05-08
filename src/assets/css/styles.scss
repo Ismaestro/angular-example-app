@@ -2,122 +2,122 @@
 @import "mixins";
 
 * {
-    @include font-roboto();
+  @include font-roboto();
 }
 
 a, .cp {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .header__title {
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 300;
-    padding: 1rem 0 0;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 300;
+  padding: 1rem 0 0;
 }
 
 .flex-spacer {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 .progress__spinner {
-    height: calculateRem(60px) !important;
-    @include push--auto(2rem);
+  height: calculateRem(60px) !important;
+  @include push--auto(2rem);
 }
 
 .hero-actions {
-    align-items: center;
-    display: flex;
-    padding-bottom: 1rem;
+  align-items: center;
+  display: flex;
+  padding-bottom: 1rem;
 }
 
 .icon__like--red {
-    color: $red;
-    cursor: pointer;
+  color: $red;
+  cursor: pointer;
 }
 
 .hero-header__image {
-    background-size: cover;
+  background-size: cover;
 }
 
 .text--center {
-    text-align: center;
+  text-align: center;
 }
 
 .text--right {
-    text-align: right;
+  text-align: right;
 }
 
 pre {
-    background: $light-grey;
-    border: 1px solid $grey;
-    border-left: 3px solid $primary--color;
-    color: $primary--color;
-    page-break-inside: avoid;
-    font-family: monospace;
-    font-size: calculateRem(15px);
-    line-height: 1.6;
-    margin-bottom: 1.6rem;
-    max-width: 100%;
-    overflow: auto;
-    padding: 1rem 1.5rem;
-    display: block;
-    text-align: left;
-    word-wrap: break-word;
+  background: $light-grey;
+  border: 1px solid $grey;
+  border-left: 3px solid $primary--color;
+  color: $primary--color;
+  page-break-inside: avoid;
+  font-family: monospace;
+  font-size: calculateRem(15px);
+  line-height: 1.6;
+  margin-bottom: 1.6rem;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1rem 1.5rem;
+  display: block;
+  text-align: left;
+  word-wrap: break-word;
 }
 
 .offline-error {
-    font-size: 1rem;
-    font-weight: 300;
-    padding: 1rem;
-    text-align: center;
+  font-size: 1rem;
+  font-weight: 300;
+  padding: 1rem;
+  text-align: center;
 
-    span {
-        transform: rotate(90deg);
-        font-size: 0.8rem;
-        display: inline-flex;
-    }
+  span {
+    transform: rotate(90deg);
+    font-size: 0.8rem;
+    display: inline-flex;
+  }
 }
 
 // MATERIAL
 
 snack-bar-container {
-    background: $primary--color !important;
+  background: $primary--color !important;
 }
 
 .mat-menu-content {
-    background: $primary--color;
+  background: $primary--color;
 }
 
 .mat-menu-item, .mat-menu-item .mat-icon {
-    color: $secondary--color;
-    font-weight: 100;
+  color: $secondary--color;
+  font-weight: 100;
 }
 
 .mat-raised-button[disabled] {
-    background: $grey !important;
+  background: $grey !important;
 }
 
 .mat-dialog-container {
-    background: $primary--color;
-    color: $secondary--color;
+  background: $primary--color;
+  color: $secondary--color;
 }
 
 .mat-dialog-content {
-    text-align: center;
-    padding: 1rem calculateRem(24px) !important;
+  text-align: center;
+  padding: 1rem calculateRem(24px) !important;
 }
 
 .mat-dialog-title {
-    text-align: center;
+  text-align: center;
 }
 
 .mat-list-avatar {
-    height: calculateRem(55px) !important;
-    width: calculateRem(55px) !important;
+  height: calculateRem(55px) !important;
+  width: calculateRem(55px) !important;
 }
 
 .mat-card-image {
-    margin-bottom: -28px !important;
-    border-top: 1px solid $light-grey;
+  margin-bottom: -28px !important;
+  border-top: 1px solid $light-grey;
 }
