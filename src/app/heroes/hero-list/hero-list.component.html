@@ -37,17 +37,17 @@
     <h2 class="header__title">{{ 'createHero' | translate }}</h2>
     <div>
         <form [formGroup]="newHeroForm" #form="ngForm" (ngSubmit)="createNewHero(newHeroForm.value)">
-            <mat-input-container class="input-container">
+            <mat-form-field class="input-container">
                 <input matInput type="text"
                        placeholder="{{'name' | translate}}"
                        formControlName="name">
-            </mat-input-container>
+            </mat-form-field>
 
-            <mat-input-container class="input-container">
+            <mat-form-field class="input-container">
                 <input matInput type="text"
                        placeholder="{{'realName' | translate}}"
                        formControlName="alterEgo">
-            </mat-input-container>
+            </mat-form-field>
 
             <button mat-raised-button type="submit" [disabled]="!newHeroForm.valid">
                 {{'create' | translate}}
