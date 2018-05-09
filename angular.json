@@ -28,24 +28,24 @@
               },
               {
                 "glob": "sitemap.xml",
-                "input": "src",
+                "input": "src/assets",
                 "output": "/"
               },
               {
                 "glob": "googled41787c6aae2151b.html",
-                "input": "src",
+                "input": "src/assets",
                 "output": "/"
               },
               {
                 "glob": "CNAME",
-                "input": "src",
+                "input": "src/assets",
                 "output": "/"
               }
             ],
             "styles": [
               "src/assets/css/reset.css",
               "src/assets/css/loading.css",
-              "src/assets/css/styles.scss"
+              "src/styles.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -111,7 +111,7 @@
             "styles": [
               "src/assets/css/reset.css",
               "src/assets/css/loading.css",
-              "src/assets/css/styles.scss"
+              "src/styles.scss"
             ],
             "assets": [
               {
@@ -126,17 +126,17 @@
               },
               {
                 "glob": "sitemap.xml",
-                "input": "src",
+                "input": "src/assets",
                 "output": "/"
               },
               {
                 "glob": "googled41787c6aae2151b.html",
-                "input": "src",
+                "input": "src/assets",
                 "output": "/"
               },
               {
                 "glob": "CNAME",
-                "input": "src",
+                "input": "src/assets",
                 "output": "/"
               }
             ],
