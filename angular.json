@@ -43,6 +43,9 @@
               }
             ],
             "styles": [
+              {
+                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+              },
               "src/assets/css/reset.css",
               "src/assets/css/loading.css",
               "src/styles.scss"
@@ -109,6 +112,9 @@
               "src/assets/js/gtm.js"
             ],
             "styles": [
+              {
+                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+              },
               "src/assets/css/reset.css",
               "src/assets/css/loading.css",
               "src/styles.scss"
