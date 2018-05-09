@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="6.0.0"></a>
+# [6.0.0](https://github.com/Ismaestro/angular6-example-app/compare/v5.3.0...v6.0.0) (2018-05-09)
+
+
+### Features
+
+* **angular:** add lost files, move others and fix search bar component styles ([6db191d](https://github.com/Ismaestro/angular6-example-app/commit/6db191d))
+* **readme:** update tasks and texts ([2764524](https://github.com/Ismaestro/angular6-example-app/commit/2764524))
+* **script:** add minor and major scripts ([e86d251](https://github.com/Ismaestro/angular6-example-app/commit/e86d251))
+
+
+
 <a name="5.3.0"></a>
 # [5.3.0](https://github.com/Ismaestro/angular6-example-app/compare/v5.2.0...v5.3.0) (2018-05-08)
 
