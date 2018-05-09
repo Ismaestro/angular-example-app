@@ -33,7 +33,7 @@
  npm install
  ```
  
-2. Launch development server, and open `localhost:4200` in your browser:
+2. Launch development server:
  ```bash
  npm start
  ```
@@ -42,28 +42,28 @@
 
 Tasks                    | Description
 -------------------------|---------------------------------------------------------------------------------------
-npm i                    | Installs everything needed
-npm start                | Starts the app. Then, go to `localhost:4200`
-npm run test             | Runs unit tests with karma and jasmine
-npm run e2e              | Runs end to end tests
-npm run build            | Builds the app for production
-npm run lint             | Runs the linter (tslint)
-npm run ci               | Executes linter and tests
-npm run deploy           | Builds the app and deploy it to Github pages (angular-cli-ghpages) (fork to do this and remove CNAME file)
-npm run sme              | Builds and runs source map explorer, really cool :)
-npm run release          | Creates a new release using standard-version
-npm run docker           | Builds the docker image and run the container
+npm i                    | Install everything needed
+npm start                | Start the app in development mode
+npm run test             | Run unit tests with karma and jasmine
+npm run e2e              | Run end to end tests
+npm run build            | Build the app for production
+npm run lint             | Run the linter (tslint)
+npm run ci               | Execute linter and tests
+npm run deploy           | Build the app and deploy dist folder to Github pages (angular-cli-ghpages) (fork to do this and remove CNAME file)
+npm run sme              | Build and run source map explorer, really cool :)
+npm run release          | Create a new release using standard-version
+npm run docker           | Build the docker image and run the container
 
 ## Features
 
-* Responsive layout (flex layout module)
-* SASS (most common used functions and mixins) and BEM styles
-* Modal and toasts (snakbar)!
 * CRUD: create, update and remove heroes
 * Search bar, to look for heroes
 * Custom loading page
 * Angular Pipes
 * Interceptors and Events (Progress bar active, if a request is pending)
+* Modal and toasts (snakbar)!
+* Responsive layout (flex layout module)
+* SASS (most common used functions and mixins) and BEM styles
 * Internationalization
 * Lazy loading modules
 * Service Workers
@@ -93,23 +93,22 @@ This library contains a sample module, component, pipe, directive, all with test
 
 You can see how to use it, or develop a new one in the repository. Any doubts, please submit an issue or make a pull request.
 
-
-
 ## Travis CI
+
 We use Travis CI to run this tasks in order:
 * Linter
 * Tests
 * Build for production
 * Deploy in Github pages
-:)
 
 ## Contributing
+
 - Please see the CONTRIBUTING file for guidelines.
 - Create **pull requests, submit bugs, suggest new features** or documentation updates :wrench:
 
 ## Server
 
-This repo is using an API which is [a minimal app](https://github.com/Ismaestro/nodejs-example-app) in NodeJS deployed on Heroku and using PostGreSQL, to create, modify and delete heroes.
+This repo is using [a minimal app](https://github.com/Ismaestro/nodejs-example-app) in NodeJS deployed on Heroku and using PostGreSQL, to create, modify and delete heroes.
 
 ## Contributors
 
@@ -119,6 +118,6 @@ Thanks to all contributors and their support!
 
 MIT
 
-Enjoy :metal:
-
 I'm always happy to hear your feedback!
+
+Enjoy :metal:
