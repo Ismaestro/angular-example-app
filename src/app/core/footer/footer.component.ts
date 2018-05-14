@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 
 @Component({
@@ -7,13 +7,13 @@ import {TranslateService} from '@ngx-translate/core';
   styleUrls: ['./footer.component.scss']
 })
 
-export class FooterComponent {
-
+export class FooterComponent implements OnInit {
   currentLang: string;
-  currentDate: number;
 
   constructor(private translateService: TranslateService) {
+  }
+
+  ngOnInit() {
     this.currentLang = this.translateService.currentLang;
-    this.currentDate = Date.now();
   }
 }

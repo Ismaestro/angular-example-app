@@ -28,11 +28,13 @@
 
 > Verify that you are running at least node 8.9.x and npm 5.x.x by running node -v and npm -v in a terminal/console window. Older versions produce errors, but newer versions are fine.
 
-1. Go to project folder and install dependencies:
+1. Go to project folder and install dependencies.
  ```bash
  npm install
+ npm run build:library
  ```
  
+IMPORTANT: **Build the library**, before a fresh start ([more info](https://github.com/angular/angular-cli/wiki/stories-create-library#why-do-i-need-to-build-the-library-everytime-i-make-changes))!
 2. Launch development server:
  ```bash
  npm start
@@ -45,9 +47,12 @@ Tasks                    | Description
 npm i                    | Install everything needed
 npm start                | Start the app in development mode
 npm run test             | Run unit tests with karma and jasmine
+npm run test:library     | Run unit tests for the library
 npm run e2e              | Run end to end tests
 npm run build            | Build the app for production
+npm run build:library    | Build the library
 npm run lint             | Run the linter (tslint)
+npm run lint:library     | Run the linter for the library
 npm run ci               | Execute linter and tests
 npm run deploy           | Build the app and deploy dist folder to Github pages (angular-cli-ghpages) (fork to do this and remove CNAME file)
 npm run sme              | Build and run source map explorer, really cool :)
@@ -68,7 +73,7 @@ npm run docker           | Build the docker image and run the container
 * Lazy loading modules
 * Service Workers
 * Dynamic Imports
-* Custom [example library](https://github.com/Ismaestro/angular-example-library)
+* Generated a basic example library
 * Modernizr (browser features detection)
 * Google Tag Manager
 * Github pages deploy ready
@@ -84,14 +89,6 @@ You can build the image and run the container with Docker. The configuration is 
 `docker build -t angularexampleapp .`
 
 `docker run -d -p 4200:80 angularexampleapp`
-
-## Do you want to create your own library with Angular?
-
-This project is using an example library in angular, which you can check it [here](https://github.com/Ismaestro/angular-example-library).
-
-This library contains a sample module, component, pipe, directive, all with tests, AOT compilation and an Angular-CLI playground too.
-
-You can see how to use it, or develop a new one in the repository. Any doubts, please submit an issue or make a pull request.
 
 ## Travis CI
 
@@ -110,14 +107,14 @@ We use Travis CI to run this tasks in order:
 
 This repo is using [a minimal app](https://github.com/Ismaestro/nodejs-example-app) in NodeJS deployed on Heroku and using PostGreSQL, to create, modify and delete heroes.
 
-## Contributors
-
-Thanks to all contributors and their support!
-
 ## License
 
 MIT
 
+## Contributors
+
+Thanks to all contributors and their support! 
+If you have an idea or you want to do something, tell me or just do it!
 I'm always happy to hear your feedback!
 
 Enjoy :metal:

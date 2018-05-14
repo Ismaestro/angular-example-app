@@ -1,13 +1,10 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
-
 import {APP_CONFIG, AppConfig} from './config/app.config';
-
 import {AppRoutingModule} from './app-routing.module';
 import {SharedModule} from './shared/modules/shared.module';
 import {CoreModule} from './core/core.module';
-
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
@@ -17,8 +14,7 @@ import {HeroTopComponent} from './heroes/hero-top/hero-top.component';
 import {ProgressBarService} from './core/shared/progress-bar.service';
 import {ProgressInterceptor} from './shared/interceptors/progress.interceptor';
 import {TimingInterceptor} from './shared/interceptors/timing.interceptor';
-import {SampleModule} from 'angular-example-library';
-
+import {AngularExampleLibraryModule} from 'angular-example-library';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
 
@@ -37,7 +33,7 @@ import {environment} from '../environments/environment';
       }
     }),
     SharedModule.forRoot(),
-    SampleModule.forRoot({
+    AngularExampleLibraryModule.forRoot({
       config: {
         say: 'hello'
       }

@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Hero} from '../shared/hero.model';
 import {HeroService} from '../shared/hero.service';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MatDialog} from '@angular/material';
 import {AppConfig} from '../../config/app.config';
 import {Router} from '@angular/router';
@@ -38,8 +38,8 @@ export class HeroListComponent implements OnInit {
     this.canVote = HeroService.checkIfUserCanVote();
 
     this.newHeroForm = this.formBuilder.group({
-      'name': ['', [Validators.required]],
-      'alterEgo': ['', [Validators.required]]
+      'name': new FormControl('', [Validators.required]),
+      'alterEgo': new FormControl('', [Validators.required])
     });
   }
 
