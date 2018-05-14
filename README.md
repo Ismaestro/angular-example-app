@@ -1,6 +1,6 @@
 # Example app with Angular 6 + Angular CLI + Angular Material + Docker + Angular Example Library
 
-> ### Base project made with much  :heart: . Contains CRUD, patterns, custom library, etc.
+> ### Base project made with much  :heart: . Contains CRUD, patterns, generated library, etc.
 
 ![travis](https://travis-ci.org/Ismaestro/angular6-example-app.svg?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/Ismaestro/angular6-example-app/badge.svg?branch=master)](https://coveralls.io/github/Ismaestro/angular6-example-app?branch=master)
@@ -35,6 +35,7 @@
  ```
  
 IMPORTANT: **Build the library**, before a fresh start ([more info](https://github.com/angular/angular-cli/wiki/stories-create-library#why-do-i-need-to-build-the-library-everytime-i-make-changes))!
+
 2. Launch development server:
  ```bash
  npm start
@@ -44,11 +45,11 @@ IMPORTANT: **Build the library**, before a fresh start ([more info](https://gith
 
 Tasks                    | Description
 -------------------------|---------------------------------------------------------------------------------------
-npm i                    | Install everything needed
+npm i                    | Install dependencies
 npm start                | Start the app in development mode
 npm run test             | Run unit tests with karma and jasmine
 npm run test:library     | Run unit tests for the library
-npm run e2e              | Run end to end tests
+npm run e2e              | Run end to end tests with protractor
 npm run build            | Build the app for production
 npm run build:library    | Build the library
 npm run lint             | Run the linter (tslint)
@@ -73,7 +74,7 @@ npm run docker           | Build the docker image and run the container
 * Lazy loading modules
 * Service Workers
 * Dynamic Imports
-* Generated a basic example library
+* Basic example library
 * Modernizr (browser features detection)
 * Google Tag Manager
 * Github pages deploy ready
