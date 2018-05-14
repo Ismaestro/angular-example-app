@@ -1,23 +1,23 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {AngularExampleLibraryComponent} from './angular-example-library.component';
+import {NgxExampleLibraryComponent} from './ngx-example-library.component';
 import {DebugElement} from '@angular/core';
 import {By} from '@angular/platform-browser';
 
-describe('AngularExampleLibraryComponent', () => {
-  let component: AngularExampleLibraryComponent;
-  let fixture: ComponentFixture<AngularExampleLibraryComponent>;
+describe('NgxExampleLibraryComponent', () => {
+  let component: NgxExampleLibraryComponent;
+  let fixture: ComponentFixture<NgxExampleLibraryComponent>;
   let de: DebugElement;
   let el: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AngularExampleLibraryComponent]
+      declarations: [NgxExampleLibraryComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AngularExampleLibraryComponent);
+    fixture = TestBed.createComponent(NgxExampleLibraryComponent);
     component = fixture.componentInstance;
     component.locale = 'es';
 

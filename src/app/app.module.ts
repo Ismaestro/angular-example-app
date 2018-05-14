@@ -14,7 +14,7 @@ import {HeroTopComponent} from './heroes/hero-top/hero-top.component';
 import {ProgressBarService} from './core/shared/progress-bar.service';
 import {ProgressInterceptor} from './shared/interceptors/progress.interceptor';
 import {TimingInterceptor} from './shared/interceptors/timing.interceptor';
-import {AngularExampleLibraryModule} from 'angular-example-library';
+import {NgxExampleLibraryModule} from '@ismaestro/ngx-example-library';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
 
@@ -33,7 +33,7 @@ import {environment} from '../environments/environment';
       }
     }),
     SharedModule.forRoot(),
-    AngularExampleLibraryModule.forRoot({
+    NgxExampleLibraryModule.forRoot({
       config: {
         say: 'hello'
       }

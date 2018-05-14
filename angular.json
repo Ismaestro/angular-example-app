@@ -189,38 +189,38 @@
         }
       }
     },
-    "angular-example-library": {
-      "root": "projects/angular-example-library",
-      "sourceRoot": "projects/angular-example-library/src",
+    "ngx-example-library": {
+      "root": "projects/ngx-example-library",
+      "sourceRoot": "projects/ngx-example-library/src",
       "projectType": "library",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/angular-example-library/tsconfig.lib.json",
-            "project": "projects/angular-example-library/ng-package.json"
+            "tsConfig": "projects/ngx-example-library/tsconfig.lib.json",
+            "project": "projects/ngx-example-library/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/angular-example-library/ng-package.prod.json"
+              "project": "projects/ngx-example-library/ng-package.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/angular-example-library/src/test.ts",
-            "tsConfig": "projects/angular-example-library/tsconfig.spec.json",
-            "karmaConfig": "projects/angular-example-library/karma.conf.js"
+            "main": "projects/ngx-example-library/src/test.ts",
+            "tsConfig": "projects/ngx-example-library/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-example-library/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/angular-example-library/tsconfig.lib.json",
-              "projects/angular-example-library/tsconfig.spec.json"
+              "projects/ngx-example-library/tsconfig.lib.json",
+              "projects/ngx-example-library/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

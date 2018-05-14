@@ -1,6 +1,6 @@
 import {APP_INITIALIZER, InjectionToken, ModuleWithProviders, NgModule} from '@angular/core';
-import {AngularExampleLibraryComponent} from './angular-example-library.component';
-import {AngularExampleLibraryService} from './angular-example-library.service';
+import {NgxExampleLibraryComponent} from './ngx-example-library.component';
+import {NgxExampleLibraryService} from './ngx-example-library.service';
 
 export const OPTIONS = new InjectionToken<string>('OPTIONS');
 
@@ -16,13 +16,13 @@ export function initialize(options: any) {
 
 @NgModule({
   imports: [],
-  declarations: [AngularExampleLibraryComponent],
-  exports: [AngularExampleLibraryComponent]
+  declarations: [NgxExampleLibraryComponent],
+  exports: [NgxExampleLibraryComponent]
 })
-export class AngularExampleLibraryModule {
+export class NgxExampleLibraryModule {
   static forRoot(options?: SampleModuleOptions): ModuleWithProviders {
     return {
-      ngModule: AngularExampleLibraryModule,
+      ngModule: NgxExampleLibraryModule,
       providers: [
         {provide: OPTIONS, useValue: options},
         {
@@ -31,7 +31,7 @@ export class AngularExampleLibraryModule {
           deps: [OPTIONS],
           multi: true
         },
-        AngularExampleLibraryService
+        NgxExampleLibraryService
       ]
     };
   }

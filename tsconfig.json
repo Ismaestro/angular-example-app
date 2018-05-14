@@ -17,8 +17,8 @@
       "dom"
     ],
     "paths": {
-      "angular-example-library": [
-        "dist/angular-example-library"
+      "ngx-example-library": [
+        "dist/ngx-example-library"
       ]
     }
   },

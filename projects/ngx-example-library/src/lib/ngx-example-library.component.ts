@@ -4,11 +4,11 @@ import * as moment_ from 'moment';
 const moment = moment_;
 
 @Component({
-  selector: 'lib-angular-example-library',
+  selector: 'lib-ngx-example-library',
   template: `<span>{{date}}</span>`,
   styles: []
 })
-export class AngularExampleLibraryComponent implements OnInit {
+export class NgxExampleLibraryComponent implements OnInit {
 
   @Input() locale: string;
   date: string;

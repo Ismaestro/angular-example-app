@@ -31,15 +31,16 @@
 1. Go to project folder and install dependencies.
  ```bash
  npm install
- npm run build:library
  ```
- 
-IMPORTANT: **Build the library**, before a fresh start ([more info](https://github.com/angular/angular-cli/wiki/stories-create-library#why-do-i-need-to-build-the-library-everytime-i-make-changes))!
 
 2. Launch development server:
  ```bash
  npm start
  ```
+
+**Note**
+
+> You don't need to build the library because it's published in npm and added as dependency of the project.
 
 ## Usage
 
