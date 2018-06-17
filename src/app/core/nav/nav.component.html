@@ -12,10 +12,16 @@
                     <mat-icon>public</mat-icon>
                 </button>
                 <mat-menu #matmenu="matMenu">
-                    <button mat-menu-item (click)="changeLanguage('zh')">
+                    <button mat-menu-item (click)="changeLanguage('zh-hk')">
                         <mat-icon>flag</mat-icon>
                         <span>
-                            Chinese
+                            Traditional Chinese
+                        </span>
+                    </button>
+                    <button mat-menu-item (click)="changeLanguage('zh-cn')">
+                        <mat-icon>flag</mat-icon>
+                        <span>
+                            Simplified Chinese
                         </span>
                     </button>
                     <button mat-menu-item (click)="changeLanguage('en')">
