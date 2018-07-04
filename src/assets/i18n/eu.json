@@ -14,7 +14,7 @@
   "hero-create-new": {
     "newHero": "Heroi berria"
   },
-  "heroPower": "Poder del heroe",
+  "heroPower": "Heroiaren boterea",
   "details": "informazioa",
   "saveHero": "Heroia gorde",
   "createNewHero": "Sortu heroi berri bat",
@@ -42,7 +42,7 @@
   "areYouSure": "Seguro zaude?",
   "no": "Ez",
   "yes": "Bai",
-  "heroRemoved": "Heroia utzi gaitu :(",
+  "heroRemoved": "Heroiak utzi gaitu :(",
   "heroDetail": "Heroiaren xehetasunak",
   "error404": "Error 404",
   "mayTheForce": "Indarra zurekin joan dadila!",
