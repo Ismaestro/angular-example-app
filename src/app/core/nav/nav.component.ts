@@ -1,9 +1,9 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
-
 import {APP_CONFIG, AppConfig} from '../../config/app.config';
 import {IAppConfig} from '../../config/iapp.config';
 import {ProgressBarService} from '../shared/progress-bar.service';
+import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
 
 @Component({
   selector: 'app-nav',
@@ -39,7 +39,7 @@ export class NavComponent implements OnInit {
   }
 
   private loadMenus(): void {
-    this.translateService.get(['home', 'heroesList'], {}).subscribe((texts: any) => {
+    this.translateService.get([String(_('home')), String(_('heroesList'))], {}).subscribe((texts: any) => {
       this.menuItems = [
         {link: '/', name: texts['home']},
         {link: '/' + AppConfig.routes.heroes, name: texts['heroesList']}

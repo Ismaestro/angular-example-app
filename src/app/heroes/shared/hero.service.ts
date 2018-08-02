@@ -7,6 +7,7 @@ import {catchError, tap} from 'rxjs/operators';
 import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
 import {TranslateService} from '@ngx-translate/core';
 import {LoggerService} from '../../core/shared/logger.service';
+import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -14,8 +15,7 @@ const httpOptions = {
 
 @Injectable()
 export class HeroService {
-  private heroesUrl: string;
-  private translations: any;
+  heroesUrl: string;
 
   static checkIfUserCanVote(): boolean {
     return Number(localStorage.getItem('votes')) < AppConfig.votesLimit;
@@ -25,12 +25,6 @@ export class HeroService {
               private translateService: TranslateService,
               private snackBar: MatSnackBar) {
     this.heroesUrl = AppConfig.endpoints.heroes;
-
-    this.translateService.get(['heroCreated', 'saved', 'heroLikeMaximum', 'heroRemoved'], {
-      'value': AppConfig.votesLimit
-    }).subscribe((texts) => {
-      this.translations = texts;
-    });
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
@@ -106,8 +100,11 @@ export class HeroService {
   }
 
   showSnackBar(name): void {
-    const config: any = new MatSnackBarConfig();
-    config.duration = AppConfig.snackBarDuration;
-    this.snackBar.open(this.translations[name], 'OK', config);
+    this.translateService.get([String(_('heroCreated')), String(_('saved')),
+      String(_('heroLikeMaximum')), String(_('heroRemoved'))], {'value': AppConfig.votesLimit}).subscribe((texts) => {
+      const config: any = new MatSnackBarConfig();
+      config.duration = AppConfig.snackBarDuration;
+      this.snackBar.open(texts[name], 'OK', config);
+    });
   }
 }

@@ -4,6 +4,7 @@ import {Meta, Title} from '@angular/platform-browser';
 import {NavigationEnd, Router} from '@angular/router';
 import {AppConfig} from './config/app.config';
 import {MatSnackBar} from '@angular/material';
+import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
 
 declare const Modernizr;
 
@@ -63,7 +64,7 @@ export class AppComponent implements OnInit {
     }
 
     if (!supported) {
-      this.translateService.get(['updateBrowser']).subscribe((texts) => {
+      this.translateService.get([String(_('updateBrowser'))]).subscribe((texts) => {
         this.snackBar.open(texts['updateBrowser'], 'OK');
       });
     }

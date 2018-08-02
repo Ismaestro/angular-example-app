@@ -14,6 +14,7 @@
     "lint": "ng lint",
     "lint:library": "ng lint ngx-example-library",
     "ci": "npm run lint && npm run lint:library && npm run test && npm run test:library && npm run e2e",
+    "extract": "ngx-translate-extract --input ./src/app --output ./src/assets/i18n/*.json --sort --format namespaced-json --format-indentation '  ' --marker _",
     "sme": "ng build && source-map-explorer dist/main.bundle.js",
     "release:minor": "standard-version --release-as minor && git push --follow-tags origin master",
     "release:major": "standard-version --release-as major && git push --follow-tags origin master",
@@ -25,10 +26,10 @@
     "npm": ">= 5.0.0"
   },
   "dependencies": {
-    "@angular/common": "6.0.0",
-    "@angular/core": "6.0.0",
-    "@angular/compiler": "6.0.0",
     "@angular/animations": "6.0.0",
+    "@angular/common": "6.0.0",
+    "@angular/compiler": "6.0.0",
+    "@angular/core": "6.0.0",
     "@angular/flex-layout": "5.0.0-beta.14",
     "@angular/forms": "6.0.0",
     "@angular/http": "6.0.0",
@@ -39,6 +40,7 @@
     "core-js": "2.5.6",
     "rxjs": "6.1.0",
     "rxjs-compat": "6.1.0",
+    "web-animations-js": "^2.3.1",
     "zone.js": "0.8.26"
   },
   "devDependencies": {
@@ -51,6 +53,7 @@
     "@angular/material": "6.0.1",
     "@angular/platform-server": "6.0.0",
     "@angular/service-worker": "6.0.0",
+    "@biesbjerg/ngx-translate-extract": "^2.3.4",
     "@ismaestro/ngx-example-library": "0.0.1",
     "@ngx-translate/core": "10.0.1",
     "@ngx-translate/http-loader": "3.0.1",
@@ -61,6 +64,7 @@
     "angular-cli-ghpages": "0.5.2",
     "codelyzer": "4.3.0",
     "coveralls": "3.0.1",
+    "date-input-polyfill": "^2.14.0",
     "hammerjs": "2.0.8",
     "html2canvas": "1.0.0-alpha.12",
     "http-server": "0.11.1",

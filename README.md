@@ -56,6 +56,7 @@ npm run build:library    | Build the library
 npm run lint             | Run the linter (tslint)
 npm run lint:library     | Run the linter for the library
 npm run ci               | Execute linter and tests
+npm run extract          | Generate all json files with the translations in assets folder
 npm run deploy           | Build the app and deploy dist folder to Github pages (angular-cli-ghpages) (fork to do this and remove CNAME file)
 npm run sme              | Build and run source map explorer, really cool :)
 npm run release          | Create a new release using standard-version
@@ -71,12 +72,13 @@ npm run docker           | Build the docker image and run the container
 * Modal and toasts (snakbar)!
 * Responsive layout (flex layout module)
 * SASS (most common used functions and mixins) and BEM styles
-* Internationalization
+* Internationalization with ng-translate and ngx-translate-extract
 * Lazy loading modules
 * Service Workers
 * Dynamic Imports
 * Basic example library
 * Modernizr (browser features detection)
+* Safari polyfill for date inputs (date-input-polyfill)
 * Google Tag Manager
 * Github pages deploy ready
 * Unit tests with Jasmine and Karma including code coverage
