@@ -2,14 +2,16 @@ import {NgModule, Optional, SkipSelf} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {throwIfAlreadyLoaded} from './module-import-guard';
-import {LoggerService} from './shared/logger.service';
-import {NavComponent} from './nav/nav.component';
-import {FooterComponent} from './footer/footer.component';
-import {SharedModule} from '../shared/modules/shared.module';
+import {SharedModule} from '../shared/shared.module';
 import {RouterModule} from '@angular/router';
-import {SearchBarComponent} from './search-bar/search-bar.component';
-import {Error404Component} from './error404/error-404.component';
-import {ProgressBarService} from './shared/progress-bar.service';
+import {ProgressBarService} from './services/progress-bar.service';
+import {LoggerService} from './services/logger.service';
+import {HomePage} from './pages/home/home.page';
+import {HeaderComponent} from './components/header/header.component';
+import {FooterComponent} from './components/footer/footer.component';
+import {Error404Page} from './pages/error404/error404.page';
+import {SearchBarComponent} from './components/search-bar/search-bar.component';
+import {HeroService} from '../modules/heroes/shared/hero.service';
 
 @NgModule({
   imports: [
@@ -19,17 +21,20 @@ import {ProgressBarService} from './shared/progress-bar.service';
     SharedModule,
     ReactiveFormsModule
   ],
-  exports: [
-    NavComponent,
+  declarations: [
+    HomePage,
+    Error404Page,
+    HeaderComponent,
+    SearchBarComponent,
     FooterComponent
   ],
-  declarations: [
-    NavComponent,
-    FooterComponent,
+  exports: [
+    HeaderComponent,
     SearchBarComponent,
-    Error404Component
+    FooterComponent
   ],
   providers: [
+    HeroService,
     LoggerService,
     ProgressBarService
   ]

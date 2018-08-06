@@ -1,0 +1,62 @@
+<header>
+    <nav>
+        <div fxFlex fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center">
+            <div fxFlex="40">
+                <a mat-raised-button *ngFor="let item of menuItems" routerLink="{{item.link}}">
+                    {{item.name | translate | uppercase}}
+                </a>
+            </div>
+            <div fxFlex class="text--right">
+                <app-search-bar></app-search-bar>
+                <button mat-icon-button [matMenuTriggerFor]="matmenu">
+                    <mat-icon>public</mat-icon>
+                </button>
+                <mat-menu #matmenu="matMenu">
+                    <button mat-menu-item (click)="changeLanguage('zh-hk')">
+                        <mat-icon>flag</mat-icon>
+                        <span>
+                            Traditional Chinese
+                        </span>
+                    </button>
+                    <button mat-menu-item (click)="changeLanguage('zh-cn')">
+                        <mat-icon>flag</mat-icon>
+                        <span>
+                            Simplified Chinese
+                        </span>
+                    </button>
+                    <button mat-menu-item (click)="changeLanguage('en')">
+                        <mat-icon>flag</mat-icon>
+                        <span>
+                            English
+                        </span>
+                    </button>
+                    <button mat-menu-item (click)="changeLanguage('es')">
+                        <mat-icon>flag</mat-icon>
+                        <span>
+                            Español
+                        </span>
+                    </button>
+                    <button mat-menu-item (click)="changeLanguage('pt-br')">
+                        <mat-icon>flag</mat-icon>
+                        <span>
+                            Português
+                        </span>
+                    </button>
+                   <button mat-menu-item (click)="changeLanguage('eu')">
+                        <mat-icon>flag</mat-icon>
+                        <span>
+                            Euskera
+                        </span>
+                    </button>
+                </mat-menu>
+                <a class="icon__image" href="{{appConfig.repositoryURL}}" target="_blank">
+                    <img src="assets/images/github-circle-white-transparent.svg">
+                </a>
+            </div>
+        </div>
+    </nav>
+    <section class="progress-bar">
+        <mat-progress-bar [color]="'primary'" [mode]="progressBarMode">
+        </mat-progress-bar>
+    </section>
+</header>

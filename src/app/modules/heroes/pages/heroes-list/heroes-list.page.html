@@ -1,0 +1,71 @@
+<div id="left">
+  <h2 class="header__title">{{ 'heroesList' | translate }}</h2>
+  <div>
+    <mat-progress-spinner *ngIf="!heroes"
+                          class="progress__spinner"
+                          [color]="'primary'"
+                          [mode]="'indeterminate'">
+    </mat-progress-spinner>
+    <mat-list>
+      <mat-list-item *ngFor="let hero of heroes">
+        <img *ngIf="hero.default" class="cp"
+             (click)="seeHeroDetails(hero);" mat-list-avatar
+             src="assets/images/heroes/{{hero.id}}-thumbnail.jpg">
+        <img *ngIf="!hero.default"
+             (click)="seeHeroDetails(hero);" mat-list-avatar src="assets/images/heroes/default.png">
+        <h3 mat-line [class.cp]="hero.default" (click)="seeHeroDetails(hero);"> {{hero.name}} </h3>
+        <p mat-line [class.cp]="hero.default" (click)="seeHeroDetails(hero);">
+          <span>{{hero.alterEgo}}</span>
+        </p>
+        <div class="hero-actions">
+          {{hero.likes | number:'.0'}}
+          <mat-icon matTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}"
+                    [matTooltipPosition]="'above'"
+                    class="icon__like--red" (click)="like(hero)">
+            favorite
+          </mat-icon>
+          <mat-icon class="icon__remove" *ngIf="!hero.default"
+                    (click)="remove(hero);">
+            delete
+          </mat-icon>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>
+<div id="right">
+  <h2 class="header__title">{{ 'createHero' | translate }}</h2>
+  <div>
+    <form [formGroup]="newHeroForm" #form="ngForm" (ngSubmit)="createNewHero(newHeroForm.value)">
+      <mat-form-field class="input-container">
+        <input matInput type="text"
+               placeholder="{{'name' | translate}}"
+               formControlName="name">
+        <mat-error *ngIf="!newHeroForm.controls.name.valid && newHeroForm.controls.name.touched">
+          {{'nameRequired' | translate}}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="input-container">
+        <input matInput type="text"
+               placeholder="{{'realName' | translate}}"
+               formControlName="alterEgo">
+        <mat-error *ngIf="!newHeroForm.controls.alterEgo.valid && newHeroForm.controls.alterEgo.touched">
+          {{'realNameRequired' | translate}}
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button type="submit" [disabled]="!newHeroForm.valid">
+        {{'create' | translate}}
+      </button>
+
+      <div *ngIf="error">{{error | translate}}</div>
+    </form>
+  </div>
+
+  <div id="heroes-json">
+    <h2 class="header__title">{{ 'firstTwoHeroesById' | translate }}</h2>
+    <pre>{{heroes | slice:0:2 | json}}</pre>
+  </div>
+</div>
+<div class="clear"></div>

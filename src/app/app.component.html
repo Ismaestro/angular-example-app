@@ -1,5 +1,5 @@
 <div>
-    <app-nav></app-nav>
+    <app-header></app-header>
     <router-outlet *ngIf="isOnline;else isOffline"></router-outlet>
     <ng-template #isOffline>
         <div>

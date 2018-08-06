@@ -48,11 +48,11 @@
               },
               "src/assets/css/reset.css",
               "src/assets/css/loading.css",
-              "src/styles.scss"
+              "src/app/styles/global.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/styles"
+                "src/app/styles"
               ]
             },
             "scripts": [
@@ -117,7 +117,7 @@
               },
               "src/assets/css/reset.css",
               "src/assets/css/loading.css",
-              "src/styles.scss"
+              "src/app/styles/global.scss"
             ],
             "assets": [
               {
@@ -148,7 +148,7 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/styles"
+                "src/app/styles"
               ]
             },
             "watch": false,

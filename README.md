@@ -76,6 +76,7 @@ npm run docker           | Build the docker image and run the container
 * Lazy loading modules
 * Service Workers
 * Dynamic Imports
+* More logical structure directory (from [here](https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7))
 * Basic example library
 * Modernizr (browser features detection)
 * Safari polyfill for date inputs (date-input-polyfill)
