@@ -15,7 +15,7 @@
     "lint:library": "ng lint ngx-example-library",
     "ci": "npm run lint && npm run lint:library && npm run test && npm run test:library && npm run e2e",
     "extract": "ngx-translate-extract --input ./src/app --output ./src/assets/i18n/*.json --sort --format namespaced-json --format-indentation '  ' --marker _",
-    "sme": "ng build && source-map-explorer dist/main.bundle.js",
+    "bundle-report": "ng build --prod --stats-json && webpack-bundle-analyzer dist/stats.json",
     "release:minor": "standard-version --release-as minor && git push --follow-tags origin master",
     "release:major": "standard-version --release-as major && git push --follow-tags origin master",
     "docker": "docker build -t angularexampleapp . && docker run -d -p 4200:80 angularexampleapp"
@@ -89,6 +89,7 @@
     "tsickle": ">=0.25.5",
     "tslib": "^1.7.1",
     "tslint": "5.10.0",
-    "typescript": "2.7.2"
+    "typescript": "2.7.2",
+    "webpack-bundle-analyzer": "^2.13.1"
   }
 }

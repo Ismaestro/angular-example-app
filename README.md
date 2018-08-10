@@ -58,7 +58,7 @@ npm run lint:library     | Run the linter for the library
 npm run ci               | Execute linter and tests
 npm run extract          | Generate all json files with the translations in assets folder
 npm run deploy           | Build the app and deploy dist folder to Github pages (angular-cli-ghpages) (fork to do this and remove CNAME file)
-npm run sme              | Build and run source map explorer, really cool :)
+npm run bundle-report    | Build and run webpack-bundle-analyzer over stats json, really cool :)
 npm run release          | Create a new release using standard-version
 npm run docker           | Build the docker image and run the container
 
