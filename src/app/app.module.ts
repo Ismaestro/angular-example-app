@@ -1,9 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {FormsModule} from '@angular/forms';
 import {APP_CONFIG, AppConfig} from './config/app.config';
 import {AppRoutingModule} from './app-routing.module';
-import {SharedModule} from './shared/shared.module';
 import {CoreModule} from './core/core.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -20,9 +18,8 @@ import {ProgressBarService} from './core/services/progress-bar.service';
 @NgModule({
   imports: [
     BrowserModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
     BrowserAnimationsModule,
-    FormsModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
@@ -36,7 +33,6 @@ import {ProgressBarService} from './core/services/progress-bar.service';
         say: 'hello'
       }
     }),
-    SharedModule,
     CoreModule,
     AppRoutingModule
   ],

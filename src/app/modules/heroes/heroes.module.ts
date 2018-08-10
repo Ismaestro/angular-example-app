@@ -10,11 +10,10 @@ import {HeroRemoveComponent} from './components/hero-remove/hero-remove.componen
 
 @NgModule({
   imports: [
-    CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     SharedModule,
-    HeroRoutingModule,
-    ReactiveFormsModule
+    HeroRoutingModule
   ],
   declarations: [
     HeroesListPage,
@@ -23,9 +22,6 @@ import {HeroRemoveComponent} from './components/hero-remove/hero-remove.componen
   ],
   entryComponents: [
     HeroRemoveComponent
-  ],
-  providers: [
-    HeroService
   ]
 })
 

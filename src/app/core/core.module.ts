@@ -15,11 +15,9 @@ import {HeroService} from '../modules/heroes/shared/hero.service';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
+    ReactiveFormsModule,
     RouterModule,
-    SharedModule,
-    ReactiveFormsModule
+    SharedModule
   ],
   declarations: [
     HomePage,

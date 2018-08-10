@@ -5,6 +5,7 @@ import {TestsModule} from '../../../../shared/modules/tests.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {APP_CONFIG, AppConfig} from '../../../../config/app.config';
 import {HeroesListPage} from './heroes-list.page';
+import {HeroService} from '../../shared/hero.service';
 
 describe('HeroListComponent', () => {
   let fixture;
@@ -19,7 +20,8 @@ describe('HeroListComponent', () => {
       ],
       providers: [
         {provide: APP_CONFIG, useValue: AppConfig},
-        {provide: APP_BASE_HREF, useValue: '/'}
+        {provide: APP_BASE_HREF, useValue: '/'},
+        HeroService
       ],
     }).compileComponents();
 
