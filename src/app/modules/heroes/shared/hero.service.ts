@@ -27,7 +27,7 @@ export class HeroService {
     this.heroesUrl = AppConfig.endpoints.heroes;
   }
 
-  private handleError<T>(operation = 'operation', result?: T) {
+  private static handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure
@@ -36,7 +36,10 @@ export class HeroService {
       // TODO: better job of transforming error for user consumption
       LoggerService.log(`${operation} failed: ${error.message}`);
 
-      // Let the app keep running by returning an empty result.
+      if (error.status >= 500) {
+        throw error;
+      }
+
       return of(result as T);
     };
   }
@@ -45,7 +48,7 @@ export class HeroService {
     return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
         tap(() => LoggerService.log(`fetched heroes`)),
-        catchError(this.handleError('getHeroes', []))
+        catchError(HeroService.handleError('getHeroes', []))
       );
   }
 
@@ -53,7 +56,7 @@ export class HeroService {
     const url = `${this.heroesUrl}/${id}`;
     return this.http.get<Hero>(url).pipe(
       tap(() => LoggerService.log(`fetched hero id=${id}`)),
-      catchError(this.handleError<Hero>(`getHero id=${id}`))
+      catchError(HeroService.handleError<Hero>(`getHero id=${id}`))
     );
   }
 
@@ -66,7 +69,7 @@ export class HeroService {
         LoggerService.log(`added hero w/ id=${heroSaved.id}`);
         this.showSnackBar('heroCreated');
       }),
-      catchError(this.handleError<Hero>('addHero'))
+      catchError(HeroService.handleError<Hero>('addHero'))
     );
   }
 
@@ -75,7 +78,7 @@ export class HeroService {
 
     return this.http.delete<Array<Hero>>(url, httpOptions).pipe(
       tap(() => LoggerService.log(`deleted hero id=${id}`)),
-      catchError(this.handleError<Array<Hero>>('deleteHero'))
+      catchError(HeroService.handleError<Array<Hero>>('deleteHero'))
     );
   }
 
@@ -91,7 +94,7 @@ export class HeroService {
             hero.likes += 1;
             this.showSnackBar('saved');
           }),
-          catchError(this.handleError<any>('updateHero'))
+          catchError(HeroService.handleError<any>('updateHero'))
         );
     } else {
       this.showSnackBar('heroLikeMaximum');
