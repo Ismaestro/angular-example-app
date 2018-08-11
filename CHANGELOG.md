@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="6.1.0"></a>
+# [6.1.0](https://github.com/Ismaestro/angular6-example-app/compare/v7.0.0...v6.1.0) (2018-08-11)
+
+
 
 <a name="6.0.0"></a>
 # [6.0.0](https://github.com/Ismaestro/angular6-example-app/compare/v5.3.0...v6.0.0) (2018-05-09)
