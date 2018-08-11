@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="7.0.0"></a>
+# [7.0.0](https://github.com/Ismaestro/angular6-example-app/compare/v6.0.0...v7.0.0) (2018-08-11)
+
+
+### Features
+
+* **dependencies:** new script for update purposes ([20f62b1](https://github.com/Ismaestro/angular6-example-app/commit/20f62b1))
+* **handle error:** add condition for server errors ([3177edd](https://github.com/Ismaestro/angular6-example-app/commit/3177edd))
+* **library:** add new library using v6 and remove old version ([9cea494](https://github.com/Ismaestro/angular6-example-app/commit/9cea494))
+* **library:** remove unused tasks ([7f44db9](https://github.com/Ismaestro/angular6-example-app/commit/7f44db9))
+* **library:** update name of the library with scope ([442e15b](https://github.com/Ismaestro/angular6-example-app/commit/442e15b))
+* **material:** update material styles in angular workspace ([ec379c5](https://github.com/Ismaestro/angular6-example-app/commit/ec379c5))
+* **modules:** update modules depencies in shared, core and hero modules ([fe08e8f](https://github.com/Ismaestro/angular6-example-app/commit/fe08e8f))
+* **ngx extract, date polyfill:** add ngx extract library and a date inputs polyfill for safari ([39356fc](https://github.com/Ismaestro/angular6-example-app/commit/39356fc))
+* **package:** updated package lock version ([ea3c23b](https://github.com/Ismaestro/angular6-example-app/commit/ea3c23b))
+* **readme:** update documentation ([39d13fa](https://github.com/Ismaestro/angular6-example-app/commit/39d13fa))
+* **sme:** remove sme and install webpack-bundle-analyzer ([c518613](https://github.com/Ismaestro/angular6-example-app/commit/c518613))
+* **structure:** refactor components and introduce the concept of page ([d62ee1b](https://github.com/Ismaestro/angular6-example-app/commit/d62ee1b))
+
+
+
 <a name="6.0.0"></a>
 # [6.0.0](https://github.com/Ismaestro/angular6-example-app/compare/v5.3.0...v6.0.0) (2018-05-09)
 
