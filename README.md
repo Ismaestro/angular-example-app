@@ -59,6 +59,7 @@ npm run deploy           | Build the app and deploy dist folder to Github pages 
 npm run bundle-report    | Build and run webpack-bundle-analyzer over stats json, really cool :)
 npm run release          | Create a new release using standard-version
 npm run docker           | Build the docker image and run the container
+npm run update           | Update the project dependencies with ng update
 
 ## Features
 
