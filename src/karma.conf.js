@@ -19,10 +19,10 @@ module.exports = function (config) {
     files: [
       {pattern: '../node_modules/@angular/material/prebuilt-themes/indigo-pink.css', included: true, watched: true},
       {pattern: './test.ts', watched: false},
-      {pattern: './styles/**/*.*', watched: true, included: true, served: true}
+      {pattern: './app/styles/**/*.*', watched: true, included: true, served: true}
     ],
     preprocessors: {
-      './styles/**/*.*': ['scss']
+      './app/styles/**/*.*': ['scss']
     },
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, '../coverage'),

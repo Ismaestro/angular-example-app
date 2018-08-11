@@ -30,9 +30,7 @@ before_script:
 
 script:
   - npm run lint
-  - npm run lint:library
   - npm run test
-  - npm run test:library
   - npm run e2e
   - ng build --prod --base-href /
 
