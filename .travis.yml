@@ -29,6 +29,9 @@ before_script:
   - sh -e /etc/init.d/xvfb start
 
 script:
+  - npm run lint
+  - npm run test
+  - npm run e2e
   - ng build --prod --base-href /
 
 after_success:
