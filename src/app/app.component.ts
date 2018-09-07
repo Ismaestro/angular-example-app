@@ -6,6 +6,7 @@ import {AppConfig} from './config/app.config';
 import {MatSnackBar} from '@angular/material';
 import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
 
+declare const require;
 declare const Modernizr;
 
 @Component({
@@ -28,6 +29,9 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.translateService.setDefaultLang('en');
     this.translateService.use('en');
+
+    // With this we load the default language in the main bundle (cache busting)
+    this.translateService.setTranslation('en', require('../assets/i18n/en.json'));
 
     this.title.setTitle('Angular Example App');
     this.router.events.subscribe((event: any) => {

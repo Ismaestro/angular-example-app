@@ -5,15 +5,15 @@ import {AppRoutingModule} from './app-routing.module';
 import {CoreModule} from './core/core.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {HttpLoaderFactory} from './app.translate.factory';
 import {ProgressInterceptor} from './shared/interceptors/progress.interceptor';
 import {TimingInterceptor} from './shared/interceptors/timing.interceptor';
 import {NgxExampleLibraryModule} from '@ismaestro/ngx-example-library';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
 import {ProgressBarService} from './core/services/progress-bar.service';
+import {WebpackTranslateLoader} from './webpack-translate-loader';
 
 @NgModule({
   imports: [
@@ -24,8 +24,7 @@ import {ProgressBarService} from './core/services/progress-bar.service';
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
+        useClass: WebpackTranslateLoader
       }
     }),
     NgxExampleLibraryModule.forRoot({

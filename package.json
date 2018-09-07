@@ -7,7 +7,7 @@
     "http-server": "http-server dist/ -c-1",
     "build": "ng build",
     "build:library": "ng build ngx-example-library",
-    "deploy": "ng build --prod && angular-cli-ghpages",
+    "deploy": "ng build --prod && npx ngh",
     "test": "ng test",
     "e2e": "ng e2e",
     "lint": "ng lint",
