@@ -9,6 +9,8 @@ import {TestsModule} from '../../../shared/modules/tests.module';
 import {Error404Page} from '../../pages/error404/error404.page';
 import {HomePage} from '../../pages/home/home.page';
 import {HeroService} from '../../../modules/heroes/shared/hero.service';
+import {Router} from '@angular/router';
+import {Hero} from '../../../modules/heroes/shared/hero.model';
 
 describe('HeroSearchComponent', () => {
   let fixture;
@@ -28,6 +30,12 @@ describe('HeroSearchComponent', () => {
         Error404Page
       ],
       providers: [
+        {
+          provide: Router,
+          useClass: class {
+            navigate = jasmine.createSpy('navigate');
+          }
+        },
         {provide: APP_CONFIG, useValue: AppConfig},
         {provide: APP_BASE_HREF, useValue: '/'},
         HeroService
@@ -71,5 +79,11 @@ describe('HeroSearchComponent', () => {
     expect(component.filterHeroes('batman').length).toBe(1);
     expect(component.filterHeroes('spiderman').length).toBe(0);
     expect(component.filterHeroes().length).toBe(2);
+  }));
+
+  it('should navigate to hero detail', (() => {
+    const router = fixture.debugElement.injector.get(Router);
+    component.searchHero(new Hero(5, 'test name', 'test alterEgo', 0));
+    expect(router.navigate).toHaveBeenCalledWith(['heroes/5']);
   }));
 });
