@@ -71,12 +71,13 @@ npm run update           | Update the project dependencies with ng update
 * Modal and toasts (snakbar)!
 * Responsive layout (flex layout module)
 * SASS (most common used functions and mixins) and BEM styles
-* Internationalization with ng-translate and ngx-translate-extract
+* Internationalization with ng-translate and ngx-translate-extract. Also use cache busting for translation files with [webpack translate loader](https://github.com/ngx-translate/http-loader#angular-cliwebpack-translateloader-example)
 * Lazy loading modules
 * Service Workers
 * Dynamic Imports
 * More logical structure directory (from [here](https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7))
 * Basic example library
+* Scroll restoration and anchor examples
 * Modernizr (browser features detection)
 * Safari polyfill for date inputs (date-input-polyfill)
 * Google Tag Manager

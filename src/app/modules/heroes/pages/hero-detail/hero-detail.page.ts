@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Hero} from '../../shared/hero.model';
 import {HeroService} from '../../shared/hero.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
+import {AppConfig} from '../../../../config/app.config';
 
 @Component({
   selector: 'app-hero-detail',
@@ -17,6 +18,7 @@ export class HeroDetailPage implements OnInit {
 
   constructor(private heroService: HeroService,
               private location: Location,
+              private router: Router,
               private activatedRoute: ActivatedRoute) {
   }
 
@@ -48,5 +50,9 @@ export class HeroDetailPage implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  goToTheAnchor(): void {
+    this.router.navigate([`/${AppConfig.routes.heroes}/${this.hero.id}`], {fragment: 'heroe-detail'});
   }
 }
