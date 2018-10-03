@@ -1,13 +1,13 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {AppConfig} from './config/app.config';
-import {HomePage} from './core/pages/home/home.page';
-import {Error404Page} from './core/pages/error404/error404.page';
+import {Error404PageComponent} from './shared/pages/error404-page/error404-page.component';
+import {HomePageComponent} from './shared/pages/home-page/home-page.component';
+import {AppConfig} from './configs/app.config';
 
 const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
-  {path: '', component: HomePage},
-  {path: AppConfig.routes.error404, component: Error404Page},
+  {path: '', component: HomePageComponent},
+  {path: AppConfig.routes.error404, component: Error404PageComponent},
   {path: AppConfig.routes.heroes, loadChildren: './modules/heroes/heroes.module#HeroesModule'},
 
   // otherwise redirect to 404

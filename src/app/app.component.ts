@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {Meta, Title} from '@angular/platform-browser';
 import {NavigationEnd, Router} from '@angular/router';
-import {AppConfig} from './config/app.config';
 import {MatSnackBar} from '@angular/material';
 import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
+import {AppConfig} from './configs/app.config';
 
 declare const require;
 declare const Modernizr;

@@ -1,13 +1,13 @@
 import {Observable, of, throwError as observableThrowError} from 'rxjs';
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {AppConfig} from '../../../config/app.config';
 import {Hero} from './hero.model';
 import {catchError, tap} from 'rxjs/operators';
 import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
 import {TranslateService} from '@ngx-translate/core';
 import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
 import {LoggerService} from '../../../core/services/logger.service';
+import {AppConfig} from '../../../configs/app.config';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})

@@ -1,10 +1,10 @@
 import {async, TestBed} from '@angular/core/testing';
 import {HeroService} from './hero.service';
 import {APP_BASE_HREF} from '@angular/common';
-import {APP_CONFIG, AppConfig} from '../../../config/app.config';
 import {TestsModule} from '../../../shared/modules/tests.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {HttpErrorResponse} from '@angular/common/http';
+import {APP_CONFIG, AppConfig} from '../../../configs/app.config';
 
 describe('HeroService', () => {
   let heroService;
