@@ -9,6 +9,10 @@ a, .cp {
   cursor: pointer;
 }
 
+h1, h2 {
+  margin-bottom: 2rem;
+}
+
 .header__title {
   text-align: center;
   font-size: 1.5rem;
@@ -33,6 +37,11 @@ a, .cp {
 
 .icon__like--red {
   color: $red;
+  cursor: pointer;
+}
+
+.icon__like--grey {
+  color: $grey;
   cursor: pointer;
 }
 
@@ -129,5 +138,36 @@ snack-bar-container {
 
   .mat-form-field-underline {
     background-color: white !important;
+  }
+}
+
+#loading-card {
+  .hero-header__image, .hero__image {
+    background: $grey;
+  }
+
+  .mat-card-header-text {
+    width: 30%;
+  }
+
+  mat-card-title, mat-card-subtitle {
+    background: $grey;
+    color: $grey;
+  }
+
+  .mat-progress-bar {
+    width: calc(100% + 48px);
+    margin: 0 -24px -1px -24px;
+    .mat-progress-bar-fill, .mat-progress-bar-buffer {
+      background-color: $light-grey;
+    }
+    .mat-progress-bar-fill::after {
+      background-color: $grey;
+    }
+
+    @media (max-width: 600px) {
+      width: calc(100% + 34px);
+      margin: 0px -24px -17px -17px;
+    }
   }
 }
