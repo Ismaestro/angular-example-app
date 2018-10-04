@@ -12,6 +12,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {HomePageComponent} from './pages/home-page/home-page.component';
 import {Error404PageComponent} from './pages/error404-page/error404-page.component';
+import {HeroCardComponent} from './components/hero-card/hero-card.component';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import {Error404PageComponent} from './pages/error404-page/error404-page.compone
     HeaderComponent,
     SearchBarComponent,
     FooterComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    HeroCardComponent
   ],
   exports: [
     CommonModule,
@@ -40,7 +42,8 @@ import {Error404PageComponent} from './pages/error404-page/error404-page.compone
     HeaderComponent,
     SearchBarComponent,
     FooterComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    HeroCardComponent
   ]
 })
 

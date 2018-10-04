@@ -46,20 +46,4 @@ describe('HomePage', () => {
     fixture.detectChanges();
     expect(component.heroes.length).toBe(AppConfig.topHeroesLimit);
   }));
-
-  it('should like a hero', async(() => {
-    localStorage.setItem('votes', String(AppConfig.votesLimit - 1));
-    component.like({id: 1}).then((result) => {
-      expect(result).toBe(true);
-    });
-  }));
-
-  it('should not like a hero', async(() => {
-    localStorage.setItem('votes', String(AppConfig.votesLimit));
-    component.like({id: 1}).then(() => {
-    }, (error) => {
-      expect(error).toBe('maximum votes');
-    });
-    expect(HeroService.checkIfUserCanVote()).toBe(false);
-  }));
 });
