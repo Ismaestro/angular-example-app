@@ -69,6 +69,8 @@ npm run update           | Update the project dependencies with ng update
 * Angular Pipes
 * Interceptors and Events (Progress bar active, if a request is pending)
 * Modal and toasts (snakbar)!
+* Autocomplete enabled in forms
+* Scroll to first invalid input in forms (directive)
 * Responsive layout (flex layout module)
 * SASS (most common used functions and mixins) and BEM styles
 * Internationalization with ng-translate and ngx-translate-extract. Also use cache busting for translation files with [webpack translate loader](https://github.com/ngx-translate/http-loader#angular-cliwebpack-translateloader-example)

@@ -13,6 +13,7 @@ import {RouterModule} from '@angular/router';
 import {HomePageComponent} from './pages/home-page/home-page.component';
 import {Error404PageComponent} from './pages/error404-page/error404-page.component';
 import {HeroCardComponent} from './components/hero-card/hero-card.component';
+import {ScrollToFirstInvalidDirective} from './directives/scroll-to-first-invalid.directive';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import {HeroCardComponent} from './components/hero-card/hero-card.component';
     SearchBarComponent,
     FooterComponent,
     SpinnerComponent,
-    HeroCardComponent
+    HeroCardComponent,
+    ScrollToFirstInvalidDirective
   ],
   exports: [
     CommonModule,
@@ -43,7 +45,8 @@ import {HeroCardComponent} from './components/hero-card/hero-card.component';
     SearchBarComponent,
     FooterComponent,
     SpinnerComponent,
-    HeroCardComponent
+    HeroCardComponent,
+    ScrollToFirstInvalidDirective
   ]
 })
 

@@ -36,29 +36,27 @@
 <div id="right">
   <h2 class="header__title">{{ 'createHero' | translate }}</h2>
   <div>
-    <form [formGroup]="newHeroForm" #form="ngForm" (ngSubmit)="createNewHero(newHeroForm.value)">
+    <form [formGroup]="newHeroForm" #form="ngForm" appScrollToFirstInvalid
+          (ngSubmit)="createNewHero(newHeroForm.value)" autocomplete="on">
       <mat-form-field class="input-container">
-        <input matInput type="text"
+        <input matInput name="hname" type="text"
                placeholder="{{'name' | translate}}"
                formControlName="name">
-        <mat-error *ngIf="!newHeroForm.controls.name.valid && newHeroForm.controls.name.touched">
+        <mat-error *ngIf="!newHeroForm.controls.name.valid && form.submitted">
           {{'nameRequired' | translate}}
         </mat-error>
       </mat-form-field>
-
       <mat-form-field class="input-container">
-        <input matInput type="text"
+        <input matInput type="text" name="rname"
                placeholder="{{'realName' | translate}}"
                formControlName="alterEgo">
-        <mat-error *ngIf="!newHeroForm.controls.alterEgo.valid && newHeroForm.controls.alterEgo.touched">
+        <mat-error *ngIf="!newHeroForm.controls.alterEgo.valid && form.submitted">
           {{'realNameRequired' | translate}}
         </mat-error>
       </mat-form-field>
-
-      <button mat-raised-button type="submit" [disabled]="!newHeroForm.valid">
+      <button mat-raised-button type="submit" [disabled]="form.submitted && !newHeroForm.valid">
         {{'create' | translate}}
       </button>
-
       <div *ngIf="error">{{error | translate}}</div>
     </form>
   </div>

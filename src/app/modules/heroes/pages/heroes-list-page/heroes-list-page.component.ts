@@ -51,14 +51,16 @@ export class HeroesListPageComponent implements OnInit {
   }
 
   createNewHero(newHero: Hero) {
-    this.heroService.createHero(newHero).subscribe((newHeroWithId) => {
-      this.heroes.push(newHeroWithId);
-      this.myNgForm.resetForm();
-    }, (response: Response) => {
-      if (response.status === 500) {
-        this.error = 'errorHasOcurred';
-      }
-    });
+    if (this.newHeroForm.valid) {
+      this.heroService.createHero(newHero).subscribe((newHeroWithId) => {
+        this.heroes.push(newHeroWithId);
+        this.myNgForm.resetForm();
+      }, (response: Response) => {
+        if (response.status === 500) {
+          this.error = 'errorHasOcurred';
+        }
+      });
+    }
   }
 
   seeHeroDetails(hero): void {
