@@ -14,6 +14,7 @@ import {Error404PageComponent} from './pages/error404-page/error404-page.compone
 import {HeroCardComponent} from './components/hero-card/hero-card.component';
 import {ScrollToFirstInvalidDirective} from './directives/scroll-to-first-invalid.directive';
 import {NgxExampleLibraryModule} from '@ismaestro/ngx-example-library';
+import {WebStorageModule} from 'ngx-store';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import {NgxExampleLibraryModule} from '@ismaestro/ngx-example-library';
     TranslateModule.forChild(),
     ReactiveFormsModule,
     RouterModule,
-    NgxExampleLibraryModule
+    NgxExampleLibraryModule,
+    WebStorageModule
   ],
   declarations: [
     HomePageComponent,
@@ -41,6 +43,7 @@ import {NgxExampleLibraryModule} from '@ismaestro/ngx-example-library';
     FlexLayoutModule,
     TranslateModule,
     NgxExampleLibraryModule,
+    WebStorageModule,
     HeaderComponent,
     SearchBarComponent,
     FooterComponent,

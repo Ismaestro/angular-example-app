@@ -71,6 +71,7 @@ npm run update           | Update the project dependencies with ng update
 * Lazy loading modules
 * Service Workers
 * Dynamic Imports
+* Storage module (ngx-store)
 * More logical structure directory (from [here](https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7))
 * Basic example library
 * Scroll restoration and anchor examples

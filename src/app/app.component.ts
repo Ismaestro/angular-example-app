@@ -5,6 +5,7 @@ import {NavigationEnd, Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
 import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
 import {AppConfig} from './configs/app.config';
+import {LocalStorage} from 'ngx-store';
 
 declare const require;
 declare const Modernizr;
@@ -16,6 +17,7 @@ declare const Modernizr;
 
 export class AppComponent implements OnInit {
 
+  @LocalStorage() language = 'en';
   isOnline: boolean;
 
   constructor(private translateService: TranslateService,
@@ -28,12 +30,18 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.translateService.setDefaultLang('en');
-    this.translateService.use('en');
+    this.translateService.use(this.language);
 
     // With this we load the default language in the main bundle (cache busting)
     this.translateService.setTranslation('en', require('../assets/i18n/en.json'));
 
     this.title.setTitle('Angular Example App');
+
+    this.onEvents();
+    this.checkBrowserFeatures();
+  }
+
+  onEvents() {
     this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {
         switch (event.urlAfterRedirects) {
@@ -53,8 +61,6 @@ export class AppComponent implements OnInit {
         }
       }
     });
-
-    this.checkBrowserFeatures();
   }
 
   checkBrowserFeatures() {

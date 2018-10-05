@@ -3,6 +3,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
 import {APP_CONFIG, AppConfig} from '../../../configs/app.config';
 import {ProgressBarService} from '../../../core/services/progress-bar.service';
+import {LocalStorage} from 'ngx-store';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +12,8 @@ import {ProgressBarService} from '../../../core/services/progress-bar.service';
 })
 
 export class HeaderComponent implements OnInit {
+
+  @LocalStorage() language = 'en';
 
   appConfig: any;
   menuItems: any[];
@@ -34,6 +37,7 @@ export class HeaderComponent implements OnInit {
   changeLanguage(language: string): void {
     this.translateService.use(language).subscribe(() => {
       this.loadMenus();
+      this.language = language;
     });
   }
 
