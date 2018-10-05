@@ -19,7 +19,6 @@ describe('NgxExampleLibraryComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(NgxExampleLibraryComponent);
     component = fixture.componentInstance;
-    component.locale = 'es';
 
     fixture.detectChanges();
 
