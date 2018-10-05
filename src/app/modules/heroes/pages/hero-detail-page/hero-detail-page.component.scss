@@ -1,6 +1,6 @@
 @import "mixins";
 
-#heroe-detail {
+.container {
   width: 65%;
   @include push--auto();
   margin-top: 2rem;
@@ -12,7 +12,7 @@ button {
 }
 
 @media (max-width: 600px) {
-  #heroe-detail {
+  .container {
     width: 90%;
   }
 }

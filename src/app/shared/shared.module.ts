@@ -15,6 +15,7 @@ import {HeroCardComponent} from './components/hero-card/hero-card.component';
 import {ScrollToFirstInvalidDirective} from './directives/scroll-to-first-invalid.directive';
 import {NgxExampleLibraryModule} from '@ismaestro/ngx-example-library';
 import {WebStorageModule} from 'ngx-store';
+import { HeroLoadingComponent } from './components/hero-loading/hero-loading.component';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import {WebStorageModule} from 'ngx-store';
     FooterComponent,
     SpinnerComponent,
     HeroCardComponent,
+    HeroLoadingComponent,
     ScrollToFirstInvalidDirective
   ],
   exports: [
@@ -49,6 +51,7 @@ import {WebStorageModule} from 'ngx-store';
     FooterComponent,
     SpinnerComponent,
     HeroCardComponent,
+    HeroLoadingComponent,
     ScrollToFirstInvalidDirective
   ]
 })
