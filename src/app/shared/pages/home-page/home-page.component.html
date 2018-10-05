@@ -16,7 +16,7 @@
       <app-spinner></app-spinner>
       <img mat-card-image src="assets/images/loading-hero.jpg">
     </mat-card>
-    <div id="heroes-list" *ngIf="heroes">
+    <div id="heroes-list" *ngIf="heroes" [@fadeInOut]>
       <ng-container *ngFor="let hero of heroes">
         <app-hero-card [hero]="hero"></app-hero-card>
       </ng-container>

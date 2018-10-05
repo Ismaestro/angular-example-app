@@ -4,7 +4,7 @@
                       [color]="'primary'"
                       [mode]="'indeterminate'">
 </mat-progress-spinner>
-<div id="heroe-detail" *ngIf="hero">
+<div id="heroe-detail" *ngIf="hero" [@fadeInOut]>
     <ng-container>
         <app-hero-card [hero]="hero"></app-hero-card>
         <div id="hero-json">

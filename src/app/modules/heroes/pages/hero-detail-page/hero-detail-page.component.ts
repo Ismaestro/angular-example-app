@@ -4,11 +4,13 @@ import {HeroService} from '../../shared/hero.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
 import {AppConfig} from '../../../../configs/app.config';
+import {fadeInOut} from '../../../../shared/helpers/utils.helper';
 
 @Component({
   selector: 'app-hero-detail-page',
   templateUrl: './hero-detail-page.component.html',
-  styleUrls: ['./hero-detail-page.component.scss']
+  styleUrls: ['./hero-detail-page.component.scss'],
+  animations: [fadeInOut]
 })
 
 export class HeroDetailPageComponent implements OnInit {

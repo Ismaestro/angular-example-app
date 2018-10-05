@@ -5,8 +5,7 @@ import {HomePageComponent} from './shared/pages/home-page/home-page.component';
 import {AppConfig} from './configs/app.config';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/', pathMatch: 'full'},
-  {path: '', component: HomePageComponent},
+  {path: '', component: HomePageComponent, pathMatch: 'full'},
   {path: AppConfig.routes.error404, component: Error404PageComponent},
   {path: AppConfig.routes.heroes, loadChildren: './modules/heroes/heroes.module#HeroesModule'},
 

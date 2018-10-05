@@ -2,11 +2,13 @@ import {Component, OnInit} from '@angular/core';
 import {Hero} from '../../../modules/heroes/shared/hero.model';
 import {HeroService} from '../../../modules/heroes/shared/hero.service';
 import {AppConfig} from '../../../configs/app.config';
+import {fadeInOut} from '../../helpers/utils.helper';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  styleUrls: ['./home-page.component.scss'],
+  animations: [fadeInOut]
 })
 
 export class HomePageComponent implements OnInit {

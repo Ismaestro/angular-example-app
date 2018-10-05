@@ -7,11 +7,13 @@ import {Router} from '@angular/router';
 import {LoggerService} from '../../../../core/services/logger.service';
 import {HeroRemoveComponent} from '../../components/hero-remove/hero-remove.component';
 import {AppConfig} from '../../../../configs/app.config';
+import {fadeInOut} from '../../../../shared/helpers/utils.helper';
 
 @Component({
   selector: 'app-heroes-list-page',
   templateUrl: './heroes-list-page.component.html',
-  styleUrls: ['./heroes-list-page.component.scss']
+  styleUrls: ['./heroes-list-page.component.scss'],
+  animations: [fadeInOut]
 })
 
 export class HeroesListPageComponent implements OnInit {

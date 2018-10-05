@@ -1,4 +1,20 @@
 @import "mixins";
+@import "colors";
+
+#loading-list {
+  h3, p {
+    color: $light-grey;
+    background: $light-grey;
+  }
+
+  p {
+    margin-top: 0.5rem;
+  }
+}
+
+#loading-spinner {
+  position: relative;
+}
 
 #left {
   width: 50%;
@@ -26,6 +42,7 @@
 }
 
 .hero-actions {
+  margin-left: 1rem;
   padding-bottom: 0;
 
   .icon__remove {

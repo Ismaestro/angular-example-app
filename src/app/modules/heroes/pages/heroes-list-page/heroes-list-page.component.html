@@ -1,13 +1,22 @@
 <div id="left">
   <h2 class="header__title">{{ 'heroesList' | translate }}</h2>
   <div>
-    <mat-progress-spinner *ngIf="!heroes"
-                          class="progress__spinner"
-                          [color]="'primary'"
-                          [mode]="'indeterminate'">
-    </mat-progress-spinner>
+    <mat-list id="loading-list" *ngIf="!heroes">
+      <mat-list-item *ngFor="let i of [1,2]">
+        <img mat-list-avatar src="assets/images/heroes/default.png">
+        <h3 mat-line>.</h3>
+        <p mat-line><span>.</span></p>
+        <div class="hero-actions">
+          <mat-icon class="icon__like--grey">favorite</mat-icon>
+        </div>
+      </mat-list-item>
+      <div id="loading-spinner">
+        <app-spinner></app-spinner>
+      </div>
+    </mat-list>
+
     <mat-list>
-      <mat-list-item *ngFor="let hero of heroes">
+      <mat-list-item *ngFor="let hero of heroes" [@fadeInOut]>
         <img *ngIf="hero.default" class="cp"
              (click)="seeHeroDetails(hero);" mat-list-avatar
              src="assets/images/heroes/{{hero.id}}-thumbnail.jpg">
@@ -33,7 +42,7 @@
     </mat-list>
   </div>
 </div>
-<div id="right">
+<div id="right" [@fadeInOut]>
   <h2 class="header__title">{{ 'createHero' | translate }}</h2>
   <div>
     <form [formGroup]="newHeroForm" #form="ngForm" appScrollToFirstInvalid

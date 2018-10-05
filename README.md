@@ -66,13 +66,7 @@ npm run update           | Update the project dependencies with ng update
 * CRUD: create, update and remove heroes
 * Search bar, to look for heroes
 * Custom loading page
-* Angular Pipes
-* Interceptors and Events (Progress bar active, if a request is pending)
 * Modal and toasts (snakbar)!
-* Autocomplete enabled in forms
-* Scroll to first invalid input in forms (directive)
-* Responsive layout (flex layout module)
-* SASS (most common used functions and mixins) and BEM styles
 * Internationalization with ng-translate and ngx-translate-extract. Also use cache busting for translation files with [webpack translate loader](https://github.com/ngx-translate/http-loader#angular-cliwebpack-translateloader-example)
 * Lazy loading modules
 * Service Workers
@@ -80,6 +74,13 @@ npm run update           | Update the project dependencies with ng update
 * More logical structure directory (from [here](https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7))
 * Basic example library
 * Scroll restoration and anchor examples
+* Responsive layout (flex layout module)
+* SASS (most common used functions and mixins) and BEM styles
+* Animations!
+* Angular Pipes
+* Interceptors and Events (Progress bar active, if a request is pending)
+* Scroll to first invalid input in forms (directive)
+* Autocomplete enabled in forms
 * Modernizr (browser features detection)
 * Safari polyfill for date inputs (date-input-polyfill)
 * Google Tag Manager
