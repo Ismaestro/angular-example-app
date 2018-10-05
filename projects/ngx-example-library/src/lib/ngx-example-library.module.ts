@@ -15,9 +15,14 @@ export function initialize(options: any) {
 }
 
 @NgModule({
-  imports: [],
-  declarations: [NgxExampleLibraryComponent],
-  exports: [NgxExampleLibraryComponent]
+  imports: [
+  ],
+  declarations: [
+    NgxExampleLibraryComponent
+  ],
+  exports: [
+    NgxExampleLibraryComponent
+  ]
 })
 export class NgxExampleLibraryModule {
   static forRoot(options?: SampleModuleOptions): ModuleWithProviders {

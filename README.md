@@ -82,7 +82,6 @@ npm run update           | Update the project dependencies with ng update
 * Scroll to first invalid input in forms (directive)
 * Autocomplete enabled in forms
 * Modernizr (browser features detection)
-* Safari polyfill for date inputs (date-input-polyfill)
 * Google Tag Manager
 * Github pages deploy ready
 * Unit tests with Jasmine and Karma including code coverage

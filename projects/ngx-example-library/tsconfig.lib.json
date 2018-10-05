@@ -15,7 +15,12 @@
     "lib": [
       "dom",
       "es2015"
-    ]
+    ],
+    "paths": {
+      "moment": [
+        "../../node_modules/moment/min/moment.min.js"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,

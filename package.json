@@ -63,7 +63,6 @@
     "angular-cli-ghpages": "0.5.3",
     "codelyzer": "4.4.3",
     "coveralls": "3.0.2",
-    "date-input-polyfill": "2.14.0",
     "hammerjs": "2.0.8",
     "html2canvas": "1.0.0-alpha.12",
     "http-server": "0.11.1",
