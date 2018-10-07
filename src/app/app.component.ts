@@ -6,6 +6,7 @@ import {MatSnackBar} from '@angular/material';
 import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
 import {AppConfig} from './configs/app.config';
 import {LocalStorage} from 'ngx-store';
+import {isBrowserValid} from './shared/helpers/utils.helper';
 
 declare const require;
 declare const Modernizr;
@@ -38,7 +39,7 @@ export class AppComponent implements OnInit {
     this.title.setTitle('Angular Example App');
 
     this.onEvents();
-    this.checkBrowserFeatures();
+    this.checkBrowser();
   }
 
   onEvents() {
@@ -61,6 +62,16 @@ export class AppComponent implements OnInit {
         }
       }
     });
+  }
+
+  checkBrowser() {
+    if (isBrowserValid()) {
+      this.checkBrowserFeatures();
+    } else {
+      this.translateService.get([String(_('changeBrowser'))]).subscribe((texts) => {
+        this.snackBar.open(texts['changeBrowser'], 'OK');
+      });
+    }
   }
 
   checkBrowserFeatures() {

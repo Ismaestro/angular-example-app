@@ -54,7 +54,8 @@ npm run build            | Build the app for production
 npm run build:library    | Build the library
 npm run lint             | Run the linter (tslint)
 npm run ci               | Execute linter and tests
-npm run translate        | Generate all json files with the translations in assets folder and translate all keys remaining
+npm run extract          | Generate all json files with the translations in assets folder
+npm run translate        | Translate all keys remaining using Google Translate and using English language as the origin
 npm run deploy           | Build the app and deploy dist folder to Github pages (angular-cli-ghpages) (fork to do this and remove CNAME file)
 npm run bundle-report    | Build and run webpack-bundle-analyzer over stats json, really cool :)
 npm run release          | Create a new release using standard-version
@@ -84,6 +85,7 @@ npm run update           | Update the project dependencies with ng update
 * Scroll to first invalid input in forms (directive)
 * Autocomplete enabled in forms
 * Modernizr (browser features detection)
+* Browser filter (Bowser) for IE ^^
 * Google Tag Manager
 * Github pages deploy ready
 * Unit tests with Jasmine and Karma including code coverage
