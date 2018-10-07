@@ -1,5 +1,6 @@
 {
   "alert": "Alert",
+  "anchorToHero": "Anchor the hero",
   "angularExampleApp": "Angular Example App",
   "areYouSure": "Are you sure?",
   "back": "Back",
@@ -35,6 +36,7 @@
   "mayTheForce": "May the force be with you",
   "name": "Name",
   "nameRequired": "Name is required",
+  "nameWithPalindrome": "Name (Palindrome?)",
   "no": "No",
   "noHero": "There is no hero!",
   "offlineMessage": "Without connection we can not load anything!",
@@ -49,6 +51,7 @@
   "sureRemoveHero": "Do you want to remove the hero?",
   "topHeroes": "Heroes most liked",
   "updateBrowser": "You are using an old browser, please update it and reload the page.",
+  "yeahPalindrome": "That is a palindrome!",
   "yellow": "Yellow",
   "yes": "Yes"
 }

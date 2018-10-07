@@ -2,12 +2,14 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Hero} from '../../shared/hero.model';
 import {HeroService} from '../../shared/hero.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatSnackBar} from '@angular/material';
 import {Router} from '@angular/router';
 import {LoggerService} from '../../../../core/services/logger.service';
 import {HeroRemoveComponent} from '../../components/hero-remove/hero-remove.component';
 import {AppConfig} from '../../../../configs/app.config';
-import {fadeInOut} from '../../../../shared/helpers/utils.helper';
+import {fadeInOut, isPalindrome} from '../../../../shared/helpers/utils.helper';
+import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-heroes-list-page',
@@ -26,6 +28,8 @@ export class HeroesListPageComponent implements OnInit {
 
   constructor(private heroService: HeroService,
               private dialog: MatDialog,
+              private snackBar: MatSnackBar,
+              private translateService: TranslateService,
               private router: Router,
               private formBuilder: FormBuilder) {
     this.canVote = HeroService.checkIfUserCanVote();
@@ -34,6 +38,8 @@ export class HeroesListPageComponent implements OnInit {
       'name': new FormControl('', [Validators.required]),
       'alterEgo': new FormControl('', [Validators.required])
     });
+
+    this.onChanges();
   }
 
   ngOnInit() {
@@ -83,6 +89,16 @@ export class HeroesListPageComponent implements OnInit {
             this.error = 'heroDefault';
           }
         });
+      }
+    });
+  }
+
+  private onChanges() {
+    this.newHeroForm.get('name').valueChanges.subscribe((value) => {
+      if (value && value.length >= 3 && isPalindrome(value)) {
+        this.snackBar.open(this.translateService.instant(String(_('yeahPalindrome'))));
+      } else {
+        this.snackBar.dismiss();
       }
     });
   }

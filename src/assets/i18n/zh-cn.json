@@ -1,5 +1,6 @@
 {
   "alert": "提示",
+  "anchorToHero": "锚定英雄",
   "angularExampleApp": "angular例子",
   "areYouSure": "你确定吗?",
   "back": "返回",
@@ -35,6 +36,7 @@
   "mayTheForce": "愿力量与你同在",
   "name": "名字",
   "nameRequired": "名字是必须要的",
+  "nameWithPalindrome": "名字（回文？）",
   "no": "不",
   "noHero": "没有一个英雄!",
   "offlineMessage": "沒有連接，我們無法加載任何東西!",
@@ -49,6 +51,7 @@
   "sureRemoveHero": "你想要移除一个英雄吗?",
   "topHeroes": "最喜欢的英雄",
   "updateBrowser": "您正在使用一个旧版本浏览器，请更新它并重新加载页面。",
+  "yeahPalindrome": "那是一个回文！",
   "yellow": "黄色",
   "yes": "是的"
 }

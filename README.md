@@ -54,7 +54,7 @@ npm run build            | Build the app for production
 npm run build:library    | Build the library
 npm run lint             | Run the linter (tslint)
 npm run ci               | Execute linter and tests
-npm run extract          | Generate all json files with the translations in assets folder
+npm run translate        | Generate all json files with the translations in assets folder and translate all keys remaining
 npm run deploy           | Build the app and deploy dist folder to Github pages (angular-cli-ghpages) (fork to do this and remove CNAME file)
 npm run bundle-report    | Build and run webpack-bundle-analyzer over stats json, really cool :)
 npm run release          | Create a new release using standard-version
@@ -68,6 +68,7 @@ npm run update           | Update the project dependencies with ng update
 * Custom loading page
 * Modal and toasts (snakbar)!
 * Internationalization with ng-translate and ngx-translate-extract. Also use cache busting for translation files with [webpack translate loader](https://github.com/ngx-translate/http-loader#angular-cliwebpack-translateloader-example)
+* Automatic translate script with Google Translate :D
 * Lazy loading modules
 * Service Workers
 * Dynamic Imports

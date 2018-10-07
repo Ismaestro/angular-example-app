@@ -49,7 +49,7 @@
           (ngSubmit)="createNewHero(newHeroForm.value)" autocomplete="on">
       <mat-form-field class="input-container">
         <input matInput name="hname" type="text"
-               placeholder="{{'name' | translate}}"
+               placeholder="{{'nameWithPalindrome' | translate}}"
                formControlName="name">
         <mat-error *ngIf="!newHeroForm.controls.name.valid && form.submitted">
           {{'nameRequired' | translate}}

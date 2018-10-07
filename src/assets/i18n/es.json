@@ -1,5 +1,6 @@
 {
   "alert": "Alerta",
+  "anchorToHero": "Ancla al heroe",
   "angularExampleApp": "Angular aplicación de ejemplo",
   "areYouSure": "¿Estas seguro?",
   "back": "Atras",
@@ -35,6 +36,7 @@
   "mayTheForce": "Que la fuerza te acompañe",
   "name": "Nombre",
   "nameRequired": "El nombre es obligatorio",
+  "nameWithPalindrome": "Nombre (Palindrome?)",
   "no": "No",
   "noHero": "No hay heroe!",
   "offlineMessage": "Sin conexión no podemos cargar nada!",
@@ -49,6 +51,7 @@
   "sureRemoveHero": "¿Estas seguro de que quieres eliminar el heroe?",
   "topHeroes": "Heroes más votados",
   "updateBrowser": "Estas usando un navegador antiguo, por favor actualiza la versión y recarga la página.",
+  "yeahPalindrome": "Eso es un palindrome!",
   "yellow": "Amarillo",
   "yes": "Yes"
 }

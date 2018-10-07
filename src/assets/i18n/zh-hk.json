@@ -1,5 +1,6 @@
 {
   "alert": "提示",
+  "anchorToHero": "錨定英雄",
   "angularExampleApp": "Angular示範程式",
   "areYouSure": "你確定嗎?",
   "back": "返回",
@@ -35,6 +36,7 @@
   "mayTheForce": "願原力與你同在",
   "name": "名字",
   "nameRequired": "請輸入名字",
+  "nameWithPalindrome": "名字（回文？）",
   "no": "不是",
   "noHero": "沒有找到英雄",
   "offlineMessage": "沒有網路，我們無法載入任何資料!",
@@ -49,6 +51,7 @@
   "sureRemoveHero": "你確定要刪除英雄嗎?",
   "topHeroes": "最多人喜歡的英雄",
   "updateBrowser": "你在使用舊的瀏覽器,請更新再重新載入頁面",
+  "yeahPalindrome": "那是一個回文！",
   "yellow": "黃色",
   "yes": "是"
 }

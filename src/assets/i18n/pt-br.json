@@ -1,5 +1,6 @@
 {
   "alert": "Alerta",
+  "anchorToHero": "Ancorar o herói",
   "angularExampleApp": "Aplicação exemplo de angular",
   "areYouSure": "Você tem certeza?",
   "back": "Voltar",
@@ -35,6 +36,7 @@
   "mayTheForce": "Que a força te acompanhe",
   "name": "Nome",
   "nameRequired": "O nome é obrigatório",
+  "nameWithPalindrome": "Nome (Palíndromo?)",
   "no": "Não",
   "noHero": "Não há heróis",
   "offlineMessage": "Sem conexão não podemos carregar nada!",
@@ -49,6 +51,7 @@
   "sureRemoveHero": "Você tem certeza que quer remover o herói?",
   "topHeroes": "Heróis mais curtidos",
   "updateBrowser": "Você está usando um navegador antigo, atualize a versão e recarregue a página.",
+  "yeahPalindrome": "Isso é um palíndromo!",
   "yellow": "Amarelo",
   "yes": "Sim"
 }
