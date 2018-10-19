@@ -1,6 +1,6 @@
 import {Directive, ElementRef, HostListener, Input} from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {scrollToElement} from '../helpers/utils.helper';
+import {UtilsHelperService} from '../../core/services/utils-helper.service';
 
 @Directive({selector: '[appScrollToFirstInvalid]'})
 export class ScrollToFirstInvalidDirective {
@@ -14,26 +14,21 @@ export class ScrollToFirstInvalidDirective {
     event.preventDefault();
 
     if (!this.formGroup.valid) {
-      const formControls = this.formGroup.controls;
-      for (const control in formControls) {
-        if (formControls.hasOwnProperty(control)) {
-          formControls[control].markAsTouched();
-        }
-      }
+      UtilsHelperService.markFormGroupTouched(this.formGroup);
 
       const formControlInvalid = this.el.nativeElement.querySelector('.form-control.ng-invalid');
 
       if (formControlInvalid) {
-        return scrollToElement(formControlInvalid);
+        return UtilsHelperService.scrollToElement(formControlInvalid);
       } else {
         // The first element is the global form and here we are looking for the first nested form
-        const formGroupInvalid = this.el.nativeElement.querySelectorAll('form.ng-invalid');
-        if (formGroupInvalid && formGroupInvalid.length > 1) {
-          return scrollToElement(formGroupInvalid[1]);
+        const formGroupInvalid = this.el.nativeElement.querySelectorAll('.form.ng-invalid');
+        if (formGroupInvalid && formGroupInvalid.length) {
+          return UtilsHelperService.scrollToElement(formGroupInvalid[0]);
         }
       }
 
-      return scrollToElement(this.el.nativeElement);
+      return UtilsHelperService.scrollToElement(this.el.nativeElement);
     }
   }
 }

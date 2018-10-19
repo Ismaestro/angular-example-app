@@ -7,15 +7,15 @@ import {Router} from '@angular/router';
 import {LoggerService} from '../../../../core/services/logger.service';
 import {HeroRemoveComponent} from '../../components/hero-remove/hero-remove.component';
 import {AppConfig} from '../../../../configs/app.config';
-import {fadeInOut, isPalindrome} from '../../../../shared/helpers/utils.helper';
 import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
 import {TranslateService} from '@ngx-translate/core';
+import {UtilsHelperService} from '../../../../core/services/utils-helper.service';
 
 @Component({
   selector: 'app-heroes-list-page',
   templateUrl: './heroes-list-page.component.html',
   styleUrls: ['./heroes-list-page.component.scss'],
-  animations: [fadeInOut]
+  animations: [UtilsHelperService.fadeInOut()]
 })
 
 export class HeroesListPageComponent implements OnInit {
@@ -95,7 +95,7 @@ export class HeroesListPageComponent implements OnInit {
 
   private onChanges() {
     this.newHeroForm.get('name').valueChanges.subscribe((value) => {
-      if (value && value.length >= 3 && isPalindrome(value)) {
+      if (value && value.length >= 3 && UtilsHelperService.isPalindrome(value)) {
         this.snackBar.open(this.translateService.instant(String(_('yeahPalindrome'))));
       } else {
         this.snackBar.dismiss();

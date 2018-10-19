@@ -6,7 +6,7 @@ import {MatSnackBar} from '@angular/material';
 import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
 import {AppConfig} from './configs/app.config';
 import {LocalStorage} from 'ngx-store';
-import {isBrowserValid} from './shared/helpers/utils.helper';
+import {UtilsHelperService} from './core/services/utils-helper.service';
 
 declare const require;
 declare const Modernizr;
@@ -65,7 +65,7 @@ export class AppComponent implements OnInit {
   }
 
   checkBrowser() {
-    if (isBrowserValid()) {
+    if (UtilsHelperService.isBrowserValid()) {
       this.checkBrowserFeatures();
     } else {
       this.translateService.get([String(_('changeBrowser'))]).subscribe((texts) => {

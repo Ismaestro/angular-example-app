@@ -71,6 +71,7 @@
     "hammerjs": "2.0.8",
     "html2canvas": "1.0.0-alpha.12",
     "http-server": "0.11.1",
+    "husky": "1.1.2",
     "jasmine-core": "3.2.1",
     "jasmine-spec-reporter": "4.2.1",
     "karma": "3.0.0",
