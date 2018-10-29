@@ -1,4 +1,4 @@
-# Example app with Angular 6 + Angular CLI + Angular Material + Docker + Angular Example Library
+# Example app with Angular 7 + Angular CLI + Angular Material + Docker + Angular Example Library
 
 > ### Base project made with much  :heart: . Contains CRUD, patterns, generated library, etc.
 
