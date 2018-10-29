@@ -3,62 +3,62 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 <a name="6.1.0"></a>
-# [6.1.0](https://github.com/Ismaestro/angular6-example-app/compare/v7.0.0...v6.1.0) (2018-08-11)
+# [6.1.0](https://github.com/Ismaestro/angular7-example-app/compare/v7.0.0...v6.1.0) (2018-08-11)
 
 
 
 <a name="6.0.0"></a>
-# [6.0.0](https://github.com/Ismaestro/angular6-example-app/compare/v5.3.0...v6.0.0) (2018-05-09)
+# [6.0.0](https://github.com/Ismaestro/angular7-example-app/compare/v5.3.0...v6.0.0) (2018-05-09)
 
 
 ### Features
 
-* **angular:** add lost files, move others and fix search bar component styles ([6db191d](https://github.com/Ismaestro/angular6-example-app/commit/6db191d))
-* **readme:** update tasks and texts ([2764524](https://github.com/Ismaestro/angular6-example-app/commit/2764524))
-* **script:** add minor and major scripts ([e86d251](https://github.com/Ismaestro/angular6-example-app/commit/e86d251))
+* **angular:** add lost files, move others and fix search bar component styles ([6db191d](https://github.com/Ismaestro/angular7-example-app/commit/6db191d))
+* **readme:** update tasks and texts ([2764524](https://github.com/Ismaestro/angular7-example-app/commit/2764524))
+* **script:** add minor and major scripts ([e86d251](https://github.com/Ismaestro/angular7-example-app/commit/e86d251))
 
 
 
 <a name="5.3.0"></a>
-# [5.3.0](https://github.com/Ismaestro/angular6-example-app/compare/v5.2.0...v5.3.0) (2018-05-08)
+# [5.3.0](https://github.com/Ismaestro/angular7-example-app/compare/v5.2.0...v5.3.0) (2018-05-08)
 
 
 ### Bug Fixes
 
-* **hero detail:** solve problem with activated route mock ([17ea07e](https://github.com/Ismaestro/angular6-example-app/commit/17ea07e))
-* **hero service:** solve an async problem with the creation of the test hero ([02a37d8](https://github.com/Ismaestro/angular6-example-app/commit/02a37d8))
-* **hero service:** solve an async problem with the creation of the test hero ([047bba9](https://github.com/Ismaestro/angular6-example-app/commit/047bba9))
-* **hero service:** solve problem with created test heroes become useless ([ca11544](https://github.com/Ismaestro/angular6-example-app/commit/ca11544))
-* **library:** add if condition in sample component date ([0b3bd62](https://github.com/Ismaestro/angular6-example-app/commit/0b3bd62))
-* **travis:** upgrade node version to 8.9 ([ca09554](https://github.com/Ismaestro/angular6-example-app/commit/ca09554))
+* **hero detail:** solve problem with activated route mock ([17ea07e](https://github.com/Ismaestro/angular7-example-app/commit/17ea07e))
+* **hero service:** solve an async problem with the creation of the test hero ([02a37d8](https://github.com/Ismaestro/angular7-example-app/commit/02a37d8))
+* **hero service:** solve an async problem with the creation of the test hero ([047bba9](https://github.com/Ismaestro/angular7-example-app/commit/047bba9))
+* **hero service:** solve problem with created test heroes become useless ([ca11544](https://github.com/Ismaestro/angular7-example-app/commit/ca11544))
+* **library:** add if condition in sample component date ([0b3bd62](https://github.com/Ismaestro/angular7-example-app/commit/0b3bd62))
+* **travis:** upgrade node version to 8.9 ([ca09554](https://github.com/Ismaestro/angular7-example-app/commit/ca09554))
 
 
 ### Features
 
-* **angular:** upgrade dependencies to v6 ([e442f40](https://github.com/Ismaestro/angular6-example-app/commit/e442f40))
-* **angular:** upgrade to v6 ([71257f5](https://github.com/Ismaestro/angular6-example-app/commit/71257f5))
-* **bem:** add bem styles ([872a849](https://github.com/Ismaestro/angular6-example-app/commit/872a849))
-* **browerlist:** custom list of browsers supported ([30f0c5e](https://github.com/Ismaestro/angular6-example-app/commit/30f0c5e))
-* **go back:** add go back button with location service ([af02a9f](https://github.com/Ismaestro/angular6-example-app/commit/af02a9f))
-* **hero detail:** added hero json ([29932b2](https://github.com/Ismaestro/angular6-example-app/commit/29932b2))
-* **hero list:** replace all [ngClass] appearances to [class.name] way ([fc2f15f](https://github.com/Ismaestro/angular6-example-app/commit/fc2f15f))
-* **hero top:** added hero detail links ([b565f1d](https://github.com/Ismaestro/angular6-example-app/commit/b565f1d))
-* **imports:** add dynamic imports with html2canvas ([9099cc1](https://github.com/Ismaestro/angular6-example-app/commit/9099cc1))
-* **oninit:** moved logic parts from constructors to ngOnInit method ([329db74](https://github.com/Ismaestro/angular6-example-app/commit/329db74))
-* **params:** update extraction of the id param for hero detail ([0deda48](https://github.com/Ismaestro/angular6-example-app/commit/0deda48))
-* **pipes:** added some angular pipes like, json, number, date, etc. Added also language-service package. ([0ce4a6e](https://github.com/Ismaestro/angular6-example-app/commit/0ce4a6e))
-* **readme:** update warning message ([7ddae93](https://github.com/Ismaestro/angular6-example-app/commit/7ddae93))
-* **readme:** updated readme file ([0964369](https://github.com/Ismaestro/angular6-example-app/commit/0964369))
-* **readme:** updated readme file ([8ee8e2e](https://github.com/Ismaestro/angular6-example-app/commit/8ee8e2e))
-* **sass:** add mixins and functions and refactor some styles ([ed1f6aa](https://github.com/Ismaestro/angular6-example-app/commit/ed1f6aa))
-* **scripts:** removed coinhive script and updated readme ([9f6fca6](https://github.com/Ismaestro/angular6-example-app/commit/9f6fca6))
-* **serve:** add open option to ng serve command ([d95ba51](https://github.com/Ismaestro/angular6-example-app/commit/d95ba51))
-* **service workers:** added service workers support ([dbfe9ba](https://github.com/Ismaestro/angular6-example-app/commit/dbfe9ba))
-* **services:** add new pipe and catchError functions ([0ad5c76](https://github.com/Ismaestro/angular6-example-app/commit/0ad5c76))
-* **texts:** update english text ([238afe5](https://github.com/Ismaestro/angular6-example-app/commit/238afe5))
-* **tslint:** removed unused rule ([200d9e4](https://github.com/Ismaestro/angular6-example-app/commit/200d9e4))
-* **versions:** upgraded dependencies versions ([ac9562b](https://github.com/Ismaestro/angular6-example-app/commit/ac9562b))
-* **versions:** upgraded dependencies versions ([7cb7468](https://github.com/Ismaestro/angular6-example-app/commit/7cb7468))
+* **angular:** upgrade dependencies to v6 ([e442f40](https://github.com/Ismaestro/angular7-example-app/commit/e442f40))
+* **angular:** upgrade to v6 ([71257f5](https://github.com/Ismaestro/angular7-example-app/commit/71257f5))
+* **bem:** add bem styles ([872a849](https://github.com/Ismaestro/angular7-example-app/commit/872a849))
+* **browerlist:** custom list of browsers supported ([30f0c5e](https://github.com/Ismaestro/angular7-example-app/commit/30f0c5e))
+* **go back:** add go back button with location service ([af02a9f](https://github.com/Ismaestro/angular7-example-app/commit/af02a9f))
+* **hero detail:** added hero json ([29932b2](https://github.com/Ismaestro/angular7-example-app/commit/29932b2))
+* **hero list:** replace all [ngClass] appearances to [class.name] way ([fc2f15f](https://github.com/Ismaestro/angular7-example-app/commit/fc2f15f))
+* **hero top:** added hero detail links ([b565f1d](https://github.com/Ismaestro/angular7-example-app/commit/b565f1d))
+* **imports:** add dynamic imports with html2canvas ([9099cc1](https://github.com/Ismaestro/angular7-example-app/commit/9099cc1))
+* **oninit:** moved logic parts from constructors to ngOnInit method ([329db74](https://github.com/Ismaestro/angular7-example-app/commit/329db74))
+* **params:** update extraction of the id param for hero detail ([0deda48](https://github.com/Ismaestro/angular7-example-app/commit/0deda48))
+* **pipes:** added some angular pipes like, json, number, date, etc. Added also language-service package. ([0ce4a6e](https://github.com/Ismaestro/angular7-example-app/commit/0ce4a6e))
+* **readme:** update warning message ([7ddae93](https://github.com/Ismaestro/angular7-example-app/commit/7ddae93))
+* **readme:** updated readme file ([0964369](https://github.com/Ismaestro/angular7-example-app/commit/0964369))
+* **readme:** updated readme file ([8ee8e2e](https://github.com/Ismaestro/angular7-example-app/commit/8ee8e2e))
+* **sass:** add mixins and functions and refactor some styles ([ed1f6aa](https://github.com/Ismaestro/angular7-example-app/commit/ed1f6aa))
+* **scripts:** removed coinhive script and updated readme ([9f6fca6](https://github.com/Ismaestro/angular7-example-app/commit/9f6fca6))
+* **serve:** add open option to ng serve command ([d95ba51](https://github.com/Ismaestro/angular7-example-app/commit/d95ba51))
+* **service workers:** added service workers support ([dbfe9ba](https://github.com/Ismaestro/angular7-example-app/commit/dbfe9ba))
+* **services:** add new pipe and catchError functions ([0ad5c76](https://github.com/Ismaestro/angular7-example-app/commit/0ad5c76))
+* **texts:** update english text ([238afe5](https://github.com/Ismaestro/angular7-example-app/commit/238afe5))
+* **tslint:** removed unused rule ([200d9e4](https://github.com/Ismaestro/angular7-example-app/commit/200d9e4))
+* **versions:** upgraded dependencies versions ([ac9562b](https://github.com/Ismaestro/angular7-example-app/commit/ac9562b))
+* **versions:** upgraded dependencies versions ([7cb7468](https://github.com/Ismaestro/angular7-example-app/commit/7cb7468))
 
 
 

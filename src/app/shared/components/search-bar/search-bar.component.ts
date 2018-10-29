@@ -10,7 +10,6 @@ import {AppConfig} from '../../../configs/app.config';
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
-  styleUrls: ['./search-bar.component.scss'],
   providers: [
     LoggerService
   ]

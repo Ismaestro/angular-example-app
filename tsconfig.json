@@ -20,7 +20,8 @@
       "ngx-example-library": [
         "dist/ngx-example-library"
       ]
-    }
+    },
+    "skipLibCheck": true
   },
   "angularCompilerOptions": {
     "preserveWhitespaces": false
