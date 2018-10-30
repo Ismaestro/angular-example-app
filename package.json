@@ -37,6 +37,7 @@
     "@angular/platform-browser": "7.0.1",
     "@angular/platform-browser-dynamic": "7.0.1",
     "@angular/router": "7.0.1",
+    "@ismaestro/ngx-scroll-to-first-invalid": "2.0.0",
     "classlist.js": "1.1.20150312",
     "core-js": "2.5.7",
     "rxjs": "6.3.3",

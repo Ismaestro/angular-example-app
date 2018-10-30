@@ -20,34 +20,6 @@ export class UtilsHelperService {
     ]);
   }
 
-  static scrollToElement(element) {
-    if (element) {
-      const distance = window.pageYOffset - Math.abs(element.getBoundingClientRect().y);
-
-      window.scroll({
-        behavior: 'smooth',
-        left: 0,
-        top: element.getBoundingClientRect().top + window.scrollY - 150
-      });
-
-      setTimeout(() => {
-        element.focus();
-        element.blur(); // Trigger error messages
-        element.focus();
-      }, distance);
-    }
-  }
-
-  static markFormGroupTouched(formGroup) {
-    (<any>Object).values(formGroup.controls).forEach(control => {
-      control.markAsTouched();
-
-      if (control.controls) {
-        UtilsHelperService.markFormGroupTouched(control);
-      }
-    });
-  }
-
   static isPalindrome(str) {
     const len = Math.floor(str.length / 2);
     for (let i = 0; i < len; i++) {

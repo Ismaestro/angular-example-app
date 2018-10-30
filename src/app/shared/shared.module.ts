@@ -12,10 +12,10 @@ import {RouterModule} from '@angular/router';
 import {HomePageComponent} from './pages/home-page/home-page.component';
 import {Error404PageComponent} from './pages/error404-page/error404-page.component';
 import {HeroCardComponent} from './components/hero-card/hero-card.component';
-import {ScrollToFirstInvalidDirective} from './directives/scroll-to-first-invalid.directive';
 import {NgxExampleLibraryModule} from '@ismaestro/ngx-example-library';
 import {WebStorageModule} from 'ngx-store';
 import { HeroLoadingComponent } from './components/hero-loading/hero-loading.component';
+import {NgxScrollToFirstInvalidModule} from '@ismaestro/ngx-scroll-to-first-invalid';
 
 @NgModule({
   imports: [
@@ -26,7 +26,8 @@ import { HeroLoadingComponent } from './components/hero-loading/hero-loading.com
     ReactiveFormsModule,
     RouterModule,
     NgxExampleLibraryModule,
-    WebStorageModule
+    WebStorageModule,
+    NgxScrollToFirstInvalidModule
   ],
   declarations: [
     HomePageComponent,
@@ -36,8 +37,7 @@ import { HeroLoadingComponent } from './components/hero-loading/hero-loading.com
     FooterComponent,
     SpinnerComponent,
     HeroCardComponent,
-    HeroLoadingComponent,
-    ScrollToFirstInvalidDirective
+    HeroLoadingComponent
   ],
   exports: [
     CommonModule,
@@ -52,7 +52,7 @@ import { HeroLoadingComponent } from './components/hero-loading/hero-loading.com
     SpinnerComponent,
     HeroCardComponent,
     HeroLoadingComponent,
-    ScrollToFirstInvalidDirective
+    NgxScrollToFirstInvalidModule
   ]
 })
 

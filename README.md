@@ -82,7 +82,7 @@ npm run update           | Update the project dependencies with ng update
 * Animations!
 * Angular Pipes
 * Interceptors and Events (Progress bar active, if a request is pending)
-* Scroll to first invalid input in forms (directive)
+* Scroll to first invalid input in forms. ([ngx-scroll-to-first-invalid](https://github.com/Ismaestro/ngx-scroll-to-first-invalid))
 * Autocomplete enabled in forms
 * Modernizr (browser features detection)
 * Browser filter (Bowser) for IE ^^

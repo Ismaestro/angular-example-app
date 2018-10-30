@@ -21,11 +21,6 @@ describe('UtilsHelperService', () => {
     expect(UtilsHelperService.fadeInOut().name).toBe('fadeInOut');
   }));
 
-  it('should focus in element', (() => {
-    const div = document.createElement('div');
-    expect(UtilsHelperService.scrollToElement(div)).toBe(undefined);
-  }));
-
   it('should check if is palindrome', (() => {
     expect(UtilsHelperService.isPalindrome('')).toBe(true);
     expect(UtilsHelperService.isPalindrome('asd')).toBe(false);
