@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="7.0.0"></a>
+# [7.0.0](https://github.com/Ismaestro/angular7-example-app/compare/v6.1.0...v7.0.0) (2018-10-30)
+
+
+### Features
+
+* **anchor:** add anchor and scroll support in app routing module ([c24ddea](https://github.com/Ismaestro/angular7-example-app/commit/c24ddea))
+* **angular:** upgrade versiion to 7 ([d31cdde](https://github.com/Ismaestro/angular7-example-app/commit/d31cdde))
+* **animations:** provideIn root and add animations ([2d0779e](https://github.com/Ismaestro/angular7-example-app/commit/2d0779e))
+* **bowser:** add browser detection ([b4671f5](https://github.com/Ismaestro/angular7-example-app/commit/b4671f5))
+* **forms:** add autocomplete and scroll to first invalid directive ([08aeb02](https://github.com/Ismaestro/angular7-example-app/commit/08aeb02))
+* **forms:** update scroll directive ([704e1a1](https://github.com/Ismaestro/angular7-example-app/commit/704e1a1))
+* **helpers:** move helper class to services and add tests ([05d65d0](https://github.com/Ismaestro/angular7-example-app/commit/05d65d0))
+* **hero card:** add hero card component ([0d32deb](https://github.com/Ismaestro/angular7-example-app/commit/0d32deb))
+* **hero loading:** add as a component ([72bdd21](https://github.com/Ismaestro/angular7-example-app/commit/72bdd21))
+* **library:** upgrade version in app ([8fd0f36](https://github.com/Ismaestro/angular7-example-app/commit/8fd0f36))
+* **library version:** upgrade library version ([813d8f7](https://github.com/Ismaestro/angular7-example-app/commit/813d8f7))
+* **light version:** remove polyfill and reduce bundle size ([8b0f49d](https://github.com/Ismaestro/angular7-example-app/commit/8b0f49d))
+* **loading card:** add hero loading state ([8454020](https://github.com/Ismaestro/angular7-example-app/commit/8454020))
+* **package:** add build prod task to ci ([7d5b813](https://github.com/Ismaestro/angular7-example-app/commit/7d5b813))
+* **storage:** add ngx-store module to save language in local storage ([ff61850](https://github.com/Ismaestro/angular7-example-app/commit/ff61850))
+* **test:** add test to mock Router and navigate method ([f800efe](https://github.com/Ismaestro/angular7-example-app/commit/f800efe))
+* **tranlate:** add translate script ([1809ead](https://github.com/Ismaestro/angular7-example-app/commit/1809ead))
+* **translations:** add webpack translate loader and fix travis ci ([fa5adaf](https://github.com/Ismaestro/angular7-example-app/commit/fa5adaf))
+
+
+
 <a name="6.1.0"></a>
 # [6.1.0](https://github.com/Ismaestro/angular7-example-app/compare/v7.0.0...v6.1.0) (2018-08-11)
 
