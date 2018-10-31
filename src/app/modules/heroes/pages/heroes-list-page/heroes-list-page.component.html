@@ -2,19 +2,21 @@
   <h2 class="header__title">{{ 'heroesList' | translate }}</h2>
   <div>
     <mat-list id="loading-list" *ngIf="!heroes">
-      <mat-list-item *ngFor="let i of [1,2]">
+      <mat-list-item *ngFor="let i of [1,2,3,4,5,6,7,8]">
         <img mat-list-avatar src="assets/images/heroes/default.png">
-        <h3 mat-line>.</h3>
-        <p mat-line><span>.</span></p>
+        <h3 mat-line>
+          <app-loading-placeholder [width]="'150px'" [height]="'0.9rem'"></app-loading-placeholder>
+        </h3>
+        <p mat-line>
+          <app-loading-placeholder [width]="'100px'" [height]="'0.9rem'"></app-loading-placeholder>
+        </p>
         <div class="hero-actions">
+          <app-loading-placeholder [width]="'30px'" [height]="'0.9rem'"></app-loading-placeholder>
+
           <mat-icon class="icon__like--grey">favorite</mat-icon>
         </div>
       </mat-list-item>
-      <div id="loading-spinner">
-        <app-spinner></app-spinner>
-      </div>
     </mat-list>
-
     <mat-list>
       <mat-list-item *ngFor="let hero of heroes" [@fadeInOut]>
         <img *ngIf="hero.default" class="cp"
@@ -44,7 +46,21 @@
 </div>
 <div id="right" [@fadeInOut]>
   <h2 class="header__title">{{ 'createHero' | translate }}</h2>
-  <div>
+  <div id="form-loading" *ngIf="!heroes">
+    <form>
+      <div class="input-container">
+        <app-loading-placeholder [height]="'2rem'"></app-loading-placeholder>
+      </div>
+      <div class="input-container">
+        <app-loading-placeholder [height]="'2rem'"></app-loading-placeholder>
+      </div>
+
+      <button mat-raised-button [disabled]="true">
+        {{'create' | translate}}
+      </button>
+    </form>
+  </div>
+  <div *ngIf="heroes">
     <form [formGroup]="newHeroForm" #form="ngForm" ngxScrollToFirstInvalid
           (ngSubmit)="createNewHero(newHeroForm.value)" autocomplete="on">
       <mat-form-field class="input-container">
@@ -72,7 +88,10 @@
 
   <div id="heroes-json">
     <h2 class="header__title">{{ 'firstTwoHeroesById' | translate }}</h2>
-    <pre>{{heroes | slice:0:2 | json}}</pre>
+    <pre *ngIf="!heroes">
+      <app-loading-placeholder [height]="'300px'"></app-loading-placeholder>
+    </pre>
+    <pre *ngIf="heroes">{{heroes | slice:0:2 | json}}</pre>
   </div>
 </div>
 <div class="clear"></div>

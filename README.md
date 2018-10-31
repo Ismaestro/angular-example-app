@@ -22,6 +22,16 @@
 
 [![angular-example-app](http://thumbsnap.com/i/aIpN07i3.png?0812)](http://angularexampleapp.com/)
 
+## Table of Contents
+* [Getting started](#getting-started)
+* [Usage](#usage)
+* [Features](#features)
+* [Docker](#docker)
+* [TravisCI](#travis-ci)
+* [Contributing](#contributing)
+* [License](#license)
+* [Contributors](#contributors)
+
 ## Getting started
 
 **Warning**

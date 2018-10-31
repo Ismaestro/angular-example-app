@@ -2,18 +2,15 @@
 @import "../../../../styles/colors";
 
 #loading-list {
-  h3, p {
-    color: $light-grey;
-    background: $light-grey;
-  }
-
   p {
-    margin-top: 0.5rem;
+    margin-top: 0.2rem;
   }
 }
 
-#loading-spinner {
-  position: relative;
+#form-loading {
+  .input-container {
+    margin: 0.5rem 0;
+  }
 }
 
 #left {
