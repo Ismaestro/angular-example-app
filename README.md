@@ -23,8 +23,6 @@
   <img src="https://media.giphy.com/media/ce28l1P13CVK56OyCN/giphy.gif" alt="Demo example"/>
 </p>
 
-[![angular-example-app](http://thumbsnap.com/i/aIpN07i3.png?0812)](http://angularexampleapp.com/)
-
 ## Table of Contents
 * [Getting started](#getting-started)
 * [Usage](#usage)
