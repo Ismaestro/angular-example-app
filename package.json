@@ -31,7 +31,6 @@
     "@angular/common": "7.0.1",
     "@angular/compiler": "7.0.1",
     "@angular/core": "7.0.1",
-    "@angular/fire": "^5.1.0",
     "@angular/flex-layout": "7.0.0-beta.19",
     "@angular/forms": "7.0.1",
     "@angular/http": "7.0.1",
@@ -41,7 +40,6 @@
     "@ismaestro/ngx-scroll-to-first-invalid": "2.0.0",
     "classlist.js": "1.1.20150312",
     "core-js": "2.5.7",
-    "firebase": "^5.5.6",
     "rxjs": "6.3.3",
     "web-animations-js": "2.3.1",
     "zone.js": "0.8.26"

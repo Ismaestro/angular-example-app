@@ -2,13 +2,12 @@ import {Observable, of, throwError as observableThrowError} from 'rxjs';
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Hero} from './hero.model';
-import {catchError, map, tap} from 'rxjs/operators';
+import {catchError, tap} from 'rxjs/operators';
 import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
 import {TranslateService} from '@ngx-translate/core';
 import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
 import {LoggerService} from '../../../core/services/logger.service';
 import {AppConfig} from '../../../configs/app.config';
-import {AngularFirestore, AngularFirestoreCollection, DocumentChangeAction} from '@angular/fire/firestore';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -19,18 +18,15 @@ const httpOptions = {
 })
 export class HeroService {
   heroesUrl: string;
-  private heroesCollection: AngularFirestoreCollection<Hero>;
 
   static checkIfUserCanVote(): boolean {
     return Number(localStorage.getItem('votes')) < AppConfig.votesLimit;
   }
 
   constructor(private http: HttpClient,
-              private afs: AngularFirestore,
               private translateService: TranslateService,
               private snackBar: MatSnackBar) {
     this.heroesUrl = AppConfig.endpoints.heroes;
-    this.heroesCollection = afs.collection<Hero>('heroes');
   }
 
   private static handleError<T>(operation = 'operation', result?: T) {
@@ -50,15 +46,9 @@ export class HeroService {
     };
   }
 
-  getHeroes(): Observable<any[]> {
-    return this.heroesCollection.snapshotChanges()
+  getHeroes(): Observable<Hero[]> {
+    return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
-        map((actions) => {
-          return actions.map((a) => {
-            const data = a.payload.doc.data();
-            return {id: a.payload.doc.id, ...data};
-          });
-        }),
         tap(() => LoggerService.log(`fetched heroes`)),
         catchError(HeroService.handleError('getHeroes', []))
       );

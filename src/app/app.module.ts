@@ -9,11 +9,9 @@ import {WebpackTranslateLoader} from './webpack-translate-loader';
 import {APP_CONFIG, AppConfig} from './configs/app.config';
 import {SharedModule} from './shared/shared.module';
 import {NgxExampleLibraryModule} from '@ismaestro/ngx-example-library';
-import {FirebaseModule} from './shared/modules/firebase.module';
 
 @NgModule({
   imports: [
-    FirebaseModule,
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
     TranslateModule.forRoot({
       loader: {
