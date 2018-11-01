@@ -2,7 +2,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {LoadingPlaceholderComponent} from './loading-placeholder.component';
 
-fdescribe('LoadingPlaceholderComponent', () => {
+describe('LoadingPlaceholderComponent', () => {
   let component: LoadingPlaceholderComponent;
   let fixture: ComponentFixture<LoadingPlaceholderComponent>;
 
