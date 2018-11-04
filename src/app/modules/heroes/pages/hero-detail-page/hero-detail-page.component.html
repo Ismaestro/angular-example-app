@@ -3,19 +3,19 @@
   <app-hero-loading></app-hero-loading>
 </div>
 <div class="container" *ngIf="hero" [@fadeInOut]>
-    <ng-container>
-        <app-hero-card [hero]="hero"></app-hero-card>
-        <div id="hero-json">
-            <pre>{{hero | json}}</pre>
-        </div>
-    </ng-container>
+  <ng-container>
+    <app-hero-card [hero]="hero"></app-hero-card>
+    <div id="hero-json">
+      <pre>{{hero | json}}</pre>
+    </div>
+  </ng-container>
 </div>
 <button mat-raised-button type="button" (click)="dynamicImport()">
-    {{'snapshot' | translate | uppercase}}
+  {{'snapshot' | translate | uppercase}}
 </button>
 <button mat-raised-button type="button" (click)="goBack()">
-    {{'goBack' | translate | uppercase}}
+  {{'goBack' | translate | uppercase}}
 </button>
 <button *ngIf="hero" mat-raised-button type="button" (click)="goToTheAnchor()">
-    {{'anchorToHero' | translate | uppercase}}
+  {{'anchorToHero' | translate | uppercase}}
 </button>

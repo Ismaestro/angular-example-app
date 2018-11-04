@@ -1,6 +1,6 @@
-# Example app with Angular 7 + Angular CLI + Angular Material + Docker + Angular Example Library
+# Example app with Angular 7 + Angular CLI + Angular Material + Firebase
 
-> ### Base project made with much  :heart: . Contains CRUD, patterns, generated library, etc.
+> ### Base project made with much  :heart: . Contains CRUD, patterns, generated library, and much more!
 
 ![travis](https://travis-ci.org/Ismaestro/angular7-example-app.svg?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/Ismaestro/angular7-example-app/badge.svg?branch=master)](https://coveralls.io/github/Ismaestro/angular7-example-app?branch=master)
@@ -70,19 +70,19 @@ npm run ci               | Execute linter and tests
 npm run extract          | Generate all json files with the translations in assets folder
 npm run translate        | Translate all keys remaining using Google Translate and using English language as the origin
 npm run deploy           | Build the app and deploy dist folder to Github pages (angular-cli-ghpages) (fork to do this and remove CNAME file)
-npm run bundle-report    | Build and run webpack-bundle-analyzer over stats json, really cool :)
+npm run bundle-report    | Build and run webpack-bundle-analyzer over stats json
 npm run release          | Create a new release using standard-version
 npm run docker           | Build the docker image and run the container
 npm run update           | Update the project dependencies with ng update
 
 ## Features
 
-* CRUD: create, update and remove heroes
+* CRUD: create, update and remove heroes with Firebase!
 * Search bar, to look for heroes
 * Custom loading page
 * Modal and toasts (snakbar)!
 * Internationalization with ng-translate and ngx-translate-extract. Also use cache busting for translation files with [webpack translate loader](https://github.com/ngx-translate/http-loader#angular-cliwebpack-translateloader-example)
-* Automatic translate script with Google Translate :D
+* Automatic translate script with Google Translate oO
 * Lazy loading modules
 * Service Workers
 * Dynamic Imports
@@ -106,6 +106,10 @@ npm run update           | Update the project dependencies with ng update
 * ES6 Promises and Observables
 * Following the [best practices](https://angular.io/guide/styleguide)!
 
+<p align="center">
+  <a href='https://ko-fi.com/S6S5LMVR' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi4.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a> :smile:
+</p>
+
 ## Docker
 
 You can build the image and run the container with Docker. The configuration is in the nginx folder if you want to change it.
@@ -127,9 +131,9 @@ We use Travis CI to run this tasks in order:
 - Please see the CONTRIBUTING file for guidelines.
 - Create **pull requests, submit bugs, suggest new features** or documentation updates :wrench:
 
-## Server
+## Firebase
 
-This repo is using [a minimal app](https://github.com/Ismaestro/nodejs-example-app) in NodeJS deployed on Heroku and using PostGreSQL, to create, modify and delete heroes.
+This repo is using Firebase. We use Cloud Firestore and Cloud Storage to handle CRUD operations over the heroes and to store their images.
 
 ## License
 

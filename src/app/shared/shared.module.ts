@@ -14,9 +14,9 @@ import {Error404PageComponent} from './pages/error404-page/error404-page.compone
 import {HeroCardComponent} from './components/hero-card/hero-card.component';
 import {NgxExampleLibraryModule} from '@ismaestro/ngx-example-library';
 import {WebStorageModule} from 'ngx-store';
-import { HeroLoadingComponent } from './components/hero-loading/hero-loading.component';
+import {HeroLoadingComponent} from './components/hero-loading/hero-loading.component';
 import {NgxScrollToFirstInvalidModule} from '@ismaestro/ngx-scroll-to-first-invalid';
-import { LoadingPlaceholderComponent } from './components/loading-placeholder/loading-placeholder.component';
+import {LoadingPlaceholderComponent} from './components/loading-placeholder/loading-placeholder.component';
 
 @NgModule({
   imports: [

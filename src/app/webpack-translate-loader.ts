@@ -1,4 +1,4 @@
-import { TranslateLoader } from '@ngx-translate/core';
+import {TranslateLoader} from '@ngx-translate/core';
 import {from, Observable} from 'rxjs';
 
 export class WebpackTranslateLoader implements TranslateLoader {

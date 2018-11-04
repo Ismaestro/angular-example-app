@@ -1,32 +1,30 @@
-import {Observable, of, throwError as observableThrowError} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Hero} from './hero.model';
-import {catchError, tap} from 'rxjs/operators';
+import {catchError, map, tap} from 'rxjs/operators';
 import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
 import {TranslateService} from '@ngx-translate/core';
 import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
 import {LoggerService} from '../../../core/services/logger.service';
 import {AppConfig} from '../../../configs/app.config';
-
-const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
-};
+import {AngularFirestore, AngularFirestoreCollection, DocumentReference} from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeroService {
-  heroesUrl: string;
+  private heroesCollection: AngularFirestoreCollection<Hero>;
 
   static checkIfUserCanVote(): boolean {
     return Number(localStorage.getItem('votes')) < AppConfig.votesLimit;
   }
 
-  constructor(private http: HttpClient,
+  constructor(private afs: AngularFirestore,
               private translateService: TranslateService,
               private snackBar: MatSnackBar) {
-    this.heroesUrl = AppConfig.endpoints.heroes;
+    this.heroesCollection = this.afs.collection<Hero>(AppConfig.routes.heroes, (hero) => {
+      return hero.orderBy('default', 'desc').orderBy('likes', 'desc');
+    });
   }
 
   private static handleError<T>(operation = 'operation', result?: T) {
@@ -47,61 +45,49 @@ export class HeroService {
   }
 
   getHeroes(): Observable<Hero[]> {
-    return this.http.get<Hero[]>(this.heroesUrl)
+    return this.heroesCollection.snapshotChanges()
       .pipe(
+        map((actions) => {
+          return actions.map((action) => {
+            const data = action.payload.doc.data();
+            return new Hero({id: action.payload.doc.id, ...data});
+          });
+        }),
         tap(() => LoggerService.log(`fetched heroes`)),
         catchError(HeroService.handleError('getHeroes', []))
       );
   }
 
-  getHeroById(id: string): Observable<Hero> {
-    const url = `${this.heroesUrl}/${id}`;
-    return this.http.get<Hero>(url).pipe(
-      tap(() => LoggerService.log(`fetched hero id=${id}`)),
-      catchError(HeroService.handleError<Hero>(`getHero id=${id}`))
-    );
-  }
-
-  createHero(hero: Hero): Observable<Hero> {
-    return this.http.post<Hero>(this.heroesUrl, JSON.stringify({
-      name: hero.name,
-      alterEgo: hero.alterEgo
-    }), httpOptions).pipe(
-      tap((heroSaved: Hero) => {
-        LoggerService.log(`added hero w/ id=${heroSaved.id}`);
-        this.showSnackBar('heroCreated');
+  getHero(id: string): Observable<any> {
+    return this.afs.doc(`${AppConfig.routes.heroes}/${id}`).get().pipe(
+      map((hero) => {
+        return new Hero({id, ...hero.data()});
       }),
-      catchError(HeroService.handleError<Hero>('addHero'))
+      tap(() => LoggerService.log(`fetched hero ${id}`)),
+      catchError(HeroService.handleError('getHero', []))
     );
   }
 
-  deleteHeroById(id: any): Observable<Array<Hero>> {
-    const url = `${this.heroesUrl}/${id}`;
-
-    return this.http.delete<Array<Hero>>(url, httpOptions).pipe(
-      tap(() => LoggerService.log(`deleted hero id=${id}`)),
-      catchError(HeroService.handleError<Array<Hero>>('deleteHero'))
-    );
+  createHero(hero: Hero): Promise<DocumentReference> {
+    return this.heroesCollection.add(JSON.parse(JSON.stringify(hero))).then((document: DocumentReference) => {
+      LoggerService.log(`added hero w/ id=${document.id}`);
+      this.showSnackBar('heroCreated');
+      return document;
+    }, (error) => {
+      HeroService.handleError<any>('createHero', error);
+      return error;
+    });
   }
 
-  like(hero: Hero) {
-    if (HeroService.checkIfUserCanVote()) {
-      const url = `${this.heroesUrl}/${hero.id}/like`;
-      return this.http
-        .post(url, {}, httpOptions)
-        .pipe(
-          tap(() => {
-            LoggerService.log(`updated hero id=${hero.id}`);
-            localStorage.setItem('votes', '' + (Number(localStorage.getItem('votes')) + 1));
-            hero.likes += 1;
-            this.showSnackBar('saved');
-          }),
-          catchError(HeroService.handleError<any>('updateHero'))
-        );
-    } else {
-      this.showSnackBar('heroLikeMaximum');
-      return observableThrowError('maximum votes');
-    }
+  updateHero(hero: Hero): Promise<void> {
+    return this.afs.doc(`${AppConfig.routes.heroes}/${hero.id}`).update(JSON.parse(JSON.stringify(hero))).then(() => {
+      LoggerService.log(`updated hero w/ id=${hero.id}`);
+      this.showSnackBar('saved');
+    });
+  }
+
+  deleteHero(id: string): Promise<void> {
+    return this.afs.doc(`${AppConfig.routes.heroes}/${id}`).delete();
   }
 
   showSnackBar(name): void {

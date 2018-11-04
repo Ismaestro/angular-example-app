@@ -1,7 +1,7 @@
 <mat-card class="hero-card" *ngIf="hero">
   <mat-card-header>
     <div (click)="seeHeroDetails(hero)" mat-card-avatar class="hero-header__image"
-         [ngStyle]="{'background-image': 'url(assets/images/heroes/' + hero.id + '-thumbnail.jpg)'}"></div>
+         [ngStyle]="{'background-image': 'url(' + hero.avatarThumbnailUrl + ')'}"></div>
     <mat-card-title (click)="seeHeroDetails(hero)">{{hero.name}}</mat-card-title>
     <mat-card-subtitle (click)="seeHeroDetails(hero)">{{hero.alterEgo}}</mat-card-subtitle>
     <div class="flex-spacer"></div>
@@ -13,5 +13,5 @@
       </mat-icon>
     </div>
   </mat-card-header>
-  <img (click)="seeHeroDetails(hero)" mat-card-image src="assets/images/heroes/{{hero.id}}.jpg">
+  <img (click)="seeHeroDetails(hero)" mat-card-image src="{{hero.avatarUrl}}">
 </mat-card>

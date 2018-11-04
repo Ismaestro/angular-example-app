@@ -43,9 +43,7 @@
               }
             ],
             "styles": [
-              {
-                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
-              },
+              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/assets/css/reset.css",
               "src/assets/css/loading.css",
               "src/app/styles/global.scss"
@@ -111,7 +109,7 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+                "input": "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
               },
               "src/assets/css/reset.css",
               "src/assets/css/loading.css",

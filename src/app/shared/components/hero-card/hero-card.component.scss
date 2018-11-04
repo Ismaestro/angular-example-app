@@ -7,17 +7,17 @@
 
 .hero-card {
   margin-bottom: 2rem;
-@include push--auto(2rem);
+  @include push--auto(2rem);
 }
 
 .progress__spinner {
-@include push--auto();
+  @include push--auto();
 }
 
 @media (max-width: 680px) {
   .hero-card {
     width: 80%;
-  @include push--auto();
+    @include push--auto();
   }
 
   .mat-card {

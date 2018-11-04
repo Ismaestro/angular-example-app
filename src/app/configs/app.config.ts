@@ -7,9 +7,6 @@ export const AppConfig: any = {
     heroes: 'heroes',
     error404: '404'
   },
-  endpoints: {
-    heroes: 'https://nodejs-example-app.herokuapp.com/heroes'
-  },
   votesLimit: 3,
   topHeroesLimit: 4,
   snackBarDuration: 3000,

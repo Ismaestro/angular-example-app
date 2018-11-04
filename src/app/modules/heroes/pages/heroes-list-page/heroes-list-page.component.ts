@@ -4,12 +4,11 @@ import {HeroService} from '../../shared/hero.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MatDialog, MatSnackBar} from '@angular/material';
 import {Router} from '@angular/router';
-import {LoggerService} from '../../../../core/services/logger.service';
-import {HeroRemoveComponent} from '../../components/hero-remove/hero-remove.component';
 import {AppConfig} from '../../../../configs/app.config';
 import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
 import {TranslateService} from '@ngx-translate/core';
 import {UtilsHelperService} from '../../../../core/services/utils-helper.service';
+import {HeroRemoveComponent} from '../../components/hero-remove/hero-remove.component';
 
 @Component({
   selector: 'app-heroes-list-page',
@@ -44,53 +43,45 @@ export class HeroesListPageComponent implements OnInit {
 
   ngOnInit() {
     this.heroService.getHeroes().subscribe((heroes: Array<Hero>) => {
-      this.heroes = heroes.sort((a, b) => {
-        return b.likes - a.likes;
-      });
+      this.heroes = heroes;
     });
+  }
+
+  createNewHero(newHero: any) {
+    if (this.newHeroForm.valid) {
+      this.heroService.createHero(new Hero(newHero)).then(() => {
+        this.myNgForm.resetForm();
+      }, () => {
+        this.error = 'errorHasOcurred';
+      });
+    }
   }
 
   like(hero: Hero) {
-    this.heroService.like(hero).subscribe(() => {
-      this.canVote = HeroService.checkIfUserCanVote();
-    }, (error: Response) => {
-      LoggerService.error('maximum votes limit reached', error);
-    });
+    this.canVote = HeroService.checkIfUserCanVote();
+    if (this.canVote) {
+      hero.like();
+      this.heroService.updateHero(hero);
+    }
   }
 
-  createNewHero(newHero: Hero) {
-    if (this.newHeroForm.valid) {
-      this.heroService.createHero(newHero).subscribe((newHeroWithId) => {
-        this.heroes.push(newHeroWithId);
-        this.myNgForm.resetForm();
-      }, (response: Response) => {
-        if (response.status === 500) {
-          this.error = 'errorHasOcurred';
-        }
-      });
-    }
+  deleteHero(hero: Hero) {
+    const dialogRef = this.dialog.open(HeroRemoveComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.heroService.deleteHero(hero.id).then(() => {
+          this.heroService.showSnackBar('heroRemoved');
+        }, () => {
+          this.error = 'heroDefault';
+        });
+      }
+    });
   }
 
   seeHeroDetails(hero): void {
     if (hero.default) {
       this.router.navigate([AppConfig.routes.heroes + '/' + hero.id]);
     }
-  }
-
-  remove(heroToRemove: Hero): void {
-    const dialogRef = this.dialog.open(HeroRemoveComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.heroService.deleteHeroById(heroToRemove.id).subscribe(() => {
-          this.heroService.showSnackBar('heroRemoved');
-          this.heroes = this.heroes.filter(hero => hero.id !== heroToRemove.id);
-        }, (response: Response) => {
-          if (response.status === 500) {
-            this.error = 'heroDefault';
-          }
-        });
-      }
-    });
   }
 
   private onChanges() {

@@ -21,7 +21,7 @@
       <mat-list-item *ngFor="let hero of heroes" [@fadeInOut]>
         <img *ngIf="hero.default" class="cp"
              (click)="seeHeroDetails(hero);" mat-list-avatar
-             src="assets/images/heroes/{{hero.id}}-thumbnail.jpg">
+             src="{{hero.avatarThumbnailUrl}}">
         <img *ngIf="!hero.default"
              (click)="seeHeroDetails(hero);" mat-list-avatar src="assets/images/heroes/default.png">
         <h3 mat-line [class.cp]="hero.default" (click)="seeHeroDetails(hero);"> {{hero.name}} </h3>
@@ -36,7 +36,7 @@
             favorite
           </mat-icon>
           <mat-icon class="icon__remove" *ngIf="!hero.default"
-                    (click)="remove(hero);">
+                    (click)="deleteHero(hero);">
             delete
           </mat-icon>
         </div>

@@ -18,10 +18,8 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.heroService.getHeroes().subscribe((heroes) => {
-      this.heroes = heroes.sort((a, b) => {
-        return b.likes - a.likes;
-      }).slice(0, AppConfig.topHeroesLimit);
+    this.heroService.getHeroes().subscribe((heroes: Array<Hero>) => {
+      this.heroes = heroes.slice(0, AppConfig.topHeroesLimit);
     });
   }
 }

@@ -13,24 +13,21 @@ export class HeroCardComponent implements OnInit {
 
   @Input() hero: Hero;
 
-  canVote = HeroService.checkIfUserCanVote();
+  canVote: boolean;
 
   constructor(private heroService: HeroService,
               private router: Router) {
+    this.canVote = HeroService.checkIfUserCanVote();
   }
 
   ngOnInit() {
   }
 
-  like(hero: Hero): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.heroService.like(hero).subscribe(() => {
-        this.canVote = HeroService.checkIfUserCanVote();
-        resolve(true);
-      }, (error) => {
-        reject(error);
-      });
-    });
+  like(hero: Hero): Promise<void> {
+    if (this.canVote) {
+      hero.like();
+      return this.heroService.updateHero(hero);
+    }
   }
 
   seeHeroDetails(hero): void {

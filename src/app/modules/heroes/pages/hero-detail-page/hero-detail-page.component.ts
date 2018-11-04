@@ -26,19 +26,8 @@ export class HeroDetailPageComponent implements OnInit {
 
   ngOnInit() {
     const heroId = this.activatedRoute.snapshot.paramMap.get('id');
-    this.heroService.getHeroById(heroId).subscribe((hero: Hero) => {
+    this.heroService.getHero(heroId).subscribe((hero: Hero) => {
       this.hero = hero;
-    });
-  }
-
-  like(hero: Hero) {
-    return new Promise((resolve, reject) => {
-      this.heroService.like(hero).subscribe(() => {
-        this.canVote = HeroService.checkIfUserCanVote();
-        resolve(true);
-      }, (error) => {
-        reject(error);
-      });
     });
   }
 

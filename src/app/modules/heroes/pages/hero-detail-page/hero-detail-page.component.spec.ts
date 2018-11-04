@@ -1,4 +1,4 @@
-import {async, TestBed} from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 import {APP_BASE_HREF} from '@angular/common';
 import {HeroesModule} from '../../heroes.module';
 import {TestsModule} from '../../../../shared/modules/tests.module';
@@ -13,7 +13,7 @@ describe('HeroDetailPage', () => {
   let component;
   let heroService;
 
-  beforeEach(async(() => {
+  beforeEach((() => {
     TestBed.configureTestingModule({
       imports: [
         TestsModule,
@@ -28,7 +28,7 @@ describe('HeroDetailPage', () => {
           useValue: {
             snapshot: {
               paramMap: convertToParamMap({
-                id: '1'
+                id: 'BzTvl77YsRTtdihH0jeh'
               })
             }
           }
@@ -45,12 +45,5 @@ describe('HeroDetailPage', () => {
 
   it('should create hero detail component', (() => {
     expect(component).toBeTruthy();
-  }));
-
-  it('should like a hero', async(() => {
-    localStorage.setItem('votes', String(AppConfig.votesLimit - 1));
-    component.like({id: 1}).then((result) => {
-      expect(result).toBe(true);
-    });
   }));
 });

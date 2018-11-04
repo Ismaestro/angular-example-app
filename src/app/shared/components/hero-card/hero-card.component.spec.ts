@@ -12,7 +12,7 @@ describe('HeroCardComponent', () => {
   let component: HeroCardComponent;
   let fixture: ComponentFixture<HeroCardComponent>;
 
-  beforeEach(async(() => {
+  beforeEach((() => {
     TestBed.configureTestingModule({
       imports: [
         TestsModule,
@@ -43,17 +43,13 @@ describe('HeroCardComponent', () => {
 
   it('should like a hero', () => {
     localStorage.setItem('votes', String(AppConfig.votesLimit - 1));
-    component.like(new Hero(1, '', '', 0)).then((result) => {
-      expect(result).toBe(true);
-    });
+    const hero = new Hero({likes: 1});
+    hero.like();
+    expect(hero.likes).toBe(2);
   });
 
   it('should not like a hero', () => {
     localStorage.setItem('votes', String(AppConfig.votesLimit));
-    component.like(new Hero(1, '', '', 0)).then(() => {
-    }, (error) => {
-      expect(error).toBe('maximum votes');
-    });
     expect(HeroService.checkIfUserCanVote()).toBe(false);
   });
 });

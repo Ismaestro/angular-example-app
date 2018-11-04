@@ -6,13 +6,15 @@ import {TestsModule} from '../../modules/tests.module';
 import {HeroService} from '../../../modules/heroes/shared/hero.service';
 import {HomePageComponent} from './home-page.component';
 import {APP_CONFIG, AppConfig} from '../../../configs/app.config';
+import {of} from 'rxjs';
+import {Hero} from '../../../modules/heroes/shared/hero.model';
 
 describe('HomePage', () => {
   let fixture;
   let component;
   let heroService;
 
-  beforeEach(async(() => {
+  beforeEach((() => {
     TestBed.configureTestingModule({
       imports: [
         TestsModule,
@@ -30,20 +32,25 @@ describe('HomePage', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(HomePageComponent);
-    fixture.detectChanges();
     component = fixture.debugElement.componentInstance;
     heroService = TestBed.get(HeroService);
   }));
 
   it('should create hero top component', (() => {
+    fixture.detectChanges();
     expect(component).toBeTruthy();
   }));
 
   it('should initialice component', fakeAsync(() => {
+    const heroes = [
+      new Hero({name: 'test1', default: true}),
+      new Hero({name: 'test2', default: true}),
+      new Hero({name: 'test3', default: true}),
+      new Hero({name: 'test4', default: true})
+    ];
+    spyOn(heroService, 'getHeroes').and.returnValue(of(heroes));
     fixture.detectChanges();
-    spyOn(heroService, 'getHeroes').and.returnValue(Promise.resolve(true));
     tick();
-    fixture.detectChanges();
     expect(component.heroes.length).toBe(AppConfig.topHeroesLimit);
   }));
 });
