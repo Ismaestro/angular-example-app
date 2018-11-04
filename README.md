@@ -99,6 +99,7 @@ npm run update           | Update the project dependencies with ng update
 * Autocomplete enabled in forms
 * Modernizr (browser features detection)
 * Browser filter (Bowser) for IE ^^
+* [Sentry](https://sentry.io)! (logs any error in the app)
 * Google Tag Manager
 * Github pages deploy ready
 * Unit tests with Jasmine and Karma including code coverage

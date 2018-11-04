@@ -39,6 +39,7 @@
     "@angular/platform-browser-dynamic": "7.0.2",
     "@angular/router": "7.0.2",
     "@ismaestro/ngx-scroll-to-first-invalid": "2.0.0",
+    "@sentry/browser": "^4.2.4",
     "classlist.js": "1.1.20150312",
     "core-js": "2.5.7",
     "firebase": "5.5.7",
