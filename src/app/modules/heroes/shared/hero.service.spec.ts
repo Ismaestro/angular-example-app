@@ -50,11 +50,4 @@ describe('HeroService', () => {
     });
   }));
 
-  it('should fail deleting noId hero', (() => {
-    heroService.deleteHero('noId').then(() => {
-    }, (error) => {
-      expect(error).toEqual(jasmine.any(HttpErrorResponse));
-    });
-  }));
-
 });
