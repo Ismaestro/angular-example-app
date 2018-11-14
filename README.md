@@ -17,7 +17,6 @@
 [![GitHub forks](https://img.shields.io/github/forks/ismaestro/angular7-example-app.svg?style=social&label=Fork)](https://github.com/ismaestro/angular7-example-app/fork)
 [![GitHub stars](https://img.shields.io/github/stars/ismaestro/angular7-example-app.svg?style=social&label=Star)](https://github.com/ismaestro/angular7-example-app)
 
-<img src="Logotype Primary.png" width="60%" height="60%" />
 
 ## [LIVE DEMO](http://angularexampleapp.com/)
 
@@ -136,14 +135,16 @@ We use Travis CI to run this tasks in order:
 
 This repo is using Firebase. We use Cloud Firestore and Cloud Storage to handle CRUD operations over the heroes and to store their images.
 
+## Contributors
+
+Thanks to all contributors and their support:
+[mansya](https://github.com/mansya) - App logo!
+
+If you have an idea or you want to do something, tell me or just do it!
+I'm always happy to hear your feedback!
+
 ## License
 
 MIT
-
-## Contributors
-
-Thanks to all contributors and their support! 
-If you have an idea or you want to do something, tell me or just do it!
-I'm always happy to hear your feedback!
 
 Enjoy :metal:
