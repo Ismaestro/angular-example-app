@@ -17,6 +17,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/ismaestro/angular7-example-app.svg?style=social&label=Fork)](https://github.com/ismaestro/angular7-example-app/fork)
 [![GitHub stars](https://img.shields.io/github/stars/ismaestro/angular7-example-app.svg?style=social&label=Star)](https://github.com/ismaestro/angular7-example-app)
 
+
 ## [LIVE DEMO](http://angularexampleapp.com/)
 
 <p align="center">
@@ -67,7 +68,7 @@ npm run lint             | Run the linter (tslint)
 npm run ci               | Execute linter and tests
 npm run extract          | Generate all json files with the translations in assets folder
 npm run translate        | Translate all keys remaining using Google Translate and using English language as the origin
-npm run deploy           | Build the app and deploy dist folder to Github pages (angular-cli-ghpages) (fork to do this and remove CNAME file)
+npm run deploy           | Build the app and deploy it to firebase hosting
 npm run bundle-report    | Build and run webpack-bundle-analyzer over stats json
 npm run release          | Create a new release using standard-version
 npm run docker           | Build the docker image and run the container
@@ -134,14 +135,16 @@ We use Travis CI to run this tasks in order:
 
 This repo is using Firebase. We use Cloud Firestore and Cloud Storage to handle CRUD operations over the heroes and to store their images.
 
+## Contributors
+
+Thanks to all contributors and their support:
+[mansya](https://github.com/mansya) - App logo!
+
+If you have an idea or you want to do something, tell me or just do it!
+I'm always happy to hear your feedback!
+
 ## License
 
 MIT
-
-## Contributors
-
-Thanks to all contributors and their support! 
-If you have an idea or you want to do something, tell me or just do it!
-I'm always happy to hear your feedback!
 
 Enjoy :metal:

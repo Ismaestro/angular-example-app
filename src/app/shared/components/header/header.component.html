@@ -1,6 +1,12 @@
 <header>
   <nav>
     <div fxFlex fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center">
+      <div id="logo">
+        <a href="/">
+          <img matTooltip="{{'Thank\'s mansya!' | translate}}"
+               [matTooltipPosition]="'below'" src="assets/images/logo.svg">
+        </a>
+      </div>
       <div fxFlex="40">
         <a mat-raised-button *ngFor="let item of menuItems" routerLink="{{item.link}}">
           {{item.name | translate | uppercase}}

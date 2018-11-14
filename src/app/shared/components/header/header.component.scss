@@ -43,6 +43,26 @@
       #today {
         font-size: 0.7rem;
       }
+
+      #logo {
+        display: flex;
+        margin-right: 1rem;
+
+        a {
+          width: 4.25rem;
+          height: 4.25rem;
+
+          img {
+            width: 100%;
+            height: auto;
+            opacity: 0.8;
+
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -50,6 +70,10 @@
 @media (max-width: 807px) {
   #today {
     width: 50%;
+  }
+
+  #logo {
+    display: none;
   }
 }
 
