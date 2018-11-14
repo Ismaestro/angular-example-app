@@ -42,7 +42,7 @@
 
 1. Go to project folder and install dependencies.
  ```bash
- npm install
+ npm i
  ```
 
 2. Launch development server:
@@ -100,14 +100,14 @@ npm run update           | Update the project dependencies with ng update
 * Browser filter (Bowser) for IE ^^
 * [Sentry](https://sentry.io)! (logs any error in the app)
 * Google Tag Manager
-* Github pages deploy ready
 * Unit tests with Jasmine and Karma including code coverage
 * End-to-end tests with Protractor
 * ES6 Promises and Observables
 * Following the [best practices](https://angular.io/guide/styleguide)!
 
 <p align="center">
-  <a href='https://ko-fi.com/S6S5LMVR' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi4.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a> :smile:
+  <a href='https://ko-fi.com/S6S5LMVR' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi4.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a><br>
+  :smile:
 </p>
 
 ## Docker
@@ -124,7 +124,7 @@ We use Travis CI to run this tasks in order:
 * Linter
 * Tests
 * Build for production
-* Deploy in Github pages
+* Deploy in Firebase Hosting
 
 ## Contributing
 
@@ -138,6 +138,7 @@ This repo is using Firebase. We use Cloud Firestore and Cloud Storage to handle 
 ## Contributors
 
 Thanks to all contributors and their support:
+
 [mansya](https://github.com/mansya) - App logo!
 
 If you have an idea or you want to do something, tell me or just do it!
