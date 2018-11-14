@@ -8,7 +8,6 @@
     "build": "ng build",
     "build:prod": "ng build --prod",
     "build:library": "ng build ngx-example-library",
-    "deploy": "npm run build:prod && npx ngh",
     "test": "ng test",
     "e2e": "ng e2e",
     "lint": "ng lint",
@@ -19,7 +18,8 @@
     "release:minor": "standard-version --release-as minor && git push --follow-tags origin master",
     "release:major": "standard-version --release-as major && git push --follow-tags origin master",
     "docker": "docker build -t angularexampleapp . && docker run -d -p 4200:80 angularexampleapp",
-    "update": "ng update --all --force"
+    "update": "ng update --all --force",
+    "deploy": "bash scripts/deploy.sh"
   },
   "private": true,
   "engines": {
@@ -65,7 +65,6 @@
     "@types/jasmine": "2.8.9",
     "@types/jasminewd2": "2.0.5",
     "@types/node": "10.12.2",
-    "angular-cli-ghpages": "0.5.3",
     "axios": "0.18.0",
     "bowser": "2.0.0-beta.3",
     "codelyzer": "4.5.0",

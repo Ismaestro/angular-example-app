@@ -68,7 +68,7 @@ npm run lint             | Run the linter (tslint)
 npm run ci               | Execute linter and tests
 npm run extract          | Generate all json files with the translations in assets folder
 npm run translate        | Translate all keys remaining using Google Translate and using English language as the origin
-npm run deploy           | Build the app and deploy dist folder to Github pages (angular-cli-ghpages) (fork to do this and remove CNAME file)
+npm run deploy           | Build the app and deploy it to firebase hosting
 npm run bundle-report    | Build and run webpack-bundle-analyzer over stats json
 npm run release          | Create a new release using standard-version
 npm run docker           | Build the docker image and run the container
