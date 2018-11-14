@@ -17,6 +17,8 @@
 [![GitHub forks](https://img.shields.io/github/forks/ismaestro/angular7-example-app.svg?style=social&label=Fork)](https://github.com/ismaestro/angular7-example-app/fork)
 [![GitHub stars](https://img.shields.io/github/stars/ismaestro/angular7-example-app.svg?style=social&label=Star)](https://github.com/ismaestro/angular7-example-app)
 
+<img src="Logotype Primary.png" width="60%" height="60%" />
+
 ## [LIVE DEMO](http://angularexampleapp.com/)
 
 <p align="center">
