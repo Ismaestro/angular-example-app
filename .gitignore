@@ -6,6 +6,7 @@
 /out-tsc
 /public
 /.firebase
+/.firebaserc
 
 # dependencies
 /node_modules
