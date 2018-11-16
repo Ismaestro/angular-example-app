@@ -53,7 +53,7 @@
 
 **Note**
 
-> You don't need to build the library because it's published in npm and added as dependency of the project.
+> You don't need to build the example library because it's published in npm and added as dependency of the project.
 
 ## Status
 
