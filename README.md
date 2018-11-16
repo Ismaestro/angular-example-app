@@ -10,8 +10,8 @@
     <br>
     Base project made with much  :heart: . Contains CRUD, patterns, generated library, and much more!
     <br>
-    <a href="https://www.angularexampleapp.com/">LIVE DEMO</a>
     <br>
+    <a href="https://www.angularexampleapp.com/">LIVE DEMO</a>
     <br>
     <a href="https://www.angularexampleapp.com/">
       <img src="https://media.giphy.com/media/ce28l1P13CVK56OyCN/giphy.gif" alt="Demo example"/>
@@ -157,8 +157,6 @@ Editor preferences are available in the [editor config](https://github.com/Ismae
 - <https://github.com/ismaestro>
 
 <a href='https://ko-fi.com/S6S5LMVR' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi4.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
-<br>
-:smile:
 
 ## Thanks
 
