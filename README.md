@@ -17,6 +17,7 @@
       <img src="https://media.giphy.com/media/ce28l1P13CVK56OyCN/giphy.gif" alt="Demo example"/>
     </a>
     <br>
+    <br>
     <a href="https://github.com/Ismaestro/angular7-example-app/issues/new">Report bug</a>
     ·
     <a href="https://github.com/Ismaestro/angular7-example-app/issues/new">Request feature</a>
