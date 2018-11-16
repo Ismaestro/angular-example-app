@@ -147,7 +147,7 @@ Have a bug or a feature request? Please first read the [issue guidelines](https:
 
 Please read through our [contributing guidelines](https://github.com/Ismaestro/angular7-example-app/blob/master/CONTRIBUTING.md). Included are directions for opening issues, coding standards, and notes on development.
 
-Moreover, all HTML and CSS should conform to the [Code Guide](https://github.com/mdo/code-guide), maintained by [Main author](https://github.com/ismaestro).
+Moreover, all HTML and CSS should conform to the [Code Guide](https://github.com/mdo/code-guide), maintained by [Ismael Ramos](https://github.com/ismaestro).
 
 Editor preferences are available in the [editor config](https://github.com/Ismaestro/angular7-example-app/blob/master/.editorconfig) for easy use in common text editors. Read more and download plugins at <https://editorconfig.org/>.
 
