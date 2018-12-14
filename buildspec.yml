@@ -17,7 +17,7 @@ phases:
       - ng build --${BUILD_ENV}
   post_build:
     commands:
-      - aws s3 cp dist s3://${S3_BUCKET} --recursive --acl public-read --cache-control "max-age=${CACHE_CONTROL}"
+      - aws s3 cp dist s3://${S3_BUCKET} --recursive
       - echo Build completed on `date`
 artifacts:
   files:
