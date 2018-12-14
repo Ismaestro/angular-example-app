@@ -7,6 +7,7 @@
     "http-server": "http-server dist/ -c-1",
     "build": "ng build",
     "build:prod": "ng build --prod",
+    "build:prod:aot": "npm run build:prod -- --aot",
     "build:library": "ng build ngx-example-library",
     "test": "ng test",
     "e2e": "ng e2e",
