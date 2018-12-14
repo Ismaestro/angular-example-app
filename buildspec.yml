@@ -17,7 +17,7 @@ phases:
       - npm run build:prod:aot
   post_build:
     commands:
-      - aws s3 cp dist s3://${S3_BUCKET} --recursive --cache-control "max-age=${CACHE_CONTROL}"
+      - aws s3 cp dist s3://${S3_BUCKET} --recursive --acl public-read
       - echo Build completed on `date`
 artifacts:
   files:
