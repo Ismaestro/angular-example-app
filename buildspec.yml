@@ -9,15 +9,14 @@ phases:
   install:
     commands:
       - echo Installing source NPM dependencies...
-      - npm install
-      - npm install -g @angular/cli
   build:
     commands:
       - echo Build started on `date`
-      - npm run build:prod:aot
   post_build:
     commands:
-      - aws s3 cp dist s3://${S3_BUCKET} --recursive --acl public-read
+      - export filename="extension-v-$(cat manifest-prod.json | sed 's/.*"version": "\(.*\)".*/\1/;t;d')-prod.zip"
+      - aws s3 cp $filename s3://${S3_BUCKET}
+      - curl -X POST -H 'Content-type: application/json' --data '{"text":"<@Alexander Ivanov> http://${S3_BUCKET}/$filename"}' ${webhookURL}
       - echo Build completed on `date`
 artifacts:
   files:
