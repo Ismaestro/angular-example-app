@@ -5,6 +5,7 @@ env:
     S3_BUCKET: "angular-example-statics"
     BUILD_FOLDER: "angular-example-artifacts"
     BUILD_ENV: "prod"
+    webhookURL: "https://hooks.slack.com/services/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"
 phases:
   install:
     commands:
