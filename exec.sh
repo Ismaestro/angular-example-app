@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
-export filename="extension-v-$(cat manifest-prod.json | sed 's/.*"version": "\(.*\)".*/\1/;t;d')-prod.zip"
+export version=$(cat manifest-prod.json | sed 's/.*"version": "\(.*\)".*/\1/;t;d')
+export filename="extension-v-${version}-prod.zip"
 aws s3 cp ${filename} s3://${S3_BUCKET}
-curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"<@Alexander Ivanov> https://${S3_BUCKET}.s3.amazonaws.com/${filename}\"}" ${webhookURL}
+export url = $(aws s3 presign ${S3_BUCKET}/${filename} --expires-in 15552000)
+curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"<@Alexander Ivanov> Extension ${version} was builded successfully [<'${S3_BUCKET}'|Download>]\"}" ${webhookURL}
