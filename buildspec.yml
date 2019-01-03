@@ -14,10 +14,11 @@ phases:
       - echo Build started on `date`
   post_build:
     commands:
+      - chmod a+x exec.sh
       - ./exec.sh
       - echo Build completed on `date`
 artifacts:
   files:
     - '**/*'
-  base-directory: 'dist*'
-  discard-paths: yes
+ # base-directory: 'dist*'
+ # discard-paths: yes
