@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 printenv
-echo 1
+echo 2
 export version=$(cat manifest-prod.json | sed 's/.*"version": "\(.*\)".*/\1/;t;d')
 export filename="extension-v-${version}-prod.zip"
 aws s3 cp ${filename} s3://${S3_BUCKET}
