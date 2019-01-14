@@ -4,6 +4,7 @@ env:
     CACHE_CONTROL: "86400"
     S3_BUCKET: "angular-example-statics"
     BUILD_FOLDER: "angular-example-artifacts"
+    BUCKET_FOR_INDEX: "s3://angular-example-artifacts/VersionIndexes"
     BUILD_ENV: "prod"
     webhookURL: "https://hooks.slack.com/services/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"
 phases:
