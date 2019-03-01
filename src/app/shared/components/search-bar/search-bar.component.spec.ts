@@ -1,96 +1,86 @@
-import {fakeAsync, TestBed, tick} from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {SearchBarComponent} from './search-bar.component';
-import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {DebugElement} from '@angular/core';
 import {TranslateModule} from '@ngx-translate/core';
-import {AppRoutingModule} from '../../../app-routing.module';
-import {APP_BASE_HREF} from '@angular/common';
 import {TestsModule} from '../../modules/tests.module';
 import {HeroService} from '../../../modules/heroes/shared/hero.service';
 import {Router} from '@angular/router';
 import {Hero} from '../../../modules/heroes/shared/hero.model';
 import {HomePageComponent} from '../../pages/home-page/home-page.component';
 import {Error404PageComponent} from '../../pages/error404-page/error404-page.component';
-import {APP_CONFIG, AppConfig} from '../../../configs/app.config';
 import {of} from 'rxjs';
+import {configureTestSuite} from 'ng-bullet';
+import {RouterTestingModule} from '@angular/router/testing';
+import {HeroLoadingComponent} from '../hero-loading/hero-loading.component';
+import {LoadingPlaceholderComponent} from '../loading-placeholder/loading-placeholder.component';
+import {HeroCardComponent} from '../hero-card/hero-card.component';
 
-describe('HeroSearchComponent', () => {
-  let fixture;
-  let component;
-  let heroService;
+describe('SearchBarComponent', () => {
+  let component: SearchBarComponent;
+  let fixture: ComponentFixture<SearchBarComponent>;
+  let debugElement: DebugElement;
+  let heroService: HeroService;
+  let router: Router;
+  let navigateSpy;
 
-  beforeEach((() => {
+  configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [
         TestsModule,
         TranslateModule.forRoot(),
-        AppRoutingModule
+        RouterTestingModule.withRoutes([])
       ],
       declarations: [
+        HeroLoadingComponent,
+        LoadingPlaceholderComponent,
+        HeroCardComponent,
         SearchBarComponent,
         HomePageComponent,
         Error404PageComponent
       ],
       providers: [
-        {
-          provide: Router,
-          useClass: class {
-            navigate = jasmine.createSpy('navigate');
-          }
-        },
-        {provide: APP_CONFIG, useValue: AppConfig},
-        {provide: APP_BASE_HREF, useValue: '/'},
         HeroService
-      ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
-    }).compileComponents();
+      ]
+    });
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(SearchBarComponent);
+    debugElement = fixture.debugElement;
     component = fixture.debugElement.componentInstance;
     heroService = TestBed.get(HeroService);
-  }));
+    router = TestBed.get(Router);
+    navigateSpy = spyOn(router, 'navigate');
+  });
 
   it('should create hero search component', (() => {
     fixture.detectChanges();
     expect(component).toBeTruthy();
   }));
 
-  it('should get all heroes', fakeAsync(() => {
+  it('should get all heroes', (() => {
     spyOn(heroService, 'getHeroes').and.returnValue(of([new Hero({name: 'test1', default: true})]));
     fixture.detectChanges();
-    tick();
-
-    expect(component.defaultHeroes.length).toBeGreaterThan(0);
-    for (const hero of component.defaultHeroes) {
-      expect(hero.default).toBe(true);
-    }
+    expect(component.defaultHeroes.length).toBe(1);
+    expect(component.defaultHeroes[0].default).toBe(true);
   }));
 
   it('should filter heroes array', (() => {
     fixture.detectChanges();
-
     component.defaultHeroes = [
-      {
-        'id': 1,
-        'name': 'batman',
-        'default': true
-      },
-      {
-        'id': 2,
-        'name': 'spiderman',
-        'default': false
-      }
+      new Hero({'id': 1, 'name': 'batman', 'default': true}),
+      new Hero({'id': 2, 'name': 'spiderman', 'default': false})
     ];
     expect(component.filterHeroes('batman').length).toBe(1);
     expect(component.filterHeroes('spiderman').length).toBe(0);
-    expect(component.filterHeroes().length).toBe(2);
+    expect(component.filterHeroes('').length).toBe(2);
   }));
 
   it('should navigate to hero detail', (() => {
     fixture.detectChanges();
 
     const heroId = 'BzTvl77YsRTtdihH0jeh';
-    const router = fixture.debugElement.injector.get(Router);
     component.searchHero(new Hero({id: heroId}));
-    expect(router.navigate).toHaveBeenCalledWith(['heroes/' + heroId]);
+    expect(navigateSpy).toHaveBeenCalledWith(['heroes/' + heroId]);
   }));
 });

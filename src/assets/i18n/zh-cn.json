@@ -34,6 +34,7 @@
   "heroesList": "英雄列表",
   "home": "首页",
   "language": "中文",
+  "maxLengthError": "这个领域太长了。 所需长度：{{data.requiredLength}}。 当前：{{data.actualLength}}",
   "mayTheForce": "愿力量与你同在",
   "name": "名字",
   "nameRequired": "名字是必须要的",

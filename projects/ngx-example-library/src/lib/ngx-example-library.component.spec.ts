@@ -2,6 +2,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {NgxExampleLibraryComponent} from './ngx-example-library.component';
 import {DebugElement} from '@angular/core';
 import {By} from '@angular/platform-browser';
+import {configureTestSuite} from 'ng-bullet';
 
 describe('NgxExampleLibraryComponent', () => {
   let component: NgxExampleLibraryComponent;
@@ -9,12 +10,11 @@ describe('NgxExampleLibraryComponent', () => {
   let de: DebugElement;
   let el: HTMLElement;
 
-  beforeEach(async(() => {
+  configureTestSuite(() => {
     TestBed.configureTestingModule({
       declarations: [NgxExampleLibraryComponent]
-    })
-      .compileComponents();
-  }));
+    });
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(NgxExampleLibraryComponent);

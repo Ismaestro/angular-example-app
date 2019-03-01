@@ -1,17 +1,17 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {LoadingPlaceholderComponent} from './loading-placeholder.component';
+import {configureTestSuite} from 'ng-bullet';
 
 describe('LoadingPlaceholderComponent', () => {
   let component: LoadingPlaceholderComponent;
   let fixture: ComponentFixture<LoadingPlaceholderComponent>;
 
-  beforeEach(async(() => {
+  configureTestSuite(() => {
     TestBed.configureTestingModule({
       declarations: [LoadingPlaceholderComponent]
-    })
-      .compileComponents();
-  }));
+    });
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LoadingPlaceholderComponent);

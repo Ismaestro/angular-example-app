@@ -34,6 +34,7 @@
   "heroesList": "Lista de heróis",
   "home": "Inicio",
   "language": "Idioma",
+  "maxLengthError": "O campo é muito longo. Tamanho necessário: {{data.requiredLength}}. Atual: {{data.actualLength}}",
   "mayTheForce": "Que a força te acompanhe",
   "name": "Nome",
   "nameRequired": "O nome é obrigatório",

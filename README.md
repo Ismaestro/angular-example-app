@@ -96,28 +96,30 @@
 * Browser filter (Bowser) for IE ^^
 * [Sentry](https://sentry.io)! (logs any error in the app)
 * Google Tag Manager
-* Unit tests with Jasmine and Karma including code coverage
+* Unit tests with Jasmine and Karma including code coverage (Use of [ng-bullet](https://www.npmjs.com/package/ng-bullet) and [karma-mocha-reporter](https://github.com/litixsoft/karma-mocha-reporter))
 * End-to-end tests with Protractor
 * ES6 Promises and Observables
 * Following the [best practices](https://angular.io/guide/styleguide)!
 
-Tasks                    | Description
--------------------------|---------------------------------------------------------------------------------------
-npm i                    | Install dependencies
-npm start                | Start the app in development mode
-npm run test             | Run unit tests with karma and jasmine
-npm run e2e              | Run end to end tests with protractor
-npm run build            | Build the app for production
-npm run build:library    | Build the library
-npm run lint             | Run the linter (tslint)
-npm run ci               | Execute linter and tests
-npm run extract          | Generate all json files with the translations in assets folder
-npm run translate        | Translate all keys remaining using Google Translate and using English language as the origin
-npm run deploy           | Build the app and deploy it to firebase hosting
-npm run bundle-report    | Build and run webpack-bundle-analyzer over stats json
-npm run release          | Create a new release using standard-version
-npm run docker           | Build the docker image and run the container
-npm run update           | Update the project dependencies with ng update
+Tasks                      | Description
+---------------------------|---------------------------------------------------------------------------------------
+npm i                      | Install dependencies
+npm start                  | Start the app in development mode
+npm run test               | Run all unit tests with karma and jasmine
+npm run test:app:watch     | Run app unit tests and wait for changes
+npm run test:library:watch | Run app unit tests and wait for changes
+npm run e2e                | Run end to end tests with protractor
+npm run build              | Build the app for production
+npm run build:library      | Build the library
+npm run lint               | Run the linter (tslint)
+npm run ci                 | Execute linter and tests
+npm run extract            | Generate all json files with the translations in assets folder
+npm run translate          | Translate all keys remaining using Google Translate and using English language as the origin
+npm run deploy             | Build the app and deploy it to firebase hosting
+npm run bundle-report      | Build and run webpack-bundle-analyzer over stats json
+npm run release            | Create a new release using standard-version
+npm run docker             | Build the docker image and run the container
+npm run update             | Update the project dependencies with ng update
 
 ### Firebase
 

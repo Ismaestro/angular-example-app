@@ -5,12 +5,13 @@ import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {APP_BASE_HREF} from '@angular/common';
 import {TranslateModule} from '@ngx-translate/core';
 import {APP_CONFIG, AppConfig} from '../../../configs/app.config';
+import {configureTestSuite} from 'ng-bullet';
 
 describe('HeroLoadingComponent', () => {
   let component: HeroLoadingComponent;
   let fixture: ComponentFixture<HeroLoadingComponent>;
 
-  beforeEach(async(() => {
+  configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [
         TestsModule,
@@ -24,8 +25,8 @@ describe('HeroLoadingComponent', () => {
         {provide: APP_BASE_HREF, useValue: '/'},
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
-    }).compileComponents();
-  }));
+    });
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HeroLoadingComponent);

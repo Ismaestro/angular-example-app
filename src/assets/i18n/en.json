@@ -34,6 +34,7 @@
   "heroesList": "Heroes list",
   "home": "Home",
   "language": "Language",
+  "maxLengthError": "The field is too long. Required length: {{data.requiredLength}}. Current: {{data.actualLength}}",
   "mayTheForce": "May the force be with you",
   "name": "Name",
   "nameRequired": "Name is required",

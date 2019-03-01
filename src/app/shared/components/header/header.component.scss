@@ -14,7 +14,7 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      padding: calculateRem(8px) calculateRem(16px);
+      padding: 0 calculateRem(16px);
       color: $secondary--color;
       height: 4rem;
       background: $primary--color;

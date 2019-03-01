@@ -7,12 +7,13 @@ import {APP_BASE_HREF} from '@angular/common';
 import {TestsModule} from '../../modules/tests.module';
 import {Hero} from '../../../modules/heroes/shared/hero.model';
 import {TranslateModule} from '@ngx-translate/core';
+import {configureTestSuite} from 'ng-bullet';
 
 describe('HeroCardComponent', () => {
   let component: HeroCardComponent;
   let fixture: ComponentFixture<HeroCardComponent>;
 
-  beforeEach((() => {
+  configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [
         TestsModule,
@@ -27,9 +28,8 @@ describe('HeroCardComponent', () => {
         HeroService
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
-    })
-      .compileComponents();
-  }));
+    });
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HeroCardComponent);

@@ -34,6 +34,7 @@
   "heroesList": "英雄名單",
   "home": "主頁",
   "language": "正體中文(香港)",
+  "maxLengthError": "這個領域太長了。 所需長度：{{data.requiredLength}}。 當前：{{data.actualLength}}",
   "mayTheForce": "願原力與你同在",
   "name": "名字",
   "nameRequired": "請輸入名字",

@@ -7,13 +7,14 @@ import {HeroService} from '../../../modules/heroes/shared/hero.service';
 import {ProgressBarService} from '../../../core/services/progress-bar.service';
 import {Error404PageComponent} from './error404-page.component';
 import {APP_CONFIG, AppConfig} from '../../../configs/app.config';
+import {configureTestSuite} from 'ng-bullet';
 
 describe('Error404Page', () => {
   let fixture;
   let component;
   let progressBarService;
 
-  beforeEach(async(() => {
+  configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [
         TestsModule,
@@ -29,13 +30,13 @@ describe('Error404Page', () => {
         ProgressBarService
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
-    }).compileComponents();
+    });
 
     fixture = TestBed.createComponent(Error404PageComponent);
     fixture.detectChanges();
     component = fixture.debugElement.componentInstance;
     progressBarService = TestBed.get(ProgressBarService);
-  }));
+  });
 
   it('should create nav component', (() => {
     expect(component).toBeTruthy();

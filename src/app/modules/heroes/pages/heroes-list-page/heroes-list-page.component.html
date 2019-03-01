@@ -67,16 +67,26 @@
         <input matInput name="hname" type="text"
                placeholder="{{'nameWithPalindrome' | translate}}"
                formControlName="name">
-        <mat-error *ngIf="!newHeroForm.controls.name.valid && form.submitted">
-          {{'nameRequired' | translate}}
+        <mat-error *ngIf="newHeroForm.controls.name.errors && form.submitted">
+          <ng-template [ngIf]="newHeroForm.controls.name.errors.required">
+            {{'nameRequired' | translate}}
+          </ng-template>
+          <ng-template [ngIf]="newHeroForm.controls.name.errors.maxlength">
+            {{'maxLengthError' | translate : {data: newHeroForm.controls.name.errors.maxlength} }}
+          </ng-template>
         </mat-error>
       </mat-form-field>
       <mat-form-field class="input-container">
         <input matInput type="text" name="rname"
                placeholder="{{'realName' | translate}}"
                formControlName="alterEgo">
-        <mat-error *ngIf="!newHeroForm.controls.alterEgo.valid && form.submitted">
-          {{'realNameRequired' | translate}}
+        <mat-error *ngIf="newHeroForm.controls.alterEgo.errors && form.submitted">
+          <ng-template [ngIf]="newHeroForm.controls.alterEgo.errors.required">
+            {{'realNameRequired' | translate}}
+          </ng-template>
+          <ng-template [ngIf]="newHeroForm.controls.alterEgo.errors.maxlength">
+            {{'maxLengthError' | translate : {data: newHeroForm.controls.alterEgo.errors.maxlength} }}
+          </ng-template>
         </mat-error>
       </mat-form-field>
       <button mat-raised-button type="submit" [disabled]="form.submitted && !newHeroForm.valid">

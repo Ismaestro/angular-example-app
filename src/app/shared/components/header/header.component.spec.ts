@@ -7,13 +7,15 @@ import {TestsModule} from '../../modules/tests.module';
 import {APP_CONFIG, AppConfig} from '../../../configs/app.config';
 import {ProgressBarService} from '../../../core/services/progress-bar.service';
 import {MaterialModule} from '../../modules/material.module';
+import {config} from 'rxjs';
+import {configureTestSuite} from 'ng-bullet';
 
 describe('HeaderComponent', () => {
   let fixture;
   let component;
   let progressBarService;
 
-  beforeEach(async(() => {
+  configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [
         TestsModule,
@@ -29,13 +31,13 @@ describe('HeaderComponent', () => {
         ProgressBarService
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
-    }).compileComponents();
+    });
 
     fixture = TestBed.createComponent(HeaderComponent);
     fixture.detectChanges();
     component = fixture.debugElement.componentInstance;
     progressBarService = TestBed.get(ProgressBarService);
-  }));
+  });
 
   it('should create header component with constructor', (() => {
     const translateService = TestBed.get(TranslateService);

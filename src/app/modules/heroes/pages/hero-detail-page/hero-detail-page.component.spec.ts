@@ -7,13 +7,14 @@ import {HeroService} from '../../shared/hero.service';
 import {ActivatedRoute, convertToParamMap} from '@angular/router';
 import {APP_CONFIG, AppConfig} from '../../../../configs/app.config';
 import {HeroDetailPageComponent} from './hero-detail-page.component';
+import {configureTestSuite} from 'ng-bullet';
 
 describe('HeroDetailPage', () => {
   let fixture;
   let component;
   let heroService;
 
-  beforeEach((() => {
+  configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [
         TestsModule,
@@ -35,13 +36,13 @@ describe('HeroDetailPage', () => {
         },
         HeroService
       ],
-    }).compileComponents();
+    });
 
     fixture = TestBed.createComponent(HeroDetailPageComponent);
     fixture.detectChanges();
     component = fixture.debugElement.componentInstance;
     heroService = TestBed.get(HeroService);
-  }));
+  });
 
   it('should create hero detail component', (() => {
     expect(component).toBeTruthy();

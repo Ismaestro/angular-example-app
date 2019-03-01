@@ -34,8 +34,8 @@ export class HeroesListPageComponent implements OnInit {
     this.canVote = HeroService.checkIfUserCanVote();
 
     this.newHeroForm = this.formBuilder.group({
-      'name': new FormControl('', [Validators.required]),
-      'alterEgo': new FormControl('', [Validators.required])
+      'name': new FormControl('', [Validators.required, Validators.maxLength(30)]),
+      'alterEgo': new FormControl('', [Validators.required, Validators.maxLength(30)])
     });
 
     this.onChanges();

@@ -1,15 +1,16 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {SpinnerComponent} from './spinner.component';
+import {configureTestSuite} from 'ng-bullet';
 
 describe('SpinnerComponent', () => {
   let component: SpinnerComponent;
   let fixture: ComponentFixture<SpinnerComponent>;
 
-  beforeEach(async(() => {
+  configureTestSuite(() => {
     TestBed.configureTestingModule({
       declarations: [SpinnerComponent]
-    }).compileComponents();
-  }));
+    });
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SpinnerComponent);

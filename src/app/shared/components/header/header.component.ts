@@ -15,15 +15,13 @@ export class HeaderComponent implements OnInit {
 
   @LocalStorage() language = 'en';
 
-  appConfig: any;
   menuItems: any[];
   progressBarMode: string;
   currentLang: string;
 
-  constructor(@Inject(APP_CONFIG) appConfig: any,
+  constructor(@Inject(APP_CONFIG) public appConfig: any,
               private progressBarService: ProgressBarService,
               private translateService: TranslateService) {
-    this.appConfig = appConfig;
   }
 
   ngOnInit() {

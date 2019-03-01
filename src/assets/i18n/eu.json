@@ -34,6 +34,7 @@
   "heroesList": "Heroi zerrenda",
   "home": "Hasiera",
   "language": "Hizkuntza",
+  "maxLengthError": "Eremua luzeegia da. Beharrezko luzera: {{data.requiredLength}}. Unekoa: {{data.actualLength}}",
   "mayTheForce": "Indarra zurekin joan dadila!",
   "name": "Izena",
   "nameRequired": "Izena derrigorrezkoa da",

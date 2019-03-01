@@ -10,13 +10,14 @@ import {CoreModule} from './core/core.module';
 import {APP_CONFIG, AppConfig} from './configs/app.config';
 import {SharedModule} from './shared/shared.module';
 import {Title} from '@angular/platform-browser';
+import {configureTestSuite} from 'ng-bullet';
 
 describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
   let titleService: Title;
 
-  beforeEach(async(() => {
+  configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [
         TestsModule,
@@ -35,8 +36,8 @@ describe('AppComponent', () => {
         HeroService
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
-    }).compileComponents();
-  }));
+    });
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
