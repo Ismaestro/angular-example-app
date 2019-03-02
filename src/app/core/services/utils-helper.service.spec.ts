@@ -1,21 +1,21 @@
 import {TestBed} from '@angular/core/testing';
 import {UtilsHelperService} from './utils-helper.service';
+import {configureTestSuite} from 'ng-bullet';
 
 describe('UtilsHelperService', () => {
-  let utilsHelperService;
-  beforeEach(() => {
+  let utilsHelperService: UtilsHelperService;
+
+  configureTestSuite(() => {
     TestBed.configureTestingModule({
       providers: [
         UtilsHelperService
       ]
     });
-
-    utilsHelperService = TestBed.get(UtilsHelperService);
   });
 
-  it('should create instance', (() => {
-    expect(utilsHelperService).toBeDefined();
-  }));
+  beforeEach(() => {
+    utilsHelperService = TestBed.get(UtilsHelperService);
+  });
 
   it('should return fadeInOut trigger', (() => {
     expect(UtilsHelperService.fadeInOut().name).toBe('fadeInOut');

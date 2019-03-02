@@ -1,6 +1,5 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {SearchBarComponent} from './search-bar.component';
-import {DebugElement} from '@angular/core';
 import {TranslateModule} from '@ngx-translate/core';
 import {TestsModule} from '../../modules/tests.module';
 import {HeroService} from '../../../modules/heroes/shared/hero.service';
@@ -10,7 +9,6 @@ import {HomePageComponent} from '../../pages/home-page/home-page.component';
 import {Error404PageComponent} from '../../pages/error404-page/error404-page.component';
 import {of} from 'rxjs';
 import {configureTestSuite} from 'ng-bullet';
-import {RouterTestingModule} from '@angular/router/testing';
 import {HeroLoadingComponent} from '../hero-loading/hero-loading.component';
 import {LoadingPlaceholderComponent} from '../loading-placeholder/loading-placeholder.component';
 import {HeroCardComponent} from '../hero-card/hero-card.component';
@@ -18,7 +16,6 @@ import {HeroCardComponent} from '../hero-card/hero-card.component';
 describe('SearchBarComponent', () => {
   let component: SearchBarComponent;
   let fixture: ComponentFixture<SearchBarComponent>;
-  let debugElement: DebugElement;
   let heroService: HeroService;
   let router: Router;
   let navigateSpy;
@@ -27,8 +24,7 @@ describe('SearchBarComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         TestsModule,
-        TranslateModule.forRoot(),
-        RouterTestingModule.withRoutes([])
+        TranslateModule.forRoot()
       ],
       declarations: [
         HeroLoadingComponent,
@@ -46,7 +42,6 @@ describe('SearchBarComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SearchBarComponent);
-    debugElement = fixture.debugElement;
     component = fixture.debugElement.componentInstance;
     heroService = TestBed.get(HeroService);
     router = TestBed.get(Router);
@@ -78,7 +73,6 @@ describe('SearchBarComponent', () => {
 
   it('should navigate to hero detail', (() => {
     fixture.detectChanges();
-
     const heroId = 'BzTvl77YsRTtdihH0jeh';
     component.searchHero(new Hero({id: heroId}));
     expect(navigateSpy).toHaveBeenCalledWith(['heroes/' + heroId]);

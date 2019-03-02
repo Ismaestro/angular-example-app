@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {SpinnerComponent} from './spinner.component';
 import {configureTestSuite} from 'ng-bullet';
 
@@ -8,17 +8,19 @@ describe('SpinnerComponent', () => {
 
   configureTestSuite(() => {
     TestBed.configureTestingModule({
-      declarations: [SpinnerComponent]
+      declarations: [
+        SpinnerComponent
+      ]
     });
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SpinnerComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
+    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 });

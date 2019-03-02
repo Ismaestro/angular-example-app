@@ -1,20 +1,23 @@
 import {TestBed} from '@angular/core/testing';
 import {LoggerService} from './logger.service';
+import {configureTestSuite} from 'ng-bullet';
 
 describe('LoggerService', () => {
-  let loggerService;
-  beforeEach(() => {
+  let loggerService: LoggerService;
+
+  configureTestSuite(() => {
     TestBed.configureTestingModule({
       providers: [
         LoggerService
       ]
     });
+  });
 
+  beforeEach(() => {
     loggerService = TestBed.get(LoggerService);
   });
 
   it('should log without errors', (() => {
-    expect(loggerService).toBeDefined();
     expect(LoggerService.error('This is an error')).toBeUndefined();
     expect(LoggerService.log('This is a log')).toBeUndefined();
   }));

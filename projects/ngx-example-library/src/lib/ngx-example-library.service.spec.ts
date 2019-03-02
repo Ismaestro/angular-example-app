@@ -1,15 +1,23 @@
-import {inject, TestBed} from '@angular/core/testing';
-
+import {TestBed} from '@angular/core/testing';
 import {NgxExampleLibraryService} from './ngx-example-library.service';
+import {configureTestSuite} from 'ng-bullet';
 
 describe('NgxExampleLibraryService', () => {
-  beforeEach(() => {
+  let ngxExampleLibraryService: NgxExampleLibraryService;
+
+  configureTestSuite(() => {
     TestBed.configureTestingModule({
-      providers: [NgxExampleLibraryService]
+      providers: [
+        NgxExampleLibraryService
+      ]
     });
   });
 
-  it('should be created', inject([NgxExampleLibraryService], (service: NgxExampleLibraryService) => {
-    expect(service).toBeTruthy();
+  beforeEach(() => {
+    ngxExampleLibraryService = TestBed.get(NgxExampleLibraryService);
+  });
+
+  it('should be created', (() => {
+    expect(ngxExampleLibraryService).toBeTruthy();
   }));
 });

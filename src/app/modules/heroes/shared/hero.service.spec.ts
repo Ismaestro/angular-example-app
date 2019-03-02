@@ -1,29 +1,28 @@
-import {async, TestBed} from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 import {HeroService} from './hero.service';
-import {APP_BASE_HREF} from '@angular/common';
 import {TestsModule} from '../../../shared/modules/tests.module';
 import {TranslateModule} from '@ngx-translate/core';
-import {APP_CONFIG, AppConfig} from '../../../configs/app.config';
 import {Hero} from './hero.model';
 import {HttpErrorResponse} from '@angular/common/http';
+import {configureTestSuite} from 'ng-bullet';
 
 describe('HeroService', () => {
   const heroId = 'BzTvl77YsRTtdihH0jeh';
   let heroService: HeroService;
 
-  beforeEach(() => {
+  configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [
         TestsModule,
         TranslateModule.forRoot()
       ],
       providers: [
-        {provide: APP_CONFIG, useValue: AppConfig},
-        {provide: APP_BASE_HREF, useValue: '/'},
         HeroService
       ]
     });
+  });
 
+  beforeEach(() => {
     heroService = TestBed.get(HeroService);
   });
 
@@ -49,5 +48,4 @@ describe('HeroService', () => {
       expect(error).toEqual(jasmine.any(HttpErrorResponse));
     });
   }));
-
 });

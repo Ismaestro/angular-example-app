@@ -1,41 +1,42 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {AppComponent} from './app.component';
-import {APP_BASE_HREF} from '@angular/common';
 import {TestsModule} from './shared/modules/tests.module';
 import {TranslateModule} from '@ngx-translate/core';
-import {AppRoutingModule} from './app-routing.module';
-import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {HeroService} from './modules/heroes/shared/hero.service';
-import {CoreModule} from './core/core.module';
-import {APP_CONFIG, AppConfig} from './configs/app.config';
-import {SharedModule} from './shared/shared.module';
 import {Title} from '@angular/platform-browser';
 import {configureTestSuite} from 'ng-bullet';
+import {NavigationEnd, Router} from '@angular/router';
+import {HeaderComponent} from './shared/components/header/header.component';
+import {SearchBarComponent} from './shared/components/search-bar/search-bar.component';
+import {FooterComponent} from './shared/components/footer/footer.component';
+import {NgxExampleLibraryComponent} from '@ismaestro/ngx-example-library';
+import {APP_CONFIG, AppConfig} from './configs/app.config';
+import {of} from 'rxjs';
 
 describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
+  let router: Router;
   let titleService: Title;
 
   configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [
         TestsModule,
-        TranslateModule.forRoot(),
-        CoreModule,
-        SharedModule,
-        AppRoutingModule
+        TranslateModule.forRoot()
       ],
       declarations: [
+        HeaderComponent,
+        SearchBarComponent,
+        FooterComponent,
+        NgxExampleLibraryComponent,
         AppComponent
       ],
       providers: [
         {provide: APP_CONFIG, useValue: AppConfig},
-        {provide: APP_BASE_HREF, useValue: '/'},
         Title,
         HeroService
-      ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+      ]
     });
   });
 
@@ -43,14 +44,17 @@ describe('AppComponent', () => {
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.debugElement.componentInstance;
     titleService = TestBed.get(Title);
-    fixture.detectChanges();
+    router = TestBed.get(Router);
+    spyOn(router, 'events').and.returnValue(of(new NavigationEnd(1, '', '/')));
   });
 
   it('should create the app', (() => {
+    fixture.detectChanges();
     expect(component).toBeTruthy();
   }));
 
   it('should change title meta tag in root path', (() => {
+    fixture.detectChanges();
     expect(titleService.getTitle()).toBe('Angular Example App');
   }));
 

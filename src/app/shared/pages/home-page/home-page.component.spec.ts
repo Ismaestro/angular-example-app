@@ -1,6 +1,5 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {TranslateModule} from '@ngx-translate/core';
-import {DebugElement} from '@angular/core';
 import {TestsModule} from '../../modules/tests.module';
 import {HeroService} from '../../../modules/heroes/shared/hero.service';
 import {HomePageComponent} from './home-page.component';
@@ -14,7 +13,6 @@ import {LoadingPlaceholderComponent} from '../../components/loading-placeholder/
 describe('HomePage', () => {
   let component: HomePageComponent;
   let fixture: ComponentFixture<HomePageComponent>;
-  let debugElement: DebugElement;
   let heroService: HeroService;
 
   configureTestSuite(() => {
@@ -24,20 +22,16 @@ describe('HomePage', () => {
         TranslateModule.forRoot(),
       ],
       declarations: [
-        HomePageComponent,
         HeroCardComponent,
         HeroLoadingComponent,
-        LoadingPlaceholderComponent
-      ],
-      providers: [
-        HeroService
+        LoadingPlaceholderComponent,
+        HomePageComponent
       ]
     });
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HomePageComponent);
-    debugElement = fixture.debugElement;
     component = fixture.debugElement.componentInstance;
     heroService = TestBed.get(HeroService);
   });

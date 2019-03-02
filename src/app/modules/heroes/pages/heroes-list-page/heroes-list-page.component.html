@@ -62,7 +62,7 @@
   </div>
   <div *ngIf="heroes">
     <form [formGroup]="newHeroForm" #form="ngForm" ngxScrollToFirstInvalid
-          (ngSubmit)="createNewHero(newHeroForm.value)" autocomplete="on">
+          (ngSubmit)="createNewHero()" autocomplete="on">
       <mat-form-field class="input-container">
         <input matInput name="hname" type="text"
                placeholder="{{'nameWithPalindrome' | translate}}"

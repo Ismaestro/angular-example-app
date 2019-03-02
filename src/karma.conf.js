@@ -14,6 +14,7 @@ module.exports = function (config) {
       require('karma-scss-preprocessor')
     ],
     client: {
+      captureConsole: false,
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     files: [

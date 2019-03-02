@@ -47,9 +47,9 @@ export class HeroesListPageComponent implements OnInit {
     });
   }
 
-  createNewHero(newHero: any) {
+  async createNewHero() {
     if (this.newHeroForm.valid) {
-      this.heroService.createHero(new Hero(newHero)).then(() => {
+      this.heroService.createHero(new Hero(this.newHeroForm.value)).then(() => {
         this.myNgForm.resetForm();
       }, () => {
         this.error = 'errorHasOcurred';

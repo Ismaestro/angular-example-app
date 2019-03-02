@@ -1,12 +1,12 @@
-import {async, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {FooterComponent} from './footer.component';
-import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {TranslateModule} from '@ngx-translate/core';
 import {configureTestSuite} from 'ng-bullet';
+import {NgxExampleLibraryComponent} from '@ismaestro/ngx-example-library';
 
 describe('FooterComponent', () => {
-  let fixture;
-  let component;
+  let component: FooterComponent;
+  let fixture: ComponentFixture<FooterComponent>;
 
   configureTestSuite(() => {
     TestBed.configureTestingModule({
@@ -14,13 +14,14 @@ describe('FooterComponent', () => {
         TranslateModule.forRoot()
       ],
       declarations: [
+        NgxExampleLibraryComponent,
         FooterComponent
-      ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+      ]
     });
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(FooterComponent);
-    fixture.detectChanges();
     component = fixture.debugElement.componentInstance;
   });
 
