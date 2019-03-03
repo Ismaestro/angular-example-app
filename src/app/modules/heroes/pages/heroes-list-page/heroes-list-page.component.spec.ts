@@ -9,11 +9,17 @@ import {HeroService} from '../../shared/hero.service';
 import {Hero} from '../../shared/hero.model';
 import {of} from 'rxjs';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {BrowserDynamicTestingModule} from '@angular/platform-browser-dynamic/testing';
+import {HeroRemoveComponent} from '../../components/hero-remove/hero-remove.component';
+import {Router} from '@angular/router';
+import {AppConfig} from '../../../../configs/app.config';
 
 describe('HeroesListPageComponent', () => {
   let component: HeroesListPageComponent;
   let fixture: ComponentFixture<HeroesListPageComponent>;
   let heroService: HeroService;
+  let router: Router;
+  let navigateSpy;
 
   configureTestSuite(() => {
     TestBed.configureTestingModule({
@@ -22,10 +28,17 @@ describe('HeroesListPageComponent', () => {
         TranslateModule.forRoot()
       ],
       declarations: [
+        HeroRemoveComponent,
         HeroLoadingComponent,
         LoadingPlaceholderComponent,
         HeroesListPageComponent
       ]
+    }).overrideModule(BrowserDynamicTestingModule, {
+      set: {
+        entryComponents: [
+          HeroRemoveComponent
+        ],
+      }
     });
   });
 
@@ -33,6 +46,8 @@ describe('HeroesListPageComponent', () => {
     fixture = TestBed.createComponent(HeroesListPageComponent);
     component = fixture.debugElement.componentInstance;
     heroService = TestBed.get(HeroService);
+    router = TestBed.get(Router);
+    navigateSpy = spyOn(router, 'navigate');
     spyOn(heroService, 'getHeroes').and.returnValue(of([new Hero({is: 1, name: 'hero test'})]));
   });
 
@@ -70,5 +85,26 @@ describe('HeroesListPageComponent', () => {
     component.error = '';
     await component.createNewHero();
     expect(component.error).toBe('errorHasOcurred');
+  }));
+
+  it('should like a hero', (() => {
+    spyOn(HeroService, 'checkIfUserCanVote').and.returnValue(true);
+    fixture.detectChanges();
+    const hero = new Hero({likes: 0});
+    component.like(hero);
+    expect(hero.likes).toBe(1);
+  }));
+
+  it('should delete a hero', (() => {
+    fixture.detectChanges();
+    const hero = new Hero({id: 9999});
+    component.deleteHero(hero);
+  }));
+
+  it('should seeHeroDetails', (() => {
+    fixture.detectChanges();
+    const hero = new Hero({id: 'test', default: true});
+    component.seeHeroDetails(hero);
+    expect(navigateSpy).toHaveBeenCalledWith([AppConfig.routes.heroes + '/test']);
   }));
 });

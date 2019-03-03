@@ -8,7 +8,7 @@
     "build": "ng build",
     "build:prod": "ng build --prod",
     "build:library": "ng build ngx-example-library",
-    "test": "ng test --code-coverage --watch=false",
+    "test": "ng test",
     "test:app:watch": "ng test angular-example-app --code-coverage --watch=true",
     "test:library:watch": "ng test ngx-example-library --code-coverage --watch=true",
     "e2e": "ng e2e",
