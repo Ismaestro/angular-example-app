@@ -1,6 +1,5 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {TestsModule} from '../../../../shared/modules/tests.module';
-import {TranslateModule} from '@ngx-translate/core';
 import {HeroesListPageComponent} from './heroes-list-page.component';
 import {configureTestSuite} from 'ng-bullet';
 import {HeroLoadingComponent} from '../../../../shared/components/hero-loading/hero-loading.component';
@@ -24,8 +23,7 @@ describe('HeroesListPageComponent', () => {
   configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [
-        TestsModule,
-        TranslateModule.forRoot()
+        TestsModule
       ],
       declarations: [
         HeroRemoveComponent,
@@ -82,13 +80,13 @@ describe('HeroesListPageComponent', () => {
       'alterEgo': new FormControl('haha', [Validators.required, Validators.maxLength(30)])
     });
 
-    component.error = '';
+    component.error = false;
     await component.createNewHero();
-    expect(component.error).toBe('errorHasOcurred');
+    expect(component.error).toBe(true);
   }));
 
   it('should like a hero', (() => {
-    spyOn(HeroService, 'checkIfUserCanVote').and.returnValue(true);
+    spyOn(heroService, 'checkIfUserCanVote').and.returnValue(true);
     fixture.detectChanges();
     const hero = new Hero({likes: 0});
     component.like(hero);

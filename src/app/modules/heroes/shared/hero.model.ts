@@ -21,7 +21,6 @@ export class Hero implements Deserializable {
 
   like() {
     this.likes += 1;
-    localStorage.setItem('votes', '' + (Number(localStorage.getItem('votes')) + 1));
   }
 
   deserialize(input: any) {

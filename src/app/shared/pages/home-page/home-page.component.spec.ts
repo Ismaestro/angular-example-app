@@ -1,5 +1,4 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {TranslateModule} from '@ngx-translate/core';
 import {TestsModule} from '../../modules/tests.module';
 import {HeroService} from '../../../modules/heroes/shared/hero.service';
 import {HomePageComponent} from './home-page.component';
@@ -19,7 +18,6 @@ describe('HomePage', () => {
     TestBed.configureTestingModule({
       imports: [
         TestsModule,
-        TranslateModule.forRoot(),
       ],
       declarations: [
         HeroCardComponent,

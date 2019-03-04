@@ -3,7 +3,8 @@
   <router-outlet *ngIf="isOnline;else isOffline"></router-outlet>
   <ng-template #isOffline>
     <div>
-      <p class="offline-error">{{'offlineMessage' | translate}}&nbsp;&nbsp;&nbsp;<span>:&nbsp;)</span></p>
+      <p class="offline-error" i18n="@@offlineMessage">Without connection we can not load
+        anything!&nbsp;&nbsp;&nbsp;</p><span>:&nbsp;)</span>
     </div>
   </ng-template>
 </div>

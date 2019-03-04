@@ -6,9 +6,9 @@
   <h3 align="center">Angular Example App</h3>
 
   <p align="center">
-    Example app with Angular 7 + Angular CLI + Angular Material + Firebase
+    Example app with Angular 7 + Angular CLI + Angular Universal + Firebase
     <br>
-    Base project made with much  :heart: . Contains CRUD, patterns, generated library, and much more!
+    Base project made with much :heart:. Contains CRUD, patterns, generated library, and much more!
     <br>
     <br>
     <a href="https://www.angularexampleapp.com/">LIVE DEMO</a>
@@ -76,12 +76,11 @@
 * Search bar, to look for heroes
 * Custom loading page
 * Modal and toasts (snakbar)!
-* Internationalization with ng-translate and ngx-translate-extract. Also use cache busting for translation files with [webpack translate loader](https://github.com/ngx-translate/http-loader#angular-cliwebpack-translateloader-example)
-* Automatic translate script with Google Translate oO
+* Angular Universal deployed into Firebase Hosting
+* Internationalization with the official i18n. Separated builds for english and spanish.
 * Lazy loading modules
 * Service Workers
 * Dynamic Imports
-* Storage module (ngx-store)
 * More logical structure directory (from [here](https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7))
 * Basic example library
 * Scroll restoration and anchor examples
@@ -114,25 +113,14 @@ npm run build:library      | Build the library
 npm run lint               | Run the linter (tslint)
 npm run ci                 | Execute linter and tests
 npm run extract            | Generate all json files with the translations in assets folder
-npm run translate          | Translate all keys remaining using Google Translate and using English language as the origin
 npm run deploy             | Build the app and deploy it to firebase hosting
 npm run bundle-report      | Build and run webpack-bundle-analyzer over stats json
 npm run release            | Create a new release using standard-version
-npm run docker             | Build the docker image and run the container
 npm run update             | Update the project dependencies with ng update
 
 ### Firebase
 
 This repo is using Firebase. We use Cloud Firestore and Cloud Storage to handle CRUD operations over the heroes and to store their images.
-
-
-### Docker
-
-You can build the image and run the container with Docker. The configuration is in the nginx folder if you want to change it.
-
-`docker build -t angularexampleapp .`
-
-`docker run -d -p 4200:80 angularexampleapp`
 
 ### Travis CI
 

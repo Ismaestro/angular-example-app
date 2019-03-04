@@ -1,7 +1,6 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {AppComponent} from './app.component';
 import {TestsModule} from './shared/modules/tests.module';
-import {TranslateModule} from '@ngx-translate/core';
 import {HeroService} from './modules/heroes/shared/hero.service';
 import {Title} from '@angular/platform-browser';
 import {configureTestSuite} from 'ng-bullet';
@@ -22,8 +21,7 @@ describe('AppComponent', () => {
   configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [
-        TestsModule,
-        TranslateModule.forRoot()
+        TestsModule
       ],
       declarations: [
         HeaderComponent,

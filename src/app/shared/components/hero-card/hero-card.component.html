@@ -7,7 +7,7 @@
     <div class="flex-spacer"></div>
     <div class="hero-actions">
       {{hero.likes}}
-      <mat-icon matTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}"
+      <mat-icon matTooltip="Can vote :)" i18n-matTooltip="{{(canVote ? '@@canVote' : '@@cannotVote')}}"
                 [matTooltipPosition]="'above'"
                 class="icon__like--red" (click)="like(hero)">favorite
       </mat-icon>

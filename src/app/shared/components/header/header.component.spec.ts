@@ -1,5 +1,4 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {HeaderComponent} from './header.component';
 import {TestsModule} from '../../modules/tests.module';
 import {APP_CONFIG, AppConfig} from '../../../configs/app.config';
@@ -11,13 +10,11 @@ describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
   let progressBarService: ProgressBarService;
-  let translateService: TranslateService;
 
   configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [
-        TestsModule,
-        TranslateModule.forRoot()
+        TestsModule
       ],
       declarations: [
         SearchBarComponent,
@@ -34,7 +31,6 @@ describe('HeaderComponent', () => {
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.debugElement.componentInstance;
     progressBarService = TestBed.get(ProgressBarService);
-    translateService = TestBed.get(TranslateService);
   });
 
   it('should create header component', (() => {
@@ -47,12 +43,5 @@ describe('HeaderComponent', () => {
     expect(component.progressBarMode).toBeUndefined();
     progressBarService.updateProgressBar$.emit('query');
     expect(component.progressBarMode).toBe('query');
-  }));
-
-  it('should change language to spanish', (() => {
-    fixture.detectChanges();
-    expect(translateService.currentLang).toBeUndefined();
-    component.changeLanguage('es');
-    expect(translateService.currentLang).toBe('es');
   }));
 });

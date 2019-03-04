@@ -1,17 +1,19 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
+dist
+dist-ssr
 /tmp
 /out-tsc
-/public
-/.firebase
-/.firebaserc
+public
+.firebaserc
 
 # dependencies
-/node_modules
+node_modules
+functions/node_modules
 
 # IDEs and editors
+/.firebase
 /.idea
 .project
 .classpath
@@ -33,10 +35,18 @@
 /coverage
 /libpeerconnection.log
 npm-debug.log
-yarn-error.log
 testem.log
 /typings
+yarn-error.log
+
+# e2e
+/e2e/*.js
+!/e2e/protractor.conf.js
+/e2e/*.map
 
 # System Files
 .DS_Store
 Thumbs.db
+
+# log Files
+*.log

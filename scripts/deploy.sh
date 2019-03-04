@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-npm run build:prod &&
+npm run ci &&
 rm -Rf public &&
 mkdir public &&
-cp -a dist/. public/ &&
+cp -a functions/dist/browser/. public/ &&
+mv public/index.html public/index2.html &&
 firebase deploy
