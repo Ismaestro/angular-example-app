@@ -68,7 +68,7 @@
     "@angular/material": "7.3.3",
     "@angular/service-worker": "7.2.7",
     "@ismaestro/ngx-example-library": "1.0.0",
-    "@ngx-i18nsupport/ngx-i18nsupport": "^1.1.2",
+    "@ngx-i18nsupport/ngx-i18nsupport": "1.1.2",
     "@types/html2canvas": "0.0.35",
     "@types/jasmine": "3.3.9",
     "@types/jasminewd2": "2.0.6",
