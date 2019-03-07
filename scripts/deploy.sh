@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-npm run ci &&
 rm -Rf public &&
 mkdir public &&
 cp -a functions/dist/browser/. public/ &&

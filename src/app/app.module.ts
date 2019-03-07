@@ -9,9 +9,11 @@ import {SharedModule} from './shared/shared.module';
 import {NgxExampleLibraryModule} from '@ismaestro/ngx-example-library';
 import {FirebaseModule} from './shared/modules/firebase.module';
 import {SentryErrorHandler} from './core/sentry.errorhandler';
+import {BrowserModule} from '@angular/platform-browser';
 
 @NgModule({
   imports: [
+    BrowserModule.withServerTransition({appId: 'angularexampleapp'}),
     FirebaseModule,
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
     NgxExampleLibraryModule.forRoot({

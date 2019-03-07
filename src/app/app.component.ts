@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {Meta, Title} from '@angular/platform-browser';
 import {NavigationEnd, Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
 import {AppConfig} from './configs/app.config';
 import {UtilsHelperService} from './core/services/utils-helper.service';
+import {isPlatformBrowser} from '@angular/common';
 
 declare const Modernizr;
 
@@ -19,8 +20,13 @@ export class AppComponent implements OnInit {
   constructor(private title: Title,
               private meta: Meta,
               private snackBar: MatSnackBar,
-              private router: Router) {
-    this.isOnline = navigator.onLine;
+              private router: Router,
+              @Inject(PLATFORM_ID) private platformId: Object) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.isOnline = navigator.onLine;
+    } else {
+      this.isOnline = true;
+    }
   }
 
   ngOnInit() {
@@ -53,10 +59,12 @@ export class AppComponent implements OnInit {
   }
 
   checkBrowser() {
-    if (UtilsHelperService.isBrowserValid()) {
-      this.checkBrowserFeatures();
-    } else {
-      this.snackBar.open('changeBrowser', 'OK');
+    if (isPlatformBrowser(this.platformId)) {
+      if (UtilsHelperService.isBrowserValid()) {
+        this.checkBrowserFeatures();
+      } else {
+        this.snackBar.open('changeBrowser', 'OK');
+      }
     }
   }
 
