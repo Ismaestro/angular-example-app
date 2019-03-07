@@ -30,9 +30,7 @@
         </p>
         <div class="hero-actions">
           {{hero.likes | number:'.0'}}
-          <mat-icon matTooltip="Can vote :)" i18n-matTooltip="{{(canVote ? '@@canVote' : '@@cannotVote')}}"
-                    [matTooltipPosition]="'above'"
-                    class="icon__like--red" (click)="like(hero)">
+          <mat-icon class="icon__like--red" (click)="like(hero)">
             favorite
           </mat-icon>
           <mat-icon class="icon__remove" *ngIf="!hero.default"

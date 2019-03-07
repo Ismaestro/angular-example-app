@@ -12,6 +12,10 @@
         "destination": "/index2.html"
       },
       {
+        "source": "**/es/**",
+        "destination": "/es/index.html"
+      },
+      {
         "source": "**",
         "function": "ssr"
       }

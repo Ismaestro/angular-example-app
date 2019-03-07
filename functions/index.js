@@ -32,9 +32,6 @@ app.engine('html', expressengine.ngExpressEngine({
 app.set('view engine', 'html');
 app.set('views', path.join(DIST_FOLDER, 'browser'));
 
-// Example Express Rest API endpoints
-// app.get('/api/**', (req, res) => { });
-
 // Server static files from /browser
 app.get('.', express.static(path.join(DIST_FOLDER, 'browser'), {
   maxAge: '1y'
@@ -47,7 +44,7 @@ app.get('*', (req, res) => {
 
 // Start up the Node server
 app.listen(PORT, () => {
-  console.log(`Node Express server listening on http://localhost:${PORT}`);
+  console.log(`Node Express server listening on port ${PORT}`);
 });
 exports.ssr = functions.https.onRequest(app);
 

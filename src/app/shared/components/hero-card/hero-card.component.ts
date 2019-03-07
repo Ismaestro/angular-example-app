@@ -4,6 +4,7 @@ import {HeroService} from '../../../modules/heroes/shared/hero.service';
 import {Hero} from '../../../modules/heroes/shared/hero.model';
 import {Router} from '@angular/router';
 import {isPlatformBrowser} from '@angular/common';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-hero-card',
@@ -18,6 +19,7 @@ export class HeroCardComponent implements OnInit {
 
   constructor(private heroService: HeroService,
               private router: Router,
+              private snackBar: MatSnackBar,
               @Inject(PLATFORM_ID) private platformId: Object) {
     this.canVote = this.heroService.checkIfUserCanVote();
   }
@@ -32,6 +34,9 @@ export class HeroCardComponent implements OnInit {
         localStorage.setItem('votes', '' + (Number(localStorage.getItem('votes')) + 1));
       }
       return this.heroService.updateHero(hero);
+    } else {
+      console.log(this.snackBar);
+      this.snackBar.open('updateBrowser', 'OK');
     }
   }
 

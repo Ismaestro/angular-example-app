@@ -26,18 +26,6 @@
           <context context-type="linenumber">5</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="canVote' : '@@cannotVote')}}" datatype="html">
-        <source>Can vote :)</source><target state="final">Can vote :)</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/shared/components/hero-card/hero-card.component.html</context>
-          <context context-type="linenumber">10</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context>
-          <context context-type="linenumber">33</context>
-        </context-group>
-        <note priority="1" from="description">{{(canVote ? '</note>
-      </trans-unit>
       <trans-unit id="offlineMessage" datatype="html">
         <source>Without connection we can not load
         anything!   </source><target state="final">Without connection we can not load

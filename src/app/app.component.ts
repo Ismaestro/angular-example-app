@@ -1,10 +1,10 @@
-import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
+import {Component, Inject, LOCALE_ID, OnInit, PLATFORM_ID, Renderer2} from '@angular/core';
 import {Meta, Title} from '@angular/platform-browser';
 import {NavigationEnd, Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
 import {AppConfig} from './configs/app.config';
 import {UtilsHelperService} from './core/services/utils-helper.service';
-import {isPlatformBrowser} from '@angular/common';
+import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 
 declare const Modernizr;
 
@@ -21,9 +21,11 @@ export class AppComponent implements OnInit {
               private meta: Meta,
               private snackBar: MatSnackBar,
               private router: Router,
+              @Inject(DOCUMENT) doc: Document, @Inject(LOCALE_ID) locale: string, renderer: Renderer2,
               @Inject(PLATFORM_ID) private platformId: Object) {
     if (isPlatformBrowser(this.platformId)) {
       this.isOnline = navigator.onLine;
+      renderer.setAttribute(doc.documentElement, 'lang', locale);
     } else {
       this.isOnline = true;
     }

@@ -9,6 +9,8 @@ const routes: Routes = [
   {path: AppConfig.routes.heroes, loadChildren: './modules/heroes/heroes.module#HeroesModule'},
   {path: AppConfig.routes.error404, component: Error404PageComponent},
 
+  {path: 'en', redirectTo: ''}, // because english language is the default one
+
   // otherwise redirect to 404
   {path: '**', redirectTo: '/' + AppConfig.routes.error404}
 ];
