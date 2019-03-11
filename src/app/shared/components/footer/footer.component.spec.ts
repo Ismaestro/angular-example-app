@@ -1,6 +1,5 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {FooterComponent} from './footer.component';
-import {TranslateModule} from '@ngx-translate/core';
 import {configureTestSuite} from 'ng-bullet';
 import {NgxExampleLibraryComponent} from '@ismaestro/ngx-example-library';
 
@@ -10,9 +9,6 @@ describe('FooterComponent', () => {
 
   configureTestSuite(() => {
     TestBed.configureTestingModule({
-      imports: [
-        TranslateModule.forRoot()
-      ],
       declarations: [
         NgxExampleLibraryComponent,
         FooterComponent

@@ -1,6 +1,5 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {TestsModule} from '../../../../shared/modules/tests.module';
-import {TranslateModule} from '@ngx-translate/core';
 import {HeroService} from '../../shared/hero.service';
 import {ActivatedRoute, convertToParamMap} from '@angular/router';
 import {HeroDetailPageComponent} from './hero-detail-page.component';
@@ -17,8 +16,7 @@ describe('HeroDetailPage', () => {
   configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [
-        TestsModule,
-        TranslateModule.forRoot()
+        TestsModule
       ],
       declarations: [
         HeroLoadingComponent,

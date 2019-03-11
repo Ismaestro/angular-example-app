@@ -1,13 +1,13 @@
 import {Observable, of} from 'rxjs';
-import {Injectable} from '@angular/core';
+import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {Hero} from './hero.model';
 import {catchError, map, tap} from 'rxjs/operators';
 import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
-import {TranslateService} from '@ngx-translate/core';
-import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
 import {LoggerService} from '../../../core/services/logger.service';
 import {AppConfig} from '../../../configs/app.config';
 import {AngularFirestore, AngularFirestoreCollection, DocumentReference} from '@angular/fire/firestore';
+import {isPlatformBrowser} from '@angular/common';
+import {I18n} from '@ngx-translate/i18n-polyfill';
 
 @Injectable({
   providedIn: 'root'
@@ -15,13 +15,10 @@ import {AngularFirestore, AngularFirestoreCollection, DocumentReference} from '@
 export class HeroService {
   private heroesCollection: AngularFirestoreCollection<Hero>;
 
-  static checkIfUserCanVote(): boolean {
-    return Number(localStorage.getItem('votes')) < AppConfig.votesLimit;
-  }
-
   constructor(private afs: AngularFirestore,
-              private translateService: TranslateService,
-              private snackBar: MatSnackBar) {
+              private snackBar: MatSnackBar,
+              private i18n: I18n,
+              @Inject(PLATFORM_ID) private platformId: Object) {
     this.heroesCollection = this.afs.collection<Hero>(AppConfig.routes.heroes, (hero) => {
       return hero.orderBy('default', 'desc').orderBy('likes', 'desc');
     });
@@ -29,11 +26,7 @@ export class HeroService {
 
   private static handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-
-      // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
-
-      // TODO: better job of transforming error for user consumption
       LoggerService.log(`${operation} failed: ${error.message}`);
 
       if (error.status >= 500) {
@@ -42,6 +35,13 @@ export class HeroService {
 
       return of(result as T);
     };
+  }
+
+  checkIfUserCanVote(): boolean {
+    if (isPlatformBrowser(this.platformId)) {
+      return Number(localStorage.getItem('votes')) < AppConfig.votesLimit;
+    }
+    return false;
   }
 
   getHeroes(): Observable<Hero[]> {
@@ -69,20 +69,13 @@ export class HeroService {
   }
 
   createHero(hero: Hero): Promise<DocumentReference> {
-    return this.heroesCollection.add(JSON.parse(JSON.stringify(hero))).then((document: DocumentReference) => {
-      LoggerService.log(`added hero w/ id=${document.id}`);
-      this.showSnackBar('heroCreated');
-      return document;
-    }, (error) => {
-      HeroService.handleError<any>('createHero', error);
-      return error;
-    });
+    return this.heroesCollection.add(JSON.parse(JSON.stringify(hero)));
   }
 
   updateHero(hero: Hero): Promise<void> {
     return this.afs.doc(`${AppConfig.routes.heroes}/${hero.id}`).update(JSON.parse(JSON.stringify(hero))).then(() => {
       LoggerService.log(`updated hero w/ id=${hero.id}`);
-      this.showSnackBar('saved');
+      this.showSnackBar(this.i18n({value: 'Saved', id: '@@saved'}));
     });
   }
 
@@ -91,11 +84,8 @@ export class HeroService {
   }
 
   showSnackBar(name): void {
-    this.translateService.get([String(_('heroCreated')), String(_('saved')),
-      String(_('heroLikeMaximum')), String(_('heroRemoved'))], {'value': AppConfig.votesLimit}).subscribe((texts) => {
-      const config: any = new MatSnackBarConfig();
-      config.duration = AppConfig.snackBarDuration;
-      this.snackBar.open(texts[name], 'OK', config);
-    });
+    const config: any = new MatSnackBarConfig();
+    config.duration = AppConfig.snackBarDuration;
+    this.snackBar.open(name, 'OK', config);
   }
 }

@@ -1,14 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
+import {Component, Inject, LOCALE_ID, OnInit, PLATFORM_ID, Renderer2} from '@angular/core';
 import {Meta, Title} from '@angular/platform-browser';
 import {NavigationEnd, Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
-import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
 import {AppConfig} from './configs/app.config';
-import {LocalStorage} from 'ngx-store';
 import {UtilsHelperService} from './core/services/utils-helper.service';
+import {DOCUMENT, isPlatformBrowser} from '@angular/common';
+import {I18n} from '@ngx-translate/i18n-polyfill';
 
-declare const require;
 declare const Modernizr;
 
 @Component({
@@ -18,25 +16,25 @@ declare const Modernizr;
 
 export class AppComponent implements OnInit {
 
-  @LocalStorage() language = 'en';
   isOnline: boolean;
 
-  constructor(private translateService: TranslateService,
-              private title: Title,
+  constructor(private title: Title,
               private meta: Meta,
               private snackBar: MatSnackBar,
-              private router: Router) {
-    this.isOnline = navigator.onLine;
+              private router: Router,
+              private i18n: I18n,
+              @Inject(DOCUMENT) doc: Document, @Inject(LOCALE_ID) locale: string, renderer: Renderer2,
+              @Inject(PLATFORM_ID) private platformId: Object) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.isOnline = navigator.onLine;
+      renderer.setAttribute(doc.documentElement, 'lang', locale);
+    } else {
+      this.isOnline = true;
+    }
   }
 
   ngOnInit() {
-    this.translateService.setDefaultLang('en');
-    this.translateService.use(this.language);
-
-    // With this we load the default language in the main bundle (cache busting)
-    this.translateService.setTranslation('en', require('../assets/i18n/en.json'));
-
-    this.title.setTitle('Angular Example App');
+    this.title.setTitle(this.i18n({value: 'App title', id: '@@appTitle'}));
 
     this.onEvents();
     this.checkBrowser();
@@ -49,14 +47,14 @@ export class AppComponent implements OnInit {
           case '/':
             this.meta.updateTag({
               name: 'description',
-              content: 'Angular Example app with Angular CLI, Angular Material and more'
+              content: this.i18n({value: 'Home meta description', id: '@@homeMetaDescription'})
             });
             break;
           case '/' + AppConfig.routes.heroes:
             this.title.setTitle('Heroes list');
             this.meta.updateTag({
               name: 'description',
-              content: 'List of super-heroes'
+              content: this.i18n({value: 'Heroes meta description', id: '@@heroesMetaDescription'})
             });
             break;
         }
@@ -65,12 +63,12 @@ export class AppComponent implements OnInit {
   }
 
   checkBrowser() {
-    if (UtilsHelperService.isBrowserValid()) {
-      this.checkBrowserFeatures();
-    } else {
-      this.translateService.get([String(_('changeBrowser'))]).subscribe((texts) => {
-        this.snackBar.open(texts['changeBrowser'], 'OK');
-      });
+    if (isPlatformBrowser(this.platformId)) {
+      if (UtilsHelperService.isBrowserValid()) {
+        this.checkBrowserFeatures();
+      } else {
+        this.snackBar.open(this.i18n({value: 'Change your browser', id: '@@changeBrowser'}), 'OK');
+      }
     }
   }
 
@@ -85,9 +83,7 @@ export class AppComponent implements OnInit {
     }
 
     if (!supported) {
-      this.translateService.get([String(_('updateBrowser'))]).subscribe((texts) => {
-        this.snackBar.open(texts['updateBrowser'], 'OK');
-      });
+      this.snackBar.open(this.i18n({value: 'Update your browser', id: '@@updateBrowser'}), 'OK');
     }
 
     return supported;

@@ -1,7 +1,6 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {HeroLoadingComponent} from './hero-loading.component';
 import {TestsModule} from '../../modules/tests.module';
-import {TranslateModule} from '@ngx-translate/core';
 import {configureTestSuite} from 'ng-bullet';
 import {LoadingPlaceholderComponent} from '../loading-placeholder/loading-placeholder.component';
 
@@ -12,8 +11,7 @@ describe('HeroLoadingComponent', () => {
   configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [
-        TestsModule,
-        TranslateModule.forRoot()
+        TestsModule
       ],
       declarations: [
         LoadingPlaceholderComponent,

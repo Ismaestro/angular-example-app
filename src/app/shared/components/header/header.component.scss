@@ -31,6 +31,10 @@
         height: calculateRem(5px);
       }
 
+      a {
+        text-transform: uppercase;
+      }
+
       .icon__image {
         width: calculateRem(20px);
         height: calculateRem(20px);

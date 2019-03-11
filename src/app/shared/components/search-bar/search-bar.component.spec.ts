@@ -1,6 +1,5 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {SearchBarComponent} from './search-bar.component';
-import {TranslateModule} from '@ngx-translate/core';
 import {TestsModule} from '../../modules/tests.module';
 import {HeroService} from '../../../modules/heroes/shared/hero.service';
 import {Router} from '@angular/router';
@@ -23,8 +22,7 @@ describe('SearchBarComponent', () => {
   configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [
-        TestsModule,
-        TranslateModule.forRoot()
+        TestsModule
       ],
       declarations: [
         HeroLoadingComponent,

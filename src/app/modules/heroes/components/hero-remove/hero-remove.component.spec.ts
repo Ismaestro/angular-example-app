@@ -2,7 +2,6 @@ import {HeroRemoveComponent} from './hero-remove.component';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {configureTestSuite} from 'ng-bullet';
 import {TestsModule} from '../../../../shared/modules/tests.module';
-import {TranslateModule} from '@ngx-translate/core';
 
 describe('HeroRemoveComponent', () => {
   let component: HeroRemoveComponent;
@@ -11,8 +10,7 @@ describe('HeroRemoveComponent', () => {
   configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [
-        TestsModule,
-        TranslateModule.forRoot()
+        TestsModule
       ],
       declarations: [
         HeroRemoveComponent

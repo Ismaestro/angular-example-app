@@ -3,7 +3,6 @@ import {ProgressBarService} from './progress-bar.service';
 import {HeroService} from '../../modules/heroes/shared/hero.service';
 import {configureTestSuite} from 'ng-bullet';
 import {TestsModule} from '../../shared/modules/tests.module';
-import {TranslateModule} from '@ngx-translate/core';
 
 describe('ProgressBarService', () => {
   let progressBarService: ProgressBarService;
@@ -12,8 +11,7 @@ describe('ProgressBarService', () => {
   configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [
-        TestsModule,
-        TranslateModule.forRoot()
+        TestsModule
       ],
       providers: [
         ProgressBarService,

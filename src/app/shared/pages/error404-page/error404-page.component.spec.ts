@@ -1,5 +1,4 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {TranslateModule} from '@ngx-translate/core';
 import {TestsModule} from '../../modules/tests.module';
 import {ProgressBarService} from '../../../core/services/progress-bar.service';
 import {Error404PageComponent} from './error404-page.component';
@@ -13,8 +12,7 @@ describe('Error404Page', () => {
   configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [
-        TestsModule,
-        TranslateModule.forRoot()
+        TestsModule
       ],
       declarations: [
         Error404PageComponent

@@ -4,18 +4,17 @@ import {HeroService} from '../../../modules/heroes/shared/hero.service';
 import {AppConfig} from '../../../configs/app.config';
 import {TestsModule} from '../../modules/tests.module';
 import {Hero} from '../../../modules/heroes/shared/hero.model';
-import {TranslateModule} from '@ngx-translate/core';
 import {configureTestSuite} from 'ng-bullet';
 
 describe('HeroCardComponent', () => {
   let component: HeroCardComponent;
   let fixture: ComponentFixture<HeroCardComponent>;
+  let heroService: HeroService;
 
   configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [
-        TestsModule,
-        TranslateModule.forRoot()
+        TestsModule
       ],
       declarations: [
         HeroCardComponent
@@ -26,6 +25,7 @@ describe('HeroCardComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(HeroCardComponent);
     component = fixture.componentInstance;
+    heroService = TestBed.get(HeroService);
   });
 
   it('should create', () => {
@@ -44,6 +44,6 @@ describe('HeroCardComponent', () => {
   it('should not like a hero', () => {
     fixture.detectChanges();
     localStorage.setItem('votes', String(AppConfig.votesLimit));
-    expect(HeroService.checkIfUserCanVote()).toBe(false);
+    expect(heroService.checkIfUserCanVote()).toBe(false);
   });
 });

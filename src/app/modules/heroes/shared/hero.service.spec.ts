@@ -1,7 +1,6 @@
 import {TestBed} from '@angular/core/testing';
 import {HeroService} from './hero.service';
 import {TestsModule} from '../../../shared/modules/tests.module';
-import {TranslateModule} from '@ngx-translate/core';
 import {Hero} from './hero.model';
 import {HttpErrorResponse} from '@angular/common/http';
 import {configureTestSuite} from 'ng-bullet';
@@ -13,8 +12,7 @@ describe('HeroService', () => {
   configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [
-        TestsModule,
-        TranslateModule.forRoot()
+        TestsModule
       ],
       providers: [
         HeroService

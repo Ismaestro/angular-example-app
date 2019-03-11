@@ -1,7 +1,7 @@
 <div fxLayout="row">
   <div fxFlex="10" fxFlex.gt-sm="20"></div>
   <div fxFlex="90" fxFlex.gt-sm="80">
-    <h1 class="header__title">{{'topHeroes' | translate}}</h1>
+    <h1 class="header__title" i18n="@@topHeroes">Heroes most liked</h1>
     <app-hero-loading *ngIf="!heroes"></app-hero-loading>
     <div id="heroes-list" *ngIf="heroes" [@fadeInOut]>
       <ng-container *ngFor="let hero of heroes">

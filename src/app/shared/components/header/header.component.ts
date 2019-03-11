@@ -1,9 +1,8 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
-import {_} from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
-import {APP_CONFIG, AppConfig} from '../../../configs/app.config';
+import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
+import {APP_CONFIG} from '../../../configs/app.config';
 import {ProgressBarService} from '../../../core/services/progress-bar.service';
-import {LocalStorage} from 'ngx-store';
+import {isPlatformBrowser} from '@angular/common';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -13,36 +12,39 @@ import {LocalStorage} from 'ngx-store';
 
 export class HeaderComponent implements OnInit {
 
-  @LocalStorage() language = 'en';
-
-  menuItems: any[];
+  selectedLanguage: string;
   progressBarMode: string;
-  currentLang: string;
+  currentUrl: string;
+  languages: any[];
 
   constructor(@Inject(APP_CONFIG) public appConfig: any,
               private progressBarService: ProgressBarService,
-              private translateService: TranslateService) {
+              private router: Router,
+              private activatedRoute: ActivatedRoute,
+              @Inject(PLATFORM_ID) private platformId: Object) {
+    this.languages = [{name: 'en', label: 'English'}, {name: 'es', label: 'Español'}];
   }
 
   ngOnInit() {
-    this.currentLang = this.translateService.currentLang;
-    this.loadMenus();
+    if (isPlatformBrowser(this.platformId)) {
+      this.selectedLanguage = localStorage.getItem('language') || 'en';
+    }
+
     this.progressBarService.updateProgressBar$.subscribe((mode: string) => {
       this.progressBarMode = mode;
+    });
+
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd ) {
+        this.currentUrl = event.url;
+      }
     });
   }
 
   changeLanguage(language: string): void {
-    this.translateService.use(language).subscribe(() => {
-      this.loadMenus();
-      this.language = language;
-    });
-  }
-
-  private loadMenus(): void {
-    this.menuItems = [
-      {link: '/', name: _('home')},
-      {link: '/' + AppConfig.routes.heroes, name: _('heroesList')}
-    ];
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem('language', language);
+    }
+    this.selectedLanguage = language;
   }
 }
