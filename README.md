@@ -57,7 +57,7 @@
 ## What's included
 
 * CRUD: create, update and remove heroes with Firebase
-* Angular Universal
+* Angular Universal (SSR)
 * Internationalization with the official i18n. Separated builds for english and spanish.
 * Lazy loading modules
 * Service Workers
@@ -75,7 +75,7 @@
 * Interceptors and Events (Progress bar active, if a request is pending)
 * Scroll to first invalid input in forms. ([ngx-scroll-to-first-invalid](https://github.com/Ismaestro/ngx-scroll-to-first-invalid))
 * Modernizr (browser features detection)
-* Browser filter (Bowser) for IE ^^
+* Browser filter (Bowser) because of IE ^^
 * [Sentry](https://sentry.io)! (logs any error in the app)
 * Google Tag Manager
 * ES6 Promises and Observables
@@ -103,23 +103,28 @@ This repo is using Firebase. We use Cloud Firestore and Cloud Storage to handle 
  npm start
  ```
 
-Tasks                      | Description
----------------------------|---------------------------------------------------------------------------------------
-npm start                  | Start the app in development mode with the english language only
-npm start:es                  | Start the app in development mode with the spanish language only
-npm run test               | Run all unit tests with karma and jasmine
-npm run test:app:watch     | Run app unit tests and wait for changes
-npm run test:library:watch | Run app unit tests and wait for changes
-npm run e2e                | Run end to end tests with protractor
-npm run build              | Build the app for production
-npm run build:library      | Build the library
-npm run lint               | Run the linter (tslint)
-npm run ci                 | Execute linter and tests
-npm run extract            | Generate all json files with the translations in assets folder
-npm run deploy             | Build the app and deploy it to firebase hosting
-npm run bundle-report      | Build and run webpack-bundle-analyzer over stats json
-npm run release            | Create a new release using standard-version
-npm run update             | Update the project dependencies with ng update
+Tasks                       | Description
+----------------------------|---------------------------------------------------------------------------------------
+npm start                   | Start the app in development mode with the english language only
+npm start:es                | Start the app in development mode with the spanish language only
+start:ssr                   | Start the server like SSR
+extract-i18n                | Extract all messages from templates and ts files and update the language files with new translations
+npm run lint                | Run the linter (tslint)
+npm run test                | Run all unit tests with karma and jasmine
+npm run test:app:watch      | Run app unit tests and wait for changes
+npm run test:library:watch  | Run library unit tests and wait for changes
+npm run e2e                 | Run end to end tests with protractor
+npm run build:prod:en       | Build the app for production with english translations
+npm run build:prod:es       | Build the app for production with spanish translations
+npm run build:server:prod   | Build the server version for production
+npm run compile:server      | Compiles the server with webpack
+npm run build:ssr           | Complete task with all the build subtasks for SSR
+npm run build:library       | Build the library
+npm run bundle-report       | Build and run webpack-bundle-analyzer over stats json
+npm run release:minor       | Create a new minor release using standard-version
+npm run release:major       | Create a new major release using standard-version
+npm run ci                  | Execute linter and tests
+npm run deploy              | Build the app and deploy it to firebase hosting
 
 ## Bugs and feature requests
 
