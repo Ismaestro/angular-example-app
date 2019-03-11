@@ -76,7 +76,7 @@
 * Scroll to first invalid input in forms. ([ngx-scroll-to-first-invalid](https://github.com/Ismaestro/ngx-scroll-to-first-invalid))
 * Modernizr (browser features detection)
 * Browser filter (Bowser) because of IE ^^
-* [Sentry](https://sentry.io)! (logs any error in the app)
+* [Sentry](https://sentry.io)! (logs every error in the app)
 * Google Tag Manager
 * ES6 Promises and Observables
 * Unit tests with Jasmine and Karma including code coverage (Use of [ng-bullet](https://www.npmjs.com/package/ng-bullet) and [karma-mocha-reporter](https://github.com/litixsoft/karma-mocha-reporter))
