@@ -59,7 +59,7 @@
 * Angular Universal (SSR)
 * Internationalization with the official i18n. Separated builds for english and spanish.
 * Lazy loading modules
-* More logical structure directory (from [here](https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7))
+* More logical directory structure (from [here](https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7))
 * Basic example library
 * Following the [best practices](https://angular.io/guide/styleguide)!
 * Search bar, to look for heroes
