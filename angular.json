@@ -13,11 +13,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "functions/dist/browser/en",
-            "i18nFile": "src/i18n/messages.en.xlf",
-            "i18nFormat": "xlf",
-            "i18nLocale": "en",
-            "i18nMissingTranslation": "error",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,8 +62,8 @@
           "configurations": {
             "en": {
               "aot": true,
-              "outputPath": "functions/dist/browser/en/",
-              "baseHref": "/en/",
+              "outputPath": "functions/dist/browser/",
+              "baseHref": "/",
               "i18nFile": "src/i18n/messages.en.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "en",
@@ -106,8 +101,8 @@
                   "maximumError": "5mb"
                 }
               ],
-              "outputPath": "functions/dist/browser/en/",
-              "baseHref": "/en/",
+              "outputPath": "functions/dist/browser/",
+              "baseHref": "/",
               "i18nFile": "src/i18n/messages.en.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "en",

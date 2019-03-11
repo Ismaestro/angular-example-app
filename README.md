@@ -6,7 +6,9 @@
   <h3 align="center">Angular Example App</h3>
 
   <p align="center">
-    Example app with Angular 7 + Angular CLI + Angular Universal + Firebase
+    Example app with Angular 7 + Angular CLI + Angular Universal + i18n + Firebase
+    <br>
+    :clap::clap::clap::fire::fire::tada::tada::tada::tada::fire::fire::clap::clap::clap:
     <br>
     Base project made with much :heart:. Contains CRUD, patterns, generated library, and much more!
     <br>
