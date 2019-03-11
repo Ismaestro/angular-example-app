@@ -13,7 +13,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "functions/dist/browser",
+            "outputPath": "functions/dist/browser/en",
+            "i18nFile": "src/i18n/messages.en.xlf",
+            "i18nFormat": "xlf",
+            "i18nLocale": "en",
+            "i18nMissingTranslation": "error",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -61,6 +65,15 @@
             ]
           },
           "configurations": {
+            "en": {
+              "aot": true,
+              "outputPath": "functions/dist/browser/en/",
+              "baseHref": "/en/",
+              "i18nFile": "src/i18n/messages.en.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "en",
+              "i18nMissingTranslation": "error"
+            },
             "es": {
               "aot": true,
               "outputPath": "functions/dist/browser/es/",
@@ -70,7 +83,13 @@
               "i18nLocale": "es",
               "i18nMissingTranslation": "error"
             },
-            "production": {
+            "production-en": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -80,8 +99,6 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "serviceWorker": true,
-              "baseHref": "/",
               "budgets": [
                 {
                   "type": "initial",
@@ -89,12 +106,12 @@
                   "maximumError": "5mb"
                 }
               ],
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ]
+              "outputPath": "functions/dist/browser/en/",
+              "baseHref": "/en/",
+              "i18nFile": "src/i18n/messages.en.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "en",
+              "i18nMissingTranslation": "error"
             },
             "production-es": {
               "fileReplacements": [
@@ -131,11 +148,11 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angularexampleapp:build"
+            "browserTarget": "angularexampleapp:build:en"
           },
           "configurations": {
-            "production": {
-              "browserTarget": "angularexampleapp:build:production"
+            "en": {
+              "browserTarget": "angularexampleapp:build:en"
             },
             "es": {
               "browserTarget": "angularexampleapp:build:es"

@@ -24,6 +24,7 @@
     "@nguniversal/express-engine": "7.1.0",
     "@nguniversal/module-map-ngfactory-loader": "v7.1.0",
     "@ngx-i18nsupport/tooling": "1.1.2",
+    "@ngx-translate/i18n-polyfill": "1.0.0",
     "@sentry/browser": "4.6.4",
     "bowser": "2.1.2",
     "classlist.js": "1.1.20150312",

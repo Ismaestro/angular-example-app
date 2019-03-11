@@ -5,6 +5,7 @@ import {MatSnackBar} from '@angular/material';
 import {AppConfig} from './configs/app.config';
 import {UtilsHelperService} from './core/services/utils-helper.service';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
+import {I18n} from '@ngx-translate/i18n-polyfill';
 
 declare const Modernizr;
 
@@ -21,6 +22,7 @@ export class AppComponent implements OnInit {
               private meta: Meta,
               private snackBar: MatSnackBar,
               private router: Router,
+              private i18n: I18n,
               @Inject(DOCUMENT) doc: Document, @Inject(LOCALE_ID) locale: string, renderer: Renderer2,
               @Inject(PLATFORM_ID) private platformId: Object) {
     if (isPlatformBrowser(this.platformId)) {
@@ -32,7 +34,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.title.setTitle('Angular Example App');
+    this.title.setTitle(this.i18n({value: 'App title', id: '@@appTitle'}));
 
     this.onEvents();
     this.checkBrowser();
@@ -45,14 +47,14 @@ export class AppComponent implements OnInit {
           case '/':
             this.meta.updateTag({
               name: 'description',
-              content: 'Angular Example app with Angular CLI, Angular Material and more'
+              content: this.i18n({value: 'Home meta description', id: '@@homeMetaDescription'})
             });
             break;
           case '/' + AppConfig.routes.heroes:
             this.title.setTitle('Heroes list');
             this.meta.updateTag({
               name: 'description',
-              content: 'List of super-heroes'
+              content: this.i18n({value: 'Heroes meta description', id: '@@heroesMetaDescription'})
             });
             break;
         }
@@ -65,7 +67,7 @@ export class AppComponent implements OnInit {
       if (UtilsHelperService.isBrowserValid()) {
         this.checkBrowserFeatures();
       } else {
-        this.snackBar.open('changeBrowser', 'OK');
+        this.snackBar.open(this.i18n({value: 'Change your browser', id: '@@changeBrowser'}), 'OK');
       }
     }
   }
@@ -81,7 +83,7 @@ export class AppComponent implements OnInit {
     }
 
     if (!supported) {
-      this.snackBar.open('updateBrowser', 'OK');
+      this.snackBar.open(this.i18n({value: 'Update your browser', id: '@@updateBrowser'}), 'OK');
     }
 
     return supported;

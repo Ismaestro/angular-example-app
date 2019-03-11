@@ -8,6 +8,9 @@ import {AppConfig} from '../../../../configs/app.config';
 import {UtilsHelperService} from '../../../../core/services/utils-helper.service';
 import {HeroRemoveComponent} from '../../components/hero-remove/hero-remove.component';
 import {isPlatformBrowser} from '@angular/common';
+import {I18n} from '@ngx-translate/i18n-polyfill';
+import {DocumentReference} from '@angular/fire/firestore';
+import {LoggerService} from '../../../../core/services/logger.service';
 
 @Component({
   selector: 'app-heroes-list-page',
@@ -29,6 +32,7 @@ export class HeroesListPageComponent implements OnInit {
               private dialog: MatDialog,
               private snackBar: MatSnackBar,
               private router: Router,
+              private i18n: I18n,
               private formBuilder: FormBuilder,
               @Inject(PLATFORM_ID) private platformId: Object) {
     this.canVote = this.heroService.checkIfUserCanVote();
@@ -51,6 +55,7 @@ export class HeroesListPageComponent implements OnInit {
     if (this.newHeroForm.valid) {
       this.heroService.createHero(new Hero(this.newHeroForm.value)).then(() => {
         this.myNgForm.resetForm();
+        this.snackBar.open(this.i18n({value: 'Hero created', id: '@@heroCreated'}), '', {duration: 1000});
       }, () => {
         this.error = true;
       });
@@ -65,6 +70,8 @@ export class HeroesListPageComponent implements OnInit {
         localStorage.setItem('votes', '' + (Number(localStorage.getItem('votes')) + 1));
       }
       this.heroService.updateHero(hero);
+    } else {
+      this.snackBar.open(this.i18n({value: 'Can\'t vote anymore', id: '@@cannotVote'}), '', {duration: 1000});
     }
   }
 
@@ -90,7 +97,7 @@ export class HeroesListPageComponent implements OnInit {
   private onChanges() {
     this.newHeroForm.get('name').valueChanges.subscribe((value) => {
       if (value && value.length >= 3 && UtilsHelperService.isPalindrome(value)) {
-        this.snackBar.open('yeahPalindrome');
+        this.snackBar.open(this.i18n({value: 'Yeah that\'s a Palindrome!', id: '@@yeahPalindrome'}), '', {duration: 2000});
       } else {
         this.snackBar.dismiss();
       }

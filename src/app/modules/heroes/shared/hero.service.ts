@@ -7,6 +7,7 @@ import {LoggerService} from '../../../core/services/logger.service';
 import {AppConfig} from '../../../configs/app.config';
 import {AngularFirestore, AngularFirestoreCollection, DocumentReference} from '@angular/fire/firestore';
 import {isPlatformBrowser} from '@angular/common';
+import {I18n} from '@ngx-translate/i18n-polyfill';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class HeroService {
 
   constructor(private afs: AngularFirestore,
               private snackBar: MatSnackBar,
+              private i18n: I18n,
               @Inject(PLATFORM_ID) private platformId: Object) {
     this.heroesCollection = this.afs.collection<Hero>(AppConfig.routes.heroes, (hero) => {
       return hero.orderBy('default', 'desc').orderBy('likes', 'desc');
@@ -24,11 +26,7 @@ export class HeroService {
 
   private static handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-
-      // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
-
-      // TODO: better job of transforming error for user consumption
       LoggerService.log(`${operation} failed: ${error.message}`);
 
       if (error.status >= 500) {
@@ -71,20 +69,13 @@ export class HeroService {
   }
 
   createHero(hero: Hero): Promise<DocumentReference> {
-    return this.heroesCollection.add(JSON.parse(JSON.stringify(hero))).then((document: DocumentReference) => {
-      LoggerService.log(`added hero w/ id=${document.id}`);
-      this.showSnackBar('heroCreated');
-      return document;
-    }, (error) => {
-      HeroService.handleError<any>('createHero', error);
-      return error;
-    });
+    return this.heroesCollection.add(JSON.parse(JSON.stringify(hero)));
   }
 
   updateHero(hero: Hero): Promise<void> {
     return this.afs.doc(`${AppConfig.routes.heroes}/${hero.id}`).update(JSON.parse(JSON.stringify(hero))).then(() => {
       LoggerService.log(`updated hero w/ id=${hero.id}`);
-      this.showSnackBar('saved');
+      this.showSnackBar(this.i18n({value: 'Saved', id: '@@saved'}));
     });
   }
 

@@ -68,8 +68,7 @@
             Name is required
           </ng-template>
           <ng-template [ngIf]="newHeroForm.controls.name.errors.maxlength" i18n="@@maxLengthError">
-            The field is too long. Required length: {{newHeroForm.controls.name.errors.maxlength.requiredLength}}.
-            Current: {{newHeroForm.controls.name.errors.maxlength.actualLength}}
+            The field is too long
           </ng-template>
         </mat-error>
       </mat-form-field>

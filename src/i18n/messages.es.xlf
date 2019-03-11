@@ -8,11 +8,8 @@
         </source><target state="final">
           Inicio
         </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/shared/components/header/header.component.html</context>
-          <context context-type="linenumber">10</context>
-        </context-group>
-      </trans-unit><trans-unit id="findHero" datatype="html">
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/shared/components/header/header.component.html</context><context context-type="linenumber">5</context></context-group></trans-unit><trans-unit id="findHero" datatype="html">
         <source>Look for a hero!</source><target state="final">Busca un heroe!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">app/shared/components/search-bar/search-bar.component.html</context>
@@ -88,84 +85,50 @@
           Heroes list
         </source><target state="translated">Lista de heroes</target>
         
-      <context-group purpose="location"><context context-type="sourcefile">app/shared/components/header/header.component.html</context><context context-type="linenumber">13</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context><context context-type="linenumber">2</context></context-group></trans-unit>
+      <context-group purpose="location"><context context-type="sourcefile">app/shared/components/header/header.component.html</context><context context-type="linenumber">8</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context><context context-type="linenumber">2</context></context-group></trans-unit>
       <trans-unit id="createHero" datatype="html">
         <source>Create a hero</source><target state="final">Crear un heroe</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context>
-          <context context-type="linenumber">48</context>
-        </context-group>
-      </trans-unit>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context><context context-type="linenumber">46</context></context-group></trans-unit>
       <trans-unit id="create" datatype="html">
         <source>Create</source><target state="final">Crear</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context>
-          <context context-type="linenumber">58</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context>
-          <context context-type="linenumber">92</context>
-        </context-group>
-      </trans-unit>
+        
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context><context context-type="linenumber">56</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context><context context-type="linenumber">89</context></context-group></trans-unit>
       <trans-unit id="nameWithPalindrome" datatype="html">
         <source>Name (Palindrome?)</source><target state="final">Nombre (Palindrome?)</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context>
-          <context context-type="linenumber">66</context>
-        </context-group>
-      </trans-unit>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context><context context-type="linenumber">64</context></context-group></trans-unit>
       <trans-unit id="nameRequired" datatype="html">
         <source>
             Name is required
           </source><target state="final">
             El nombre es requerido
           </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context>
-          <context context-type="linenumber">69</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context>
-          <context context-type="linenumber">83</context>
-        </context-group>
-      </trans-unit>
+        
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context><context context-type="linenumber">67</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context><context context-type="linenumber">80</context></context-group></trans-unit>
       <trans-unit id="maxLengthError" datatype="html">
         <source>
-            The field is too long. Required length: <x id="INTERPOLATION" equiv-text="{{newHeroForm.controls.name.errors.maxlength.requiredLength}}"/>.
-            Current: <x id="INTERPOLATION_1" equiv-text="{{newHeroForm.controls.name.errors.maxlength.actualLength}}"/>
-          </source><target state="final">
+            The field is too long
+          </source><target state="translated">
             El texto es demasiado largo
           </target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context>
-          <context context-type="linenumber">72</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context>
-          <context context-type="linenumber">86</context>
-        </context-group>
-      </trans-unit>
+        
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context><context context-type="linenumber">70</context></context-group><context-group purpose="location"><context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context><context context-type="linenumber">83</context></context-group></trans-unit>
       <trans-unit id="realName" datatype="html">
         <source>Real name</source><target state="final">Nombre real</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context>
-          <context context-type="linenumber">80</context>
-        </context-group>
-      </trans-unit>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context><context context-type="linenumber">77</context></context-group></trans-unit>
       <trans-unit id="errorHasOcurred" datatype="html">
         <source>An error has ocurred</source><target state="final">Ha ocurrido un error</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context>
-          <context context-type="linenumber">95</context>
-        </context-group>
-      </trans-unit>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context><context context-type="linenumber">92</context></context-group></trans-unit>
       <trans-unit id="firstTwoHeroesById" datatype="html">
         <source>Heroes (1-2)</source><target state="final">Heroes (1-2)</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context>
-          <context context-type="linenumber">100</context>
-        </context-group>
-      </trans-unit>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.html</context><context context-type="linenumber">97</context></context-group></trans-unit>
       <trans-unit id="heroDetail" datatype="html">
         <source>Hero detail</source><target state="final">Detalle del heroe</target>
         <context-group purpose="location">
@@ -173,17 +136,7 @@
           <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="snapshot" datatype="html">
-        <source>
-  Snapshot
-</source><target state="final">
-  Snapshot
-</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/heroes/pages/hero-detail-page/hero-detail-page.component.html</context>
-          <context context-type="linenumber">13</context>
-        </context-group>
-      </trans-unit>
+      
       <trans-unit id="goBack" datatype="html">
         <source>
   Go back
@@ -201,9 +154,54 @@ Volver
 </source><target state="final">
 Ancla al heroe
 </target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">app/modules/heroes/pages/hero-detail-page/hero-detail-page.component.html</context><context context-type="linenumber">13</context></context-group></trans-unit><trans-unit id="@@appTitle" datatype="html">
+        <source>App title</source><target state="final">App de ejemplo de Angular</target>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/modules/heroes/pages/hero-detail-page/hero-detail-page.component.html</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="sourcefile">src/app/app.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit><trans-unit id="@@homeMetaDescription" datatype="html">
+        <source>Home meta description</source><target state="final">App de ejemplo en angular</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit><trans-unit id="@@heroesMetaDescription" datatype="html">
+        <source>Heroes meta description</source><target state="final">Lista de heroes - App de ejemplo en angular 7</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit><trans-unit id="@@changeBrowser" datatype="html">
+        <source>Change your browser</source><target state="final">Por favor, usa un navegador reciente como Chrome, Firefox o Edge</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit><trans-unit id="@@updateBrowser" datatype="html">
+        <source>Update your browser</source><target state="final">Actualiza tu navegador</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit><trans-unit id="@@heroCreated" datatype="html">
+        <source>Hero created</source><target state="final">Heroe creado</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.ts</context><context context-type="linenumber">1</context></context-group></trans-unit><trans-unit id="@@saved" datatype="html">
+        <source>Saved</source><target state="final">Guardado</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/heroes/shared/hero.service.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit><trans-unit id="@@cannotVote" datatype="html">
+        <source>Can't vote anymore</source><target state="final">No puedes votar más</target>
+        
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.ts</context><context context-type="linenumber">1</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/shared/components/hero-card/hero-card.component.ts</context><context context-type="linenumber">1</context></context-group></trans-unit><trans-unit id="@@yeahPalindrome" datatype="html">
+        <source>Yeah that's a Palindrome!</source><target state="new">Eso es un Palindrome!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.ts</context>
+          <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
     </body>

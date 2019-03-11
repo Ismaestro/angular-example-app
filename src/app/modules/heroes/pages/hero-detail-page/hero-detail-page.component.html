@@ -10,12 +10,9 @@
     </div>
   </ng-container>
 </div>
-<button mat-raised-button type="button" (click)="dynamicImport()" i18n="@@snapshot">
-  Snapshot
+<button *ngIf="hero" mat-raised-button type="button" (click)="goToTheAnchor()" i18n="@@anchorToHero">
+  Anchor the hero
 </button>
 <button mat-raised-button type="button" (click)="goBack()" i18n="@@goBack">
   Go back
-</button>
-<button *ngIf="hero" mat-raised-button type="button" (click)="goToTheAnchor()" i18n="@@anchorToHero">
-  Anchor the hero
 </button>

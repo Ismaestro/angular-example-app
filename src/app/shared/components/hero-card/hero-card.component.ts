@@ -5,6 +5,7 @@ import {Hero} from '../../../modules/heroes/shared/hero.model';
 import {Router} from '@angular/router';
 import {isPlatformBrowser} from '@angular/common';
 import {MatSnackBar} from '@angular/material';
+import {I18n} from '@ngx-translate/i18n-polyfill';
 
 @Component({
   selector: 'app-hero-card',
@@ -20,6 +21,7 @@ export class HeroCardComponent implements OnInit {
   constructor(private heroService: HeroService,
               private router: Router,
               private snackBar: MatSnackBar,
+              private i18n: I18n,
               @Inject(PLATFORM_ID) private platformId: Object) {
     this.canVote = this.heroService.checkIfUserCanVote();
   }
@@ -35,8 +37,7 @@ export class HeroCardComponent implements OnInit {
       }
       return this.heroService.updateHero(hero);
     } else {
-      console.log(this.snackBar);
-      this.snackBar.open('updateBrowser', 'OK');
+      this.snackBar.open(this.i18n({value: 'Can\'t vote anymore', id: '@@cannotVote'}), '', {duration: 1000});
     }
   }
 

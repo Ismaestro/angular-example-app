@@ -80,7 +80,6 @@
 * Internationalization with the official i18n. Separated builds for english and spanish.
 * Lazy loading modules
 * Service Workers
-* Dynamic Imports
 * More logical structure directory (from [here](https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7))
 * Basic example library
 * Scroll restoration and anchor examples
@@ -102,8 +101,8 @@
 
 Tasks                      | Description
 ---------------------------|---------------------------------------------------------------------------------------
-npm i                      | Install dependencies
-npm start                  | Start the app in development mode
+npm start                  | Start the app in development mode with the english language only
+npm start:es                  | Start the app in development mode with the spanish language only
 npm run test               | Run all unit tests with karma and jasmine
 npm run test:app:watch     | Run app unit tests and wait for changes
 npm run test:library:watch | Run app unit tests and wait for changes
@@ -117,6 +116,12 @@ npm run deploy             | Build the app and deploy it to firebase hosting
 npm run bundle-report      | Build and run webpack-bundle-analyzer over stats json
 npm run release            | Create a new release using standard-version
 npm run update             | Update the project dependencies with ng update
+
+### Angular Universal and i18n
+
+This project is deployed in firebase using Angular Universal and the official i18n. You can navigate throw every language and reload (and share) every page in the application without losing context. This is very useful for SEO purposes and you almost have a ready for production app.
+Remember that while developing you should not change the language because of SSR every language requires a new build of the hole application.
+If you want to translate the messages you can use this awesome tool, [Tiny Translator](https://martinroob.github.io/tiny-translator/en/#/translate) following [this tutorial](https://github.com/martinroob/ngx-i18nsupport/wiki/Tutorial-for-using-xliffmerge-with-angular-cli).
 
 ### Firebase
 
@@ -151,9 +156,7 @@ Editor preferences are available in the [editor config](https://github.com/Ismae
 
 ## Thanks
 
-Thanks to all contributors and their support:
-
-[mansya](https://github.com/mansya) - App logo!
+Thanks to all contributors and their support.
 
 If you have an idea or you want to do something, tell me or just do it!
 I'm always happy to hear your feedback!
