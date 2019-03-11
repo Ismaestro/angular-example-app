@@ -16,7 +16,6 @@
     "@angular/platform-browser-dynamic": "7.2.7",
     "@angular/platform-server": "7.2.7",
     "@angular/router": "7.2.7",
-    "@angular/service-worker": "7.2.8",
     "@angular/upgrade": "7.2.7",
     "@ismaestro/ngx-example-library": "1.0.0",
     "@ismaestro/ngx-scroll-to-first-invalid": "2.0.0",

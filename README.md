@@ -44,7 +44,6 @@
 ![travis](https://travis-ci.org/Ismaestro/angular7-example-app.svg?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/Ismaestro/angular7-example-app/badge.svg?branch=master)](https://coveralls.io/github/Ismaestro/angular7-example-app?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9d190a60fc864060ac054ba17a4e92e4)](https://www.codacy.com/app/Ismaestro/angular7-example-app?utm_source=github.com&utm_medium=referral&utm_content=Ismaestro/angular7-example-app&utm_campaign=badger)
-[![Known Vulnerabilities](https://snyk.io/test/github/ismaestro/angular7-example-app/badge.svg)](https://snyk.io/test/github/ismaestro/angular7-example-app)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![dependency Status](https://david-dm.org/ismaestro/angular7-example-app.svg)](https://david-dm.org/ismaestro/angular7-example-app#info=dependencies)
 [![devDependency Status](https://david-dm.org/ismaestro/angular7-example-app/dev-status.svg)](https://david-dm.org/ismaestro/angular7-example-app#info=devDependencies)
@@ -60,7 +59,6 @@
 * Angular Universal (SSR)
 * Internationalization with the official i18n. Separated builds for english and spanish.
 * Lazy loading modules
-* Service Workers
 * More logical structure directory (from [here](https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7))
 * Basic example library
 * Following the [best practices](https://angular.io/guide/styleguide)!

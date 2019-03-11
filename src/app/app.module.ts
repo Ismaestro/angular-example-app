@@ -2,8 +2,6 @@ import {ErrorHandler, LOCALE_ID, NgModule, TRANSLATIONS} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {CoreModule} from './core/core.module';
 import {AppComponent} from './app.component';
-import {ServiceWorkerModule} from '@angular/service-worker';
-import {environment} from '../environments/environment';
 import {APP_CONFIG, AppConfig} from './configs/app.config';
 import {SharedModule} from './shared/shared.module';
 import {NgxExampleLibraryModule} from '@ismaestro/ngx-example-library';
@@ -18,7 +16,6 @@ declare const require;
   imports: [
     BrowserModule.withServerTransition({appId: 'angularexampleapp'}),
     FirebaseModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
     NgxExampleLibraryModule.forRoot({
       config: {
         say: 'hello'

@@ -8,12 +8,12 @@
     ],
     "rewrites": [
       {
-        "source": "/",
-        "destination": "/app.html"
+        "source": "/es/**",
+        "destination": "/es/index.html"
       },
       {
-        "source": "**/es/**",
-        "destination": "/es/index.html"
+        "source": "/**",
+        "destination": "/app.html"
       },
       {
         "source": "**",
