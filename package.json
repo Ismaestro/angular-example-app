@@ -9,7 +9,7 @@
     "extract-i18n": "ng xi18n angularexampleapp --i18n-format xlf --output-path i18n --i18n-locale en && ngx-extractor --input=\"src/**/*.ts\" --format=xlf --out-file=src/i18n/messages.xlf && ng run angularexampleapp:xliffmerge",
     "lint": "tslint ./src/**/*.ts -t verbose",
     "test": "ng test --watch=false",
-    "test:app:watch": "ng test angular-example-app --code-coverage --watch=true",
+    "test:app:watch": "ng test angularexampleapp --code-coverage --watch=true",
     "test:library:watch": "ng test ngx-example-library --code-coverage --watch=true",
     "e2e": "ng e2e",
     "build:prod:en": "ng build --configuration=production-en",
@@ -22,7 +22,7 @@
     "bundle-report": "ng build --configuration=production-en --stats-json && webpack-bundle-analyzer dist/stats.json",
     "release:minor": "standard-version --release-as minor && git push --follow-tags origin master",
     "release:major": "standard-version --release-as major && git push --follow-tags origin master",
-    "ci": "npm run lint && npm run test && npm run e2e && npm run build:client-and-server-bundles",
+    "ci": "npm run lint && npm run test && npm run e2e && npm run build:ssr",
     "deploy": "bash scripts/deploy.sh"
   },
   "private": true,

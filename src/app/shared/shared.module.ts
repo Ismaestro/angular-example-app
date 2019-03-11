@@ -15,6 +15,7 @@ import {NgxExampleLibraryModule} from '@ismaestro/ngx-example-library';
 import {HeroLoadingComponent} from './components/hero-loading/hero-loading.component';
 import {NgxScrollToFirstInvalidModule} from '@ismaestro/ngx-scroll-to-first-invalid';
 import {LoadingPlaceholderComponent} from './components/loading-placeholder/loading-placeholder.component';
+import {I18n} from '@ngx-translate/i18n-polyfill';
 
 @NgModule({
   imports: [

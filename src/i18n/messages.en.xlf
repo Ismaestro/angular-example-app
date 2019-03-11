@@ -198,7 +198,13 @@
       </trans-unit><trans-unit id="@@cannotVote" datatype="html">
         <source>Can't vote anymore</source><target state="final">Can't vote anymore</target>
         
-      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.ts</context><context context-type="linenumber">1</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/shared/components/hero-card/hero-card.component.ts</context><context context-type="linenumber">1</context></context-group></trans-unit><trans-unit id="@@yeahPalindrome" datatype="html">
+      <context-group purpose="location"><context context-type="sourcefile">src/app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.ts</context><context context-type="linenumber">1</context></context-group><context-group purpose="location"><context context-type="sourcefile">src/app/shared/components/hero-card/hero-card.component.ts</context><context context-type="linenumber">1</context></context-group></trans-unit><trans-unit id="@@heroRemoved" datatype="html">
+        <source>Hero removed</source><target state="final">Hero removed</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit><trans-unit id="@@yeahPalindrome" datatype="html">
         <source>Yeah that's a Palindrome!</source><target state="final">Yeah that's a Palindrome!</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/heroes/pages/heroes-list-page/heroes-list-page.component.ts</context>

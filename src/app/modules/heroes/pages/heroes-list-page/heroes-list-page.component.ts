@@ -80,7 +80,7 @@ export class HeroesListPageComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.heroService.deleteHero(hero.id).then(() => {
-          this.heroService.showSnackBar('heroRemoved');
+          this.heroService.showSnackBar(this.i18n({value: 'Hero removed', id: '@@heroRemoved'}));
         }, () => {
           this.error = true;
         });
