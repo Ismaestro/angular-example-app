@@ -37,7 +37,7 @@ declare const require;
     {
       provide: TRANSLATIONS,
       useFactory: (locale) => {
-        locale = (locale === 'es') ? locale : 'en';
+        locale = locale || 'en';
         return require(`raw-loader!../i18n/messages.${locale}.xlf`);
       },
       deps: [LOCALE_ID]

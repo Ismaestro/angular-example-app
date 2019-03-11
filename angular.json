@@ -20,28 +20,28 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "src/assets",
-                "output": "/assets"
+                "input": "src/assets/images",
+                "output": "/assets/images"
               },
               {
                 "glob": "favicon.ico",
                 "input": "src",
-                "output": "/"
+                "output": "/assets/common"
               },
               {
                 "glob": "sitemap.xml",
                 "input": "src/assets",
-                "output": "/"
+                "output": "/assets/common"
               },
               {
                 "glob": "googled41787c6aae2151b.html",
                 "input": "src/assets",
-                "output": "/"
+                "output": "/assets/common"
               },
               {
                 "glob": "CNAME",
                 "input": "src/assets",
-                "output": "/"
+                "output": "/assets/common"
               }
             ],
             "styles": [
