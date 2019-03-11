@@ -8,7 +8,9 @@
   <p align="center">
     Example app with Angular 7 + Angular CLI + Angular Universal + i18n + Firebase
     <br>
-    :clap::clap::clap::fire::fire::tada::tada::tada::tada::fire::fire::clap::clap::clap:
+    <br>
+    :clap::clap::tada::tada::tada::tada::clap::clap:
+    <br>
     <br>
     Base project made with much :heart:. Contains CRUD, patterns, generated library, and much more!
     <br>
@@ -28,34 +30,14 @@
 
 ## Table of contents
 
-- [Quick start](#quick-start)
 - [Status](#status)
 - [What's included](#whats-included)
+- [Quick start](#quick-start)
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Contributing](#contributing)
 - [Creators](#creators)
 - [Thanks](#thanks)
 - [Copyright and license](#copyright-and-license)
-
-## Quick start
-
-**Warning**
-
-> Verify that you are running at least node 8.9.x and npm 5.x.x by running node -v and npm -v in a terminal/console window. Older versions produce errors, but newer versions are fine.
-
-1. Go to project folder and install dependencies.
- ```bash
- npm i
- ```
-
-2. Launch development server:
- ```bash
- npm start
- ```
-
-**Note**
-
-> You don't need to build the example library because it's published in npm and added as dependency of the project.
 
 ## Status
 
@@ -74,16 +56,19 @@
 
 ## What's included
 
-* CRUD: create, update and remove heroes with Firebase!
-* Search bar, to look for heroes
-* Custom loading page
-* Modal and toasts (snakbar)!
-* Angular Universal deployed into Firebase Hosting
+* CRUD: create, update and remove heroes with Firebase
+* Angular Universal
 * Internationalization with the official i18n. Separated builds for english and spanish.
 * Lazy loading modules
 * Service Workers
 * More logical structure directory (from [here](https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7))
 * Basic example library
+* Following the [best practices](https://angular.io/guide/styleguide)!
+
+
+* Search bar, to look for heroes
+* Custom loading page
+* Modal and toasts (snakbar)!
 * Scroll restoration and anchor examples
 * Responsive layout (flex layout module)
 * SASS (most common used functions and mixins) and BEM styles
@@ -91,15 +76,38 @@
 * Angular Pipes
 * Interceptors and Events (Progress bar active, if a request is pending)
 * Scroll to first invalid input in forms. ([ngx-scroll-to-first-invalid](https://github.com/Ismaestro/ngx-scroll-to-first-invalid))
-* Autocomplete enabled in forms
 * Modernizr (browser features detection)
 * Browser filter (Bowser) for IE ^^
 * [Sentry](https://sentry.io)! (logs any error in the app)
 * Google Tag Manager
+* ES6 Promises and Observables
 * Unit tests with Jasmine and Karma including code coverage (Use of [ng-bullet](https://www.npmjs.com/package/ng-bullet) and [karma-mocha-reporter](https://github.com/litixsoft/karma-mocha-reporter))
 * End-to-end tests with Protractor
-* ES6 Promises and Observables
-* Following the [best practices](https://angular.io/guide/styleguide)!
+
+### Angular Universal and i18n
+
+This project is deployed in firebase using Angular Universal and the official i18n. You can navigate throw every language and reload (and share) every page in the application without losing context. This is very useful for SEO purposes and you almost have a ready for production app.
+If you want to translate the messages you can use this awesome tool, [Tiny Translator](https://martinroob.github.io/tiny-translator/en/#/translate) or follow [this tutorial](https://github.com/martinroob/ngx-i18nsupport/wiki/Tutorial-for-using-xliffmerge-with-angular-cli).
+
+### Firebase
+
+This repo is using Firebase. We use Cloud Firestore and Cloud Storage to handle CRUD operations over the heroes and to store their images. Also Hosting and Functions to deploy the app with Universal.
+
+## Quick start
+
+**Warning**
+
+> Verify that you are running at least node 8.9.x and npm 5.x.x by running node -v and npm -v in a terminal/console window. Older versions produce errors, but newer versions are fine.
+
+1. Go to project folder and install dependencies.
+ ```bash
+ npm i
+ ```
+
+2. Launch development server:
+ ```bash
+ npm start
+ ```
 
 Tasks                      | Description
 ---------------------------|---------------------------------------------------------------------------------------
@@ -118,23 +126,6 @@ npm run deploy             | Build the app and deploy it to firebase hosting
 npm run bundle-report      | Build and run webpack-bundle-analyzer over stats json
 npm run release            | Create a new release using standard-version
 npm run update             | Update the project dependencies with ng update
-
-### Angular Universal and i18n
-
-This project is deployed in firebase using Angular Universal and the official i18n. You can navigate throw every language and reload (and share) every page in the application without losing context. This is very useful for SEO purposes and you almost have a ready for production app.
-Remember that while developing you should not change the language because of SSR every language requires a new build of the hole application.
-If you want to translate the messages you can use this awesome tool, [Tiny Translator](https://martinroob.github.io/tiny-translator/en/#/translate) following [this tutorial](https://github.com/martinroob/ngx-i18nsupport/wiki/Tutorial-for-using-xliffmerge-with-angular-cli).
-
-### Firebase
-
-This repo is using Firebase. We use Cloud Firestore and Cloud Storage to handle CRUD operations over the heroes and to store their images.
-
-### Travis CI
-
-We use Travis CI to run this tasks in order:
-* Linter
-* Tests
-* Build for production
 
 ## Bugs and feature requests
 
