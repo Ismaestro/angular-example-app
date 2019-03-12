@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "functions/dist/browser/",
+            "outputPath": "dist/browser/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -63,7 +63,7 @@
           "configurations": {
             "en": {
               "aot": true,
-              "outputPath": "functions/dist/browser/",
+              "outputPath": "dist/browser/",
               "baseHref": "/",
               "i18nFile": "src/i18n/messages.en.xlf",
               "i18nFormat": "xlf",
@@ -72,7 +72,7 @@
             },
             "es": {
               "aot": true,
-              "outputPath": "functions/dist/browser/es/",
+              "outputPath": "dist/browser/es/",
               "baseHref": "/es/",
               "i18nFile": "src/i18n/messages.es.xlf",
               "i18nFormat": "xlf",
@@ -102,7 +102,7 @@
                   "maximumError": "5mb"
                 }
               ],
-              "outputPath": "functions/dist/browser/",
+              "outputPath": "dist/browser/",
               "baseHref": "/",
               "i18nFile": "src/i18n/messages.en.xlf",
               "i18nFormat": "xlf",
@@ -132,7 +132,7 @@
                   "maximumError": "5mb"
                 }
               ],
-              "outputPath": "functions/dist/browser/es/",
+              "outputPath": "dist/browser/es/",
               "baseHref": "/es/",
               "i18nFile": "src/i18n/messages.es.xlf",
               "i18nFormat": "xlf",
@@ -230,9 +230,14 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "functions/dist/server",
+            "outputPath": "dist/server",
             "main": "src/main.server.ts",
-            "tsConfig": "src/tsconfig.server.json"
+            "tsConfig": "src/tsconfig.server.json",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/app/styles"
+              ]
+            }
           },
           "configurations": {
             "production": {
@@ -241,12 +246,7 @@
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
                 }
-              ],
-              "stylePreprocessorOptions": {
-                "includePaths": [
-                  "src/app/styles"
-                ]
-              }
+              ]
             }
           }
         },

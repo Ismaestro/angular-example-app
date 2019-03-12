@@ -9,12 +9,14 @@ import {FirebaseModule} from './shared/modules/firebase.module';
 import {SentryErrorHandler} from './core/sentry.errorhandler';
 import {BrowserModule} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
+import {HttpClientModule} from '@angular/common/http';
 
 declare const require;
 
 @NgModule({
   imports: [
     BrowserModule.withServerTransition({appId: 'angularexampleapp'}),
+    HttpClientModule,
     FirebaseModule,
     NgxExampleLibraryModule.forRoot({
       config: {
