@@ -34,6 +34,7 @@
 - [What's included](#whats-included)
 - [Quick start](#quick-start)
 - [Bugs and feature requests](#bugs-and-feature-requests)
+- [Apply this to your project](#apply-this-to-your-project)
 - [Contributing](#contributing)
 - [Creators](#creators)
 - [Thanks](#thanks)
@@ -123,6 +124,10 @@ npm run release:minor       | Create a new minor release using standard-version
 npm run release:major       | Create a new major release using standard-version
 npm run ci                  | Execute linter, tests and production builds
 npm run deploy              | Build the app and deploy it to firebase hosting
+
+## Apply this to your project
+
+I've created a medium post where you can find like a tutorial to apply this concepts to your own project. [Check it here](https://medium.com/@ismaestro/angular-7-example-app-with-angularcli-angular-universal-i18n-official-firebase-66deac2dc31e), and let me know what you've think.
 
 ## Bugs and feature requests
 
