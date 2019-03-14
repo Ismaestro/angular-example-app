@@ -127,7 +127,7 @@ npm run deploy              | Build the app and deploy it to firebase hosting
 
 ## Apply this to your project
 
-I've created a medium post where you can find like a tutorial to apply this concepts to your own project. [Check it here](https://medium.com/@ismaestro/angular-7-example-app-with-angularcli-angular-universal-i18n-official-firebase-66deac2dc31e), and let me know what you've think.
+I've created a medium post where you can find a tutorial to apply this concepts to your own project. [Check it here](https://medium.com/@ismaestro/angular-7-example-app-with-angularcli-angular-universal-i18n-official-firebase-66deac2dc31e), and let me know what you've think.
 
 ## Bugs and feature requests
 
