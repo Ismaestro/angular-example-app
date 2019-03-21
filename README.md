@@ -87,6 +87,8 @@
 This project is deployed in firebase using Angular Universal and the official i18n. You can navigate through every language and reload (and share) every page in the application without losing context. This is very useful for SEO purposes and you almost have a ready for production app.
 If you want to translate the messages you can use this awesome tool, [Tiny Translator](https://martinroob.github.io/tiny-translator/en/#/translate) or follow [this tutorial](https://github.com/martinroob/ngx-i18nsupport/wiki/Tutorial-for-using-xliffmerge-with-angular-cli).
 
+I've created a medium post where you can find a tutorial to apply this concepts to your own project. [Check it here](https://medium.com/@ismaestro/angular-7-example-app-with-angularcli-angular-universal-i18n-official-firebase-66deac2dc31e), and let me know what do you think.
+
 ### Firebase
 
 This repo is using Firebase. We use Cloud Firestore and Cloud Storage to handle CRUD operations over the heroes and to store their images. Also Hosting and Functions to deploy the app with Universal.
@@ -124,10 +126,6 @@ npm run release:minor       | Create a new minor release using standard-version
 npm run release:major       | Create a new major release using standard-version
 npm run ci                  | Execute linter, tests and production builds
 npm run deploy              | Build the app and deploy it to firebase hosting
-
-## Apply this to your project
-
-I've created a medium post where you can find a tutorial to apply this concepts to your own project. [Check it here](https://medium.com/@ismaestro/angular-7-example-app-with-angularcli-angular-universal-i18n-official-firebase-66deac2dc31e), and let me know what you've think.
 
 ## Bugs and feature requests
 
