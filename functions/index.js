@@ -9,40 +9,40 @@ const modulemapngfactoryloader = require('@nguniversal/module-map-ngfactory-load
 const express = require('express');
 const path = require('path');
 
-// Faster server renders w/ Prod mode (dev mode never needed)
 core.enableProdMode();
 
-// Express server
 const app = express();
-
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = path.join(process.cwd(), 'dist');
+const routes = [
+  {path: '/es/*', view: 'es/index', bundle: require('./dist/server/es/main')},
+  {path: '/*', view: 'index', bundle: require('./dist/server/en/main')}
+];
 
-// * NOTE :: leave this as require() since this file is built Dynamically from webpack
-const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./dist/server/main');
-
-// Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
-app.engine('html', expressengine.ngExpressEngine({
-  bootstrap: AppServerModuleNgFactory,
-  providers: [
-    modulemapngfactoryloader.provideModuleMap(LAZY_MODULE_MAP)
-  ]
-}));
+// Load your engine
+app.engine('html', (filePath, options, callback) => {
+  options.engine(
+    filePath,
+    {req: options.req, res: options.res},
+    callback
+  );
+});
 
 app.set('view engine', 'html');
 app.set('views', path.join(DIST_FOLDER, 'browser'));
 
-// Server static files from /browser
-app.get('.', express.static(path.join(DIST_FOLDER, 'browser'), {
-  maxAge: '1y'
-}));
-
-// All regular routes use the Universal engine
-app.get('*', (req, res) => {
-  res.render('index', {req});
+app.get('*.*', express.static(path.join(DIST_FOLDER, 'browser')));
+routes.forEach((route) => {
+  app.get(route.path, (req, res) => {
+    res.render(route.view, {
+      req, res, engine: expressengine.ngExpressEngine({
+        bootstrap: route.bundle.AppServerModuleNgFactory,
+        providers: [modulemapngfactoryloader.provideModuleMap(route.bundle.LAZY_MODULE_MAP)]
+      })
+    });
+  });
 });
 
-// Start up the Node server
 app.listen(PORT, () => {
   console.log(`Node Express server listening on port ${PORT}`);
 });

@@ -10,8 +10,12 @@ import {SentryErrorHandler} from './core/sentry.errorhandler';
 import {BrowserModule} from '@angular/platform-browser';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {HttpClientModule} from '@angular/common/http';
+import {registerLocaleData} from '@angular/common';
+import localeEs from '@angular/common/locales/es';
 
 declare const require;
+
+registerLocaleData(localeEs, 'es');
 
 @NgModule({
   imports: [
