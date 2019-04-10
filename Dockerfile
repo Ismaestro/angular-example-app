@@ -6,4 +6,4 @@ RUN npm run build:prod:en
 
 FROM nginx:1-alpine
 COPY --from=builder /example-application/dist/browser/ /usr/share/nginx/html
-#EXPOSE 80
+EXPOSE 80
