@@ -7,6 +7,6 @@ WORKDIR /example-application
 #USER node
 RUN npm install
 #COPY --chown=node:node . .
-RUN $(npm bin)/ng build --prod
+RUN npm run build:server:prod
 #EXPOSE 80
 #CMD ["npm", "run", "deploy"]
