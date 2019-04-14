@@ -15,10 +15,6 @@ describe('UtilsHelperService', () => {
     utilsHelperService = TestBed.get(UtilsHelperService);
   });
 
-  it('should return fadeInOut trigger', (() => {
-    expect(UtilsHelperService.fadeInOut().name).toBe('fadeInOut');
-  }));
-
   it('should check if is palindrome', (() => {
     expect(UtilsHelperService.isPalindrome('')).toBe(true);
     expect(UtilsHelperService.isPalindrome('asd')).toBe(false);

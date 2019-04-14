@@ -1,4 +1,4 @@
-<mat-card class="hero-card" *ngIf="hero">
+<mat-card class="hero-card" *ngIf="hero" [@fadeIn]="fadeIn">
   <mat-card-header>
     <div (click)="seeHeroDetails(hero)" mat-card-avatar class="hero-header__image"
          [ngStyle]="{'background-image': 'url(' + hero.avatarThumbnailUrl + ')'}"></div>

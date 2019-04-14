@@ -18,7 +18,7 @@
       </mat-list-item>
     </mat-list>
     <mat-list>
-      <mat-list-item *ngFor="let hero of heroes" [@fadeInOut]>
+      <mat-list-item *ngFor="let hero of heroes" [@fadeIn]="fadeIn">
         <img *ngIf="hero.default" class="cp"
              (click)="seeHeroDetails(hero);" mat-list-avatar
              src="{{hero.avatarThumbnailUrl}}">
@@ -42,7 +42,7 @@
     </mat-list>
   </div>
 </div>
-<div id="right" [@fadeInOut]>
+<div id="right" [@fadeIn]="fadeIn">
   <h2 class="header__title" i18n="@@createHero">Create a hero</h2>
   <div id="form-loading" *ngIf="!heroes">
     <form>

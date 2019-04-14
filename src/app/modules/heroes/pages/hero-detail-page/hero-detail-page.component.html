@@ -2,7 +2,7 @@
 <div class="container" *ngIf="!hero">
   <app-hero-loading></app-hero-loading>
 </div>
-<div class="container" *ngIf="hero" [@fadeInOut]>
+<div class="container" *ngIf="hero" [@fadeIn]="fadeIn">
   <ng-container>
     <app-hero-card [hero]="hero"></app-hero-card>
     <div id="hero-json">

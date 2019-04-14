@@ -9,12 +9,18 @@ import {UtilsHelperService} from '../../../../core/services/utils-helper.service
 import {HeroRemoveComponent} from '../../components/hero-remove/hero-remove.component';
 import {isPlatformBrowser} from '@angular/common';
 import {I18n} from '@ngx-translate/i18n-polyfill';
+import {transition, trigger, useAnimation} from '@angular/animations';
+import {fadeIn} from 'ng-animate';
 
 @Component({
   selector: 'app-heroes-list-page',
   templateUrl: './heroes-list-page.component.html',
   styleUrls: ['./heroes-list-page.component.scss'],
-  animations: [UtilsHelperService.fadeInOut()]
+  animations: [
+    trigger('fadeIn', [transition('* => *', useAnimation(fadeIn, {
+      params: {timing: 1, delay: 0}
+    }))])
+  ]
 })
 
 export class HeroesListPageComponent implements OnInit {

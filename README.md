@@ -69,7 +69,7 @@
 * Scroll restoration and anchor examples
 * Responsive layout (flex layout module)
 * SASS (most common used functions and mixins) and BEM styles
-* Animations!
+* Animations with [ng-animate](https://jiayihu.github.io/ng-animate/)
 * Angular Pipes
 * Interceptors and Events (Progress bar active, if a request is pending)
 * Scroll to first invalid input in forms. ([ngx-scroll-to-first-invalid](https://github.com/Ismaestro/ngx-scroll-to-first-invalid))

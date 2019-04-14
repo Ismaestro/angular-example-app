@@ -6,12 +6,19 @@ import {Router} from '@angular/router';
 import {isPlatformBrowser} from '@angular/common';
 import {MatSnackBar} from '@angular/material';
 import {I18n} from '@ngx-translate/i18n-polyfill';
+import {transition, trigger, useAnimation} from '@angular/animations';
+import {fadeIn} from 'ng-animate';
 
 @Component({
   selector: 'app-hero-card',
   templateUrl: './hero-card.component.html',
   styleUrls: ['./hero-card.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    trigger('fadeIn', [transition('* => *', useAnimation(fadeIn, {
+      params: {timing: 1, delay: 0}
+    }))])
+  ]
 })
 export class HeroCardComponent implements OnInit {
 
