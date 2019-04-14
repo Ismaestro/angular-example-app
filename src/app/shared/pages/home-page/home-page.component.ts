@@ -3,6 +3,8 @@ import {Hero} from '../../../modules/heroes/shared/hero.model';
 import {HeroService} from '../../../modules/heroes/shared/hero.service';
 import {AppConfig} from '../../../configs/app.config';
 import {UtilsHelperService} from '../../../core/services/utils-helper.service';
+import {Observable} from 'rxjs';
+import {defaultIfEmpty, map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-home-page',
@@ -12,14 +14,15 @@ import {UtilsHelperService} from '../../../core/services/utils-helper.service';
 })
 
 export class HomePageComponent implements OnInit {
-  heroes: Hero[] = null;
+  heroes$: Observable<Hero[]>;
 
   constructor(private heroService: HeroService) {
   }
 
   ngOnInit() {
-    this.heroService.getHeroes().subscribe((heroes: Array<Hero>) => {
-      this.heroes = heroes.slice(0, AppConfig.topHeroesLimit);
-    });
+    this.heroes$ = this.heroService.getHeroes().pipe(
+      map((heroes) => heroes.slice(0, AppConfig.topHeroesLimit)),
+      defaultIfEmpty([])
+    );
   }
 }

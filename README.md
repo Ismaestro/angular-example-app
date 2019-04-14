@@ -78,7 +78,7 @@
 * [Sentry](https://sentry.io)! (logs every error in the app)
 * Google Tag Manager
 * ES6 Promises and Observables
-* Unit tests with Jasmine and Karma including code coverage (Use of [ng-bullet](https://www.npmjs.com/package/ng-bullet) and [karma-mocha-reporter](https://github.com/litixsoft/karma-mocha-reporter))
+* Unit tests with Jasmine and Karma including code coverage (Use of [ng-bullet](https://www.npmjs.com/package/ng-bullet), [karma-mocha-reporter](https://github.com/litixsoft/karma-mocha-reporter)) and [ng-mocks](https://github.com/ike18t/ng-mocks)
 * End-to-end tests with Protractor
 
 

@@ -1,4 +1,4 @@
-import {Component, Inject, Input, OnInit, PLATFORM_ID} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject, Input, OnInit, PLATFORM_ID} from '@angular/core';
 import {AppConfig} from '../../../configs/app.config';
 import {HeroService} from '../../../modules/heroes/shared/hero.service';
 import {Hero} from '../../../modules/heroes/shared/hero.model';
@@ -10,7 +10,8 @@ import {I18n} from '@ngx-translate/i18n-polyfill';
 @Component({
   selector: 'app-hero-card',
   templateUrl: './hero-card.component.html',
-  styleUrls: ['./hero-card.component.scss']
+  styleUrls: ['./hero-card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeroCardComponent implements OnInit {
 
@@ -23,10 +24,10 @@ export class HeroCardComponent implements OnInit {
               private snackBar: MatSnackBar,
               private i18n: I18n,
               @Inject(PLATFORM_ID) private platformId: Object) {
-    this.canVote = this.heroService.checkIfUserCanVote();
   }
 
   ngOnInit() {
+    this.canVote = this.heroService.checkIfUserCanVote();
   }
 
   like(hero: Hero): Promise<void> {

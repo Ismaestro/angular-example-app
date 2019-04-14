@@ -11,9 +11,7 @@ describe('LoggerService', () => {
         LoggerService
       ]
     });
-  });
 
-  beforeEach(() => {
     loggerService = TestBed.get(LoggerService);
   });
 

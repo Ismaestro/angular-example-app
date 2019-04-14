@@ -11,9 +11,7 @@ describe('UtilsHelperService', () => {
         UtilsHelperService
       ]
     });
-  });
 
-  beforeEach(() => {
     utilsHelperService = TestBed.get(UtilsHelperService);
   });
 

@@ -12,15 +12,13 @@ describe('SpinnerComponent', () => {
         SpinnerComponent
       ]
     });
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(SpinnerComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it('should create', () => {
-    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 });

@@ -16,7 +16,6 @@ import {UtilsHelperService} from '../../../../core/services/utils-helper.service
 export class HeroDetailPageComponent implements OnInit {
 
   hero: Hero;
-  canVote: boolean;
 
   constructor(private heroService: HeroService,
               private location: Location,

@@ -1,47 +1,46 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {HeaderComponent} from './header.component';
-import {TestsModule} from '../../modules/tests.module';
-import {APP_CONFIG, AppConfig} from '../../../configs/app.config';
-import {ProgressBarService} from '../../../core/services/progress-bar.service';
 import {configureTestSuite} from 'ng-bullet';
 import {SearchBarComponent} from '../search-bar/search-bar.component';
+import {MockComponent, MockModule} from 'ng-mocks';
+import {APP_CONFIG, AppConfig} from '../../../configs/app.config';
+import {RouterTestingModule} from '@angular/router/testing';
+import {MatButtonModule, MatIconModule, MatMenuModule, MatProgressBar} from '@angular/material';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
-  let progressBarService: ProgressBarService;
 
   configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [
-        TestsModule
+        RouterTestingModule,
+        MockModule(MatButtonModule),
+        MockModule(MatMenuModule),
+        MockModule(MatIconModule)
       ],
       declarations: [
-        SearchBarComponent,
+        MockComponent(SearchBarComponent),
+        MockComponent(MatProgressBar),
         HeaderComponent
       ],
       providers: [
-        {provide: APP_CONFIG, useValue: AppConfig},
-        ProgressBarService
+        {provide: APP_CONFIG, useValue: AppConfig}
       ]
     });
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.debugElement.componentInstance;
-    progressBarService = TestBed.get(ProgressBarService);
+    fixture.detectChanges();
   });
 
   it('should create header component', (() => {
-    fixture.detectChanges();
     expect(component).toBeTruthy();
   }));
 
-  it('should update progress bar', (() => {
-    fixture.detectChanges();
-    expect(component.progressBarMode).toBeUndefined();
-    progressBarService.updateProgressBar$.emit('query');
-    expect(component.progressBarMode).toBe('query');
+  it('should change the language', (() => {
+    expect(component.selectedLanguage).toBe('en');
+    component.changeLanguage('es');
+    expect(component.selectedLanguage).toBe('es');
   }));
 });

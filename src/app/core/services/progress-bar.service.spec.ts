@@ -1,28 +1,23 @@
 import {TestBed} from '@angular/core/testing';
 import {ProgressBarService} from './progress-bar.service';
-import {HeroService} from '../../modules/heroes/shared/hero.service';
 import {configureTestSuite} from 'ng-bullet';
-import {TestsModule} from '../../shared/modules/tests.module';
+import {MockModule} from 'ng-mocks';
+import {FirebaseModule} from '../../shared/modules/firebase.module';
 
 describe('ProgressBarService', () => {
   let progressBarService: ProgressBarService;
-  let heroService: HeroService;
 
   configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [
-        TestsModule
+        MockModule(FirebaseModule)
       ],
       providers: [
         ProgressBarService,
-        HeroService
       ]
     });
-  });
 
-  beforeEach(() => {
     progressBarService = TestBed.get(ProgressBarService);
-    heroService = TestBed.get(HeroService);
   });
 
   it('should not be requestsRunning', (() => {

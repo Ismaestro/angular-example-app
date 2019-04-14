@@ -9,8 +9,6 @@ import {UtilsHelperService} from '../../../../core/services/utils-helper.service
 import {HeroRemoveComponent} from '../../components/hero-remove/hero-remove.component';
 import {isPlatformBrowser} from '@angular/common';
 import {I18n} from '@ngx-translate/i18n-polyfill';
-import {DocumentReference} from '@angular/fire/firestore';
-import {LoggerService} from '../../../../core/services/logger.service';
 
 @Component({
   selector: 'app-heroes-list-page',

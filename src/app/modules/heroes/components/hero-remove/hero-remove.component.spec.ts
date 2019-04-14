@@ -1,7 +1,8 @@
 import {HeroRemoveComponent} from './hero-remove.component';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {configureTestSuite} from 'ng-bullet';
-import {TestsModule} from '../../../../shared/modules/tests.module';
+import {MockModule} from 'ng-mocks';
+import {MatDialogModule} from '@angular/material';
 
 describe('HeroRemoveComponent', () => {
   let component: HeroRemoveComponent;
@@ -10,22 +11,19 @@ describe('HeroRemoveComponent', () => {
   configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [
-        TestsModule
+        MockModule(MatDialogModule)
       ],
       declarations: [
         HeroRemoveComponent
-      ],
-      providers: []
+      ]
     });
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(HeroRemoveComponent);
     component = fixture.debugElement.componentInstance;
+    fixture.detectChanges();
   });
 
   it('should create the component', (() => {
-    fixture.detectChanges();
     expect(component).toBeTruthy();
   }));
 });

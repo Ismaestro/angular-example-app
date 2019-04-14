@@ -2,7 +2,7 @@ import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {APP_CONFIG} from '../../../configs/app.config';
 import {ProgressBarService} from '../../../core/services/progress-bar.service';
 import {isPlatformBrowser} from '@angular/common';
-import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
+import {NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -20,7 +20,6 @@ export class HeaderComponent implements OnInit {
   constructor(@Inject(APP_CONFIG) public appConfig: any,
               private progressBarService: ProgressBarService,
               private router: Router,
-              private activatedRoute: ActivatedRoute,
               @Inject(PLATFORM_ID) private platformId: Object) {
     this.languages = [{name: 'en', label: 'English'}, {name: 'es', label: 'Español'}];
   }
@@ -35,7 +34,7 @@ export class HeaderComponent implements OnInit {
     });
 
     this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd ) {
+      if (event instanceof NavigationEnd) {
         this.currentUrl = event.url;
       }
     });
