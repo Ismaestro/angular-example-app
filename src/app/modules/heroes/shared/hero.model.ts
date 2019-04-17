@@ -7,6 +7,7 @@ export class Hero implements Deserializable {
   likes: number;
   default: boolean;
   avatarUrl: string;
+  avatarBlurredUrl: string;
   avatarThumbnailUrl: string;
 
   constructor(hero: any = {}) {
@@ -16,6 +17,7 @@ export class Hero implements Deserializable {
     this.likes = hero.likes || 0;
     this.default = hero.default || false;
     this.avatarUrl = hero.avatarUrl || '';
+    this.avatarBlurredUrl = hero.avatarBlurredUrl || '';
     this.avatarThumbnailUrl = hero.avatarThumbnailUrl || '';
   }
 

@@ -15,7 +15,7 @@ import {NgxExampleLibraryModule} from '@ismaestro/ngx-example-library';
 import {HeroLoadingComponent} from './components/hero-loading/hero-loading.component';
 import {NgxScrollToFirstInvalidModule} from '@ismaestro/ngx-scroll-to-first-invalid';
 import {LoadingPlaceholderComponent} from './components/loading-placeholder/loading-placeholder.component';
-import {I18n} from '@ngx-translate/i18n-polyfill';
+import {NgxProgressiveImageLoaderModule} from 'ngx-progressive-image-loader';
 
 @NgModule({
   imports: [
@@ -25,7 +25,8 @@ import {I18n} from '@ngx-translate/i18n-polyfill';
     ReactiveFormsModule,
     RouterModule,
     NgxExampleLibraryModule,
-    NgxScrollToFirstInvalidModule
+    NgxScrollToFirstInvalidModule,
+    NgxProgressiveImageLoaderModule
   ],
   declarations: [
     HomePageComponent,
@@ -50,7 +51,8 @@ import {I18n} from '@ngx-translate/i18n-polyfill';
     HeroCardComponent,
     HeroLoadingComponent,
     NgxScrollToFirstInvalidModule,
-    LoadingPlaceholderComponent
+    LoadingPlaceholderComponent,
+    NgxProgressiveImageLoaderModule
   ]
 })
 

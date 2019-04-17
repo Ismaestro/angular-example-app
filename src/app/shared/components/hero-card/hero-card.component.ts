@@ -25,12 +25,16 @@ export class HeroCardComponent implements OnInit {
   @Input() hero: Hero;
 
   canVote: boolean;
+  isBrowser: boolean;
 
   constructor(private heroService: HeroService,
               private router: Router,
               private snackBar: MatSnackBar,
               private i18n: I18n,
               @Inject(PLATFORM_ID) private platformId: Object) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.isBrowser = true;
+    }
   }
 
   ngOnInit() {

@@ -8,7 +8,7 @@ export const AppConfig: any = {
     error404: '404'
   },
   votesLimit: 3,
-  topHeroesLimit: 4,
+  topHeroesLimit: 5,
   snackBarDuration: 3000,
   repositoryURL: 'https://github.com/ismaestro/angular7-example-app',
   sentryDSN: 'https://38434a1b115f41d3a31e356cdc496c06@sentry.io/1315526'

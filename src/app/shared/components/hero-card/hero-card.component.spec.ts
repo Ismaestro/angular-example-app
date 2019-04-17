@@ -11,6 +11,7 @@ import {I18n} from '@ngx-translate/i18n-polyfill';
 import {of} from 'rxjs';
 import {HeroService} from '../../../modules/heroes/shared/hero.service';
 import {RouterTestingModule} from '@angular/router/testing';
+import {NgxProgressiveImageLoaderModule} from 'ngx-progressive-image-loader';
 
 describe('HeroCardComponent', () => {
   let component: HeroCardComponent;
@@ -22,7 +23,8 @@ describe('HeroCardComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        MockModule(FirebaseModule)
+        MockModule(FirebaseModule),
+        MockModule(NgxProgressiveImageLoaderModule)
       ],
       declarations: [
         MockComponent(MatCard),

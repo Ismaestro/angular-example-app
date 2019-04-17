@@ -47,6 +47,7 @@
             ],
             "styles": [
               "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/ngx-progressive-image-loader/ngx-progressive-image-loader.scss",
               "src/assets/css/reset.css",
               "src/assets/css/loading.css",
               "src/app/styles/global.scss"
@@ -292,7 +293,8 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angularexampleapp:serve"
+            "devServerTarget": "angularexampleapp:serve",
+            "port": 4201
           }
         },
         "lint": {

@@ -11,5 +11,11 @@
       </mat-icon>
     </div>
   </mat-card-header>
-  <img (click)="seeHeroDetails(hero)" mat-card-image src="{{hero.avatarUrl}}">
+  <ng-container *ngIf="isBrowser">
+    <ngx-progressive-image-loader
+      [filter]="'blur(3px) drop-shadow(0 0 0.75rem crimson)'"
+      [placeholderImageSrc]="hero.avatarBlurredUrl">
+      <img (click)="seeHeroDetails(hero)" src="{{hero.avatarUrl}}" alt="" ngxProgressiveImage />
+    </ngx-progressive-image-loader>
+  </ng-container>
 </mat-card>

@@ -44,5 +44,5 @@ routes.forEach((route) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Node server listening on port ${PORT}`);
+  console.log(`Node server listening on http://localhost:${PORT}`);
 });

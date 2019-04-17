@@ -12,6 +12,7 @@ import {I18n} from '@ngx-translate/i18n-polyfill';
 import {HttpClientModule} from '@angular/common/http';
 import {registerLocaleData} from '@angular/common';
 import localeEs from '@angular/common/locales/es';
+import {NgxProgressiveImageLoaderModule} from 'ngx-progressive-image-loader';
 
 declare const require;
 
@@ -27,6 +28,7 @@ registerLocaleData(localeEs, 'es');
         say: 'hello'
       }
     }),
+    NgxProgressiveImageLoaderModule.forRoot(),
     CoreModule,
     SharedModule,
     AppRoutingModule
