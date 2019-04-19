@@ -8,7 +8,7 @@ import {of} from 'rxjs';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {HeroRemoveComponent} from '../../components/hero-remove/hero-remove.component';
 import {Router} from '@angular/router';
-import {AppConfig} from '../../../../configs/app.config';
+import {APP_CONFIG, AppConfig} from '../../../../configs/app.config';
 import {MockComponent, MockModule} from 'ng-mocks';
 import {MatDialog, MatError, MatFormField, MatIcon, MatList, MatListItem, MatSnackBar} from '@angular/material';
 import {NgxScrollToFirstInvalidModule} from '@ismaestro/ngx-scroll-to-first-invalid';
@@ -16,7 +16,6 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {TRANSLATIONS, TRANSLATIONS_FORMAT} from '@angular/core';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {AngularFireModule} from '@angular/fire';
 
 describe('HeroesListPageComponent', () => {
   let component: HeroesListPageComponent;
@@ -53,7 +52,8 @@ describe('HeroesListPageComponent', () => {
         {provide: HeroService, useValue: heroServiceSpy},
         {provide: TRANSLATIONS, useValue: require(`raw-loader!./../../../../../i18n/messages.en.xlf`)},
         {provide: TRANSLATIONS_FORMAT, useValue: 'xlf'},
-        I18n
+        I18n,
+        {provide: APP_CONFIG, useValue: AppConfig}
       ]
     });
 
@@ -118,11 +118,5 @@ describe('HeroesListPageComponent', () => {
     heroServiceSpy.deleteHero.and.returnValue(new Promise(() => true));
     component.deleteHero(hero);
     expect(heroServiceSpy.deleteHero).toHaveBeenCalledWith('testId');
-  }));
-
-  it('should seeHeroDetails', (() => {
-    const hero = new Hero({id: 'test', default: true});
-    component.seeHeroDetails(hero);
-    expect(navigateSpy).toHaveBeenCalledWith([AppConfig.routes.heroes + '/test']);
   }));
 });

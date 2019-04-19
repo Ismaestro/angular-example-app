@@ -1,6 +1,6 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {HeroCardComponent} from './hero-card.component';
-import {AppConfig} from '../../../configs/app.config';
+import {APP_CONFIG, AppConfig} from '../../../configs/app.config';
 import {Hero} from '../../../modules/heroes/shared/hero.model';
 import {configureTestSuite} from 'ng-bullet';
 import {MockComponent, MockModule} from 'ng-mocks';
@@ -39,7 +39,8 @@ describe('HeroCardComponent', () => {
         {provide: HeroService, useValue: heroServiceSpy},
         {provide: TRANSLATIONS, useValue: require(`raw-loader!./../../../../i18n/messages.en.xlf`)},
         {provide: TRANSLATIONS_FORMAT, useValue: 'xlf'},
-        I18n
+        I18n,
+        {provide: APP_CONFIG, useValue: AppConfig}
       ]
     });
 

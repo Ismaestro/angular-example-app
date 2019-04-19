@@ -5,16 +5,16 @@ import {Router} from '@angular/router';
 import {Hero} from '../../../modules/heroes/shared/hero.model';
 import {of} from 'rxjs';
 import {configureTestSuite} from 'ng-bullet';
-import {MockComponent, MockModule} from 'ng-mocks';
+import {MockComponent, MockModule, MockPipe} from 'ng-mocks';
 import {MatAutocompleteModule, MatFormField} from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
 import {RouterTestingModule} from '@angular/router/testing';
+import {CapitalizeFirstPipe} from '../../pipes/capitalize-first.pipe';
+import {APP_CONFIG, AppConfig} from '../../../configs/app.config';
 
 describe('SearchBarComponent', () => {
   let component: SearchBarComponent;
   let fixture: ComponentFixture<SearchBarComponent>;
-  let router: Router;
-  let navigateSpy;
   const heroServiceSpy = jasmine.createSpyObj('HeroService', ['getHeroes']);
 
   configureTestSuite(() => {
@@ -26,17 +26,17 @@ describe('SearchBarComponent', () => {
       ],
       declarations: [
         MockComponent(MatFormField),
+        MockPipe(CapitalizeFirstPipe),
         SearchBarComponent
       ],
       providers: [
-        {provide: HeroService, useValue: heroServiceSpy}
+        {provide: HeroService, useValue: heroServiceSpy},
+        {provide: APP_CONFIG, useValue: AppConfig}
       ]
     });
 
     fixture = TestBed.createComponent(SearchBarComponent);
     component = fixture.debugElement.componentInstance;
-    router = TestBed.get(Router);
-    navigateSpy = spyOn(router, 'navigate');
     heroServiceSpy.getHeroes.and.returnValue(of([new Hero({name: 'test1', default: true})]));
     fixture.detectChanges();
   });
@@ -53,11 +53,5 @@ describe('SearchBarComponent', () => {
     expect(component.filterHeroes('batman').length).toBe(1);
     expect(component.filterHeroes('spiderman').length).toBe(0);
     expect(component.filterHeroes('').length).toBe(2);
-  }));
-
-  it('should navigate to hero detail', (() => {
-    const heroId = 'BzTvl77YsRTtdihH0jeh';
-    component.searchHero(new Hero({id: heroId}));
-    expect(navigateSpy).toHaveBeenCalledWith(['heroes/' + heroId]);
   }));
 });

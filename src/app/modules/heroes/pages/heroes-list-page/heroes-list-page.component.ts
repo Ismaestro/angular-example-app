@@ -4,13 +4,13 @@ import {HeroService} from '../../shared/hero.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MatDialog, MatSnackBar} from '@angular/material';
 import {Router} from '@angular/router';
-import {AppConfig} from '../../../../configs/app.config';
 import {UtilsHelperService} from '../../../../core/services/utils-helper.service';
 import {HeroRemoveComponent} from '../../components/hero-remove/hero-remove.component';
 import {isPlatformBrowser} from '@angular/common';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {transition, trigger, useAnimation} from '@angular/animations';
 import {fadeIn} from 'ng-animate';
+import {APP_CONFIG} from '../../../../configs/app.config';
 
 @Component({
   selector: 'app-heroes-list-page',
@@ -38,7 +38,8 @@ export class HeroesListPageComponent implements OnInit {
               private router: Router,
               private i18n: I18n,
               private formBuilder: FormBuilder,
-              @Inject(PLATFORM_ID) private platformId: Object) {
+              @Inject(PLATFORM_ID) private platformId: Object,
+              @Inject(APP_CONFIG) public appConfig: any) {
     this.canVote = this.heroService.checkIfUserCanVote();
 
     this.newHeroForm = this.formBuilder.group({
@@ -90,12 +91,6 @@ export class HeroesListPageComponent implements OnInit {
         });
       }
     });
-  }
-
-  seeHeroDetails(hero): void {
-    if (hero.default) {
-      this.router.navigate([AppConfig.routes.heroes + '/' + hero.id]);
-    }
   }
 
   private onChanges() {

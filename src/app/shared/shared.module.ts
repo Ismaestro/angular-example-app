@@ -16,6 +16,7 @@ import {HeroLoadingComponent} from './components/hero-loading/hero-loading.compo
 import {NgxScrollToFirstInvalidModule} from '@ismaestro/ngx-scroll-to-first-invalid';
 import {LoadingPlaceholderComponent} from './components/loading-placeholder/loading-placeholder.component';
 import {NgxProgressiveImageLoaderModule} from 'ngx-progressive-image-loader';
+import {CapitalizeFirstPipe} from './pipes/capitalize-first.pipe';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import {NgxProgressiveImageLoaderModule} from 'ngx-progressive-image-loader';
     SpinnerComponent,
     HeroCardComponent,
     HeroLoadingComponent,
-    LoadingPlaceholderComponent
+    LoadingPlaceholderComponent,
+    CapitalizeFirstPipe
   ],
   exports: [
     CommonModule,
@@ -52,7 +54,8 @@ import {NgxProgressiveImageLoaderModule} from 'ngx-progressive-image-loader';
     HeroLoadingComponent,
     NgxScrollToFirstInvalidModule,
     LoadingPlaceholderComponent,
-    NgxProgressiveImageLoaderModule
+    NgxProgressiveImageLoaderModule,
+    CapitalizeFirstPipe
   ]
 })
 

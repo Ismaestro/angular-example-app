@@ -19,14 +19,19 @@
     </mat-list>
     <mat-list>
       <mat-list-item *ngFor="let hero of heroes" [@fadeIn]="fadeIn">
-        <img *ngIf="hero.default" class="cp"
-             (click)="seeHeroDetails(hero);" mat-list-avatar
-             src="{{hero.avatarThumbnailUrl}}">
-        <img *ngIf="!hero.default"
-             (click)="seeHeroDetails(hero);" mat-list-avatar src="assets/images/default-hero.png">
-        <h3 mat-line [class.cp]="hero.default" (click)="seeHeroDetails(hero);"> {{hero.name}} </h3>
-        <p mat-line [class.cp]="hero.default" (click)="seeHeroDetails(hero);">
-          <span>{{hero.alterEgo}}</span>
+        <a mat-list-avatar [routerLink]="hero.default ? ['/' + appConfig.routes.heroes + '/' + hero.id] : []">
+          <img class="cp" mat-list-avatar
+               [src]="hero.default ? hero.avatarThumbnailUrl : 'assets/images/default-hero.png'">
+        </a>
+        <h3 mat-line [class.cp]="hero.default">
+          <a [routerLink]="hero.default ? ['/' + appConfig.routes.heroes + '/' + hero.id] : []">
+            {{hero.name}}
+          </a>
+        </h3>
+        <p mat-line [class.cp]="hero.default">
+          <a [routerLink]="hero.default ? ['/' + appConfig.routes.heroes + '/' + hero.id] : []">
+            <span>{{hero.alterEgo}}</span>
+          </a>
         </p>
         <div class="hero-actions">
           {{hero.likes | number:'.0'}}

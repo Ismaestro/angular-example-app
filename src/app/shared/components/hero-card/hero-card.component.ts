@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, Inject, Input, OnInit, PLATFORM_ID} from '@angular/core';
-import {AppConfig} from '../../../configs/app.config';
+import {APP_CONFIG, AppConfig} from '../../../configs/app.config';
 import {HeroService} from '../../../modules/heroes/shared/hero.service';
 import {Hero} from '../../../modules/heroes/shared/hero.model';
 import {Router} from '@angular/router';
@@ -30,7 +30,8 @@ export class HeroCardComponent implements OnInit {
               private router: Router,
               private snackBar: MatSnackBar,
               private i18n: I18n,
-              @Inject(PLATFORM_ID) private platformId: Object) {
+              @Inject(PLATFORM_ID) private platformId: Object,
+              @Inject(APP_CONFIG) public appConfig: any) {
   }
 
   ngOnInit() {
@@ -46,12 +47,6 @@ export class HeroCardComponent implements OnInit {
       return this.heroService.updateHero(hero);
     } else {
       this.snackBar.open(this.i18n({value: 'Can\'t vote anymore', id: '@@cannotVote'}), '', {duration: 1000});
-    }
-  }
-
-  seeHeroDetails(hero): void {
-    if (hero.default) {
-      this.router.navigate([AppConfig.routes.heroes + '/' + hero.id]);
     }
   }
 

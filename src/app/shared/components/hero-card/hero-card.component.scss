@@ -1,7 +1,11 @@
 @import "../../../styles/mixins";
 @import "../../../styles/colors";
 
-.hero-header__image, mat-card-title, mat-card-subtitle, .mat-card-image {
+.hero-detail-link {
+  @include text-small-grey();
+}
+
+mat-card-title, mat-card-subtitle, .mat-card-image {
   cursor: pointer;
 }
 
