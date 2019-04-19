@@ -7,7 +7,7 @@
     "start:es": "ng serve --configuration=es --open",
     "extract-i18n": "ng xi18n angularexampleapp --i18n-format xlf --output-path i18n --i18n-locale en && ngx-extractor --input=\"src/**/*.ts\" --format=xlf --out-file=src/i18n/messages.xlf && ng run angularexampleapp:xliffmerge",
     "lint": "tslint --project tslint.json ./src/**/*.ts -t verbose",
-    "test": "ng test --code-coverage --no-watch --source-map=false",
+    "test": "ng test angularexampleapp --code-coverage --watch=true",
     "test:app:watch": "ng test angularexampleapp --code-coverage --watch=true",
     "test:library:watch": "ng test ngx-example-library --code-coverage --watch=true",
     "e2e": "ng e2e",

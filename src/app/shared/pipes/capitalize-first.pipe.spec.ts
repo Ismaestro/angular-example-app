@@ -1,6 +1,6 @@
 import {CapitalizeFirstPipe} from './capitalize-first.pipe';
 
-fdescribe('CapitalizeFirstPipe', () => {
+describe('CapitalizeFirstPipe', () => {
   const pipe = new CapitalizeFirstPipe();
 
   it('transforms "abc" to "Abc"', () => {
