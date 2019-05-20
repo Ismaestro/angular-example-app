@@ -56,7 +56,7 @@
     "express": "4.16.4",
     "firebase": "5.8.4",
     "ng-animate": "0.3.4",
-    "ngx-progressive-image-loader": "4.0.0-beta.14",
+    "ngx-progressive-image-loader": "4.0.0-beta.15",
     "ngx-logger": "^3.3.13",
     "rxjs": "6.4.0",
     "web-animations-js": "2.3.1",
