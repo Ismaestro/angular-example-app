@@ -1,15 +1,15 @@
 <mat-card class="hero-card" *ngIf="hero" [@fadeIn]="fadeIn">
   <mat-card-header>
-    <a mat-card-avatar [routerLink]="hero.default ? ['/' + appConfig.routes.heroes + '/' + hero.id] : []">
+    <a mat-card-avatar [routerLink]="hero.default ? [routesConfig.routes.heroes.detail(hero.id)] : []">
       <img mat-card-avatar [src]="hero.avatarThumbnailUrl">
     </a>
     <mat-card-title>
-      <a class="hero-detail-link" [routerLink]="hero.default ? ['/' + appConfig.routes.heroes + '/' + hero.id] : []">
+      <a class="hero-detail-link" [routerLink]="hero.default ? [routesConfig.routes.heroes.detail(hero.id)] : []">
         {{hero.name}}
       </a>
     </mat-card-title>
     <mat-card-subtitle>
-      <a class="hero-detail-link" [routerLink]="hero.default ? ['/' + appConfig.routes.heroes + '/' + hero.id] : []">
+      <a class="hero-detail-link" [routerLink]="hero.default ? [routesConfig.routes.heroes.detail(hero.id)] : []">
         {{hero.alterEgo}}
       </a>
     </mat-card-subtitle>
@@ -20,11 +20,11 @@
       </mat-icon>
     </div>
   </mat-card-header>
-  <a class="hero-detail-link" [routerLink]="hero.default ? ['/' + appConfig.routes.heroes + '/' + hero.id] : []">
-    <ngx-progressive-image-loader
+  <a class="hero-detail-link" [routerLink]="hero.default ? [routesConfig.routes.heroes.detail(hero.id)] : []">
+    <ngx-progressive-image-loader *ngIf="isBrowser"
       [filter]="'blur(3px) drop-shadow(0 0 0.75rem crimson)'"
       [placeholderImageSrc]="hero.avatarBlurredUrl">
-      <img src="{{hero.avatarUrl}}" alt="" ngxProgressiveImage/>
+      <img [src]="hero.avatarUrl" alt="avatar url" ngxProgressiveImage/>
     </ngx-progressive-image-loader>
   </a>
 </mat-card>

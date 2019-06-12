@@ -16,6 +16,8 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {TRANSLATIONS, TRANSLATIONS_FORMAT} from '@angular/core';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ROUTES_CONFIG, RoutesConfig} from '../../../../configs/routes.config';
+import {CookieService} from 'ngx-cookie';
 
 describe('HeroesListPageComponent', () => {
   let component: HeroesListPageComponent;
@@ -53,7 +55,14 @@ describe('HeroesListPageComponent', () => {
         {provide: TRANSLATIONS, useValue: require(`raw-loader!./../../../../../i18n/messages.en.xlf`)},
         {provide: TRANSLATIONS_FORMAT, useValue: 'xlf'},
         I18n,
-        {provide: APP_CONFIG, useValue: AppConfig}
+        {provide: APP_CONFIG, useValue: AppConfig},
+        {provide: ROUTES_CONFIG, useValue: RoutesConfig},
+        {
+          provide: CookieService, useValue: {
+            get: (key) => key,
+            put: () => true,
+          }
+        }
       ]
     });
 

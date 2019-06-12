@@ -3,9 +3,9 @@ import {Hero} from '../../shared/hero.model';
 import {HeroService} from '../../shared/hero.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
-import {AppConfig} from '../../../../configs/app.config';
 import {transition, trigger, useAnimation} from '@angular/animations';
 import {fadeIn} from 'ng-animate';
+import {RoutesConfig} from '../../../../configs/routes.config';
 
 @Component({
   selector: 'app-hero-detail-page',
@@ -40,6 +40,6 @@ export class HeroDetailPageComponent implements OnInit {
   }
 
   goToTheAnchor(): void {
-    this.router.navigate([`/${AppConfig.routes.heroes}/${this.hero.id}`], {fragment: 'heroe-detail'});
+    this.router.navigate([RoutesConfig.routes.heroes.detail(this.hero.id)], {fragment: 'heroe-detail'});
   }
 }

@@ -8,6 +8,7 @@ const modulemapngfactoryloader = require('@nguniversal/module-map-ngfactory-load
 
 const express = require('express');
 const path = require('path');
+const helmet = require('helmet');
 
 core.enableProdMode();
 
@@ -18,6 +19,9 @@ const routes = [
   {path: '/es/*', view: 'es/index', bundle: require('./dist/server/es/main')},
   {path: '/*', view: 'index', bundle: require('./dist/server/en/main')}
 ];
+
+app.use(helmet());
+app.use(helmet.noCache());
 
 // Load your engine
 app.engine('html', (filePath, options, callback) => {

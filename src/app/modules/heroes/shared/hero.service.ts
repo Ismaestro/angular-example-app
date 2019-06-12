@@ -1,13 +1,14 @@
 import {Observable, of} from 'rxjs';
-import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Hero} from './hero.model';
 import {catchError, map, tap} from 'rxjs/operators';
 import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
-import {LoggerService} from '../../../core/services/logger.service';
+import {LoggerService} from '../../../shared/services/logger.service';
 import {AppConfig} from '../../../configs/app.config';
 import {AngularFirestore, AngularFirestoreCollection, DocumentReference} from '@angular/fire/firestore';
-import {isPlatformBrowser} from '@angular/common';
 import {I18n} from '@ngx-translate/i18n-polyfill';
+import {EndpointsConfig} from '../../../configs/endpoints.config';
+import {CookieService} from 'ngx-cookie';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,8 @@ export class HeroService {
   constructor(private afs: AngularFirestore,
               private snackBar: MatSnackBar,
               private i18n: I18n,
-              @Inject(PLATFORM_ID) private platformId: Object) {
-    this.heroesCollection = this.afs.collection<Hero>(AppConfig.routes.heroes, (hero) => {
+              private cookieService: CookieService) {
+    this.heroesCollection = this.afs.collection<Hero>(EndpointsConfig.heroes.list, (hero) => {
       return hero.orderBy('default', 'desc').orderBy('likes', 'desc');
     });
   }
@@ -38,10 +39,8 @@ export class HeroService {
   }
 
   checkIfUserCanVote(): boolean {
-    if (isPlatformBrowser(this.platformId)) {
-      return Number(localStorage.getItem('votes')) < AppConfig.votesLimit;
-    }
-    return false;
+    const votes = this.cookieService.get('votes');
+    return Number(votes ? votes : 0) < AppConfig.votesLimit;
   }
 
   getHeroes(): Observable<Hero[]> {
@@ -59,7 +58,7 @@ export class HeroService {
   }
 
   getHero(id: string): Observable<any> {
-    return this.afs.doc(`${AppConfig.routes.heroes}/${id}`).get().pipe(
+    return this.afs.doc(EndpointsConfig.heroes.detail(id)).get().pipe(
       map((hero) => {
         return new Hero({id, ...hero.data()});
       }),
@@ -73,14 +72,14 @@ export class HeroService {
   }
 
   updateHero(hero: Hero): Promise<void> {
-    return this.afs.doc(`${AppConfig.routes.heroes}/${hero.id}`).update(JSON.parse(JSON.stringify(hero))).then(() => {
+    return this.afs.doc(EndpointsConfig.heroes.detail(hero.id)).update(JSON.parse(JSON.stringify(hero))).then(() => {
       LoggerService.log(`updated hero w/ id=${hero.id}`);
       this.showSnackBar(this.i18n({value: 'Saved', id: '@@saved'}));
     });
   }
 
   deleteHero(id: string): Promise<void> {
-    return this.afs.doc(`${AppConfig.routes.heroes}/${id}`).delete();
+    return this.afs.doc(EndpointsConfig.heroes.detail(id)).delete();
   }
 
   showSnackBar(name): void {

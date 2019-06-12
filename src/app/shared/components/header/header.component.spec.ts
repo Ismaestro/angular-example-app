@@ -6,10 +6,12 @@ import {MockComponent, MockModule} from 'ng-mocks';
 import {APP_CONFIG, AppConfig} from '../../../configs/app.config';
 import {RouterTestingModule} from '@angular/router/testing';
 import {MatButtonModule, MatIconModule, MatMenuModule, MatProgressBar} from '@angular/material';
+import {CookieService} from 'ngx-cookie';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
+  const cookieServiceSpy = jasmine.createSpyObj('CookieService', ['get', 'put']);
 
   configureTestSuite(() => {
     TestBed.configureTestingModule({
@@ -25,12 +27,14 @@ describe('HeaderComponent', () => {
         HeaderComponent
       ],
       providers: [
-        {provide: APP_CONFIG, useValue: AppConfig}
+        {provide: APP_CONFIG, useValue: AppConfig},
+        {provide: CookieService, useValue: cookieServiceSpy}
       ]
     });
 
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.debugElement.componentInstance;
+    cookieServiceSpy.get.and.returnValue('en');
     fixture.detectChanges();
   });
 
@@ -39,6 +43,7 @@ describe('HeaderComponent', () => {
   }));
 
   it('should change the language', (() => {
+    cookieServiceSpy.put.and.returnValue(true);
     expect(component.selectedLanguage).toBe('en');
     component.changeLanguage('es');
     expect(component.selectedLanguage).toBe('es');

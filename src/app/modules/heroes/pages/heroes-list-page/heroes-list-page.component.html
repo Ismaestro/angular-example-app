@@ -19,17 +19,17 @@
     </mat-list>
     <mat-list>
       <mat-list-item *ngFor="let hero of heroes" [@fadeIn]="fadeIn">
-        <a mat-list-avatar [routerLink]="hero.default ? ['/' + appConfig.routes.heroes + '/' + hero.id] : []">
+        <a mat-list-avatar [routerLink]="hero.default ? [routesConfig.routes.heroes.detail(hero.id)] : []">
           <img class="cp" mat-list-avatar
                [src]="hero.default ? hero.avatarThumbnailUrl : 'assets/images/default-hero.png'">
         </a>
         <h3 mat-line [class.cp]="hero.default">
-          <a [routerLink]="hero.default ? ['/' + appConfig.routes.heroes + '/' + hero.id] : []">
+          <a [routerLink]="hero.default ? [routesConfig.routes.heroes.detail(hero.id)] : []">
             {{hero.name}}
           </a>
         </h3>
         <p mat-line [class.cp]="hero.default">
-          <a [routerLink]="hero.default ? ['/' + appConfig.routes.heroes + '/' + hero.id] : []">
+          <a [routerLink]="hero.default ? [routesConfig.routes.heroes.detail(hero.id)] : []">
             <span>{{hero.alterEgo}}</span>
           </a>
         </p>

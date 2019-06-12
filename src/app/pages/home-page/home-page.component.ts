@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Hero} from '../../../modules/heroes/shared/hero.model';
-import {HeroService} from '../../../modules/heroes/shared/hero.service';
-import {AppConfig} from '../../../configs/app.config';
+import {Hero} from '../../modules/heroes/shared/hero.model';
+import {HeroService} from '../../modules/heroes/shared/hero.service';
+import {AppConfig} from '../../configs/app.config';
 import {Observable} from 'rxjs';
 import {defaultIfEmpty, map} from 'rxjs/operators';
 

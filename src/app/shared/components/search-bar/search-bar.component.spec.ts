@@ -1,7 +1,6 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {SearchBarComponent} from './search-bar.component';
 import {HeroService} from '../../../modules/heroes/shared/hero.service';
-import {Router} from '@angular/router';
 import {Hero} from '../../../modules/heroes/shared/hero.model';
 import {of} from 'rxjs';
 import {configureTestSuite} from 'ng-bullet';
@@ -11,6 +10,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {RouterTestingModule} from '@angular/router/testing';
 import {CapitalizeFirstPipe} from '../../pipes/capitalize-first.pipe';
 import {APP_CONFIG, AppConfig} from '../../../configs/app.config';
+import {ROUTES_CONFIG, RoutesConfig} from '../../../configs/routes.config';
 
 describe('SearchBarComponent', () => {
   let component: SearchBarComponent;
@@ -31,6 +31,7 @@ describe('SearchBarComponent', () => {
       ],
       providers: [
         {provide: HeroService, useValue: heroServiceSpy},
+        {provide: ROUTES_CONFIG, useValue: RoutesConfig},
         {provide: APP_CONFIG, useValue: AppConfig}
       ]
     });

@@ -6,6 +6,8 @@
 <mat-autocomplete #heroesAutocomplete="matAutocomplete">
   <mat-option *ngFor="let hero of filteredHeroes"
               [value]="hero.name">
-    <a class="hero-link" [routerLink]="['/' + appConfig.routes.heroes + '/' + hero.id]">{{hero.name | capitalizefirst}}</a>
+    <a class="hero-link" [routerLink]="[routesConfig.routes.heroes.detail(hero.id)]">
+      {{hero.name | capitalizefirst}}
+    </a>
   </mat-option>
 </mat-autocomplete>

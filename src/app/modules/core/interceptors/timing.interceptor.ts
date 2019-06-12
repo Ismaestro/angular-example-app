@@ -1,19 +1,20 @@
 import {tap} from 'rxjs/operators';
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {ProgressBarService} from '../services/progress-bar.service';
+import {LoggerService} from '../../../shared/services/logger.service';
 
-export class ProgressInterceptor implements HttpInterceptor {
-  constructor(private progressBarService: ProgressBarService) {
+export class TimingInterceptor implements HttpInterceptor {
+  constructor() {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    this.progressBarService.increase();
+    const started = Date.now();
     return next
       .handle(req).pipe(
         tap(event => {
           if (event instanceof HttpResponse) {
-            this.progressBarService.decrease();
+            const elapsed = Date.now() - started;
+            LoggerService.log(`Request for ${req.urlWithParams} took ${elapsed} ms.`);
           }
         }));
   }

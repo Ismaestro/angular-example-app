@@ -3,7 +3,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Hero} from '../../../modules/heroes/shared/hero.model';
 import {HeroService} from '../../../modules/heroes/shared/hero.service';
-import {APP_CONFIG} from '../../../configs/app.config';
+import {ROUTES_CONFIG} from '../../../configs/routes.config';
 
 @Component({
   selector: 'app-search-bar',
@@ -18,7 +18,7 @@ export class SearchBarComponent implements OnInit {
   filteredHeroes: any;
 
   constructor(private heroService: HeroService,
-              @Inject(APP_CONFIG) public appConfig: any) {
+              @Inject(ROUTES_CONFIG) public routesConfig: any) {
     this.defaultHeroes = [];
     this.heroFormControl = new FormControl();
   }

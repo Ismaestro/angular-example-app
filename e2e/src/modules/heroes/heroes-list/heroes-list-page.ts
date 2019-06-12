@@ -1,9 +1,9 @@
 import {browser, by, element} from 'protractor';
-import {AppConfig} from '../../../../../src/app/configs/app.config';
+import {RoutesConfig} from '../../../../../src/app/configs/routes.config';
 
 export class HeroesListPage {
   static navigateTo(): any {
-    return browser.get(AppConfig.routes.heroes);
+    return browser.get(RoutesConfig.routesNames.heroes.basePath);
   }
 
   static getNumberHeroes(): any {

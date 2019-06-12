@@ -1,17 +1,12 @@
 import {TestBed} from '@angular/core/testing';
 import {ProgressBarService} from './progress-bar.service';
 import {configureTestSuite} from 'ng-bullet';
-import {MockModule} from 'ng-mocks';
-import {FirebaseModule} from '../../shared/modules/firebase.module';
 
 describe('ProgressBarService', () => {
   let progressBarService: ProgressBarService;
 
   configureTestSuite(() => {
     TestBed.configureTestingModule({
-      imports: [
-        MockModule(FirebaseModule)
-      ],
       providers: [
         ProgressBarService,
       ]

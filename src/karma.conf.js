@@ -36,6 +36,7 @@ module.exports = function (config) {
     browsers: ['ChromeHeadlessNoSandbox'],
     browserDisconnectTolerance: 2,
     browserNoActivityTimeout: 50000,
+    reportSlowerThan: 100,
     customLaunchers: {
       ChromeHeadlessNoSandbox: {
         base: 'ChromeHeadless',

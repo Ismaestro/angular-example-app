@@ -15,9 +15,9 @@
           "options": {
             "outputPath": "dist/browser/",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "main": "src/main.browser.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "tsConfig": "src/tsconfig.browser.json",
             "assets": [
               {
                 "glob": "**/*",
@@ -50,11 +50,11 @@
               "node_modules/ngx-progressive-image-loader/ngx-progressive-image-loader.scss",
               "src/assets/css/reset.css",
               "src/assets/css/loading.css",
-              "src/app/styles/global.scss"
+              "src/app/shared/styles/global.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/app/styles"
+                "src/app/shared/styles"
               ]
             },
             "scripts": [
@@ -178,7 +178,7 @@
               },
               "src/assets/css/reset.css",
               "src/assets/css/loading.css",
-              "src/app/styles/global.scss"
+              "src/app/shared/styles/global.scss"
             ],
             "assets": [
               {
@@ -209,7 +209,7 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/app/styles"
+                "src/app/shared/styles"
               ]
             },
             "watch": false,
@@ -220,7 +220,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "src/tsconfig.app.json",
+              "src/tsconfig.browser.json",
               "src/tsconfig.spec.json"
             ],
             "exclude": [
@@ -235,7 +235,7 @@
             "tsConfig": "src/tsconfig.server.json",
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/app/styles"
+                "src/app/shared/styles"
               ]
             }
           },

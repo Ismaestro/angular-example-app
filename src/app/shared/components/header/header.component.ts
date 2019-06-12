@@ -1,8 +1,8 @@
-import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {APP_CONFIG} from '../../../configs/app.config';
-import {ProgressBarService} from '../../../core/services/progress-bar.service';
-import {isPlatformBrowser} from '@angular/common';
+import {ProgressBarService} from '../../services/progress-bar.service';
 import {NavigationEnd, Router} from '@angular/router';
+import {CookieService} from 'ngx-cookie';
 
 @Component({
   selector: 'app-header',
@@ -19,15 +19,13 @@ export class HeaderComponent implements OnInit {
 
   constructor(@Inject(APP_CONFIG) public appConfig: any,
               private progressBarService: ProgressBarService,
-              private router: Router,
-              @Inject(PLATFORM_ID) private platformId: Object) {
+              private cookieService: CookieService,
+              private router: Router) {
     this.languages = [{name: 'en', label: 'English'}, {name: 'es', label: 'Español'}];
   }
 
   ngOnInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.selectedLanguage = localStorage.getItem('language') || 'en';
-    }
+    this.selectedLanguage = this.cookieService.get('language') || 'en';
 
     this.progressBarService.updateProgressBar$.subscribe((mode: string) => {
       this.progressBarMode = mode;
@@ -41,9 +39,7 @@ export class HeaderComponent implements OnInit {
   }
 
   changeLanguage(language: string): void {
-    if (isPlatformBrowser(this.platformId)) {
-      localStorage.setItem('language', language);
-    }
+    this.cookieService.put('language', language);
     this.selectedLanguage = language;
   }
 }

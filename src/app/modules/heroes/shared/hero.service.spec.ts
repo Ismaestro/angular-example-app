@@ -7,6 +7,7 @@ import {FirebaseModule} from '../../../shared/modules/firebase.module';
 import {MatSnackBar} from '@angular/material';
 import {TRANSLATIONS, TRANSLATIONS_FORMAT} from '@angular/core';
 import {I18n} from '@ngx-translate/i18n-polyfill';
+import {CookieService} from 'ngx-cookie';
 
 describe('HeroService', () => {
   const heroId = 'BzTvl77YsRTtdihH0jeh';
@@ -22,6 +23,7 @@ describe('HeroService', () => {
         {provide: MatSnackBar, useValue: matSnackBarSpy},
         {provide: TRANSLATIONS, useValue: require(`raw-loader!./../../../../i18n/messages.en.xlf`)},
         {provide: TRANSLATIONS_FORMAT, useValue: 'xlf'},
+        {provide: CookieService, useValue: {}},
         I18n,
         HeroService
       ]

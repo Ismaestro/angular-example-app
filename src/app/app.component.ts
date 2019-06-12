@@ -2,10 +2,10 @@ import {Component, Inject, LOCALE_ID, OnInit, PLATFORM_ID, Renderer2} from '@ang
 import {Meta, Title} from '@angular/platform-browser';
 import {NavigationEnd, Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
-import {AppConfig} from './configs/app.config';
-import {UtilsHelperService} from './core/services/utils-helper.service';
+import {UtilsHelperService} from './shared/services/utils-helper.service';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {I18n} from '@ngx-translate/i18n-polyfill';
+import {RoutesConfig} from './configs/routes.config';
 
 declare const Modernizr;
 
@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
               content: this.i18n({value: 'Home meta description', id: '@@homeMetaDescription'})
             });
             break;
-          case '/' + AppConfig.routes.heroes:
+          case '/' + RoutesConfig.routesNames.heroes.basePath:
             this.title.setTitle('Heroes list');
             this.meta.updateTag({
               name: 'description',

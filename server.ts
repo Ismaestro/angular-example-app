@@ -2,6 +2,7 @@ import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
 import {enableProdMode} from '@angular/core';
 import * as express from 'express';
+import * as helmet from 'helmet';
 import {join} from 'path';
 import {ngExpressEngine} from '@nguniversal/express-engine';
 import {provideModuleMap} from '@nguniversal/module-map-ngfactory-loader';
@@ -12,11 +13,15 @@ enableProdMode();
 (global as any).XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 
 const app = express();
+
+app.use(helmet());
+app.use(helmet.noCache());
+
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist');
 const routes = [
-  {path: '/es/*', view: 'es/index', bundle: require('./dist/server/es/main')},
-  {path: '/*', view: 'index', bundle: require('./dist/server/en/main')}
+  {path: '/es/*', view: 'es/index', bundle: require('./server/es/main')},
+  {path: '/*', view: 'index', bundle: require('./server/en/main')}
 ];
 
 // Load your engine

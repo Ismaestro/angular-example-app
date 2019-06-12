@@ -1,14 +1,14 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {HeroService} from '../../../modules/heroes/shared/hero.service';
+import {HeroService} from '../../modules/heroes/shared/hero.service';
 import {HomePageComponent} from './home-page.component';
 import {of} from 'rxjs';
-import {Hero} from '../../../modules/heroes/shared/hero.model';
+import {Hero} from '../../modules/heroes/shared/hero.model';
 import {configureTestSuite} from 'ng-bullet';
-import {HeroLoadingComponent} from '../../components/hero-loading/hero-loading.component';
-import {HeroCardComponent} from '../../components/hero-card/hero-card.component';
-import {LoadingPlaceholderComponent} from '../../components/loading-placeholder/loading-placeholder.component';
+import {HeroLoadingComponent} from '../../shared/components/hero-loading/hero-loading.component';
+import {HeroCardComponent} from '../../shared/components/hero-card/hero-card.component';
+import {LoadingPlaceholderComponent} from '../../shared/components/loading-placeholder/loading-placeholder.component';
 import {MockComponent, MockModule} from 'ng-mocks';
-import {FirebaseModule} from '../../modules/firebase.module';
+import {FirebaseModule} from '../../shared/modules/firebase.module';
 import {MatSnackBar} from '@angular/material';
 import {TRANSLATIONS, TRANSLATIONS_FORMAT} from '@angular/core';
 import {I18n} from '@ngx-translate/i18n-polyfill';
@@ -36,7 +36,7 @@ describe('HomePage', () => {
       providers: [
         {provide: MatSnackBar, useValue: matSnackBarSpy},
         {provide: HeroService, useValue: heroServiceSpy},
-        {provide: TRANSLATIONS, useValue: require(`raw-loader!./../../../../i18n/messages.en.xlf`)},
+        {provide: TRANSLATIONS, useValue: require(`raw-loader!./../../../i18n/messages.en.xlf`)},
         {provide: TRANSLATIONS_FORMAT, useValue: 'xlf'},
         I18n
       ]

@@ -12,6 +12,8 @@ import {of} from 'rxjs';
 import {HeroService} from '../../../modules/heroes/shared/hero.service';
 import {RouterTestingModule} from '@angular/router/testing';
 import {NgxProgressiveImageLoaderModule} from 'ngx-progressive-image-loader';
+import {ROUTES_CONFIG, RoutesConfig} from '../../../configs/routes.config';
+import {CookieService} from 'ngx-cookie';
 
 describe('HeroCardComponent', () => {
   let component: HeroCardComponent;
@@ -40,7 +42,9 @@ describe('HeroCardComponent', () => {
         {provide: TRANSLATIONS, useValue: require(`raw-loader!./../../../../i18n/messages.en.xlf`)},
         {provide: TRANSLATIONS_FORMAT, useValue: 'xlf'},
         I18n,
-        {provide: APP_CONFIG, useValue: AppConfig}
+        {provide: APP_CONFIG, useValue: AppConfig},
+        {provide: ROUTES_CONFIG, useValue: RoutesConfig},
+        {provide: CookieService, useValue: {}}
       ]
     });
 
@@ -55,7 +59,6 @@ describe('HeroCardComponent', () => {
   });
 
   it('should like a hero', () => {
-    localStorage.setItem('votes', String(AppConfig.votesLimit - 1));
     const hero = new Hero({likes: 1});
     hero.like();
     expect(hero.likes).toBe(2);

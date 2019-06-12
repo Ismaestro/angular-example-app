@@ -1,12 +1,9 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
-    "importHelpers": true,
-    "outDir": "./dist/out-tsc",
+    "outDir": "./dist",
     "sourceMap": true,
     "declaration": false,
-    "module": "esNext",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -15,17 +12,10 @@
       "node_modules/@types"
     ],
     "lib": [
-      "es2018",
+      "es2017",
       "dom"
     ],
-    "paths": {
-      "ngx-example-library": [
-        "dist/ngx-example-library"
-      ]
-    },
-    "skipLibCheck": true
+    "resolveJsonModule": true
   },
-  "angularCompilerOptions": {
-    "preserveWhitespaces": false
-  }
+  "include": ["server.ts"]
 }

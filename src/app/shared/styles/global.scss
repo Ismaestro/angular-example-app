@@ -91,7 +91,7 @@ pre {
 }
 
 // ngx-progressive-image-loader
-@import '~ngx-progressive-image-loader/ngx-progressive-image-loader';
+@import '../../../../node_modules/ngx-progressive-image-loader/ngx-progressive-image-loader';
 $scale: 1;
 @include progressive-image-loader($scale);
 
