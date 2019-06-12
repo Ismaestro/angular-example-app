@@ -1,6 +1,27 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [8.0.0](https://github.com/Ismaestro/angular7-example-app/compare/v7.0.0...v8.0.0) (2019-06-12)
+
+
+### Features
+
+* **angular 8:** improve material imports and load child with the new version ([fd6f955](https://github.com/Ismaestro/angular7-example-app/commit/fd6f955))
+* **angular 8:** update some versions ([c4ca817](https://github.com/Ismaestro/angular7-example-app/commit/c4ca817))
+* **angular version:** update angular version to 8 ([b17bf23](https://github.com/Ismaestro/angular7-example-app/commit/b17bf23))
+* **firebase:** add firebase! ([c8eaa60](https://github.com/Ismaestro/angular7-example-app/commit/c8eaa60))
+* **lazy loading images:** add ngx-progressive-image-loader ([544142d](https://github.com/Ismaestro/angular7-example-app/commit/544142d))
+* **linter:** remove deprecated rules and fix unit tests ([3e959cf](https://github.com/Ismaestro/angular7-example-app/commit/3e959cf))
+* **loading states:** improve loading states ([82edffc](https://github.com/Ismaestro/angular7-example-app/commit/82edffc))
+* **moment:** remove useless locales from dist files ([240217e](https://github.com/Ismaestro/angular7-example-app/commit/240217e))
+* **readme:** update angular version and warning ([45281ff](https://github.com/Ismaestro/angular7-example-app/commit/45281ff))
+* **sentry:** add sentry! ([d0ecb7f](https://github.com/Ismaestro/angular7-example-app/commit/d0ecb7f))
+* **ssr:** removes webpack, refactor routes and endpoints and updates ssr structure ([f318446](https://github.com/Ismaestro/angular7-example-app/commit/f318446))
+* **ssr:** removes webpack, refactor routes and endpoints and updates ssr structure ([d2bde9b](https://github.com/Ismaestro/angular7-example-app/commit/d2bde9b))
+* **travis:** upgrade node version ([5364f1e](https://github.com/Ismaestro/angular7-example-app/commit/5364f1e))
+
+
 
 <a name="7.0.0"></a>
 # [7.0.0](https://github.com/Ismaestro/angular7-example-app/compare/v6.1.0...v7.0.0) (2018-10-30)
