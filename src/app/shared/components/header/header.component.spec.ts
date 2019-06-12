@@ -5,7 +5,10 @@ import {SearchBarComponent} from '../search-bar/search-bar.component';
 import {MockComponent, MockModule} from 'ng-mocks';
 import {APP_CONFIG, AppConfig} from '../../../configs/app.config';
 import {RouterTestingModule} from '@angular/router/testing';
-import {MatButtonModule, MatIconModule, MatMenuModule, MatProgressBar} from '@angular/material';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatProgressBar} from '@angular/material/progress-bar';
 import {CookieService} from 'ngx-cookie';
 
 describe('HeaderComponent', () => {

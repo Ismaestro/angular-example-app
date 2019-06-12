@@ -4,7 +4,7 @@ import {Hero} from './hero.model';
 import {HttpErrorResponse} from '@angular/common/http';
 import {configureTestSuite} from 'ng-bullet';
 import {FirebaseModule} from '../../../shared/modules/firebase.module';
-import {MatSnackBar} from '@angular/material';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import {TRANSLATIONS, TRANSLATIONS_FORMAT} from '@angular/core';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {CookieService} from 'ngx-cookie';

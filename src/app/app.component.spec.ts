@@ -10,9 +10,9 @@ import {NgxExampleLibraryComponent} from '@ismaestro/ngx-example-library';
 import {of} from 'rxjs';
 import {MockComponent} from 'ng-mocks';
 import {RouterTestingModule} from '@angular/router/testing';
-import {MatSnackBar} from '@angular/material';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {TRANSLATIONS, TRANSLATIONS_FORMAT} from '@angular/core';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 describe('AppComponent', () => {
   let component: AppComponent;

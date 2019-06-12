@@ -3,7 +3,8 @@ import {HeroLoadingComponent} from './hero-loading.component';
 import {configureTestSuite} from 'ng-bullet';
 import {LoadingPlaceholderComponent} from '../loading-placeholder/loading-placeholder.component';
 import {MockComponent} from 'ng-mocks';
-import {MatCard, MatCardHeader, MatCardSubtitle, MatCardTitle, MatIcon} from '@angular/material';
+import {MatCard, MatCardHeader, MatCardSubtitle, MatCardTitle} from '@angular/material/card';
+import {MatIcon} from '@angular/material/icon';
 
 describe('HeroLoadingComponent', () => {
   let component: HeroLoadingComponent;

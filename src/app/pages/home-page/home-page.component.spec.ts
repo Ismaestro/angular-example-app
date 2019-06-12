@@ -9,7 +9,7 @@ import {HeroCardComponent} from '../../shared/components/hero-card/hero-card.com
 import {LoadingPlaceholderComponent} from '../../shared/components/loading-placeholder/loading-placeholder.component';
 import {MockComponent, MockModule} from 'ng-mocks';
 import {FirebaseModule} from '../../shared/modules/firebase.module';
-import {MatSnackBar} from '@angular/material';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import {TRANSLATIONS, TRANSLATIONS_FORMAT} from '@angular/core';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';

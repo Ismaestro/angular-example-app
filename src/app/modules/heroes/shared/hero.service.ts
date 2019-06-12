@@ -2,7 +2,7 @@ import {Observable, of} from 'rxjs';
 import {Injectable} from '@angular/core';
 import {Hero} from './hero.model';
 import {catchError, map, tap} from 'rxjs/operators';
-import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
+import {MatSnackBar, MatSnackBarConfig} from '@angular/material/snack-bar';
 import {LoggerService} from '../../../shared/services/logger.service';
 import {AppConfig} from '../../../configs/app.config';
 import {AngularFirestore, AngularFirestoreCollection, DocumentReference} from '@angular/fire/firestore';

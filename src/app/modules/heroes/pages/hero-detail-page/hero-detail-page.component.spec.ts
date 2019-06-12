@@ -6,7 +6,7 @@ import {HeroLoadingComponent} from '../../../../shared/components/hero-loading/h
 import {HeroCardComponent} from '../../../../shared/components/hero-card/hero-card.component';
 import {MockComponent, MockModule} from 'ng-mocks';
 import {FirebaseModule} from '../../../../shared/modules/firebase.module';
-import {MatSnackBar} from '@angular/material';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import {TRANSLATIONS, TRANSLATIONS_FORMAT} from '@angular/core';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {HeroService} from '../../shared/hero.service';

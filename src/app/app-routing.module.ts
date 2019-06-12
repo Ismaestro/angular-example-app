@@ -8,9 +8,8 @@ const routesNames = RoutesConfig.routesNames;
 
 const routes: Routes = [
   {path: routesNames.home, component: HomePageComponent, pathMatch: 'full'},
-  {path: routesNames.heroes.basePath, loadChildren: './modules/heroes/heroes.module#HeroesModule'},
+  {path: routesNames.heroes.basePath, loadChildren: () => import('./modules/heroes/heroes.module').then(m => m.HeroesModule)},
   {path: routesNames.error404, component: Error404PageComponent},
-
   {path: 'en', redirectTo: ''}, // because english language is the default one
 
   // otherwise redirect to 404

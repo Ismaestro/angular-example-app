@@ -103,7 +103,6 @@
     "ng-bullet": "1.0.3",
     "ng-mocks": "8.0.0",
     "ng-packagr": "5.3.0",
-    "node-sass": "4.12.0",
     "path": "0.12.7",
     "protractor": "5.4.2",
     "standard-version": "6.0.1",
