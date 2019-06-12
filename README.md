@@ -22,9 +22,9 @@
     </a>
     <br>
     <br>
-    <a href="https://github.com/Ismaestro/angular7-example-app/issues/new">Report bug</a>
+    <a href="https://github.com/Ismaestro/angular8-example-app/issues/new">Report bug</a>
     ·
-    <a href="https://github.com/Ismaestro/angular7-example-app/issues/new">Request feature</a>
+    <a href="https://github.com/Ismaestro/angular8-example-app/issues/new">Request feature</a>
   </p>
 </p>
 
@@ -42,17 +42,17 @@
 
 ## Status
 
-![travis](https://travis-ci.org/Ismaestro/angular7-example-app.svg?branch=master)
-[![Coverage Status](https://coveralls.io/repos/github/Ismaestro/angular7-example-app/badge.svg?branch=master)](https://coveralls.io/github/Ismaestro/angular7-example-app?branch=master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9d190a60fc864060ac054ba17a4e92e4)](https://www.codacy.com/app/Ismaestro/angular7-example-app?utm_source=github.com&utm_medium=referral&utm_content=Ismaestro/angular7-example-app&utm_campaign=badger)
+![travis](https://travis-ci.org/Ismaestro/angular8-example-app.svg?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/Ismaestro/angular8-example-app/badge.svg?branch=master)](https://coveralls.io/github/Ismaestro/angular8-example-app?branch=master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9d190a60fc864060ac054ba17a4e92e4)](https://www.codacy.com/app/Ismaestro/angular8-example-app?utm_source=github.com&utm_medium=referral&utm_content=Ismaestro/angular8-example-app&utm_campaign=badger)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
-[![dependency Status](https://david-dm.org/ismaestro/angular7-example-app.svg)](https://david-dm.org/ismaestro/angular7-example-app#info=dependencies)
-[![devDependency Status](https://david-dm.org/ismaestro/angular7-example-app/dev-status.svg)](https://david-dm.org/ismaestro/angular7-example-app#info=devDependencies)
-[![peerDependencies Status](https://david-dm.org/ismaestro/angular7-example-app/peer-status.svg)](https://david-dm.org/ismaestro/angular7-example-app?type=peer)
+[![dependency Status](https://david-dm.org/ismaestro/angular8-example-app.svg)](https://david-dm.org/ismaestro/angular8-example-app#info=dependencies)
+[![devDependency Status](https://david-dm.org/ismaestro/angular8-example-app/dev-status.svg)](https://david-dm.org/ismaestro/angular8-example-app#info=devDependencies)
+[![peerDependencies Status](https://david-dm.org/ismaestro/angular8-example-app/peer-status.svg)](https://david-dm.org/ismaestro/angular8-example-app?type=peer)
 [![npm](https://img.shields.io/badge/demo-online-brightgreen.svg)](http://angularexampleapp.com/)
 
-[![GitHub stars](https://img.shields.io/github/stars/ismaestro/angular7-example-app.svg?style=social&label=Star)](https://github.com/ismaestro/angular7-example-app)
-[![GitHub forks](https://img.shields.io/github/forks/ismaestro/angular7-example-app.svg?style=social&label=Fork)](https://github.com/ismaestro/angular7-example-app/fork)
+[![GitHub stars](https://img.shields.io/github/stars/ismaestro/angular8-example-app.svg?style=social&label=Star)](https://github.com/ismaestro/angular8-example-app)
+[![GitHub forks](https://img.shields.io/github/forks/ismaestro/angular8-example-app.svg?style=social&label=Fork)](https://github.com/ismaestro/angular8-example-app/fork)
 
 ## What's included
 
@@ -130,15 +130,15 @@ npm run deploy              | Build the app and deploy it to firebase hosting
 
 ## Bugs and feature requests
 
-Have a bug or a feature request? Please first read the [issue guidelines](https://github.com/Ismaestro/angular7-example-app/blob/master/CONTRIBUTING.md) and search for existing and closed issues. If your problem or idea is not addressed yet, [please open a new issue](https://github.com/Ismaestro/angular7-example-app/issues/new).
+Have a bug or a feature request? Please first read the [issue guidelines](https://github.com/Ismaestro/angular8-example-app/blob/master/CONTRIBUTING.md) and search for existing and closed issues. If your problem or idea is not addressed yet, [please open a new issue](https://github.com/Ismaestro/angular8-example-app/issues/new).
 
 ## Contributing
 
-Please read through our [contributing guidelines](https://github.com/Ismaestro/angular7-example-app/blob/master/CONTRIBUTING.md). Included are directions for opening issues, coding standards, and notes on development.
+Please read through our [contributing guidelines](https://github.com/Ismaestro/angular8-example-app/blob/master/CONTRIBUTING.md). Included are directions for opening issues, coding standards, and notes on development.
 
 Moreover, all HTML and CSS should conform to the [Code Guide](https://github.com/mdo/code-guide), maintained by [Ismael Ramos](https://github.com/ismaestro).
 
-Editor preferences are available in the [editor config](https://github.com/Ismaestro/angular7-example-app/blob/master/.editorconfig) for easy use in common text editors. Read more and download plugins at <https://editorconfig.org/>.
+Editor preferences are available in the [editor config](https://github.com/Ismaestro/angular8-example-app/blob/master/.editorconfig) for easy use in common text editors. Read more and download plugins at <https://editorconfig.org/>.
 
 ## Creators
 
@@ -157,6 +157,6 @@ I'm always happy to hear your feedback!
 
 ## Copyright and license
 
-Code and documentation copyright 2018 the authors. Code released under the [MIT License](https://github.com/Ismaestro/angular7-example-app/blob/master/LICENSE).
+Code and documentation copyright 2018 the authors. Code released under the [MIT License](https://github.com/Ismaestro/angular8-example-app/blob/master/LICENSE).
 
 Enjoy :metal:
