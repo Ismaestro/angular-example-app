@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 import {APP_CONFIG, AppConfig} from '../../../../configs/app.config';
 import {MockComponent, MockModule} from 'ng-mocks';
 import {MatDialog} from '@angular/material/dialog';
-import {MatError} from '@angular/material/typings';
+import {MatError} from '@angular/material';
 import {MatFormField} from '@angular/material/form-field';
 import {MatIcon} from '@angular/material/icon';
 import {MatList, MatListItem} from '@angular/material/list';
