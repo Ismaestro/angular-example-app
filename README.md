@@ -96,9 +96,9 @@ This repo is using Firebase. We use Cloud Firestore and Cloud Storage to handle 
 
 ## Quick start
 
-<span style="color:red">**WARNING**</span>
+**WARNING**
 
-> Verify that you are running node 12.4.0 and npm 6.x.x by running node -v and npm -v in a terminal/console window. Older versions produce errors, but newer versions are fine.
+> Verify that you are running node 10.16.0 by running node -v in a terminal/console window. Older versions produce errors, but newer versions are fine.
 
  ```bash
  npm i
