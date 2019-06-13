@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
               private router: Router,
               private i18n: I18n,
               @Inject(DOCUMENT) doc: Document, @Inject(LOCALE_ID) locale: string, renderer: Renderer2,
-              @Inject(PLATFORM_ID) private platformId: Object) {
+              @Inject(PLATFORM_ID) private platformId: object) {
     if (isPlatformBrowser(this.platformId)) {
       this.isOnline = navigator.onLine;
       renderer.setAttribute(doc.documentElement, 'lang', locale);

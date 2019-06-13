@@ -2,15 +2,15 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "importHelpers": true,
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "module": "esNext",
+    "module": "esnext",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es5",
+    "importHelpers": true,
+    "target": "es2015",
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -24,8 +24,5 @@
       ]
     },
     "skipLibCheck": true
-  },
-  "angularCompilerOptions": {
-    "preserveWhitespaces": false
   }
 }

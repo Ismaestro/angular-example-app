@@ -31,6 +31,11 @@
     "node": ">= 10.16.0",
     "npm": ">= 6.9.0"
   },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run ci"
+    }
+  },
   "dependencies": {
     "@angular/animations": "8.0.0",
     "@angular/common": "8.0.0",
@@ -63,6 +68,7 @@
     "ngx-logger": "3.3.13",
     "ngx-progressive-image-loader": "4.0.0-beta.15",
     "rxjs": "6.5.2",
+    "tslib": "1.10.0",
     "web-animations-js": "2.3.1",
     "zone.js": "0.9.1"
   },
@@ -98,7 +104,6 @@
     "karma-jasmine": "2.0.1",
     "karma-jasmine-html-reporter": "1.4.2",
     "karma-mocha-reporter": "2.2.5",
-    "karma-parallel": "0.3.1",
     "karma-remap-istanbul": "0.6.0",
     "moment": "2.24.0",
     "ng-bullet": "1.0.3",
@@ -112,7 +117,6 @@
     "ts-loader": "6.0.2",
     "ts-node": "8.2.0",
     "tsickle": "0.35.0",
-    "tslib": "1.10.0",
     "tslint": "5.17.0",
     "typescript": "3.4.5",
     "webpack-bundle-analyzer": "3.3.2"

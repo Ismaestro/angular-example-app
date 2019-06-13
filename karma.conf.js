@@ -4,30 +4,27 @@
 module.exports = function (config) {
   config.set({
     basePath: '',
-    frameworks: ['parallel', 'jasmine', '@angular-devkit/build-angular'],
+    frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-mocha-reporter'),
       require('karma-coverage-istanbul-reporter'),
-      require('@angular-devkit/build-angular/plugins/karma'),
-      require('karma-parallel')
+      require('@angular-devkit/build-angular/plugins/karma')
     ],
     client: {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
-    files: [
-      {pattern: './test.ts', watched: false}
-    ],
     coverageIstanbulReporter: {
-      dir: require('path').join(__dirname, '../coverage'),
-      reports: ['html', 'lcovonly'],
+      dir: require('path').join(__dirname, './coverage/test'),
+      reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
     },
     reporters: ['progress', 'mocha'],
     mochaReporter: {
       output: 'minimal'
     },
+    reportSlowerThan: 100,
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
@@ -36,12 +33,12 @@ module.exports = function (config) {
     browsers: ['ChromeHeadlessNoSandbox'],
     browserDisconnectTolerance: 2,
     browserNoActivityTimeout: 50000,
-    reportSlowerThan: 100,
     customLaunchers: {
       ChromeHeadlessNoSandbox: {
         base: 'ChromeHeadless',
         flags: ['--no-sandbox']
       }
-    }
+    },
+    restartOnFileChange: true
   });
 };
