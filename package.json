@@ -50,7 +50,7 @@
     "@angular/platform-server": "8.0.0",
     "@angular/router": "8.0.0",
     "@angular/upgrade": "8.0.0",
-    "@ismaestro/ngx-scroll-to-first-invalid": "2.0.0",
+    "@ismaestro/ngx-scroll-to-first-invalid": "3.0.0",
     "@nguniversal/common": "7.1.1",
     "@nguniversal/express-engine": "7.1.1",
     "@nguniversal/module-map-ngfactory-loader": "v7.1.1",
