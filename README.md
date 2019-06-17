@@ -58,6 +58,7 @@
 
 * CRUD: create, update and remove heroes with Firebase
 * Angular Universal (SSR)
+* Security Headers using [helmet](https://helmetjs.github.io). Report [here](https://securityheaders.com/?q=https%3A%2F%2Fwww.angularexampleapp.com).
 * Internationalization with the official i18n. Separated builds for english and spanish.
 * Lazy loading modules
 * More logical directory structure (from [here](https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7))

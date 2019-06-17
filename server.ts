@@ -15,7 +15,43 @@ enableProdMode();
 const app = express();
 
 app.use(helmet());
+app.use(helmet.referrerPolicy({policy: 'same-origin'}));
 app.use(helmet.noCache());
+app.use(helmet.featurePolicy({
+  features: {
+    fullscreen: ['\'self\''],
+    payment: ['\'none\''],
+    syncXhr: ['\'none\'']
+  }
+}));
+
+const defaultList = ['\'self\'',
+  'http://*.google-analytics.com',
+  'https://*.google.com',
+  'https://*.google-analytics.com',
+  'https://*.googletagmanager.com',
+  'https://*.gstatic.com',
+  'https://*.googleapis.com',
+  'https://authedmine.com',
+  'https://az743702.vo.msecnd.net',
+  'https://sentry.io',
+  'ws://localhost:4200',
+];
+
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: defaultList,
+    styleSrc: [
+      '\'self\'', '\'unsafe-inline\'',
+      'https://*.googleapis.com'
+    ],
+    scriptSrc: [
+      '\'self\'',
+      'http://*.googletagmanager.com',
+      'https://*.google-analytics.com'
+    ]
+  }
+}));
 
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist');

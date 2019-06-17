@@ -63,6 +63,7 @@
               ]
             },
             "scripts": [
+              "src/assets/js/gtm.js",
               "src/assets/js/modernizr.js"
             ],
             "customWebpackConfig": {
@@ -182,6 +183,7 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "scripts": [
+              "src/assets/js/gtm.js",
               "src/assets/js/modernizr.js"
             ],
             "styles": [
