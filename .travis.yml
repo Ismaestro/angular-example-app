@@ -33,7 +33,8 @@ script:
   - npm run e2e
   - npm run build:ssr
 
-after_success:
+after_script:
+  - set +e
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
 notifications:
