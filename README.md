@@ -86,7 +86,7 @@
 
 ### Angular Ivy
 
-This project is using 8 version but Ivy is not enabled. I'm trying to do it, but some errors appear during this process. I would accept any pull request about this because no one till now knows what to do...
+This project is using version 8 of angular but Ivy is not enabled. I'm trying to do it, but some errors appear during this process. I would accept any pull request about this because no one till now knows what to do...
 
 ### Angular Universal and i18n
 
