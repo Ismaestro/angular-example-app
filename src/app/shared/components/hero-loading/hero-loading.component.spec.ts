@@ -3,8 +3,8 @@ import {HeroLoadingComponent} from './hero-loading.component';
 import {configureTestSuite} from 'ng-bullet';
 import {LoadingPlaceholderComponent} from '../loading-placeholder/loading-placeholder.component';
 import {MockComponent} from 'ng-mocks';
-import {MatCard, MatCardHeader, MatCardSubtitle, MatCardTitle} from '@angular/material/card';
-import {MatIcon} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
 
 describe('HeroLoadingComponent', () => {
   let component: HeroLoadingComponent;
@@ -12,18 +12,18 @@ describe('HeroLoadingComponent', () => {
 
   configureTestSuite(() => {
     TestBed.configureTestingModule({
-      imports: [],
+      imports: [
+        MatCardModule,
+        MatIconModule
+      ],
       declarations: [
-        MockComponent(MatCard),
-        MockComponent(MatCardHeader),
-        MockComponent(MatCardTitle),
-        MockComponent(MatCardSubtitle),
-        MockComponent(MatIcon),
         MockComponent(LoadingPlaceholderComponent),
         HeroLoadingComponent
       ]
     });
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(HeroLoadingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

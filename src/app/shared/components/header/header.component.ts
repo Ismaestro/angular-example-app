@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.selectedLanguage = this.cookieService.get('language') || 'en';
 
-    this.progressBarService.updateProgressBar$.subscribe((mode: string) => {
+    this.progressBarService.getUpdateProgressBar().subscribe((mode: string) => {
       this.progressBarMode = mode;
     });
 

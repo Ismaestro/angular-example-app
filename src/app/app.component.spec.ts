@@ -1,6 +1,6 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {AppComponent} from './app.component';
-import {Title} from '@angular/platform-browser';
+import {Meta, Title} from '@angular/platform-browser';
 import {configureTestSuite} from 'ng-bullet';
 import {NavigationEnd, Router} from '@angular/router';
 import {HeaderComponent} from './shared/components/header/header.component';
@@ -11,13 +11,13 @@ import {of} from 'rxjs';
 import {MockComponent} from 'ng-mocks';
 import {RouterTestingModule} from '@angular/router/testing';
 import {I18n} from '@ngx-translate/i18n-polyfill';
-import {TRANSLATIONS, TRANSLATIONS_FORMAT} from '@angular/core';
+import {LOCALE_ID, PLATFORM_ID} from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
 describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
-  let titleService: Title;
+
   const matSnackBarSpy = jasmine.createSpyObj('MatSnackBar', ['open']);
   const routerSpy = jasmine.createSpyObj('Router', ['events']);
 
@@ -35,25 +35,32 @@ describe('AppComponent', () => {
       ],
       providers: [
         {provide: MatSnackBar, useValue: matSnackBarSpy},
-        {provide: TRANSLATIONS, useValue: require(`raw-loader!./../i18n/messages.en.xlf`)},
-        {provide: TRANSLATIONS_FORMAT, useValue: 'xlf'},
-        I18n
+        {provide: Meta, useValue: {}},
+        {
+          provide: I18n, useValue: () => {
+          }
+        },
+        {
+          provide: Title, useValue: {
+            setTitle: () => {
+            }
+          }
+        },
+        {provide: PLATFORM_ID, useValue: 'browser'},
+        {provide: LOCALE_ID, useValue: 'en'}
       ]
     });
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.debugElement.componentInstance;
-    titleService = TestBed.get(Title);
     routerSpy.events.and.returnValue(of(new NavigationEnd(1, '', '/')));
     fixture.detectChanges();
   });
 
   it('should create the app', (() => {
     expect(component).toBeTruthy();
-  }));
-
-  it('should change title meta tag in root path', (() => {
-    expect(titleService.getTitle()).toBe('App title');
   }));
 
   it('should check browser features', (() => {

@@ -4,14 +4,15 @@ import {HeroService} from '../../../modules/heroes/shared/hero.service';
 import {Hero} from '../../../modules/heroes/shared/hero.model';
 import {of} from 'rxjs';
 import {configureTestSuite} from 'ng-bullet';
-import {MockComponent, MockModule, MockPipe} from 'ng-mocks';
+import {MockPipe} from 'ng-mocks';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatFormField} from '@angular/material/form-field';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import {ReactiveFormsModule} from '@angular/forms';
 import {RouterTestingModule} from '@angular/router/testing';
 import {CapitalizeFirstPipe} from '../../pipes/capitalize-first.pipe';
-import {APP_CONFIG, AppConfig} from '../../../configs/app.config';
 import {ROUTES_CONFIG, RoutesConfig} from '../../../configs/routes.config';
+import {MatInputModule} from '@angular/material';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 describe('SearchBarComponent', () => {
   let component: SearchBarComponent;
@@ -23,20 +24,23 @@ describe('SearchBarComponent', () => {
       imports: [
         ReactiveFormsModule,
         RouterTestingModule,
-        MockModule(MatAutocompleteModule)
+        NoopAnimationsModule,
+        MatAutocompleteModule,
+        MatFormFieldModule,
+        MatInputModule
       ],
       declarations: [
-        MockComponent(MatFormField),
         MockPipe(CapitalizeFirstPipe),
         SearchBarComponent
       ],
       providers: [
         {provide: HeroService, useValue: heroServiceSpy},
-        {provide: ROUTES_CONFIG, useValue: RoutesConfig},
-        {provide: APP_CONFIG, useValue: AppConfig}
+        {provide: ROUTES_CONFIG, useValue: RoutesConfig}
       ]
     });
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(SearchBarComponent);
     component = fixture.debugElement.componentInstance;
     heroServiceSpy.getHeroes.and.returnValue(of([new Hero({name: 'test1', default: true})]));
@@ -49,8 +53,8 @@ describe('SearchBarComponent', () => {
 
   it('should filter heroes array', (() => {
     component.defaultHeroes = [
-      new Hero({'id': 1, 'name': 'batman', 'default': true}),
-      new Hero({'id': 2, 'name': 'spiderman', 'default': false})
+      new Hero({id: 1, name: 'batman', default: true}),
+      new Hero({id: 2, name: 'spiderman', default: false})
     ];
     expect(component.filterHeroes('batman').length).toBe(1);
     expect(component.filterHeroes('spiderman').length).toBe(0);

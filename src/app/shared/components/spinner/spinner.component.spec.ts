@@ -12,7 +12,9 @@ describe('SpinnerComponent', () => {
         SpinnerComponent
       ]
     });
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(SpinnerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

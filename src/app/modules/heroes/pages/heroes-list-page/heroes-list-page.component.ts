@@ -44,8 +44,8 @@ export class HeroesListPageComponent implements OnInit {
     this.canVote = this.heroService.checkIfUserCanVote();
 
     this.newHeroForm = this.formBuilder.group({
-      'name': new FormControl('', [Validators.required, Validators.maxLength(30)]),
-      'alterEgo': new FormControl('', [Validators.required, Validators.maxLength(30)])
+      name: new FormControl('', [Validators.required, Validators.maxLength(30)]),
+      alterEgo: new FormControl('', [Validators.required, Validators.maxLength(30)])
     });
 
     this.onChanges();
@@ -72,7 +72,7 @@ export class HeroesListPageComponent implements OnInit {
     this.canVote = this.heroService.checkIfUserCanVote();
     if (this.canVote) {
       hero.like();
-        this.cookieService.put('votes', '' + (Number(this.cookieService.get('votes') || 0) + 1));
+      this.cookieService.put('votes', '' + (Number(this.cookieService.get('votes') || 0) + 1));
       this.heroService.updateHero(hero);
     } else {
       this.snackBar.open(this.i18n({value: 'Can\'t vote anymore', id: '@@cannotVote'}), '', {duration: 1000});

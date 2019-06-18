@@ -5,7 +5,6 @@ import {HttpErrorResponse} from '@angular/common/http';
 import {configureTestSuite} from 'ng-bullet';
 import {FirebaseModule} from '../../../shared/modules/firebase.module';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {TRANSLATIONS, TRANSLATIONS_FORMAT} from '@angular/core';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {CookieService} from 'ngx-cookie';
 
@@ -21,10 +20,11 @@ describe('HeroService', () => {
       ],
       providers: [
         {provide: MatSnackBar, useValue: matSnackBarSpy},
-        {provide: TRANSLATIONS, useValue: require(`raw-loader!./../../../../i18n/messages.en.xlf`)},
-        {provide: TRANSLATIONS_FORMAT, useValue: 'xlf'},
         {provide: CookieService, useValue: {}},
-        I18n,
+        {
+          provide: I18n, useValue: () => {
+          }
+        },
         HeroService
       ]
     });

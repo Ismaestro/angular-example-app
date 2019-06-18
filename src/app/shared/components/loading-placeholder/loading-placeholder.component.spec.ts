@@ -12,7 +12,9 @@ describe('LoadingPlaceholderComponent', () => {
         LoadingPlaceholderComponent
       ]
     });
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(LoadingPlaceholderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

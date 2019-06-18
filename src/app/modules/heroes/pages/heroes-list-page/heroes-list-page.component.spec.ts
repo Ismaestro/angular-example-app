@@ -8,27 +8,23 @@ import {of} from 'rxjs';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {HeroRemoveComponent} from '../../components/hero-remove/hero-remove.component';
 import {Router} from '@angular/router';
-import {APP_CONFIG, AppConfig} from '../../../../configs/app.config';
 import {MockComponent, MockModule} from 'ng-mocks';
 import {MatDialog} from '@angular/material/dialog';
-import {MatError} from '@angular/material';
-import {MatFormField} from '@angular/material/form-field';
-import {MatIcon} from '@angular/material/icon';
-import {MatList, MatListItem} from '@angular/material/list';
+import {MatFormFieldModule, MatIconModule, MatInputModule, MatListModule} from '@angular/material';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {NgxScrollToFirstInvalidModule} from '@ismaestro/ngx-scroll-to-first-invalid';
 import {RouterTestingModule} from '@angular/router/testing';
-import {TRANSLATIONS, TRANSLATIONS_FORMAT} from '@angular/core';
 import {I18n} from '@ngx-translate/i18n-polyfill';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ROUTES_CONFIG, RoutesConfig} from '../../../../configs/routes.config';
 import {CookieService} from 'ngx-cookie';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 describe('HeroesListPageComponent', () => {
   let component: HeroesListPageComponent;
   let fixture: ComponentFixture<HeroesListPageComponent>;
   let router: Router;
   let navigateSpy;
+
   const matDialogSpy = jasmine.createSpyObj('MatDialog', ['open']);
   const matSnackBarSpy = jasmine.createSpyObj('MatSnackBar', ['open', 'dismiss']);
   const heroServiceSpy = jasmine.createSpyObj('HeroService',
@@ -40,15 +36,14 @@ describe('HeroesListPageComponent', () => {
         RouterTestingModule,
         FormsModule,
         ReactiveFormsModule,
-        BrowserAnimationsModule,
+        NoopAnimationsModule,
+        MatListModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatInputModule,
         MockModule(NgxScrollToFirstInvalidModule)
       ],
       declarations: [
-        MockComponent(MatList),
-        MockComponent(MatListItem),
-        MockComponent(MatIcon),
-        MockComponent(MatFormField),
-        MockComponent(MatError),
         MockComponent(HeroRemoveComponent),
         MockComponent(LoadingPlaceholderComponent),
         HeroesListPageComponent
@@ -57,10 +52,10 @@ describe('HeroesListPageComponent', () => {
         {provide: MatSnackBar, useValue: matSnackBarSpy},
         {provide: MatDialog, useValue: matDialogSpy},
         {provide: HeroService, useValue: heroServiceSpy},
-        {provide: TRANSLATIONS, useValue: require(`raw-loader!./../../../../../i18n/messages.en.xlf`)},
-        {provide: TRANSLATIONS_FORMAT, useValue: 'xlf'},
-        I18n,
-        {provide: APP_CONFIG, useValue: AppConfig},
+        {
+          provide: I18n, useValue: () => {
+          }
+        },
         {provide: ROUTES_CONFIG, useValue: RoutesConfig},
         {
           provide: CookieService, useValue: {
@@ -70,7 +65,9 @@ describe('HeroesListPageComponent', () => {
         }
       ]
     });
+  });
 
+  beforeEach(() => {
     heroServiceSpy.checkIfUserCanVote.and.returnValue(true);
     fixture = TestBed.createComponent(HeroesListPageComponent);
     component = fixture.debugElement.componentInstance;
@@ -92,8 +89,8 @@ describe('HeroesListPageComponent', () => {
     });
     heroServiceSpy.createHero.and.returnValue(success);
     component.newHeroForm = new FormGroup({
-      'name': new FormControl('new hero!', [Validators.required, Validators.maxLength(30)]),
-      'alterEgo': new FormControl('haha', [Validators.required, Validators.maxLength(30)])
+      name: new FormControl('new hero!', [Validators.required, Validators.maxLength(30)]),
+      alterEgo: new FormControl('haha', [Validators.required, Validators.maxLength(30)])
     });
 
     component.error = null;
@@ -107,8 +104,8 @@ describe('HeroesListPageComponent', () => {
     });
     heroServiceSpy.createHero.and.returnValue(error);
     component.newHeroForm = new FormGroup({
-      'name': new FormControl('new hero!', [Validators.required, Validators.maxLength(30)]),
-      'alterEgo': new FormControl('haha', [Validators.required, Validators.maxLength(30)])
+      name: new FormControl('new hero!', [Validators.required, Validators.maxLength(30)]),
+      alterEgo: new FormControl('haha', [Validators.required, Validators.maxLength(30)])
     });
 
     component.error = false;

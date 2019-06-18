@@ -4,12 +4,16 @@ import {EventEmitter, Injectable} from '@angular/core';
   providedIn: 'root'
 })
 export class ProgressBarService {
-  public updateProgressBar$: EventEmitter<any>;
+  private readonly updateProgressBar$: EventEmitter<any>;
 
   private requestsRunning = 0;
 
   constructor() {
     this.updateProgressBar$ = new EventEmitter();
+  }
+
+  public getUpdateProgressBar() {
+    return this.updateProgressBar$;
   }
 
   public list(): number {

@@ -12,7 +12,9 @@ describe('Error404Page', () => {
         Error404PageComponent
       ]
     });
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(Error404PageComponent);
     component = fixture.debugElement.componentInstance;
     fixture.detectChanges();

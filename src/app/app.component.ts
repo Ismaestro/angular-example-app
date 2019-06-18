@@ -23,7 +23,9 @@ export class AppComponent implements OnInit {
               private snackBar: MatSnackBar,
               private router: Router,
               private i18n: I18n,
-              @Inject(DOCUMENT) doc: Document, @Inject(LOCALE_ID) locale: string, renderer: Renderer2,
+              private renderer: Renderer2,
+              @Inject(DOCUMENT) doc: Document,
+              @Inject(LOCALE_ID) locale: string,
               @Inject(PLATFORM_ID) private platformId: object) {
     if (isPlatformBrowser(this.platformId)) {
       this.isOnline = navigator.onLine;
