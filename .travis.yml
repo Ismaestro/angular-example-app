@@ -43,14 +43,8 @@ after_script:
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
 before_deploy:
-  - mkdir public
-  - cp -a dist/browser/. public/
-  - mv public/assets/common/* public/
-  - rm -Rf public/assets/common public/es/assets/common
-  - mv public/index.html public/index2.html
-  - mv public/es/index.html public/es/index2.html
-  - cp -a dist/ functions/dist
-
+  - npm run deploy
+  - find . -maxdepth 2 -type d -ls
 deploy:
   provider: firebase
   token:
