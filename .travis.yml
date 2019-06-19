@@ -36,10 +36,14 @@ script:
   - npm run test
   - npm run e2e
   - npm run build:ssr
+  - sonar-scanner
+
+cache:
+  directories:
+    - '$HOME/.sonar/cache'
 
 after_script:
   - set +e
-  - sonar-scanner
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
 notifications:
