@@ -8,6 +8,6 @@ rm -Rf public/assets/common public/es/assets/common &&
 mv public/index.html public/index2.html &&
 mv public/es/index.html public/es/index2.html &&
 cp -a dist/ functions/dist
-cd functions/dist
+cd functions
 npm i
 cd ../
