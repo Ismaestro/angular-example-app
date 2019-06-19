@@ -20,7 +20,7 @@
     "compile:server": "tsc -p server.tsconfig.json",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
     "serve:ssr": "node dist/server",
-    "validate:server": "validate-server.sh",
+    "validate:server": "bash scripts/validate-server.sh",
     "bundle-report": "ng build --configuration=production-en --stats-json && webpack-bundle-analyzer dist/browser/stats.json",
     "release:minor": "standard-version --release-as minor && git push --follow-tags origin master",
     "release:major": "standard-version --release-as major && git push --follow-tags origin master",
