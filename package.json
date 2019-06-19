@@ -25,7 +25,8 @@
     "release:minor": "standard-version --release-as minor && git push --follow-tags origin master",
     "release:major": "standard-version --release-as major && git push --follow-tags origin master",
     "ci": "npm run lint && npm run test && npm run e2e && npm run build:prod:en && npm run build:server:prod:en && npm run compile:server && npm run validate:server",
-    "prepare:deploy": "bash scripts/prepare-deploy.sh"
+    "prepare:deploy": "bash scripts/prepare-deploy.sh",
+    "deploy": "npm run prepare:deploy && firebase deploy"
   },
   "private": true,
   "engines": {

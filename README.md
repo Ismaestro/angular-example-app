@@ -83,7 +83,6 @@
 * Unit tests with Jasmine and Karma including code coverage (Use of [ng-bullet](https://www.npmjs.com/package/ng-bullet), [karma-mocha-reporter](https://github.com/litixsoft/karma-mocha-reporter)) and [ng-mocks](https://github.com/ike18t/ng-mocks)
 * End-to-end tests with Protractor
 
-
 ### Angular Ivy
 
 This project is using version 8 of angular but Ivy is not enabled. I'm trying to do it, but some errors appear during this process. I would accept any pull request about this because no one till now knows what to do...
@@ -98,6 +97,18 @@ I've created a medium post where you can find a tutorial to apply this concepts 
 ### Firebase
 
 This repo is using Firebase. We use Cloud Firestore and Cloud Storage to handle CRUD operations over the heroes and to store their images. Also Hosting and Functions to deploy the app with Universal.
+
+## Travis CI
+
+We use Travis CI to run this tasks in order:
+* Linter
+* Unit tests
+* End to end tests
+* Build for production of browser and server
+* Validate that server generated using curl
+* Sonar
+* Deploy to Firebase
+* Upload coverage report to coveralls
 
 ## Quick start
 
@@ -127,6 +138,8 @@ npm run build:server:prod   | Build the server version for production
 npm run compile:server      | Compiles the server with webpack
 npm run build:ssr           | Complete task with all the build subtasks for SSR
 npm run build:library       | Build the library
+npm run serve:ssr           | Start the node server for angular universal
+npm run validate:server     | Script that validate if server generated previously starts without error
 npm run bundle-report       | Build and run webpack-bundle-analyzer over stats json
 npm run release:minor       | Create a new minor release using standard-version
 npm run release:major       | Create a new major release using standard-version
