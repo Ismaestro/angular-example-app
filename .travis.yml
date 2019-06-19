@@ -10,6 +10,10 @@ addons:
       - google-chrome
     packages:
       - google-chrome-stable
+    sonarcloud:
+      organization: "ismaestro-github"
+      token:
+        secure: $SONAR_TOKEN 
 
 language: node_js
 
@@ -35,6 +39,7 @@ script:
 
 after_script:
   - set +e
+  - sonar-scanner
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
 notifications:
