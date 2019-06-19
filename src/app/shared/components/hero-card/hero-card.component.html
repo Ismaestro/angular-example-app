@@ -1,7 +1,7 @@
 <mat-card class="hero-card" *ngIf="hero" [@fadeIn]="fadeIn">
   <mat-card-header>
     <a mat-card-avatar [routerLink]="hero.default ? [routesConfig.routes.heroes.detail(hero.id)] : []">
-      <img mat-card-avatar [src]="hero.avatarThumbnailUrl">
+      <img alt="hero avatar" mat-card-avatar [src]="hero.avatarThumbnailUrl">
     </a>
     <mat-card-title>
       <a class="hero-detail-link" [routerLink]="hero.default ? [routesConfig.routes.heroes.detail(hero.id)] : []">

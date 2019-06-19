@@ -13,7 +13,7 @@ addons:
   sonarcloud:
     organization: "ismaestro-github"
     token:
-      secure: $SONAR_TOKEN 
+      secure: $SONAR_TOKEN
 
 language: node_js
 
@@ -36,15 +36,23 @@ script:
   - npm run test
   - npm run e2e
   - npm run build:ssr
-  - sonar-scanner
-
-cache:
-  directories:
-    - '$HOME/.sonar/cache'
 
 after_script:
+  - sonar-scanner
+  - mkdir public
+  - cp -a dist/browser/. public/
+  - mv public/assets/common/* public/
+  - rm -Rf public/assets/common public/es/assets/common
+  - mv public/index.html public/index2.html
+  - mv public/es/index.html public/es/index2.html
+  - cp -a dist/ functions/dist
   - set +e
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+
+deploy:
+  provider: firebase
+  token:
+    secure: $FIREBASE_TOKEN
 
 notifications:
   email:
