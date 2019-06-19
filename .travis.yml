@@ -46,6 +46,7 @@ before_deploy:
   - npm run deploy
   - find . -maxdepth 2 -type d -ls
 deploy:
+  skip_cleanup: true
   provider: firebase
   token:
     secure: $FIREBASE_TOKEN
