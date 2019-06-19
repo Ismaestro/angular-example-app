@@ -55,7 +55,7 @@ deploy:
   provider: firebase
   token:
     secure: $FIREBASE_TOKEN
-  project: "angularexampleapp"
+  project: "ismaestro-angularexampleapp"
 
 notifications:
   email:
