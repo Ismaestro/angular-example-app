@@ -39,6 +39,10 @@ script:
 
 after_script:
   - sonar-scanner
+  - set +e
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+
+before_deploy:
   - mkdir public
   - cp -a dist/browser/. public/
   - mv public/assets/common/* public/
@@ -46,13 +50,12 @@ after_script:
   - mv public/index.html public/index2.html
   - mv public/es/index.html public/es/index2.html
   - cp -a dist/ functions/dist
-  - set +e
-  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
 deploy:
   provider: firebase
   token:
     secure: $FIREBASE_TOKEN
+  project: "angularexampleapp"
 
 notifications:
   email:
