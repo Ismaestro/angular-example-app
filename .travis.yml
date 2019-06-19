@@ -39,18 +39,20 @@ script:
 
 after_script:
   - sonar-scanner
-  - set +e
-  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
 before_deploy:
-  - npm run deploy
-  - find . -maxdepth 2 -type d -ls
+  - npm run prepare:deploy
+
 deploy:
   skip_cleanup: true
   provider: firebase
   token:
     secure: $FIREBASE_TOKEN
   project: "ismaestro-angularexampleapp"
+
+after_deploy:
+  - set +e
+  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
 notifications:
   email:
