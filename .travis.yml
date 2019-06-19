@@ -10,10 +10,10 @@ addons:
       - google-chrome
     packages:
       - google-chrome-stable
-    sonarcloud:
-      organization: "ismaestro-github"
-      token:
-        secure: $SONAR_TOKEN 
+  sonarcloud:
+    organization: "ismaestro-github"
+    token:
+      secure: $SONAR_TOKEN 
 
 language: node_js
 
