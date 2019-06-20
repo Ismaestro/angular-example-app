@@ -8,6 +8,9 @@
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log"
   },
+  "engines": {
+    "node": "8"
+  },
   "dependencies": {
     "@angular/animations": "8.0.2",
     "@angular/cdk": "8.0.1",
