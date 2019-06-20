@@ -13,8 +13,8 @@ import {NgxExampleLibraryModule} from '@ismaestro/ngx-example-library';
 import {HeroLoadingComponent} from './components/hero-loading/hero-loading.component';
 import {NgxScrollToFirstInvalidModule} from '@ismaestro/ngx-scroll-to-first-invalid';
 import {LoadingPlaceholderComponent} from './components/loading-placeholder/loading-placeholder.component';
-import {NgxProgressiveImageLoaderModule} from 'ngx-progressive-image-loader';
 import {CapitalizeFirstPipe} from './pipes/capitalize-first.pipe';
+import {LazyLoadImageModule} from 'ng-lazyload-image';
 
 @NgModule({
   imports: [
@@ -25,7 +25,7 @@ import {CapitalizeFirstPipe} from './pipes/capitalize-first.pipe';
     RouterModule,
     NgxExampleLibraryModule,
     NgxScrollToFirstInvalidModule,
-    NgxProgressiveImageLoaderModule
+    LazyLoadImageModule
   ],
   declarations: [
     HeaderComponent,
@@ -50,8 +50,8 @@ import {CapitalizeFirstPipe} from './pipes/capitalize-first.pipe';
     HeroLoadingComponent,
     NgxScrollToFirstInvalidModule,
     LoadingPlaceholderComponent,
-    NgxProgressiveImageLoaderModule,
-    CapitalizeFirstPipe
+    CapitalizeFirstPipe,
+    LazyLoadImageModule
   ]
 })
 

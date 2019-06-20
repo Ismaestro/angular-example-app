@@ -65,7 +65,7 @@
 * Following the [best practices](https://angular.io/guide/styleguide)!
 * Search bar, to look for heroes
 * Custom loading page
-* Lazy loading images with [ngx-progressive-image-loader](https://github.com/maxisam/ngx-progressive-image-loader)
+* Lazy loading images with [ng-lazyload-image](https://github.com/tjoskar/ng-lazyload-image)
 * Modal and toasts (snakbar)!
 * Scroll restoration and anchor examples
 * Responsive layout (flex layout module)

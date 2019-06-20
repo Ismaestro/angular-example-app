@@ -2,7 +2,6 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {HeroCardComponent} from './hero-card.component';
 import {Hero} from '../../../modules/heroes/shared/hero.model';
 import {configureTestSuite} from 'ng-bullet';
-import {MockComponent} from 'ng-mocks';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSnackBar} from '@angular/material/snack-bar';
@@ -13,7 +12,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {ROUTES_CONFIG, RoutesConfig} from '../../../configs/routes.config';
 import {CookieService} from 'ngx-cookie';
 import {PLATFORM_ID} from '@angular/core';
-import {ProgressiveImageLoaderComponent} from 'ngx-progressive-image-loader';
+import {LazyLoadImageModule} from 'ng-lazyload-image';
 
 describe('HeroCardComponent', () => {
   let component: HeroCardComponent;
@@ -27,10 +26,10 @@ describe('HeroCardComponent', () => {
       imports: [
         RouterTestingModule,
         MatCardModule,
-        MatIconModule
+        MatIconModule,
+        LazyLoadImageModule
       ],
       declarations: [
-        MockComponent(ProgressiveImageLoaderComponent),
         HeroCardComponent
       ],
       providers: [

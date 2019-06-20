@@ -30,11 +30,6 @@
                 "output": "/assets/images"
               },
               {
-                "glob": "favicon.ico",
-                "input": "src",
-                "output": "/assets/common"
-              },
-              {
                 "glob": "sitemap.xml",
                 "input": "src/assets",
                 "output": "/assets/common"
@@ -57,7 +52,6 @@
             ],
             "styles": [
               "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
-              "node_modules/ngx-progressive-image-loader/ngx-progressive-image-loader.scss",
               "src/assets/css/reset.css",
               "src/assets/css/loading.css",
               "src/app/shared/styles/global.scss"
@@ -204,11 +198,6 @@
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "/assets"
-              },
-              {
-                "glob": "favicon.ico",
-                "input": "src",
-                "output": "/"
               },
               {
                 "glob": "sitemap.xml",
