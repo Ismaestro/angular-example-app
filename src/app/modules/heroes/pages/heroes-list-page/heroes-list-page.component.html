@@ -3,7 +3,7 @@
   <div>
     <mat-list id="loading-list" *ngIf="!heroes">
       <mat-list-item *ngFor="let i of [1,2,3,4,5,6,7,8]">
-        <img mat-list-avatar src="assets/images/default-hero.png">
+        <img alt="default hero avatar" mat-list-avatar src="assets/images/default-hero.png">
         <h3 mat-line>
           <app-loading-placeholder [width]="'150px'" [height]="'0.9rem'"></app-loading-placeholder>
         </h3>
@@ -20,7 +20,7 @@
     <mat-list>
       <mat-list-item *ngFor="let hero of heroes" [@fadeIn]="fadeIn">
         <a mat-list-avatar [routerLink]="hero.default ? [routesConfig.routes.heroes.detail(hero.id)] : []">
-          <img class="cp" mat-list-avatar
+          <img alt="hero avatar" class="cp" mat-list-avatar
                [src]="hero.default ? hero.avatarThumbnailUrl : 'assets/images/default-hero.png'">
         </a>
         <h3 mat-line [class.cp]="hero.default">

@@ -34,7 +34,7 @@ export class HeroService {
         throw error;
       }
 
-      return of(result as T);
+      return of(result);
     };
   }
 
