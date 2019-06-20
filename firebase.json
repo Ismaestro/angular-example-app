@@ -8,7 +8,7 @@
     ],
     "rewrites": [
       {
-        "source" : "**/*.@(css|js)",
+        "source": "**/*.@(css|js)",
         "destination": "/index2.html"
       },
       {

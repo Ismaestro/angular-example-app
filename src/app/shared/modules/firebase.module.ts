@@ -12,7 +12,7 @@ import {environment} from '../../../environments/environment';
     AngularFireModule,
     AngularFirestoreModule
   ],
-  providers: [{ provide: FirestoreSettingsToken, useValue: {} }]
+  providers: [{provide: FirestoreSettingsToken, useValue: {}}]
 })
 
 export class FirebaseModule {

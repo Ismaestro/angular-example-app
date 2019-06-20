@@ -22,8 +22,8 @@
   </mat-card-header>
   <a class="hero-detail-link" [routerLink]="hero.default ? [routesConfig.routes.heroes.detail(hero.id)] : []">
     <ngx-progressive-image-loader *ngIf="isBrowser"
-      [filter]="'blur(3px) drop-shadow(0 0 0.75rem crimson)'"
-      [placeholderImageSrc]="hero.avatarBlurredUrl">
+                                  [filter]="'blur(3px) drop-shadow(0 0 0.75rem crimson)'"
+                                  [placeholderImageSrc]="hero.avatarBlurredUrl">
       <img [src]="hero.avatarUrl" alt="avatar url" ngxProgressiveImage/>
     </ngx-progressive-image-loader>
   </a>

@@ -15,8 +15,6 @@ export function initialize(options: any) {
 }
 
 @NgModule({
-  imports: [
-  ],
   declarations: [
     NgxExampleLibraryComponent
   ],
