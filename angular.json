@@ -48,6 +48,11 @@
                 "glob": "CNAME",
                 "input": "src/assets",
                 "output": "/assets/common"
+              },
+              {
+                "glob": "robots.txt",
+                "input": "src/assets",
+                "output": "/assets/common"
               }
             ],
             "styles": [

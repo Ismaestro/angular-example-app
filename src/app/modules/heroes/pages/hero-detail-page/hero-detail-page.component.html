@@ -10,9 +10,10 @@
     </div>
   </ng-container>
 </div>
-<button *ngIf="hero" mat-raised-button type="button" (click)="goToTheAnchor()" i18n="@@anchorToHero">
+<button *ngIf="hero" aria-label="Anchor the hero button" mat-raised-button type="button" (click)="goToTheAnchor()"
+        i18n="@@anchorToHero">
   Anchor the hero
 </button>
-<button mat-raised-button type="button" (click)="goBack()" i18n="@@goBack">
+<button aria-label="Go back button" mat-raised-button type="button" (click)="goBack()" i18n="@@goBack">
   Go back
 </button>

@@ -11,7 +11,7 @@
       </div>
       <div fxFlex class="text--right">
         <app-search-bar></app-search-bar>
-        <button mat-icon-button [matMenuTriggerFor]="matmenu">
+        <button aria-label="select language button" mat-icon-button [matMenuTriggerFor]="matmenu">
           <mat-icon>language</mat-icon>
         </button>
         <mat-menu #matmenu="matMenu">
@@ -24,7 +24,7 @@
             </a>
           </div>
         </mat-menu>
-        <a class="icon__image" href="{{appConfig.repositoryURL}}" target="_blank">
+        <a class="icon__image" href="{{appConfig.repositoryURL}}" rel="noreferrer" target="_blank">
           <img alt="github logo" src="assets/images/github-circle-white-transparent.svg">
         </a>
       </div>

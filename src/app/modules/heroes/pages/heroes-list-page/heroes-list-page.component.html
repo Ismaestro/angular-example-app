@@ -58,7 +58,7 @@
         <app-loading-placeholder [height]="'2rem'"></app-loading-placeholder>
       </div>
 
-      <button mat-raised-button [disabled]="true" i18n="@@create">Create</button>
+      <button aria-label="create button" mat-raised-button [disabled]="true" i18n="@@create">Create</button>
     </form>
   </div>
   <div *ngIf="heroes">
@@ -91,7 +91,8 @@
           </ng-template>
         </mat-error>
       </mat-form-field>
-      <button mat-raised-button type="submit" [disabled]="form.submitted && !newHeroForm.valid" i18n="@@create">
+      <button aria-label="create button" mat-raised-button type="submit"
+              [disabled]="form.submitted && !newHeroForm.valid" i18n="@@create">
         Create
       </button>
       <div *ngIf="error" i18n="@@errorHasOcurred">An error has ocurred</div>
