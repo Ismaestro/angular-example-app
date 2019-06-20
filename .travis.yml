@@ -4,6 +4,18 @@ dist: trusty
 
 sudo: required
 
+language: node_js
+
+node_js:
+  - 10.16.0
+
+branches:
+  only:
+    - master
+
+git:
+  depth: false
+
 addons:
   apt:
     sources:
@@ -14,15 +26,6 @@ addons:
     organization: "ismaestro-github"
     token:
       secure: $SONAR_TOKEN
-
-language: node_js
-
-node_js:
-  - 10.16.0
-
-branches:
-  only:
-    - master
 
 before_script:
   - set -e
@@ -38,9 +41,6 @@ script:
   - npm run build:ssr
   - npm run validate:server
 
-after_script:
-  - sonar-scanner
-
 before_deploy:
   - npm run prepare:deploy
 
@@ -54,6 +54,10 @@ deploy:
 after_deploy:
   - set +e
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  - set -e
+
+after_script:
+  - sonar-scanner
 
 notifications:
   email:
