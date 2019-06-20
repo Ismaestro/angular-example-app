@@ -54,7 +54,6 @@ deploy:
   project: "ismaestro-angularexampleapp"
 
 after_deploy:
-  - set +e
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
 notifications:
