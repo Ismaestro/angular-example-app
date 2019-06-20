@@ -53,9 +53,6 @@ deploy:
     secure: $FIREBASE_TOKEN
   project: "ismaestro-angularexampleapp"
 
-after_deploy:
-  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
-
 notifications:
   email:
     on_failure: change

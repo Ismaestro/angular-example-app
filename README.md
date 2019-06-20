@@ -44,8 +44,7 @@
 
 ![travis](https://travis-ci.org/Ismaestro/angular8-example-app.svg?branch=master)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Ismaestro_angular8-example-app&metric=alert_status)](https://sonarcloud.io/dashboard?id=Ismaestro_angular8-example-app)
-[![Coverage Status](https://coveralls.io/repos/github/Ismaestro/angular8-example-app/badge.svg?branch=master)](https://coveralls.io/github/Ismaestro/angular8-example-app?branch=master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9d190a60fc864060ac054ba17a4e92e4)](https://www.codacy.com/app/Ismaestro/angular8-example-app?utm_source=github.com&utm_medium=referral&utm_content=Ismaestro/angular8-example-app&utm_campaign=badger)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Ismaestro_angular8-example-app&metric=coverage)](https://sonarcloud.io/dashboard?id=Ismaestro_angular8-example-app)
 [![dependency Status](https://david-dm.org/ismaestro/angular8-example-app.svg)](https://david-dm.org/ismaestro/angular8-example-app#info=dependencies)
 [![devDependency Status](https://david-dm.org/ismaestro/angular8-example-app/dev-status.svg)](https://david-dm.org/ismaestro/angular8-example-app#info=devDependencies)
 [![peerDependencies Status](https://david-dm.org/ismaestro/angular8-example-app/peer-status.svg)](https://david-dm.org/ismaestro/angular8-example-app?type=peer)
@@ -108,7 +107,6 @@ We use Travis CI to run this tasks in order:
 * Validate that server generated using curl
 * Sonar
 * Deploy to Firebase
-* Upload coverage report to coveralls
 
 ## Quick start
 
