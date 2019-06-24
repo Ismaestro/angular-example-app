@@ -8,6 +8,8 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppBrowserModule, {
-  missingTranslation: MissingTranslationStrategy.Error,
-}).catch(err => console.log(err));
+document.addEventListener('DOMContentLoaded', () => {
+  platformBrowserDynamic().bootstrapModule(AppBrowserModule, {
+    missingTranslation: MissingTranslationStrategy.Error,
+  }).catch(err => console.log(err));
+});

@@ -26,6 +26,7 @@ app.use(helmet.featurePolicy({
 }));
 
 const defaultList = ['\'self\'',
+  'https://angularexampleapp.com',
   'http://*.google-analytics.com',
   'https://*.google.com',
   'https://*.google-analytics.com',

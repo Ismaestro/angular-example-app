@@ -7,11 +7,15 @@ import {FirebaseModule} from '../../../shared/modules/firebase.module';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {CookieService} from 'ngx-cookie';
+import {AngularFirestore} from '@angular/fire/firestore';
+import {of} from 'rxjs';
 
 describe('HeroService', () => {
   const heroId = 'BzTvl77YsRTtdihH0jeh';
   let heroService: HeroService;
+
   const matSnackBarSpy = jasmine.createSpyObj('MatSnackBar', ['open', 'dismiss']);
+  const afsSpy = jasmine.createSpyObj('AngularFirestore', ['doc', 'collection']);
 
   configureTestSuite(() => {
     TestBed.configureTestingModule({
@@ -19,6 +23,7 @@ describe('HeroService', () => {
         FirebaseModule
       ],
       providers: [
+        {provide: AngularFirestore, useValue: afsSpy},
         {provide: MatSnackBar, useValue: matSnackBarSpy},
         {provide: CookieService, useValue: {}},
         {
@@ -27,6 +32,21 @@ describe('HeroService', () => {
         },
         HeroService
       ]
+    });
+  });
+
+  beforeEach(() => {
+    afsSpy.doc.and.returnValue({
+      update: () => new Promise(() => {}),
+      get: () => of({data: () => new Hero({
+          id: heroId,
+          name: 'test',
+          alterEgo: 'test'
+        })})
+    });
+
+    afsSpy.collection.and.returnValue({
+      add: () => new Promise(() => {})
     });
 
     heroService = TestBed.get(HeroService);
@@ -47,11 +67,20 @@ describe('HeroService', () => {
 
   it('should fail creating empty hero', (() => {
     heroService.createHero(new Hero({
-      'name': 'test',
-      'alterEgo': 'test'
+      name: 'test',
+      alterEgo: 'test'
     })).then(() => {
     }, (error) => {
       expect(error).toEqual(jasmine.any(HttpErrorResponse));
+    });
+  }));
+
+  it('should update hero', (() => {
+    heroService.updateHero(new Hero({
+      name: 'test',
+      alterEgo: 'test'
+    })).then((algo) => {
+      expect(algo).toBeDefined();
     });
   }));
 });

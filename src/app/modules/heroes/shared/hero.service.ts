@@ -60,6 +60,7 @@ export class HeroService {
   getHero(id: string): Observable<any> {
     return this.afs.doc(EndpointsConfig.heroes.detail(id)).get().pipe(
       map((hero) => {
+        console.log(hero);
         return new Hero({id, ...hero.data()});
       }),
       tap(() => LoggerService.log(`fetched hero ${id}`)),
