@@ -57,6 +57,7 @@
 
 * CRUD: create, update and remove heroes with Firebase
 * Angular Universal (SSR)
+* Use of [preboot](https://github.com/angular/preboot) module to share state between browser and server
 * Security Headers using [helmet](https://helmetjs.github.io). Report [here](https://securityheaders.com/?q=https%3A%2F%2Fwww.angularexampleapp.com).
 * Internationalization with the official i18n. Separated builds for english and spanish.
 * Lazy loading modules
@@ -162,7 +163,7 @@ Editor preferences are available in the [editor config](https://github.com/Ismae
 
 - <https://github.com/ismaestro>
 
-<a href="https://www.buymeacoffee.com/ismaestro" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+[![Buy Me A Coffee](https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png)](https://www.buymeacoffee.com/ismaestro)
 
 ## Thanks
 
