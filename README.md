@@ -163,7 +163,7 @@ Editor preferences are available in the [editor config](https://github.com/Ismae
 
 - <https://github.com/ismaestro>
 
-[![Buy Me A Coffee](https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png)](https://www.buymeacoffee.com/ismaestro)
+<a href="https://www.buymeacoffee.com/ismaestro" target="_blank"><img src="http://i65.tinypic.com/2rx8kn8.jpg" border="0" alt="Buy Me A Coffee"></a>
 
 ## Thanks
 
