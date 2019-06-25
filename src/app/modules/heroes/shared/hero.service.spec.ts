@@ -8,14 +8,14 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {CookieService} from 'ngx-cookie';
 import {AngularFirestore} from '@angular/fire/firestore';
-import {of} from 'rxjs';
+import {of, throwError} from 'rxjs';
 
 describe('HeroService', () => {
   const heroId = 'BzTvl77YsRTtdihH0jeh';
   let heroService: HeroService;
 
-  const matSnackBarSpy = jasmine.createSpyObj('MatSnackBar', ['open', 'dismiss']);
-  const afsSpy = jasmine.createSpyObj('AngularFirestore', ['doc', 'collection']);
+  const matSnackBarSpy = jasmine.createSpyObj('MatSnackBar', ['open', 'dismiss', 'showSnackBar']);
+  const afsSpy = jasmine.createSpyObj('AngularFirestore', ['doc', 'collection', 'delete']);
 
   configureTestSuite(() => {
     TestBed.configureTestingModule({
@@ -25,7 +25,11 @@ describe('HeroService', () => {
       providers: [
         {provide: AngularFirestore, useValue: afsSpy},
         {provide: MatSnackBar, useValue: matSnackBarSpy},
-        {provide: CookieService, useValue: {}},
+        {
+          provide: CookieService, useValue: {
+            get: () => 0
+          }
+        },
         {
           provide: I18n, useValue: () => {
           }
@@ -37,16 +41,34 @@ describe('HeroService', () => {
 
   beforeEach(() => {
     afsSpy.doc.and.returnValue({
-      update: () => new Promise(() => {}),
-      get: () => of({data: () => new Hero({
+      update: () => new Promise((resolve) => resolve()),
+      get: () => of({
+        data: () => new Hero({
           id: heroId,
           name: 'test',
           alterEgo: 'test'
-        })})
+        })
+      }),
+      delete: () => new Promise((resolve) => resolve())
     });
 
     afsSpy.collection.and.returnValue({
-      add: () => new Promise(() => {})
+      add: () => new Promise((resolve) => resolve()),
+      snapshotChanges: () => of([
+        {
+          payload: {
+            doc: {
+              id: 'asd',
+              data: () => {
+                return {
+                  id: 'noid',
+                  name: 'test'
+                };
+              }
+            }
+          }
+        }
+      ])
     });
 
     heroService = TestBed.get(HeroService);
@@ -58,6 +80,12 @@ describe('HeroService', () => {
     });
   }));
 
+  it('should get heroes', (() => {
+    heroService.getHeroes().subscribe((heroes: Hero[]) => {
+      expect(heroes.length).toBe(1);
+    });
+  }));
+
   it('should fail getting hero by no id', (() => {
     heroService.getHero('noId').subscribe(() => {
     }, (error) => {
@@ -65,13 +93,12 @@ describe('HeroService', () => {
     });
   }));
 
-  it('should fail creating empty hero', (() => {
+  it('should create a hero', (() => {
     heroService.createHero(new Hero({
       name: 'test',
       alterEgo: 'test'
     })).then(() => {
-    }, (error) => {
-      expect(error).toEqual(jasmine.any(HttpErrorResponse));
+      expect(afsSpy.collection).toHaveBeenCalled();
     });
   }));
 
@@ -79,8 +106,38 @@ describe('HeroService', () => {
     heroService.updateHero(new Hero({
       name: 'test',
       alterEgo: 'test'
-    })).then((algo) => {
-      expect(algo).toBeDefined();
+    })).then(() => {
+      expect(afsSpy.doc).toHaveBeenCalled();
+    });
+  }));
+
+  it('should delete hero', (() => {
+    heroService.deleteHero('oneId').then(() => {
+      expect(afsSpy.doc).toHaveBeenCalled();
+    });
+  }));
+
+  it('should check if user can vote', (() => {
+    expect(heroService.checkIfUserCanVote()).toBe(true);
+  }));
+
+  it('should fail getting one hero', (() => {
+    afsSpy.doc.and.returnValue({
+      get: () => throwError({message: 'this is an error', status: 404})
+    });
+
+    heroService.getHero('asd').subscribe(() => {
+    }, (error) => {
+      expect(error.status).toBe(404);
+    });
+
+    afsSpy.doc.and.returnValue({
+      get: () => throwError({message: 'this is an error', status: 500})
+    });
+
+    heroService.getHero('internal error').subscribe(() => {
+    }, (error) => {
+      expect(error.status).toBe(500);
     });
   }));
 });
