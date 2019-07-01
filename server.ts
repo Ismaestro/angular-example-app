@@ -25,25 +25,24 @@ app.use(helmet.featurePolicy({
   }
 }));
 
-const defaultList = ['\'self\'',
-  'https://angularexampleapp.com',
-  'http://*.google-analytics.com',
-  'https://*.google.com',
-  'https://*.google-analytics.com',
-  'https://*.googletagmanager.com',
-  'https://*.gstatic.com',
-  'https://*.googleapis.com',
-  'https://authedmine.com',
-  'https://az743702.vo.msecnd.net',
-  'https://sentry.io',
-  'ws://localhost:4200',
-];
-
 app.use(helmet.contentSecurityPolicy({
   directives: {
-    defaultSrc: defaultList,
+    defaultSrc: [
+      '\'self\'',
+      'http://*.google-analytics.com',
+      'https://*.google.com',
+      'https://*.google-analytics.com',
+      'https://*.googletagmanager.com',
+      'https://*.gstatic.com',
+      'https://*.googleapis.com',
+      'https://authedmine.com',
+      'https://az743702.vo.msecnd.net',
+      'https://sentry.io',
+      'ws://localhost:4200',
+    ],
     styleSrc: [
-      '\'self\'', '\'unsafe-inline\'',
+      '\'self\'',
+      '\'unsafe-inline\'',
       'https://*.googleapis.com'
     ],
     scriptSrc: [
