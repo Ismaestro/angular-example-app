@@ -1,5 +1,5 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {ActivatedRoute, convertToParamMap} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {HeroDetailPageComponent} from './hero-detail-page.component';
 import {configureTestSuite} from 'ng-bullet';
 import {HeroLoadingComponent} from '../../../../shared/components/hero-loading/hero-loading.component';
@@ -34,9 +34,9 @@ describe('HeroDetailPage', () => {
           provide: ActivatedRoute,
           useValue: {
             snapshot: {
-              paramMap: convertToParamMap({
-                id: 'BzTvl77YsRTtdihH0jeh'
-              })
+              data: {
+                hero: new Hero({id: '1'})
+              }
             }
           }
         },
