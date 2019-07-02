@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Hero} from '../../shared/hero.model';
-import {HeroService} from '../../shared/hero.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
 import {transition, trigger, useAnimation} from '@angular/animations';
@@ -22,17 +21,13 @@ export class HeroDetailPageComponent implements OnInit {
 
   hero: Hero;
 
-  constructor(private heroService: HeroService,
-              private location: Location,
+  constructor(private location: Location,
               private router: Router,
               private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
-    const heroId = this.activatedRoute.snapshot.paramMap.get('id');
-    this.heroService.getHero(heroId).subscribe((hero: Hero) => {
-      this.hero = hero;
-    });
+    this.hero = this.activatedRoute.snapshot.data.hero;
   }
 
   goBack(): void {
