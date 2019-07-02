@@ -71,7 +71,9 @@
               "mergeStrategies": {
                 "externals": "prepend"
               }
-            }
+            },
+            "serviceWorker": true,
+            "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
             "en": {
@@ -213,7 +215,8 @@
                 "glob": "CNAME",
                 "input": "src/assets",
                 "output": "/"
-              }
+              },
+              "src/manifest.webmanifest"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [

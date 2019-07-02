@@ -47,6 +47,7 @@ app.use(helmet.contentSecurityPolicy({
     ],
     scriptSrc: [
       '\'self\'',
+      '\'unsafe-inline\'',
       'http://*.googletagmanager.com',
       'https://*.google-analytics.com'
     ]

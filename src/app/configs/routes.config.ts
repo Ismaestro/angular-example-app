@@ -15,7 +15,7 @@ const routesNames = {
 };
 
 export const RoutesConfig: any = {
-  routesNames: routesNames,
+  routesNames,
   routes: {
     home: `/${routesNames.home}`,
     error404: `/${routesNames.error404}`,

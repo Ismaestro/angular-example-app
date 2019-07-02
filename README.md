@@ -55,34 +55,35 @@
 
 ## What's included
 
-* CRUD: create, update and remove heroes with Firebase
-* Angular Universal (SSR)
-* Use of [preboot](https://github.com/angular/preboot) module to share state between browser and server
-* Security Headers using [helmet](https://helmetjs.github.io). Report [here](https://securityheaders.com/?q=https%3A%2F%2Fwww.angularexampleapp.com).
-* Internationalization with the official i18n. Separated builds for english and spanish.
-* Lazy loading modules
-* Example of Angular Resolver for Hero Detail
-* More logical directory structure (from [here](https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7))
-* Basic example library
-* Following the [best practices](https://angular.io/guide/styleguide)!
-* Search bar, to look for heroes
-* Custom loading page
-* Lazy loading images with [ng-lazyload-image](https://github.com/tjoskar/ng-lazyload-image)
-* Modal and toasts (snakbar)!
-* Scroll restoration and anchor examples
-* Responsive layout (flex layout module)
-* SASS (most common used functions and mixins) and BEM styles
-* Animations with [ng-animate](https://jiayihu.github.io/ng-animate/)
-* Angular Pipes
-* Interceptors and Events (Progress bar active, if a request is pending)
-* Scroll to first invalid input in forms. ([ngx-scroll-to-first-invalid](https://github.com/Ismaestro/ngx-scroll-to-first-invalid))
-* Modernizr (browser features detection)
-* Browser filter (Bowser) because of IE ^^
-* [Sentry](https://sentry.io)! (logs every error in the app)
-* Google Tag Manager
-* ES6 Promises and Observables
-* Unit tests with Jasmine and Karma including code coverage (Use of [ng-bullet](https://www.npmjs.com/package/ng-bullet), [karma-mocha-reporter](https://github.com/litixsoft/karma-mocha-reporter)) and [ng-mocks](https://github.com/ike18t/ng-mocks)
-* End-to-end tests with Protractor
+- [x] CRUD: create, update and remove heroes with Firebase
+- [x] Angular Universal (SSR)
+- [x] Use of [preboot](https://github.com/angular/preboot) module to share state between browser and server
+- [x] Security Headers using [helmet](https://helmetjs.github.io). Report [here](https://securityheaders.com/?q=https%3A%2F%2Fwww.angularexampleapp.com).
+- [x] Internationalization with the official i18n. Separated builds for english and spanish.
+- [x] Lazy loading modules
+- [x] Service Workers enabled!
+- [x] Example of Angular Resolver for Hero Detail
+- [x] More logical directory structure (from [here](https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7))
+- [x] Basic example library
+- [x] Following the [best practices](https://angular.io/guide/styleguide)!
+- [x] Search bar, to look for heroes
+- [x] Custom loading page
+- [x] Lazy loading images with [ng-lazyload-image](https://github.com/tjoskar/ng-lazyload-image)
+- [x] Modal and toasts (snakbar)!
+- [x] Scroll restoration and anchor examples
+- [x] Responsive layout (flex layout module)
+- [x] SASS (most common used functions and mixins) and BEM styles
+- [x] Animations with [ng-animate](https://jiayihu.github.io/ng-animate/)
+- [x] Angular Pipes
+- [x] Interceptors and Events (Progress bar active, if a request is pending)
+- [x] Scroll to first invalid input in forms. ([ngx-scroll-to-first-invalid](https://github.com/Ismaestro/ngx-scroll-to-first-invalid))
+- [x] Modernizr (browser features detection)
+- [x] Browser filter (Bowser) because of IE ^^
+- [x] [Sentry](https://sentry.io)! (logs every error in the app)
+- [x] Google Tag Manager
+- [x] ES6 Promises and Observables
+- [x] Unit tests with Jasmine and Karma including code coverage (Use of [ng-bullet](https://www.npmjs.com/package/ng-bullet), [karma-mocha-reporter](https://github.com/litixsoft/karma-mocha-reporter)) and [ng-mocks](https://github.com/ike18t/ng-mocks)
+- [x] End-to-end tests with Protractor
 
 ### Angular Ivy
 
