@@ -48,6 +48,11 @@
                 "glob": "robots.txt",
                 "input": "src/assets",
                 "output": "/assets/common"
+              },
+              {
+                "glob": "manifest.webmanifest",
+                "input": "src/assets",
+                "output": "/assets/common"
               }
             ],
             "styles": [

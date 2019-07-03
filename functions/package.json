@@ -1,16 +1,19 @@
 {
-  "name": "functions",
-  "description": "Cloud Functions for Firebase",
+  "name": "angularexampleapp-functions",
+  "description": "Function for Angular Universal",
   "scripts": {
-    "serve": "firebase serve --only functions",
-    "shell": "firebase functions:shell",
+    "lint": "./node_modules/.bin/tslint -p tsconfig.json",
+    "build": "npm run lint && ./node_modules/.bin/tsc",
+    "serve": "npm run build && firebase serve --only functions",
+    "shell": "npm run build && firebase experimental:functions:shell",
     "start": "npm run shell",
-    "deploy": "firebase deploy --only functions",
+    "deploy": "cd .. && npm run build:ssr && npm run prepare:deploy && cd functions && firebase deploy --only functions",
     "logs": "firebase functions:log"
   },
   "engines": {
     "node": "8"
   },
+  "main": "lib/functions/src/index.js",
   "dependencies": {
     "@angular/animations": "8.0.2",
     "@angular/cdk": "8.0.1",
@@ -53,7 +56,9 @@
     "preboot": "7.0.0",
     "reflect-metadata": "0.1.13",
     "rxjs": "6.5.2",
-    "tslib": "^1.10.0",
+    "tslib": "1.10.0",
+    "tslint": "5.18.0",
+    "typescript": "3.4.5",
     "zone.js": "0.9.1"
   },
   "private": true
