@@ -1,3 +1,5 @@
+import {AppConfig} from "../src/app/configs/app.config";
+
 const functions = require('firebase-functions');
 require('zone.js/dist/zone-node');
 require('reflect-metadata');
@@ -31,32 +33,8 @@ app.use(helmet.featurePolicy({
   }
 }));
 
-const defaultList = ['\'self\'',
-  'http://*.google-analytics.com',
-  'https://*.google.com',
-  'https://*.google-analytics.com',
-  'https://*.googletagmanager.com',
-  'https://*.gstatic.com',
-  'https://*.googleapis.com',
-  'https://authedmine.com',
-  'https://az743702.vo.msecnd.net',
-  'https://sentry.io',
-  'ws://localhost:4200',
-];
-
 app.use(helmet.contentSecurityPolicy({
-  directives: {
-    defaultSrc: defaultList,
-    styleSrc: [
-      '\'self\'', '\'unsafe-inline\'',
-      'https://*.googleapis.com'
-    ],
-    scriptSrc: [
-      '\'self\'',
-      'http://*.googletagmanager.com',
-      'https://*.google-analytics.com'
-    ]
-  }
+  directives: AppConfig.cspDirectives
 }));
 
 // Load your engine

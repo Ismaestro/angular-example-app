@@ -216,7 +216,11 @@
                 "input": "src/assets",
                 "output": "/"
               },
-              "src/manifest.webmanifest"
+              {
+                "glob": "manifest.webmanifest",
+                "input": "src/assets",
+                "output": "/"
+              }
             ],
             "stylePreprocessorOptions": {
               "includePaths": [

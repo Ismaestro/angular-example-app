@@ -6,6 +6,7 @@ import * as helmet from 'helmet';
 import {join} from 'path';
 import {ngExpressEngine} from '@nguniversal/express-engine';
 import {provideModuleMap} from '@nguniversal/module-map-ngfactory-loader';
+import {AppConfig} from './src/app/configs/app.config';
 
 enableProdMode();
 
@@ -26,32 +27,7 @@ app.use(helmet.featurePolicy({
 }));
 
 app.use(helmet.contentSecurityPolicy({
-  directives: {
-    defaultSrc: [
-      '\'self\'',
-      'http://*.google-analytics.com',
-      'https://*.google.com',
-      'https://*.google-analytics.com',
-      'https://*.googletagmanager.com',
-      'https://*.gstatic.com',
-      'https://*.googleapis.com',
-      'https://authedmine.com',
-      'https://az743702.vo.msecnd.net',
-      'https://sentry.io',
-      'ws://localhost:4200',
-    ],
-    styleSrc: [
-      '\'self\'',
-      '\'unsafe-inline\'',
-      'https://*.googleapis.com'
-    ],
-    scriptSrc: [
-      '\'self\'',
-      '\'unsafe-inline\'',
-      'http://*.googletagmanager.com',
-      'https://*.google-analytics.com'
-    ]
-  }
+  directives: AppConfig.cspDirectives
 }));
 
 const PORT = process.env.PORT || 4000;
