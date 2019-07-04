@@ -44,7 +44,7 @@
     "express": "4.17.1",
     "firebase": "6.2.0",
     "firebase-admin": "8.2.0",
-    "firebase-functions": "3.0.1",
+    "firebase-functions": "^3.0.2",
     "grpc": "1.21.1",
     "helmet": "3.18.0",
     "moment": "2.24.0",
