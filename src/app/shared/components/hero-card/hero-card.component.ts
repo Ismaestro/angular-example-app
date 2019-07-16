@@ -33,7 +33,7 @@ export class HeroCardComponent implements OnInit {
               private snackBar: MatSnackBar,
               private i18n: I18n,
               private cookieService: CookieService,
-              @Inject(PLATFORM_ID) private platformId: Object,
+              @Inject(PLATFORM_ID) private platformId: object,
               @Inject(ROUTES_CONFIG) public routesConfig: any) {
     this.isBrowser = isPlatformBrowser(this.platformId);
   }

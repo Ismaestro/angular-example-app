@@ -25,10 +25,10 @@ export class SearchBarComponent implements OnInit {
 
   ngOnInit() {
     this.heroService.getHeroes().subscribe((heroes: Array<Hero>) => {
-      this.defaultHeroes = heroes.filter(hero => hero['default']);
+      this.defaultHeroes = heroes.filter(hero => hero.default);
 
       this.heroFormControl.valueChanges.pipe(
-        startWith(null),
+        startWith(null as string),
         map(value => this.filterHeroes(value)))
         .subscribe(heroesFiltered => {
           this.filteredHeroes = heroesFiltered;
@@ -37,7 +37,7 @@ export class SearchBarComponent implements OnInit {
   }
 
   filterHeroes(val: string): Hero[] {
-    return val ? this.defaultHeroes.filter(hero => hero.name.toLowerCase().indexOf(val.toLowerCase()) === 0 && hero['default'])
+    return val ? this.defaultHeroes.filter(hero => hero.name.toLowerCase().indexOf(val.toLowerCase()) === 0 && hero.default)
       : this.defaultHeroes;
   }
 }

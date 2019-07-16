@@ -1,7 +1,7 @@
 import {HeroesListPage} from './heroes-list-page';
 import {browser} from 'protractor';
 
-describe('Heroes list page', function () {
+describe('Heroes list page', () => {
   let page;
 
   beforeEach(() => {
