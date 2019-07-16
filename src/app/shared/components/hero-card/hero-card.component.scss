@@ -18,6 +18,11 @@ mat-card-title, mat-card-subtitle, .mat-card-image {
   @include push--auto();
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 @media (max-width: 680px) {
   .hero-card {
     width: 80%;
