@@ -92,6 +92,10 @@ export class HeroesListPageComponent implements OnInit {
     });
   }
 
+  trackByFn(index: any) {
+    return index;
+  }
+
   private onChanges() {
     this.newHeroForm.get('name').valueChanges.subscribe((value) => {
       if (value && value.length >= 3 && UtilsHelperService.isPalindrome(value)) {
