@@ -12,6 +12,7 @@ export const AppConfig: any = {
     defaultSrc: [
       '\'self\'',
       'http://*.google-analytics.com',
+      'http://www.googletagmanager.com',
       'https://*.google.com',
       'https://*.google-analytics.com',
       'https://*.googletagmanager.com',

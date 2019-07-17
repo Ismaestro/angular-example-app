@@ -17,44 +17,11 @@
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "outputPath": "dist/browser/",
             "index": "src/index.html",
             "main": "src/main.browser.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.browser.json",
             "aot": true,
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "src/assets/images",
-                "output": "/assets/images"
-              },
-              {
-                "glob": "sitemap.xml",
-                "input": "src/assets",
-                "output": "/assets/common"
-              },
-              {
-                "glob": "googled41787c6aae2151b.html",
-                "input": "src/assets",
-                "output": "/assets/common"
-              },
-              {
-                "glob": "CNAME",
-                "input": "src/assets",
-                "output": "/assets/common"
-              },
-              {
-                "glob": "robots.txt",
-                "input": "src/assets",
-                "output": "/assets/common"
-              },
-              {
-                "glob": "manifest.webmanifest",
-                "input": "src/assets",
-                "output": "/assets/common"
-              }
-            ],
             "styles": [
               "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/assets/css/reset.css",
@@ -82,24 +49,73 @@
           },
           "configurations": {
             "en": {
-              "aot": true,
               "outputPath": "dist/browser/",
               "baseHref": "/",
               "i18nFile": "src/i18n/messages.en.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "en",
-              "i18nMissingTranslation": "error"
+              "i18nMissingTranslation": "error",
+              "assets": [
+                {
+                  "glob": "**/*",
+                  "input": "src/assets/",
+                  "output": "/assets/",
+                  "ignore": [
+                    "base/*",
+                    "css/*",
+                    "js/*"
+                  ]
+                },
+                {
+                  "glob": "**/*",
+                  "input": "src/assets/base",
+                  "output": "/"
+                }
+              ]
             },
             "es": {
-              "aot": true,
               "outputPath": "dist/browser/es/",
               "baseHref": "/es/",
               "i18nFile": "src/i18n/messages.es.xlf",
               "i18nFormat": "xlf",
               "i18nLocale": "es",
-              "i18nMissingTranslation": "error"
+              "i18nMissingTranslation": "error",
+              "assets": [
+                {
+                  "glob": "**/*",
+                  "input": "src/assets/",
+                  "output": "/assets/",
+                  "ignore": [
+                    "base/*",
+                    "css/*",
+                    "js/*"
+                  ]
+                },
+                {
+                  "glob": "**/*",
+                  "input": "src/assets/base",
+                  "output": "/"
+                }
+              ]
             },
             "production-en": {
+              "assets": [
+                {
+                  "glob": "**/*",
+                  "input": "src/assets/",
+                  "output": "/assets/",
+                  "ignore": [
+                    "base/*",
+                    "css/*",
+                    "js/*"
+                  ]
+                },
+                {
+                  "glob": "**/*",
+                  "input": "src/assets/base",
+                  "output": "/"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -111,7 +127,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -199,33 +214,6 @@
               "src/assets/css/reset.css",
               "src/assets/css/loading.css",
               "src/app/shared/styles/global.scss"
-            ],
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "src/assets",
-                "output": "/assets"
-              },
-              {
-                "glob": "sitemap.xml",
-                "input": "src/assets",
-                "output": "/"
-              },
-              {
-                "glob": "googled41787c6aae2151b.html",
-                "input": "src/assets",
-                "output": "/"
-              },
-              {
-                "glob": "CNAME",
-                "input": "src/assets",
-                "output": "/"
-              },
-              {
-                "glob": "manifest.webmanifest",
-                "input": "src/assets",
-                "output": "/"
-              }
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
