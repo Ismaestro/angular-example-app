@@ -74,7 +74,7 @@ describe('HeroesListPageComponent', () => {
     heroServiceSpy.checkIfUserCanVote.and.returnValue(true);
     fixture = TestBed.createComponent(HeroesListPageComponent);
     component = fixture.debugElement.componentInstance;
-    router = TestBed.get(Router);
+    router = TestBed.inject(Router);
     navigateSpy = spyOn(router, 'navigate');
     heroServiceSpy.getHeroes.and.returnValue(of([new Hero({is: 1, name: 'hero test'})]));
     fixture.detectChanges();

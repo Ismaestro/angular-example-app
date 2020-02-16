@@ -27,8 +27,8 @@ describe('HeroResolver', () => {
   });
 
   beforeEach(() => {
-    heroResolver = TestBed.get(HeroResolver);
-    route = TestBed.get(ActivatedRoute);
+    heroResolver = TestBed.inject(HeroResolver);
+    route = TestBed.inject(ActivatedRoute);
   });
 
   it('should resolve a hero by id', (() => {

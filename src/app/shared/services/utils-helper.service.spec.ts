@@ -12,7 +12,7 @@ describe('UtilsHelperService', () => {
       ]
     });
 
-    utilsHelperService = TestBed.get(UtilsHelperService);
+    utilsHelperService = TestBed.inject(UtilsHelperService);
   });
 
   it('should check if is palindrome', (() => {

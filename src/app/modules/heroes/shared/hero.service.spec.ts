@@ -71,7 +71,7 @@ describe('HeroService', () => {
       ])
     });
 
-    heroService = TestBed.get(HeroService);
+    heroService = TestBed.inject(HeroService);
   });
 
   it('should get hero by id ' + heroId, (() => {

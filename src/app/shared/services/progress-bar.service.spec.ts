@@ -12,7 +12,7 @@ describe('ProgressBarService', () => {
       ]
     });
 
-    progressBarService = TestBed.get(ProgressBarService);
+    progressBarService = TestBed.inject(ProgressBarService);
   });
 
   it('should not be requestsRunning', (() => {

@@ -12,7 +12,7 @@ describe('LoggerService', () => {
       ]
     });
 
-    loggerService = TestBed.get(LoggerService);
+    loggerService = TestBed.inject(LoggerService);
   });
 
   it('should log without errors', (() => {

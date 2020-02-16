@@ -14,7 +14,7 @@ describe('NgxExampleLibraryService', () => {
   });
 
   beforeEach(() => {
-    ngxExampleLibraryService = TestBed.get(NgxExampleLibraryService);
+    ngxExampleLibraryService = TestBed.inject(NgxExampleLibraryService);
   });
 
   it('should be created', (() => {
