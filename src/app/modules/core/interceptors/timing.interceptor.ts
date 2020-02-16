@@ -2,7 +2,9 @@ import {tap} from 'rxjs/operators';
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {LoggerService} from '../../../shared/services/logger.service';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class TimingInterceptor implements HttpInterceptor {
   constructor() {
   }

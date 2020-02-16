@@ -31,7 +31,7 @@ export class HeroesListPageComponent implements OnInit {
   canVote = false;
   error: boolean;
 
-  @ViewChild('form', {static: false}) myNgForm; // just to call resetForm method
+  @ViewChild('form') myNgForm; // just to call resetForm method
 
   constructor(private heroService: HeroService,
               private dialog: MatDialog,

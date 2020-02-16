@@ -23,7 +23,7 @@ export function initialize(options: any) {
   ]
 })
 export class NgxExampleLibraryModule {
-  static forRoot(options?: SampleModuleOptions): ModuleWithProviders {
+  static forRoot(options?: SampleModuleOptions): ModuleWithProviders<NgxExampleLibraryModule> {
     return {
       ngModule: NgxExampleLibraryModule,
       providers: [
