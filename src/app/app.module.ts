@@ -1,4 +1,4 @@
-import {APP_INITIALIZER, ErrorHandler, LOCALE_ID, NgModule, PLATFORM_ID, TRANSLATIONS} from '@angular/core';
+import {APP_INITIALIZER, ErrorHandler, LOCALE_ID, NgModule, PLATFORM_ID, TRANSLATIONS, TRANSLATIONS_FORMAT} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {CoreModule} from './modules/core/core.module';
 import {AppComponent} from './app.component';
@@ -73,7 +73,7 @@ export function appInitializer(document: HTMLDocument, platformId: object) {
     {provide: ROUTES_CONFIG, useValue: RoutesConfig},
     {provide: ENDPOINTS_CONFIG, useValue: EndpointsConfig},
     {provide: ErrorHandler, useClass: SentryErrorHandler},
-    {provide: TRANSLATIONS_FORMAT, useValue: "xlf"},
+    {provide: TRANSLATIONS_FORMAT, useValue: 'xlf'},
     {
       provide: TRANSLATIONS,
       useFactory: (locale) => {
