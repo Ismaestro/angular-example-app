@@ -21,6 +21,11 @@
 /** IE10 and IE11 requires the following for NgClass support on SVG elements */
 import 'classlist.js';  // Run `npm install --save classlist.js`.
 
+/******************************************************************
+ * Load `$localize` - used if i18n tags appear in Angular templates.
+ */
+
+ import '@angular/localize/init';
 /**
  * Web Animations `@angular/platform-browser/animations`
  * Only required if AnimationBuilder is used within the application and using IE/Edge or Safari.
