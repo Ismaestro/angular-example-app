@@ -11,7 +11,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {RouterTestingModule} from '@angular/router/testing';
 import {CapitalizeFirstPipe} from '../../pipes/capitalize-first.pipe';
 import {ROUTES_CONFIG, RoutesConfig} from '../../../configs/routes.config';
-import {MatInputModule} from '@angular/material';
+import { MatInputModule } from '@angular/material/input';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 describe('SearchBarComponent', () => {

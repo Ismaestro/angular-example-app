@@ -55,9 +55,4 @@ import 'classlist.js';  // Run `npm install --save classlist.js`.
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
-import 'zone.js/dist/zone';  // Included with Angular CLI.
-
-/***************************************************************************************************
- * APPLICATION IMPORTS
- */
-import 'hammerjs';
+import 'zone.js/dist/zone';

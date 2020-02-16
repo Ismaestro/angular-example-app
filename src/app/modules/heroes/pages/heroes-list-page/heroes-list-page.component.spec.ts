@@ -10,7 +10,10 @@ import {HeroRemoveComponent} from '../../components/hero-remove/hero-remove.comp
 import {Router} from '@angular/router';
 import {MockComponent, MockModule} from 'ng-mocks';
 import {MatDialog} from '@angular/material/dialog';
-import {MatFormFieldModule, MatIconModule, MatInputModule, MatListModule} from '@angular/material';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {NgxScrollToFirstInvalidModule} from '@ismaestro/ngx-scroll-to-first-invalid';
 import {RouterTestingModule} from '@angular/router/testing';
