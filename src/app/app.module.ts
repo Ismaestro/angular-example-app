@@ -30,7 +30,7 @@ export function appInitializer(document: HTMLDocument, platformId: object) {
   return () => {
     if (isPlatformBrowser(platformId)) {
       const dom = ɵgetDOM();
-      const styles: any[] = Array.prototype.slice.apply(dom.querySelectorAll(document, `style[ng-transition]`));
+      const styles: any[] = Array.prototype.slice.apply(document.querySelectorAll(`style[ng-transition]`));
       styles.forEach(el => {
         // Remove ng-transition attribute to prevent Angular appInitializerFactory
         // to remove server styles before preboot complete
@@ -73,11 +73,12 @@ export function appInitializer(document: HTMLDocument, platformId: object) {
     {provide: ROUTES_CONFIG, useValue: RoutesConfig},
     {provide: ENDPOINTS_CONFIG, useValue: EndpointsConfig},
     {provide: ErrorHandler, useClass: SentryErrorHandler},
+    {provide: TRANSLATIONS_FORMAT, useValue: "xlf"},
     {
       provide: TRANSLATIONS,
       useFactory: (locale) => {
         locale = locale || 'en';
-        return require(`raw-loader!../i18n/messages.${locale}.xlf`);
+        return require(`raw-loader!../i18n/messages.${locale}.xlf`).default;
       },
       deps: [LOCALE_ID]
     },
