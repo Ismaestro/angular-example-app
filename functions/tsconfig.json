@@ -12,5 +12,8 @@
   "compileOnSave": true,
   "include": [
     "src"
+  ],
+  "exclude": [
+    "server.ts"
   ]
 }

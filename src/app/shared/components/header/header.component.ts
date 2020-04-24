@@ -1,8 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {APP_CONFIG} from '../../../configs/app.config';
-import {ProgressBarService} from '../../services/progress-bar.service';
 import {NavigationEnd, Router} from '@angular/router';
-import {CookieService} from 'ngx-cookie';
+import {CookieService} from '@gorniv/ngx-universal';
+import {ProgressBarService} from '../../../modules/core/services/progress-bar.service';
 
 @Component({
   selector: 'app-header',

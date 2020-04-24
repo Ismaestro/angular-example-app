@@ -165,8 +165,6 @@ Editor preferences are available in the [editor config](https://github.com/Ismae
 
 - <https://github.com/ismaestro>
 
-<a href="https://www.buymeacoffee.com/ismaestro" target="_blank"><img src="http://i65.tinypic.com/2rx8kn8.jpg" border="0" alt="Buy Me A Coffee"></a>
-
 ## Thanks
 
 Thanks to all contributors and their support.

@@ -9,9 +9,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {CookieService} from 'ngx-cookie';
-import {ProgressBarService} from '../../services/progress-bar.service';
+import {CookieService} from '@gorniv/ngx-universal';
 import {of} from 'rxjs';
+import {ProgressBarService} from '../../../modules/core/services/progress-bar.service';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;

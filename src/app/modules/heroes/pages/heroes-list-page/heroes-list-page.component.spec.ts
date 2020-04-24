@@ -2,7 +2,6 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {HeroesListPageComponent} from './heroes-list-page.component';
 import {configureTestSuite} from 'ng-bullet';
 import {LoadingPlaceholderComponent} from '../../../../shared/components/loading-placeholder/loading-placeholder.component';
-import {HeroService} from '../../shared/hero.service';
 import {Hero} from '../../shared/hero.model';
 import {of} from 'rxjs';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
@@ -16,8 +15,9 @@ import {NgxScrollToFirstInvalidModule} from '@ismaestro/ngx-scroll-to-first-inva
 import {RouterTestingModule} from '@angular/router/testing';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {ROUTES_CONFIG, RoutesConfig} from '../../../../configs/routes.config';
-import {CookieService} from 'ngx-cookie';
+import {CookieService} from '@gorniv/ngx-universal';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {HeroService} from '../../../core/services/hero.service';
 
 describe('HeroesListPageComponent', () => {
   let component: HeroesListPageComponent;

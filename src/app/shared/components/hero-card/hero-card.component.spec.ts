@@ -7,12 +7,12 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {of} from 'rxjs';
-import {HeroService} from '../../../modules/heroes/shared/hero.service';
 import {RouterTestingModule} from '@angular/router/testing';
 import {ROUTES_CONFIG, RoutesConfig} from '../../../configs/routes.config';
-import {CookieService} from 'ngx-cookie';
+import {CookieService} from '@gorniv/ngx-universal';
 import {PLATFORM_ID} from '@angular/core';
 import {LazyLoadImageModule} from 'ng-lazyload-image';
+import {HeroService} from '../../../modules/core/services/hero.service';
 
 describe('HeroCardComponent', () => {
   let component: HeroCardComponent;

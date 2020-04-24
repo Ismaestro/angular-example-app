@@ -1,25 +1,58 @@
-import {NgModule, Optional, SkipSelf} from '@angular/core';
-import {ProgressBarService} from '../../shared/services/progress-bar.service';
+import {ErrorHandler, LOCALE_ID, NgModule, Optional, SkipSelf, TRANSLATIONS} from '@angular/core';
 import {TimingInterceptor} from './interceptors/timing.interceptor';
-import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ProgressInterceptor} from './interceptors/progress.interceptor';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule} from '@angular/router';
+import {ProgressBarService} from './services/progress-bar.service';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../../../environments/environment';
+import {CookieModule, CookieService} from '@gorniv/ngx-universal';
+import {FirebaseModule} from '../../shared/modules/firebase.module';
+import {NgxExampleLibraryModule} from '@ismaestro/ngx-example-library';
+import {LazyLoadImageModule} from 'ng-lazyload-image';
+import {APP_CONFIG, AppConfig} from '../../configs/app.config';
+import {ROUTES_CONFIG, RoutesConfig} from '../../configs/routes.config';
+import {ENDPOINTS_CONFIG, EndpointsConfig} from '../../configs/endpoints.config';
+import {SentryErrorHandler} from './sentry.errorhandler';
+import {I18n} from '@ngx-translate/i18n-polyfill';
+
+declare const require;
 
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: 'angularexampleapp'}),
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
+    HttpClientModule,
+    RouterModule,
     BrowserAnimationsModule,
-    RouterModule
-  ],
-  exports: [
-    BrowserModule,
-    BrowserAnimationsModule
+    CookieModule.forRoot(),
+    FirebaseModule,
+    NgxExampleLibraryModule.forRoot({
+      config: {
+        say: 'hello'
+      }
+    }),
+    LazyLoadImageModule.forRoot({})
   ],
   providers: [
+    {provide: APP_CONFIG, useValue: AppConfig},
+    {provide: ROUTES_CONFIG, useValue: RoutesConfig},
+    {provide: ENDPOINTS_CONFIG, useValue: EndpointsConfig},
+    {provide: ErrorHandler, useClass: SentryErrorHandler},
     {provide: HTTP_INTERCEPTORS, useClass: ProgressInterceptor, multi: true, deps: [ProgressBarService]},
-    {provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true},
+    {
+      provide: TRANSLATIONS,
+      useFactory: (locale) => {
+        locale = locale || 'en';
+        return require(`raw-loader!../../../i18n/messages.${locale}.xlf`).default;
+      },
+      deps: [LOCALE_ID]
+    },
+    I18n,
+    CookieService
   ]
 })
 

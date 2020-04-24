@@ -1,10 +1,10 @@
 import {TestBed} from '@angular/core/testing';
-import {HeroService} from './hero.service';
 import {configureTestSuite} from 'ng-bullet';
 import {HeroResolver} from './hero.resolver';
 import {ActivatedRoute, convertToParamMap} from '@angular/router';
 import {Hero} from './hero.model';
 import {of} from 'rxjs';
+import {HeroService} from '../../core/services/hero.service';
 
 describe('HeroResolver', () => {
   let heroResolver: HeroResolver;

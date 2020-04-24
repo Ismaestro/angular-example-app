@@ -2,8 +2,8 @@ import {map, startWith} from 'rxjs/operators';
 import {Component, Inject, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Hero} from '../../../modules/heroes/shared/hero.model';
-import {HeroService} from '../../../modules/heroes/shared/hero.service';
 import {ROUTES_CONFIG} from '../../../configs/routes.config';
+import {HeroService} from '../../../modules/core/services/hero.service';
 
 @Component({
   selector: 'app-search-bar',

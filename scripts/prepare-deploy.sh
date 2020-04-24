@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-rm -Rf public &&
+rm -Rf public functions/dist &&
 mkdir public &&
 cp -a dist/browser/. public/ &&
 mv public/index.html public/index2.html &&

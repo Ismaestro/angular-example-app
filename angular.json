@@ -15,18 +15,18 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-builders/custom-webpack:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "index": "src/index.html",
             "main": "src/main.browser.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.browser.json",
+            "tsConfig": "src/tsconfig.browser.json",
             "aot": true,
             "styles": [
               "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/assets/css/reset.css",
               "src/assets/css/loading.css",
-              "src/app/shared/styles/global.scss"
+              "src/app/styles/global.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -37,15 +37,8 @@
               "src/assets/js/gtm.js",
               "src/assets/js/modernizr.js"
             ],
-            "customWebpackConfig": {
-              "path": "./extra-webpack.config.js",
-              "replaceDuplicatePlugins": true,
-              "mergeStrategies": {
-                "externals": "prepend"
-              }
-            },
             "serviceWorker": true,
-            "ngswConfigPath": "ngsw-config.json"
+            "ngswConfigPath": "src/ngsw-config.json"
           },
           "configurations": {
             "en": {
@@ -201,8 +194,8 @@
           "options": {
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
+            "tsConfig": "src/tsconfig.spec.json",
+            "karmaConfig": "src/karma.conf.js",
             "scripts": [
               "src/assets/js/gtm.js",
               "src/assets/js/modernizr.js"
@@ -213,7 +206,7 @@
               },
               "src/assets/css/reset.css",
               "src/assets/css/loading.css",
-              "src/app/shared/styles/global.scss"
+              "src/app/styles/global.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -228,9 +221,9 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "tsconfig.browser.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
+              "src/tsconfig.browser.json",
+              "src/tsconfig.spec.json",
+              "e2e/tsconfig.e2e.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -241,7 +234,7 @@
           "builder": "@angular-devkit/build-angular:server",
           "options": {
             "main": "src/main.server.ts",
-            "tsConfig": "tsconfig.server.json",
+            "tsConfig": "src/tsconfig.server.json",
             "stylePreprocessorOptions": {
               "includePaths": [
                 "src/app/shared/styles"

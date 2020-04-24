@@ -1,5 +1,4 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {HeroService} from '../../modules/heroes/shared/hero.service';
 import {HomePageComponent} from './home-page.component';
 import {of} from 'rxjs';
 import {Hero} from '../../modules/heroes/shared/hero.model';
@@ -10,6 +9,7 @@ import {LoadingPlaceholderComponent} from '../../shared/components/loading-place
 import {MockComponent} from 'ng-mocks';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {By} from '@angular/platform-browser';
+import {HeroService} from '../../modules/core/services/hero.service';
 
 describe('HomePage', () => {
   let component: HomePageComponent;

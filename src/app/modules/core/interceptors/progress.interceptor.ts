@@ -1,7 +1,7 @@
 import {tap} from 'rxjs/operators';
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {ProgressBarService} from '../../../shared/services/progress-bar.service';
+import {ProgressBarService} from '../services/progress-bar.service';
 
 export class ProgressInterceptor implements HttpInterceptor {
   constructor(private progressBarService: ProgressBarService) {

@@ -6,8 +6,9 @@ import * as helmet from 'helmet';
 import {join} from 'path';
 import {ngExpressEngine} from '@nguniversal/express-engine';
 import {provideModuleMap} from '@nguniversal/module-map-ngfactory-loader';
-import {AppConfig} from './src/app/configs/app.config';
-
+import {AppConfig} from './app/configs/app.config';
+import {REQUEST, RESPONSE} from '@nguniversal/express-engine/tokens';
+import {NgxRequest, NgxResponce} from '@gorniv/ngx-universal';
 enableProdMode();
 
 // Because of this https://github.com/angular/angular/issues/18199#issue-243593688
@@ -54,7 +55,26 @@ routes.forEach((route) => {
     res.render(route.view, {
       req, res, engine: ngExpressEngine({
         bootstrap: route.bundle.AppServerModuleNgFactory,
-        providers: [provideModuleMap(route.bundle.LAZY_MODULE_MAP)]
+        providers: [provideModuleMap(route.bundle.LAZY_MODULE_MAP)].concat([
+          // for http and cookies
+          {
+            provide: REQUEST,
+            useValue: req,
+          },
+          {
+            provide: RESPONSE,
+            useValue: res,
+          },
+          /// for cookie
+          {
+            provide: NgxRequest,
+            useValue: req,
+          },
+          {
+            provide: NgxResponce,
+            useValue: res,
+          }
+        ])
       })
     });
   });

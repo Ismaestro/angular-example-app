@@ -1,6 +1,5 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {SearchBarComponent} from './search-bar.component';
-import {HeroService} from '../../../modules/heroes/shared/hero.service';
 import {Hero} from '../../../modules/heroes/shared/hero.model';
 import {of} from 'rxjs';
 import {configureTestSuite} from 'ng-bullet';
@@ -13,6 +12,7 @@ import {CapitalizeFirstPipe} from '../../pipes/capitalize-first.pipe';
 import {ROUTES_CONFIG, RoutesConfig} from '../../../configs/routes.config';
 import {MatInputModule} from '@angular/material';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {HeroService} from '../../../modules/core/services/hero.service';
 
 describe('SearchBarComponent', () => {
   let component: SearchBarComponent;

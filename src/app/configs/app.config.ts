@@ -11,6 +11,7 @@ export const AppConfig: any = {
   cspDirectives: {
     defaultSrc: [
       '\'self\'',
+      'data:',
       'http://*.google-analytics.com',
       'http://www.googletagmanager.com',
       'https://*.google.com',
@@ -23,6 +24,8 @@ export const AppConfig: any = {
       'https://sentry.io',
       'ws://localhost:4200',
     ],
+    frameAncestors: ['\'self\''],
+    upgradeInsecureRequests: true,
     styleSrc: [
       '\'self\'',
       '\'unsafe-inline\'',

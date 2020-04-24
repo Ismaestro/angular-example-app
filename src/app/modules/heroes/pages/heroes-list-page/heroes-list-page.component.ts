@@ -1,17 +1,17 @@
 import {Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {Hero} from '../../shared/hero.model';
-import {HeroService} from '../../shared/hero.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {MatDialog} from '@angular/material/dialog';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {Router} from '@angular/router';
-import {UtilsHelperService} from '../../../../shared/services/utils-helper.service';
 import {HeroRemoveComponent} from '../../components/hero-remove/hero-remove.component';
 import {I18n} from '@ngx-translate/i18n-polyfill';
 import {transition, trigger, useAnimation} from '@angular/animations';
 import {fadeIn} from 'ng-animate';
 import {ROUTES_CONFIG} from '../../../../configs/routes.config';
-import {CookieService} from 'ngx-cookie';
+import {CookieService} from '@gorniv/ngx-universal';
+import {HeroService} from '../../../core/services/hero.service';
+import {UtilsHelperService} from '../../../core/services/utils-helper.service';
 
 @Component({
   selector: 'app-heroes-list-page',

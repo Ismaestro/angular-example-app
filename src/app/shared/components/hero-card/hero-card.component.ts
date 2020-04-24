@@ -1,5 +1,4 @@
 import {ChangeDetectionStrategy, Component, Inject, Input, OnInit, PLATFORM_ID} from '@angular/core';
-import {HeroService} from '../../../modules/heroes/shared/hero.service';
 import {Hero} from '../../../modules/heroes/shared/hero.model';
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
@@ -7,8 +6,9 @@ import {I18n} from '@ngx-translate/i18n-polyfill';
 import {transition, trigger, useAnimation} from '@angular/animations';
 import {fadeIn} from 'ng-animate';
 import {ROUTES_CONFIG} from '../../../configs/routes.config';
-import {CookieService} from 'ngx-cookie';
+import {CookieService} from '@gorniv/ngx-universal';
 import {isPlatformBrowser} from '@angular/common';
+import {HeroService} from '../../../modules/core/services/hero.service';
 
 @Component({
   selector: 'app-hero-card',
