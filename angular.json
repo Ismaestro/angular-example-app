@@ -86,9 +86,9 @@
                   "maximumWarning": "6kb"
                 }
               ],
-            "localize": [
-              "es"
-            ],
+              "localize": [
+                "es"
+              ],
               "outputPath": "dist/browser",
               "i18nMissingTranslation": "error",
               "assets": [
@@ -164,9 +164,9 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-            "localize": [
-              "es"
-            ],
+              "localize": [
+                "es"
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -337,9 +337,9 @@
           },
           "configurations": {
             "production": {
-              "project": "projects/ngx-example-library/ng-package.prod.json"
-            ,              "tsConfig": "projects/ngx-example-library/tsconfig.lib.prod.json"
-}
+              "project": "projects/ngx-example-library/ng-package.prod.json",
+              "tsConfig": "projects/ngx-example-library/tsconfig.lib.prod.json"
+            }
           }
         },
         "test": {
@@ -365,5 +365,8 @@
       }
     }
   },
-  "defaultProject": "angularexampleapp"
+  "defaultProject": "angularexampleapp",
+  "cli": {
+    "analytics": false
+  }
 }
