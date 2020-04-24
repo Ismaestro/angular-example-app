@@ -4,6 +4,15 @@
   "newProjectRoot": "projects",
   "projects": {
     "angularexampleapp": {
+      "i18n": {
+        "locales": {
+          "en": {
+            "translation": "src/i18n/messages.en.xlf",
+            "baseHref": "/"
+          },
+          "es": "src/i18n/messages.es.xlf"
+        }
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -42,10 +51,14 @@
           },
           "configurations": {
             "en": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "outputPath": "dist/browser/",
-              "baseHref": "/",
               "i18nFile": "src/i18n/messages.en.xlf",
-              "i18nFormat": "xlf",
               "i18nLocale": "en",
               "i18nMissingTranslation": "error",
               "assets": [
@@ -67,11 +80,16 @@
               ]
             },
             "es": {
-              "outputPath": "dist/browser/es/",
-              "baseHref": "/es/",
-              "i18nFile": "src/i18n/messages.es.xlf",
-              "i18nFormat": "xlf",
-              "i18nLocale": "es",
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
+            "localize": [
+              "es"
+            ],
+              "outputPath": "dist/browser",
               "i18nMissingTranslation": "error",
               "assets": [
                 {
@@ -128,12 +146,14 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ],
               "outputPath": "dist/browser/",
-              "baseHref": "/",
               "i18nFile": "src/i18n/messages.en.xlf",
-              "i18nFormat": "xlf",
               "i18nLocale": "en",
               "i18nMissingTranslation": "error"
             },
@@ -144,12 +164,14 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
+            "localize": [
+              "es"
+            ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -158,13 +180,13 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ],
-              "outputPath": "dist/browser/es/",
-              "baseHref": "/es/",
-              "i18nFile": "src/i18n/messages.es.xlf",
-              "i18nFormat": "xlf",
-              "i18nLocale": "es",
+              "outputPath": "dist/browser",
               "i18nMissingTranslation": "error"
             }
           }
@@ -243,6 +265,7 @@
           },
           "configurations": {
             "production-en": {
+              "optimization": true,
               "outputPath": "dist/server/en",
               "i18nFile": "src/i18n/messages.en.xlf",
               "i18nFormat": "xlf",
@@ -256,6 +279,7 @@
               ]
             },
             "production-es": {
+              "optimization": true,
               "outputPath": "dist/server/es",
               "i18nFile": "src/i18n/messages.es.xlf",
               "i18nFormat": "xlf",
@@ -314,7 +338,8 @@
           "configurations": {
             "production": {
               "project": "projects/ngx-example-library/ng-package.prod.json"
-            }
+            ,              "tsConfig": "projects/ngx-example-library/tsconfig.lib.prod.json"
+}
           }
         },
         "test": {

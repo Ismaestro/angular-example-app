@@ -23,7 +23,8 @@
           "/index.html",
           "/es/index.html",
           "/*.css",
-          "/*.js"
+          "/*.js",
+          "/manifest.webmanifest"
         ]
       }
     },
