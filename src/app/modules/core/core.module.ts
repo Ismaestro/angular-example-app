@@ -1,4 +1,4 @@
-import {ErrorHandler, LOCALE_ID, NgModule, Optional, SkipSelf, TRANSLATIONS} from '@angular/core';
+import {ErrorHandler, LOCALE_ID, NgModule, Optional, SkipSelf, TRANSLATIONS, TRANSLATIONS_FORMAT} from '@angular/core';
 import {TimingInterceptor} from './interceptors/timing.interceptor';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ProgressInterceptor} from './interceptors/progress.interceptor';
@@ -43,6 +43,7 @@ declare const require;
     {provide: ErrorHandler, useClass: SentryErrorHandler},
     {provide: HTTP_INTERCEPTORS, useClass: ProgressInterceptor, multi: true, deps: [ProgressBarService]},
     {provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true},
+    {provide: TRANSLATIONS_FORMAT, useValue: "xlf"},
     {
       provide: TRANSLATIONS,
       useFactory: (locale) => {

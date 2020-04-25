@@ -29,7 +29,7 @@
             "index": "src/index.html",
             "main": "src/main.browser.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.browser.json",
+            "tsConfig": "tsconfig.app.json",
             "aot": true,
             "styles": [
               "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
@@ -143,11 +143,6 @@
               "buildOptimizer": true,
               "budgets": [
                 {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
                   "type": "anyComponentStyle",
                   "maximumWarning": "6kb"
                 }
@@ -176,11 +171,6 @@
               "vendorChunk": false,
               "buildOptimizer": true,
               "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "6kb"
@@ -216,7 +206,7 @@
           "options": {
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
+            "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "scripts": [
               "src/assets/js/gtm.js",
@@ -243,9 +233,9 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "src/tsconfig.browser.json",
-              "src/tsconfig.spec.json",
-              "e2e/tsconfig.e2e.json"
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -256,7 +246,7 @@
           "builder": "@angular-devkit/build-angular:server",
           "options": {
             "main": "src/main.server.ts",
-            "tsConfig": "src/tsconfig.server.json",
+            "tsConfig": "tsconfig.server.json",
             "stylePreprocessorOptions": {
               "includePaths": [
                 "src/app/shared/styles"
