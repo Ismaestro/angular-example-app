@@ -7,7 +7,7 @@
       "i18n": {
         "locales": {
           "en": {
-            "translation": "src/i18n/messages.en.xlf",
+            "translation": "src/i18n/messages.xlf",
             "baseHref": "/"
           },
           "es": "src/i18n/messages.es.xlf"
@@ -26,11 +26,28 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "outputPath": "dist/browser/en/",
             "index": "src/index.html",
             "main": "src/main.browser.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
-            "aot": true,
+            "tsConfig": "tsconfig.browser.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "src/assets/",
+                "output": "/assets/",
+                "ignore": [
+                  "base/*",
+                  "css/*",
+                  "js/*"
+                ]
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets/base",
+                "output": "/"
+              }
+            ],
             "styles": [
               "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/assets/css/reset.css",
@@ -47,86 +64,21 @@
               "src/assets/js/modernizr.js"
             ],
             "serviceWorker": true,
-            "ngswConfigPath": "src/ngsw-config.json"
+            "ngswConfigPath": "src/ngsw-config.json",
+            "budgets": [
+              {
+                "type": "anyComponentStyle",
+                "maximumWarning": "6kb"
+              },
+              {
+                "type": "initial",
+                "maximumWarning": "2mb",
+                "maximumError": "5mb"
+              }
+            ]
           },
           "configurations": {
-            "en": {
-              "budgets": [
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
-                }
-              ],
-              "outputPath": "dist/browser/",
-              "i18nFile": "src/i18n/messages.en.xlf",
-              "i18nLocale": "en",
-              "i18nMissingTranslation": "error",
-              "assets": [
-                {
-                  "glob": "**/*",
-                  "input": "src/assets/",
-                  "output": "/assets/",
-                  "ignore": [
-                    "base/*",
-                    "css/*",
-                    "js/*"
-                  ]
-                },
-                {
-                  "glob": "**/*",
-                  "input": "src/assets/base",
-                  "output": "/"
-                }
-              ]
-            },
-            "es": {
-              "budgets": [
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
-                }
-              ],
-              "localize": [
-                "es"
-              ],
-              "outputPath": "dist/browser",
-              "i18nMissingTranslation": "error",
-              "assets": [
-                {
-                  "glob": "**/*",
-                  "input": "src/assets/",
-                  "output": "/assets/",
-                  "ignore": [
-                    "base/*",
-                    "css/*",
-                    "js/*"
-                  ]
-                },
-                {
-                  "glob": "**/*",
-                  "input": "src/assets/base",
-                  "output": "/"
-                }
-              ]
-            },
-            "production-en": {
-              "assets": [
-                {
-                  "glob": "**/*",
-                  "input": "src/assets/",
-                  "output": "/assets/",
-                  "ignore": [
-                    "base/*",
-                    "css/*",
-                    "js/*"
-                  ]
-                },
-                {
-                  "glob": "**/*",
-                  "input": "src/assets/base",
-                  "output": "/"
-                }
-              ],
+            "production": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -138,45 +90,41 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
+              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
-                }
-              ],
-              "outputPath": "dist/browser/",
-              "i18nFile": "src/i18n/messages.en.xlf",
-              "i18nLocale": "en",
-              "i18nMissingTranslation": "error"
+              "buildOptimizer": true
             },
             "production-es": {
+              "baseHref": "/es/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "localize": [
-                "es"
-              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
+              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
-                }
-              ],
-              "outputPath": "dist/browser",
+              "outputPath": "dist/browser/es/",
+              "i18nFile": "src/locale/messages.es.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "es",
+              "i18nMissingTranslation": "error"
+            },
+            "es": {
+              "baseHref": "/es/",
+              "aot": true,
+              "outputPath": "dist/browser/es/",
+              "i18nFile": "src/locale/messages.es.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "es",
               "i18nMissingTranslation": "error"
             }
           }
@@ -184,14 +132,54 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angularexampleapp:build:en"
+            "browserTarget": "angularexampleapp:build"
           },
           "configurations": {
-            "en": {
-              "browserTarget": "angularexampleapp:build:en"
+            "production": {
+              "browserTarget": "angularexampleapp:build:production"
             },
             "es": {
               "browserTarget": "angularexampleapp:build:es"
+            }
+          }
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "browserTarget": "angularexampleapp:build",
+            "serverTarget": "angularexampleapp:server"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "angularexampleapp:build:production",
+              "serverTarget": "angularexampleapp:server:production"
+            }
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/server",
+            "main": "server.ts",
+            "tsConfig": "./tsconfig.server.json",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
+            "externalDependencies": [
+              "@firebase/firestore"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
             }
           }
         },
@@ -199,6 +187,21 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "angularexampleapp:build"
+          }
+        },
+        "xliffmerge": {
+          "builder": "@ngx-i18nsupport/tooling:xliffmerge",
+          "options": {
+            "xliffmergeOptions": {
+              "i18nFormat": "xlf",
+              "srcDir": "src/i18n",
+              "genDir": "src/i18n",
+              "defaultLanguage": "en",
+              "languages": [
+                "en",
+                "es"
+              ]
+            }
           }
         },
         "test": {
@@ -233,70 +236,13 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "tsconfig.app.json",
+              "tsconfig.browser.json",
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
             "exclude": [
               "**/node_modules/**"
             ]
-          }
-        },
-        "server": {
-          "builder": "@angular-devkit/build-angular:server",
-          "options": {
-            "main": "src/main.server.ts",
-            "tsConfig": "tsconfig.server.json",
-            "stylePreprocessorOptions": {
-              "includePaths": [
-                "src/app/shared/styles"
-              ]
-            }
-          },
-          "configurations": {
-            "production-en": {
-              "optimization": true,
-              "outputPath": "dist/server/en",
-              "i18nFile": "src/i18n/messages.en.xlf",
-              "i18nFormat": "xlf",
-              "i18nLocale": "en",
-              "i18nMissingTranslation": "error",
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ]
-            },
-            "production-es": {
-              "optimization": true,
-              "outputPath": "dist/server/es",
-              "i18nFile": "src/i18n/messages.es.xlf",
-              "i18nFormat": "xlf",
-              "i18nLocale": "es",
-              "i18nMissingTranslation": "error",
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ]
-            }
-          }
-        },
-        "xliffmerge": {
-          "builder": "@ngx-i18nsupport/tooling:xliffmerge",
-          "options": {
-            "xliffmergeOptions": {
-              "i18nFormat": "xlf",
-              "srcDir": "src/i18n",
-              "genDir": "src/i18n",
-              "defaultLanguage": "en",
-              "languages": [
-                "en",
-                "es"
-              ]
-            }
           }
         },
         "e2e": {
@@ -309,6 +255,19 @@
             "production": {
               "devServerTarget": "angularexampleapp:serve:production"
             }
+          }
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "browserTarget": "angularexampleapp:build:production",
+            "serverTarget": "angularexampleapp:server:production",
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {}
           }
         }
       }

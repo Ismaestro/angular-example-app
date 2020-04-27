@@ -3,7 +3,7 @@
   "version": "8.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "ng serve --configuration=en --open",
+    "start": "ng serve --open",
     "start:es": "ng serve --configuration=es --open",
     "extract-i18n": "ng xi18n angularexampleapp --i18n-format xlf --output-path i18n --i18n-locale en && ngx-extractor --input=\"src/**/*.ts\" --format=xlf --out-file=src/i18n/messages.xlf && ng run angularexampleapp:xliffmerge",
     "lint": "tslint --project tslint.json",
@@ -11,27 +11,31 @@
     "test:app:watch": "ng test angularexampleapp --code-coverage --watch=true",
     "test:library:watch": "ng test ngx-example-library --code-coverage --watch=true",
     "e2e": "ng e2e",
-    "build:prod:en": "ng build --configuration=production-en",
+    "build:prod": "ng build --configuration=production",
     "build:prod:es": "ng build --configuration=production-es",
-    "build:server:prod:en": "ng run angularexampleapp:server:production-en",
-    "build:server:prod:es": "ng run angularexampleapp:server:production-es",
-    "build:library": "ng build ngx-example-library",
-    "build:client-and-server-bundles": "npm run build:prod:en && npm run build:prod:es && npm run build:server:prod:en && npm run build:server:prod:es",
-    "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "serve:ssr": "node dist/server",
-    "validate:server": "bash scripts/validate-server.sh",
+    "builds:prod": "npm run build:prod && npm run build:prod:es",
+    "ci": "npm run lint && npm run test && npm run e2e && npm run build:ssr && npm run validate:server",
     "bundle-report": "ng build --configuration=production-en --stats-json && webpack-bundle-analyzer dist/browser/stats.json",
+    "update": "ng update --force --all",
+    "postinstall": "ngcc",
+    "dev:ssr": "ng run angularexampleapp:serve-ssr",
+    "build:ssr:prod": "npm run builds:prod && ng run angularexampleapp:server:production",
+    "serve:ssr": "node dist/server/main.js",
+
+    "prerender": "ng run angularexampleapp:prerender",
+
+    "build:library": "ng build ngx-example-library",
+
+    "validate:server": "bash scripts/validate-server.sh",
     "release:minor": "standard-version --release-as minor && git push --follow-tags origin master",
     "release:major": "standard-version --release-as major && git push --follow-tags origin master",
-    "ci": "npm run lint && npm run test && npm run e2e && npm run build:ssr && npm run validate:server",
+
     "prepare:deploy": "bash scripts/prepare-deploy.sh",
-    "deploy": "npm run build:ssr && npm run prepare:deploy && firebase deploy",
-    "update": "ng update --force --all",
-    "postinstall": "ngcc"
+    "deploy": "npm run build:ssr:prod && npm run prepare:deploy && firebase deploy"
   },
   "private": true,
   "engines": {
-    "node": ">= 10.16.0",
+    "node": ">= 10.4.0",
     "npm": ">= 6.9.0"
   },
   "husky": {

@@ -1,8 +1,7 @@
 import {ErrorHandler, LOCALE_ID, NgModule, Optional, SkipSelf, TRANSLATIONS, TRANSLATIONS_FORMAT} from '@angular/core';
 import {TimingInterceptor} from './interceptors/timing.interceptor';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {ProgressInterceptor} from './interceptors/progress.interceptor';
-import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule} from '@angular/router';
 import {ProgressBarService} from './services/progress-bar.service';
@@ -22,9 +21,6 @@ declare const require;
 
 @NgModule({
   imports: [
-    BrowserModule.withServerTransition({appId: 'angularexampleapp'}),
-    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
-    HttpClientModule,
     RouterModule,
     BrowserAnimationsModule,
     CookieModule.forRoot(),
@@ -43,12 +39,14 @@ declare const require;
     {provide: ErrorHandler, useClass: SentryErrorHandler},
     {provide: HTTP_INTERCEPTORS, useClass: ProgressInterceptor, multi: true, deps: [ProgressBarService]},
     {provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true},
-    {provide: TRANSLATIONS_FORMAT, useValue: "xlf"},
+    {provide: TRANSLATIONS_FORMAT, useValue: 'xlf'},
     {
       provide: TRANSLATIONS,
       useFactory: (locale) => {
-        locale = locale || 'en';
-        return require(`raw-loader!../../../i18n/messages.${locale}.xlf`).default;
+        const defaultLocale = 'en';
+        locale = (locale && ['es'].includes(locale)) ? locale : 'en';
+        const messagesUrl = (locale === defaultLocale) ? `messages.xlf` : `messages.${locale}.xlf`;
+        return require(`raw-loader!../../../locale/${messagesUrl}`).default;
       },
       deps: [LOCALE_ID]
     },
