@@ -1,8 +1,4 @@
 <p align="center">
-  <a href="https://angular.io/">
-    <img src="https://www.angularexampleapp.com/assets/images/angular.svg" alt="Logo" width=72 height=72>
-  </a>
-
   <h3 align="center">Angular Example App</h3>
 
   <p align="center">
@@ -15,11 +11,7 @@
     Base project made with much :heart:. Contains CRUD, patterns, generated library, and much more!
     <br>
     <br>
-    <a href="https://www.angularexampleapp.com/">LIVE DEMO</a>
-    <br>
-    <a href="https://www.angularexampleapp.com/">
-      <img src="https://media.giphy.com/media/ce28l1P13CVK56OyCN/giphy.gif" alt="Demo example"/>
-    </a>
+    <img src="https://media.giphy.com/media/ce28l1P13CVK56OyCN/giphy.gif" alt="Demo example"/>
     <br>
     <br>
     <a href="https://github.com/Ismaestro/angular9-example-app/issues/new">Report bug</a>
@@ -42,16 +34,14 @@
 
 ## Status
 
-![travis](https://travis-ci.org/Ismaestro/angular9-example-app.svg?branch=master)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Ismaestro_angular9-example-app&metric=alert_status)](https://sonarcloud.io/dashboard?id=Ismaestro_angular9-example-app)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Ismaestro_angular9-example-app&metric=coverage)](https://sonarcloud.io/dashboard?id=Ismaestro_angular9-example-app)
-[![dependency Status](https://david-dm.org/ismaestro/angular9-example-app.svg)](https://david-dm.org/ismaestro/angular9-example-app#info=dependencies)
-[![devDependency Status](https://david-dm.org/ismaestro/angular9-example-app/dev-status.svg)](https://david-dm.org/ismaestro/angular9-example-app#info=devDependencies)
-[![peerDependencies Status](https://david-dm.org/ismaestro/angular9-example-app/peer-status.svg)](https://david-dm.org/ismaestro/angular9-example-app?type=peer)
-[![npm](https://img.shields.io/badge/demo-online-brightgreen.svg)](http://angularexampleapp.com/)
-
-[![GitHub stars](https://img.shields.io/github/stars/ismaestro/angular9-example-app.svg?style=social&label=Star)](https://github.com/ismaestro/angular9-example-app)
-[![GitHub forks](https://img.shields.io/github/forks/ismaestro/angular9-example-app.svg?style=social&label=Fork)](https://github.com/ismaestro/angular9-example-app/fork)
+![travis](https://travis-ci.org/Ismaestro/angular8-example-app.svg?branch=master)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Ismaestro_angular8-example-app&metric=alert_status)](https://sonarcloud.io/dashboard?id=Ismaestro_angular8-example-app)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Ismaestro_angular8-example-app&metric=coverage)](https://sonarcloud.io/dashboard?id=Ismaestro_angular8-example-app)
+[![dependency Status](https://david-dm.org/ismaestro/angular8-example-app.svg)](https://david-dm.org/ismaestro/angular8-example-app#info=dependencies)
+[![devDependency Status](https://david-dm.org/ismaestro/angular8-example-app/dev-status.svg)](https://david-dm.org/ismaestro/angular8-example-app#info=devDependencies)
+[![peerDependencies Status](https://david-dm.org/ismaestro/angular8-example-app/peer-status.svg)](https://david-dm.org/ismaestro/angular8-example-app?type=peer)
+[![GitHub stars](https://img.shields.io/github/stars/ismaestro/angular8-example-app.svg?style=social&label=Star)](https://github.com/ismaestro/angular8-example-app)
+[![GitHub forks](https://img.shields.io/github/forks/ismaestro/angular8-example-app.svg?style=social&label=Fork)](https://github.com/ismaestro/angular8-example-app/fork)
 
 ## What's included
 
@@ -59,8 +49,7 @@
 - [x] Angular Universal (SSR)
 - [x] Use of [preboot](https://github.com/angular/preboot) module to share state between browser and
       server
-- [x] Security Headers using [helmet](https://helmetjs.github.io). Report
-      [here](https://securityheaders.com/?q=https%3A%2F%2Fwww.angularexampleapp.com).
+- [x] Security Headers using [helmet](https://helmetjs.github.io).
 - [x] Internationalization with the official i18n. Separated builds for english and spanish.
 - [x] Lazy loading modules
 - [x] Service Workers enabled!
