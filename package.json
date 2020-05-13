@@ -95,7 +95,7 @@
     "@angular-eslint/eslint-plugin-template": "0.0.1-alpha.32",
     "@angular-eslint/schematics": "0.0.1-alpha.32",
     "@angular-eslint/template-parser": "0.0.1-alpha.32",
-    "@angular/material": "9.2.3",
+    "@angular/material": "7.3.2",
     "@ismaestro/ngx-example-library": "1.0.0",
     "@nguniversal/builders": "9.1.1",
     "@ngx-i18nsupport/ngx-i18nsupport": "1.1.6",
