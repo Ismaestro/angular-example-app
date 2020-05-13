@@ -23,7 +23,9 @@
     "bundle-report": "ng build --configuration=production --stats-json && webpack-bundle-analyzer dist/browser/stats-es2015.json",
     "release:minor": "standard-version --release-as minor && git push --follow-tags origin master",
     "release:major": "standard-version --release-as major && git push --follow-tags origin master",
-    "update": "ng update --force --all"
+    "update": "ng update --force --all",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "private": true,
   "engines": {
@@ -85,7 +87,8 @@
     "rxjs": "6.5.5",
     "tslib": "1.12.0",
     "uuid": "8.0.0",
-    "zone.js": "0.10.3"
+    "zone.js": "0.10.3",
+    "snyk": "^1.320.3"
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "9.1.0",
@@ -134,5 +137,6 @@
     "tslint": "6.1.2",
     "typescript": "3.8.3",
     "webpack-bundle-analyzer": "3.7.0"
-  }
+  },
+  "snyk": true
 }
