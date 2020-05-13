@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 declare const require;
 const bowser = require('bowser');
@@ -21,7 +21,7 @@ export class UtilsHelperService {
     const browser = bowser.getParser(window.navigator.userAgent);
     return browser.satisfies({
       windows: {
-        'internet explorer': '>10',
+        'internet explorer': '>10'
       },
       macos: {
         safari: '>10.1'

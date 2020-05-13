@@ -1,9 +1,9 @@
-import {InjectionToken} from '@angular/core';
+import { InjectionToken } from '@angular/core';
 
 export let ROUTES_CONFIG = new InjectionToken('routes.config');
 
 const basePaths = {
-  heroes: 'heroes',
+  heroes: 'heroes'
 };
 
 const routesNames = {

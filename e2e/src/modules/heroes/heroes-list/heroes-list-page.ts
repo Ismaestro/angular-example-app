@@ -1,5 +1,5 @@
-import {browser, by, element} from 'protractor';
-import {RoutesConfig} from '../../../../../src/app/configs/routes.config';
+import { browser, by, element } from 'protractor';
+import { RoutesConfig } from '../../../../../src/app/configs/routes.config';
 
 export class HeroesListPage {
   static navigateTo(): any {

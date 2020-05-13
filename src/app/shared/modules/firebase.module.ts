@@ -1,18 +1,18 @@
-import {NgModule} from '@angular/core';
-import {AngularFireModule} from '@angular/fire';
-import {AngularFirestoreModule, FirestoreSettingsToken} from '@angular/fire/firestore';
-import {environment} from '../../../environments/environment';
+import { NgModule } from '@angular/core';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule, SETTINGS } from '@angular/fire/firestore';
+import { environment } from '../../../environments/environment';
 
 @NgModule({
   imports: [
     AngularFireModule.initializeApp(environment.firebase, 'angularexampleapp'),
-    AngularFirestoreModule,
+    AngularFirestoreModule
   ],
   exports: [
     AngularFireModule,
     AngularFirestoreModule
   ],
-  providers: [{provide: FirestoreSettingsToken, useValue: {}}]
+  providers: [{ provide: SETTINGS, useValue: {} }]
 })
 
 export class FirebaseModule {

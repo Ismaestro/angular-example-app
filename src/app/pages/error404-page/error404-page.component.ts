@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-error404-page',
@@ -7,6 +8,9 @@ import {Component} from '@angular/core';
 })
 
 export class Error404PageComponent {
-  constructor() {
+  isBrowser: boolean;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: object) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
   }
 }

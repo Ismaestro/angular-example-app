@@ -4,12 +4,13 @@
     "outDir": "../../out-tsc/lib",
     "target": "es2015",
     "module": "es2015",
-    "moduleResolution": "node",
     "declaration": true,
     "sourceMap": true,
     "inlineSources": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
     "importHelpers": true,
     "types": [],
     "lib": [
@@ -17,13 +18,9 @@
       "es2015"
     ],
     "paths": {
-      "moment": [
-        "../../node_modules/moment/min/moment.min.js"
-      ]
     }
   },
   "angularCompilerOptions": {
-    "annotateForClosureCompiler": true,
     "skipTemplateCodegen": true,
     "strictMetadataEmit": true,
     "fullTemplateTypeCheck": true,

@@ -1,19 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import * as moment_ from 'moment';
-
-const moment = moment_;
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'lib-ngx-example-library',
-  template: `<span>{{date}}</span>`
+  template: `<span>{{ date }}</span>`,
 })
 export class NgxExampleLibraryComponent implements OnInit {
   date: string;
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
-    this.date = moment().format('dddd, D MMMM, YYYY LT');
+    this.date = new Date().toDateString();
   }
 }

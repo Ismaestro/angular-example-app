@@ -1,4 +1,4 @@
-import {InjectionToken} from '@angular/core';
+import { InjectionToken } from '@angular/core';
 
 export let ENDPOINTS_CONFIG = new InjectionToken('endpoints.config');
 

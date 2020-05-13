@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {Error404PageComponent} from './error404-page.component';
-import {configureTestSuite} from 'ng-bullet';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Error404PageComponent } from './error404-page.component';
+import { configureTestSuite } from 'ng-bullet';
 
 describe('Error404Page', () => {
   let component: Error404PageComponent;

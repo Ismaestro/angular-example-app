@@ -1,15 +1,15 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {HeroService} from '../../modules/heroes/shared/hero.service';
-import {HomePageComponent} from './home-page.component';
-import {of} from 'rxjs';
-import {Hero} from '../../modules/heroes/shared/hero.model';
-import {configureTestSuite} from 'ng-bullet';
-import {HeroLoadingComponent} from '../../shared/components/hero-loading/hero-loading.component';
-import {HeroCardComponent} from '../../shared/components/hero-card/hero-card.component';
-import {LoadingPlaceholderComponent} from '../../shared/components/loading-placeholder/loading-placeholder.component';
-import {MockComponent} from 'ng-mocks';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {By} from '@angular/platform-browser';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HomePageComponent } from './home-page.component';
+import { of } from 'rxjs';
+import { Hero } from '../../modules/heroes/shared/hero.model';
+import { configureTestSuite } from 'ng-bullet';
+import { HeroLoadingComponent } from '../../shared/components/hero-loading/hero-loading.component';
+import { HeroCardComponent } from '../../shared/components/hero-card/hero-card.component';
+import { LoadingPlaceholderComponent } from '../../shared/components/loading-placeholder/loading-placeholder.component';
+import { MockComponent } from 'ng-mocks';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { By } from '@angular/platform-browser';
+import { HeroService } from '../../modules/core/services/hero.service';
 
 describe('HomePage', () => {
   let component: HomePageComponent;
@@ -29,7 +29,7 @@ describe('HomePage', () => {
         HomePageComponent
       ],
       providers: [
-        {provide: HeroService, useValue: heroServiceSpy}
+        { provide: HeroService, useValue: heroServiceSpy }
       ]
     });
   });
@@ -37,7 +37,7 @@ describe('HomePage', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(HomePageComponent);
     component = fixture.debugElement.componentInstance;
-    heroServiceSpy.getHeroes.and.returnValue(of([new Hero({name: 'hero test'})]));
+    heroServiceSpy.getHeroes.and.returnValue(of([new Hero({ name: 'hero test' })]));
     fixture.detectChanges();
   });
 

@@ -1,17 +1,17 @@
-import {Component, Inject, OnInit, ViewChild} from '@angular/core';
-import {Hero} from '../../shared/hero.model';
-import {HeroService} from '../../shared/hero.service';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {MatDialog} from '@angular/material/dialog';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import {Router} from '@angular/router';
-import {UtilsHelperService} from '../../../../shared/services/utils-helper.service';
-import {HeroRemoveComponent} from '../../components/hero-remove/hero-remove.component';
-import {I18n} from '@ngx-translate/i18n-polyfill';
-import {transition, trigger, useAnimation} from '@angular/animations';
-import {fadeIn} from 'ng-animate';
-import {ROUTES_CONFIG} from '../../../../configs/routes.config';
-import {CookieService} from 'ngx-cookie';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { Hero } from '../../shared/hero.model';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { HeroRemoveComponent } from '../../components/hero-remove/hero-remove.component';
+import { I18n } from '@ngx-translate/i18n-polyfill';
+import { transition, trigger, useAnimation } from '@angular/animations';
+import { fadeIn } from 'ng-animate';
+import { ROUTES_CONFIG } from '../../../../configs/routes.config';
+import { CookieService } from '@gorniv/ngx-universal';
+import { HeroService } from '../../../core/services/hero.service';
+import { UtilsHelperService } from '../../../core/services/utils-helper.service';
 
 @Component({
   selector: 'app-heroes-list-page',
@@ -19,7 +19,7 @@ import {CookieService} from 'ngx-cookie';
   styleUrls: ['./heroes-list-page.component.scss'],
   animations: [
     trigger('fadeIn', [transition('* => *', useAnimation(fadeIn, {
-      params: {timing: 1, delay: 0}
+      params: { timing: 1, delay: 0 }
     }))])
   ]
 })
@@ -31,7 +31,7 @@ export class HeroesListPageComponent implements OnInit {
   canVote = false;
   error: boolean;
 
-  @ViewChild('form', {static: false}) myNgForm; // just to call resetForm method
+  @ViewChild('form', { static: false }) myNgForm; // just to call resetForm method
 
   constructor(private heroService: HeroService,
               private dialog: MatDialog,
@@ -61,7 +61,7 @@ export class HeroesListPageComponent implements OnInit {
     if (this.newHeroForm.valid) {
       this.heroService.createHero(new Hero(this.newHeroForm.value)).then(() => {
         this.myNgForm.resetForm();
-        this.snackBar.open(this.i18n({value: 'Hero created', id: '@@heroCreated'}), '', {duration: 1000});
+        this.snackBar.open(this.i18n({ value: 'Hero created', id: '@@heroCreated' }), '', { duration: 1000 });
       }, () => {
         this.error = true;
       });
@@ -75,7 +75,7 @@ export class HeroesListPageComponent implements OnInit {
       this.cookieService.put('votes', '' + (Number(this.cookieService.get('votes') || 0) + 1));
       this.heroService.updateHero(hero);
     } else {
-      this.snackBar.open(this.i18n({value: 'Can\'t vote anymore', id: '@@cannotVote'}), '', {duration: 1000});
+      this.snackBar.open(this.i18n({ value: 'Can\'t vote anymore', id: '@@cannotVote' }), '', { duration: 1000 });
     }
   }
 
@@ -84,7 +84,7 @@ export class HeroesListPageComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.heroService.deleteHero(hero.id).then(() => {
-          this.heroService.showSnackBar(this.i18n({value: 'Hero removed', id: '@@heroRemoved'}));
+          this.heroService.showSnackBar(this.i18n({ value: 'Hero removed', id: '@@heroRemoved' }));
         }, () => {
           this.error = true;
         });
@@ -99,7 +99,7 @@ export class HeroesListPageComponent implements OnInit {
   private onChanges() {
     this.newHeroForm.get('name').valueChanges.subscribe((value) => {
       if (value && value.length >= 3 && UtilsHelperService.isPalindrome(value)) {
-        this.snackBar.open(this.i18n({value: 'Yeah that\'s a Palindrome!', id: '@@yeahPalindrome'}), '', {duration: 2000});
+        this.snackBar.open(this.i18n({ value: 'Yeah that\'s a Palindrome!', id: '@@yeahPalindrome' }), '', { duration: 2000 });
       } else {
         this.snackBar.dismiss();
       }

@@ -4,14 +4,14 @@
     "outDir": "./out-tsc/app",
     "types": []
   },
-  "include": [
-    "src/**/*.ts"
+  "files": [
+    "src/main.server.ts",
+    "./server.ts"
   ],
-  "exclude": [
-    "src/test.ts",
-    "src/**/*.spec.ts"
+  "include": [
+    "src/**/*.d.ts"
   ],
   "angularCompilerOptions": {
-    "entryModule": "src/app/app.server.module#AppServerModule"
+    "entryModule": "./src/app/app.server.module#AppServerModule"
   }
 }
