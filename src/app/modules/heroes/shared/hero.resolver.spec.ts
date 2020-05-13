@@ -19,22 +19,22 @@ describe('HeroResolver', () => {
         { provide: HeroService, useValue: heroServiceSpy },
         {
           provide: ActivatedRoute,
-          useValue: { snapshot: { paramMap: convertToParamMap({ id: heroId }) } }
+          useValue: { snapshot: { paramMap: convertToParamMap({ id: heroId }) } },
         },
-        HeroResolver
-      ]
+        HeroResolver,
+      ],
     });
   });
 
   beforeEach(() => {
-    heroResolver = TestBed.get(HeroResolver);
-    route = TestBed.get(ActivatedRoute);
+    heroResolver = TestBed.inject(HeroResolver);
+    route = TestBed.inject(ActivatedRoute);
   });
 
-  it('should resolve a hero by id', (() => {
+  it('should resolve a hero by id', () => {
     heroServiceSpy.getHero.and.returnValue(of(new Hero({ id: heroId })));
-    heroResolver.resolve(route.snapshot).subscribe((hero) => {
+    heroResolver.resolve(route.snapshot).subscribe(hero => {
       expect(hero.id).toBe(heroId);
     });
-  }));
+  });
 });

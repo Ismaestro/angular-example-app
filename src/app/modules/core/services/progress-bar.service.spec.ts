@@ -7,19 +7,17 @@ describe('ProgressBarService', () => {
 
   configureTestSuite(() => {
     TestBed.configureTestingModule({
-      providers: [
-        ProgressBarService
-      ]
+      providers: [ProgressBarService],
     });
 
-    progressBarService = TestBed.get(ProgressBarService);
+    progressBarService = TestBed.inject(ProgressBarService);
   });
 
-  it('should not be requestsRunning', (() => {
+  it('should not be requestsRunning', () => {
     expect(progressBarService.list()).toBe(0);
-  }));
+  });
 
-  it('should increase and decrease the counter of requests running', (() => {
+  it('should increase and decrease the counter of requests running', () => {
     progressBarService.increase();
     progressBarService.increase();
     expect(progressBarService.list()).toBe(2);
@@ -29,5 +27,5 @@ describe('ProgressBarService', () => {
     expect(progressBarService.list()).toBe(0);
     progressBarService.decrease();
     expect(progressBarService.list()).toBe(0);
-  }));
+  });
 });

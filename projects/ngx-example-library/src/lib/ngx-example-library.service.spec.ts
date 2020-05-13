@@ -7,17 +7,15 @@ describe('NgxExampleLibraryService', () => {
 
   configureTestSuite(() => {
     TestBed.configureTestingModule({
-      providers: [
-        NgxExampleLibraryService
-      ]
+      providers: [NgxExampleLibraryService],
     });
   });
 
   beforeEach(() => {
-    ngxExampleLibraryService = TestBed.get(NgxExampleLibraryService);
+    ngxExampleLibraryService = TestBed.inject(NgxExampleLibraryService);
   });
 
-  it('should be created', (() => {
+  it('should be created', () => {
     expect(ngxExampleLibraryService).toBeTruthy();
-  }));
+  });
 });

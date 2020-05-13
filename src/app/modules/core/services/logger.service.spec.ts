@@ -7,16 +7,14 @@ describe('LoggerService', () => {
 
   configureTestSuite(() => {
     TestBed.configureTestingModule({
-      providers: [
-        LoggerService
-      ]
+      providers: [LoggerService],
     });
 
-    loggerService = TestBed.get(LoggerService);
+    loggerService = TestBed.inject(LoggerService);
   });
 
-  it('should log without errors', (() => {
+  it('should log without errors', () => {
     expect(LoggerService.error('This is an error')).toBeUndefined();
     expect(LoggerService.log('This is a log')).toBeUndefined();
-  }));
+  });
 });
