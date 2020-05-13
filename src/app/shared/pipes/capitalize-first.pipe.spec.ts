@@ -1,4 +1,4 @@
-import {CapitalizeFirstPipe} from './capitalize-first.pipe';
+import { CapitalizeFirstPipe } from './capitalize-first.pipe';
 
 describe('CapitalizeFirstPipe', () => {
   const pipe = new CapitalizeFirstPipe();

@@ -1,6 +1,6 @@
-import {TestBed} from '@angular/core/testing';
-import {ProgressBarService} from './progress-bar.service';
-import {configureTestSuite} from 'ng-bullet';
+import { TestBed } from '@angular/core/testing';
+import { ProgressBarService } from './progress-bar.service';
+import { configureTestSuite } from 'ng-bullet';
 
 describe('ProgressBarService', () => {
   let progressBarService: ProgressBarService;
@@ -8,7 +8,7 @@ describe('ProgressBarService', () => {
   configureTestSuite(() => {
     TestBed.configureTestingModule({
       providers: [
-        ProgressBarService,
+        ProgressBarService
       ]
     });
 

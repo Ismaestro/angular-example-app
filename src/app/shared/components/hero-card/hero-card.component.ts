@@ -1,14 +1,14 @@
-import {ChangeDetectionStrategy, Component, Inject, Input, OnInit, PLATFORM_ID} from '@angular/core';
-import {Hero} from '../../../modules/heroes/shared/hero.model';
-import {Router} from '@angular/router';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import {I18n} from '@ngx-translate/i18n-polyfill';
-import {transition, trigger, useAnimation} from '@angular/animations';
-import {fadeIn} from 'ng-animate';
-import {ROUTES_CONFIG} from '../../../configs/routes.config';
-import {CookieService} from '@gorniv/ngx-universal';
-import {isPlatformBrowser} from '@angular/common';
-import {HeroService} from '../../../modules/core/services/hero.service';
+import { ChangeDetectionStrategy, Component, Inject, Input, OnInit, PLATFORM_ID } from '@angular/core';
+import { Hero } from '../../../modules/heroes/shared/hero.model';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { I18n } from '@ngx-translate/i18n-polyfill';
+import { transition, trigger, useAnimation } from '@angular/animations';
+import { fadeIn } from 'ng-animate';
+import { ROUTES_CONFIG } from '../../../configs/routes.config';
+import { CookieService } from '@gorniv/ngx-universal';
+import { isPlatformBrowser } from '@angular/common';
+import { HeroService } from '../../../modules/core/services/hero.service';
 
 @Component({
   selector: 'app-hero-card',
@@ -17,7 +17,7 @@ import {HeroService} from '../../../modules/core/services/hero.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('fadeIn', [transition('* => *', useAnimation(fadeIn, {
-      params: {timing: 1, delay: 0}
+      params: { timing: 1, delay: 0 }
     }))])
   ]
 })
@@ -48,7 +48,7 @@ export class HeroCardComponent implements OnInit {
       this.cookieService.put('votes', '' + (Number(this.cookieService.get('votes') || 0) + 1));
       return this.heroService.updateHero(hero);
     } else {
-      this.snackBar.open(this.i18n({value: 'Can\'t vote anymore', id: '@@cannotVote'}), '', {duration: 1000});
+      this.snackBar.open(this.i18n({ value: 'Can\'t vote anymore', id: '@@cannotVote' }), '', { duration: 1000 });
     }
   }
 

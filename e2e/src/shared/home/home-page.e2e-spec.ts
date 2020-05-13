@@ -1,6 +1,6 @@
-import {HomePage} from './home-page';
-import {AppConfig} from '../../../../src/app/configs/app.config';
-import {browser} from 'protractor';
+import { HomePage } from './home-page';
+import { AppConfig } from '../../../../src/app/configs/app.config';
+import { browser } from 'protractor';
 
 describe('Home page', () => {
   let page;

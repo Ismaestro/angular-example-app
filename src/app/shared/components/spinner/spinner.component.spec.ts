@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {SpinnerComponent} from './spinner.component';
-import {configureTestSuite} from 'ng-bullet';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SpinnerComponent } from './spinner.component';
+import { configureTestSuite } from 'ng-bullet';
 
 describe('SpinnerComponent', () => {
   let component: SpinnerComponent;

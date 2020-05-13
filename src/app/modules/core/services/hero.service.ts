@@ -1,14 +1,14 @@
-import {Observable, of} from 'rxjs';
-import {Injectable} from '@angular/core';
-import {catchError, map, tap} from 'rxjs/operators';
-import {MatSnackBar, MatSnackBarConfig} from '@angular/material/snack-bar';
-import {AppConfig} from '../../../configs/app.config';
-import {AngularFirestore, AngularFirestoreCollection, DocumentReference} from '@angular/fire/firestore';
-import {I18n} from '@ngx-translate/i18n-polyfill';
-import {EndpointsConfig} from '../../../configs/endpoints.config';
-import {CookieService} from '@gorniv/ngx-universal';
-import {Hero} from '../../heroes/shared/hero.model';
-import {LoggerService} from './logger.service';
+import { Observable, of } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { catchError, map, tap } from 'rxjs/operators';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { AppConfig } from '../../../configs/app.config';
+import { AngularFirestore, AngularFirestoreCollection, DocumentReference } from '@angular/fire/firestore';
+import { I18n } from '@ngx-translate/i18n-polyfill';
+import { EndpointsConfig } from '../../../configs/endpoints.config';
+import { CookieService } from '@gorniv/ngx-universal';
+import { Hero } from '../../heroes/shared/hero.model';
+import { LoggerService } from './logger.service';
 
 @Injectable({
   providedIn: 'root'
@@ -49,7 +49,7 @@ export class HeroService {
         map((actions) => {
           return actions.map((action) => {
             const data = action.payload.doc.data();
-            return new Hero({id: action.payload.doc.id, ...data});
+            return new Hero({ id: action.payload.doc.id, ...data });
           });
         }),
         tap(() => LoggerService.log(`fetched heroes`)),
@@ -60,7 +60,7 @@ export class HeroService {
   getHero(id: string): Observable<any> {
     return this.afs.doc(EndpointsConfig.heroes.detail(id)).get().pipe(
       map((hero) => {
-        return new Hero({id, ...hero.data()});
+        return new Hero({ id, ...hero.data() });
       }),
       tap(() => LoggerService.log(`fetched hero ${id}`)),
       catchError(HeroService.handleError('getHero', []))
@@ -74,7 +74,7 @@ export class HeroService {
   updateHero(hero: Hero): Promise<void> {
     return this.afs.doc(EndpointsConfig.heroes.detail(hero.id)).update(JSON.parse(JSON.stringify(hero))).then(() => {
       LoggerService.log(`updated hero w/ id=${hero.id}`);
-      this.showSnackBar(this.i18n({value: 'Saved', id: '@@saved'}));
+      this.showSnackBar(this.i18n({ value: 'Saved', id: '@@saved' }));
     });
   }
 

@@ -1,19 +1,19 @@
 import '@angular/localize/init';
 import 'zone.js/dist/zone-node';
 
-import {ngExpressEngine} from '@nguniversal/express-engine';
+import { ngExpressEngine } from '@nguniversal/express-engine';
 import express from 'express';
 
-import {join} from 'path';
+import { join } from 'path';
 
-import {AppServerModule} from './src/main.server';
-import {APP_BASE_HREF} from '@angular/common';
-import {existsSync} from 'fs';
-import {REQUEST, RESPONSE} from '@nguniversal/express-engine/tokens';
-import {NgxRequest, NgxResponse} from '@gorniv/ngx-universal';
+import { AppServerModule } from './src/main.server';
+import { APP_BASE_HREF } from '@angular/common';
+import { existsSync } from 'fs';
+import { REQUEST, RESPONSE } from '@nguniversal/express-engine/tokens';
+import { NgxRequest, NgxResponse } from '@gorniv/ngx-universal';
 import * as compression from 'compression';
 import * as cookieparser from 'cookie-parser';
-import {exit} from 'process';
+import { exit } from 'process';
 // for debug
 require('source-map-support').install();
 
@@ -37,9 +37,9 @@ Object.defineProperty(win.document.body.style, 'transform', {
   value: () => {
     return {
       enumerable: true,
-      configurable: true,
+      configurable: true
     };
-  },
+  }
 });
 // mock documnet
 global['document'] = win.document;
@@ -105,8 +105,8 @@ export function app() {
   server.engine(
     'html',
     ngExpressEngine({
-      bootstrap: AppServerModule,
-    }),
+      bootstrap: AppServerModule
+    })
   );
 
   server.set('view engine', 'html');
@@ -118,8 +118,8 @@ export function app() {
   server.get(
     '*.*',
     express.static(distFolder, {
-      maxAge: '1y',
-    }),
+      maxAge: '1y'
+    })
   );
 
   // All regular routes use the Universal engine
@@ -141,31 +141,31 @@ export function app() {
     res.render(renderUrl, {
       req,
       providers: [
-        {provide: APP_BASE_HREF, useValue: req.baseUrl},
+        { provide: APP_BASE_HREF, useValue: req.baseUrl },
 
         // for http and cookies
         {
           provide: REQUEST,
-          useValue: req,
+          useValue: req
         },
         {
           provide: RESPONSE,
-          useValue: res,
+          useValue: res
         },
         /// for cookie
         {
           provide: NgxRequest,
-          useValue: req,
+          useValue: req
         },
         {
           provide: NgxResponse,
-          useValue: res,
+          useValue: res
         },
         // for absolute path
         {
           provide: 'ORIGIN_URL',
-          useValue: `${http}://${req.headers.host}`,
-        },
+          useValue: `${http}://${req.headers.host}`
+        }
       ]
     });
   });

@@ -1,8 +1,8 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {NgxExampleLibraryComponent} from './ngx-example-library.component';
-import {DebugElement} from '@angular/core';
-import {By} from '@angular/platform-browser';
-import {configureTestSuite} from 'ng-bullet';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgxExampleLibraryComponent } from './ngx-example-library.component';
+import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
+import { configureTestSuite } from 'ng-bullet';
 
 describe('NgxExampleLibraryComponent', () => {
   let component: NgxExampleLibraryComponent;

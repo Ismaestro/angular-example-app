@@ -1,6 +1,6 @@
-import {TestBed} from '@angular/core/testing';
-import {LoggerService} from './logger.service';
-import {configureTestSuite} from 'ng-bullet';
+import { TestBed } from '@angular/core/testing';
+import { LoggerService } from './logger.service';
+import { configureTestSuite } from 'ng-bullet';
 
 describe('LoggerService', () => {
   let loggerService: LoggerService;

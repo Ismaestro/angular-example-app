@@ -1,7 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import * as moment_ from 'moment';
-
-const moment = moment_;
+import { Component, OnInit } from '@angular/core';
+import moment from 'moment';
 
 @Component({
   selector: 'lib-ngx-example-library',

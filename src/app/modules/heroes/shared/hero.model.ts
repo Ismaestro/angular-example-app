@@ -1,4 +1,4 @@
-import {Deserializable} from '../../../shared/interfaces/deserializable.interface';
+import { Deserializable } from '../../../shared/interfaces/deserializable.interface';
 
 export class Hero implements Deserializable {
   id: string;

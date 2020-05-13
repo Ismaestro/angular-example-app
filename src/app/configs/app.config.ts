@@ -1,4 +1,4 @@
-import {InjectionToken} from '@angular/core';
+import { InjectionToken } from '@angular/core';
 
 export let APP_CONFIG = new InjectionToken('app.config');
 
@@ -22,7 +22,7 @@ export const AppConfig: any = {
       'https://authedmine.com',
       'https://az743702.vo.msecnd.net',
       'https://sentry.io',
-      'ws://localhost:4200',
+      'ws://localhost:4200'
     ],
     frameAncestors: ['\'self\''],
     upgradeInsecureRequests: true,

@@ -1,6 +1,6 @@
-import {TestBed} from '@angular/core/testing';
-import {UtilsHelperService} from './utils-helper.service';
-import {configureTestSuite} from 'ng-bullet';
+import { TestBed } from '@angular/core/testing';
+import { UtilsHelperService } from './utils-helper.service';
+import { configureTestSuite } from 'ng-bullet';
 
 describe('UtilsHelperService', () => {
   let utilsHelperService: UtilsHelperService;

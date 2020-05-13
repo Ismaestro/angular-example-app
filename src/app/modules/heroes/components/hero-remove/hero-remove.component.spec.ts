@@ -1,7 +1,7 @@
-import {HeroRemoveComponent} from './hero-remove.component';
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {configureTestSuite} from 'ng-bullet';
-import {MatDialogModule} from '@angular/material/dialog';
+import { HeroRemoveComponent } from './hero-remove.component';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { configureTestSuite } from 'ng-bullet';
+import { MatDialogModule } from '@angular/material/dialog';
 
 describe('HeroRemoveComponent', () => {
   let component: HeroRemoveComponent;

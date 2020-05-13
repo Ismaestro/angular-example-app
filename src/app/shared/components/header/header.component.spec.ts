@@ -1,17 +1,17 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {HeaderComponent} from './header.component';
-import {configureTestSuite} from 'ng-bullet';
-import {SearchBarComponent} from '../search-bar/search-bar.component';
-import {MockComponent} from 'ng-mocks';
-import {APP_CONFIG, AppConfig} from '../../../configs/app.config';
-import {RouterTestingModule} from '@angular/router/testing';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {CookieService} from '@gorniv/ngx-universal';
-import {of} from 'rxjs';
-import {ProgressBarService} from '../../../modules/core/services/progress-bar.service';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HeaderComponent } from './header.component';
+import { configureTestSuite } from 'ng-bullet';
+import { SearchBarComponent } from '../search-bar/search-bar.component';
+import { MockComponent } from 'ng-mocks';
+import { APP_CONFIG, AppConfig } from '../../../configs/app.config';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { CookieService } from '@gorniv/ngx-universal';
+import { of } from 'rxjs';
+import { ProgressBarService } from '../../../modules/core/services/progress-bar.service';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -34,9 +34,9 @@ describe('HeaderComponent', () => {
         HeaderComponent
       ],
       providers: [
-        {provide: APP_CONFIG, useValue: AppConfig},
-        {provide: ProgressBarService, useValue: progressBarServiceSpy},
-        {provide: CookieService, useValue: cookieServiceSpy}
+        { provide: APP_CONFIG, useValue: AppConfig },
+        { provide: ProgressBarService, useValue: progressBarServiceSpy },
+        { provide: CookieService, useValue: cookieServiceSpy }
       ]
     });
   });

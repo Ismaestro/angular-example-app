@@ -1,8 +1,8 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {FooterComponent} from './footer.component';
-import {configureTestSuite} from 'ng-bullet';
-import {NgxExampleLibraryComponent} from '@ismaestro/ngx-example-library';
-import {MockComponent} from 'ng-mocks';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FooterComponent } from './footer.component';
+import { configureTestSuite } from 'ng-bullet';
+import { NgxExampleLibraryComponent } from '@ismaestro/ngx-example-library';
+import { MockComponent } from 'ng-mocks';
 
 describe('FooterComponent', () => {
   let component: FooterComponent;

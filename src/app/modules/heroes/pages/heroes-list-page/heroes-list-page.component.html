@@ -19,7 +19,8 @@
     </mat-list>
     <mat-list>
       <mat-list-item *ngFor="let hero of heroes; trackBy: trackByFn">
-        <a [@fadeIn]="'fadeIn'" mat-list-avatar [routerLink]="hero.default ? [routesConfig.routes.heroes.detail(hero.id)] : []">
+        <a [@fadeIn]="'fadeIn'" mat-list-avatar
+           [routerLink]="hero.default ? [routesConfig.routes.heroes.detail(hero.id)] : []">
           <img alt="hero avatar" class="cp" mat-list-avatar
                [src]="hero.default ? hero.avatarThumbnailUrl : 'assets/images/default-hero.png'">
         </a>
