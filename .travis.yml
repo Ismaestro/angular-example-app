@@ -7,7 +7,7 @@ sudo: required
 language: node_js
 
 node_js:
-  - 10.16.0
+  - 12.4.0
 
 branches:
   only:
@@ -39,19 +39,8 @@ script:
   - npm run lint
   - npm run test
   - npm run e2e
-  - npm run build:ssr
-  - npm run validate:server
+  - npm run build:ssr:prod
   - sonar-scanner
-
-before_deploy:
-  - npm run prepare:deploy
-
-deploy:
-  skip_cleanup: true
-  provider: firebase
-  token:
-    secure: $FIREBASE_TOKEN
-  project: "ismaestro-angularexampleapp"
 
 notifications:
   email:

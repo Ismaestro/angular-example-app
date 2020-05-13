@@ -10,9 +10,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CapitalizeFirstPipe } from '../../pipes/capitalize-first.pipe';
 import { ROUTES_CONFIG, RoutesConfig } from '../../../configs/routes.config';
-import { MatInputModule } from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HeroService } from '../../../modules/core/services/hero.service';
+import { MatInputModule } from '@angular/material/input';
 
 describe('SearchBarComponent', () => {
   let component: SearchBarComponent;
@@ -27,16 +27,13 @@ describe('SearchBarComponent', () => {
         NoopAnimationsModule,
         MatAutocompleteModule,
         MatFormFieldModule,
-        MatInputModule
+        MatInputModule,
       ],
-      declarations: [
-        MockPipe(CapitalizeFirstPipe),
-        SearchBarComponent
-      ],
+      declarations: [MockPipe(CapitalizeFirstPipe), SearchBarComponent],
       providers: [
         { provide: HeroService, useValue: heroServiceSpy },
-        { provide: ROUTES_CONFIG, useValue: RoutesConfig }
-      ]
+        { provide: ROUTES_CONFIG, useValue: RoutesConfig },
+      ],
     });
   });
 
@@ -47,17 +44,17 @@ describe('SearchBarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create hero search component', (() => {
+  it('should create hero search component', () => {
     expect(component).toBeTruthy();
-  }));
+  });
 
-  it('should filter heroes array', (() => {
+  it('should filter heroes array', () => {
     component.defaultHeroes = [
       new Hero({ id: 1, name: 'batman', default: true }),
-      new Hero({ id: 2, name: 'spiderman', default: false })
+      new Hero({ id: 2, name: 'spiderman', default: false }),
     ];
     expect(component.filterHeroes('batman').length).toBe(1);
     expect(component.filterHeroes('spiderman').length).toBe(0);
     expect(component.filterHeroes('').length).toBe(2);
-  }));
+  });
 });

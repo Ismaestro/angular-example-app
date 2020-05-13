@@ -15,12 +15,6 @@ import { HeroRemoveComponent } from '../../components/hero-remove/hero-remove.co
 import { Router } from '@angular/router';
 import { MockComponent, MockModule } from 'ng-mocks';
 import { MatDialog } from '@angular/material/dialog';
-import {
-  MatFormFieldModule,
-  MatIconModule,
-  MatInputModule,
-  MatListModule,
-} from '@angular/material';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgxScrollToFirstInvalidModule } from '@ismaestro/ngx-scroll-to-first-invalid';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -29,6 +23,10 @@ import { ROUTES_CONFIG, RoutesConfig } from '../../../../configs/routes.config';
 import { CookieService } from '@gorniv/ngx-universal';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HeroService } from '../../../core/services/hero.service';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 describe('HeroesListPageComponent', () => {
   let component: HeroesListPageComponent;

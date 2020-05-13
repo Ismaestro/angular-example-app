@@ -11,7 +11,7 @@ declare const Modernizr;
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
   isOnline: boolean;
@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
           case '/':
             this.meta.updateTag({
               name: 'description',
-              content: this.i18n({ value: 'Home meta description', id: '@@homeMetaDescription' })
+              content: this.i18n({ value: 'Home meta description', id: '@@homeMetaDescription' }),
             });
             break;
           case '/' + RoutesConfig.routesNames.heroes.basePath:
@@ -58,8 +58,8 @@ export class AppComponent implements OnInit {
               name: 'description',
               content: this.i18n({
                 value: 'Heroes meta description',
-                id: '@@heroesMetaDescription'
-              })
+                id: '@@heroesMetaDescription',
+              }),
             });
             break;
         }
