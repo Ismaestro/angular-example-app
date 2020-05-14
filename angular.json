@@ -7,10 +7,10 @@
       "i18n": {
         "locales": {
           "en": {
-            "translation": "src/i18n/messages.xlf",
+            "translation": "src/locale/messages.xlf",
             "baseHref": "/"
           },
-          "es": "src/i18n/messages.es.xlf"
+          "es": "src/locale/messages.es.xlf"
         }
       },
       "projectType": "application",
@@ -194,8 +194,8 @@
           "options": {
             "xliffmergeOptions": {
               "i18nFormat": "xlf",
-              "srcDir": "src/i18n",
-              "genDir": "src/i18n",
+              "srcDir": "src/locale",
+              "genDir": "src/locale",
               "defaultLanguage": "en",
               "languages": [
                 "en",
