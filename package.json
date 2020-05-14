@@ -7,7 +7,7 @@
     "start": "ng serve --open",
     "start:es": "ng serve --configuration=es --open",
     "dev:ssr": "ng run angularexampleapp:serve-ssr",
-    "extract-i18n": "ng xi18n angularexampleapp --i18n-format xlf --output-path i18n --i18n-locale en && ngx-extractor --input=\"src/**/*.ts\" --format=xlf --out-file=src/i18n/messages.xlf && ng run angularexampleapp:xliffmerge",
+    "extract-i18n": "ng xi18n angularexampleapp --format xlf --output-path src/locale --i18n-locale en && ngx-extractor --input=\"src/**/*.ts\" --format=xlf --out-file=src/locale/messages.xlf && ng run angularexampleapp:xliffmerge",
     "lint": "ng lint",
     "test": "ng test angularexampleapp --code-coverage --no-watch",
     "test:app:watch": "ng test angularexampleapp --code-coverage --watch=true",
