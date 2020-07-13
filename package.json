@@ -126,7 +126,7 @@
     "prettier": "2.0.5",
     "protractor": "5.4.4",
     "puppeteer": "3.0.4",
-    "standard-version": "8.0.0",
+    "standard-version": "8.0.1",
     "sw-precache": "5.2.1",
     "ts-helpers": "1.1.2",
     "ts-loader": "7.0.4",
