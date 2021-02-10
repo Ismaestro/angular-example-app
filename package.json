@@ -48,7 +48,7 @@
     "@angular/common": "9.1.6",
     "@angular/compiler": "9.1.6",
     "@angular/compiler-cli": "9.1.6",
-    "@angular/core": "9.1.6",
+    "@angular/core": "11.0.5",
     "@angular/fire": "6.0.0",
     "@angular/flex-layout": "9.0.0-beta.30",
     "@angular/forms": "9.1.6",
