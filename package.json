@@ -121,7 +121,7 @@
     "lint-staged": "10.2.2",
     "ng-bullet": "1.0.3",
     "ng-mocks": "9.3.0",
-    "ng-packagr": "9.1.3",
+    "ng-packagr": "10.1.1",
     "path": "0.12.7",
     "prettier": "2.0.5",
     "protractor": "5.4.4",
