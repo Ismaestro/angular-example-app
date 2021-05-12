@@ -76,7 +76,7 @@
     "core-js": "3.6.5",
     "express": "4.17.1",
     "firebase": "7.14.3",
-    "grpc": "1.24.2",
+    "grpc": "1.24.9",
     "helmet": "3.22.0",
     "ng-animate": "0.3.4",
     "ng-lazyload-image": "7.1.0",
