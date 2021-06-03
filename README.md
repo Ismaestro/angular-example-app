@@ -181,4 +181,6 @@ your feedback!
 Code and documentation copyright 2020 the authors. Code released under the
 [MIT License](https://github.com/Ismaestro/angular9-example-app/blob/master/LICENSE).
 
+The end test
+
 Enjoy :metal:
