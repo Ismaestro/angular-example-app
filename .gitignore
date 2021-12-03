@@ -6,7 +6,6 @@ dist-ssr
 /tmp
 /out-tsc
 public
-.firebaserc
 
 # dependencies
 node_modules
@@ -14,7 +13,6 @@ functions/node_modules
 functions/lib
 
 # IDEs and editors
-/.firebase
 /.idea
 .project
 .classpath
@@ -31,6 +29,7 @@ functions/lib
 !.vscode/extensions.json
 
 # misc
+/.angular/cache
 /.sass-cache
 /connect.lock
 /coverage

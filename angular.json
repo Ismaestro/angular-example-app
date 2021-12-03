@@ -6,10 +6,6 @@
     "angularexampleapp": {
       "i18n": {
         "locales": {
-          "en": {
-            "translation": "src/locale/messages.xlf",
-            "baseHref": "/"
-          },
           "es": "src/locale/messages.es.xlf"
         }
       },
@@ -75,7 +71,18 @@
                 "maximumWarning": "2mb",
                 "maximumError": "5mb"
               }
-            ]
+            ],
+            "aot": true,
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": true,
+            "sourceMap": true,
+            "optimization": {
+              "scripts": true,
+              "styles": true,
+              "fonts": true
+            },
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -85,10 +92,13 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": true,
+              "optimization": {
+                "scripts": true,
+                "styles": true,
+                "fonts": true
+              },
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -96,38 +106,40 @@
               "buildOptimizer": true
             },
             "production-es": {
-              "baseHref": "/es/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": true,
+              "optimization": {
+                "scripts": true,
+                "styles": true,
+                "fonts": true
+              },
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "outputPath": "dist/browser/es/",
-              "i18nFile": "src/locale/messages.es.xlf",
-              "i18nFormat": "xlf",
-              "i18nLocale": "es",
-              "i18nMissingTranslation": "error"
+              "outputPath": "dist/browser",
+              "i18nMissingTranslation": "error",
+              "localize": [
+                "es"
+              ]
             },
             "es": {
-              "baseHref": "/es/",
               "aot": true,
-              "outputPath": "dist/browser/es/",
-              "i18nFile": "src/locale/messages.es.xlf",
-              "i18nFormat": "xlf",
-              "i18nLocale": "es",
-              "i18nMissingTranslation": "error"
+              "outputPath": "dist/browser",
+              "i18nMissingTranslation": "error",
+              "localize": [
+                "es"
+              ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -167,13 +179,18 @@
                 "src/styles"
               ]
             },
-            "externalDependencies": [
-              "@firebase/firestore"
-            ]
+            "sourceMap": true,
+            "optimization": {
+              "scripts": true,
+              "styles": true
+            }
           },
           "configurations": {
             "production": {
-              "optimization": true,
+              "optimization": {
+                "scripts": true,
+                "styles": true
+              },
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -181,7 +198,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -217,7 +235,8 @@
             ],
             "styles": [
               {
-                "input": "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+                "input": "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+                "inject": true
               },
               "src/assets/css/reset.css",
               "src/assets/css/loading.css",
@@ -230,19 +249,6 @@
             },
             "watch": false,
             "codeCoverage": true
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.browser.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         },
         "e2e": {
@@ -266,7 +272,7 @@
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/ngx-example-library/tsconfig.lib.json",
             "project": "projects/ngx-example-library/ng-package.json"
@@ -285,24 +291,17 @@
             "tsConfig": "projects/ngx-example-library/tsconfig.spec.json",
             "karmaConfig": "projects/ngx-example-library/karma.conf.js"
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/ngx-example-library/tsconfig.lib.json",
-              "projects/ngx-example-library/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     }
   },
   "defaultProject": "angularexampleapp",
   "cli": {
-    "analytics": false
+    "analytics": false,
+    "cache": {
+      "enabled": true,
+      "path": ".angular/cache",
+      "environment": "all"
+    }
   }
 }

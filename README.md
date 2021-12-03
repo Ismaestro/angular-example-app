@@ -2,7 +2,7 @@
   <h3 align="center">Angular Example App</h3>
 
   <p align="center">
-    Example app with Angular 9 + Angular CLI + Angular Universal + i18n + Firebase
+    Example app with Angular 9 + Angular CLI + Angular Universal + i18n
     <br>
     <br>
     :clap::clap::tada::tada::tada::tada::clap::clap:
@@ -45,7 +45,7 @@
 
 ## What's included
 
-- [x] CRUD: create, update and remove heroes with Firebase
+- [x] CRUD: create, update and remove heroes with this project!
 - [x] Angular Universal (SSR)
 - [x] Use of StateTransferModule to share state between browser and server
 - [x] Security Headers using [helmet](https://helmetjs.github.io).
@@ -82,21 +82,16 @@
 
 ### Angular Universal and i18n
 
-This project is using firebase and Angular Universal with the official internationalization. You can
-navigate through every language and reload (and share) every page in the application without losing
-context. This is very useful for SEO purposes and you almost have a ready for production app. If you
-want to translate the messages you can use this awesome tool,
+This project is using Angular Universal with the official internationalization. You can navigate
+through every language and reload (and share) every page in the application without losing context.
+This is very useful for SEO purposes and you almost have a ready for production app. If you want to
+translate the messages you can use this awesome tool,
 [Tiny Translator](https://martinroob.github.io/tiny-translator/en/#/translate) or follow
 [this tutorial](https://github.com/martinroob/ngx-i18nsupport/wiki/Tutorial-for-using-xliffmerge-with-angular-cli).
 
 I've created a medium post where you can find a tutorial to apply this concepts to your own project.
 [Check it here](https://medium.com/@ismaestro/angular-7-example-app-with-angularcli-angular-universal-i18n-official-firebase-66deac2dc31e),
 and let me know what do you think.
-
-### Firebase
-
-This repo is using Firebase. We use Cloud Firestore and Cloud Storage to handle CRUD operations over
-the heroes and to store their images.
 
 ## Travis CI
 
