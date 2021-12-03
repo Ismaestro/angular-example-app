@@ -1,8 +1,10 @@
 <p align="center">
   <h3 align="center">Angular Example App</h3>
 
+  <h3 align="center">CURRENTLY UNDER DEVELOPMENT! WAIT A FEW DAYS PLEASE :D</h3>
+
   <p align="center">
-    Example app with Angular 9 + Angular CLI + Angular Universal + i18n
+    Example app with Angular 13 + Angular CLI + Angular Universal + i18n
     <br>
     <br>
     :clap::clap::tada::tada::tada::tada::clap::clap:
