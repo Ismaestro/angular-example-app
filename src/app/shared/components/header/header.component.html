@@ -1,0 +1,37 @@
+<header>
+  <nav>
+    <div fxFlex fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center">
+      <div fxFlex="40">
+        <a mat-raised-button routerLink="/" i18n="@@home">
+          Home
+        </a>
+        <a mat-raised-button routerLink="heroes" i18n="@@heroesList">
+          Heroes list
+        </a>
+      </div>
+      <div fxFlex class="text--right">
+        <app-search-bar></app-search-bar>
+        <button aria-label="select language button" mat-icon-button [matMenuTriggerFor]="matmenu">
+          <mat-icon>language</mat-icon>
+        </button>
+        <mat-menu #matmenu="matMenu">
+          <div mat-menu-item *ngFor="let lang of languages">
+            <a class="language-link"
+               href="{{(lang.name === 'en') ? currentUrl : '/' + lang.name + currentUrl}}"
+               (click)="changeLanguage(lang.name)">
+              <mat-icon>flag</mat-icon>
+              <span>{{lang.label}}</span>
+            </a>
+          </div>
+        </mat-menu>
+        <a class="icon__image" href="{{appConfig.repositoryURL}}" rel="noreferrer" target="_blank">
+          <img alt="github logo" src="/assets/images/github-circle-white-transparent.svg">
+        </a>
+      </div>
+    </div>
+  </nav>
+  <section class="progress-bar">
+    <mat-progress-bar [color]="'primary'" [mode]="progressBarMode">
+    </mat-progress-bar>
+  </section>
+</header>

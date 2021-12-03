@@ -1,0 +1,46 @@
+@import "colors";
+@import "functions";
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+@mixin push--auto($vertically: false) {
+  @if $vertically {
+    margin: {
+      top: $vertically;
+      bottom: $vertically;
+      left: auto;
+      right: auto;
+    }
+  } @else {
+    margin: {
+      left: auto;
+      right: auto;
+    }
+  }
+}
+
+@mixin font-roboto($size: false, $colour: false, $weight: false,  $lh: false) {
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  @if $size {
+    font-size: $size;
+  }
+  @if $colour {
+    color: $colour;
+  }
+  @if $weight {
+    font-weight: $weight;
+  }
+  @if $lh {
+    line-height: $lh;
+  }
+}
+
+@mixin text-small-grey() {
+  color: rgba(0, 0, 0, .54);
+  font-size: 14px;
+  text-transform: none;
+  text-decoration: none;
+}

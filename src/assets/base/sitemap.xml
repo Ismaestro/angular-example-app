@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+  <url>
+    <loc>https://www.angularexampleapp.com/</loc>
+    <lastmod>2019-06-20T12:57:55+00:00</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://www.angularexampleapp.com/heroes</loc>
+    <lastmod>2019-06-20T12:57:55+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.angularexampleapp.com/heroes/cFiPzbhKt1zVVThrb9EH</loc>
+    <lastmod>2019-06-20T12:57:55+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.angularexampleapp.com/heroes/oWqFo97IT3buqO2iLS3F</loc>
+    <lastmod>2019-06-20T12:57:55+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.angularexampleapp.com/heroes/o0OFH4ddtfekOwK3ZKds</loc>
+    <lastmod>2019-06-20T12:57:55+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.angularexampleapp.com/heroes/z6jX346az6e6QifVj1Yd</loc>
+    <lastmod>2019-06-20T12:57:55+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.angularexampleapp.com/heroes/VajTPSd8NLy2bxGXydY4</loc>
+    <lastmod>2019-06-20T12:57:55+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.angularexampleapp.com/heroes/LLypN0gLgrU9ZizUlZqX</loc>
+    <lastmod>2019-06-20T12:57:55+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://www.angularexampleapp.com/heroes/0kr9Xs2UNAMtxw3O6TFZ</loc>
+    <lastmod>2019-06-20T12:57:55+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://www.angularexampleapp.com/heroes/BzTvl77YsRTtdihH0jeh</loc>
+    <lastmod>2019-06-20T12:57:55+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://www.angularexampleapp.com/heroes/F5hmxqgXg4iTRiIwRZg1</loc>
+    <lastmod>2019-06-20T12:57:55+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+
+
+</urlset>

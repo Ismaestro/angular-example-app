@@ -1,0 +1,94 @@
+@import "mixins";
+
+* {
+  @include font-roboto();
+}
+
+a, .cp {
+  cursor: pointer;
+}
+
+h1, h2 {
+  margin-bottom: 2rem;
+}
+
+.header__title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 300;
+  padding: 1rem 0 0;
+}
+
+.flex-spacer {
+  flex-grow: 1;
+}
+
+.progress__spinner {
+  height: calculateRem(60px) !important;
+  @include push--auto(2rem);
+}
+
+.hero-actions {
+  align-items: center;
+  display: flex;
+  padding-bottom: 1rem;
+}
+
+.icon__like--red {
+  color: $red;
+  cursor: pointer;
+}
+
+.icon__like--grey {
+  color: $grey;
+  cursor: pointer;
+}
+
+.text--center {
+  text-align: center;
+}
+
+.text--right {
+  text-align: right;
+}
+
+pre {
+  background: $light-grey;
+  border: 1px solid $grey;
+  border-left: 3px solid $primary--color;
+  color: $primary--color;
+  page-break-inside: avoid;
+  font-family: monospace;
+  font-size: calculateRem(15px);
+  line-height: 1.6;
+  margin-bottom: 1.6rem;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1rem 1.5rem;
+  display: block;
+  text-align: left;
+  word-wrap: break-word;
+}
+
+.offline-error {
+  font-size: 1rem;
+  font-weight: 300;
+  padding: 1rem;
+  text-align: center;
+
+  span {
+    transform: rotate(90deg);
+    font-size: 0.8rem;
+    display: inline-flex;
+  }
+}
+
+.language-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 400;
+  display: block;
+}
+
+// MATERIAL
+@import "material";

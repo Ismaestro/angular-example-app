@@ -1,0 +1,111 @@
+<div id="left">
+  <h2 class="header__title" i18n="@@heroesList">Heroes list</h2>
+  <div>
+    <mat-list id="loading-list" *ngIf="!heroes">
+      <mat-list-item *ngFor="let i of [1,2,3,4,5,6,7,8]">
+        <img alt="default hero avatar" mat-list-avatar src="/assets/images/default-hero.png">
+        <h3 mat-line>
+          <app-loading-placeholder [width]="'150px'" [height]="'0.9rem'"></app-loading-placeholder>
+        </h3>
+        <p mat-line>
+          <app-loading-placeholder [width]="'100px'" [height]="'0.9rem'"></app-loading-placeholder>
+        </p>
+        <div class="hero-actions">
+          <app-loading-placeholder [width]="'30px'" [height]="'0.9rem'"></app-loading-placeholder>
+
+          <mat-icon class="icon__like--grey">favorite</mat-icon>
+        </div>
+      </mat-list-item>
+    </mat-list>
+    <mat-list>
+      <mat-list-item *ngFor="let hero of heroes; trackBy: trackByFn">
+        <a [@fadeIn]="'fadeIn'" mat-list-avatar
+           [routerLink]="hero.default ? [routesConfig.routes.heroes.detail(hero.id)] : []">
+          <img alt="hero avatar" class="cp" mat-list-avatar
+               [src]="hero.default ? hero.avatarThumbnailUrl : 'assets/images/default-hero.png'">
+        </a>
+        <h3 mat-line [class.cp]="hero.default">
+          <a [routerLink]="hero.default ? [routesConfig.routes.heroes.detail(hero.id)] : []">
+            {{hero.name}}
+          </a>
+        </h3>
+        <p mat-line [class.cp]="hero.default">
+          <a [routerLink]="hero.default ? [routesConfig.routes.heroes.detail(hero.id)] : []">
+            <span>{{hero.alterEgo}}</span>
+          </a>
+        </p>
+        <div class="hero-actions">
+          {{hero.likes | number:'.0'}}
+          <mat-icon class="icon__like--red" (click)="like(hero)">
+            favorite
+          </mat-icon>
+          <mat-icon class="icon__remove" *ngIf="!hero.default"
+                    (click)="deleteHero(hero);">
+            delete
+          </mat-icon>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>
+<div id="right">
+  <h2 class="header__title" i18n="@@createHero">Create a hero</h2>
+  <div id="form-loading" *ngIf="!heroes">
+    <form>
+      <div class="input-container">
+        <app-loading-placeholder [height]="'2rem'"></app-loading-placeholder>
+      </div>
+      <div class="input-container">
+        <app-loading-placeholder [height]="'2rem'"></app-loading-placeholder>
+      </div>
+
+      <button aria-label="create button" mat-raised-button [disabled]="true" i18n="@@create">Create</button>
+    </form>
+  </div>
+  <div *ngIf="heroes">
+    <form [formGroup]="newHeroForm" #form="ngForm" ngxScrollToFirstInvalid
+          (ngSubmit)="createNewHero()" autocomplete="on">
+      <mat-form-field class="input-container">
+        <input matInput name="hname" type="text"
+               placeholder="Name (Palindrome?)" i18n-placeholder="@@nameWithPalindrome"
+               formControlName="name">
+        <mat-error *ngIf="newHeroForm.controls.name.errors && form.submitted">
+          <ng-template [ngIf]="newHeroForm.controls.name.errors.required" i18n="@@nameRequired">
+            Name is required
+          </ng-template>
+          <ng-template [ngIf]="newHeroForm.controls.name.errors.maxlength" i18n="@@maxLengthError">
+            The field is too long
+          </ng-template>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="input-container">
+        <input matInput type="text" name="rname"
+               placeholder="Real name" i18n-placeholder="@@realName"
+               formControlName="alterEgo">
+        <mat-error *ngIf="newHeroForm.controls.alterEgo.errors && form.submitted">
+          <ng-template [ngIf]="newHeroForm.controls.alterEgo.errors.required" i18n="@@nameRequired">
+            Name is required
+          </ng-template>
+          <ng-template [ngIf]="newHeroForm.controls.alterEgo.errors.maxlength" i18n="@@maxLengthError">
+            The field is too long. Required length: {{newHeroForm.controls.alterEgo.errors.maxlength.requiredLength}}.
+            Current: {{newHeroForm.controls.alterEgo.errors.maxlength.actualLength}}
+          </ng-template>
+        </mat-error>
+      </mat-form-field>
+      <button aria-label="create button" mat-raised-button type="submit"
+              [disabled]="form.submitted && !newHeroForm.valid" i18n="@@create">
+        Create
+      </button>
+      <div *ngIf="error" i18n="@@errorHasOcurred">An error has ocurred</div>
+    </form>
+  </div>
+
+  <div id="heroes-json">
+    <h2 class="header__title" i18n="@@firstTwoHeroesById">Heroes (1-2)</h2>
+    <pre *ngIf="!heroes">
+      <app-loading-placeholder [height]="'300px'"></app-loading-placeholder>
+    </pre>
+    <pre *ngIf="heroes">{{heroes | slice:0:2 | json}}</pre>
+  </div>
+</div>
+<div class="clear"></div>

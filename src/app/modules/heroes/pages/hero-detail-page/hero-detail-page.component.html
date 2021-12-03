@@ -1,0 +1,19 @@
+<h1 class="header__title" i18n="@@heroDetail">Hero detail</h1>
+<div class="container" *ngIf="!hero">
+  <app-hero-loading></app-hero-loading>
+</div>
+<div class="container" *ngIf="hero" [@fadeIn]="'fadeIn'">
+  <ng-container>
+    <app-hero-card [hero]="hero"></app-hero-card>
+    <div id="hero-json">
+      <pre>{{hero | json}}</pre>
+    </div>
+  </ng-container>
+</div>
+<button *ngIf="hero" aria-label="Anchor the hero button" mat-raised-button type="button" (click)="goToTheAnchor()"
+        i18n="@@anchorToHero">
+  Anchor the hero
+</button>
+<button aria-label="Go back button" mat-raised-button type="button" (click)="goBack()" i18n="@@goBack">
+  Go back
+</button>

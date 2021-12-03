@@ -1,0 +1,52 @@
+@import "mixins";
+
+snack-bar-container {
+  background: $primary--color !important;
+}
+
+.mat-menu-content {
+  background: $primary--color;
+}
+
+.mat-menu-item, .mat-menu-item .mat-icon {
+  color: $secondary--color;
+  font-weight: 100;
+}
+
+.mat-raised-button[disabled] {
+  background: $grey !important;
+}
+
+.mat-dialog-container {
+  background: $primary--color;
+  color: $secondary--color;
+}
+
+.mat-dialog-content {
+  text-align: center;
+  padding: 1rem calculateRem(24px) !important;
+}
+
+.mat-dialog-title {
+  text-align: center;
+}
+
+.mat-list-avatar {
+  height: calculateRem(55px) !important;
+  width: calculateRem(55px) !important;
+}
+
+.mat-card-image {
+  margin-bottom: -28px !important;
+  border-top: 1px solid $light-grey;
+}
+
+#search-input {
+  .mat-form-field-label {
+    color: white !important;
+  }
+
+  .mat-form-field-underline {
+    background-color: white !important;
+  }
+}
