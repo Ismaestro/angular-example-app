@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Inject, Input, OnInit, PLATFORM_ID } from '@angular/core';
-import { Hero } from '../../../modules/heroes/shared/hero.model';
+import { Hero } from '../../../modules/hero/shared/hero.model';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { transition, trigger, useAnimation } from '@angular/animations';

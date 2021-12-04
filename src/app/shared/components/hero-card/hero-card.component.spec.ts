@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeroCardComponent } from './hero-card.component';
-import { Hero } from '../../../modules/heroes/shared/hero.model';
-import { configureTestSuite } from 'ng-bullet';
+import { Hero } from '../../../modules/hero/shared/hero.model';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -20,26 +19,24 @@ describe('HeroCardComponent', () => {
   const matSnackBarSpy = jasmine.createSpyObj('MatSnackBar', ['open']);
   const heroServiceSpy = jasmine.createSpyObj('HeroService', ['checkIfUserCanVote', 'updateHero']);
 
-  configureTestSuite(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        MatCardModule,
-        MatIconModule,
-        LazyLoadImageModule
-      ],
-      declarations: [
-        HeroCardComponent
-      ],
-      providers: [
-        { provide: MatSnackBar, useValue: matSnackBarSpy },
-        { provide: HeroService, useValue: heroServiceSpy },
-        { provide: CookieService, useValue: {} },
-        { provide: ROUTES_CONFIG, useValue: RoutesConfig },
-        { provide: PLATFORM_ID, useValue: 'browser' }
-      ]
-    });
-  });
+  TestBed.configureTestingModule({
+    imports: [
+      RouterTestingModule,
+      MatCardModule,
+      MatIconModule,
+      LazyLoadImageModule
+    ],
+    declarations: [
+      HeroCardComponent
+    ],
+    providers: [
+      { provide: MatSnackBar, useValue: matSnackBarSpy },
+      { provide: HeroService, useValue: heroServiceSpy },
+      { provide: CookieService, useValue: {} },
+      { provide: ROUTES_CONFIG, useValue: RoutesConfig },
+      { provide: PLATFORM_ID, useValue: 'browser' }
+    ]
+  }).compileComponents();
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HeroCardComponent);
@@ -55,6 +52,6 @@ describe('HeroCardComponent', () => {
   it('should like a hero', () => {
     const hero = new Hero({ likes: 1 });
     hero.like();
-    expect(hero.likes).toBe(2);
+    expect(hero.votes).toBe(2);
   });
 });

@@ -1,0 +1,18 @@
+@import "../../../../styles/mixins";
+
+.container {
+  width: 65%;
+  @include push--auto();
+  margin-top: 2rem;
+}
+
+button {
+  @include push--auto(2rem);
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+  }
+}

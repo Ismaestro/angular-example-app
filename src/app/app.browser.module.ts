@@ -8,8 +8,8 @@ import { BrowserTransferStateModule } from '@angular/platform-browser';
 import { AppModule } from './app.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
+import { GraphQLModule } from './shared/modules/graphql.module';
 
 registerLocaleData(localeEs, 'es');
 

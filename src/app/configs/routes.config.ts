@@ -3,28 +3,31 @@ import { InjectionToken } from '@angular/core';
 export let ROUTES_CONFIG = new InjectionToken('routes.config');
 
 const basePaths = {
-  heroes: 'heroes'
+  hero: 'hero'
 };
 
 const routesNames = {
   home: '',
   error404: '404',
-  heroes: {
-    basePath: basePaths.heroes
+  hero: {
+    myHeroes: 'my-heroes',
+    detail: ':id',
   }
 };
 
 export const RoutesConfig: any = {
+  basePaths,
   routesNames,
   routes: {
     home: `/${routesNames.home}`,
     error404: `/${routesNames.error404}`,
-    heroes: {
+    hero: {
+      myHeroes: `/${routesNames.hero.myHeroes}`,
       detail: getHeroDetail
     }
   }
 };
 
 export function getHeroDetail(id) {
-  return `/${basePaths.heroes}/${id}`;
+  return `/${basePaths.hero}/${id}`;
 }

@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "postinstall": "ngcc",
-    "start": "ng serve --open --hmr",
+    "start": "ng serve --open",
     "start:es": "ng serve --configuration=es --open",
     "dev:ssr": "ng run angularexampleapp:serve-ssr",
     "extract-i18n": "ng xi18n angularexampleapp --format xlf --output-path src/locale --i18n-locale en && ngx-extractor --input=\\\"src/**/*.ts\\\" --format=xlf --out-file=src/locale/messages.xlf && ng run angularexampleapp:xliffmerge",

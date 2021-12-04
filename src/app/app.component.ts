@@ -5,7 +5,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { RoutesConfig } from './configs/routes.config';
 import { UtilsHelperService } from './modules/core/services/utils-helper.service';
-import { Apollo, gql } from 'apollo-angular';
 
 declare const Modernizr;
 
@@ -22,7 +21,6 @@ export class AppComponent implements OnInit {
     private snackBar: MatSnackBar,
     private router: Router,
     private renderer: Renderer2,
-    private apollo: Apollo,
     @Inject(DOCUMENT) doc: Document,
     @Inject(LOCALE_ID) locale: string,
     @Inject(PLATFORM_ID) private platformId: object
@@ -40,29 +38,6 @@ export class AppComponent implements OnInit {
 
     this.onEvents();
     this.checkBrowser();
-
-    const UPVOTE_POST = gql`
-      mutation Login($email: String!, $password: String!) {
-        login(data: {
-          email: $email
-          password: $password
-        }) {
-          accessToken
-        }
-      }
-    `;
-
-    this.apollo.mutate({
-      mutation: UPVOTE_POST,
-      variables: {
-        email: 'ramossilvanismael@gmail.com',
-        password: 'Ismael12345'
-      }
-    }).subscribe(({ data }) => {
-      console.log('got data', data);
-    }, (error) => {
-      console.log('there was an error sending the query', error);
-    });
   }
 
   onEvents() {
@@ -75,7 +50,7 @@ export class AppComponent implements OnInit {
               content: 'Home meta description'
             });
             break;
-          case '/' + RoutesConfig.routesNames.heroes.basePath:
+          case '/' + RoutesConfig.routesNames.hero.basePath:
             this.title.setTitle('Heroes list');
             this.meta.updateTag({
               name: 'description',

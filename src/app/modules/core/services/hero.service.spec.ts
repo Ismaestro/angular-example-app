@@ -1,11 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 import { HeroService } from './hero.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { configureTestSuite } from 'ng-bullet';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CookieService } from '@gorniv/ngx-universal';
 import { of, throwError } from 'rxjs';
-import { Hero } from '../../heroes/shared/hero.model';
+import { Hero } from '../../hero/shared/hero.model';
 
 describe('HeroService', () => {
   const heroId = 'BzTvl77YsRTtdihH0jeh';
@@ -14,19 +13,17 @@ describe('HeroService', () => {
   const matSnackBarSpy = jasmine.createSpyObj('MatSnackBar', ['open', 'dismiss', 'showSnackBar']);
   const afsSpy = jasmine.createSpyObj('AngularFirestore', ['doc', 'collection', 'delete']);
 
-  configureTestSuite(() => {
-    TestBed.configureTestingModule({
-      providers: [
-        { provide: MatSnackBar, useValue: matSnackBarSpy },
-        {
-          provide: CookieService,
-          useValue: {
-            get: () => 0,
-          },
+  TestBed.configureTestingModule({
+    providers: [
+      { provide: MatSnackBar, useValue: matSnackBarSpy },
+      {
+        provide: CookieService,
+        useValue: {
+          get: () => 0,
         },
-        HeroService,
-      ],
-    });
+      },
+      HeroService,
+    ],
   });
 
   beforeEach(() => {

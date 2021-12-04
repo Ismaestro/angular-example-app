@@ -49,7 +49,6 @@
 
 - [x] CRUD: create, update and remove heroes with this project!
 - [x] Angular Universal (SSR)
-- [x] Enabled HMR in development mode
 - [x] Use of StateTransferModule to share state between browser and server
 - [x] Security Headers using [helmet](https://helmetjs.github.io).
 - [x] Internationalization with the official i18n. Separated builds for english and spanish.
@@ -77,10 +76,6 @@
 - [x] [Sentry](https://sentry.io)! (logs every error in the app)
 - [x] Google Tag Manager
 - [x] ES6 Promises and Observables
-- [x] Unit tests with Jasmine and Karma including code coverage. Use of
-      [ng-bullet](https://www.npmjs.com/package/ng-bullet),
-      [karma-mocha-reporter](https://github.com/litixsoft/karma-mocha-reporter) and
-      [ng-mocks](https://github.com/ike18t/ng-mocks)
 - [x] End-to-end tests with Protractor, (moving to Cypress)
 
 ### Angular Universal and i18n

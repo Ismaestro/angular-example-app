@@ -1,5 +1,5 @@
-@import "src/app/styles/mixins";
-@import "src/app/styles/colors";
+@import "../../../styles/mixins";
+@import "../../../styles/colors";
 
 .hero-detail-link {
   @include text-small-grey();
