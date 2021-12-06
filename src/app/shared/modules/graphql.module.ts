@@ -8,7 +8,18 @@ import { EndpointsConfig } from '../../configs/endpoints.config';
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
   return {
     link: httpLink.create({ uri: environment.graphqlHost + EndpointsConfig.graphql }),
-    cache: new InMemoryCache()
+    cache: new InMemoryCache(),
+    defaultOptions: {
+      watchQuery: {
+        errorPolicy: 'all'
+      },
+      query: {
+        errorPolicy: 'all'
+      },
+      mutate: {
+        errorPolicy: 'all'
+      }
+    }
   };
 }
 

@@ -10,7 +10,7 @@ import { ROUTES_CONFIG, RoutesConfig } from '../../../configs/routes.config';
 import { CookieService } from '@gorniv/ngx-universal';
 import { PLATFORM_ID } from '@angular/core';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
-import { HeroService } from '../../../modules/core/services/hero.service';
+import { HeroService } from '../../../modules/hero/shared/hero.service';
 
 describe('HeroCardComponent', () => {
   let component: HeroCardComponent;

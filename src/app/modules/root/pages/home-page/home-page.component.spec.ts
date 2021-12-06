@@ -8,7 +8,7 @@ import { LoadingPlaceholderComponent } from '../../../../shared/components/loadi
 import { MockComponent } from 'ng-mocks';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { By } from '@angular/platform-browser';
-import { HeroService } from '../../../core/services/hero.service';
+import { HeroService } from '../../../hero/shared/hero.service';
 
 describe('HomePage', () => {
   let component: HomePageComponent;

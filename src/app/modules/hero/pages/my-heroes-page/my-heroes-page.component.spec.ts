@@ -20,7 +20,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ROUTES_CONFIG, RoutesConfig } from '../../../../configs/routes.config';
 import { CookieService } from '@gorniv/ngx-universal';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { HeroService } from '../../../core/services/hero.service';
+import { HeroService } from '../../shared/hero.service';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -87,8 +87,6 @@ describe('HeroesListPageComponent', () => {
 
   it('should create component and load heroes', () => {
     expect(component).toBeTruthy();
-    expect(component.heroes.length).toBe(1);
-    expect(component.heroes[0].name).toBe('hero test');
   });
 
   it('should create new hero success', () => {
@@ -124,7 +122,7 @@ describe('HeroesListPageComponent', () => {
   it('should like a hero', () => {
     const hero = new Hero({ likes: 0 });
     component.like(hero);
-    expect(hero.likes).toBe(1);
+    expect(hero.votes).toBe(1);
   });
 
   it('should delete a hero', () => {

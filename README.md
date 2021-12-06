@@ -1,26 +1,42 @@
 <p align="center">
   <h3 align="center">Angular Example App</h3>
 
-  <h3 align="center">CURRENTLY UNDER DEVELOPMENT! WAIT A FEW DAYS PLEASE :D</h3>
-
   <p align="center">
-    Example app with Angular 13 + Angular CLI + Angular Universal + i18n
+    Example app with Angular + Angular CLI + Angular Universal + i18n + Graphql
     <br>
     <br>
     :clap::clap::tada::tada::tada::tada::clap::clap:
     <br>
     <br>
-    Base project made with much :heart:. Contains CRUD, patterns, generated library, and much more!
+    Base project made with much :heart:. Contains CRUD, advanced patterns, generated library, and much more!
+    I'm rebuilding the project to add some new cool features like GraphQL. Also, I've been a father a few days ago so please be patient if something doesn't work properly, and feel free to contribute to the project. I will accept MR if they make sense.
     <br>
     <br>
-    <img src="https://media.giphy.com/media/ce28l1P13CVK56OyCN/giphy.gif" alt="Demo example"/>
+    <img src="https://media.giphy.com/media/BIql9p3KQWYdjq4Sxe/giphy.gif" alt="Demo example"/>
     <br>
     <br>
-    <a href="https://github.com/Ismaestro/angular9-example-app/issues/new">Report bug</a>
+    <a href="https://github.com/Ismaestro/angular-example-app/issues/new">Report bug</a>
     ·
-    <a href="https://github.com/Ismaestro/angular9-example-app/issues/new">Request feature</a>
+    <a href="https://github.com/Ismaestro/angular-example-app/issues/new">Request feature</a>
   </p>
 </p>
+
+**WARNING: VERY IMPORTANT**
+> You will need to install node 14 and docker before trying to run this example app.
+
+## Status
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Ismaestro_angular8-example-app&metric=alert_status)](https://sonarcloud.io/dashboard?id=Ismaestro_angular8-example-app)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Ismaestro_angular8-example-app&metric=coverage)](https://sonarcloud.io/dashboard?id=Ismaestro_angular8-example-app)
+[![GitHub stars](https://img.shields.io/github/stars/ismaestro/angular8-example-app.svg?style=social&label=Star)](https://github.com/ismaestro/angular8-example-app)
+[![GitHub forks](https://img.shields.io/github/forks/ismaestro/angular8-example-app.svg?style=social&label=Fork)](https://github.com/ismaestro/angular8-example-app/fork)
+
+## Setup
+
+```bash
+npm i
+npm start
+```
 
 ## Table of contents
 
@@ -34,16 +50,11 @@
 - [Thanks](#thanks)
 - [Copyright and license](#copyright-and-license)
 
-## Status
 
-![travis](https://travis-ci.org/Ismaestro/angular8-example-app.svg?branch=master)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Ismaestro_angular8-example-app&metric=alert_status)](https://sonarcloud.io/dashboard?id=Ismaestro_angular8-example-app)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Ismaestro_angular8-example-app&metric=coverage)](https://sonarcloud.io/dashboard?id=Ismaestro_angular8-example-app)
-[![dependency Status](https://david-dm.org/ismaestro/angular8-example-app.svg)](https://david-dm.org/ismaestro/angular8-example-app#info=dependencies)
-[![devDependency Status](https://david-dm.org/ismaestro/angular8-example-app/dev-status.svg)](https://david-dm.org/ismaestro/angular8-example-app#info=devDependencies)
-[![peerDependencies Status](https://david-dm.org/ismaestro/angular8-example-app/peer-status.svg)](https://david-dm.org/ismaestro/angular8-example-app?type=peer)
-[![GitHub stars](https://img.shields.io/github/stars/ismaestro/angular8-example-app.svg?style=social&label=Star)](https://github.com/ismaestro/angular8-example-app)
-[![GitHub forks](https://img.shields.io/github/forks/ismaestro/angular8-example-app.svg?style=social&label=Fork)](https://github.com/ismaestro/angular8-example-app/fork)
+## Backend
+
+This project is using a real app deployed in heroku, which is maintained in [here](https://github.com/Ismaestro/nestjs-example-app).
+The server is using NesjJS, Prisma, Postgres and GraphQL. Please check it out and feel free also to contribute or give me your thoughts.
 
 ## What's included
 
@@ -54,8 +65,7 @@
 - [x] Internationalization with the official i18n. Separated builds for english and spanish.
 - [x] Lazy loading modules
 - [x] Service Workers enabled!
-- [x] More logical directory structure (from
-      [here](https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7))
+- [x] More logical directory structure
 - [x] Basic example library
 - [x] Following the [best practices](https://angular.io/guide/styleguide)!
 - [x] Search bar, to look for heroes
@@ -68,9 +78,10 @@
 - [x] SASS (most common used functions and mixins) and BEM styles
 - [x] Animations with [ng-animate](https://jiayihu.github.io/ng-animate/)
 - [x] Angular Pipes
-- [x] Interceptors and Events (Progress bar active, if a request is pending)
+- [x] Interceptors and Events
+- [x] Auth guard for some routes
 - [x] Scroll to first invalid input in forms.
-      ([ngx-scroll-to-first-invalid](https://github.com/Ismaestro/ngx-scroll-to-first-invalid))
+  ([ngx-scroll-to-first-invalid](https://github.com/Ismaestro/ngx-scroll-to-first-invalid))
 - [x] Modernizr (browser features detection)
 - [x] Browser filter (Bowser) because of IE ^^
 - [x] [Sentry](https://sentry.io)! (logs every error in the app)
@@ -91,28 +102,7 @@ I've created a medium post where you can find a tutorial to apply this concepts 
 [Check it here](https://medium.com/@ismaestro/angular-7-example-app-with-angularcli-angular-universal-i18n-official-firebase-66deac2dc31e),
 and let me know what do you think.
 
-## Travis CI
-
-We use Travis CI to run this tasks in order:
-
-- Linter
-- Unit tests
-- End to end tests
-- Build for production of browser and server
-- Validate that server generated using curl
-- Sonar scanner
-
-## Quick start
-
-**WARNING**
-
-> Verify that you are running node 12.4.0 by running node -v in a terminal/console window. Older
-> versions produce errors, but newer versions are fine.
-
-```bash
-npm i
-npm start
-```
+## Scripts available
 
 | Tasks                      | Description                                                                                          |
 | -------------------------- | ---------------------------------------------------------------------------------------------------- |
@@ -136,24 +126,25 @@ npm start
 | npm run release:major      | Create a new major release using standard-version                                                    |
 | npm run ci                 | Execute linter, tests and production builds                                                          |
 
+
 ## Bugs and feature requests
 
 Have a bug or a feature request? Please first read the
-[issue guidelines](https://github.com/Ismaestro/angular9-example-app/blob/master/CONTRIBUTING.md)
+[issue guidelines](https://github.com/Ismaestro/angular-example-app/blob/master/CONTRIBUTING.md)
 and search for existing and closed issues. If your problem or idea is not addressed yet,
-[please open a new issue](https://github.com/Ismaestro/angular9-example-app/issues/new).
+[please open a new issue](https://github.com/Ismaestro/angular-example-app/issues/new).
 
 ## Contributing
 
 Please read through our
-[contributing guidelines](https://github.com/Ismaestro/angular9-example-app/blob/master/CONTRIBUTING.md).
+[contributing guidelines](https://github.com/Ismaestro/angular-example-app/blob/master/CONTRIBUTING.md).
 Included are directions for opening issues, coding standards, and notes on development.
 
 Moreover, all HTML and CSS should conform to the [Code Guide](https://github.com/mdo/code-guide),
 maintained by [Ismael Ramos](https://github.com/ismaestro).
 
 Editor preferences are available in the
-[editor config](https://github.com/Ismaestro/angular9-example-app/blob/master/.editorconfig) for
+[editor config](https://github.com/Ismaestro/angular-example-app/blob/master/.editorconfig) for
 easy use in common text editors. Read more and download plugins at <https://editorconfig.org/>.
 
 ## Creators
@@ -172,6 +163,6 @@ your feedback!
 ## Copyright and license
 
 Code and documentation copyright 2020 the authors. Code released under the
-[MIT License](https://github.com/Ismaestro/angular9-example-app/blob/master/LICENSE).
+[MIT License](https://github.com/Ismaestro/angular-example-app/blob/master/LICENSE).
 
 Enjoy :metal:

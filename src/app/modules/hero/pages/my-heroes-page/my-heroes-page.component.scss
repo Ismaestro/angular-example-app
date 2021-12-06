@@ -78,6 +78,13 @@ form {
   }
 }
 
+.my-heroes__no-heroes--message {
+  text-align: center;
+  width: 20%;
+  margin: 0 auto;
+  line-height: 1.7rem;
+}
+
 @media (max-width: 680px) {
   #left {
     width: 100%;

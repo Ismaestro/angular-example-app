@@ -1,12 +1,12 @@
 <mat-card class="hero-card" *ngIf="hero" [@fadeIn]="'fadeIn'">
   <mat-card-header>
     <mat-card-title>
-      <a class="hero-detail-link" [routerLink]="hero.published ? [routesConfig.routes.hero.detail(hero.id)] : []">
+      <a class="hero-detail-link" [routerLink]="[routesConfig.routes.hero.detail(hero.id)]">
         {{hero.alterEgo}}
       </a>
     </mat-card-title>
     <mat-card-subtitle>
-      <a class="hero-detail-link" [routerLink]="hero.published ? [routesConfig.routes.hero.detail(hero.id)] : []">
+      <a class="hero-detail-link" [routerLink]="[routesConfig.routes.hero.detail(hero.id)]">
         {{hero.realName}}
       </a>
     </mat-card-subtitle>
@@ -17,7 +17,7 @@
       </mat-icon>
     </div>
   </mat-card-header>
-  <a class="hero-detail-link" [routerLink]="hero.published ? [routesConfig.routes.hero.detail(hero.id)] : []">
+  <a class="hero-detail-link" [routerLink]="[routesConfig.routes.hero.detail(hero.id)]">
     <img alt="{{hero.realName}} hero image" [defaultImage]="hero.image" [lazyLoad]="hero.image">
   </a>
 </mat-card>

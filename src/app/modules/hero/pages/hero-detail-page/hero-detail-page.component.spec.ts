@@ -7,7 +7,7 @@ import { Hero } from '../../shared/hero.model';
 import { of } from 'rxjs';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { Location } from '@angular/common';
-import { HeroService } from '../../../core/services/hero.service';
+import { HeroService } from '../../shared/hero.service';
 import { HeroLoadingComponent } from '../../../../shared/components/hero-loading/hero-loading.component';
 import { HeroCardComponent } from '../../../../shared/components/hero-card/hero-card.component';
 

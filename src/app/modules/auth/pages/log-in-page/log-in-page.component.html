@@ -1,0 +1,33 @@
+<mat-grid-list cols='1' rows='1' rowHeight='2:1'>
+  <mat-grid-tile>
+    <mat-card class='login--form__box--blue'>
+      <div class='login--form-container'>
+        <p class='login--form__header-title'>Try to log in!</p>
+        <form class='example-container' [formGroup]='logInForm' #loginForm="ngForm">
+          <p>
+            <mat-form-field appearance='outline'>
+              <mat-label>Enter your email</mat-label>
+              <input matInput placeholder='pat@example.com' [formControl]='email' required>
+              <mat-error *ngIf='email.invalid'>{{getErrorMessage('email')}}</mat-error>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field appearance='outline'>
+              <mat-label>Enter a password</mat-label>
+              <input matInput [formControl]='password' [type]="hide ? 'password' : 'text'">
+              <button mat-icon-button matSuffix (click)='hide = !hide' [attr.aria-label]="'Hide password'" [attr.aria-pressed]='hide'>
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-hint>Must be minimum eight characters, at least one uppercase letter, one lowercase letter and one number</mat-hint>
+              <mat-error *ngIf='password.invalid'>{{getErrorMessage('password')}}</mat-error>
+            </mat-form-field>
+          </p>
+          <p>
+            <button class='login--form__submit-button' mat-raised-button color='primary'
+                    (click)='sendForm()'>{{ "Log In" | uppercase}}</button>
+          </p>
+        </form>
+      </div>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

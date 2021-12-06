@@ -7,7 +7,7 @@ import { fadeIn } from 'ng-animate';
 import { ROUTES_CONFIG } from '../../../configs/routes.config';
 import { CookieService } from '@gorniv/ngx-universal';
 import { isPlatformBrowser } from '@angular/common';
-import { HeroService } from '../../../modules/core/services/hero.service';
+import { HeroService } from '../../../modules/hero/shared/hero.service';
 
 @Component({
   selector: 'app-hero-card',

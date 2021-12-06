@@ -9,8 +9,11 @@ import { transition, trigger, useAnimation } from '@angular/animations';
 import { fadeIn } from 'ng-animate';
 import { ROUTES_CONFIG } from '../../../../configs/routes.config';
 import { CookieService } from '@gorniv/ngx-universal';
-import { HeroService } from '../../../core/services/hero.service';
+import { HeroService } from '../../shared/hero.service';
 import { UtilsHelperService } from '../../../core/services/utils-helper.service';
+import { UserService } from '../../../user/user.service';
+import { User } from '../../../user/shared/user.model';
+import { UtilsService } from '../../../../shared/services/utils.service';
 
 @Component({
   selector: 'app-my-heroes-page',
@@ -25,43 +28,54 @@ import { UtilsHelperService } from '../../../core/services/utils-helper.service'
 
 export class MyHeroesPageComponent implements OnInit {
 
-  heroes: Hero[];
+  user: User;
   newHeroForm: FormGroup;
   canVote = false;
   error: boolean;
+  realName: FormControl;
+  alterEgo: FormControl;
 
   @ViewChild('form', { static: false }) myNgForm; // just to call resetForm method
 
   constructor(private heroService: HeroService,
+              private userService: UserService,
               private dialog: MatDialog,
               private snackBar: MatSnackBar,
+              private utilsService: UtilsService,
               private router: Router,
               private formBuilder: FormBuilder,
               private cookieService: CookieService,
               @Inject(ROUTES_CONFIG) public routesConfig: any) {
     this.canVote = this.heroService.checkIfUserCanVote();
 
+    this.realName = new FormControl('', [Validators.required, Validators.maxLength(30)]);
+    this.alterEgo = new FormControl('', [Validators.required, Validators.maxLength(30)]);
     this.newHeroForm = this.formBuilder.group({
-      name: new FormControl('', [Validators.required, Validators.maxLength(30)]),
-      alterEgo: new FormControl('', [Validators.required, Validators.maxLength(30)])
+      realName: this.realName,
+      alterEgo: this.alterEgo
     });
 
     this.onChanges();
   }
 
   ngOnInit() {
-    this.heroService.getHeroes().subscribe((heroes: Array<Hero>) => {
-      this.heroes = heroes;
+    this.loadUser();
+  }
+
+  loadUser() {
+    this.userService.getMe({ fetchPolicy: 'no-cache' }).subscribe((user: User) => {
+      this.user = user;
     });
   }
 
-  async createNewHero() {
+  createNewHero() {
     if (this.newHeroForm.valid) {
-      this.heroService.createHero(new Hero(this.newHeroForm.value)).then(() => {
-        this.myNgForm.resetForm();
-        this.snackBar.open('Hero created', '', { duration: 1000 });
-      }, () => {
-        this.error = true;
+      this.heroService.createHero(new Hero(this.newHeroForm.value)).subscribe((response) => {
+        if (!response.errors) {
+          this.myNgForm.resetForm();
+          this.utilsService.showSnackBar('Hero created', 'info-snack-bar');
+          this.loadUser();
+        }
       });
     }
   }
@@ -81,10 +95,13 @@ export class MyHeroesPageComponent implements OnInit {
     const dialogRef = this.dialog.open(HeroRemoveComponent);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.heroService.deleteHero(hero.id).then(() => {
-          this.heroService.showSnackBar('Hero removed');
-        }, () => {
-          this.error = true;
+        this.heroService.removeHero(hero.id).subscribe((response) => {
+          if (!response.errors) {
+            this.utilsService.showSnackBar('Hero removed', 'info-snack-bar')
+            this.loadUser();
+          } else {
+            this.error = true;
+          }
         });
       }
     });
@@ -95,7 +112,7 @@ export class MyHeroesPageComponent implements OnInit {
   }
 
   private onChanges() {
-    this.newHeroForm.get('name').valueChanges.subscribe((value) => {
+    this.newHeroForm.get('realName').valueChanges.subscribe((value) => {
       if (value && value.length >= 3 && UtilsHelperService.isPalindrome(value)) {
         this.snackBar.open('Yeah that\'s a Palindrome!', '', { duration: 2000 });
       } else {

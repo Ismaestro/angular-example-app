@@ -4,7 +4,7 @@ import { HeroResolver } from './hero.resolver';
 import { ActivatedRoute, convertToParamMap } from '@angular/router';
 import { Hero } from './hero.model';
 import { of } from 'rxjs';
-import { HeroService } from '../../core/services/hero.service';
+import { HeroService } from './hero.service';
 
 describe('HeroResolver', () => {
   let heroResolver: HeroResolver;

@@ -76,6 +76,7 @@
     "graphql": "15.7.2",
     "grpc": "1.24.11",
     "helmet": "4.6.0",
+    "jwt-decode": "^3.1.2",
     "ng-animate": "1.0.0",
     "ng-lazyload-image": "9.1.0",
     "ngx-cookie": "5.0.2",

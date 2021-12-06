@@ -1,0 +1,39 @@
+@import "../../../../styles/mixins";
+
+.login--form-container {
+ text-align: center;
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  .login--form__header-title {
+    margin-bottom: 2rem;
+  }
+}
+
+.login--form-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.login--form__box--blue {
+  padding: 4rem;
+}
+
+:host ::ng-deep .mat-form-field-flex {
+  background: rgb(245, 245, 245);
+}
+
+.login--form__header-title {
+  font-weight: bold;
+  font-size: 20px;
+  color: #000000de;
+}
+
+.login--form__submit-button {
+  margin-top: 40px;
+}

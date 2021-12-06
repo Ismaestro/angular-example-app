@@ -10,7 +10,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { CapitalizeFirstPipe } from '../../../../shared/pipes/capitalize-first.pipe';
 import { ROUTES_CONFIG, RoutesConfig } from '../../../../configs/routes.config';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { HeroService } from '../../../core/services/hero.service';
+import { HeroService } from '../../../hero/shared/hero.service';
 import { MatInputModule } from '@angular/material/input';
 
 describe('SearchBarComponent', () => {

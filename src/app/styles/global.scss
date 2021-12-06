@@ -52,6 +52,25 @@ h1, h2 {
   text-align: right;
 }
 
+.warning-snack-bar {
+  background: white !important;
+  color: red;
+  font-weight: bold;
+
+  .mat-button-wrapper {
+    color: $blue;
+  }
+}
+
+.info-snack-bar {
+  font-weight: bold;
+  border: 1px white solid;
+
+  .mat-button-wrapper {
+    color: white;
+  }
+}
+
 pre {
   background: $light-grey;
   border: 1px solid $grey;

@@ -3,7 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Hero } from '../../../hero/shared/hero.model';
 import { ROUTES_CONFIG } from '../../../../configs/routes.config';
-import { HeroService } from '../../../core/services/hero.service';
+import { HeroService } from '../../../hero/shared/hero.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -24,7 +24,7 @@ export class SearchBarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.heroService.getHeroes().subscribe((heroes: Array<Hero>) => {
+    this.heroService.searchHeroes().subscribe((heroes: Array<Hero>) => {
       this.defaultHeroes = heroes;
 
       this.heroFormControl.valueChanges.pipe(

@@ -72,16 +72,16 @@
                 "maximumError": "5mb"
               }
             ],
-            "aot": true,
+            "aot": false,
+            "buildOptimizer": false,
+            "optimization": {
+              "scripts": false,
+              "styles": false,
+              "fonts": false
+            },
             "vendorChunk": true,
             "extractLicenses": false,
-            "buildOptimizer": true,
-            "sourceMap": true,
-            "optimization": {
-              "scripts": true,
-              "styles": true,
-              "fonts": true
-            },
+            "sourceMap": false,
             "namedChunks": true
           },
           "configurations": {

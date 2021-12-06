@@ -4,16 +4,18 @@ import { HeroResolver } from './shared/hero.resolver';
 import { HeroDetailPageComponent } from './pages/hero-detail-page/hero-detail-page.component';
 import { MyHeroesPageComponent } from './pages/my-heroes-page/my-heroes-page.component';
 import { RoutesConfig } from '../../configs/routes.config';
+import { AuthGuard } from '../auth/auth.guard';
 
 const heroRoutes = RoutesConfig.routesNames.hero;
 
 const heroesRoutes: Routes = [
-  { path: heroRoutes.myHeroes, component: MyHeroesPageComponent},
+  { path: heroRoutes.myHeroes, component: MyHeroesPageComponent, canActivate: [AuthGuard] },
   {
     path: heroRoutes.detail,
     component: HeroDetailPageComponent,
-    resolve: { hero: HeroResolver }
-  },
+    resolve: { hero: HeroResolver },
+    canActivate: [AuthGuard]
+  }
 ];
 
 @NgModule({
@@ -24,7 +26,8 @@ const heroesRoutes: Routes = [
     RouterModule
   ],
   providers: [
-    HeroResolver
+    HeroResolver,
+    AuthGuard
   ]
 })
 

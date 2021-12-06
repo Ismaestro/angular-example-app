@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../../../hero/shared/hero.model';
 import { Observable } from 'rxjs';
-import { HeroService } from '../../../core/services/hero.service';
+import { HeroService } from '../../../hero/shared/hero.service';
 
 @Component({
   selector: 'app-home-page',
@@ -16,6 +16,6 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.heroes$ = this.heroService.getHeroes();
+    this.heroes$ = this.heroService.searchHeroes();
   }
 }

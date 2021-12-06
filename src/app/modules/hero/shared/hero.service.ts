@@ -1,11 +1,9 @@
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { AppConfig } from '../../../configs/app.config';
 import { CookieService } from '@gorniv/ngx-universal';
-import { Hero } from '../../hero/shared/hero.model';
-import { LoggerService } from './logger.service';
+import { Hero } from './hero.model';
 import { Apollo, gql } from 'apollo-angular';
 
 @Injectable({
@@ -13,22 +11,8 @@ import { Apollo, gql } from 'apollo-angular';
 })
 export class HeroService {
 
-  constructor(private snackBar: MatSnackBar,
-              private apollo: Apollo,
+  constructor(private apollo: Apollo,
               private cookieService: CookieService) {
-  }
-
-  private static handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error); // log to console instead
-      LoggerService.log(`${operation} failed: ${error.message}`);
-
-      if (error.status >= 500) {
-        throw error;
-      }
-
-      return of(result);
-    };
   }
 
   checkIfUserCanVote(): boolean {
@@ -36,7 +20,7 @@ export class HeroService {
     return Number(votes ? votes : 0) < AppConfig.votesLimit;
   }
 
-  getHeroes(): Observable<Hero[]> {
+  searchHeroes(): Observable<Hero[]> {
     return this.apollo
     .watchQuery({
       query: gql`
@@ -94,9 +78,25 @@ export class HeroService {
   }
 
   createHero(hero: Hero) {
-    return new Promise((resolve) => {
-      resolve((JSON.parse(JSON.stringify(hero))));
-    });
+    return this.apollo.mutate({
+      mutation: gql`
+        mutation CreateHero {
+          createHero(data: {
+            realName: "${hero.realName}"
+            alterEgo: "${hero.alterEgo}"
+          }) {
+            id
+            realName
+            alterEgo
+            votes
+            image
+            published
+          }
+        }
+      `
+    }).pipe(map((response: any) => {
+      return !response.errors ? response.data.createHero : response;
+    }));
   }
 
   updateHero(hero: Hero): Promise<void> {
@@ -105,15 +105,17 @@ export class HeroService {
     });
   }
 
-  deleteHero(id: string): Promise<void> {
-    return new Promise((resolve) => {
-      resolve();
-    });
-  }
-
-  showSnackBar(name): void {
-    const config: any = new MatSnackBarConfig();
-    config.duration = AppConfig.snackBarDuration;
-    this.snackBar.open(name, 'OK', config);
+  removeHero(id: string) {
+    return this.apollo.mutate({
+      mutation: gql`
+        mutation RemoveHero {
+          removeHero(heroId: "${id}") {
+            id
+          }
+        }
+      `
+    }).pipe(map((response: any) => {
+      return !response.errors ? {} : response;
+    }));
   }
 }

@@ -1,9 +1,10 @@
 import { InjectionToken } from '@angular/core';
 
-export let ROUTES_CONFIG = new InjectionToken('routes.config');
+export const ROUTES_CONFIG = new InjectionToken('routes.config');
 
 const basePaths = {
-  hero: 'hero'
+  hero: 'hero',
+  auth: 'auth',
 };
 
 const routesNames = {
@@ -12,8 +13,14 @@ const routesNames = {
   hero: {
     myHeroes: 'my-heroes',
     detail: ':id',
+  },
+  auth: {
+    signUp: 'sign-up',
+    logIn: 'log-in',
   }
 };
+
+export const getHeroDetail = id => `/${basePaths.hero}/${id}`;
 
 export const RoutesConfig: any = {
   basePaths,
@@ -22,12 +29,14 @@ export const RoutesConfig: any = {
     home: `/${routesNames.home}`,
     error404: `/${routesNames.error404}`,
     hero: {
-      myHeroes: `/${routesNames.hero.myHeroes}`,
+      myHeroes: `/${basePaths.hero}/${routesNames.hero.myHeroes}`,
       detail: getHeroDetail
+    },
+    auth: {
+      signUp: `/${basePaths.auth}/${routesNames.auth.signUp}`,
+      logIn: `/${basePaths.auth}/${routesNames.auth.logIn}`,
     }
   }
 };
 
-export function getHeroDetail(id) {
-  return `/${basePaths.hero}/${id}`;
-}
+
