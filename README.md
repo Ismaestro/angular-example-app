@@ -15,14 +15,9 @@
     <img src="https://media.giphy.com/media/BIql9p3KQWYdjq4Sxe/giphy.gif" alt="Demo example"/>
     <br>
     <br>
-    <a href="https://github.com/Ismaestro/angular-example-app/issues/new">Report bug</a>
-    ·
-    <a href="https://github.com/Ismaestro/angular-example-app/issues/new">Request feature</a>
+    <a href="https://ismaestro.github.io/angular-example-app/">DEMO HERE</a>
   </p>
 </p>
-
-**WARNING: VERY IMPORTANT**
-> You will need to install node 14 and docker before trying to run this example app.
 
 ## Status
 
@@ -33,6 +28,10 @@
 
 ## Setup
 
+**WARNING: VERY IMPORTANT**
+> You will need to install node 14 and docker before trying to run this example app.
+
+Then, run:
 ```bash
 npm i
 npm start
