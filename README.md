@@ -38,19 +38,6 @@ npm i
 npm start
 ```
 
-## Table of contents
-
-- [Status](#status)
-- [What's included](#whats-included)
-- [Quick start](#quick-start)
-- [Bugs and feature requests](#bugs-and-feature-requests)
-- [Apply this to your project](#apply-this-to-your-project)
-- [Contributing](#contributing)
-- [Creators](#creators)
-- [Thanks](#thanks)
-- [Copyright and license](#copyright-and-license)
-
-
 ## Backend
 
 This project is using a real app deployed in heroku, which is maintained in [here](https://github.com/Ismaestro/nestjs-example-app).
@@ -102,50 +89,12 @@ I've created a medium post where you can find a tutorial to apply this concepts 
 [Check it here](https://medium.com/@ismaestro/angular-7-example-app-with-angularcli-angular-universal-i18n-official-firebase-66deac2dc31e),
 and let me know what do you think.
 
-## Scripts available
-
-| Tasks                      | Description                                                                                          |
-| -------------------------- | ---------------------------------------------------------------------------------------------------- |
-| npm start                  | Start the app in development mode with the english language only                                     |
-| npm start:es               | Start the app in development mode with the spanish language only                                     |
-| dev:ssr                    | Start the server like SSR                                                                            |
-| extract-i18n               | Extract all messages from templates and ts files and update the language files with new translations |
-| npm run lint               | Run the linter (tslint)                                                                              |
-| npm run test               | Run all unit tests with karma and jasmine                                                            |
-| npm run test:app:watch     | Run app unit tests and wait for changes                                                              |
-| npm run test:library:watch | Run library unit tests and wait for changes                                                          |
-| npm run e2e                | Run end to end tests with protractor                                                                 |
-| npm run build:prod         | Build the app for production with english translations                                               |
-| npm run build:prod:es      | Build the app for production with spanish translations                                               |
-| npm run builds:prod        | Builds both configurations                                                                           |
-| npm run build:ssr:prod     | Builds the server with universal in SSR mode                                                         |
-| npm run serve:ssr          | Start the node server for angular universal                                                          |
-| npm run build:library      | Build the library                                                                                    |
-| npm run bundle-report      | Build and run webpack-bundle-analyzer over stats json                                                |
-| npm run release:minor      | Create a new minor release using standard-version                                                    |
-| npm run release:major      | Create a new major release using standard-version                                                    |
-| npm run ci                 | Execute linter, tests and production builds                                                          |
-
-
 ## Bugs and feature requests
 
 Have a bug or a feature request? Please first read the
 [issue guidelines](https://github.com/Ismaestro/angular-example-app/blob/master/CONTRIBUTING.md)
 and search for existing and closed issues. If your problem or idea is not addressed yet,
 [please open a new issue](https://github.com/Ismaestro/angular-example-app/issues/new).
-
-## Contributing
-
-Please read through our
-[contributing guidelines](https://github.com/Ismaestro/angular-example-app/blob/master/CONTRIBUTING.md).
-Included are directions for opening issues, coding standards, and notes on development.
-
-Moreover, all HTML and CSS should conform to the [Code Guide](https://github.com/mdo/code-guide),
-maintained by [Ismael Ramos](https://github.com/ismaestro).
-
-Editor preferences are available in the
-[editor config](https://github.com/Ismaestro/angular-example-app/blob/master/.editorconfig) for
-easy use in common text editors. Read more and download plugins at <https://editorconfig.org/>.
 
 ## Creators
 
@@ -162,7 +111,7 @@ your feedback!
 
 ## Copyright and license
 
-Code and documentation copyright 2020 the authors. Code released under the
+Code and documentation copyright 2021 the authors. Code released under the
 [MIT License](https://github.com/Ismaestro/angular-example-app/blob/master/LICENSE).
 
 Enjoy :metal:
