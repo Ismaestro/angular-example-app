@@ -45,7 +45,6 @@ The server is using NesjJS, Prisma, Postgres and GraphQL. Please check it out an
 ## What's included
 
 - [x] CRUD: create, update and remove heroes with this project!
-- [x] Use of StateTransferModule to share state between browser and server
 - [x] Security Headers using [helmet](https://helmetjs.github.io).
 - [x] Internationalization with the official i18n. Separated builds for english and spanish.
 - [x] Lazy loading modules
