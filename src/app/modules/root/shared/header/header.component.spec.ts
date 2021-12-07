@@ -8,9 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { CookieService } from '@gorniv/ngx-universal';
 import { of } from 'rxjs';
-import { ProgressBarService } from '../../../core/services/progress-bar.service';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -33,8 +31,6 @@ describe('HeaderComponent', () => {
     ],
     providers: [
       { provide: APP_CONFIG, useValue: AppConfig },
-      { provide: ProgressBarService, useValue: progressBarServiceSpy },
-      { provide: CookieService, useValue: cookieServiceSpy }
     ]
   }).compileComponents();
 

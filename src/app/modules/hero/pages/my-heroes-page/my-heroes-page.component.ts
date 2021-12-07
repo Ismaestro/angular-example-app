@@ -8,12 +8,12 @@ import { HeroRemoveComponent } from '../../components/hero-remove/hero-remove.co
 import { transition, trigger, useAnimation } from '@angular/animations';
 import { fadeIn } from 'ng-animate';
 import { ROUTES_CONFIG } from '../../../../configs/routes.config';
-import { CookieService } from '@gorniv/ngx-universal';
 import { HeroService } from '../../shared/hero.service';
 import { UtilsHelperService } from '../../../core/services/utils-helper.service';
 import { UserService } from '../../../user/user.service';
 import { User } from '../../../user/shared/user.model';
 import { UtilsService } from '../../../../shared/services/utils.service';
+import { StorageService } from '../../../../shared/services/storage.service';
 
 @Component({
   selector: 'app-my-heroes-page',
@@ -44,7 +44,7 @@ export class MyHeroesPageComponent implements OnInit {
               private utilsService: UtilsService,
               private router: Router,
               private formBuilder: FormBuilder,
-              private cookieService: CookieService,
+              private storageService: StorageService,
               @Inject(ROUTES_CONFIG) public routesConfig: any) {
     this.canVote = this.heroService.checkIfUserCanVote();
 
@@ -84,7 +84,7 @@ export class MyHeroesPageComponent implements OnInit {
     this.canVote = this.heroService.checkIfUserCanVote();
     if (this.canVote) {
       hero.like();
-      this.cookieService.put('votes', '' + (Number(this.cookieService.get('votes') || 0) + 1));
+      this.storageService.setCookie('votes', '' + (Number(this.storageService.getCookie('votes') || 0) + 1));
       this.heroService.updateHero(hero);
     } else {
       this.snackBar.open('Can\'t vote anymore', '', { duration: 1000 });

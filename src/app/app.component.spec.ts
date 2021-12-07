@@ -9,7 +9,7 @@ import { NgxExampleLibraryComponent } from '@ismaestro/ngx-example-library';
 import { of } from 'rxjs';
 import { MockComponent } from 'ng-mocks';
 import { RouterTestingModule } from '@angular/router/testing';
-import { LOCALE_ID, PLATFORM_ID } from '@angular/core';
+import { LOCALE_ID } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 describe('AppComponent', () => {
@@ -39,7 +39,6 @@ describe('AppComponent', () => {
           }
         }
       },
-      { provide: PLATFORM_ID, useValue: 'browser' },
       { provide: LOCALE_ID, useValue: 'en' }
     ]
   }).compileComponents();

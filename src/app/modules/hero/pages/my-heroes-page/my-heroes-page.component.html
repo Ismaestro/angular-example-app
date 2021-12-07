@@ -1,7 +1,7 @@
 <div id='left'>
-  <h2 class='header__title' i18n='@@heroesList'>My heroes</h2>
-  <p *ngIf='!user?.heroes.length' class='my-heroes__no-heroes--message' i18n='@@heroesList'>
-    No heroes yet, try to create one in the left side!
+  <h2 class='header__title' i18n>My heroes</h2>
+  <p *ngIf='!user?.heroes.length' class='my-heroes__no-heroes--message' i18n>
+    No heroes yet, try to create one in the right side!
   </p>
   <div>
     <mat-list id='loading-list' *ngIf='!user?.heroes'>
@@ -43,7 +43,7 @@
   </div>
 </div>
 <div id='right'>
-  <h2 class='header__title' i18n='@@createHero'>Create a hero</h2>
+  <h2 class='header__title' i18n>Create a hero</h2>
   <div id='form-loading' *ngIf='!user?.heroes'>
     <form>
       <div class='input-container'>
@@ -53,7 +53,7 @@
         <app-loading-placeholder [height]="'2rem'"></app-loading-placeholder>
       </div>
 
-      <button aria-label='create button' mat-raised-button [disabled]='true' i18n='@@create'>Create</button>
+      <button aria-label='create button' mat-raised-button [disabled]='true' i18n>Create</button>
     </form>
   </div>
   <div *ngIf='user?.heroes'>
@@ -64,10 +64,10 @@
                placeholder='Name (Palindrome?)' i18n-placeholder='@@nameWithPalindrome'
                formControlName='realName'>
         <mat-error *ngIf='realName.errors && form.submitted'>
-          <ng-template [ngIf]='realName.errors.required' i18n='@@nameRequired'>
+          <ng-template [ngIf]='realName.errors.required' i18n>
             Name is required
           </ng-template>
-          <ng-template [ngIf]='realName.errors.maxlength' i18n='@@maxLengthError'>
+          <ng-template [ngIf]='realName.errors.maxlength' i18n>
             The field is too long
           </ng-template>
         </mat-error>
@@ -77,25 +77,23 @@
                placeholder='Alter ego' i18n-placeholder='@@realName'
                formControlName='alterEgo'>
         <mat-error *ngIf='alterEgo.errors && form.submitted'>
-          <ng-template [ngIf]='alterEgo.errors.required' i18n='@@nameRequired'>
+          <ng-template [ngIf]='alterEgo.errors.required' i18n>
             Name is required
           </ng-template>
-          <ng-template [ngIf]='alterEgo.errors.maxlength' i18n='@@maxLengthError'>
+          <ng-template [ngIf]='alterEgo.errors.maxlength' i18n>
             The field is too long. Required length: {{alterEgo.errors.maxlength.requiredLength}}.
             Current: {{alterEgo.errors.maxlength.actualLength}}
           </ng-template>
         </mat-error>
       </mat-form-field>
       <button aria-label='create button' mat-raised-button type='submit'
-              [disabled]='form.submitted && !newHeroForm.valid' i18n='@@create'>
-        Create
-      </button>
-      <div *ngIf='error' i18n='@@errorHasOcurred'>An error has ocurred</div>
+              [disabled]='form.submitted && !newHeroForm.valid' i18n>Create</button>
+      <div *ngIf='error' i18n>An error has ocurred</div>
     </form>
   </div>
 
   <div id='heroes-json'>
-    <h2 class='header__title' i18n='@@firstTwoHeroesById'>Heroes (1-2)</h2>
+    <h2 class='header__title' i18n>Heroes 1 and 2</h2>
     <pre *ngIf='!user?.heroes'>
       <app-loading-placeholder [height]="'300px'"></app-loading-placeholder>
     </pre>

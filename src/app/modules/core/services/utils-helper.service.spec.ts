@@ -1,17 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 import { UtilsHelperService } from './utils-helper.service';
-import { configureTestSuite } from 'ng-bullet';
 
 describe('UtilsHelperService', () => {
   let utilsHelperService: UtilsHelperService;
 
-  configureTestSuite(() => {
-    TestBed.configureTestingModule({
-      providers: [UtilsHelperService],
-    });
-
-    utilsHelperService = TestBed.inject(UtilsHelperService);
+  TestBed.configureTestingModule({
+    providers: [UtilsHelperService],
   });
+
+  utilsHelperService = TestBed.inject(UtilsHelperService);
 
   it('should check if is palindrome', () => {
     expect(UtilsHelperService.isPalindrome('')).toBe(true);

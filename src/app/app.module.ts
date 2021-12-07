@@ -1,28 +1,33 @@
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { CoreModule } from './modules/core/core.module';
-import { SharedModule } from './shared/shared.module';
-import { TransferHttpCacheModule } from '@nguniversal/common';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
-import { BrowserModule } from '@angular/platform-browser';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import { GraphQLModule } from './shared/modules/graphql.module';
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './modules/core/core.module';
 import { RootModule } from './modules/root/root.module';
+import { AppRoutingModule } from './app-routing.module';
 
 registerLocaleData(localeEs, 'es');
 
 @NgModule({
   imports: [
-    BrowserModule.withServerTransition({ appId: 'angularexampleapp' }),
-    TransferHttpCacheModule,
+    HttpClientModule,
+    GraphQLModule,
     HttpClientModule,
     SharedModule,
     CoreModule,
     RootModule,
-    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    AppRoutingModule
   ],
   declarations: [
+    AppComponent
+  ],
+  bootstrap: [
     AppComponent
   ]
 })

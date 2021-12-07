@@ -2,7 +2,7 @@
   <h3 align="center">Angular Example App</h3>
 
   <p align="center">
-    Example app with Angular + Angular CLI + Angular Universal + i18n + Graphql
+    Example app with Angular + Angular CLI + i18n + Graphql
     <br>
     <br>
     :clap::clap::tada::tada::tada::tada::clap::clap:
@@ -45,7 +45,6 @@ The server is using NesjJS, Prisma, Postgres and GraphQL. Please check it out an
 ## What's included
 
 - [x] CRUD: create, update and remove heroes with this project!
-- [x] Angular Universal (SSR)
 - [x] Use of StateTransferModule to share state between browser and server
 - [x] Security Headers using [helmet](https://helmetjs.github.io).
 - [x] Internationalization with the official i18n. Separated builds for english and spanish.
@@ -75,18 +74,12 @@ The server is using NesjJS, Prisma, Postgres and GraphQL. Please check it out an
 - [x] ES6 Promises and Observables
 - [x] End-to-end tests with Protractor, (moving to Cypress)
 
-### Angular Universal and i18n
+### i18n
 
-This project is using Angular Universal with the official internationalization. You can navigate
-through every language and reload (and share) every page in the application without losing context.
-This is very useful for SEO purposes and you almost have a ready for production app. If you want to
+This project is using the official internationalization. You can navigate
+through every language  If you want to
 translate the messages you can use this awesome tool,
-[Tiny Translator](https://martinroob.github.io/tiny-translator/en/#/translate) or follow
-[this tutorial](https://github.com/martinroob/ngx-i18nsupport/wiki/Tutorial-for-using-xliffmerge-with-angular-cli).
-
-I've created a medium post where you can find a tutorial to apply this concepts to your own project.
-[Check it here](https://medium.com/@ismaestro/angular-7-example-app-with-angularcli-angular-universal-i18n-official-firebase-66deac2dc31e),
-and let me know what do you think.
+[Tiny Translator](https://martinroob.github.io/tiny-translator/en/#/translate).
 
 ## Bugs and feature requests
 

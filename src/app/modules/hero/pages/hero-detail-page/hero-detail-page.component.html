@@ -1,4 +1,4 @@
-<h1 class="header__title" i18n="@@heroDetail">Hero detail</h1>
+<h1 class="header__title" i18n>Hero detail</h1>
 <div class="container" *ngIf="!hero">
   <app-hero-loading></app-hero-loading>
 </div>
@@ -11,9 +11,9 @@
   </ng-container>
 </div>
 <button *ngIf="hero" aria-label="Anchor the hero button" mat-raised-button type="button" (click)="goToTheAnchor()"
-        i18n="@@anchorToHero">
+        i18n>
   Anchor the hero
 </button>
-<button aria-label="Go back button" mat-raised-button type="button" (click)="goBack()" i18n="@@goBack">
+<button aria-label="Go back button" mat-raised-button type="button" (click)="goBack()" i18n>
   Go back
 </button>

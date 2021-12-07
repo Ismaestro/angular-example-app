@@ -18,7 +18,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgxScrollToFirstInvalidModule } from '@ismaestro/ngx-scroll-to-first-invalid';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ROUTES_CONFIG, RoutesConfig } from '../../../../configs/routes.config';
-import { CookieService } from '@gorniv/ngx-universal';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HeroService } from '../../shared/hero.service';
 import { MatListModule } from '@angular/material/list';
@@ -65,13 +64,6 @@ describe('HeroesListPageComponent', () => {
       { provide: MatDialog, useValue: matDialogSpy },
       { provide: HeroService, useValue: heroServiceSpy },
       { provide: ROUTES_CONFIG, useValue: RoutesConfig },
-      {
-        provide: CookieService,
-        useValue: {
-          get: key => key,
-          put: () => true,
-        },
-      },
     ],
   }).compileComponents();
 

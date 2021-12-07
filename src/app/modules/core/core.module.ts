@@ -3,7 +3,6 @@ import { TimingInterceptor } from './interceptors/timing.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { CookieModule, CookieService } from '@gorniv/ngx-universal';
 import { NgxExampleLibraryModule } from '@ismaestro/ngx-example-library';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { APP_CONFIG, AppConfig } from '../../configs/app.config';
@@ -11,12 +10,12 @@ import { ROUTES_CONFIG, RoutesConfig } from '../../configs/routes.config';
 import { ENDPOINTS_CONFIG, EndpointsConfig } from '../../configs/endpoints.config';
 import { SentryErrorHandler } from './sentry.errorhandler';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { StorageService } from '../../shared/services/storage.service';
 
 @NgModule({
   imports: [
     RouterModule,
     BrowserAnimationsModule,
-    CookieModule.forRoot(),
     NgxExampleLibraryModule.forRoot({
       config: {
         say: 'hello'
@@ -29,9 +28,9 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     { provide: ROUTES_CONFIG, useValue: RoutesConfig },
     { provide: ENDPOINTS_CONFIG, useValue: EndpointsConfig },
     { provide: ErrorHandler, useClass: SentryErrorHandler },
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true, deps: [CookieService] },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true, deps: [StorageService] },
     { provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true },
-    CookieService
+    StorageService
   ]
 })
 

@@ -7,8 +7,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { of } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ROUTES_CONFIG, RoutesConfig } from '../../../configs/routes.config';
-import { CookieService } from '@gorniv/ngx-universal';
-import { PLATFORM_ID } from '@angular/core';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { HeroService } from '../../../modules/hero/shared/hero.service';
 
@@ -32,9 +30,7 @@ describe('HeroCardComponent', () => {
     providers: [
       { provide: MatSnackBar, useValue: matSnackBarSpy },
       { provide: HeroService, useValue: heroServiceSpy },
-      { provide: CookieService, useValue: {} },
-      { provide: ROUTES_CONFIG, useValue: RoutesConfig },
-      { provide: PLATFORM_ID, useValue: 'browser' }
+      { provide: ROUTES_CONFIG, useValue: RoutesConfig }
     ]
   }).compileComponents();
 

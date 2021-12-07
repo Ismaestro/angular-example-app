@@ -1,8 +1,8 @@
-import { Component, Inject, LOCALE_ID, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
+import { Component, Inject, LOCALE_ID, OnInit, Renderer2 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { NavigationEnd, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { DOCUMENT } from '@angular/common';
 import { RoutesConfig } from './configs/routes.config';
 import { UtilsHelperService } from './modules/core/services/utils-helper.service';
 
@@ -22,15 +22,10 @@ export class AppComponent implements OnInit {
     private router: Router,
     private renderer: Renderer2,
     @Inject(DOCUMENT) doc: Document,
-    @Inject(LOCALE_ID) locale: string,
-    @Inject(PLATFORM_ID) private platformId: object
+    @Inject(LOCALE_ID) locale: string
   ) {
-    if (isPlatformBrowser(this.platformId)) {
-      this.isOnline = navigator.onLine;
-      renderer.setAttribute(doc.documentElement, 'lang', locale);
-    } else {
-      this.isOnline = true;
-    }
+    this.isOnline = navigator.onLine;
+    renderer.setAttribute(doc.documentElement, 'lang', locale);
   }
 
   ngOnInit() {
@@ -63,15 +58,13 @@ export class AppComponent implements OnInit {
   }
 
   checkBrowser() {
-    if (isPlatformBrowser(this.platformId)) {
-      if (UtilsHelperService.isBrowserValid()) {
-        this.checkBrowserFeatures();
-      } else {
-        this.snackBar.open(
-          'Change your browser',
-          'OK'
-        );
-      }
+    if (UtilsHelperService.isBrowserValid()) {
+      this.checkBrowserFeatures();
+    } else {
+      this.snackBar.open(
+        'Change your browser',
+        'OK'
+      );
     }
   }
 

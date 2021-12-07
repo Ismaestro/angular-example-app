@@ -2,9 +2,9 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { AppConfig } from '../../../configs/app.config';
-import { CookieService } from '@gorniv/ngx-universal';
 import { Hero } from './hero.model';
 import { Apollo, gql } from 'apollo-angular';
+import { StorageService } from '../../../shared/services/storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +12,11 @@ import { Apollo, gql } from 'apollo-angular';
 export class HeroService {
 
   constructor(private apollo: Apollo,
-              private cookieService: CookieService) {
+              private storageService: StorageService) {
   }
 
   checkIfUserCanVote(): boolean {
-    const votes = this.cookieService.get('votes');
+    const votes = this.storageService.getCookie('votes');
     return Number(votes ? votes : 0) < AppConfig.votesLimit;
   }
 

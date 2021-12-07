@@ -2,9 +2,19 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
+  "cli": {
+    "analytics": false,
+    "cache": {
+      "enabled": true,
+      "path": ".angular/cache",
+      "environment": "all"
+    }
+  },
+  "defaultProject": "angularexampleapp",
   "projects": {
     "angularexampleapp": {
       "i18n": {
+        "sourceLocale": "",
         "locales": {
           "es": "src/locale/messages.es.xlf"
         }
@@ -22,11 +32,13 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/browser/",
+            "outputPath": "dist",
             "index": "src/index.html",
-            "main": "src/main.browser.ts",
+            "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.browser.json",
+            "tsConfig": "tsconfig.app.json",
+            "localize": true,
+            "i18nMissingTranslation": "error",
             "assets": [
               {
                 "glob": "**/*",
@@ -57,7 +69,8 @@
             },
             "scripts": [
               "src/assets/js/gtm.js",
-              "src/assets/js/modernizr.js"
+              "src/assets/js/modernizr.js",
+              "node_modules/js-cookie/dist/js.cookie.min.js"
             ],
             "serviceWorker": true,
             "ngswConfigPath": "src/ngsw-config.json",
@@ -105,35 +118,9 @@
               "vendorChunk": false,
               "buildOptimizer": true
             },
-            "production-es": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": {
-                "scripts": true,
-                "styles": true,
-                "fonts": true
-              },
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "outputPath": "dist/browser",
-              "i18nMissingTranslation": "error",
-              "localize": [
-                "es"
-              ]
-            },
             "es": {
               "aot": true,
-              "outputPath": "dist/browser",
-              "i18nMissingTranslation": "error",
+              "outputPath": "dist",
               "localize": [
                 "es"
               ]
@@ -155,71 +142,10 @@
             }
           }
         },
-        "serve-ssr": {
-          "builder": "@nguniversal/builders:ssr-dev-server",
-          "options": {
-            "browserTarget": "angularexampleapp:build",
-            "serverTarget": "angularexampleapp:server"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "angularexampleapp:build:production",
-              "serverTarget": "angularexampleapp:server:production"
-            }
-          }
-        },
-        "server": {
-          "builder": "@angular-devkit/build-angular:server",
-          "options": {
-            "outputPath": "dist/server",
-            "main": "server.ts",
-            "tsConfig": "./tsconfig.server.json",
-            "stylePreprocessorOptions": {
-              "includePaths": [
-                "src/styles"
-              ]
-            },
-            "sourceMap": true,
-            "optimization": {
-              "scripts": true,
-              "styles": true
-            }
-          },
-          "configurations": {
-            "production": {
-              "optimization": {
-                "scripts": true,
-                "styles": true
-              },
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ]
-            }
-          },
-          "defaultConfiguration": ""
-        },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "angularexampleapp:build"
-          }
-        },
-        "xliffmerge": {
-          "builder": "@ngx-i18nsupport/tooling:xliffmerge",
-          "options": {
-            "xliffmergeOptions": {
-              "i18nFormat": "xlf",
-              "srcDir": "src/locale",
-              "genDir": "src/locale",
-              "defaultLanguage": "en",
-              "languages": [
-                "en",
-                "es"
-              ]
-            }
           }
         },
         "test": {
@@ -293,15 +219,6 @@
           }
         }
       }
-    }
-  },
-  "defaultProject": "angularexampleapp",
-  "cli": {
-    "analytics": false,
-    "cache": {
-      "enabled": true,
-      "path": ".angular/cache",
-      "environment": "all"
     }
   }
 }

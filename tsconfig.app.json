@@ -5,7 +5,7 @@
     "types": []
   },
   "files": [
-    "src/main.browser.ts",
+    "src/main.ts",
     "src/polyfills.ts"
   ],
   "include": [

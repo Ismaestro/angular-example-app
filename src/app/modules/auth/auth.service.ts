@@ -2,11 +2,11 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AppConfig } from '../../configs/app.config';
-import { CookieService } from '@gorniv/ngx-universal';
 import { Apollo, gql } from 'apollo-angular';
 import { map } from 'rxjs/operators';
 import { UtilsService } from '../../shared/services/utils.service';
 import jwt_decode from 'jwt-decode';
+import { StorageService } from '../../shared/services/storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,19 +16,19 @@ export class AuthService {
   constructor(private snackBar: MatSnackBar,
               private apollo: Apollo,
               private utilsService: UtilsService,
-              private cookieService: CookieService) {
+              private storageService: StorageService) {
   }
 
   isLoggedIn(): boolean {
     try {
-      return !!jwt_decode(this.cookieService.get('accessToken'));
+      return !!jwt_decode(this.storageService.getCookie('accessToken'));
     } catch (Error) {
       return null;
     }
   }
 
   checkIfUserCanVote(): boolean {
-    const votes = this.cookieService.get('votes');
+    const votes = this.storageService.getCookie('votes');
     return Number(votes ? votes : 0) < AppConfig.votesLimit;
   }
 
@@ -69,8 +69,8 @@ export class AuthService {
       if (!response.errors) {
         const loginData = response.data.login;
         const { accessToken, refreshToken } = loginData;
-        this.cookieService.put('accessToken', accessToken);
-        this.cookieService.put('refreshToken', refreshToken);
+        this.storageService.setCookie('accessToken', accessToken);
+        this.storageService.setCookie('refreshToken', refreshToken);
         this.utilsService.showSnackBar('Nice! Let\'s create some heroes', 'info-snack-bar');
         return loginData;
       } else {

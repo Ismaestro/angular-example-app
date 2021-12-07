@@ -1,9 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { APP_CONFIG } from '../../../../configs/app.config';
 import { NavigationEnd, Router } from '@angular/router';
-import { CookieService } from '@gorniv/ngx-universal';
 import { ROUTES_CONFIG, RoutesConfig } from '../../../../configs/routes.config';
 import { AuthService } from '../../../auth/auth.service';
+import { StorageService } from '../../../../shared/services/storage.service';
 
 @Component({
   selector: 'app-header',
@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(@Inject(APP_CONFIG) public appConfig: any,
               @Inject(ROUTES_CONFIG) public routesConfig: any,
-              private cookieService: CookieService,
+              private storageService: StorageService,
               private authService: AuthService,
               private router: Router) {
     this.languages = [{ name: 'en', label: 'English' }, { name: 'es', label: 'Español' }];
@@ -28,8 +28,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.selectedLanguage = this.cookieService.get('language') || 'en';
-
+    this.selectedLanguage = this.storageService.getCookie('language') || 'en';
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.currentUrl = event.url;
@@ -39,12 +38,12 @@ export class HeaderComponent implements OnInit {
   }
 
   changeLanguage(language: string): void {
-    this.cookieService.put('language', language);
+    this.storageService.setCookie('language', language);
     this.selectedLanguage = language;
   }
 
   logOut(): void {
-    this.cookieService.remove('accessToken');
+    this.storageService.removeCookie('accessToken');
     this.isLoggedIn = this.authService.isLoggedIn();
     this.router.navigate([RoutesConfig.routes.home]);
   }

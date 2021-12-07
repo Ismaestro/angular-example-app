@@ -13,8 +13,7 @@ const heroesRoutes: Routes = [
   {
     path: heroRoutes.detail,
     component: HeroDetailPageComponent,
-    resolve: { hero: HeroResolver },
-    canActivate: [AuthGuard]
+    resolve: { hero: HeroResolver }
   }
 ];
 

@@ -1,8 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { HeroService } from './hero.service';
-import { HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { CookieService } from '@gorniv/ngx-universal';
 import { of, throwError } from 'rxjs';
 import { Hero } from './hero.model';
 
@@ -16,14 +14,8 @@ describe('HeroService', () => {
   TestBed.configureTestingModule({
     providers: [
       { provide: MatSnackBar, useValue: matSnackBarSpy },
-      {
-        provide: CookieService,
-        useValue: {
-          get: () => 0,
-        },
-      },
-      HeroService,
-    ],
+      HeroService
+    ]
   });
 
   beforeEach(() => {
@@ -35,10 +27,10 @@ describe('HeroService', () => {
             new Hero({
               id: heroId,
               name: 'test',
-              alterEgo: 'test',
-            }),
+              alterEgo: 'test'
+            })
         }),
-      delete: () => new Promise<void>(resolve => resolve()),
+      delete: () => new Promise<void>(resolve => resolve())
     });
 
     afsSpy.collection.and.returnValue({
@@ -52,13 +44,13 @@ describe('HeroService', () => {
                 data: () => {
                   return {
                     id: 'noid',
-                    name: 'test',
+                    name: 'test'
                   };
-                },
-              },
-            },
-          },
-        ]),
+                }
+              }
+            }
+          }
+        ])
     });
 
     heroService = TestBed.inject(HeroService);
@@ -90,10 +82,10 @@ describe('HeroService', () => {
       .createHero(
         new Hero({
           name: 'test',
-          alterEgo: 'test',
+          alterEgo: 'test'
         })
       )
-      .then(() => {
+      .subscribe(() => {
         expect(afsSpy.collection).toHaveBeenCalled();
       });
   });
@@ -103,7 +95,7 @@ describe('HeroService', () => {
       .updateHero(
         new Hero({
           name: 'test',
-          alterEgo: 'test',
+          alterEgo: 'test'
         })
       )
       .then(() => {
@@ -112,7 +104,7 @@ describe('HeroService', () => {
   });
 
   it('should delete hero', () => {
-    heroService.deleteHero('oneId').then(() => {
+    heroService.removeHero('oneId').subscribe(() => {
       expect(afsSpy.doc).toHaveBeenCalled();
     });
   });
@@ -123,7 +115,7 @@ describe('HeroService', () => {
 
   it('should fail getting one hero', () => {
     afsSpy.doc.and.returnValue({
-      get: () => throwError({ message: 'this is an error', status: 404 }),
+      get: () => throwError({ message: 'this is an error', status: 404 })
     });
 
     // heroService.getHero('asd').subscribe(
