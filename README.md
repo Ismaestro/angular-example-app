@@ -45,8 +45,7 @@ The server is using NesjJS, Prisma, Postgres and GraphQL. Please check it out an
 ## What's included
 
 - [x] CRUD: create, update and remove heroes with this project!
-- [x] Security Headers using [helmet](https://helmetjs.github.io).
-- [x] Internationalization with the official i18n. Separated builds for english and spanish.
+- [x] Internationalization with the official i18n. English and Spanish available.
 - [x] Lazy loading modules
 - [x] Service Workers enabled!
 - [x] More logical directory structure
