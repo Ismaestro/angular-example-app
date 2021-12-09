@@ -14,29 +14,29 @@ describe('HomePage', () => {
   let component: HomePageComponent;
   let fixture: ComponentFixture<HomePageComponent>;
 
-  const heroServiceSpy = jasmine.createSpyObj('HeroService', ['getHeroes']);
+  const heroServiceSpy = jasmine.createSpyObj('HeroService', ['searchHeroes']);
 
-  TestBed.configureTestingModule({
-    imports: [
-      NoopAnimationsModule
-    ],
-    declarations: [
-      MockComponent(HeroCardComponent),
-      MockComponent(HeroLoadingComponent),
-      MockComponent(LoadingPlaceholderComponent),
-      HomePageComponent
-    ],
-    providers: [
-      { provide: HeroService, useValue: heroServiceSpy }
-    ]
-  }).compileComponents();
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        NoopAnimationsModule
+      ],
+      declarations: [
+        MockComponent(HeroCardComponent),
+        MockComponent(HeroLoadingComponent),
+        MockComponent(LoadingPlaceholderComponent),
+        HomePageComponent
+      ],
+      providers: [
+        { provide: HeroService, useValue: heroServiceSpy }
+      ]
+    }).compileComponents();
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(HomePageComponent);
     component = fixture.debugElement.componentInstance;
-    heroServiceSpy.getHeroes.and.returnValue(of([new Hero({ name: 'hero test' })]));
+    heroServiceSpy.searchHeroes.and.returnValue(of([new Hero({ name: 'hero test' })]));
     fixture.detectChanges();
-  });
+  }));
 
   it('should create component', (() => {
     expect(component).toBeTruthy();

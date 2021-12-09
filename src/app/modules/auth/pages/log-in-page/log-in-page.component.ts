@@ -1,9 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { transition, trigger, useAnimation } from '@angular/animations';
 import { fadeIn } from 'ng-animate';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../auth.service';
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { RoutesConfig } from '../../../../configs/routes.config';
 import { Router } from '@angular/router';
 import { UtilsService } from '../../../../shared/services/utils.service';
@@ -19,7 +18,7 @@ import { UtilsService } from '../../../../shared/services/utils.service';
   ]
 })
 
-export class LogInPageComponent implements OnInit {
+export class LogInPageComponent {
   @ViewChild('loginForm') loginForm;
 
   logInForm: FormGroup;
@@ -36,9 +35,6 @@ export class LogInPageComponent implements OnInit {
       email: this.email,
       password: this.password
     });
-  }
-
-  ngOnInit() {
   }
 
   getErrorMessage(field) {

@@ -1,5 +1,4 @@
-import { TestBed } from '@angular/core/testing';
-import { configureTestSuite } from 'ng-bullet';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { HeroResolver } from './hero.resolver';
 import { ActivatedRoute, convertToParamMap } from '@angular/router';
 import { Hero } from './hero.model';
@@ -10,10 +9,10 @@ describe('HeroResolver', () => {
   let heroResolver: HeroResolver;
   let route: ActivatedRoute;
 
-  const heroServiceSpy = jasmine.createSpyObj('HeroService', ['getHero']);
+  const heroServiceSpy = jasmine.createSpyObj('HeroService', ['getHeroById']);
   const heroId = '123';
 
-  configureTestSuite(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       providers: [
         { provide: HeroService, useValue: heroServiceSpy },
@@ -23,18 +22,18 @@ describe('HeroResolver', () => {
         },
         HeroResolver,
       ],
-    });
-  });
+    }).compileComponents();
 
-  beforeEach(() => {
     heroResolver = TestBed.inject(HeroResolver);
     route = TestBed.inject(ActivatedRoute);
-  });
+  }));
 
-  it('should resolve a hero by id', () => {
-    heroServiceSpy.getHero.and.returnValue(of(new Hero({ id: heroId })));
-    heroResolver.resolve(route.snapshot).subscribe(hero => {
-      expect(hero.id).toBe(heroId);
+  it('should resolve a hero by id', async () => {
+    heroServiceSpy.getHeroById.and.returnValue(of(new Hero({ id: heroId })));
+    heroResolver.resolve(route.snapshot).then(async (heroObservable) => {
+      await heroObservable.subscribe(hero => {
+        expect(hero.id).toBe(heroId);
+      });
     });
   });
 });

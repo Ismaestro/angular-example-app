@@ -1,19 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-loading-placeholder',
   templateUrl: './loading-placeholder.component.html',
   styleUrls: ['./loading-placeholder.component.scss']
 })
-export class LoadingPlaceholderComponent implements OnInit {
+export class LoadingPlaceholderComponent {
 
   @Input() height: string;
   @Input() width: string;
 
   constructor() {
-  }
-
-  ngOnInit() {
   }
 
 }

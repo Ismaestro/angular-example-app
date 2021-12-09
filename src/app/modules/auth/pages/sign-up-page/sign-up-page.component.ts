@@ -1,9 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { transition, trigger, useAnimation } from '@angular/animations';
 import { fadeIn } from 'ng-animate';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../auth.service';
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { UtilsService } from '../../../../shared/services/utils.service';
 
 @Component({
@@ -17,7 +16,7 @@ import { UtilsService } from '../../../../shared/services/utils.service';
   ]
 })
 
-export class SignUpPageComponent implements OnInit {
+export class SignUpPageComponent {
   @ViewChild('signupForm') signupForm;
 
   signUpForm: FormGroup;
@@ -37,9 +36,6 @@ export class SignUpPageComponent implements OnInit {
       email: this.email,
       password: this.password
     });
-  }
-
-  ngOnInit() {
   }
 
   getErrorMessage(field) {

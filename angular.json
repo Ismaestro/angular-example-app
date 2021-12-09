@@ -8,7 +8,8 @@
       "enabled": true,
       "path": ".angular/cache",
       "environment": "all"
-    }
+    },
+    "defaultCollection": "@angular-eslint/schematics"
   },
   "defaultProject": "angularexampleapp",
   "projects": {
@@ -187,6 +188,15 @@
             "production": {
               "devServerTarget": "angularexampleapp:serve:production"
             }
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       }

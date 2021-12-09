@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { HeroLoadingComponent } from './hero-loading.component';
 import { LoadingPlaceholderComponent } from '../loading-placeholder/loading-placeholder.component';
 import { MockComponent } from 'ng-mocks';
@@ -9,22 +9,22 @@ describe('HeroLoadingComponent', () => {
   let component: HeroLoadingComponent;
   let fixture: ComponentFixture<HeroLoadingComponent>;
 
-  TestBed.configureTestingModule({
-    imports: [
-      MatCardModule,
-      MatIconModule
-    ],
-    declarations: [
-      MockComponent(LoadingPlaceholderComponent),
-      HeroLoadingComponent
-    ]
-  }).compileComponents();
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        MatCardModule,
+        MatIconModule
+      ],
+      declarations: [
+        MockComponent(LoadingPlaceholderComponent),
+        HeroLoadingComponent
+      ]
+    }).compileComponents();
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(HeroLoadingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();

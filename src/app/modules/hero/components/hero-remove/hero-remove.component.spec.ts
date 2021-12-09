@@ -1,13 +1,12 @@
 import { HeroRemoveComponent } from './hero-remove.component';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { configureTestSuite } from 'ng-bullet';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MatDialogModule } from '@angular/material/dialog';
 
 describe('HeroRemoveComponent', () => {
   let component: HeroRemoveComponent;
   let fixture: ComponentFixture<HeroRemoveComponent>;
 
-  configureTestSuite(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         MatDialogModule
@@ -15,14 +14,12 @@ describe('HeroRemoveComponent', () => {
       declarations: [
         HeroRemoveComponent
       ]
-    });
-  });
+    }).compileComponents();
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(HeroRemoveComponent);
     component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
-  });
+  }));
 
   it('should create the component', (() => {
     expect(component).toBeTruthy();
