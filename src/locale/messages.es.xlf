@@ -67,7 +67,7 @@
           <context context-type="linenumber">2</context>
         </context-group>
       <target>Mis heroes</target></trans-unit>
-      <trans-unit id="ab9e63fc550c87ca98a8cd7d406c5e5986aa7d08" datatype="html">
+      <trans-unit id="90335c09bac6086329d917daef2fdc0a77b1421e" datatype="html">
         <source> No heroes yet, try to create one in the left side! </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/modules/hero/pages/my-heroes-page/my-heroes-page.component.html</context>
@@ -138,13 +138,13 @@
           <context context-type="linenumber">91</context>
         </context-group>
       <target>Ha ocurrido un error</target></trans-unit>
-      <trans-unit id="99322845b5ced60363fe29230d27d2608f37bec5" datatype="html">
-        <source>Heroes (1-2)</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/modules/hero/pages/my-heroes-page/my-heroes-page.component.html</context>
-          <context context-type="linenumber">96</context>
-        </context-group>
-      <target>Heroes 1 y 2</target></trans-unit>
+      <trans-unit id="505179b844f8ccdf71616c1104efa5c6e747763b" datatype="html">
+              <source>Heroes 1 and 2</source>
+              <context-group purpose="location">
+                <context context-type="sourcefile">src/app/modules/hero/pages/my-heroes-page/my-heroes-page.component.html</context>
+                <context context-type="linenumber">96</context>
+              </context-group>
+            <target>Heroes 1 y 2</target></trans-unit>
       <trans-unit id="08a0ab02e3bc2205afa20fa0a06267f520e47815" datatype="html">
         <source>404 Error</source>
         <context-group purpose="location">

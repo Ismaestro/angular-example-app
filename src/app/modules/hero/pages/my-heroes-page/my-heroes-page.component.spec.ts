@@ -76,6 +76,7 @@ describe('HeroesListPageComponent', () => {
     router = TestBed.inject(Router);
     navigateSpy = spyOn(router, 'navigate');
     heroServiceSpy.searchHeroes.and.returnValue(of([new Hero({ is: 1, name: 'hero test' })]));
+    heroServiceSpy.removeHero.and.returnValue(of(true));
     fixture.detectChanges();
   }));
 

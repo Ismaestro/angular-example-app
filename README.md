@@ -39,12 +39,13 @@ npm start
 
 ## Backend
 
-This project is using a real app deployed in heroku, which is maintained in [here](https://github.com/Ismaestro/nestjs-example-app).
+This project is using a real app deployed in heroku, which you can see [here](https://github.com/Ismaestro/nestjs-example-app).
 The server is using NesjJS, Prisma, Postgres and GraphQL. Please check it out and feel free also to contribute or give me your thoughts.
 
 ## What's included
 
 - [x] CRUD: create, update and remove heroes with this project!
+- [x] Authentication with JWT tokens
 - [x] Internationalization with the official i18n. English and Spanish available.
 - [x] Lazy loading modules
 - [x] Service Workers enabled!
@@ -63,14 +64,12 @@ The server is using NesjJS, Prisma, Postgres and GraphQL. Please check it out an
 - [x] Angular Pipes
 - [x] Interceptors and Events
 - [x] Auth guard for some routes
-- [x] Scroll to first invalid input in forms.
-  ([ngx-scroll-to-first-invalid](https://github.com/Ismaestro/ngx-scroll-to-first-invalid))
 - [x] Modernizr (browser features detection)
 - [x] Browser filter (Bowser) because of IE ^^
 - [x] [Sentry](https://sentry.io)! (logs every error in the app)
 - [x] Google Tag Manager
 - [x] ES6 Promises and Observables
-- [x] End-to-end tests with Protractor, (moving to Cypress)
+- [x] End-to-end tests with Cypress App Actions. Read [this](https://applitools.com/blog/page-objects-app-actions-cypress/)!
 
 ### i18n
 
