@@ -91,9 +91,9 @@ describe('HeroesListPageComponent', () => {
       alterEgo: new FormControl('haha', [Validators.required, Validators.maxLength(30)]),
     });
 
-    component.error = null;
+    component.error = false;
     component.createNewHero();
-    expect(component.error).toBe(null);
+    expect(component.error).toBeFalse();
   });
 
   xit('should create new hero error', async () => {
@@ -106,12 +106,6 @@ describe('HeroesListPageComponent', () => {
     component.error = false;
     await component.createNewHero();
     expect(component.error).toBe(true);
-  });
-
-  it('should like a hero', () => {
-    const hero = new Hero({ likes: 0 });
-    component.like(hero);
-    expect(hero.votes).toBe(1);
   });
 
   it('should delete a hero', () => {

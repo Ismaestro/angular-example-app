@@ -1,6 +1,6 @@
 <div id='left'>
   <h2 class='header__title' i18n>My heroes</h2>
-  <p *ngIf='!user?.heroes.length' class='my-heroes__no-heroes--message' i18n>
+  <p *ngIf='!user?.heroes?.length' class='my-heroes__no-heroes--message' i18n>
     No heroes yet, try to create one in the right side!
   </p>
   <div>
@@ -22,14 +22,14 @@
     </mat-list>
     <mat-list>
       <mat-list-item *ngFor='let hero of user?.heroes; trackBy: trackByFn'>
-        <h3 mat-line [class.cp]='hero.default'>
+        <h3 mat-line [class.cp]='hero.published'>
           {{hero.alterEgo}}
         </h3>
-        <p mat-line [class.cp]='hero.default'>
+        <p mat-line [class.cp]='hero.published'>
           <span>{{hero.realName}}</span>
         </p>
         <div class='hero-actions'>
-          <mat-icon class='icon__remove' *ngIf='!hero.default'
+          <mat-icon class='icon__remove' *ngIf='!hero.published'
                     (click)='deleteHero(hero);'>
             delete
           </mat-icon>
@@ -60,10 +60,10 @@
                placeholder='Name (Palindrome?)' i18n-placeholder='@@nameWithPalindrome'
                formControlName='realName'>
         <mat-error *ngIf='realName.errors && form.submitted'>
-          <ng-template [ngIf]='realName.errors.required' i18n>
+          <ng-template [ngIf]="realName.errors['required']" i18n>
             Name is required
           </ng-template>
-          <ng-template [ngIf]='realName.errors.maxlength' i18n>
+          <ng-template [ngIf]="realName.errors['maxlength']" i18n>
             The field is too long
           </ng-template>
         </mat-error>
@@ -73,12 +73,12 @@
                placeholder='Alter ego' i18n-placeholder='@@realName'
                formControlName='alterEgo'>
         <mat-error *ngIf='alterEgo.errors && form.submitted'>
-          <ng-template [ngIf]='alterEgo.errors.required' i18n>
+          <ng-template [ngIf]="alterEgo.errors['required']" i18n>
             Name is required
           </ng-template>
-          <ng-template [ngIf]='alterEgo.errors.maxlength' i18n>
-            The field is too long. Required length: {{alterEgo.errors.maxlength.requiredLength}}.
-            Current: {{alterEgo.errors.maxlength.actualLength}}
+          <ng-template [ngIf]="alterEgo.errors['maxlength']" i18n>
+            The field is too long. Required length: {{alterEgo.errors['maxlength'].requiredLength}}.
+            Current: {{alterEgo.errors['maxlength'].actualLength}}
           </ng-template>
         </mat-error>
       </mat-form-field>

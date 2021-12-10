@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { Hero } from '../../shared/hero.model';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -13,7 +13,6 @@ import { UtilsHelperService } from '../../../core/services/utils-helper.service'
 import { UserService } from '../../../user/user.service';
 import { User } from '../../../user/shared/user.model';
 import { UtilsService } from '../../../../shared/services/utils.service';
-import { StorageService } from '../../../../shared/services/storage.service';
 
 @Component({
   selector: 'app-my-heroes-page',
@@ -29,7 +28,7 @@ import { StorageService } from '../../../../shared/services/storage.service';
 export class MyHeroesPageComponent implements OnInit {
 
   user: User | undefined;
-  newHeroForm: FormGroup;
+  newHeroForm: any;
   canVote = false;
   error: boolean;
   realName: FormControl;
@@ -44,7 +43,6 @@ export class MyHeroesPageComponent implements OnInit {
               private utilsService: UtilsService,
               private router: Router,
               private formBuilder: FormBuilder,
-              private storageService: StorageService,
               @Inject(ROUTES_CONFIG) public routesConfig: any) {
     this.canVote = this.heroService.checkIfUserCanVote();
     this.error = false;
@@ -86,7 +84,7 @@ export class MyHeroesPageComponent implements OnInit {
       if (result) {
         this.heroService.removeHero(hero.id).subscribe((response) => {
           if (!response.errors) {
-            this.utilsService.showSnackBar('Hero removed', 'info-snack-bar')
+            this.utilsService.showSnackBar('Hero removed', 'info-snack-bar');
             this.loadUser();
           } else {
             this.error = true;
@@ -101,7 +99,7 @@ export class MyHeroesPageComponent implements OnInit {
   }
 
   private onChanges() {
-    this.newHeroForm.get('realName')?.valueChanges.subscribe((value) => {
+    this.newHeroForm.get('realName')?.valueChanges.subscribe((value: any) => {
       if (value && value.length >= 3 && UtilsHelperService.isPalindrome(value)) {
         this.snackBar.open('Yeah that\'s a Palindrome!', '', { duration: 2000 });
       } else {

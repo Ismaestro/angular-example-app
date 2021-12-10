@@ -9,7 +9,6 @@
     <br>
     <br>
     Base project made with much :heart:. Contains CRUD, advanced patterns, generated library, and much more!
-    I'm rebuilding the project to add some new cool features like GraphQL. Also, I've been a father a few days ago so please be patient if something doesn't work properly, and feel free to contribute to the project. I will accept MR if they make sense.
     <br>
     <br>
     <img src="https://media.giphy.com/media/BIql9p3KQWYdjq4Sxe/giphy.gif" alt="Demo example"/>
@@ -19,23 +18,19 @@
   </p>
 </p>
 
+## Setup
+
+```bash
+npm i
+npm start
+```
+
 ## Status
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Ismaestro_angular8-example-app&metric=alert_status)](https://sonarcloud.io/dashboard?id=Ismaestro_angular8-example-app)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Ismaestro_angular8-example-app&metric=coverage)](https://sonarcloud.io/dashboard?id=Ismaestro_angular8-example-app)
 [![GitHub stars](https://img.shields.io/github/stars/ismaestro/angular8-example-app.svg?style=social&label=Star)](https://github.com/ismaestro/angular8-example-app)
 [![GitHub forks](https://img.shields.io/github/forks/ismaestro/angular8-example-app.svg?style=social&label=Fork)](https://github.com/ismaestro/angular8-example-app/fork)
-
-## Setup
-
-**WARNING: VERY IMPORTANT**
-> You will need to install node 14 and docker before trying to run this example app.
-
-Then, run:
-```bash
-npm i
-npm start
-```
 
 ## Backend
 
@@ -45,7 +40,7 @@ The server is using NesjJS, Prisma, Postgres and GraphQL. Please check it out an
 ## What's included
 
 - [x] CRUD: create, update and remove heroes with this project!
-- [x] Authentication with JWT tokens
+- [x] Authentication with JWT tokens and [js-cookie](https://github.com/js-cookie/js-cookie)
 - [x] Internationalization with the official i18n. English and Spanish available.
 - [x] Lazy loading modules
 - [x] Service Workers enabled!

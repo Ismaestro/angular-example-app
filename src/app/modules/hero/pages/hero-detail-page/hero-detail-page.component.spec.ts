@@ -57,6 +57,6 @@ describe('HeroDetailPage', () => {
 
   it('should create hero detail component', (() => {
     expect(component).toBeTruthy();
-    expect(component.hero.id).toBe('1');
+    expect(component.hero?.id).toBe('1');
   }));
 });
