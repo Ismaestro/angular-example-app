@@ -2,7 +2,7 @@
   <h3 align="center">Angular Example App</h3>
 
   <p align="center">
-    Example app with Angular + Angular CLI + i18n + Graphql
+    Example app with Angular 13 + Angular CLI + i18n + Graphql
     <br>
     <br>
     :clap::clap::tada::tada::tada::tada::clap::clap:
