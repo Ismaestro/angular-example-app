@@ -6,7 +6,7 @@ import { DOCUMENT } from '@angular/common';
 import { RoutesConfig } from './configs/routes.config';
 import { UtilsHelperService } from './modules/core/services/utils-helper.service';
 
-declare const Modernizr;
+declare const Modernizr: any;
 
 @Component({
   selector: 'app-root',

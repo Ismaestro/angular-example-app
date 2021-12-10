@@ -57,7 +57,7 @@ export class HeroService {
         }
       `
     })
-    .valueChanges.pipe(map((result: any) => result.data.searchHeroes.edges.map((edge) => new Hero(edge.node))));
+    .valueChanges.pipe(map((result: any) => result.data.searchHeroes.edges.map((edge: any) => new Hero(edge.node))));
   }
 
   getHeroById(id: string): Observable<Hero> {

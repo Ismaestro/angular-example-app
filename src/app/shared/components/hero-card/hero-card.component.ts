@@ -21,9 +21,9 @@ import { StorageService } from '../../services/storage.service';
 })
 export class HeroCardComponent implements OnInit {
 
-  @Input() hero: Hero;
+  @Input() hero: Hero | undefined;
 
-  canVote: boolean;
+  canVote: boolean = false;
 
   constructor(private heroService: HeroService,
               private router: Router,
@@ -36,7 +36,7 @@ export class HeroCardComponent implements OnInit {
     this.canVote = this.heroService.checkIfUserCanVote();
   }
 
-  like(hero: Hero): Promise<void> {
+  like(hero: Hero): Promise<void> | void {
     if (this.canVote) {
       hero.like();
       this.storageService.setCookie('votes', '' + (Number(this.storageService.getCookie('votes') || 0) + 1));

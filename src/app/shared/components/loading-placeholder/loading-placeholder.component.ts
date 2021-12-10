@@ -7,8 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class LoadingPlaceholderComponent {
 
-  @Input() height: string;
-  @Input() width: string;
+  @Input() height: string = '';
+  @Input() width: string = '';
 
   constructor() {
   }

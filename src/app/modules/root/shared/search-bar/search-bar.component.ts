@@ -28,7 +28,7 @@ export class SearchBarComponent implements OnInit {
       this.defaultHeroes = heroes;
 
       this.heroFormControl.valueChanges.pipe(
-        startWith(null as string),
+        startWith(null as unknown as string),
         map(value => this.filterHeroes(value)))
         .subscribe(heroesFiltered => {
           this.filteredHeroes = heroesFiltered;

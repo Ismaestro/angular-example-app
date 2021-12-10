@@ -29,10 +29,6 @@
           <span>{{hero.realName}}</span>
         </p>
         <div class='hero-actions'>
-          {{hero.votes | number:'.0'}}
-          <mat-icon class='icon__like--red' (click)='like(hero)'>
-            favorite
-          </mat-icon>
           <mat-icon class='icon__remove' *ngIf='!hero.default'
                     (click)='deleteHero(hero);'>
             delete

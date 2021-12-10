@@ -11,7 +11,7 @@ export class TokenInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const headers = { req_uuid: uuid4() };
+    const headers = { req_uuid: uuid4(), Authorization: '' };
 
     const token = this.storageService.getCookie('accessToken');
 

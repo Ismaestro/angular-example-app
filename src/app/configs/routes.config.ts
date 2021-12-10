@@ -20,7 +20,7 @@ const routesNames = {
   }
 };
 
-export const getHeroDetail = id => `/${basePaths.hero}/${id}`;
+export const getHeroDetail = (id: string) => `/${basePaths.hero}/${id}`;
 
 export const RoutesConfig: any = {
   basePaths,

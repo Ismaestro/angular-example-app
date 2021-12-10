@@ -28,14 +28,14 @@ import { StorageService } from '../../../../shared/services/storage.service';
 
 export class MyHeroesPageComponent implements OnInit {
 
-  user: User;
+  user: User | undefined;
   newHeroForm: FormGroup;
   canVote = false;
   error: boolean;
   realName: FormControl;
   alterEgo: FormControl;
 
-  @ViewChild('form', { static: false }) myNgForm; // just to call resetForm method
+  @ViewChild('form', { static: false }) myNgForm: any = ''; // just to call resetForm method
 
   constructor(private heroService: HeroService,
               private userService: UserService,
@@ -47,7 +47,7 @@ export class MyHeroesPageComponent implements OnInit {
               private storageService: StorageService,
               @Inject(ROUTES_CONFIG) public routesConfig: any) {
     this.canVote = this.heroService.checkIfUserCanVote();
-
+    this.error = false;
     this.realName = new FormControl('', [Validators.required, Validators.maxLength(30)]);
     this.alterEgo = new FormControl('', [Validators.required, Validators.maxLength(30)]);
     this.newHeroForm = this.formBuilder.group({
@@ -80,17 +80,6 @@ export class MyHeroesPageComponent implements OnInit {
     }
   }
 
-  like(hero: Hero) {
-    this.canVote = this.heroService.checkIfUserCanVote();
-    if (this.canVote) {
-      hero.like();
-      this.storageService.setCookie('votes', '' + (Number(this.storageService.getCookie('votes') || 0) + 1));
-      this.heroService.updateHero(hero);
-    } else {
-      this.snackBar.open('Can\'t vote anymore', '', { duration: 1000 });
-    }
-  }
-
   deleteHero(hero: Hero) {
     const dialogRef = this.dialog.open(HeroRemoveComponent);
     dialogRef.afterClosed().subscribe(result => {
@@ -112,7 +101,7 @@ export class MyHeroesPageComponent implements OnInit {
   }
 
   private onChanges() {
-    this.newHeroForm.get('realName').valueChanges.subscribe((value) => {
+    this.newHeroForm.get('realName')?.valueChanges.subscribe((value) => {
       if (value && value.length >= 3 && UtilsHelperService.isPalindrome(value)) {
         this.snackBar.open('Yeah that\'s a Palindrome!', '', { duration: 2000 });
       } else {

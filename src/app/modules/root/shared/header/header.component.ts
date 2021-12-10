@@ -23,6 +23,8 @@ export class HeaderComponent implements OnInit {
               private storageService: StorageService,
               private authService: AuthService,
               private router: Router) {
+    this.selectedLanguage = '';
+    this.currentUrl = '';
     this.languages = [{ name: 'en', label: 'English' }, { name: 'es', label: 'Español' }];
     this.isLoggedIn = this.authService.isLoggedIn();
   }

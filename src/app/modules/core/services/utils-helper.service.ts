@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 
-declare const require;
+declare const require: any;
 const bowser = require('bowser');
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilsHelperService {
-  static isPalindrome(str) {
+  static isPalindrome(str: string) {
     const len = Math.floor(str.length / 2);
     for (let i = 0; i < len; i++) {
       if (str[i] !== str[str.length - i - 1]) {

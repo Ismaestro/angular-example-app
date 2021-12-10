@@ -10,6 +10,7 @@ export class HeroResolver implements Resolve<Observable<Hero>> {
   }
 
   async resolve(route: ActivatedRouteSnapshot) {
-    return this.heroService.getHeroById(route.paramMap.get('id'));
+    const id: string = route.paramMap.get('id') || '';
+    return this.heroService.getHeroById(id);
   }
 }

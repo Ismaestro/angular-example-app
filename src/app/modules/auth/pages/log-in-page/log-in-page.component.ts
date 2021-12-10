@@ -19,7 +19,7 @@ import { UtilsService } from '../../../../shared/services/utils.service';
 })
 
 export class LogInPageComponent {
-  @ViewChild('loginForm') loginForm;
+  @ViewChild('loginForm') loginForm: any;
 
   logInForm: FormGroup;
   email = new FormControl('', [Validators.required, Validators.email]);
@@ -37,10 +37,12 @@ export class LogInPageComponent {
     });
   }
 
-  getErrorMessage(field) {
-    if (this[field]?.hasError('required')) {
+  getErrorMessage(field: string): string | void {
+    // @ts-ignore
+    const classField = this[field];
+    if (classField?.hasError('required')) {
       return 'You must enter a value';
-    } else if (this[field]?.hasError('email')) {
+    } else if (classField?.hasError('email')) {
       return 'Not a valid email';
     }
   }

@@ -21,9 +21,13 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     try {
-      return !!jwt_decode(this.storageService.getCookie('accessToken'));
+      const token = this.storageService.getCookie('accessToken');
+      if (token) {
+        return !!jwt_decode(token);
+      }
+      return false;
     } catch (Error) {
-      return null;
+      return false;
     }
   }
 
@@ -32,7 +36,7 @@ export class AuthService {
     return Number(votes ? votes : 0) < AppConfig.votesLimit;
   }
 
-  signUp(firstName: string, lastName: string, email: string, password: string): Observable<{ accessToken, refreshToken }> {
+  signUp(firstName: string, lastName: string,email: string, password: string): Observable<{ accessToken: string, refreshToken: string }> {
     return this.apollo.mutate({
       mutation: gql`
         mutation signUp {
@@ -52,7 +56,7 @@ export class AuthService {
     }));
   }
 
-  logIn(email: string, password: string): Observable<{ accessToken, refreshToken }> {
+  logIn(email: string, password: string): Observable<{ accessToken: string, refreshToken: string }> {
     return this.apollo.mutate({
       mutation: gql`
         mutation logIn {

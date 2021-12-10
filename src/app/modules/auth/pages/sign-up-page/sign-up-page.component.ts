@@ -17,7 +17,7 @@ import { UtilsService } from '../../../../shared/services/utils.service';
 })
 
 export class SignUpPageComponent {
-  @ViewChild('signupForm') signupForm;
+  @ViewChild('signupForm') signupForm: any;
 
   signUpForm: FormGroup;
   firstName = new FormControl('', [Validators.required, Validators.maxLength(100)]);
@@ -38,12 +38,14 @@ export class SignUpPageComponent {
     });
   }
 
-  getErrorMessage(field) {
-    if (this[field]?.hasError('required')) {
+  getErrorMessage(field: any): string | void {
+    // @ts-ignore
+    const classField: any = this[field];
+    if (classField?.hasError('required')) {
       return 'You must enter a value';
-    } else if (this[field]?.hasError('email')) {
+    } else if (classField?.hasError('email')) {
       return 'Not a valid email';
-    } else if (this[field]?.hasError('pattern')) {
+    } else if (classField?.hasError('pattern')) {
       return 'Not a valid password';
     }
   }

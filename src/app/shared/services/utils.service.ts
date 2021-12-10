@@ -10,7 +10,7 @@ export class UtilsService {
   constructor(private snackBar: MatSnackBar) {
   }
 
-  showSnackBar(name, panelClass): void {
+  showSnackBar(name: string, panelClass: string): void {
     const config: any = new MatSnackBarConfig();
     config.duration = panelClass === 'warning-snack-bar' ? 50000 : AppConfig.snackBarDuration;
     config.horizontalPosition = 'right';

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { map } from 'rxjs/operators';
 import { User } from './shared/user.model';
+import { WatchQueryFetchPolicy } from '@apollo/client/core';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class UserService {
   constructor(private apollo: Apollo) {
   }
 
-  getMe({fetchPolicy}): Observable<User> {
+  getMe({ fetchPolicy }: { fetchPolicy: WatchQueryFetchPolicy }): Observable<User> {
     return this.apollo
     .watchQuery({
       query: gql`

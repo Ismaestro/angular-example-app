@@ -9,15 +9,15 @@ export class StorageService {
   constructor() {
   }
 
-  getCookie(name) {
+  getCookie(name: string): string | undefined  {
     return Cookies.get(name);
   }
 
-  setCookie(name, value, expires?) {
+  setCookie(name: string, value: string, expires?: number): string | undefined {
     return Cookies.set(name, value, { expires: expires || 365 });
   }
 
-  removeCookie(name) {
+  removeCookie(name: string): void {
     return Cookies.remove(name);
   }
 }

@@ -19,7 +19,7 @@ import { RoutesConfig } from '../../../../configs/routes.config';
 
 export class HeroDetailPageComponent implements OnInit {
 
-  hero: Hero;
+  hero: Hero | undefined;
 
   constructor(private location: Location,
               private router: Router,
@@ -27,7 +27,7 @@ export class HeroDetailPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.activatedRoute.snapshot.data.hero.subscribe((hero) => {
+    this.activatedRoute.snapshot.data['hero'].subscribe((hero: Hero) => {
       this.hero = hero;
     });
   }
@@ -37,6 +37,8 @@ export class HeroDetailPageComponent implements OnInit {
   }
 
   goToTheAnchor(): void {
-    this.router.navigate([RoutesConfig.routes.hero.detail(this.hero.id)], { fragment: 'heroe-detail' });
+    if (this.hero) {
+      this.router.navigate([RoutesConfig.routes.hero.detail(this.hero.id)], { fragment: 'heroe-detail' });
+    }
   }
 }
