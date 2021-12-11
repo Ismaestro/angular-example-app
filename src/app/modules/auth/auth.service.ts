@@ -31,11 +31,6 @@ export class AuthService {
     }
   }
 
-  checkIfUserCanVote(): boolean {
-    const votes = this.storageService.getCookie('votes');
-    return Number(votes ? votes : 0) < AppConfig.votesLimit;
-  }
-
   signUp(firstName: string, lastName: string,email: string, password: string): Observable<{ accessToken: string, refreshToken: string }> {
     return this.apollo.mutate({
       mutation: gql`

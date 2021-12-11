@@ -44,10 +44,4 @@ describe('HeroCardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  xit('should like a hero', () => {
-    const hero = new Hero({ likes: 1 });
-    hero.like();
-    expect(hero.votes).toBe(2);
-  });
 });

@@ -6,7 +6,6 @@ import { transition, trigger, useAnimation } from '@angular/animations';
 import { fadeIn } from 'ng-animate';
 import { ROUTES_CONFIG } from '../../../configs/routes.config';
 import { HeroService } from '../../../modules/hero/shared/hero.service';
-import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'app-hero-card',
@@ -28,17 +27,14 @@ export class HeroCardComponent implements OnInit {
   constructor(private heroService: HeroService,
               private router: Router,
               private snackBar: MatSnackBar,
-              private storageService: StorageService,
               @Inject(ROUTES_CONFIG) public routesConfig: any) {
   }
 
   ngOnInit() {
-    this.canVote = this.heroService.checkIfUserCanVote();
   }
 
   like(hero: Hero): Promise<void> | void {
     if (this.canVote) {
-      this.storageService.setCookie('votes', '' + (Number(this.storageService.getCookie('votes') || 0) + 1));
       return this.heroService.updateHero(hero);
     } else {
       this.snackBar.open('Can\'t vote anymore', '', { duration: 1000 });

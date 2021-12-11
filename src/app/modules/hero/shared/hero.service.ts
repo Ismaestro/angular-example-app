@@ -15,11 +15,6 @@ export class HeroService {
               private storageService: StorageService) {
   }
 
-  checkIfUserCanVote(): boolean {
-    const votes = this.storageService.getCookie('votes');
-    return Number(votes ? votes : 0) < AppConfig.votesLimit;
-  }
-
   searchHeroes(): Observable<Hero[]> {
     return this.apollo
     .watchQuery({
@@ -67,7 +62,6 @@ export class HeroService {
             id
             realName
             alterEgo
-            votes
             image
             published
           }
@@ -87,7 +81,6 @@ export class HeroService {
             id
             realName
             alterEgo
-            votes
             image
             published
           }
