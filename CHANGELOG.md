@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [13.1.0](https://github.com/Ismaestro/angular-example-app/compare/v13.0.0...v13.1.0) (2021-12-11)
+
+
+### Bug Fixes
+
+* **hero:** remove votes field in template ([aef06c6](https://github.com/Ismaestro/angular-example-app/commit/aef06c693b43ccce773c9c24e0e3904e8a51c5f8))
+* **hero:** solve problem with like feature ([318b916](https://github.com/Ismaestro/angular-example-app/commit/318b9163702cfcbd95041202c2b940b33468e260))
+
 ## [13.0.0](https://github.com/Ismaestro/angular-example-app/compare/v12.0.0...v13.0.0) (2021-12-11)
 
 ## [12.0.0](https://github.com/Ismaestro/angular-example-app/compare/v11.0.0...v12.0.0) (2021-12-11)
