@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [11.0.0](https://github.com/Ismaestro/angular-example-app/compare/v10.0.0...v11.0.0) (2021-12-11)
+
 ## [10.0.0](https://github.com/Ismaestro/angular-example-app/compare/v8.0.0...v10.0.0) (2021-12-11)
 
 
