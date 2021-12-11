@@ -41,7 +41,6 @@ export class HeroService {
                 id
                 realName
                 alterEgo
-                votes
                 image
                 published
               }

@@ -4,7 +4,6 @@ export class Hero implements Deserializable {
   id: string;
   realName: string;
   alterEgo: string;
-  votes: number;
   published: boolean;
   image: string;
 
@@ -12,13 +11,8 @@ export class Hero implements Deserializable {
     this.id = hero.id;
     this.realName = hero.realName || '';
     this.alterEgo = hero.alterEgo || '';
-    this.votes = hero.votes || 0;
     this.published = hero.published || false;
     this.image = hero.image || '';
-  }
-
-  like() {
-    this.votes += 1;
   }
 
   deserialize(input: any) {

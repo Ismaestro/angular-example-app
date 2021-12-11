@@ -38,7 +38,6 @@ export class HeroCardComponent implements OnInit {
 
   like(hero: Hero): Promise<void> | void {
     if (this.canVote) {
-      hero.like();
       this.storageService.setCookie('votes', '' + (Number(this.storageService.getCookie('votes') || 0) + 1));
       return this.heroService.updateHero(hero);
     } else {
