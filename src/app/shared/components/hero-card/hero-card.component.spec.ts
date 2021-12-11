@@ -15,7 +15,7 @@ describe('HeroCardComponent', () => {
   let fixture: ComponentFixture<HeroCardComponent>;
 
   const matSnackBarSpy = jasmine.createSpyObj('MatSnackBar', ['open']);
-  const heroServiceSpy = jasmine.createSpyObj('HeroService', ['checkIfUserCanVote', 'updateHero']);
+  const heroServiceSpy = jasmine.createSpyObj('HeroService', ['updateHero']);
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({

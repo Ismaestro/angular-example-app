@@ -35,7 +35,6 @@ describe('HeroesListPageComponent', () => {
   const matDialogSpy = jasmine.createSpyObj('MatDialog', ['open']);
   const matSnackBarSpy = jasmine.createSpyObj('MatSnackBar', ['open', 'dismiss']);
   const heroServiceSpy = jasmine.createSpyObj('HeroService', [
-    'checkIfUserCanVote',
     'createHero',
     'searchHeroes',
     'updateHero',
@@ -70,7 +69,6 @@ describe('HeroesListPageComponent', () => {
       ],
     }).compileComponents();
 
-    heroServiceSpy.checkIfUserCanVote.and.returnValue(true);
     fixture = TestBed.createComponent(MyHeroesPageComponent);
     component = fixture.debugElement.componentInstance;
     router = TestBed.inject(Router);

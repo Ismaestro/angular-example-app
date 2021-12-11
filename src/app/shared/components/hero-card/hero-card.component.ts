@@ -1,7 +1,5 @@
-import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input } from '@angular/core';
 import { Hero } from '../../../modules/hero/shared/hero.model';
-import { Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { transition, trigger, useAnimation } from '@angular/animations';
 import { fadeIn } from 'ng-animate';
 import { ROUTES_CONFIG } from '../../../configs/routes.config';
@@ -18,27 +16,16 @@ import { HeroService } from '../../../modules/hero/shared/hero.service';
     }))])
   ]
 })
-export class HeroCardComponent implements OnInit {
+export class HeroCardComponent {
 
   @Input() hero: Hero | undefined;
 
-  canVote: boolean = false;
-
   constructor(private heroService: HeroService,
-              private router: Router,
-              private snackBar: MatSnackBar,
               @Inject(ROUTES_CONFIG) public routesConfig: any) {
   }
 
-  ngOnInit() {
-  }
-
   like(hero: Hero): Promise<void> | void {
-    if (this.canVote) {
-      return this.heroService.updateHero(hero);
-    } else {
-      this.snackBar.open('Can\'t vote anymore', '', { duration: 1000 });
-    }
+    return this.heroService.updateHero(hero);
   }
 
 }

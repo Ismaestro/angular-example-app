@@ -29,7 +29,6 @@ export class MyHeroesPageComponent implements OnInit {
 
   user: User | undefined;
   newHeroForm: any;
-  canVote = false;
   error: boolean;
   realName: FormControl;
   alterEgo: FormControl;
@@ -44,7 +43,6 @@ export class MyHeroesPageComponent implements OnInit {
               private router: Router,
               private formBuilder: FormBuilder,
               @Inject(ROUTES_CONFIG) public routesConfig: any) {
-    this.canVote = this.heroService.checkIfUserCanVote();
     this.error = false;
     this.realName = new FormControl('', [Validators.required, Validators.maxLength(30)]);
     this.alterEgo = new FormControl('', [Validators.required, Validators.maxLength(30)]);
