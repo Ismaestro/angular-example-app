@@ -31,7 +31,7 @@ xdescribe('HeroService', () => {
   });
 
   it('should get heroes', () => {
-    heroService.searchHeroes().subscribe((heroes: Hero[]) => {
+    heroService.searchHeroes({ fetchPolicy: 'no-cache' }).subscribe((heroes: Hero[]) => {
       expect(heroes.length).toBe(1);
     });
   });
@@ -46,18 +46,6 @@ xdescribe('HeroService', () => {
       console.log('response', response);
       expect(response).toBe(1);
     });
-  });
-
-  it('should update hero', () => {
-    heroService
-      .updateHero(
-        new Hero({
-          name: 'test',
-          alterEgo: 'test'
-        })
-      )
-      .then(() => {
-      });
   });
 
   it('should delete hero', () => {

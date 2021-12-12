@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from '../../../hero/shared/hero.model';
 import { Observable } from 'rxjs';
 import { HeroService } from '../../../hero/shared/hero.service';
+import { EventsService, EventsTypes } from '../../../core/services/events.servide';
 
 @Component({
   selector: 'app-home-page',
@@ -12,7 +13,8 @@ import { HeroService } from '../../../hero/shared/hero.service';
 export class HomePageComponent implements OnInit {
   heroes$: Observable<Hero[]> | undefined;
 
-  constructor(private heroService: HeroService) {
+  constructor(private heroService: HeroService,
+              private eventsService: EventsService) {
     // @ts-ignore
     if (window.Cypress) {
       // @ts-ignore
@@ -21,6 +23,12 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.heroes$ = this.heroService.searchHeroes();
+    this.heroes$ = this.heroService.searchHeroes({ fetchPolicy: 'no-cache' });
+
+    this.eventsService.events$.subscribe((event) => {
+      if (event.type === EventsTypes.UPDATE_HEROES) {
+        this.heroes$ = this.heroService.searchHeroes({ fetchPolicy: 'no-cache' });
+      }
+    })
   }
 }

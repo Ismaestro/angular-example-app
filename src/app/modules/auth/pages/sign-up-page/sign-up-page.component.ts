@@ -1,9 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { transition, trigger, useAnimation } from '@angular/animations';
 import { fadeIn } from 'ng-animate';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../auth.service';
 import { UtilsService } from '../../../../shared/services/utils.service';
+import { RoutesConfig } from '../../../../configs/routes.config';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up-page',
@@ -17,8 +19,6 @@ import { UtilsService } from '../../../../shared/services/utils.service';
 })
 
 export class SignUpPageComponent {
-  @ViewChild('signupForm') signupForm: any;
-
   signUpForm: FormGroup;
   firstName = new FormControl('', [Validators.required, Validators.maxLength(100)]);
   lastName = new FormControl('', [Validators.required, Validators.maxLength(100)]);
@@ -28,6 +28,7 @@ export class SignUpPageComponent {
 
   constructor(private formBuilder: FormBuilder,
               private authService: AuthService,
+              private router: Router,
               private utilsService: UtilsService
   ) {
     this.signUpForm = this.formBuilder.group({
@@ -56,8 +57,9 @@ export class SignUpPageComponent {
       this.authService.signUp(formValue.firstName, formValue.lastName, formValue.email, formValue.password)
         .subscribe((response: any) => {
           if (!response.errors) {
-            this.signupForm.resetForm();
-            this.utilsService.showSnackBar('Cool! Now try to log in!', 'info-snack-bar');
+            this.router.navigate([RoutesConfig.routes.auth.logIn]).then(() => {
+              this.utilsService.showSnackBar('Cool! Now try to log in!', 'info-snack-bar');
+            });
           } else if (response.errors[0].code === 10000) {
             this.utilsService.showSnackBar('This email is not available. Try again, with a different one.', 'warning-snack-bar');
           }

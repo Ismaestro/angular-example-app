@@ -113,7 +113,7 @@ describe('HeroesListPageComponent', () => {
         return of(true);
       },
     });
-    heroServiceSpy.removeHero.and.returnValue(new Promise(() => true));
+    heroServiceSpy.removeHero.and.returnValue(of(true));
     component.deleteHero(hero);
     expect(heroServiceSpy.removeHero).toHaveBeenCalledWith('testId');
   });

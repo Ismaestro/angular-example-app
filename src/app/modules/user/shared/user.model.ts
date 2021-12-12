@@ -7,6 +7,7 @@ export enum Role {
 }
 
 export class User implements Deserializable {
+  id: string;
   email: string;
   firstname: string;
   lastname: string;
@@ -14,6 +15,7 @@ export class User implements Deserializable {
   heroes: Hero[];
 
   constructor(user: any = {}) {
+    this.id = user.id;
     this.email = user.email;
     this.firstname = user.firstname;
     this.lastname = user.lastname;

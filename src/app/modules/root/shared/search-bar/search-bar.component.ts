@@ -24,7 +24,7 @@ export class SearchBarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.heroService.searchHeroes().subscribe((heroes: Array<Hero>) => {
+    this.heroService.searchHeroes({ fetchPolicy: 'no-cache' }).subscribe((heroes: Array<Hero>) => {
       this.defaultHeroes = heroes;
 
       this.heroFormControl.valueChanges.pipe(

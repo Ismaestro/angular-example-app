@@ -1,4 +1,5 @@
 import { Deserializable } from '../../../shared/interfaces/deserializable.interface';
+import { User } from '../../user/shared/user.model';
 
 export class Hero implements Deserializable {
   id: string;
@@ -6,6 +7,7 @@ export class Hero implements Deserializable {
   alterEgo: string;
   published: boolean;
   image: string;
+  usersVoted: User[];
 
   constructor(hero: any = {}) {
     this.id = hero.id;
@@ -13,6 +15,7 @@ export class Hero implements Deserializable {
     this.alterEgo = hero.alterEgo || '';
     this.published = hero.published || false;
     this.image = hero.image || '';
+    this.usersVoted = hero.usersVoted || [];
   }
 
   deserialize(input: any) {

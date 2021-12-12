@@ -1,21 +1,19 @@
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { AppConfig } from '../../../configs/app.config';
 import { Hero } from './hero.model';
 import { Apollo, gql } from 'apollo-angular';
-import { StorageService } from '../../../shared/services/storage.service';
+import { WatchQueryFetchPolicy } from '@apollo/client/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeroService {
 
-  constructor(private apollo: Apollo,
-              private storageService: StorageService) {
+  constructor(private apollo: Apollo) {
   }
 
-  searchHeroes(): Observable<Hero[]> {
+  searchHeroes({ fetchPolicy }: { fetchPolicy: WatchQueryFetchPolicy }): Observable<Hero[]> {
     return this.apollo
     .watchQuery({
       query: gql`
@@ -25,8 +23,8 @@ export class HeroService {
             after: ""
             first: 10
             orderBy: {
-              direction: asc
-              field: createdAt
+              direction: desc
+              field: usersVoted
             }
             skip: 0
           ) {
@@ -38,6 +36,9 @@ export class HeroService {
                 alterEgo
                 image
                 published
+                usersVoted {
+                  firstname
+                }
               }
             }
             pageInfo {
@@ -49,7 +50,8 @@ export class HeroService {
             totalCount
           }
         }
-      `
+      `,
+      fetchPolicy
     })
     .valueChanges.pipe(map((result: any) => result.data.searchHeroes.edges.map((edge: any) => new Hero(edge.node))));
   }
@@ -91,10 +93,18 @@ export class HeroService {
     }));
   }
 
-  updateHero(hero: Hero): Promise<void> {
-    return new Promise((resolve) => {
-      resolve((JSON.parse(JSON.stringify(hero))));
-    });
+  voteHero(hero: Hero) {
+    return this.apollo.mutate({
+      mutation: gql`
+        mutation VoteHero {
+          voteHero(heroId: "${hero.id}") {
+            id
+          }
+        }
+      `
+    }).pipe(map((response: any) => {
+      return !response.errors ? response.data.voteHero : response;
+    }));
   }
 
   removeHero(id: string) {
