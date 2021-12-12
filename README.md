@@ -75,8 +75,7 @@ translate the messages you can use this awesome tool,
 
 ## Bugs and feature requests
 
-Have a bug or a feature request? Please first read the
-[issue guidelines](https://github.com/Ismaestro/angular-example-app/blob/master/CONTRIBUTING.md)
+Have a bug or a feature request? Please first read the issue guidelines
 and search for existing and closed issues. If your problem or idea is not addressed yet,
 [please open a new issue](https://github.com/Ismaestro/angular-example-app/issues/new).
 
