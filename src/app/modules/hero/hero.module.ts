@@ -7,21 +7,8 @@ import { HeroDetailPageComponent } from './pages/hero-detail-page/hero-detail-pa
 import { MyHeroesPageComponent } from './pages/my-heroes-page/my-heroes-page.component';
 
 @NgModule({
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    SharedModule,
-    HeroRoutingModule
-  ],
-  declarations: [
-    MyHeroesPageComponent,
-    HeroDetailPageComponent,
-    HeroRemoveComponent,
-  ],
-  entryComponents: [
-    HeroRemoveComponent
-  ]
+  imports: [FormsModule, ReactiveFormsModule, SharedModule, HeroRoutingModule],
+  declarations: [MyHeroesPageComponent, HeroDetailPageComponent, HeroRemoveComponent],
+  entryComponents: [HeroRemoveComponent],
 })
-
-export class HeroModule {
-}
+export class HeroModule {}

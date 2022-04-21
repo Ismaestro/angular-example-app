@@ -4,13 +4,15 @@ import { UtilsHelperService } from './utils-helper.service';
 describe('UtilsHelperService', () => {
   let utilsHelperService: UtilsHelperService;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      providers: [UtilsHelperService],
-    });
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        providers: [UtilsHelperService],
+      });
 
-    utilsHelperService = TestBed.inject(UtilsHelperService);
-  }));
+      utilsHelperService = TestBed.inject(UtilsHelperService);
+    })
+  );
 
   it('should check if is palindrome', () => {
     expect(UtilsHelperService.isPalindrome('')).toBe(true);

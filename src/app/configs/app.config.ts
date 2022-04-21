@@ -1,6 +1,6 @@
 import { InjectionToken } from '@angular/core';
 
-export let APP_CONFIG = new InjectionToken('app.config');
+export const APP_CONFIG = new InjectionToken('app.config');
 
 export const AppConfig: any = {
   topHeroesLimit: 5,
@@ -9,7 +9,7 @@ export const AppConfig: any = {
   sentryDSN: 'https://38434a1b115f41d3a31e356cdc496c06@sentry.io/1315526',
   cspDirectives: {
     defaultSrc: [
-      '\'self\'',
+      "'self'",
       'data:',
       'http://*.google-analytics.com',
       'http://www.googletagmanager.com',
@@ -21,20 +21,16 @@ export const AppConfig: any = {
       'https://authedmine.com',
       'https://az743702.vo.msecnd.net',
       'https://sentry.io',
-      'ws://localhost:4200'
+      'ws://localhost:4200',
     ],
-    frameAncestors: ['\'self\''],
+    frameAncestors: ["'self'"],
     upgradeInsecureRequests: true,
-    styleSrc: [
-      '\'self\'',
-      '\'unsafe-inline\'',
-      'https://*.googleapis.com'
-    ],
+    styleSrc: ["'self'", "'unsafe-inline'", 'https://*.googleapis.com'],
     scriptSrc: [
-      '\'self\'',
-      '\'unsafe-inline\'',
+      "'self'",
+      "'unsafe-inline'",
       'http://*.googletagmanager.com',
-      'https://*.google-analytics.com'
-    ]
-  }
+      'https://*.google-analytics.com',
+    ],
+  },
 };

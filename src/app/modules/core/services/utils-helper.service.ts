@@ -4,7 +4,7 @@ declare const require: any;
 const bowser = require('bowser');
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UtilsHelperService {
   static isPalindrome(str: string) {
@@ -21,14 +21,14 @@ export class UtilsHelperService {
     const browser = bowser.getParser(window.navigator.userAgent);
     return browser.satisfies({
       windows: {
-        'internet explorer': '>10'
+        'internet explorer': '>10',
       },
       macos: {
-        safari: '>10.1'
+        safari: '>10.1',
       },
       chrome: '>20.1.1432',
       firefox: '>31',
-      opera: '>22'
+      opera: '>22',
     });
   }
 }

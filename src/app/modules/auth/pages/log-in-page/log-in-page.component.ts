@@ -12,12 +12,16 @@ import { UtilsService } from '../../../../shared/services/utils.service';
   templateUrl: './log-in-page.component.html',
   styleUrls: ['./log-in-page.component.scss'],
   animations: [
-    trigger('fadeIn', [transition('* => *', useAnimation(fadeIn, {
-      params: { timing: 1, delay: 0 }
-    }))])
-  ]
+    trigger('fadeIn', [
+      transition(
+        '* => *',
+        useAnimation(fadeIn, {
+          params: { timing: 1, delay: 0 },
+        })
+      ),
+    ]),
+  ],
 })
-
 export class LogInPageComponent {
   @ViewChild('loginForm') loginForm: any;
 
@@ -26,14 +30,15 @@ export class LogInPageComponent {
   password = new FormControl('', [Validators.required]);
   hide = true;
 
-  constructor(private formBuilder: FormBuilder,
-              private authService: AuthService,
-              private router: Router,
-              private utilsService: UtilsService
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+    private utilsService: UtilsService
   ) {
     this.logInForm = this.formBuilder.group({
       email: this.email,
-      password: this.password
+      password: this.password,
     });
   }
 
@@ -50,15 +55,13 @@ export class LogInPageComponent {
   sendForm() {
     if (this.logInForm.valid) {
       const formValue = this.logInForm.value;
-      this.authService.logIn(formValue.email, formValue.password)
-        .subscribe((response: any) => {
-          if (!response.errors) {
-            this.router.navigate([RoutesConfig.routes.hero.myHeroes]);
-          } else if (response.errors[0].code === 11000) {
-            this.utilsService.showSnackBar('Nice! Let\'s create some heroes', 'info-snack-bar');
-          }
-        });
+      this.authService.logIn(formValue.email, formValue.password).subscribe((response: any) => {
+        if (!response.errors) {
+          this.router.navigate([RoutesConfig.routes.hero.myHeroes]);
+        } else if (response.errors[0].code === 11000) {
+          this.utilsService.showSnackBar("Nice! Let's create some heroes", 'info-snack-bar');
+        }
+      });
     }
   }
-
 }

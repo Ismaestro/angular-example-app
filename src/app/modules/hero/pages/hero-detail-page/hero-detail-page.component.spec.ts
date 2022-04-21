@@ -17,46 +17,47 @@ describe('HeroDetailPage', () => {
 
   const heroServiceSpy = jasmine.createSpyObj('HeroService', ['getHero']);
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        NoopAnimationsModule
-      ],
-      declarations: [
-        MockComponent(HeroLoadingComponent),
-        MockComponent(HeroCardComponent),
-        HeroDetailPageComponent
-      ],
-      providers: [
-        {
-          provide: ActivatedRoute,
-          useValue: {
-            snapshot: {
-              data: {
-                hero: of(new Hero({ id: '1' }))
-              }
-            }
-          }
-        },
-        { provide: HeroService, useValue: heroServiceSpy },
-        {
-          provide: Location, useValue: {
-            back: () => {
-            }
-          }
-        }
-      ]
-    }).compileComponents();
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [RouterTestingModule, NoopAnimationsModule],
+        declarations: [
+          MockComponent(HeroLoadingComponent),
+          MockComponent(HeroCardComponent),
+          HeroDetailPageComponent,
+        ],
+        providers: [
+          {
+            provide: ActivatedRoute,
+            useValue: {
+              snapshot: {
+                data: {
+                  hero: of(new Hero({ id: '1' })),
+                },
+              },
+            },
+          },
+          { provide: HeroService, useValue: heroServiceSpy },
+          {
+            provide: Location,
+            useValue: {
+              back: () => {},
+            },
+          },
+        ],
+      }).compileComponents();
 
-    fixture = TestBed.createComponent(HeroDetailPageComponent);
-    component = fixture.debugElement.componentInstance;
-    heroServiceSpy.getHero.and.returnValue(of(new Hero({ id: '1', name: 'test', default: true })));
-    fixture.detectChanges();
-  }));
+      fixture = TestBed.createComponent(HeroDetailPageComponent);
+      component = fixture.debugElement.componentInstance;
+      heroServiceSpy.getHero.and.returnValue(
+        of(new Hero({ id: '1', name: 'test', default: true }))
+      );
+      fixture.detectChanges();
+    })
+  );
 
-  it('should create hero detail component', (() => {
+  it('should create hero detail component', () => {
     expect(component).toBeTruthy();
     expect(component.hero?.id).toBe('1');
-  }));
+  });
 });

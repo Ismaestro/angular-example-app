@@ -22,7 +22,7 @@ import { HeroCardComponent } from './components/hero-card/hero-card.component';
     RouterModule,
     NgxExampleLibraryModule,
     NgxScrollToFirstInvalidModule,
-    LazyLoadImageModule
+    LazyLoadImageModule,
   ],
   declarations: [
     SpinnerComponent,
@@ -43,8 +43,6 @@ import { HeroCardComponent } from './components/hero-card/hero-card.component';
     LazyLoadImageModule,
     HeroLoadingComponent,
     HeroCardComponent,
-  ]
+  ],
 })
-
-export class SharedModule {
-}
+export class SharedModule {}

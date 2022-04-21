@@ -7,28 +7,26 @@ import { EventsService, EventsTypes } from '../../../core/services/events.servid
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  styleUrls: ['./home-page.component.scss'],
 })
-
 export class HomePageComponent implements OnInit {
   heroes$: Observable<Hero[]> | undefined;
 
-  constructor(private heroService: HeroService,
-              private eventsService: EventsService) {
+  constructor(private heroService: HeroService, private eventsService: EventsService) {
     // @ts-ignore
     if (window.Cypress) {
       // @ts-ignore
-      window.HomePageComponent = this
+      window.HomePageComponent = this;
     }
   }
 
   ngOnInit() {
     this.heroes$ = this.heroService.searchHeroes({ fetchPolicy: 'no-cache' });
 
-    this.eventsService.events$.subscribe((event) => {
+    this.eventsService.events$.subscribe(event => {
       if (event.type === EventsTypes.UPDATE_HEROES) {
         this.heroes$ = this.heroService.searchHeroes({ fetchPolicy: 'no-cache' });
       }
-    })
+    });
   }
 }

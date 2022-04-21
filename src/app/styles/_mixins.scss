@@ -1,5 +1,5 @@
-@import "colors";
-@import "functions";
+@import 'colors';
+@import 'functions';
 
 @mixin font-size($size) {
   font-size: $size;
@@ -22,7 +22,7 @@
   }
 }
 
-@mixin font-roboto($size: false, $colour: false, $weight: false,  $lh: false) {
+@mixin font-roboto($size: false, $colour: false, $weight: false, $lh: false) {
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
   @if $size {
     font-size: $size;
@@ -39,7 +39,7 @@
 }
 
 @mixin text-small-grey() {
-  color: rgba(0, 0, 0, .54);
+  color: rgba(0, 0, 0, 0.54);
   font-size: 14px;
   text-transform: none;
   text-decoration: none;

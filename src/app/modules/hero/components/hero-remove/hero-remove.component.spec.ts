@@ -6,22 +6,20 @@ describe('HeroRemoveComponent', () => {
   let component: HeroRemoveComponent;
   let fixture: ComponentFixture<HeroRemoveComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        MatDialogModule
-      ],
-      declarations: [
-        HeroRemoveComponent
-      ]
-    }).compileComponents();
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [MatDialogModule],
+        declarations: [HeroRemoveComponent],
+      }).compileComponents();
 
-    fixture = TestBed.createComponent(HeroRemoveComponent);
-    component = fixture.debugElement.componentInstance;
-    fixture.detectChanges();
-  }));
+      fixture = TestBed.createComponent(HeroRemoveComponent);
+      component = fixture.debugElement.componentInstance;
+      fixture.detectChanges();
+    })
+  );
 
-  it('should create the component', (() => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
-  }));
+  });
 });

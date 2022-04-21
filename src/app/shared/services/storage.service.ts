@@ -5,11 +5,9 @@ import Cookies from 'js-cookie';
   providedIn: 'root',
 })
 export class StorageService {
+  constructor() {}
 
-  constructor() {
-  }
-
-  getCookie(name: string): string | undefined  {
+  getCookie(name: string): string | undefined {
     return Cookies.get(name);
   }
 

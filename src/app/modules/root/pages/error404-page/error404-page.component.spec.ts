@@ -5,19 +5,19 @@ describe('Error404Page', () => {
   let component: Error404PageComponent;
   let fixture: ComponentFixture<Error404PageComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        Error404PageComponent
-      ]
-    }).compileComponents();
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [Error404PageComponent],
+      }).compileComponents();
 
-    fixture = TestBed.createComponent(Error404PageComponent);
-    component = fixture.debugElement.componentInstance;
-    fixture.detectChanges();
-  }));
+      fixture = TestBed.createComponent(Error404PageComponent);
+      component = fixture.debugElement.componentInstance;
+      fixture.detectChanges();
+    })
+  );
 
-  it('should create nav component', (() => {
+  it('should create nav component', () => {
     expect(component).toBeTruthy();
-  }));
+  });
 });

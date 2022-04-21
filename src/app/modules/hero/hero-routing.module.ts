@@ -13,22 +13,13 @@ const heroesRoutes: Routes = [
   {
     path: heroRoutes.detail,
     component: HeroDetailPageComponent,
-    resolve: { hero: HeroResolver }
-  }
+    resolve: { hero: HeroResolver },
+  },
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(heroesRoutes)
-  ],
-  exports: [
-    RouterModule
-  ],
-  providers: [
-    HeroResolver,
-    AuthGuard
-  ]
+  imports: [RouterModule.forChild(heroesRoutes)],
+  exports: [RouterModule],
+  providers: [HeroResolver, AuthGuard],
 })
-
-export class HeroRoutingModule {
-}
+export class HeroRoutingModule {}

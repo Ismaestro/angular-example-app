@@ -12,28 +12,26 @@ describe('SignUpPageComponent', () => {
   let fixture: ComponentFixture<LogInPageComponent>;
   const matSnackBarSpy = jasmine.createSpyObj('MatSnackBar', ['open']);
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        MockModule(MaterialModule),
-        RouterTestingModule,
-        NoopAnimationsModule,
-        ReactiveFormsModule
-      ],
-      declarations: [
-        LogInPageComponent
-      ],
-      providers: [
-        { provide: MatSnackBar, useValue: matSnackBarSpy }
-      ]
-    }).compileComponents();
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [
+          MockModule(MaterialModule),
+          RouterTestingModule,
+          NoopAnimationsModule,
+          ReactiveFormsModule,
+        ],
+        declarations: [LogInPageComponent],
+        providers: [{ provide: MatSnackBar, useValue: matSnackBarSpy }],
+      }).compileComponents();
 
-    fixture = TestBed.createComponent(LogInPageComponent);
-    component = fixture.debugElement.componentInstance;
-    fixture.detectChanges();
-  }));
+      fixture = TestBed.createComponent(LogInPageComponent);
+      component = fixture.debugElement.componentInstance;
+      fixture.detectChanges();
+    })
+  );
 
-  it('should create component', (() => {
+  it('should create component', () => {
     expect(component).toBeTruthy();
-  }));
+  });
 });

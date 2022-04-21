@@ -18,46 +18,51 @@ describe('HeaderComponent', () => {
   let fixture: ComponentFixture<HeaderComponent>;
 
   const matSnackBarSpy = jasmine.createSpyObj('MatSnackBar', ['open']);
-  const storageServiceSpy = jasmine.createSpyObj('StorageService', ['getCookie', 'setCookie', 'removeCookie']);
-  const progressBarServiceSpy = jasmine.createSpyObj('ProgressBarService', ['getUpdateProgressBar']);
+  const storageServiceSpy = jasmine.createSpyObj('StorageService', [
+    'getCookie',
+    'setCookie',
+    'removeCookie',
+  ]);
+  const progressBarServiceSpy = jasmine.createSpyObj('ProgressBarService', [
+    'getUpdateProgressBar',
+  ]);
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        MatButtonModule,
-        MatMenuModule,
-        MatIconModule,
-        MatProgressBarModule
-      ],
-      declarations: [
-        MockComponent(SearchBarComponent),
-        HeaderComponent
-      ],
-      providers: [
-        { provide: StorageService, useValue: storageServiceSpy },
-        { provide: MatSnackBar, useValue: matSnackBarSpy },
-        { provide: APP_CONFIG, useValue: AppConfig },
-        { provide: ROUTES_CONFIG, useValue: RoutesConfig },
-      ]
-    }).compileComponents();
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [
+          RouterTestingModule,
+          MatButtonModule,
+          MatMenuModule,
+          MatIconModule,
+          MatProgressBarModule,
+        ],
+        declarations: [MockComponent(SearchBarComponent), HeaderComponent],
+        providers: [
+          { provide: StorageService, useValue: storageServiceSpy },
+          { provide: MatSnackBar, useValue: matSnackBarSpy },
+          { provide: APP_CONFIG, useValue: AppConfig },
+          { provide: ROUTES_CONFIG, useValue: RoutesConfig },
+        ],
+      }).compileComponents();
 
-    storageServiceSpy.getCookie.and.returnValue('en');
-    progressBarServiceSpy.getUpdateProgressBar.and.returnValue(of('query'));
+      storageServiceSpy.getCookie.and.returnValue('en');
+      progressBarServiceSpy.getUpdateProgressBar.and.returnValue(of('query'));
 
-    fixture = TestBed.createComponent(HeaderComponent);
-    component = fixture.debugElement.componentInstance;
-    fixture.detectChanges();
-  }));
+      fixture = TestBed.createComponent(HeaderComponent);
+      component = fixture.debugElement.componentInstance;
+      fixture.detectChanges();
+    })
+  );
 
-  it('should create header component', (() => {
+  it('should create header component', () => {
     expect(component).toBeTruthy();
-  }));
+  });
 
-  it('should change the language', (() => {
+  it('should change the language', () => {
     storageServiceSpy.setCookie.and.returnValue(true);
     expect(component.selectedLanguage).toBe('en');
     component.changeLanguage('es');
     expect(component.selectedLanguage).toBe('es');
-  }));
+  });
 });

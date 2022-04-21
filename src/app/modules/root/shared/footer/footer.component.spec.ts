@@ -7,20 +7,19 @@ describe('FooterComponent', () => {
   let component: FooterComponent;
   let fixture: ComponentFixture<FooterComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        MockComponent(NgxExampleLibraryComponent),
-        FooterComponent
-      ]
-    }).compileComponents();
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [MockComponent(NgxExampleLibraryComponent), FooterComponent],
+      }).compileComponents();
 
-    fixture = TestBed.createComponent(FooterComponent);
-    component = fixture.debugElement.componentInstance;
-    fixture.detectChanges();
-  }));
+      fixture = TestBed.createComponent(FooterComponent);
+      component = fixture.debugElement.componentInstance;
+      fixture.detectChanges();
+    })
+  );
 
-  it('should create footer component', (() => {
+  it('should create footer component', () => {
     expect(component).toBeTruthy();
-  }));
+  });
 });

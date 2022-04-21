@@ -2,7 +2,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { v1 as uuidv1 } from 'uuid';
 
 export enum EventsTypes {
-  UPDATE_HEROES = 'UPDATE_HEROES'
+  UPDATE_HEROES = 'UPDATE_HEROES',
 }
 
 export default interface EventType {
@@ -22,7 +22,7 @@ export class EventsService {
     this.events$ = new EventEmitter();
   }
 
-  public send(opts: {data?: any, type: string}): void {
+  public send(opts: { data?: any; type: string }): void {
     const event: EventType = {
       date: new Date(),
       id: uuidv1(),

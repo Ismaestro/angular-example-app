@@ -1,5 +1,5 @@
-@import "src/app/styles/mixins";
-@import "src/app/styles/colors";
+@import 'src/app/styles/mixins';
+@import 'src/app/styles/colors';
 
 a {
   @include text-small-grey();

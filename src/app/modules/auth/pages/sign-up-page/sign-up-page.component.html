@@ -1,46 +1,61 @@
-<mat-grid-list cols='1' rows='1' rowHeight='2:1'>
+<mat-grid-list cols="1" rows="1" rowHeight="2:1">
   <mat-grid-tile>
-    <mat-card class='signup--form__box--blue'>
-      <div class='signup--form-container'>
-        <p class='signup--form__header-title'>Give it a try!</p>
-        <form class='example-container' [formGroup]='signUpForm'>
+    <mat-card class="signup--form__box--blue">
+      <div class="signup--form-container">
+        <p class="signup--form__header-title">Give it a try!</p>
+        <form class="example-container" [formGroup]="signUpForm">
           <p>
-            <mat-form-field appearance='outline'>
+            <mat-form-field appearance="outline">
               <mat-label>First name</mat-label>
-              <input [formControl]='firstName' matInput placeholder='Jason'>
+              <input [formControl]="firstName" matInput placeholder="Jason" />
               <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-              <mat-error *ngIf='email.invalid'>{{getErrorMessage('firstName')}}</mat-error>
+              <mat-error *ngIf="email.invalid">{{ getErrorMessage('firstName') }}</mat-error>
             </mat-form-field>
           </p>
           <p>
-            <mat-form-field appearance='outline'>
+            <mat-form-field appearance="outline">
               <mat-label>Last name</mat-label>
-              <input [formControl]='lastName' matInput placeholder='Bourne'>
+              <input [formControl]="lastName" matInput placeholder="Bourne" />
               <mat-icon matSuffix>favorite</mat-icon>
-              <mat-error *ngIf='email.invalid'>{{getErrorMessage('lastName')}}</mat-error>
+              <mat-error *ngIf="email.invalid">{{ getErrorMessage('lastName') }}</mat-error>
             </mat-form-field>
           </p>
           <p>
-            <mat-form-field appearance='outline'>
+            <mat-form-field appearance="outline">
               <mat-label>Enter your email</mat-label>
-              <input matInput placeholder='pat@example.com' [formControl]='email' required>
-              <mat-error *ngIf='email.invalid'>{{getErrorMessage('email')}}</mat-error>
+              <input matInput placeholder="pat@example.com" [formControl]="email" required />
+              <mat-error *ngIf="email.invalid">{{ getErrorMessage('email') }}</mat-error>
             </mat-form-field>
           </p>
           <p>
-            <mat-form-field appearance='outline'>
+            <mat-form-field appearance="outline">
               <mat-label>Enter a password</mat-label>
-              <input matInput [formControl]='password' [type]="hide ? 'password' : 'text'">
-              <button mat-icon-button matSuffix (click)='hide = !hide' [attr.aria-label]="'Hide password'" [attr.aria-pressed]='hide'>
-                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <input matInput [formControl]="password" [type]="hide ? 'password' : 'text'" />
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+              >
+                <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
               </button>
-              <mat-hint>Must be minimum eight characters, at least one uppercase letter, one lowercase letter and one number</mat-hint>
-              <mat-error *ngIf='password.invalid'>{{getErrorMessage('password')}}</mat-error>
+              <mat-hint
+                >Must be minimum eight characters, at least one uppercase letter, one lowercase
+                letter and one number</mat-hint
+              >
+              <mat-error *ngIf="password.invalid">{{ getErrorMessage('password') }}</mat-error>
             </mat-form-field>
           </p>
           <p>
-            <button class='signup--form__submit-button' mat-raised-button color='primary'
-                    (click)='sendForm()'>{{ "Sign Up" | uppercase}}</button>
+            <button
+              class="signup--form__submit-button"
+              mat-raised-button
+              color="primary"
+              (click)="sendForm()"
+            >
+              {{ 'Sign Up' | uppercase }}
+            </button>
           </p>
         </form>
       </div>

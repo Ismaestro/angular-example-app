@@ -16,35 +16,36 @@ describe('HomePage', () => {
 
   const heroServiceSpy = jasmine.createSpyObj('HeroService', ['searchHeroes']);
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        NoopAnimationsModule
-      ],
-      declarations: [
-        MockComponent(HeroCardComponent),
-        MockComponent(HeroLoadingComponent),
-        MockComponent(LoadingPlaceholderComponent),
-        HomePageComponent
-      ],
-      providers: [
-        { provide: HeroService, useValue: heroServiceSpy }
-      ]
-    }).compileComponents();
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [NoopAnimationsModule],
+        declarations: [
+          MockComponent(HeroCardComponent),
+          MockComponent(HeroLoadingComponent),
+          MockComponent(LoadingPlaceholderComponent),
+          HomePageComponent,
+        ],
+        providers: [{ provide: HeroService, useValue: heroServiceSpy }],
+      }).compileComponents();
 
-    fixture = TestBed.createComponent(HomePageComponent);
-    component = fixture.debugElement.componentInstance;
-    heroServiceSpy.searchHeroes.and.returnValue(of([new Hero({ name: 'hero test' })]));
-    fixture.detectChanges();
-  }));
+      fixture = TestBed.createComponent(HomePageComponent);
+      component = fixture.debugElement.componentInstance;
+      heroServiceSpy.searchHeroes.and.returnValue(of([new Hero({ name: 'hero test' })]));
+      fixture.detectChanges();
+    })
+  );
 
-  it('should create component', (() => {
+  it('should create component', () => {
     expect(component).toBeTruthy();
-  }));
+  });
 
-  it('should initialice heroes', waitForAsync(() => {
-    fixture.whenStable().then(() => {
-      expect(fixture.debugElement.queryAll(By.css('app-hero-card')).length).toBe(1);
-    });
-  }));
+  it(
+    'should initialice heroes',
+    waitForAsync(() => {
+      fixture.whenStable().then(() => {
+        expect(fixture.debugElement.queryAll(By.css('app-hero-card')).length).toBe(1);
+      });
+    })
+  );
 });

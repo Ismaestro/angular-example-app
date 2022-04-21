@@ -1,36 +1,35 @@
-<div id='left'>
-  <h2 class='header__title' i18n>My heroes</h2>
-  <p *ngIf='!user?.heroes?.length' class='my-heroes__no-heroes--message' i18n>
+<div id="left">
+  <h2 class="header__title" i18n>My heroes</h2>
+  <p *ngIf="!user?.heroes?.length" class="my-heroes__no-heroes--message" i18n>
     No heroes yet, try to create one in the right side!
   </p>
   <div>
-    <mat-list id='loading-list' *ngIf='!user?.heroes'>
-      <mat-list-item *ngFor='let i of [1,2,3,4,5,6,7,8]'>
-        <img alt='default hero avatar' mat-list-avatar src='./assets/images/default-hero.png'>
+    <mat-list id="loading-list" *ngIf="!user?.heroes">
+      <mat-list-item *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8]">
+        <img alt="default hero avatar" mat-list-avatar src="./assets/images/default-hero.png" />
         <h3 mat-line>
           <app-loading-placeholder [width]="'150px'" [height]="'0.9rem'"></app-loading-placeholder>
         </h3>
         <p mat-line>
           <app-loading-placeholder [width]="'100px'" [height]="'0.9rem'"></app-loading-placeholder>
         </p>
-        <div class='hero-actions'>
+        <div class="hero-actions">
           <app-loading-placeholder [width]="'30px'" [height]="'0.9rem'"></app-loading-placeholder>
 
-          <mat-icon class='icon__like--grey'>favorite</mat-icon>
+          <mat-icon class="icon__like--grey">favorite</mat-icon>
         </div>
       </mat-list-item>
     </mat-list>
     <mat-list>
-      <mat-list-item *ngFor='let hero of user?.heroes; trackBy: trackByFn'>
-        <h3 mat-line [class.cp]='hero.published'>
-          {{hero.alterEgo}}
+      <mat-list-item *ngFor="let hero of user?.heroes; trackBy: trackByFn">
+        <h3 mat-line [class.cp]="hero.published">
+          {{ hero.alterEgo }}
         </h3>
-        <p mat-line [class.cp]='hero.published'>
-          <span>{{hero.realName}}</span>
+        <p mat-line [class.cp]="hero.published">
+          <span>{{ hero.realName }}</span>
         </p>
-        <div class='hero-actions'>
-          <mat-icon class='icon__remove' *ngIf='!hero.published'
-                    (click)='deleteHero(hero);'>
+        <div class="hero-actions">
+          <mat-icon class="icon__remove" *ngIf="!hero.published" (click)="deleteHero(hero)">
             delete
           </mat-icon>
         </div>
@@ -38,62 +37,81 @@
     </mat-list>
   </div>
 </div>
-<div id='right'>
-  <h2 class='header__title' i18n>Create a hero</h2>
-  <div id='form-loading' *ngIf='!user?.heroes'>
+<div id="right">
+  <h2 class="header__title" i18n>Create a hero</h2>
+  <div id="form-loading" *ngIf="!user?.heroes">
     <form>
-      <div class='input-container'>
+      <div class="input-container">
         <app-loading-placeholder [height]="'2rem'"></app-loading-placeholder>
       </div>
-      <div class='input-container'>
+      <div class="input-container">
         <app-loading-placeholder [height]="'2rem'"></app-loading-placeholder>
       </div>
 
-      <button aria-label='create button' mat-raised-button [disabled]='true' i18n>Create</button>
+      <button aria-label="create button" mat-raised-button [disabled]="true" i18n>Create</button>
     </form>
   </div>
-  <div *ngIf='user?.heroes'>
-    <form [formGroup]='newHeroForm' #form='ngForm' ngxScrollToFirstInvalid
-          (ngSubmit)='createNewHero()' autocomplete='on'>
-      <mat-form-field class='input-container'>
-        <input matInput name='hname' type='text'
-               placeholder='Name (Palindrome?)' i18n-placeholder='@@nameWithPalindrome'
-               formControlName='realName'>
-        <mat-error *ngIf='realName.errors && form.submitted'>
-          <ng-template [ngIf]="realName.errors['required']" i18n>
-            Name is required
-          </ng-template>
+  <div *ngIf="user?.heroes">
+    <form
+      [formGroup]="newHeroForm"
+      #form="ngForm"
+      ngxScrollToFirstInvalid
+      (ngSubmit)="createNewHero()"
+      autocomplete="on"
+    >
+      <mat-form-field class="input-container">
+        <input
+          matInput
+          name="hname"
+          type="text"
+          placeholder="Name (Palindrome?)"
+          i18n-placeholder="@@nameWithPalindrome"
+          formControlName="realName"
+        />
+        <mat-error *ngIf="realName.errors && form.submitted">
+          <ng-template [ngIf]="realName.errors['required']" i18n> Name is required </ng-template>
           <ng-template [ngIf]="realName.errors['maxlength']" i18n>
             The field is too long
           </ng-template>
         </mat-error>
       </mat-form-field>
-      <mat-form-field class='input-container'>
-        <input matInput type='text' name='rname'
-               placeholder='Alter ego' i18n-placeholder='@@realName'
-               formControlName='alterEgo'>
-        <mat-error *ngIf='alterEgo.errors && form.submitted'>
-          <ng-template [ngIf]="alterEgo.errors['required']" i18n>
-            Name is required
-          </ng-template>
+      <mat-form-field class="input-container">
+        <input
+          matInput
+          type="text"
+          name="rname"
+          placeholder="Alter ego"
+          i18n-placeholder="@@realName"
+          formControlName="alterEgo"
+        />
+        <mat-error *ngIf="alterEgo.errors && form.submitted">
+          <ng-template [ngIf]="alterEgo.errors['required']" i18n> Name is required </ng-template>
           <ng-template [ngIf]="alterEgo.errors['maxlength']" i18n>
-            The field is too long. Required length: {{alterEgo.errors['maxlength'].requiredLength}}.
-            Current: {{alterEgo.errors['maxlength'].actualLength}}
+            The field is too long. Required length:
+            {{ alterEgo.errors['maxlength'].requiredLength }}. Current:
+            {{ alterEgo.errors['maxlength'].actualLength }}
           </ng-template>
         </mat-error>
       </mat-form-field>
-      <button aria-label='create button' mat-raised-button type='submit'
-              [disabled]='form.submitted && !newHeroForm.valid' i18n>Create</button>
-      <div *ngIf='error' i18n>An error has ocurred</div>
+      <button
+        aria-label="create button"
+        mat-raised-button
+        type="submit"
+        [disabled]="form.submitted && !newHeroForm.valid"
+        i18n
+      >
+        Create
+      </button>
+      <div *ngIf="error" i18n>An error has ocurred</div>
     </form>
   </div>
 
-  <div id='heroes-json'>
-    <h2 class='header__title' i18n>Heroes 1 and 2</h2>
-    <pre *ngIf='!user?.heroes'>
+  <div id="heroes-json">
+    <h2 class="header__title" i18n>Heroes 1 and 2</h2>
+    <pre *ngIf="!user?.heroes">
       <app-loading-placeholder [height]="'300px'"></app-loading-placeholder>
     </pre>
-    <pre *ngIf='user?.heroes'>{{user?.heroes | slice:0:2 | json}}</pre>
+    <pre *ngIf="user?.heroes">{{ user?.heroes | slice: 0:2 | json }}</pre>
   </div>
 </div>
-<div class='clear'></div>
+<div class="clear"></div>

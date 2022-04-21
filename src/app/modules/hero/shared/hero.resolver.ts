@@ -6,8 +6,7 @@ import { HeroService } from './hero.service';
 
 @Injectable()
 export class HeroResolver implements Resolve<Observable<Hero>> {
-  constructor(private heroService: HeroService) {
-  }
+  constructor(private heroService: HeroService) {}
 
   async resolve(route: ActivatedRouteSnapshot) {
     const id: string = route.paramMap.get('id') || '';

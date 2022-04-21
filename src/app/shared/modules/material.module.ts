@@ -30,7 +30,7 @@ import { NgModule } from '@angular/core';
     MatProgressSpinnerModule,
     MatTooltipModule,
     MatListModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   exports: [
     MatButtonModule,
@@ -46,9 +46,7 @@ import { NgModule } from '@angular/core';
     MatProgressSpinnerModule,
     MatTooltipModule,
     MatListModule,
-    MatDialogModule
-  ]
+    MatDialogModule,
+  ],
 })
-
-export class MaterialModule {
-}
+export class MaterialModule {}

@@ -11,20 +11,24 @@ import { RoutesConfig } from '../../../../configs/routes.config';
   templateUrl: './hero-detail-page.component.html',
   styleUrls: ['./hero-detail-page.component.scss'],
   animations: [
-    trigger('fadeIn', [transition('* => *', useAnimation(fadeIn, {
-      params: { timing: 1, delay: 0 }
-    }))])
-  ]
+    trigger('fadeIn', [
+      transition(
+        '* => *',
+        useAnimation(fadeIn, {
+          params: { timing: 1, delay: 0 },
+        })
+      ),
+    ]),
+  ],
 })
-
 export class HeroDetailPageComponent implements OnInit {
-
   hero: Hero | undefined;
 
-  constructor(private location: Location,
-              private router: Router,
-              private activatedRoute: ActivatedRoute) {
-  }
+  constructor(
+    private location: Location,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.activatedRoute.snapshot.data['hero'].subscribe((hero: Hero) => {
@@ -38,7 +42,9 @@ export class HeroDetailPageComponent implements OnInit {
 
   goToTheAnchor(): void {
     if (this.hero) {
-      this.router.navigate([RoutesConfig.routes.hero.detail(this.hero.id)], { fragment: 'heroe-detail' });
+      this.router.navigate([RoutesConfig.routes.hero.detail(this.hero.id)], {
+        fragment: 'heroe-detail',
+      });
     }
   }
 }

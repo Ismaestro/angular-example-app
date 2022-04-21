@@ -6,12 +6,18 @@
   <ng-container>
     <app-hero-card [hero]="hero"></app-hero-card>
     <div id="hero-json">
-      <pre>{{hero | json}}</pre>
+      <pre>{{ hero | json }}</pre>
     </div>
   </ng-container>
 </div>
-<button *ngIf="hero" aria-label="Anchor the hero button" mat-raised-button type="button" (click)="goToTheAnchor()"
-        i18n>
+<button
+  *ngIf="hero"
+  aria-label="Anchor the hero button"
+  mat-raised-button
+  type="button"
+  (click)="goToTheAnchor()"
+  i18n
+>
   Anchor the hero
 </button>
 <button aria-label="Go back button" mat-raised-button type="button" (click)="goBack()" i18n>

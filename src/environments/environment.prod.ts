@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  graphqlHost: 'https://nestjs-example-app.herokuapp.com/'
+  graphqlHost: 'https://nestjs-example-app.herokuapp.com/',
 };

@@ -9,22 +9,18 @@ describe('HeroLoadingComponent', () => {
   let component: HeroLoadingComponent;
   let fixture: ComponentFixture<HeroLoadingComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        MatCardModule,
-        MatIconModule
-      ],
-      declarations: [
-        MockComponent(LoadingPlaceholderComponent),
-        HeroLoadingComponent
-      ]
-    }).compileComponents();
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [MatCardModule, MatIconModule],
+        declarations: [MockComponent(LoadingPlaceholderComponent), HeroLoadingComponent],
+      }).compileComponents();
 
-    fixture = TestBed.createComponent(HeroLoadingComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+      fixture = TestBed.createComponent(HeroLoadingComponent);
+      component = fixture.componentInstance;
+      fixture.detectChanges();
+    })
+  );
 
   it('should create', () => {
     expect(component).toBeTruthy();

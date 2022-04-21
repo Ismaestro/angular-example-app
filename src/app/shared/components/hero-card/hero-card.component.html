@@ -2,22 +2,21 @@
   <mat-card-header>
     <mat-card-title>
       <a class="hero-detail-link" [routerLink]="[routesConfig.routes.hero.detail(hero.id)]">
-        {{hero.alterEgo}}
+        {{ hero.alterEgo }}
       </a>
     </mat-card-title>
     <mat-card-subtitle>
       <a class="hero-detail-link" [routerLink]="[routesConfig.routes.hero.detail(hero.id)]">
-        {{hero.realName}}
+        {{ hero.realName }}
       </a>
     </mat-card-subtitle>
     <div class="flex-spacer"></div>
     <div class="hero-actions">
-      {{hero.usersVoted.length}}
-      <mat-icon class="icon__like--red" (click)="like(hero)">favorite
-      </mat-icon>
+      {{ hero.usersVoted.length }}
+      <mat-icon class="icon__like--red" (click)="like(hero)">favorite </mat-icon>
     </div>
   </mat-card-header>
   <a class="hero-detail-link" [routerLink]="[routesConfig.routes.hero.detail(hero.id)]">
-    <img alt="{{hero.realName}} hero image" [defaultImage]="hero.image" [lazyLoad]="hero.image">
+    <img alt="{{ hero.realName }} hero image" [defaultImage]="hero.image" [lazyLoad]="hero.image" />
   </a>
 </mat-card>

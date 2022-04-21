@@ -1,14 +1,16 @@
-@import "mixins";
+@import 'mixins';
 
 * {
   @include font-roboto();
 }
 
-a, .cp {
+a,
+.cp {
   cursor: pointer;
 }
 
-h1, h2 {
+h1,
+h2 {
   margin-bottom: 2rem;
 }
 
@@ -110,4 +112,4 @@ pre {
 }
 
 // MATERIAL
-@import "material";
+@import 'material';

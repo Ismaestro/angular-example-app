@@ -1,11 +1,11 @@
-@import "src/app/styles/colors";
+@import 'src/app/styles/colors';
 
 @keyframes placeHolderShimmer {
   0% {
-    background-position: -468px 0
+    background-position: -468px 0;
   }
   100% {
-    background-position: 468px 0
+    background-position: 468px 0;
   }
 }
 
@@ -18,5 +18,5 @@
   background: darkgray;
   background: linear-gradient(to right, $light-grey 10%, #dddddd 18%, #eeeeee 33%);
   position: relative;
-  background-size: 1000px 100px
+  background-size: 1000px 100px;
 }

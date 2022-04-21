@@ -18,28 +18,30 @@ describe('SearchBarComponent', () => {
   let fixture: ComponentFixture<SearchBarComponent>;
   const heroServiceSpy = jasmine.createSpyObj('HeroService', ['searchHeroes']);
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        ReactiveFormsModule,
-        RouterTestingModule,
-        NoopAnimationsModule,
-        MatAutocompleteModule,
-        MatFormFieldModule,
-        MatInputModule,
-      ],
-      declarations: [MockPipe(CapitalizeFirstPipe), SearchBarComponent],
-      providers: [
-        { provide: HeroService, useValue: heroServiceSpy },
-        { provide: ROUTES_CONFIG, useValue: RoutesConfig },
-      ],
-    }).compileComponents();
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [
+          ReactiveFormsModule,
+          RouterTestingModule,
+          NoopAnimationsModule,
+          MatAutocompleteModule,
+          MatFormFieldModule,
+          MatInputModule,
+        ],
+        declarations: [MockPipe(CapitalizeFirstPipe), SearchBarComponent],
+        providers: [
+          { provide: HeroService, useValue: heroServiceSpy },
+          { provide: ROUTES_CONFIG, useValue: RoutesConfig },
+        ],
+      }).compileComponents();
 
-    fixture = TestBed.createComponent(SearchBarComponent);
-    component = fixture.debugElement.componentInstance;
-    heroServiceSpy.searchHeroes.and.returnValue(of([new Hero({ name: 'test1', default: true })]));
-    fixture.detectChanges();
-  }));
+      fixture = TestBed.createComponent(SearchBarComponent);
+      component = fixture.debugElement.componentInstance;
+      heroServiceSpy.searchHeroes.and.returnValue(of([new Hero({ name: 'test1', default: true })]));
+      fixture.detectChanges();
+    })
+  );
 
   it('should create hero search component', () => {
     expect(component).toBeTruthy();

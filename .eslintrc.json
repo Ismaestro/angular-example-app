@@ -1,39 +1,167 @@
 {
   "root": true,
-  "ignorePatterns": ["projects/**/*"],
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
   "overrides": [
     {
-      "files": ["*.ts"],
+      "files": [
+        "*.ts"
+      ],
       "parserOptions": {
-        "project": ["tsconfig.json", "e2e/tsconfig.json"],
+        "project": [
+          "tsconfig.json",
+          "e2e/tsconfig.json"
+        ],
         "createDefaultProgram": true
       },
       "extends": [
-        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/ng-cli-compat",
+        "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
         "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "plugins": [
+        "sonarjs"
       ],
       "rules": {
         "@angular-eslint/component-selector": [
           "error",
           {
+            "type": "element",
             "prefix": "app",
-            "style": "kebab-case",
-            "type": "element"
+            "style": "kebab-case"
           }
         ],
         "@angular-eslint/directive-selector": [
           "error",
           {
+            "type": "attribute",
             "prefix": "app",
-            "style": "camelCase",
-            "type": "attribute"
+            "style": "camelCase"
           }
-        ]
-      }
+        ],
+        "@typescript-eslint/await-thenable": "error",
+        "@typescript-eslint/ban-types": [
+          "error",
+          {
+            "types": {
+              "String": {
+                "message": "Use string instead",
+                "fixWith": "string"
+              },
+              "Boolean": {
+                "message": "Use boolean instead",
+                "fixWith": "boolean"
+              },
+              "Number": {
+                "message": "Use number instead",
+                "fixWith": "number"
+              }
+            }
+          }
+        ],
+        "@typescript-eslint/consistent-type-definitions": "error",
+        "@typescript-eslint/dot-notation": "off",
+        "@typescript-eslint/explicit-member-accessibility": [
+          "off",
+          {
+            "accessibility": "explicit"
+          }
+        ],
+        "@typescript-eslint/no-extra-semi": "error",
+        "@typescript-eslint/no-for-in-array": "error",
+        "@typescript-eslint/no-unnecessary-type-assertion": "error",
+        "@typescript-eslint/no-use-before-define": "off",
+        "@typescript-eslint/require-array-sort-compare": [
+          "error",
+          {
+            "ignoreStringArrays": true
+          }
+        ],
+        "brace-style": [
+          "error",
+          "1tbs",
+          { "allowSingleLine": true }
+        ],
+        "default-case-last": "error",
+        "dot-notation": "off",
+        "id-denylist": "off",
+        "id-match": "off",
+        "indent": ["error", 2, { "SwitchCase": 1 }],
+        "complexity": ["error", { "max": 6 }],
+        "max-len": [
+          "error",
+          {
+            "code": 180
+          }
+        ],
+        "max-lines-per-function": [
+          "error",
+          {
+            "max": 300
+          }
+        ],
+        "max-params": [
+          "error",
+          {
+            "max": 10
+          }
+        ],
+        "no-empty-function": "off",
+        "no-empty-pattern": "error",
+        "no-extra-semi": "error",
+        "no-multi-str": "off",
+        "no-self-assign": "error",
+        "no-shadow": "off",
+        "no-underscore-dangle": "off",
+        "no-unused-expressions": ["error", { "allowTernary": true }],
+        "no-use-before-define": "off",
+        "quotes": ["error", "single"],
+        "semi": "off",
+        "sonarjs/cognitive-complexity": "error",
+        "sonarjs/max-switch-cases": "error",
+        "sonarjs/no-all-duplicated-branches": "error",
+        "sonarjs/no-collapsible-if": "error",
+        "sonarjs/no-collection-size-mischeck": "error",
+        "sonarjs/no-duplicate-string": "error",
+        "sonarjs/no-duplicated-branches": "error",
+        "sonarjs/no-element-overwrite": "error",
+        "sonarjs/no-identical-conditions": "error",
+        "sonarjs/no-identical-expressions": "error",
+        "sonarjs/no-identical-functions": "error",
+        "sonarjs/no-inverted-boolean-check": "error",
+        "sonarjs/no-one-iteration-loop": "error",
+        "sonarjs/no-redundant-boolean": "error",
+        "sonarjs/no-redundant-jump": "error",
+        "sonarjs/no-same-line-conditional": "error",
+        "sonarjs/no-small-switch": "error",
+        "sonarjs/no-unused-collection": "error",
+        "sonarjs/no-use-of-empty-return-value": "error",
+        "sonarjs/no-useless-catch": "error",
+        "sonarjs/prefer-immediate-return": "error",
+        "@typescript-eslint/naming-convention": "off",
+        "@typescript-eslint/member-ordering": "off",
+        "@typescript-eslint/no-shadow": ["error"],
+        "@typescript-eslint/no-unused-expressions": "off",
+        "id-blacklist": "off",
+        "quote-props": [
+          "off",
+          "as-needed"
+        ],
+        "object-shorthand": "off",
+        "import/no-extraneous-dependencies": "off",
+        "no-extra-parens": "off",
+        "arrow-body-style": ["off", "as-needed"],
+        "prefer-arrow/prefer-arrow-functions": "off",
+        "one-var": "off"      }
     },
     {
-      "files": ["*.html"],
-      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
       "rules": {}
     }
   ]

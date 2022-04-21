@@ -19,14 +19,17 @@ import { UtilsService } from '../../../../shared/services/utils.service';
   templateUrl: './my-heroes-page.component.html',
   styleUrls: ['./my-heroes-page.component.scss'],
   animations: [
-    trigger('fadeIn', [transition('* => *', useAnimation(fadeIn, {
-      params: { timing: 1, delay: 0 }
-    }))])
-  ]
+    trigger('fadeIn', [
+      transition(
+        '* => *',
+        useAnimation(fadeIn, {
+          params: { timing: 1, delay: 0 },
+        })
+      ),
+    ]),
+  ],
 })
-
 export class MyHeroesPageComponent implements OnInit {
-
   user: User | undefined;
   newHeroForm: any;
   error: boolean;
@@ -35,20 +38,22 @@ export class MyHeroesPageComponent implements OnInit {
 
   @ViewChild('form', { static: false }) myNgForm: any = ''; // just to call resetForm method
 
-  constructor(private heroService: HeroService,
-              private userService: UserService,
-              private dialog: MatDialog,
-              private snackBar: MatSnackBar,
-              private utilsService: UtilsService,
-              private router: Router,
-              private formBuilder: FormBuilder,
-              @Inject(ROUTES_CONFIG) public routesConfig: any) {
+  constructor(
+    private heroService: HeroService,
+    private userService: UserService,
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar,
+    private utilsService: UtilsService,
+    private router: Router,
+    private formBuilder: FormBuilder,
+    @Inject(ROUTES_CONFIG) public routesConfig: any
+  ) {
     this.error = false;
     this.realName = new FormControl('', [Validators.required, Validators.maxLength(30)]);
     this.alterEgo = new FormControl('', [Validators.required, Validators.maxLength(30)]);
     this.newHeroForm = this.formBuilder.group({
       realName: this.realName,
-      alterEgo: this.alterEgo
+      alterEgo: this.alterEgo,
     });
 
     this.onChanges();
@@ -66,7 +71,7 @@ export class MyHeroesPageComponent implements OnInit {
 
   createNewHero() {
     if (this.newHeroForm.valid) {
-      this.heroService.createHero(new Hero(this.newHeroForm.value)).subscribe((response) => {
+      this.heroService.createHero(new Hero(this.newHeroForm.value)).subscribe(response => {
         if (!response.errors) {
           this.myNgForm.resetForm();
           this.utilsService.showSnackBar('Hero created', 'info-snack-bar');
@@ -80,7 +85,7 @@ export class MyHeroesPageComponent implements OnInit {
     const dialogRef = this.dialog.open(HeroRemoveComponent);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.heroService.removeHero(hero.id).subscribe((response) => {
+        this.heroService.removeHero(hero.id).subscribe(response => {
           if (!response.errors) {
             this.utilsService.showSnackBar('Hero removed', 'info-snack-bar');
             this.loadUser();
@@ -99,7 +104,7 @@ export class MyHeroesPageComponent implements OnInit {
   private onChanges() {
     this.newHeroForm.get('realName')?.valueChanges.subscribe((value: any) => {
       if (value && value.length >= 3 && UtilsHelperService.isPalindrome(value)) {
-        this.snackBar.open('Yeah that\'s a Palindrome!', '', { duration: 2000 });
+        this.snackBar.open("Yeah that's a Palindrome!", '', { duration: 2000 });
       } else {
         this.snackBar.dismiss();
       }

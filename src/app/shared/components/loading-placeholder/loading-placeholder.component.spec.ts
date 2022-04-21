@@ -5,17 +5,17 @@ describe('LoadingPlaceholderComponent', () => {
   let component: LoadingPlaceholderComponent;
   let fixture: ComponentFixture<LoadingPlaceholderComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        LoadingPlaceholderComponent
-      ]
-    }).compileComponents();
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        declarations: [LoadingPlaceholderComponent],
+      }).compileComponents();
 
-    fixture = TestBed.createComponent(LoadingPlaceholderComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+      fixture = TestBed.createComponent(LoadingPlaceholderComponent);
+      component = fixture.componentInstance;
+      fixture.detectChanges();
+    })
+  );
 
   it('should create', () => {
     expect(component).toBeTruthy();

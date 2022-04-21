@@ -9,11 +9,14 @@ if (environment.production) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  platformBrowserDynamic().bootstrapModule(AppModule, {
-    missingTranslation: MissingTranslationStrategy.Error
-  }).then(() => {
-    if ('serviceWorker' in navigator && environment.production) {
-      navigator.serviceWorker.register('./ngsw-worker.js');
-    }
-  }).catch(err => console.log(err));
+  platformBrowserDynamic()
+    .bootstrapModule(AppModule, {
+      missingTranslation: MissingTranslationStrategy.Error,
+    })
+    .then(() => {
+      if ('serviceWorker' in navigator && environment.production) {
+        navigator.serviceWorker.register('./ngsw-worker.js');
+      }
+    })
+    .catch(err => console.log(err));
 });

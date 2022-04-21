@@ -6,33 +6,31 @@ import { User } from './shared/user.model';
 import { WatchQueryFetchPolicy } from '@apollo/client/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
-
-  constructor(private apollo: Apollo) {
-  }
+  constructor(private apollo: Apollo) {}
 
   getMe({ fetchPolicy }: { fetchPolicy: WatchQueryFetchPolicy }): Observable<User> {
     return this.apollo
-    .watchQuery({
-      query: gql`
-        query Me {
-          me {
-            id
-            email
-            firstname
-            lastname
-            heroes {
+      .watchQuery({
+        query: gql`
+          query Me {
+            me {
               id
-              realName
-              alterEgo
+              email
+              firstname
+              lastname
+              heroes {
+                id
+                realName
+                alterEgo
+              }
             }
           }
-        }
-      `,
-      fetchPolicy
-    })
-    .valueChanges.pipe(map((result: any) => new User(result.data.me)));
+        `,
+        fetchPolicy,
+      })
+      .valueChanges.pipe(map((result: any) => new User(result.data.me)));
   }
 }

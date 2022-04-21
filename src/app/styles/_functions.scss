@@ -1,5 +1,5 @@
-@use "sass:math";
-@import "colors";
+@use 'sass:math';
+@import 'colors';
 
 @function calculateRem($size) {
   $remSize: math.div($size, 16px);

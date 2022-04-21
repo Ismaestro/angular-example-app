@@ -9,17 +9,11 @@ const authRoutes = RoutesConfig.routesNames.auth;
 const authenticationRoutes: Routes = [
   { path: authRoutes.signUp, component: SignUpPageComponent },
   { path: authRoutes.logIn, component: LogInPageComponent },
-  { path: '**', redirectTo: RoutesConfig.routes.error404 }
+  { path: '**', redirectTo: RoutesConfig.routes.error404 },
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(authenticationRoutes)
-  ],
-  exports: [
-    RouterModule
-  ]
+  imports: [RouterModule.forChild(authenticationRoutes)],
+  exports: [RouterModule],
 })
-
-export class AuthRoutingModule {
-}
+export class AuthRoutingModule {}
