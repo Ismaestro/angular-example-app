@@ -1,11 +1,18 @@
 {
   "root": true,
-  "ignorePatterns": ["projects/**/*"],
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
   "overrides": [
     {
-      "files": ["*.ts"],
+      "files": [
+        "*.ts"
+      ],
       "parserOptions": {
-        "project": ["tsconfig.json", "e2e/tsconfig.json"],
+        "project": [
+          "tsconfig.json",
+          "e2e/tsconfig.json"
+        ],
         "createDefaultProgram": true
       },
       "extends": [
@@ -13,7 +20,9 @@
         "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
-      "plugins": ["sonarjs"],
+      "plugins": [
+        "sonarjs"
+      ],
       "rules": {
         "@angular-eslint/component-selector": [
           "error",
@@ -69,7 +78,11 @@
             "ignoreStringArrays": true
           }
         ],
-        "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
+        "brace-style": [
+          "error",
+          "1tbs",
+          { "allowSingleLine": true }
+        ],
         "default-case-last": "error",
         "dot-notation": "off",
         "id-denylist": "off",
@@ -124,23 +137,30 @@
         "sonarjs/no-use-of-empty-return-value": "error",
         "sonarjs/no-useless-catch": "error",
         "sonarjs/prefer-immediate-return": "error",
+        "@typescript-eslint/quotes": "off",
         "@typescript-eslint/naming-convention": "off",
         "@typescript-eslint/member-ordering": "off",
         "@typescript-eslint/no-shadow": ["error"],
         "@typescript-eslint/no-unused-expressions": "off",
         "id-blacklist": "off",
-        "quote-props": ["off", "as-needed"],
+        "quote-props": [
+          "off",
+          "as-needed"
+        ],
         "object-shorthand": "off",
         "import/no-extraneous-dependencies": "off",
         "no-extra-parens": "off",
         "arrow-body-style": ["off", "as-needed"],
         "prefer-arrow/prefer-arrow-functions": "off",
-        "one-var": "off"
-      }
+        "one-var": "off"      }
     },
     {
-      "files": ["*.html"],
-      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
       "rules": {}
     }
   ]
