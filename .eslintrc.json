@@ -1,18 +1,11 @@
 {
   "root": true,
-  "ignorePatterns": [
-    "projects/**/*"
-  ],
+  "ignorePatterns": ["projects/**/*"],
   "overrides": [
     {
-      "files": [
-        "*.ts"
-      ],
+      "files": ["*.ts"],
       "parserOptions": {
-        "project": [
-          "tsconfig.json",
-          "e2e/tsconfig.json"
-        ],
+        "project": ["tsconfig.json", "e2e/tsconfig.json"],
         "createDefaultProgram": true
       },
       "extends": [
@@ -20,9 +13,7 @@
         "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
-      "plugins": [
-        "sonarjs"
-      ],
+      "plugins": ["sonarjs"],
       "rules": {
         "@angular-eslint/component-selector": [
           "error",
@@ -78,16 +69,11 @@
             "ignoreStringArrays": true
           }
         ],
-        "brace-style": [
-          "error",
-          "1tbs",
-          { "allowSingleLine": true }
-        ],
+        "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
         "default-case-last": "error",
         "dot-notation": "off",
         "id-denylist": "off",
         "id-match": "off",
-        "indent": ["error", 2, { "SwitchCase": 1 }],
         "complexity": ["error", { "max": 6 }],
         "max-len": [
           "error",
@@ -116,7 +102,6 @@
         "no-underscore-dangle": "off",
         "no-unused-expressions": ["error", { "allowTernary": true }],
         "no-use-before-define": "off",
-        "quotes": ["error", "single", { "avoidEscape": true }],
         "semi": "off",
         "sonarjs/cognitive-complexity": "error",
         "sonarjs/max-switch-cases": "error",
@@ -144,24 +129,18 @@
         "@typescript-eslint/no-shadow": ["error"],
         "@typescript-eslint/no-unused-expressions": "off",
         "id-blacklist": "off",
-        "quote-props": [
-          "off",
-          "as-needed"
-        ],
+        "quote-props": ["off", "as-needed"],
         "object-shorthand": "off",
         "import/no-extraneous-dependencies": "off",
         "no-extra-parens": "off",
         "arrow-body-style": ["off", "as-needed"],
         "prefer-arrow/prefer-arrow-functions": "off",
-        "one-var": "off"      }
+        "one-var": "off"
+      }
     },
     {
-      "files": [
-        "*.html"
-      ],
-      "extends": [
-        "plugin:@angular-eslint/template/recommended"
-      ],
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
       "rules": {}
     }
   ]

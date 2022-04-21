@@ -10,17 +10,12 @@ export interface SampleModuleOptions {
 
 export function initialize(options: any) {
   console.log('Angular library has started with this options: ', options);
-  return () => {
-  };
+  return () => {};
 }
 
 @NgModule({
-  declarations: [
-    NgxExampleLibraryComponent
-  ],
-  exports: [
-    NgxExampleLibraryComponent
-  ]
+  declarations: [NgxExampleLibraryComponent],
+  exports: [NgxExampleLibraryComponent],
 })
 export class NgxExampleLibraryModule {
   static forRoot(options?: SampleModuleOptions): ModuleWithProviders<NgxExampleLibraryModule> {
@@ -32,10 +27,10 @@ export class NgxExampleLibraryModule {
           provide: APP_INITIALIZER,
           useFactory: initialize,
           deps: [OPTIONS],
-          multi: true
+          multi: true,
         },
-        NgxExampleLibraryService
-      ]
+        NgxExampleLibraryService,
+      ],
     };
   }
 }
