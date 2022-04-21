@@ -9,7 +9,7 @@ export const AppConfig: any = {
   sentryDSN: 'https://38434a1b115f41d3a31e356cdc496c06@sentry.io/1315526',
   cspDirectives: {
     defaultSrc: [
-      "'self'",
+      '"self"',
       'data:',
       'http://*.google-analytics.com',
       'http://www.googletagmanager.com',
@@ -23,12 +23,12 @@ export const AppConfig: any = {
       'https://sentry.io',
       'ws://localhost:4200',
     ],
-    frameAncestors: ["'self'"],
+    frameAncestors: ['"self"'],
     upgradeInsecureRequests: true,
-    styleSrc: ["'self'", "'unsafe-inline'", 'https://*.googleapis.com'],
+    styleSrc: ['"self"', '"unsafe-inline"', 'https://*.googleapis.com'],
     scriptSrc: [
-      "'self'",
-      "'unsafe-inline'",
+      '"self"',
+      '"unsafe-inline"',
       'http://*.googletagmanager.com',
       'https://*.google-analytics.com',
     ],
