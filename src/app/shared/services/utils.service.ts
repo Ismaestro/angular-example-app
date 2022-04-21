@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
-import { AppConfig } from '../../configs/app.config';
+import { AppConfig } from '~app/configs/app.config';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UtilsService {
-
-  constructor(private snackBar: MatSnackBar) {
-  }
+  constructor(private snackBar: MatSnackBar) {}
 
   showSnackBar(name: string, panelClass: string): void {
     const config: any = new MatSnackBarConfig();
@@ -18,5 +16,4 @@ export class UtilsService {
     config.panelClass = panelClass;
     this.snackBar.open(name, 'OK', config);
   }
-
 }

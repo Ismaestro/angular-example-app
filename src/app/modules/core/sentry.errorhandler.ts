@@ -1,15 +1,14 @@
 import * as Sentry from '@sentry/browser';
 import { ErrorHandler, Injectable } from '@angular/core';
-import { AppConfig } from '../../configs/app.config';
+import { AppConfig } from '~app/configs/app.config';
 
 Sentry.init({
-  dsn: AppConfig.sentryDSN
+  dsn: AppConfig.sentryDSN,
 });
 
 @Injectable()
 export class SentryErrorHandler implements ErrorHandler {
-  constructor() {
-  }
+  constructor() {}
 
   handleError(error: any) {
     Sentry.captureException(error.originalError || error);

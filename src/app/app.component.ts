@@ -4,13 +4,13 @@ import { NavigationEnd, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DOCUMENT } from '@angular/common';
 import { RoutesConfig } from './configs/routes.config';
-import { UtilsHelperService } from './modules/core/services/utils-helper.service';
+import { UtilsHelperService } from '~app/modules/core/services/utils-helper.service';
 
 declare const Modernizr: any;
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
 })
 export class AppComponent implements OnInit {
   isOnline: boolean;
@@ -42,14 +42,14 @@ export class AppComponent implements OnInit {
           case '/':
             this.meta.updateTag({
               name: 'description',
-              content: 'Home meta description'
+              content: 'Home meta description',
             });
             break;
           case '/' + RoutesConfig.routesNames.hero.basePath:
             this.title.setTitle('Heroes list');
             this.meta.updateTag({
               name: 'description',
-              content: 'Heroes meta description'
+              content: 'Heroes meta description',
             });
             break;
         }
@@ -61,10 +61,7 @@ export class AppComponent implements OnInit {
     if (UtilsHelperService.isBrowserValid()) {
       this.checkBrowserFeatures();
     } else {
-      this.snackBar.open(
-        'Change your browser',
-        'OK'
-      );
+      this.snackBar.open('Change your browser', 'OK');
     }
   }
 

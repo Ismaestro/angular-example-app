@@ -1,4 +1,4 @@
-import { Deserializable } from '../../../shared/interfaces/deserializable.interface';
+import { Deserializable } from '~shared/interfaces/deserializable.interface';
 import { Hero } from '../../hero/shared/hero.model';
 
 export enum Role {

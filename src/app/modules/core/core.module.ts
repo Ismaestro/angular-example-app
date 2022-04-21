@@ -5,12 +5,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { NgxExampleLibraryModule } from '@ismaestro/ngx-example-library';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
-import { APP_CONFIG, AppConfig } from '../../configs/app.config';
-import { ROUTES_CONFIG, RoutesConfig } from '../../configs/routes.config';
-import { ENDPOINTS_CONFIG, EndpointsConfig } from '../../configs/endpoints.config';
+import { APP_CONFIG, AppConfig } from '~app/configs/app.config';
+import { ROUTES_CONFIG, RoutesConfig } from '~app/configs/routes.config';
+import { ENDPOINTS_CONFIG, EndpointsConfig } from '~app/configs/endpoints.config';
 import { SentryErrorHandler } from './sentry.errorhandler';
 import { TokenInterceptor } from './interceptors/token.interceptor';
-import { StorageService } from '../../shared/services/storage.service';
+import { StorageService } from '~shared/services/storage.service';
 
 @NgModule({
   imports: [
@@ -18,10 +18,10 @@ import { StorageService } from '../../shared/services/storage.service';
     BrowserAnimationsModule,
     NgxExampleLibraryModule.forRoot({
       config: {
-        say: 'hello'
-      }
+        say: 'hello',
+      },
     }),
-    LazyLoadImageModule
+    LazyLoadImageModule,
   ],
   providers: [
     { provide: APP_CONFIG, useValue: AppConfig },
@@ -30,14 +30,15 @@ import { StorageService } from '../../shared/services/storage.service';
     { provide: ErrorHandler, useClass: SentryErrorHandler },
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true, deps: [StorageService] },
     { provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true },
-    StorageService
-  ]
+    StorageService,
+  ],
 })
-
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
     if (parentModule) {
-      throw new Error(`CoreModule has already been loaded. Import Core modules in the AppModule only.`);
+      throw new Error(
+        `CoreModule has already been loaded. Import Core modules in the AppModule only.`
+      );
     }
   }
 }

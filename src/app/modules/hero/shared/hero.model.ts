@@ -1,4 +1,4 @@
-import { Deserializable } from '../../../shared/interfaces/deserializable.interface';
+import { Deserializable } from '~shared/interfaces/deserializable.interface';
 import { User } from '../../user/shared/user.model';
 
 export class Hero implements Deserializable {
