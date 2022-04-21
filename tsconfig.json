@@ -18,7 +18,15 @@
     "target": "es2017",
     "module": "es2020",
     "lib": ["es2020", "dom"],
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "~assets/*": ["src/assets/*"],
+      "~core/*": ["src/app/core/*"],
+      "~environments/*": ["src/environments/*"],
+      "~shared/*": ["src/app/shared/*"],
+      "~modules/*": ["src/app/modules/*"],
+      "~app/*": ["src/app/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
