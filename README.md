@@ -34,8 +34,9 @@ npm start
 
 ## Backend
 
-This project is using a real app deployed in heroku, which you can see [here](https://github.com/Ismaestro/nestjs-example-app).
-The server is using NesjJS, Prisma, Postgres and GraphQL. Please check it out and feel free also to contribute or give me your thoughts.
+This project is using a real app deployed in heroku, which you can see
+[here](https://github.com/Ismaestro/nestjs-example-app). The server is using NesjJS, Prisma,
+Postgres and GraphQL. Please check it out and feel free also to contribute or give me your thoughts.
 
 ## What's included
 
@@ -64,19 +65,19 @@ The server is using NesjJS, Prisma, Postgres and GraphQL. Please check it out an
 - [x] [Sentry](https://sentry.io)! (logs every error in the app)
 - [x] Google Tag Manager
 - [x] ES6 Promises and Observables
-- [x] End-to-end tests with Cypress App Actions. Read [this](https://applitools.com/blog/page-objects-app-actions-cypress/)!
+- [x] End-to-end tests with Cypress App Actions. Read
+      [this](https://applitools.com/blog/page-objects-app-actions-cypress/)!
 
 ### i18n
 
-This project is using the official internationalization. You can navigate
-through every language  If you want to
-translate the messages you can use this awesome tool,
+This project is using the official internationalization. You can navigate through every language If
+you want to translate the messages you can use this awesome tool,
 [Tiny Translator](https://martinroob.github.io/tiny-translator/en/#/translate).
 
 ## Bugs and feature requests
 
-Have a bug or a feature request? Please first read the issue guidelines
-and search for existing and closed issues. If your problem or idea is not addressed yet,
+Have a bug or a feature request? Please first read the issue guidelines and search for existing and
+closed issues. If your problem or idea is not addressed yet,
 [please open a new issue](https://github.com/Ismaestro/angular-example-app/issues/new).
 
 ## Creators
