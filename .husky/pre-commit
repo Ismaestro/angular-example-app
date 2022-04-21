@@ -3,6 +3,4 @@
 
 [ -n "$CI" ] && exit 0
 
-lint-staged
-
 node_modules/.bin/pretty-quick --staged --pattern "**/*.*(ts|html|js|scss|css)"
