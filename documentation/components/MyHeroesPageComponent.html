@@ -1,0 +1,1300 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>angular-example-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">angular-example-app documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  MyHeroesPageComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modules/hero/pages/my-heroes-page/my-heroes-page.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-my-heroes-page</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./my-heroes-page.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./my-heroes-page.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#alterEgo" >alterEgo</a>
+                            </li>
+                            <li>
+                                <a href="#error" >error</a>
+                            </li>
+                            <li>
+                                <a href="#myNgForm" >myNgForm</a>
+                            </li>
+                            <li>
+                                <a href="#newHeroForm" >newHeroForm</a>
+                            </li>
+                            <li>
+                                <a href="#realName" >realName</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#routesConfig" >routesConfig</a>
+                            </li>
+                            <li>
+                                <a href="#user" >user</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#createNewHero" >createNewHero</a>
+                            </li>
+                            <li>
+                                <a href="#deleteHero" >deleteHero</a>
+                            </li>
+                            <li>
+                                <a href="#loadUser" >loadUser</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onChanges" >onChanges</a>
+                            </li>
+                            <li>
+                                <a href="#trackByFn" >trackByFn</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(heroService: <a href="../injectables/HeroService.html" target="_self">HeroService</a>, userService: <a href="../injectables/UserService.html" target="_self">UserService</a>, dialog: MatDialog, snackBar: MatSnackBar, utilsService: <a href="../injectables/UtilsService.html" target="_self">UtilsService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, formBuilder: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, routesConfig: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/modules/hero/pages/my-heroes-page/my-heroes-page.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>heroService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/HeroService.html" target="_self" >HeroService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialog</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>snackBar</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatSnackBar</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>utilsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UtilsService.html" target="_self" >UtilsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>formBuilder</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>routesConfig</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createNewHero"></a>
+                    <span class="name">
+                        <span ><b>createNewHero</b></span>
+                        <a href="#createNewHero"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createNewHero()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="72"
+                            class="link-to-prism">src/app/modules/hero/pages/my-heroes-page/my-heroes-page.component.ts:72</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteHero"></a>
+                    <span class="name">
+                        <span ><b>deleteHero</b></span>
+                        <a href="#deleteHero"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteHero(hero: <a href="../classes/Hero.html" target="_self">Hero</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">src/app/modules/hero/pages/my-heroes-page/my-heroes-page.component.ts:84</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>hero</td>
+                                    <td>
+                                                <code><a href="../classes/Hero.html" target="_self" >Hero</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadUser"></a>
+                    <span class="name">
+                        <span ><b>loadUser</b></span>
+                        <a href="#loadUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadUser()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/app/modules/hero/pages/my-heroes-page/my-heroes-page.component.ts:66</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">src/app/modules/hero/pages/my-heroes-page/my-heroes-page.component.ts:62</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onChanges"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>onChanges</b></span>
+                        <a href="#onChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onChanges()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="104"
+                            class="link-to-prism">src/app/modules/hero/pages/my-heroes-page/my-heroes-page.component.ts:104</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="trackByFn"></a>
+                    <span class="name">
+                        <span ><b>trackByFn</b></span>
+                        <a href="#trackByFn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>trackByFn(index: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">src/app/modules/hero/pages/my-heroes-page/my-heroes-page.component.ts:100</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>index</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="alterEgo"></a>
+                    <span class="name">
+                        <span ><b>alterEgo</b></span>
+                        <a href="#alterEgo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/modules/hero/pages/my-heroes-page/my-heroes-page.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="error"></a>
+                    <span class="name">
+                        <span ><b>error</b></span>
+                        <a href="#error"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/modules/hero/pages/my-heroes-page/my-heroes-page.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="myNgForm"></a>
+                    <span class="name">
+                        <span ><b>myNgForm</b></span>
+                        <a href="#myNgForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;form&#x27;, {static: false})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/modules/hero/pages/my-heroes-page/my-heroes-page.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newHeroForm"></a>
+                    <span class="name">
+                        <span ><b>newHeroForm</b></span>
+                        <a href="#newHeroForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/modules/hero/pages/my-heroes-page/my-heroes-page.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="realName"></a>
+                    <span class="name">
+                        <span ><b>realName</b></span>
+                        <a href="#realName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/modules/hero/pages/my-heroes-page/my-heroes-page.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="routesConfig"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>routesConfig</b></span>
+                        <a href="#routesConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Inject(ROUTES_CONFIG)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/modules/hero/pages/my-heroes-page/my-heroes-page.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="user"></a>
+                    <span class="name">
+                        <span ><b>user</b></span>
+                        <a href="#user"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/User.html" target="_self" >User | undefined</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/modules/hero/pages/my-heroes-page/my-heroes-page.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Inject, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+import { Hero } from &#x27;../../shared/hero.model&#x27;;
+import { FormBuilder, FormControl, Validators } from &#x27;@angular/forms&#x27;;
+import { MatDialog } from &#x27;@angular/material/dialog&#x27;;
+import { MatSnackBar } from &#x27;@angular/material/snack-bar&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { HeroRemoveComponent } from &#x27;../../components/hero-remove/hero-remove.component&#x27;;
+import { transition, trigger, useAnimation } from &#x27;@angular/animations&#x27;;
+import { fadeIn } from &#x27;ng-animate&#x27;;
+import { ROUTES_CONFIG } from &#x27;../../../../configs/routes.config&#x27;;
+import { HeroService } from &#x27;../../shared/hero.service&#x27;;
+import { UtilsHelperService } from &#x27;../../../core/services/utils-helper.service&#x27;;
+import { UserService } from &#x27;../../../user/user.service&#x27;;
+import { User } from &#x27;../../../user/shared/user.model&#x27;;
+import { UtilsService } from &#x27;../../../../shared/services/utils.service&#x27;;
+
+@Component({
+  selector: &#x27;app-my-heroes-page&#x27;,
+  templateUrl: &#x27;./my-heroes-page.component.html&#x27;,
+  styleUrls: [&#x27;./my-heroes-page.component.scss&#x27;],
+  animations: [
+    trigger(&#x27;fadeIn&#x27;, [
+      transition(
+        &#x27;* &#x3D;&gt; *&#x27;,
+        useAnimation(fadeIn, {
+          params: { timing: 1, delay: 0 },
+        })
+      ),
+    ]),
+  ],
+})
+export class MyHeroesPageComponent implements OnInit {
+  user: User | undefined;
+  newHeroForm: any;
+  error: boolean;
+  realName: FormControl;
+  alterEgo: FormControl;
+
+  @ViewChild(&#x27;form&#x27;, { static: false }) myNgForm: any &#x3D; &#x27;&#x27;; // just to call resetForm method
+
+  constructor(
+    private heroService: HeroService,
+    private userService: UserService,
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar,
+    private utilsService: UtilsService,
+    private router: Router,
+    private formBuilder: FormBuilder,
+    @Inject(ROUTES_CONFIG) public routesConfig: any
+  ) {
+    this.error &#x3D; false;
+    this.realName &#x3D; new FormControl(&#x27;&#x27;, [Validators.required, Validators.maxLength(30)]);
+    this.alterEgo &#x3D; new FormControl(&#x27;&#x27;, [Validators.required, Validators.maxLength(30)]);
+    this.newHeroForm &#x3D; this.formBuilder.group({
+      realName: this.realName,
+      alterEgo: this.alterEgo,
+    });
+
+    this.onChanges();
+  }
+
+  ngOnInit() {
+    this.loadUser();
+  }
+
+  loadUser() {
+    this.userService.getMe({ fetchPolicy: &#x27;no-cache&#x27; }).subscribe((user: User) &#x3D;&gt; {
+      this.user &#x3D; user;
+    });
+  }
+
+  createNewHero() {
+    if (this.newHeroForm.valid) {
+      this.heroService.createHero(new Hero(this.newHeroForm.value)).subscribe(response &#x3D;&gt; {
+        if (!response.errors) {
+          this.myNgForm.resetForm();
+          this.utilsService.showSnackBar(&#x27;Hero created&#x27;, &#x27;info-snack-bar&#x27;);
+          this.loadUser();
+        }
+      });
+    }
+  }
+
+  deleteHero(hero: Hero) {
+    const dialogRef &#x3D; this.dialog.open(HeroRemoveComponent);
+    dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
+      if (result) {
+        this.heroService.removeHero(hero.id).subscribe(response &#x3D;&gt; {
+          if (!response.errors) {
+            this.utilsService.showSnackBar(&#x27;Hero removed&#x27;, &#x27;info-snack-bar&#x27;);
+            this.loadUser();
+          } else {
+            this.error &#x3D; true;
+          }
+        });
+      }
+    });
+  }
+
+  trackByFn(index: any) {
+    return index;
+  }
+
+  private onChanges() {
+    this.newHeroForm.get(&#x27;realName&#x27;)?.valueChanges.subscribe((value: any) &#x3D;&gt; {
+      if (value &amp;&amp; value.length &gt;&#x3D; 3 &amp;&amp; UtilsHelperService.isPalindrome(value)) {
+        this.snackBar.open(&quot;Yeah that&#x27;s a Palindrome!&quot;, &#x27;&#x27;, { duration: 2000 });
+      } else {
+        this.snackBar.dismiss();
+      }
+    });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div id&#x3D;&quot;left&quot;&gt;
+  &lt;h2 class&#x3D;&quot;header__title&quot; i18n&gt;My heroes&lt;/h2&gt;
+  &lt;p *ngIf&#x3D;&quot;!user?.heroes?.length&quot; class&#x3D;&quot;my-heroes__no-heroes--message&quot; i18n&gt;
+    No heroes yet, try to create one in the right side!
+  &lt;/p&gt;
+  &lt;div&gt;
+    &lt;mat-list id&#x3D;&quot;loading-list&quot; *ngIf&#x3D;&quot;!user?.heroes&quot;&gt;
+      &lt;mat-list-item *ngFor&#x3D;&quot;let i of [1, 2, 3, 4, 5, 6, 7, 8]&quot;&gt;
+        &lt;img alt&#x3D;&quot;default hero avatar&quot; mat-list-avatar src&#x3D;&quot;./assets/images/default-hero.png&quot; /&gt;
+        &lt;h3 mat-line&gt;
+          &lt;app-loading-placeholder [width]&#x3D;&quot;&#x27;150px&#x27;&quot; [height]&#x3D;&quot;&#x27;0.9rem&#x27;&quot;&gt;&lt;/app-loading-placeholder&gt;
+        &lt;/h3&gt;
+        &lt;p mat-line&gt;
+          &lt;app-loading-placeholder [width]&#x3D;&quot;&#x27;100px&#x27;&quot; [height]&#x3D;&quot;&#x27;0.9rem&#x27;&quot;&gt;&lt;/app-loading-placeholder&gt;
+        &lt;/p&gt;
+        &lt;div class&#x3D;&quot;hero-actions&quot;&gt;
+          &lt;app-loading-placeholder [width]&#x3D;&quot;&#x27;30px&#x27;&quot; [height]&#x3D;&quot;&#x27;0.9rem&#x27;&quot;&gt;&lt;/app-loading-placeholder&gt;
+
+          &lt;mat-icon class&#x3D;&quot;icon__like--grey&quot;&gt;favorite&lt;/mat-icon&gt;
+        &lt;/div&gt;
+      &lt;/mat-list-item&gt;
+    &lt;/mat-list&gt;
+    &lt;mat-list&gt;
+      &lt;mat-list-item *ngFor&#x3D;&quot;let hero of user?.heroes; trackBy: trackByFn&quot;&gt;
+        &lt;h3 mat-line [class.cp]&#x3D;&quot;hero.published&quot;&gt;
+          {{ hero.alterEgo }}
+        &lt;/h3&gt;
+        &lt;p mat-line [class.cp]&#x3D;&quot;hero.published&quot;&gt;
+          &lt;span&gt;{{ hero.realName }}&lt;/span&gt;
+        &lt;/p&gt;
+        &lt;div class&#x3D;&quot;hero-actions&quot;&gt;
+          &lt;mat-icon class&#x3D;&quot;icon__remove&quot; *ngIf&#x3D;&quot;!hero.published&quot; (click)&#x3D;&quot;deleteHero(hero)&quot;&gt;
+            delete
+          &lt;/mat-icon&gt;
+        &lt;/div&gt;
+      &lt;/mat-list-item&gt;
+    &lt;/mat-list&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id&#x3D;&quot;right&quot;&gt;
+  &lt;h2 class&#x3D;&quot;header__title&quot; i18n&gt;Create a hero&lt;/h2&gt;
+  &lt;div id&#x3D;&quot;form-loading&quot; *ngIf&#x3D;&quot;!user?.heroes&quot;&gt;
+    &lt;form&gt;
+      &lt;div class&#x3D;&quot;input-container&quot;&gt;
+        &lt;app-loading-placeholder [height]&#x3D;&quot;&#x27;2rem&#x27;&quot;&gt;&lt;/app-loading-placeholder&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;input-container&quot;&gt;
+        &lt;app-loading-placeholder [height]&#x3D;&quot;&#x27;2rem&#x27;&quot;&gt;&lt;/app-loading-placeholder&gt;
+      &lt;/div&gt;
+
+      &lt;button aria-label&#x3D;&quot;create button&quot; mat-raised-button [disabled]&#x3D;&quot;true&quot; i18n&gt;Create&lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+  &lt;div *ngIf&#x3D;&quot;user?.heroes&quot;&gt;
+    &lt;form
+      [formGroup]&#x3D;&quot;newHeroForm&quot;
+      #form&#x3D;&quot;ngForm&quot;
+      ngxScrollToFirstInvalid
+      (ngSubmit)&#x3D;&quot;createNewHero()&quot;
+      autocomplete&#x3D;&quot;on&quot;
+    &gt;
+      &lt;mat-form-field class&#x3D;&quot;input-container&quot;&gt;
+        &lt;input
+          matInput
+          name&#x3D;&quot;hname&quot;
+          type&#x3D;&quot;text&quot;
+          placeholder&#x3D;&quot;Name (Palindrome?)&quot;
+          i18n-placeholder&#x3D;&quot;@@nameWithPalindrome&quot;
+          formControlName&#x3D;&quot;realName&quot;
+        /&gt;
+        &lt;mat-error *ngIf&#x3D;&quot;realName.errors &amp;&amp; form.submitted&quot;&gt;
+          &lt;ng-template [ngIf]&#x3D;&quot;realName.errors[&#x27;required&#x27;]&quot; i18n&gt; Name is required &lt;/ng-template&gt;
+          &lt;ng-template [ngIf]&#x3D;&quot;realName.errors[&#x27;maxlength&#x27;]&quot; i18n&gt;
+            The field is too long
+          &lt;/ng-template&gt;
+        &lt;/mat-error&gt;
+      &lt;/mat-form-field&gt;
+      &lt;mat-form-field class&#x3D;&quot;input-container&quot;&gt;
+        &lt;input
+          matInput
+          type&#x3D;&quot;text&quot;
+          name&#x3D;&quot;rname&quot;
+          placeholder&#x3D;&quot;Alter ego&quot;
+          i18n-placeholder&#x3D;&quot;@@realName&quot;
+          formControlName&#x3D;&quot;alterEgo&quot;
+        /&gt;
+        &lt;mat-error *ngIf&#x3D;&quot;alterEgo.errors &amp;&amp; form.submitted&quot;&gt;
+          &lt;ng-template [ngIf]&#x3D;&quot;alterEgo.errors[&#x27;required&#x27;]&quot; i18n&gt; Name is required &lt;/ng-template&gt;
+          &lt;ng-template [ngIf]&#x3D;&quot;alterEgo.errors[&#x27;maxlength&#x27;]&quot; i18n&gt;
+            The field is too long. Required length:
+            {{ alterEgo.errors[&#x27;maxlength&#x27;].requiredLength }}. Current:
+            {{ alterEgo.errors[&#x27;maxlength&#x27;].actualLength }}
+          &lt;/ng-template&gt;
+        &lt;/mat-error&gt;
+      &lt;/mat-form-field&gt;
+      &lt;button
+        aria-label&#x3D;&quot;create button&quot;
+        mat-raised-button
+        type&#x3D;&quot;submit&quot;
+        [disabled]&#x3D;&quot;form.submitted &amp;&amp; !newHeroForm.valid&quot;
+        i18n
+      &gt;
+        Create
+      &lt;/button&gt;
+      &lt;div *ngIf&#x3D;&quot;error&quot; i18n&gt;An error has ocurred&lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+
+  &lt;div id&#x3D;&quot;heroes-json&quot;&gt;
+    &lt;h2 class&#x3D;&quot;header__title&quot; i18n&gt;Heroes 1 and 2&lt;/h2&gt;
+    &lt;pre *ngIf&#x3D;&quot;!user?.heroes&quot;&gt;
+      &lt;app-loading-placeholder [height]&#x3D;&quot;&#x27;300px&#x27;&quot;&gt;&lt;/app-loading-placeholder&gt;
+    &lt;/pre&gt;
+    &lt;pre *ngIf&#x3D;&quot;user?.heroes&quot;&gt;{{ user?.heroes | slice: 0:2 | json }}&lt;/pre&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class&#x3D;&quot;clear&quot;&gt;&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./my-heroes-page.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import &#x27;src/app/styles/mixins&#x27;;
+@import &#x27;src/app/styles/colors&#x27;;
+
+a {
+  @include text-small-grey();
+}
+
+#loading-list {
+  p {
+    margin-top: 0.2rem;
+  }
+}
+
+#form-loading {
+  .input-container {
+    margin: 0.5rem 0;
+  }
+}
+
+#left {
+  width: 50%;
+  float: left;
+  margin-left: 6%;
+}
+
+#right {
+  margin-left: 50%;
+  text-align: center;
+  padding-right: 17%;
+}
+
+.clear {
+  clear: both;
+}
+
+.mat-list {
+  @include push--auto();
+  display: table;
+
+  .mat-list-text {
+    text-align: left !important;
+  }
+}
+
+.hero-actions {
+  margin-left: 1rem;
+  padding-bottom: 0;
+
+  .icon__remove {
+    padding-left: 0.5rem;
+    color: darkslategrey;
+    cursor: pointer;
+  }
+}
+
+form {
+  display: grid;
+  width: 80%;
+  @include push--auto();
+
+  .mat-raised-button {
+    color: $secondary--color;
+    background: $primary--color;
+    width: 50%;
+    @include push--auto();
+  }
+
+  .mat-form-field {
+    width: 100%;
+  }
+}
+
+#heroes-json {
+  margin-top: 2rem;
+
+  pre {
+    margin-top: 1rem;
+  }
+}
+
+.my-heroes__no-heroes--message {
+  text-align: center;
+  width: 20%;
+  margin: 0 auto;
+  line-height: 1.7rem;
+}
+
+@media (max-width: 680px) {
+  #left {
+    width: 100%;
+    float: none;
+    @include push--auto();
+  }
+
+  #right {
+    margin: 1em auto 0;
+    width: 90%;
+    float: none;
+    padding: 0;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div id="left">  <h2 class="header__title" i18n>My heroes</h2>  <p *ngIf="!user?.heroes?.length" class="my-heroes__no-heroes--message" i18n>    No heroes yet, try to create one in the right side!  </p>  <div>    <mat-list id="loading-list" *ngIf="!user?.heroes">      <mat-list-item *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8]">        <img alt="default hero avatar" mat-list-avatar src="./assets/images/default-hero.png" />        <h3 mat-line>          <app-loading-placeholder [width]="\'150px\'" [height]="\'0.9rem\'"></app-loading-placeholder>        </h3>        <p mat-line>          <app-loading-placeholder [width]="\'100px\'" [height]="\'0.9rem\'"></app-loading-placeholder>        </p>        <div class="hero-actions">          <app-loading-placeholder [width]="\'30px\'" [height]="\'0.9rem\'"></app-loading-placeholder>          <mat-icon class="icon__like--grey">favorite</mat-icon>        </div>      </mat-list-item>    </mat-list>    <mat-list>      <mat-list-item *ngFor="let hero of user?.heroes; trackBy: trackByFn">        <h3 mat-line [class.cp]="hero.published">          {{ hero.alterEgo }}        </h3>        <p mat-line [class.cp]="hero.published">          <span>{{ hero.realName }}</span>        </p>        <div class="hero-actions">          <mat-icon class="icon__remove" *ngIf="!hero.published" (click)="deleteHero(hero)">            delete          </mat-icon>        </div>      </mat-list-item>    </mat-list>  </div></div><div id="right">  <h2 class="header__title" i18n>Create a hero</h2>  <div id="form-loading" *ngIf="!user?.heroes">    <form>      <div class="input-container">        <app-loading-placeholder [height]="\'2rem\'"></app-loading-placeholder>      </div>      <div class="input-container">        <app-loading-placeholder [height]="\'2rem\'"></app-loading-placeholder>      </div>      <button aria-label="create button" mat-raised-button [disabled]="true" i18n>Create</button>    </form>  </div>  <div *ngIf="user?.heroes">    <form      [formGroup]="newHeroForm"      #form="ngForm"      ngxScrollToFirstInvalid      (ngSubmit)="createNewHero()"      autocomplete="on"    >      <mat-form-field class="input-container">        <input          matInput          name="hname"          type="text"          placeholder="Name (Palindrome?)"          i18n-placeholder="@@nameWithPalindrome"          formControlName="realName"        />        <mat-error *ngIf="realName.errors && form.submitted">          <ng-template [ngIf]="realName.errors[\'required\']" i18n> Name is required </ng-template>          <ng-template [ngIf]="realName.errors[\'maxlength\']" i18n>            The field is too long          </ng-template>        </mat-error>      </mat-form-field>      <mat-form-field class="input-container">        <input          matInput          type="text"          name="rname"          placeholder="Alter ego"          i18n-placeholder="@@realName"          formControlName="alterEgo"        />        <mat-error *ngIf="alterEgo.errors && form.submitted">          <ng-template [ngIf]="alterEgo.errors[\'required\']" i18n> Name is required </ng-template>          <ng-template [ngIf]="alterEgo.errors[\'maxlength\']" i18n>            The field is too long. Required length:            {{ alterEgo.errors[\'maxlength\'].requiredLength }}. Current:            {{ alterEgo.errors[\'maxlength\'].actualLength }}          </ng-template>        </mat-error>      </mat-form-field>      <button        aria-label="create button"        mat-raised-button        type="submit"        [disabled]="form.submitted && !newHeroForm.valid"        i18n      >        Create      </button>      <div *ngIf="error" i18n>An error has ocurred</div>    </form>  </div>  <div id="heroes-json">    <h2 class="header__title" i18n>Heroes 1 and 2</h2>    <pre *ngIf="!user?.heroes">      <app-loading-placeholder [height]="\'300px\'"></app-loading-placeholder>    </pre>    <pre *ngIf="user?.heroes">{{ user?.heroes | slice: 0:2 | json }}</pre>  </div></div><div class="clear"></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'Error404PageComponent', 'selector': 'app-error404-page'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeroCardComponent', 'selector': 'app-hero-card'},{'name': 'HeroDetailPageComponent', 'selector': 'app-hero-detail-page'},{'name': 'HeroLoadingComponent', 'selector': 'app-hero-loading'},{'name': 'HeroRemoveComponent', 'selector': 'app-hero-remove'},{'name': 'HomePageComponent', 'selector': 'app-home-page'},{'name': 'LoadingPlaceholderComponent', 'selector': 'app-loading-placeholder'},{'name': 'LogInPageComponent', 'selector': 'app-log-in-page'},{'name': 'MyHeroesPageComponent', 'selector': 'app-my-heroes-page'},{'name': 'SearchBarComponent', 'selector': 'app-search-bar'},{'name': 'SignUpPageComponent', 'selector': 'app-sign-up-page'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'MyHeroesPageComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MyHeroesPageComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

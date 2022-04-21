@@ -1,5 +1,6 @@
 .idea
 node_modules
+documentation
 cypress/videos
 cypress/screenshots
 .vscode

@@ -9,6 +9,15 @@ import { StorageService } from '~shared/services/storage.service';
 export class TokenInterceptor implements HttpInterceptor {
   constructor(private storageService: StorageService) {}
 
+  /**
+   * @param request The initial request
+   * @param next The http handler
+   * @returns An Observable with the request modified
+   */
+  /**
+   * @example
+   * intercept(request, next)
+   */
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const headers = { req_uuid: uuid4(), Authorization: '' };
 
