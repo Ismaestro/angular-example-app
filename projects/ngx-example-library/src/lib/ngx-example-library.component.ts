@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 export class NgxExampleLibraryComponent implements OnInit {
   date: string;
 
-  constructor() {}
+  constructor() {
+    this.date = '';
+  }
 
   ngOnInit() {
     this.date = new Date().toDateString();
