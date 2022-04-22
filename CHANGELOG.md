@@ -1,8 +1,40 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See
-[standard-version](https://github.com/conventional-changelog/standard-version) for commit
-guidelines.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [13.2.0](https://github.com/Ismaestro/angular-example-app/compare/v13.1.0...v13.2.0) (2022-04-22)
+
+
+### Features
+
+* **app:** add documentation ([5bfbba6](https://github.com/Ismaestro/angular-example-app/commit/5bfbba613dacb77f9af356bcd80ddf923534b588))
+* **app:** destroy subscription! ([08b10f3](https://github.com/Ismaestro/angular-example-app/commit/08b10f38af4baaf93d1c7040c315fb0564e85b2f))
+* **app:** fix apollo provider ([cbb4f76](https://github.com/Ismaestro/angular-example-app/commit/cbb4f7674c3f52b9b440d0bcf7db15fa7b4caad2))
+* **app:** fix build error ([af757c8](https://github.com/Ismaestro/angular-example-app/commit/af757c83755f3b185bff0f91061695afe6ea8a50))
+* **app:** fix ci script ([2f6383d](https://github.com/Ismaestro/angular-example-app/commit/2f6383d9740418e8714fcd3c4487252ec6014fd5))
+* **app:** fix e2e script ([14ab120](https://github.com/Ismaestro/angular-example-app/commit/14ab120e994f3cf966e039e3e8ab6320da2dcf50))
+* **app:** fix eslint config ([80e7469](https://github.com/Ismaestro/angular-example-app/commit/80e7469f95ba07798fd953d534bbefa0bd2eeae0))
+* **app:** fix eslint config 2 ([2e89dff](https://github.com/Ismaestro/angular-example-app/commit/2e89dffc900e23bcc0302c446ba98af3ef5c60a0))
+* **app:** fix eslint config 3 ([d7c024d](https://github.com/Ismaestro/angular-example-app/commit/d7c024d5d28443abfad195c6aa20a4861bea7939))
+* **app:** fix eslint config 4 ([f93ba6c](https://github.com/Ismaestro/angular-example-app/commit/f93ba6c9b1ad20e1a2b7af504ffdeea6b271c0cc))
+* **app:** fix ng mocks error ([231385d](https://github.com/Ismaestro/angular-example-app/commit/231385d64f101b29edc4fe6a75e094b1ec2758a3))
+* **app:** fix paths config for unit tests ([d970530](https://github.com/Ismaestro/angular-example-app/commit/d970530a21ac4f16217343ec54a1e0e4b9b8828c))
+* **app:** fix tests ([111c13e](https://github.com/Ismaestro/angular-example-app/commit/111c13e49c94dd5e66af92d11b12ac1579001ff8))
+* **app:** improve storage service ([c0964e0](https://github.com/Ismaestro/angular-example-app/commit/c0964e04e0ce3e4fce66a2461eddb08600f64fba))
+* **app:** reformat all code files with prettier ([34e6892](https://github.com/Ismaestro/angular-example-app/commit/34e689233fa37c0cfede7388bdeb8afb75c4f4fb))
+* **app:** remove cookie votes flag ([67e8b47](https://github.com/Ismaestro/angular-example-app/commit/67e8b47ee08a1074c9d39322374d27b0d761b49b))
+* **app:** replace some paths ([795ae4f](https://github.com/Ismaestro/angular-example-app/commit/795ae4ffb664e79224050bb350fcb9342ac45774))
+* **app:** update @angular-eslint/schematics ([6a05c74](https://github.com/Ismaestro/angular-example-app/commit/6a05c74b17a14f88f2f467f004d50f334f3ab425))
+* **app:** update @angular/cdk ([ce26490](https://github.com/Ismaestro/angular-example-app/commit/ce2649040dae2d7f1f65f5151224c20a47e66025))
+* **app:** update @angular/material ([4b3e730](https://github.com/Ismaestro/angular-example-app/commit/4b3e73082113ca694d315ccb9b1a82641e2b2600))
+* **app:** update apollo-angular ([1e27c5c](https://github.com/Ismaestro/angular-example-app/commit/1e27c5cb84bf9305c95b80b3933d13bdac64060a))
+* **app:** update cypress spec type ([dc00932](https://github.com/Ismaestro/angular-example-app/commit/dc0093271c12f6cc50cea63b7ddaec5d0c088da6))
+* **app:** update eslint config and modified to be more restricted ([a0814fe](https://github.com/Ismaestro/angular-example-app/commit/a0814feea83c6ad47cb5cc2b315ebee7c5ab222e))
+* **app:** update husky and add pre-commit validation ([be5453d](https://github.com/Ismaestro/angular-example-app/commit/be5453d1d0df479186273ca21699e9e885c5804d))
+* **app:** update ng-mocks ([9fec4a6](https://github.com/Ismaestro/angular-example-app/commit/9fec4a60339f8859b3a5a57bc4e0ad8a073dbfd1))
+* **app:** update readme file ([3354fcb](https://github.com/Ismaestro/angular-example-app/commit/3354fcb0d6488ed2ef9d1feab91a30cad196513a))
+* **app:** upgrade some versions ([5508d73](https://github.com/Ismaestro/angular-example-app/commit/5508d737f8b53b3f6ac5f4845d3d43e86e433197))
+* **hero:** add posibility to vote ([5e3b645](https://github.com/Ismaestro/angular-example-app/commit/5e3b645324ef014e4e6546b1004c2e7831dc144d))
 
 ## [13.1.0](https://github.com/Ismaestro/angular-example-app/compare/v13.0.0...v13.1.0) (2021-12-11)
 
