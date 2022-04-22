@@ -51,6 +51,9 @@
             "stylePreprocessorOptions": {
               "includePaths": ["src/app/shared/styles"]
             },
+            "allowedCommonJsDependencies": [
+              "~app/modules/core/services/utils-helper.service"
+            ],
             "scripts": [
               "src/assets/js/gtm.js",
               "src/assets/js/modernizr.js",
