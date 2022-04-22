@@ -1,3 +1,5 @@
+import { Hero } from '~modules/hero/shared/hero.model';
+
 describe('My First Test using app actions', () => {
   const getHomeComponent = () => cy.window().should('have.property', 'HomePageComponent');
 
@@ -9,7 +11,7 @@ describe('My First Test using app actions', () => {
     console.log(getHomeComponent());
 
     getHeroes().then((value: any) => {
-      value.subscribe(heroes => {
+      value.subscribe((heroes: Hero[]) => {
         assert.isArray(heroes);
       });
     });
