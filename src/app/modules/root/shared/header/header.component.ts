@@ -3,7 +3,7 @@ import { APP_CONFIG } from '~app/configs/app.config';
 import { NavigationEnd, Router } from '@angular/router';
 import { ROUTES_CONFIG, RoutesConfig } from '~app/configs/routes.config';
 import { AuthService } from '../../../auth/auth.service';
-import { StorageService } from '~shared/services/storage.service';
+import { StorageKey, StorageService } from '~shared/services/storage.service';
 
 @Component({
   selector: 'app-header',
@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.selectedLanguage = this.storageService.getCookie('language') || 'en';
+    this.selectedLanguage = this.storageService.getCookie(StorageKey.LANGUAGE) || 'en';
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.currentUrl = event.url;
@@ -43,12 +43,12 @@ export class HeaderComponent implements OnInit {
   }
 
   changeLanguage(language: string): void {
-    this.storageService.setCookie('language', language);
+    this.storageService.setCookie(StorageKey.LANGUAGE, language);
     this.selectedLanguage = language;
   }
 
   logOut(): void {
-    this.storageService.removeCookie('accessToken');
+    this.storageService.removeCookie(StorageKey.ACCESS_TOKEN);
     this.isLoggedIn = this.authService.isLoggedIn();
     this.router.navigate([RoutesConfig.routes.home]);
   }

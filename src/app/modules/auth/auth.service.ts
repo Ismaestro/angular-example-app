@@ -5,7 +5,7 @@ import { Apollo, gql } from 'apollo-angular';
 import { map } from 'rxjs/operators';
 import { UtilsService } from '~shared/services/utils.service';
 import jwt_decode from 'jwt-decode';
-import { StorageService } from '~shared/services/storage.service';
+import { StorageKey, StorageService } from '~shared/services/storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +20,7 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     try {
-      const token = this.storageService.getCookie('accessToken');
+      const token = this.storageService.getCookie(StorageKey.ACCESS_TOKEN);
       if (token) {
         return !!jwt_decode(token);
       }
@@ -82,8 +82,8 @@ export class AuthService {
           if (!response.errors) {
             const loginData = response.data.login;
             const { accessToken, refreshToken } = loginData;
-            this.storageService.setCookie('accessToken', accessToken);
-            this.storageService.setCookie('refreshToken', refreshToken);
+            this.storageService.setCookie(StorageKey.ACCESS_TOKEN, accessToken);
+            this.storageService.setCookie(StorageKey.REFRESH_TOKEN, refreshToken);
             this.utilsService.showSnackBar("Nice! Let's create some heroes", 'info-snack-bar');
             return loginData;
           } else {
