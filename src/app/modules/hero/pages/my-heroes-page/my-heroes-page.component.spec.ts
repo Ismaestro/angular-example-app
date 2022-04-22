@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MyHeroesPageComponent } from './my-heroes-page.component';
-import { LoadingPlaceholderComponent } from '../../../../shared/components/loading-placeholder/loading-placeholder.component';
+import { LoadingPlaceholderComponent } from '~shared/components/loading-placeholder/loading-placeholder.component';
 import { Hero } from '../../shared/hero.model';
 import { of } from 'rxjs';
 import {
@@ -17,7 +17,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgxScrollToFirstInvalidModule } from '@ismaestro/ngx-scroll-to-first-invalid';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ROUTES_CONFIG, RoutesConfig } from '../../../../configs/routes.config';
+import { ROUTES_CONFIG, RoutesConfig } from '~app/configs/routes.config';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HeroService } from '../../shared/hero.service';
 import { MatListModule } from '@angular/material/list';

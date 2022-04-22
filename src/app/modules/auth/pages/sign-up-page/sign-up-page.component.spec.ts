@@ -3,9 +3,10 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { SignUpPageComponent } from './sign-up-page.component';
 import { MockModule } from 'ng-mocks';
-import { MaterialModule } from '../../../../shared/modules/material.module';
+import { MaterialModule } from '~shared/modules/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Apollo } from 'apollo-angular';
 
 describe('SignUpPageComponent', () => {
   let component: SignUpPageComponent;
@@ -22,7 +23,7 @@ describe('SignUpPageComponent', () => {
           ReactiveFormsModule,
         ],
         declarations: [SignUpPageComponent],
-        providers: [{ provide: MatSnackBar, useValue: matSnackBarSpy }],
+        providers: [{ provide: MatSnackBar, useValue: matSnackBarSpy }, Apollo],
       }).compileComponents();
 
       fixture = TestBed.createComponent(SignUpPageComponent);

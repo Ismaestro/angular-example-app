@@ -7,12 +7,12 @@ import { Router } from '@angular/router';
 import { HeroRemoveComponent } from '../../components/hero-remove/hero-remove.component';
 import { transition, trigger, useAnimation } from '@angular/animations';
 import { fadeIn } from 'ng-animate';
-import { ROUTES_CONFIG } from '../../../../configs/routes.config';
+import { ROUTES_CONFIG } from '~app/configs/routes.config';
 import { HeroService } from '../../shared/hero.service';
 import { UtilsHelperService } from '../../../core/services/utils-helper.service';
 import { UserService } from '../../../user/user.service';
 import { User } from '../../../user/shared/user.model';
-import { UtilsService } from '../../../../shared/services/utils.service';
+import { UtilsService } from '~shared/services/utils.service';
 
 @Component({
   selector: 'app-my-heroes-page',

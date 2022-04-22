@@ -4,10 +4,11 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { LogInPageComponent } from './log-in-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MaterialModule } from '../../../../shared/modules/material.module';
+import { MaterialModule } from '~shared/modules/material.module';
 import { MockModule } from 'ng-mocks';
+import { Apollo } from 'apollo-angular';
 
-describe('SignUpPageComponent', () => {
+describe('LogInPageComponent', () => {
   let component: LogInPageComponent;
   let fixture: ComponentFixture<LogInPageComponent>;
   const matSnackBarSpy = jasmine.createSpyObj('MatSnackBar', ['open']);
@@ -22,7 +23,7 @@ describe('SignUpPageComponent', () => {
           ReactiveFormsModule,
         ],
         declarations: [LogInPageComponent],
-        providers: [{ provide: MatSnackBar, useValue: matSnackBarSpy }],
+        providers: [{ provide: MatSnackBar, useValue: matSnackBarSpy }, Apollo],
       }).compileComponents();
 
       fixture = TestBed.createComponent(LogInPageComponent);

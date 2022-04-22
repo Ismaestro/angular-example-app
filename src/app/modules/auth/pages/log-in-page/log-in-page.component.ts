@@ -3,9 +3,9 @@ import { transition, trigger, useAnimation } from '@angular/animations';
 import { fadeIn } from 'ng-animate';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../auth.service';
-import { RoutesConfig } from '../../../../configs/routes.config';
+import { RoutesConfig } from '~app/configs/routes.config';
 import { Router } from '@angular/router';
-import { UtilsService } from '../../../../shared/services/utils.service';
+import { UtilsService } from '~shared/services/utils.service';
 
 @Component({
   selector: 'app-log-in-page',

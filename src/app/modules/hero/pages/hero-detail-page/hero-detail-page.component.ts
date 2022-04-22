@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { transition, trigger, useAnimation } from '@angular/animations';
 import { fadeIn } from 'ng-animate';
-import { RoutesConfig } from '../../../../configs/routes.config';
+import { RoutesConfig } from '~app/configs/routes.config';
 
 @Component({
   selector: 'app-hero-detail-page',

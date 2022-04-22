@@ -2,16 +2,17 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { HeaderComponent } from './header.component';
 import { SearchBarComponent } from '../search-bar/search-bar.component';
 import { MockComponent } from 'ng-mocks';
-import { APP_CONFIG, AppConfig } from '../../../../configs/app.config';
+import { APP_CONFIG, AppConfig } from '~app/configs/app.config';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { of } from 'rxjs';
-import { ROUTES_CONFIG, RoutesConfig } from '../../../../configs/routes.config';
+import { ROUTES_CONFIG, RoutesConfig } from '~app/configs/routes.config';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { StorageService } from '../../../../shared/services/storage.service';
+import { StorageService } from '~shared/services/storage.service';
+import { Apollo } from 'apollo-angular';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -43,6 +44,7 @@ describe('HeaderComponent', () => {
           { provide: MatSnackBar, useValue: matSnackBarSpy },
           { provide: APP_CONFIG, useValue: AppConfig },
           { provide: ROUTES_CONFIG, useValue: RoutesConfig },
+          Apollo,
         ],
       }).compileComponents();
 

@@ -1,5 +1,5 @@
-import { HeaderComponent } from './modules/root/shared/header/header.component';
-import { SearchBarComponent } from './modules/root/shared/search-bar/search-bar.component';
+import { HeaderComponent } from '~modules/root/shared/header/header.component';
+import { SearchBarComponent } from '~modules/root/shared/search-bar/search-bar.component';
 import { NgxExampleLibraryComponent } from '@ismaestro/ngx-example-library';
 import { of } from 'rxjs';
 import { MockComponent } from 'ng-mocks';
@@ -10,7 +10,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { Meta, Title } from '@angular/platform-browser';
 import { NavigationEnd } from '@angular/router';
-import { FooterComponent } from './modules/root/shared/footer/footer.component';
+import { FooterComponent } from '~modules/root/shared/footer/footer.component';
 
 describe('AppComponent', () => {
   let component: AppComponent;

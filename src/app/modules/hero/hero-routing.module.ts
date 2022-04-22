@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HeroResolver } from './shared/hero.resolver';
 import { HeroDetailPageComponent } from './pages/hero-detail-page/hero-detail-page.component';
 import { MyHeroesPageComponent } from './pages/my-heroes-page/my-heroes-page.component';
-import { RoutesConfig } from '../../configs/routes.config';
+import { RoutesConfig } from '~app/configs/routes.config';
 import { AuthGuard } from '../auth/auth.guard';
 
 const heroRoutes = RoutesConfig.routesNames.hero;
