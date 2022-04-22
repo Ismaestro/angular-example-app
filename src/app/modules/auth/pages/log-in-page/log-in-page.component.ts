@@ -7,6 +7,10 @@ import { RoutesConfig } from '~app/configs/routes.config';
 import { Router } from '@angular/router';
 import { UtilsService } from '~shared/services/utils.service';
 
+export enum UserLoginError {
+  BAD_USER_INPUT = 'BAD_USER_INPUT',
+}
+
 @Component({
   selector: 'app-log-in-page',
   templateUrl: './log-in-page.component.html',
@@ -58,8 +62,8 @@ export class LogInPageComponent {
       this.authService.logIn(formValue.email, formValue.password).subscribe((response: any) => {
         if (!response.errors) {
           this.router.navigate([RoutesConfig.routes.hero.myHeroes]);
-        } else if (response.errors[0].code === 11000) {
-          this.utilsService.showSnackBar("Nice! Let's create some heroes", 'info-snack-bar');
+        } else if (response.errors[0].extensions?.code === UserLoginError.BAD_USER_INPUT) {
+          this.utilsService.showSnackBar('Bad credentials!', 'info-snack-bar');
         }
       });
     }
