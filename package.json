@@ -83,7 +83,7 @@
     "@angular-eslint/eslint-plugin-template": "^13.2.1",
     "@angular-eslint/schematics": "^13.2.1",
     "@angular-eslint/template-parser": "^13.2.1",
-    "@angular/material": "13.1.0",
+    "@angular/material": "13.3.4",
     "@compodoc/compodoc": "^1.1.19",
     "@cypress/schematic": "1.6.0",
     "@ismaestro/ngx-example-library": "1.2.0",
