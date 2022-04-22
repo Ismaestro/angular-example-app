@@ -11,6 +11,7 @@ import { ENDPOINTS_CONFIG, EndpointsConfig } from '~app/configs/endpoints.config
 import { SentryErrorHandler } from './sentry.errorhandler';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { StorageService } from '~shared/services/storage.service';
+import { Apollo } from 'apollo-angular';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import { StorageService } from '~shared/services/storage.service';
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true, deps: [StorageService] },
     { provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true },
     StorageService,
+    Apollo,
   ],
 })
 export class CoreModule {
