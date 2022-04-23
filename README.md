@@ -35,7 +35,7 @@ npm start
 ## Backend
 
 This project is using a real app deployed in heroku, which you can see
-[here](https://github.com/Ismaestro/nestjs-example-app). The server is using NesjJS, Prisma,
+[here](https://github.com/Ismaestro/nestjs-example-app). The server is using NestJS, Prisma,
 Postgres and GraphQL. Please check it out and feel free also to contribute or give me your thoughts.
 
 ## What's included
