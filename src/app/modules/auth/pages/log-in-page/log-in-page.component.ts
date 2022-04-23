@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import { UtilsService } from '~shared/services/utils.service';
 
 export enum UserLoginError {
-  BAD_USER_INPUT = 'BAD_USER_INPUT',
+  BAD_CREDENTIALS = 11000,
 }
 
 @Component({
@@ -62,7 +62,7 @@ export class LogInPageComponent {
       this.authService.logIn(formValue.email, formValue.password).subscribe((response: any) => {
         if (!response.errors) {
           this.router.navigate([RoutesConfig.routes.hero.myHeroes]);
-        } else if (response.errors[0].extensions?.code === UserLoginError.BAD_USER_INPUT) {
+        } else if (response.errors[0].code === UserLoginError.BAD_CREDENTIALS) {
           this.utilsService.showSnackBar('Bad credentials!', 'info-snack-bar');
         }
       });
