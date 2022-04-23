@@ -168,7 +168,8 @@
           "options": {
             "devServerTarget": "angularexampleapp:serve",
             "watch": false,
-            "headless": true
+            "headless": true,
+            "port": 4201
           },
           "configurations": {
             "production": {
