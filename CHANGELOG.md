@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [13.2.1](https://github.com/Ismaestro/angular-example-app/compare/v13.2.0...v13.2.1) (2022-04-23)
+
+
+### Features
+
+* **app:** add patch release script ([cd7cd7c](https://github.com/Ismaestro/angular-example-app/commit/cd7cd7c63eec3693e5ccf6a7105de5aee2460341))
+* **app:** fix log in message ([c43f795](https://github.com/Ismaestro/angular-example-app/commit/c43f795061b84f11aa25139e1b4159fea9c14ea5))
+* **app:** fix login bad credentials error ([7334d38](https://github.com/Ismaestro/angular-example-app/commit/7334d38776b792e988dcd66fe94c4abd0253e3b6))
+* **app:** fix manifest ([9f761b1](https://github.com/Ismaestro/angular-example-app/commit/9f761b1c0d22db197245dbf88f51991b6b692c39))
+* **app:** fix pwa issues ([9648643](https://github.com/Ismaestro/angular-example-app/commit/9648643cc63aee54eb86b46f0c9149b4d9d5ef18))
+* **app:** fix some scripts ([3a2425f](https://github.com/Ismaestro/angular-example-app/commit/3a2425fac146670ae81b10bf422459b08b19644c))
+* **app:** update readme ([935d631](https://github.com/Ismaestro/angular-example-app/commit/935d6318dcc787f9b4631eb2cc43dae9d9a50a07))
+
 ## [13.2.0](https://github.com/Ismaestro/angular-example-app/compare/v13.1.0...v13.2.0) (2022-04-22)
 
 
