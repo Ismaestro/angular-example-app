@@ -11,9 +11,16 @@ footer {
   img {
     width: 25%;
   }
+
+  .footer__angular-icon {
+    text-align: right;
+  }
 }
 
-.footer-xs {
-  text-align: center;
-  padding-top: 1rem;
+@media (max-width: 680px) {
+  footer {
+    .footer__angular-icon {
+      text-align: center;
+    }
+  }
 }

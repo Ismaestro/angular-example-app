@@ -22,6 +22,9 @@
       .mat-raised-button {
         color: $primary--color;
         margin-right: 1rem;
+        @media (max-width: 680px) {
+          margin-right: 0.4rem;
+        }
       }
 
       .progress-bar {
@@ -92,11 +95,7 @@
       nav {
         height: 7rem;
         display: flex;
-        padding: 1rem 2rem 0;
-
-        > div {
-          margin-top: 1rem;
-        }
+        padding: 1rem 0.5rem 0;
 
         #today {
           margin-top: 1rem;

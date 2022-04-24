@@ -10,6 +10,18 @@
           i18n
           >My Heroes</a
         >
+        <a mat-raised-button *ngIf="!isLoggedIn" [routerLink]="routesConfig.routes.auth.logIn" i18n>
+          Log In
+        </a>
+        <a
+          mat-raised-button
+          *ngIf="!isLoggedIn"
+          [routerLink]="routesConfig.routes.auth.signUp"
+          i18n
+        >
+          Sign Up
+        </a>
+        <a mat-raised-button *ngIf="isLoggedIn" (click)="logOut()"> Log out </a>
       </div>
       <div fxFlex class="text--right">
         <app-search-bar></app-search-bar>
@@ -28,18 +40,6 @@
             </a>
           </div>
         </mat-menu>
-        <a
-          mat-raised-button
-          *ngIf="!isLoggedIn"
-          [routerLink]="routesConfig.routes.auth.signUp"
-          i18n
-        >
-          Sign Up
-        </a>
-        <a mat-raised-button *ngIf="!isLoggedIn" [routerLink]="routesConfig.routes.auth.logIn" i18n>
-          Log In
-        </a>
-        <a mat-raised-button *ngIf="isLoggedIn" (click)="logOut()"> Log out </a>
       </div>
     </div>
   </nav>

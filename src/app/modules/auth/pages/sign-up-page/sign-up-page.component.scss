@@ -1,5 +1,11 @@
 @import '../../../../styles/mixins';
 
+.container {
+  width: 45%;
+  @include push--auto();
+  margin-top: 2rem;
+}
+
 .signup--form-container {
   text-align: center;
 
@@ -36,4 +42,16 @@
 
 .signup--form__submit-button {
   margin-top: 40px;
+}
+
+@media (max-width: 680px) {
+  .container {
+    width: 90%;
+    @include push--auto();
+    margin-top: 1rem;
+  }
+
+  .signup--form__box--blue {
+    padding: 1rem;
+  }
 }
