@@ -32,7 +32,7 @@
           <div mat-menu-item *ngFor="let lang of languages">
             <a
               class="language-link"
-              href="{{ host }}{{
+              href="{{ baseUrl }}{{
                 lang.name === 'en' ? currentUrl : '/' + (lang.name + currentUrl)
               }}"
               (click)="changeLanguage(lang.name)"

@@ -13,7 +13,7 @@ import { environment } from '~environments/environment';
 })
 export class HeaderComponent implements OnInit {
   selectedLanguage: string;
-  host: string;
+  baseUrl: string;
   currentUrl: string;
   languages: any[];
   isLoggedIn: boolean;
@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
     private authService: AuthService,
     private router: Router
   ) {
-    this.host = environment.host;
+    this.baseUrl = environment.baseUrl;
     this.selectedLanguage = '';
     this.currentUrl = '';
     this.languages = [
