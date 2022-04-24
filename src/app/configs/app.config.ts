@@ -33,4 +33,9 @@ export const AppConfig: any = {
       'https://*.google-analytics.com',
     ],
   },
+  storage: {
+    keys: {
+      heroes: 'heroes',
+    },
+  },
 };

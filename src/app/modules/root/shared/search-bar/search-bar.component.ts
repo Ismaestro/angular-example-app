@@ -3,7 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Hero } from '../../../hero/shared/hero.model';
 import { ROUTES_CONFIG } from '~app/configs/routes.config';
-import { HeroService } from '../../../hero/shared/hero.service';
+import { HeroDataService } from '~modules/hero/shared/hero-data.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -15,13 +15,16 @@ export class SearchBarComponent implements OnInit {
   heroFormControl: FormControl;
   filteredHeroes: any;
 
-  constructor(private heroService: HeroService, @Inject(ROUTES_CONFIG) public routesConfig: any) {
+  constructor(
+    private heroDataService: HeroDataService,
+    @Inject(ROUTES_CONFIG) public routesConfig: any
+  ) {
     this.defaultHeroes = [];
     this.heroFormControl = new FormControl();
   }
 
   ngOnInit() {
-    this.heroService.searchHeroes({ fetchPolicy: 'no-cache' }).subscribe((heroes: Array<Hero>) => {
+    this.heroDataService.searchHeroes().subscribe((heroes: Array<Hero>) => {
       this.defaultHeroes = heroes;
 
       this.heroFormControl.valueChanges
