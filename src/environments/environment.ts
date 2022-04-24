@@ -1,5 +1,6 @@
 export const environment = {
   production: false,
+  host: 'http://localhost:4200',
   graphqlHost: 'https://nestjs-example-app.herokuapp.com/',
   // graphqlHost: 'http://localhost:3000/'
 };

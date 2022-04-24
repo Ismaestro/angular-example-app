@@ -4,6 +4,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { ROUTES_CONFIG, RoutesConfig } from '~app/configs/routes.config';
 import { AuthService } from '../../../auth/auth.service';
 import { StorageKey, StorageService } from '~shared/services/storage.service';
+import { environment } from '~environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -12,6 +13,7 @@ import { StorageKey, StorageService } from '~shared/services/storage.service';
 })
 export class HeaderComponent implements OnInit {
   selectedLanguage: string;
+  host: string;
   currentUrl: string;
   languages: any[];
   isLoggedIn: boolean;
@@ -23,6 +25,7 @@ export class HeaderComponent implements OnInit {
     private authService: AuthService,
     private router: Router
   ) {
+    this.host = environment.host;
     this.selectedLanguage = '';
     this.currentUrl = '';
     this.languages = [
