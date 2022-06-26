@@ -39,8 +39,8 @@
             >
               <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
             </button>
-            <mat-hint [class] = "signUpForm.controls.password.invalid && signUpForm.controls.password.touched? 'text-red' : ''"
-              >Must be minimum eight characters, at least one uppercase letter, one lowercase letter
+            <mat-hint [class.text-red]="passwordControls.invalid && passwordControls.touched"
+            >Must be minimum eight characters, at least one uppercase letter, one lowercase letter
               and one number</mat-hint
             >
           </mat-form-field>
