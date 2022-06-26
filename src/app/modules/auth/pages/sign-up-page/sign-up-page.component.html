@@ -39,11 +39,10 @@
             >
               <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
             </button>
-            <mat-hint
-              >Must be minimum eight characters, at least one uppercase letter, one lowercase letter
+            <mat-hint [class.text-red]="passwordControls.invalid && passwordControls.touched"
+            >Must be minimum eight characters, at least one uppercase letter, one lowercase letter
               and one number</mat-hint
             >
-            <mat-error *ngIf="password.invalid">{{ getErrorMessage('password') }}</mat-error>
           </mat-form-field>
         </p>
         <p>
