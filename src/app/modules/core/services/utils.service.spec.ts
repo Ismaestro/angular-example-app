@@ -1,11 +1,13 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { UtilsService } from './utils.service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 describe('UtilsService', () => {
   let utilsHelperService: UtilsService;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
+      imports: [MatSnackBarModule],
       providers: [UtilsService],
     });
 
