@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { transition, trigger, useAnimation } from '@angular/animations';
 import { fadeIn } from 'ng-animate';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../auth.service';
 import { UtilsService } from '~modules/core/services/utils.service';
 import { RoutesConfig } from '~app/configs/routes.config';
@@ -32,6 +32,7 @@ export class SignUpPageComponent {
     Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$'),
   ]);
   hide = true;
+  passwordControls: AbstractControl;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -45,6 +46,8 @@ export class SignUpPageComponent {
       email: this.email,
       password: this.password,
     });
+
+    this.passwordControls = this.signUpForm.controls['password'];
   }
 
   getErrorMessage(field: any): string | void {
