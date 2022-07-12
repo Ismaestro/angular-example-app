@@ -4,7 +4,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DOCUMENT } from '@angular/common';
 import { RoutesConfig } from './configs/routes.config';
-import { UtilsHelperService } from '~app/modules/core/services/utils-helper.service';
+import { UtilsService } from '~modules/core/services/utils.service';
 
 declare const Modernizr: any;
 
@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
   }
 
   checkBrowser() {
-    if (UtilsHelperService.isBrowserValid()) {
+    if (UtilsService.isBrowserValid()) {
       this.checkBrowserFeatures();
     } else {
       this.snackBar.open('Change your browser', 'OK');

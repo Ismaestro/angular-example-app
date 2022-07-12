@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Apollo, gql } from 'apollo-angular';
 import { map } from 'rxjs/operators';
-import { UtilsService } from '~shared/services/utils.service';
 import jwt_decode from 'jwt-decode';
 import { StorageKey, StorageService } from '~shared/services/storage.service';
+import { UtilsService } from '~modules/core/services/utils.service';
 
 @Injectable({
   providedIn: 'root',

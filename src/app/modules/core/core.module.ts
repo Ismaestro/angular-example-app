@@ -12,11 +12,13 @@ import { SentryErrorHandler } from './sentry.errorhandler';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { StorageService } from '~shared/services/storage.service';
 import { Apollo } from 'apollo-angular';
+import { SharedModule } from '~shared/shared.module';
 
 @NgModule({
   imports: [
     RouterModule,
     BrowserAnimationsModule,
+    SharedModule,
     NgxExampleLibraryModule.forRoot({
       config: {
         say: 'hello',

@@ -6,8 +6,8 @@ import { ROUTES_CONFIG, RoutesConfig } from '~app/configs/routes.config';
 import { HeroService } from '~modules/hero/shared/hero.service';
 import { Router } from '@angular/router';
 import { AuthService } from '~modules/auth/auth.service';
-import { UtilsService } from '../../services/utils.service';
-import { EventsService, EventsTypes } from '~modules/core/services/events.servide';
+import { UtilsService } from '~modules/core/services/utils.service';
+import { EventsService, EventsTypes } from '~modules/core/services/events.service';
 
 @Component({
   selector: 'app-hero-card',

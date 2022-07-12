@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Hero } from '../../../hero/shared/hero.model';
 import { Observable, Subject, takeUntil } from 'rxjs';
-import { EventsService, EventsTypes } from '../../../core/services/events.servide';
+import { EventsService, EventsTypes } from '../../../core/services/events.service';
 import { HeroDataService } from '~modules/hero/shared/hero-data.service';
 
 @Component({

@@ -52,7 +52,7 @@
               "includePaths": ["src/app/shared/styles"]
             },
             "allowedCommonJsDependencies": [
-              "~app/modules/core/services/utils-helper.service"
+              "~modules/core/services/utils.service"
             ],
             "scripts": [
               "src/assets/js/gtm.js",

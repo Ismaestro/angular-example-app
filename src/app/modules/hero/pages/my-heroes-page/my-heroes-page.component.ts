@@ -9,10 +9,9 @@ import { transition, trigger, useAnimation } from '@angular/animations';
 import { fadeIn } from 'ng-animate';
 import { ROUTES_CONFIG } from '~app/configs/routes.config';
 import { HeroService } from '../../shared/hero.service';
-import { UtilsHelperService } from '../../../core/services/utils-helper.service';
+import { UtilsService } from '~modules/core/services/utils.service';
 import { UserService } from '../../../user/user.service';
 import { User } from '../../../user/shared/user.model';
-import { UtilsService } from '~shared/services/utils.service';
 
 @Component({
   selector: 'app-my-heroes-page',
@@ -103,7 +102,7 @@ export class MyHeroesPageComponent implements OnInit {
 
   private onChanges() {
     this.newHeroForm.get('realName')?.valueChanges.subscribe((value: any) => {
-      if (value && value.length >= 3 && UtilsHelperService.isPalindrome(value)) {
+      if (value && value.length >= 3 && UtilsService.isPalindrome(value)) {
         this.snackBar.open("Yeah that's a Palindrome!", '', { duration: 2000 });
       } else {
         this.snackBar.dismiss();

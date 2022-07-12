@@ -5,7 +5,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { AuthService } from '../../auth.service';
 import { RoutesConfig } from '~app/configs/routes.config';
 import { Router } from '@angular/router';
-import { UtilsService } from '~shared/services/utils.service';
+import { UtilsService } from '~modules/core/services/utils.service';
 
 export enum UserLoginError {
   BAD_CREDENTIALS = 11000,
