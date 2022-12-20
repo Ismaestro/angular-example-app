@@ -17,16 +17,31 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "allowSyntheticDefaultImports": true,
-    "target": "es2020",
+    "target": "ES2022",
     "module": "es2020",
-    "lib": ["es2020", "dom"],
+    "lib": [
+      "es2020",
+      "dom"
+    ],
     "paths": {
-      "~assets/*": ["src/assets/*"],
-      "~environments/*": ["src/environments/*"],
-      "~shared/*": ["src/app/shared/*"],
-      "~modules/*": ["src/app/modules/*"]
+      "~assets/*": [
+        "src/assets/*"
+      ],
+      "~environments/*": [
+        "src/environments/*"
+      ],
+      "~shared/*": [
+        "src/app/shared/*"
+      ],
+      "~modules/*": [
+        "src/app/modules/*"
+      ]
     },
-    "typeRoots": ["./node_modules/@types", "./src/typings.d.ts"]
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/typings.d.ts"
+    ],
+    "useDefineForClassFields": false
   },
   "exclude": ["cypress", "./cypress.config.ts"],
   "angularCompilerOptions": {

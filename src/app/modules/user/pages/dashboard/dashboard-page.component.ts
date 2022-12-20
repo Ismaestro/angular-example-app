@@ -14,7 +14,7 @@ import { User } from '~modules/user/shared/user.model';
 import { DOCUMENT, NgIf } from '@angular/common';
 import { AppConfig } from '../../../../configs/app.config';
 import { userRoutes } from '~modules/user/shared/user-routes';
-import { RouterLinkWithHref } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -22,7 +22,7 @@ import { RouterLinkWithHref } from '@angular/router';
   styleUrls: ['./dashboard-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgIf, RouterLinkWithHref],
+  imports: [NgIf, RouterLink],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DashboardPageComponent implements OnInit, OnDestroy {

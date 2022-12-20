@@ -20,7 +20,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { APP_CONFIG } from '../../../../configs/app.config';
 import { UtilService } from '~modules/core/services/util.service';
 import { ApiError } from '~modules/shared/interfaces/api-error.interface';
-import { Router, RouterLinkWithHref } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ValidationService } from '~modules/core/services/validation.service';
 import { AlertId, AlertService } from '~modules/core/services/alert.service';
 import { CustomError } from '~modules/auth/shared/interfaces/custom-errors.enum';
@@ -43,7 +43,7 @@ import { IAppConfig } from '../../../../configs/app-config.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    RouterLinkWithHref,
+    RouterLink,
     FormErrorsComponent,
     ReactiveFormsModule,
     LanguageSelectorComponent,

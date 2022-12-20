@@ -20,7 +20,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { APP_CONFIG, AppConfig } from '../../../../configs/app.config';
 import { UtilService } from '~modules/core/services/util.service';
 import { ApiError } from '~modules/shared/interfaces/api-error.interface';
-import { ActivatedRoute, Router, RouterLinkWithHref } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { userRoutes } from '~modules/user/shared/user-routes';
 import { ValidationService } from '~modules/core/services/validation.service';
 import { AlertId, AlertService } from '~modules/core/services/alert.service';
@@ -45,7 +45,7 @@ import { IAppConfig } from '../../../../configs/app-config.interface';
   standalone: true,
   imports: [
     HttpClientModule,
-    RouterLinkWithHref,
+    RouterLink,
     FormErrorsComponent,
     ReactiveFormsModule,
     LanguageSelectorComponent,
