@@ -1,0 +1,58 @@
+@import 'functions';
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+@import 'variables';
+
+:host {
+  h1 {
+    font-size: 1.7rem;
+  }
+
+  .register-page-logo-image {
+    width: rem(180px);
+  }
+
+  .register-page-container {
+    @include media-breakpoint-up(sm) {
+      @media (min-height: 890px) {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: 0;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  .register-page-card {
+    max-width: $cards-max-width;
+  }
+
+  .register-page-separator {
+    width: 40%;
+    margin-top: 1.5rem;
+  }
+
+  .register-terms-label {
+    font-size: $small-font-size;
+  }
+
+  .password-voyeur {
+    position: absolute;
+    top: rem(5px);
+    right: rem(40px);
+    width: rem(75px);
+    height: auto;
+  }
+
+  .card-header {
+    right: 0;
+  }
+
+  @media (max-width: 327px) {
+    .register-login-link {
+      display: block;
+    }
+  }
+}

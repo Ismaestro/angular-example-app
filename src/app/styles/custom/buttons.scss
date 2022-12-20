@@ -1,0 +1,35 @@
+@import '../abstracts/keyframes';
+
+.btn {
+  border-radius: 15% / 80%;
+
+  &.is-loading-primary {
+    display: inline-block;
+    border: none;
+    animation: input-shadow-primary ease-in-out 2s infinite;
+  }
+
+  &.is-loading-outline {
+    display: inline-block;
+    border: none;
+    animation: input-shadow-outline ease-in-out 1.5s infinite;
+  }
+}
+
+.btn-primary {
+  color: $white;
+  border: rem(1px) solid $primary;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $white;
+    background: $secondary;
+    border: rem(1px) solid $secondary;
+    transition: 0.1s;
+  }
+}
+
+.btn-outline-primary {
+  color: $black-light-300;
+}

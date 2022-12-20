@@ -1,0 +1,151 @@
+@import 'functions';
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+@import 'colors';
+@import 'variables';
+
+$header-color-text: $black-light-100;
+
+.angularexampleapp-header-container {
+  @include media-breakpoint-only(xs) {
+    position: fixed;
+    z-index: $z-index-sidebar;
+  }
+
+  .angularexampleapp-header-content {
+    @include media-breakpoint-up(lg) {
+      width: calc(100% - 256px);
+    }
+  }
+}
+
+header {
+  z-index: $z-index-header-footer;
+  background-color: $white;
+  border-radius: 0.375rem;
+  box-shadow: $section-box-shadow;
+
+  .navbar-nav .dropdown-menu {
+    position: absolute;
+  }
+
+  .nav-link {
+    margin: 0 rem(12px);
+  }
+
+  .header-button-sidebar {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+
+    &.collapsed {
+      .icon {
+        color: $primary;
+      }
+    }
+
+    .icon {
+      font-size: 1.6rem;
+      color: $secondary;
+    }
+  }
+
+  .dropdown-toggle {
+    background: transparent;
+    border: none;
+
+    a {
+      &:hover {
+        color: $header-color-text;
+        background: none;
+      }
+    }
+  }
+
+  .dropdown-toggle.show {
+    .rounded-circle {
+      border: rem(2px) solid $primary;
+    }
+  }
+
+  .dropdown-menu {
+    z-index: $z-index-sidebar;
+
+    .dropdown-item {
+      min-width: rem(270px);
+
+      button {
+        background: transparent;
+        border: none;
+      }
+
+      .icon {
+        width: rem(16px);
+        height: rem(16px);
+        color: $header-color-text;
+      }
+
+      span,
+      button,
+      small {
+        color: $header-color-text;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background: lighten($primary, 5);
+
+        span,
+        button,
+        .icon {
+          color: $white;
+        }
+      }
+
+      &.no-hover:hover,
+      &.no-hover:focus {
+        cursor: default;
+        background: none;
+
+        span,
+        button,
+        small {
+          color: $header-color-text;
+        }
+      }
+
+      &.active {
+        span,
+        button {
+          color: $white;
+          background: $primary;
+        }
+
+        .icon {
+          color: $white;
+        }
+
+        &:hover {
+          span {
+            background: lighten($primary, 5);
+          }
+        }
+      }
+    }
+
+    &[data-bs-popper] {
+      top: 103%;
+    }
+  }
+
+  .rounded-circle {
+    width: rem(40px);
+    border: rem(1px) solid $primary;
+  }
+
+  .main-avatar-circle:hover {
+    border: rem(2px) solid $primary;
+  }
+}

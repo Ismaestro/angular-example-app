@@ -1,0 +1,127 @@
+<div class="pt-2 pt-lg-3 px-0 px-lg-3">
+  <h3 class="mb-2"><ng-container i18n>Caution!</ng-container></h3>
+  <p class="small mb-2">
+    <i class="icon pe-2 fa-solid fa-circle-exclamation text-danger"></i>
+    <ng-container i18n
+      >Once you delete your account, <strong>there is no going back</strong>. Please be
+      certain.</ng-container
+    >
+  </p>
+  <p>
+    <button
+      class="btn btn-outline-danger"
+      data-bs-target="#delete-account-modal"
+      data-bs-toggle="modal">
+      <ng-container i18n>Delete my account</ng-container>
+    </button>
+  </p>
+  <div
+    aria-hidden="true"
+    aria-labelledby="delete-account-title"
+    class="modal fade"
+    id="delete-account-modal"
+    role="dialog"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content modal-danger">
+        <div class="modal-header">
+          <p class="modal-title" id="delete-account-title">
+            <ng-container i18n>Are you sure you want to do this?</ng-container>
+          </p>
+          <button
+            #closeModal
+            aria-label="Close"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            type="button">
+            <i class="icon fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <form
+            #deleteAccountFormRef="ngForm"
+            *ngIf="deleteAccountForm"
+            [class.needs-validation]="!deleteAccountFormRef.submitted"
+            [class.was-validated]="deleteAccountFormRef.submitted"
+            [formGroup]="deleteAccountForm">
+            <p class="mb-2"><ng-container i18n>You will immediately delete:</ng-container></p>
+            <div>
+              <p>{{ numberOfHeroes }} <ng-container i18n>created heroes</ng-container></p>
+              <hr />
+              <div class="mt-3">
+                <div class="mb-3">
+                  <label class="form-label mb-1" for="user-email">
+                    <ng-container>Email</ng-container>
+                  </label>
+                  <input
+                    [formControl]="email"
+                    class="form-control w-100 mx-auto"
+                    id="user-email"
+                    required
+                    type="text" />
+                  <app-form-errors
+                    [control]="email"
+                    [formRef]="deleteAccountFormRef"
+                    class="invalid-feedback w-100 mx-auto ps-1"></app-form-errors>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label mb-1" for="confirm-delete-password">
+                    <ng-container i18n>Current password</ng-container>
+                  </label>
+                  <input
+                    [formControl]="password"
+                    class="form-control w-100 mx-auto"
+                    i18n-placeholder
+                    id="confirm-delete-password"
+                    minlength="8"
+                    placeholder="Password"
+                    required
+                    type="password" />
+                  <app-form-errors
+                    [control]="password"
+                    [formRef]="deleteAccountFormRef"
+                    class="invalid-feedback w-100 mx-auto ps-1"></app-form-errors>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label mb-1" for="confirm-delete-account">
+                    <ng-container i18n
+                      >To verify, type
+                      <strong><em id="text-to-write">delete my account</em></strong></ng-container
+                    >
+                  </label>
+                  <input
+                    [formControl]="confirm"
+                    class="form-control w-100 mx-auto"
+                    id="confirm-delete-account"
+                    oninput="this.value = this.value.toLowerCase()"
+                    required
+                    trim
+                    type="text" />
+                  <app-form-errors
+                    [control]="confirm"
+                    [formRef]="deleteAccountFormRef"
+                    class="invalid-feedback w-100 mx-auto ps-1"></app-form-errors>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer pb-4">
+          <button
+            (click)="sendForm()"
+            [class.is-loading-primary]="isButtonDeleteAccountLoading"
+            [disabled]="isButtonDeleteAccountLoading || !deleteAccountForm.valid"
+            class="btn btn-outline-danger px-2 px-md-3">
+            <ng-container *ngIf="isButtonDeleteAccountLoading">
+              <span
+                aria-hidden="true"
+                class="spinner-border text-white spinner-border-sm me-1"
+                role="status"></span>
+            </ng-container>
+            <ng-container i18n>Cancel plan and delete this account</ng-container>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

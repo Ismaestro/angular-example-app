@@ -1,0 +1,35 @@
+<ng-container *ngFor="let alert of alerts; let i = index; trackBy: trackAlert">
+  <div
+    *ngIf="i <= 2"
+    [class.static]="alert.options?.static"
+    [style.top]="alert.options?.static ? '0px' : i * 60 + 'px'"
+    class="d-flex align-items-center alert alert-{{ alert.type }} alert-dismissible mb-2 ms-3"
+    role="alert">
+    <div
+      [class.d-block]="alert.options?.static"
+      [class.d-flex]="!alert.options?.static"
+      class="d-sm-flex alert-content-container">
+      <p class="text-break">
+        <ng-template [ngIf]="alert.icon"><i class="icon {{ alert.icon }}"></i> </ng-template>
+        {{ alert.message }}
+        <button
+          (click)="buttonClicked(alert)"
+          *ngIf="alert.options?.button?.actionType"
+          class="alert-button">
+          {{ alert.options?.button?.text }}
+        </button>
+        <ng-template [ngIf]="alert.code">
+          <span class="ms-1">({{ alert.code }})</span>
+        </ng-template>
+      </p>
+      <div class="ms-auto text-end">
+        <i
+          (click)="closeAlert(alert)"
+          (keydown)="closeAlert(alert)"
+          aria-label="Close"
+          class="alert-icon-close icon fa-solid fa-xmark"
+          data-bs-dismiss="alert"></i>
+      </div>
+    </div>
+  </div>
+</ng-container>

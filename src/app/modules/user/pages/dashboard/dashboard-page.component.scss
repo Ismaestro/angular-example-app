@@ -1,0 +1,30 @@
+@import 'functions';
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+@import 'variables';
+
+.shopping-basket-container {
+  @include media-breakpoint-up(lg) {
+    max-width: 75%;
+  }
+
+  .shopping-basket {
+    height: rem(200px);
+    margin-top: -3rem;
+  }
+}
+
+.weekend-container {
+  .weekend-text {
+    font-size: 1.1rem;
+  }
+
+  .fa-calendar-days {
+    color: $primary;
+  }
+
+  a {
+    font-size: 1.1rem;
+  }
+}

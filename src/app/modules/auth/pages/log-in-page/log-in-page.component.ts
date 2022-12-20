@@ -1,71 +1,164 @@
-import { Component, ViewChild } from '@angular/core';
-import { transition, trigger, useAnimation } from '@angular/animations';
-import { fadeIn } from 'ng-animate';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../auth.service';
-import { RoutesConfig } from '~app/configs/routes.config';
-import { Router } from '@angular/router';
-import { UtilsService } from '~modules/core/services/utils.service';
-
-export enum UserLoginError {
-  BAD_CREDENTIALS = 11000,
-}
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Inject,
+  OnDestroy,
+  Renderer2,
+} from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { AuthService } from '~modules/auth/shared/auth.service';
+import { ApolloError } from '@apollo/client/errors';
+import { Subject, takeUntil } from 'rxjs';
+import { APP_CONFIG, AppConfig } from '../../../../configs/app.config';
+import { UtilService } from '~modules/core/services/util.service';
+import { ApiError } from '~modules/shared/interfaces/api-error.interface';
+import { ActivatedRoute, Router, RouterLinkWithHref } from '@angular/router';
+import { userRoutes } from '~modules/user/shared/user-routes';
+import { ValidationService } from '~modules/core/services/validation.service';
+import { AlertId, AlertService } from '~modules/core/services/alert.service';
+import { CustomError } from '~modules/auth/shared/interfaces/custom-errors.enum';
+import { AuthUserData } from '~modules/auth/shared/interfaces/register-data.interface';
+import { authRoutes } from '~modules/auth/shared/auth-routes';
+import { EventBCType, EventBusService } from '~modules/core/services/event-bus.service';
+import { AuthRepository } from '~modules/auth/store/auth.repository';
+import { DOCUMENT, NgIf } from '@angular/common';
+import { FormErrorsComponent } from '~modules/shared/components/form-errors/form-errors.component';
+import { LanguageSelectorComponent } from '~modules/auth/shared/components/language-selector/language-selector.component';
+import { LowercaseDirective } from '~modules/shared/directives/lowercase.directive';
+import { TrimDirective } from '~modules/shared/directives/trim.directive';
+import { HttpClientModule } from '@angular/common/http';
+import { IAppConfig } from '../../../../configs/app-config.interface';
 
 @Component({
   selector: 'app-log-in-page',
   templateUrl: './log-in-page.component.html',
   styleUrls: ['./log-in-page.component.scss'],
-  animations: [
-    trigger('fadeIn', [
-      transition(
-        '* => *',
-        useAnimation(fadeIn, {
-          params: { timing: 1, delay: 0 },
-        })
-      ),
-    ]),
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    HttpClientModule,
+    RouterLinkWithHref,
+    FormErrorsComponent,
+    ReactiveFormsModule,
+    LanguageSelectorComponent,
+    LowercaseDirective,
+    TrimDirective,
+    NgIf,
   ],
 })
-export class LogInPageComponent {
-  @ViewChild('loginForm') loginForm: any;
-
+export class LogInPageComponent implements OnDestroy, AfterViewInit {
+  authRoutes: typeof authRoutes;
+  isButtonLogInLoading: boolean;
   logInForm: FormGroup;
-  email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', [Validators.required]);
-  hide = true;
+  email: FormControl;
+  password: FormControl;
+  window: Window;
+  destroy$: Subject<boolean> = new Subject<boolean>();
 
+  // eslint-disable-next-line max-params
   constructor(
+    private eventBusService: EventBusService,
     private formBuilder: FormBuilder,
     private authService: AuthService,
+    private renderer: Renderer2,
     private router: Router,
-    private utilsService: UtilsService
+    private changeDetectorRef: ChangeDetectorRef,
+    private alertService: AlertService,
+    private utilService: UtilService,
+    private authRepository: AuthRepository,
+    private activatedRoute: ActivatedRoute,
+    @Inject(APP_CONFIG) public appConfig: IAppConfig,
+    @Inject(DOCUMENT) private document: Document
   ) {
+    this.window = this.document.defaultView as Window;
+    this.authRoutes = authRoutes;
+    this.isButtonLogInLoading = false;
+    this.email = new FormControl<string | null>('', [
+      Validators.required,
+      ValidationService.isEmailValidator(),
+    ]);
+    this.password = new FormControl<string | null>('', [Validators.required]);
     this.logInForm = this.formBuilder.group({
       email: this.email,
       password: this.password,
     });
   }
 
-  getErrorMessage(field: string): string | void {
-    // @ts-ignore
-    const classField = this[field];
-    if (classField?.hasError('required')) {
-      return 'You must enter a value';
-    } else if (classField?.hasError('email')) {
-      return 'Not a valid email';
-    }
+  ngAfterViewInit() {
+    this.renderer.addClass(this.document.body, 'bg-linear');
   }
 
   sendForm() {
     if (this.logInForm.valid) {
-      const formValue = this.logInForm.value;
-      this.authService.logIn(formValue.email, formValue.password).subscribe((response: any) => {
-        if (!response.errors) {
-          this.router.navigate([RoutesConfig.routes.hero.myHeroes]);
-        } else if (response.errors[0].code === UserLoginError.BAD_CREDENTIALS) {
-          this.utilsService.showSnackBar('Bad credentials!', 'info-snack-bar');
-        }
-      });
+      this.isButtonLogInLoading = true;
+
+      const formValue = this.logInForm.getRawValue();
+      this.authService
+        .logIn(formValue.email, formValue.password)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe({
+          next: (response: unknown) => {
+            this.handleLogInResponse(response);
+          },
+          error: (error: ApolloError) => {
+            this.handleLogInError(error);
+          },
+        });
     }
+  }
+
+  handleLogInResponse(response: unknown) {
+    const origin = this.activatedRoute.snapshot.queryParams[AppConfig.customQueryParams.origin];
+
+    const user = (response as AuthUserData).user;
+    if (user) {
+      if (origin) {
+        this.window.location.href = decodeURIComponent(origin);
+      } else {
+        return this.router.navigate([userRoutes.dashboard]).then(() => {
+          this.alertService.clearAll();
+          this.eventBusService.eventsBC.postMessage({
+            type: EventBCType.SESSION_CHANGED,
+          });
+          this.destroy$.next(true);
+          return this.destroy$.unsubscribe();
+        });
+      }
+    }
+    return this.changeDetectorRef.detectChanges();
+  }
+
+  handleLogInError(error: ApolloError) {
+    console.log(error);
+    const networkError = this.utilService.checkNetworkError(error);
+    if (!networkError) {
+      const loginErrors = error.graphQLErrors;
+      if (loginErrors.length) {
+        for (const loginError of loginErrors) {
+          const apiError = loginError as unknown as ApiError;
+          if (apiError.code === CustomError.BAD_CREDENTIALS) {
+            this.alertService.create(AlertId.BAD_CREDENTIALS);
+          } else if (apiError.code === CustomError.BAD_REQUEST) {
+            this.alertService.create(AlertId.GENERIC_ERROR, {
+              code: CustomError.BAD_REQUEST,
+            });
+          }
+        }
+      }
+    }
+    this.isButtonLogInLoading = networkError;
+    this.changeDetectorRef.detectChanges();
+  }
+
+  ngOnDestroy() {
+    this.renderer.removeClass(this.document.body, 'bg-linear');
   }
 }

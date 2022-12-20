@@ -1,0 +1,12 @@
+.dropdown-menu {
+  background-color: $white;
+  border: none;
+  border-radius: 0.375rem;
+}
+
+.dropdown-toggle.hide-arrow::before,
+.dropdown-toggle.hide-arrow::after,
+.dropdown-toggle-hide-arrow > .dropdown-toggle::before,
+.dropdown-toggle-hide-arrow > .dropdown-toggle::after {
+  display: none;
+}

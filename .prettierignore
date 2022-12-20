@@ -1,1 +1,4 @@
-documentation
+dist
+coverage
+node_modules
+.angular/cache

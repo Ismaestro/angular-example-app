@@ -1,0 +1,14 @@
+.table {
+  margin-bottom: 0;
+
+  tr td:first-child {
+    width: rem(35px);
+  }
+
+  th {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: $white;
+    background-color: lighten($primary, 2);
+  }
+}

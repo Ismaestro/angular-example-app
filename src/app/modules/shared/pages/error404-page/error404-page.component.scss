@@ -1,0 +1,19 @@
+@import 'functions';
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
+.error-404-image-container {
+  width: 100%;
+  margin: 0 auto;
+
+  @include media-breakpoint-up(sm) {
+    width: 80%;
+  }
+  @include media-breakpoint-up(md) {
+    width: 70%;
+  }
+  @include media-breakpoint-up(lg) {
+    width: 55%;
+  }
+}

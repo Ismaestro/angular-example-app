@@ -1,0 +1,19 @@
+<div *ngIf="formRef && control" class="mt-1">
+  <ng-container *ngIf="control.errors && (control.touched || formRef.submitted)">
+    <div *ngIf="control.errors['required']"><ng-container i18n>Field required</ng-container></div>
+    <div *ngIf="control.errors['email']">
+      <ng-container i18n>Format invalid. example@domain.com</ng-container>
+    </div>
+    <div *ngIf="control.errors['minlength']">
+      <ng-container i18n
+        >Minimum {{ control.errors['minlength'].requiredLength }} caracters.</ng-container
+      >
+    </div>
+    <div *ngIf="control.errors['confirmDelete']">
+      <ng-container i18n>What you typed is not</ng-container> {{ control.errors['confirmDelete'] }}
+    </div>
+    <div *ngIf="control.errors['notYourEmail']">
+      <ng-container i18n>This is not your email</ng-container>
+    </div>
+  </ng-container>
+</div>

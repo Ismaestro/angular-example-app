@@ -1,0 +1,154 @@
+<div class="register-page-container d-flex align-items-center justify-content-center">
+  <div class="container my-2">
+    <div class="row">
+      <div class="col-12">
+        <main>
+          <div class="card text-center register-page-card mx-auto py-3 position-relative">
+            <div class="card-header text-end m-0 p-0 pe-4 position-absolute">
+              <app-language-selector></app-language-selector>
+            </div>
+            <div class="card-body">
+              <div class="row mb-4">
+                <div class="col-12 d-flex justify-content-center">
+                  <img alt="Home" class="ng-star-inserted" src="/assets/icons/icon-128x128.png" />
+                </div>
+              </div>
+              <h1 class="mb-5" i18n>¡Register, and create your first hero!</h1>
+              <form
+                #registerFormRef="ngForm"
+                (ngSubmit)="sendForm()"
+                [class.needs-validation]="!registerFormRef.submitted"
+                [class.was-validated]="registerFormRef.submitted"
+                [formGroup]="registerForm"
+                class="row justify-content-md-center">
+                <div class="col-12 col-md-10">
+                  <div class="form-floating mb-3">
+                    <input
+                      [formControl]="firstName"
+                      class="form-control"
+                      id="floating-first-name"
+                      maxlength="150"
+                      minlength="2"
+                      placeholder="name@example.com"
+                      required
+                      trim
+                      type="text" />
+                    <label class="text-start" for="floating-first-name">
+                      <i class="icon fa-solid fa-circle-user me-1"></i>
+                      <ng-container i18n>First name</ng-container>
+                    </label>
+                    <app-form-errors
+                      [control]="firstName"
+                      [formRef]="registerFormRef"
+                      class="invalid-feedback"></app-form-errors>
+                  </div>
+                </div>
+                <div class="col-12 col-md-10">
+                  <div class="form-floating mb-3">
+                    <input
+                      [formControl]="email"
+                      class="form-control"
+                      id="floating-email"
+                      lowercase
+                      maxlength="150"
+                      placeholder="name@example.com"
+                      required
+                      trim
+                      type="email" />
+                    <label class="text-start" for="floating-email">
+                      <i class="icon fa-solid fa-at"></i>
+                      Email
+                    </label>
+                    <app-form-errors
+                      [control]="email"
+                      [formRef]="registerFormRef"
+                      class="invalid-feedback"></app-form-errors>
+                  </div>
+                </div>
+                <div class="col-12 col-md-10 mb-3">
+                  <div class="password-container">
+                    <div class="form-floating">
+                      <input
+                        (keyup)="updatePassword()"
+                        [class.is-invalid]="password.errors && password.errors['passwordStrength']"
+                        [formControl]="password"
+                        [minLength]="6"
+                        [type]="showPassword ? 'text' : 'password'"
+                        class="form-control"
+                        id="floating-password"
+                        placeholder="Password"
+                        required />
+                      <label class="text-start" for="floating-password">
+                        <i class="icon fa-solid fa-lock me-1"></i>
+                        <ng-container i18n>Password</ng-container>
+                      </label>
+                      <app-password-strength-meter
+                        [control]="password"
+                        [formRef]="registerFormRef"
+                        [value]="password.value"></app-password-strength-meter>
+                    </div>
+                    <div class="password-eye-icon-container">
+                      <i
+                        (click)="togglePasswordType()"
+                        (keyup)="togglePasswordType()"
+                        [class.active]="showPassword"
+                        class="icon fa-solid fa-eye"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-10">
+                  <div class="form-check mb-4">
+                    <input
+                      [formControl]="terms"
+                      class="form-check-input"
+                      id="terms-input"
+                      required
+                      type="checkbox" />
+                    <label
+                      class="register-terms-label form-check-label text-start"
+                      for="terms-input">
+                      <ng-container i18n
+                        >I've read and accept the terms and conditions and the privacy
+                        policy</ng-container
+                      >
+                    </label>
+                    <div class="ms-n3">
+                      <app-form-errors
+                        [control]="terms"
+                        [formRef]="registerFormRef"
+                        class="invalid-feedback"></app-form-errors>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 mb-4">
+                  <button
+                    [class.is-loading-primary]="isButtonRegisterLoading"
+                    [disabled]="isButtonRegisterLoading"
+                    class="btn btn-primary"
+                    type="submit">
+                    <ng-container *ngIf="isButtonRegisterLoading">
+                      <span
+                        aria-hidden="true"
+                        class="spinner-border text-white spinner-border-sm me-1"
+                        role="status"></span>
+                    </ng-container>
+                    <ng-container i18n>Register</ng-container>
+                  </button>
+                </div>
+                <div class="col-12">
+                  <p>
+                    <span i18n>already have an account?</span>
+                    <a [routerLink]="authRoutes.logIn" class="register-login-link ms-1">
+                      <ng-container i18n>log in</ng-container>
+                      <i class="ms-1 icon fa-solid fa-right-long"></i>
+                    </a>
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+</div>

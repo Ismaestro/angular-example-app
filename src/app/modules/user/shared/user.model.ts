@@ -1,30 +1,16 @@
-import { Deserializable } from '~shared/interfaces/deserializable.interface';
-import { Hero } from '../../hero/shared/hero.model';
-
-export enum Role {
-  ADMIN = 'ADMIN',
-  USER = 'USER',
-}
-
-export class User implements Deserializable {
+export class User {
   id: string;
   email: string;
-  firstname: string;
-  lastname: string;
-  role: Role;
-  heroes: Hero[];
+  lang: string;
+  firstName: string;
+  lastName: string;
 
-  constructor(user: any = {}) {
-    this.id = user.id;
-    this.email = user.email;
-    this.firstname = user.firstname;
-    this.lastname = user.lastname;
-    this.role = user.role;
-    this.heroes = user.heroes;
-  }
-
-  deserialize(input: any) {
-    Object.assign(this, input);
-    return this;
+  // eslint-disable-next-line complexity
+  constructor(user: User) {
+    this.id = user?.id;
+    this.email = user?.email;
+    this.lang = user?.lang || 'en';
+    this.firstName = user?.firstName;
+    this.lastName = user?.lastName;
   }
 }

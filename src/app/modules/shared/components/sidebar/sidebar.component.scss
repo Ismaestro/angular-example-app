@@ -1,0 +1,123 @@
+@import 'functions';
+@import 'colors';
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+@import 'variables';
+
+.sidebar {
+  position: fixed;
+  top: rem(64px);
+  bottom: 0;
+  left: 0;
+  z-index: $z-index-sidebar;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: $white;
+  border-radius: 0.375rem;
+  box-shadow: $section-box-shadow;
+
+  @include media-breakpoint-up(sm) {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+  }
+
+  @include media-breakpoint-up(lg) {
+    width: 256px;
+  }
+
+  .sidebar-logo-container {
+    margin: rem(-12px) rem(16px) rem(-4px);
+
+    @include media-breakpoint-up(lg) {
+      margin-top: rem(8px);
+    }
+    @include media-breakpoint-down(lg) {
+      margin-top: 0;
+    }
+
+    @include media-breakpoint-only(xs) {
+      /* stylelint-disable-next-line selector-pseudo-element-no-unknown */
+      ::ng-deep {
+        .logo-first-word-letter {
+          font-size: 2rem;
+        }
+        .logo-second-word-letter {
+          font-size: 2.4rem;
+        }
+        margin-top: rem(4px);
+      }
+    }
+
+    @include media-breakpoint-only(sm) {
+      /* stylelint-disable-next-line selector-pseudo-element-no-unknown */
+      ::ng-deep {
+        .logo-first-word-letter {
+          font-size: 1.6rem;
+        }
+        .logo-second-word-letter {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+
+  .nav-link.active {
+    color: $white;
+    background: $primary;
+
+    .icon {
+      color: $white;
+    }
+  }
+
+  .sidebar-heading {
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+
+  .fa-calendar-plus,
+  .fa-circle-plus {
+    font-size: 1.2rem;
+  }
+
+  .nav-link {
+    transition: color 0.05s ease-in-out, background-color 0.05s ease-in-out,
+      border-color 0.05s ease-in-out;
+    &:hover {
+      color: $white;
+      cursor: pointer;
+      background: lighten($primary, 5);
+
+      a,
+      .icon {
+        color: $white;
+      }
+    }
+  }
+
+  a {
+    &:hover {
+      background: none;
+    }
+  }
+
+  hr {
+    box-shadow: 0 rem(2px) rem(3px) $primary;
+  }
+
+  button {
+    background: transparent;
+    border: none;
+  }
+}
+
+.sidebar-empty-space {
+  position: fixed;
+  top: rem(64px);
+  right: 0;
+  z-index: $z-index-sidebar;
+  height: 100%;
+}

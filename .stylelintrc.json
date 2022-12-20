@@ -1,0 +1,11 @@
+{
+  "extends": ["stylelint-config-twbs-bootstrap", "stylelint-config-prettier"],
+  "rules": {
+    "no-empty-source": [
+      true,
+      {
+        "severity": "warning"
+      }
+    ]
+  }
+}

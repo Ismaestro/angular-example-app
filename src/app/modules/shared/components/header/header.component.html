@@ -1,0 +1,116 @@
+<div class="angularexampleapp-header-container container mw-100">
+  <div class="row justify-content-end">
+    <div
+      class="col-12 col-sm-8 col-lg-9 col-xl-10 p-0 mt-sm-2 px-sm-2 angularexampleapp-header-content">
+      <app-alert class="d-flex"></app-alert>
+      <header class="navbar d-block sticky-top px-3 py-1 mb-2">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-auto d-sm-none">
+            <button
+              (click)="toggleSidebar()"
+              (keyup.enter)="toggleSidebar()"
+              aria-controls="sidebar"
+              aria-expanded="false"
+              aria-label="Lateral menu navigation"
+              class="header-button-sidebar d-sm-none collapsed"
+              data-bs-target="#sidebar"
+              data-bs-toggle="collapse"
+              i18n-aria-label
+              type="button">
+              <i class="icon fa-solid fa-bars"></i>
+            </button>
+          </div>
+          <div class="col col-lg-6 p-0 ps-sm-2">
+            <ul class="nav d-none d-sm-flex">
+              <li class="nav-item">
+                <a
+                  class="nav-link py-1 px-0"
+                  href="{{ environment.domain }}#how-it-works"
+                  i18n
+                  target="_blank"
+                  >How it works</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link py-1 px-0" href="{{ environment.domain }}#blog" target="_blank"
+                  >Blog</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-auto">
+            <div class="navbar-nav">
+              <div class="nav-item navbar-dropdown dropdown-user dropdown">
+                <button
+                  (click)="closeSidebar()"
+                  (keyup.enter)="closeSidebar()"
+                  aria-expanded="false"
+                  aria-label="User menu navigation"
+                  class="nav-link dropdown-toggle hide-arrow"
+                  data-bs-toggle="dropdown"
+                  i18n-aria-label>
+                  <div *ngIf="user" class="avatar cursor-pointer">
+                    <img
+                      [src]=""
+                      alt=""
+                      class="w-px-40 h-auto main-avatar-circle rounded-circle"
+                      referrerpolicy="no-referrer" />
+                  </div>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li>
+                    <div class="dropdown-item no-hover">
+                      <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0 me-3">
+                          <div *ngIf="user" class="avatar">
+                            <img
+                              [src]=""
+                              alt=""
+                              class="w-px-40 h-auto rounded-circle"
+                              referrerpolicy="no-referrer" />
+                          </div>
+                        </div>
+                        <div class="flex-grow-1">
+                          <span *ngIf="user" class="d-block"
+                            >{{ user.firstName }} {{ user.lastName }}</span
+                          >
+                          <small class="text-muted" i18n>Free plan</small>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="dropdown-divider"></div>
+                  </li>
+                  <li>
+                    <a
+                      [class.active]="currentUrl === userRoutes.myAccount"
+                      [routerLink]="userRoutes.myAccount"
+                      class="dropdown-item d-flex align-items-center">
+                      <i class="icon fa-solid fa-gear me-2"></i>
+                      <span class="align-middle" i18n>My account</span>
+                    </a>
+                  </li>
+                  <li>
+                    <div class="dropdown-divider"></div>
+                  </li>
+                  <li>
+                    <div
+                      (click)="logout()"
+                      (keyup.enter)="logout()"
+                      class="dropdown-item d-flex align-items-center cursor-pointer">
+                      <i class="icon fa-solid fa-right-from-bracket me-2"></i>
+                      <button (click)="logout()" (keyup.enter)="logout()" class="p-0">
+                        <ng-container i18n>Log out</ng-container>
+                      </button>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+  </div>
+</div>

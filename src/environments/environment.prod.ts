@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://ismaestro.github.io/angular-example-app',
-  graphqlHost: 'https://nestjs-example-app.herokuapp.com/',
+  graphqlHost: 'https://nestjs-example-app.onrender.com/',
+  host: 'ismaestro.github.io',
+  domain: 'https://ismaestro.github.io/angular-example-app',
 };

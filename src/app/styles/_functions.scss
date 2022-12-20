@@ -1,7 +1,0 @@
-@use 'sass:math';
-@import 'colors';
-
-@function calculateRem($size) {
-  $remSize: math.div($size, 16px);
-  @return $remSize * 1rem;
-}

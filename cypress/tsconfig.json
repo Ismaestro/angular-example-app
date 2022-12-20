@@ -4,5 +4,6 @@
   "compilerOptions": {
     "sourceMap": false,
     "types": ["cypress"]
-  }
+  },
+  "files": ["../cypress.config.ts"]
 }

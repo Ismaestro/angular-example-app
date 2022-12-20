@@ -1,57 +1,44 @@
-@import '../../../../styles/mixins';
+@import 'functions';
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+@import 'variables';
 
-.container {
-  width: 45%;
-  @include push--auto();
-  margin-top: 2rem;
-}
-
-.login--form-container {
-  text-align: center;
-
-  p {
-    margin-bottom: 1rem;
+:host {
+  h1 {
+    font-size: 1.7rem;
   }
 
-  .login--form__header-title {
-    margin-bottom: 2rem;
-  }
-}
-
-.login--form-container .mat-form-field + .mat-form-field {
-  margin-left: 8px;
-}
-
-.mat-form-field {
-  width: 100%;
-}
-
-.login--form__box--blue {
-  padding: 4rem;
-}
-
-:host ::ng-deep .mat-form-field-flex {
-  background: rgb(245, 245, 245);
-}
-
-.login--form__header-title {
-  font-weight: bold;
-  font-size: 20px;
-  color: #000000de;
-}
-
-.login--form__submit-button {
-  margin-top: 40px;
-}
-
-@media (max-width: 680px) {
-  .container {
-    width: 90%;
-    @include push--auto();
-    margin-top: 1rem;
+  .login-page-container {
+    @include media-breakpoint-up(sm) {
+      @media (min-height: 685px) {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: 0;
+        transform: translate(-50%, -50%);
+      }
+    }
   }
 
-  .login--form__box--blue {
-    padding: 1rem;
+  .login-page-card {
+    max-width: $cards-max-width;
+  }
+
+  .login-page-separator {
+    width: 40%;
+    margin-top: 1.5rem;
+  }
+
+  .log-in-remember-password {
+    padding-left: 0.8rem;
+
+    a {
+      font-size: $small-font-size;
+    }
+  }
+
+  .card-header {
+    right: 0;
   }
 }

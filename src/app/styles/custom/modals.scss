@@ -1,0 +1,49 @@
+@import 'functions';
+
+.modal-dialog {
+  .modal-danger {
+    border: rem(3px) solid $danger;
+
+    .modal-title {
+      color: $danger;
+    }
+
+    .btn-close {
+      &:hover {
+        .icon {
+          color: $primary;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .modal-header {
+    font-size: 1.2rem;
+  }
+
+  .btn {
+    border-radius: rem(4px);
+  }
+
+  .btn-close {
+    background: transparent;
+    border: none;
+
+    opacity: 0.9;
+
+    &:hover {
+      .icon {
+        opacity: 1;
+      }
+    }
+  }
+
+  .modal-footer {
+    justify-content: center;
+  }
+
+  .form-control {
+    border-radius: 2px;
+  }
+}

@@ -1,0 +1,30 @@
+h1 {
+  font-size: rem(35px);
+}
+
+h2 {
+  font-size: rem(30px);
+}
+
+h3 {
+  font-family: $font-family-base;
+  font-size: rem(22px);
+}
+
+.lead {
+  font-size: rem(18px);
+}
+
+@include media-breakpoint-up(xxl) {
+  h1 {
+    font-size: rem(40px);
+  }
+
+  h2 {
+    font-size: rem(32px);
+  }
+
+  .lead {
+    font-size: rem(19px);
+  }
+}

@@ -1,48 +1,98 @@
-<div class="container">
-  <mat-card class="login--form__box--blue">
-    <div class="login--form-container">
-      <p class="login--form__header-title">Try to log in!</p>
-      <form class="example-container" [formGroup]="logInForm" #loginForm="ngForm">
-        <p>
-          <mat-form-field appearance="outline">
-            <mat-label>Enter your email</mat-label>
-            <input matInput placeholder="pat@example.com" [formControl]="email" required />
-            <mat-error *ngIf="email.invalid">{{ getErrorMessage('email') }}</mat-error>
-          </mat-form-field>
-        </p>
-        <p>
-          <mat-form-field appearance="outline">
-            <mat-label>Enter a password</mat-label>
-            <input
-              matInput
-              [formControl]="password"
-              (keyup.enter)="sendForm(); $event.preventDefault()"
-              [type]="hide ? 'password' : 'text'"
-            />
-            <button
-              mat-icon-button
-              matSuffix
-              [attr.aria-label]="'Hide password'"
-              [attr.aria-pressed]="hide"
-            ></button>
-            <mat-hint
-              >Must be minimum eight characters, at least one uppercase letter, one lowercase letter
-              and one number</mat-hint
-            >
-            <mat-error *ngIf="password.invalid">{{ getErrorMessage('password') }}</mat-error>
-          </mat-form-field>
-        </p>
-        <p>
-          <button
-            class="login--form__submit-button"
-            mat-raised-button
-            color="primary"
-            (click)="sendForm()"
-          >
-            {{ 'Log In' | uppercase }}
-          </button>
-        </p>
-      </form>
+<div class="login-page-container d-flex align-items-center justify-content-center">
+  <div class="container my-2">
+    <div class="row">
+      <div class="col-12">
+        <main>
+          <div class="card text-center login-page-card mx-auto py-3 position-relative">
+            <div class="card-header text-end m-0 p-0 pe-4 position-absolute">
+              <app-language-selector></app-language-selector>
+            </div>
+            <div class="card-body">
+              <div class="row mb-4">
+                <div class="col-12 d-flex justify-content-center">
+                  <img alt="Home" class="ng-star-inserted" src="/assets/icons/icon-128x128.png" />
+                </div>
+              </div>
+              <h1 class="mb-5" i18n>¡Welcome back!</h1>
+              <form
+                #loginFormRef="ngForm"
+                (ngSubmit)="sendForm()"
+                [class.needs-validation]="!loginFormRef.submitted"
+                [class.was-validated]="loginFormRef.submitted"
+                [formGroup]="logInForm"
+                class="row justify-content-md-center">
+                <div class="col-12 col-md-10">
+                  <div class="form-floating mb-3">
+                    <input
+                      [formControl]="email"
+                      class="form-control"
+                      id="floating-email"
+                      lowercase
+                      maxlength="150"
+                      placeholder="name@example.com"
+                      required
+                      trim
+                      type="email" />
+                    <label class="text-start" for="floating-email"
+                      ><i class="icon fa-solid fa-at me-1"></i>Email</label
+                    >
+                    <app-form-errors
+                      [control]="email"
+                      [formRef]="loginFormRef"
+                      class="invalid-feedback"></app-form-errors>
+                  </div>
+                </div>
+                <div class="col-12 col-md-10 mb-4">
+                  <div class="form-floating">
+                    <input
+                      (keyup.enter)="sendForm(); $event.preventDefault()"
+                      [formControl]="password"
+                      autocomplete
+                      class="form-control"
+                      id="floating-password"
+                      minlength="8"
+                      placeholder="Password"
+                      required
+                      type="password" />
+                    <label class="text-start" for="floating-password"
+                      ><i class="icon fa-solid fa-lock me-1"></i>
+                      <ng-container i18n>Password</ng-container></label
+                    >
+                    <app-form-errors
+                      [control]="password"
+                      [formRef]="loginFormRef"
+                      class="invalid-feedback"></app-form-errors>
+                  </div>
+                </div>
+                <div class="col-12 mb-4">
+                  <button
+                    [class.is-loading-primary]="isButtonLogInLoading"
+                    [disabled]="isButtonLogInLoading"
+                    class="btn btn-primary"
+                    type="submit">
+                    <ng-container *ngIf="isButtonLogInLoading">
+                      <span
+                        aria-hidden="true"
+                        class="spinner-border text-white spinner-border-sm me-1"
+                        role="status"></span>
+                    </ng-container>
+                    <ng-container i18n>Enter</ng-container>
+                  </button>
+                </div>
+                <div class="col-12">
+                  <p>
+                    <span i18n>don't have an account yet?</span>
+                    <a [routerLink]="authRoutes.register" class="ms-1">
+                      <ng-container i18n>register</ng-container>
+                      <i class="ms-1 icon fa-solid fa-right-long"></i>
+                    </a>
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </main>
+      </div>
     </div>
-  </mat-card>
+  </div>
 </div>

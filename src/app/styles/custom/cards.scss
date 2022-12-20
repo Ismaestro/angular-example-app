@@ -1,0 +1,28 @@
+.card {
+  .card-header {
+    background: transparent;
+    border: none;
+  }
+
+  .card-body {
+    @include media-breakpoint-down(sm) {
+      padding: 1rem 0.75rem;
+    }
+    @include media-breakpoint-up(sm) {
+      padding: 1rem 2rem;
+    }
+  }
+
+  &.card-primary {
+    background: $primary;
+
+    * {
+      color: $white;
+    }
+  }
+
+  &.card-section {
+    border: none;
+    box-shadow: $section-box-shadow;
+  }
+}

@@ -1,0 +1,17 @@
+.accordion-flush .accordion-item .accordion-button {
+  border-radius: 4px;
+}
+
+.accordion-button {
+  font-family: $font-family-base;
+  font-size: 1.4rem;
+}
+
+.accordion-button.accordion-button-danger:not(.collapsed) {
+  color: $white;
+  background-color: $danger;
+}
+
+.accordion-button.accordion-button-danger:focus {
+  border-color: darken($danger, 5);
+}

@@ -1,0 +1,18 @@
+@import 'functions';
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+@import 'colors';
+@import 'variables';
+
+.main-avatar-circle {
+  border: 5px solid $white;
+}
+
+.my-account-user-name {
+  letter-spacing: 2px;
+}
+
+.my-account-email-verified.text-warning {
+  color: $black-dark-100;
+}

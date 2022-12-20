@@ -1,10 +1,23 @@
-<div>
-  <app-header></app-header>
-  <router-outlet *ngIf="isOnline; else isOffline"></router-outlet>
-  <ng-template #isOffline>
-    <div>
-      <p class="offline-error" i18n>Without connection we can not load anything!</p>
+<ng-container *ngIf="!isLoggingOut">
+  <ng-container *ngIf="isLoggedIn && !isArrivalRoute">
+    <div class="angularexampleapp-header-main-container">
+      <app-header></app-header>
+      <div class="container mw-100">
+        <div class="row justify-content-end">
+          <app-sidebar [user]="user"></app-sidebar>
+          <main class="angularexampleapp-main-container col-12 col-sm-8 col-lg-9 col-xl-10">
+            <router-outlet></router-outlet>
+          </main>
+        </div>
+      </div>
+      <div class="push-footer"></div>
     </div>
-  </ng-template>
-</div>
-<app-footer></app-footer>
+    <div class="container mw-100">
+      <app-footer></app-footer>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!isLoggedIn">
+    <app-alert></app-alert>
+    <router-outlet></router-outlet>
+  </ng-container>
+</ng-container>

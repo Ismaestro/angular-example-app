@@ -1,3 +1,4 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -15,19 +16,19 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2017",
+    "allowSyntheticDefaultImports": true,
+    "target": "es2020",
     "module": "es2020",
     "lib": ["es2020", "dom"],
-    "allowSyntheticDefaultImports": true,
     "paths": {
       "~assets/*": ["src/assets/*"],
-      "~core/*": ["src/app/core/*"],
       "~environments/*": ["src/environments/*"],
       "~shared/*": ["src/app/shared/*"],
-      "~modules/*": ["src/app/modules/*"],
-      "~app/*": ["src/app/*"]
-    }
+      "~modules/*": ["src/app/modules/*"]
+    },
+    "typeRoots": ["./node_modules/@types", "./src/typings.d.ts"]
   },
+  "exclude": ["cypress", "./cypress.config.ts"],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,

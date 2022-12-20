@@ -1,0 +1,65 @@
+@import '../abstracts/keyframes';
+
+.alert {
+  position: fixed;
+  right: $spacer * 0.9;
+  z-index: $z-index-alert;
+  min-width: rem(50px);
+  margin-top: 0.75rem;
+  margin-left: $spacer * 0.9;
+  box-shadow: rgba(0, 0, 0, 0.16) rem(-7px) rem(6px) rem(6px),
+    rgba(0, 0, 0, 0.23) rem(-2px) rem(3px) rem(6px);
+  animation: shake-and-fade-in 1s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+
+  &.alert-success {
+    @include alert-variant(darken($success, 1), lighten($success, 1), $white);
+  }
+
+  &.alert-danger {
+    @include alert-variant($danger, darken($danger, 4), $white);
+  }
+
+  &.alert-warning {
+    @include alert-variant(darken($warning, 4), darken($warning, 10), $black-light-300);
+  }
+
+  &.alert-info {
+    @include alert-variant(darken($info, 4), darken($info, 10), $white);
+  }
+
+  .alert-icon-close {
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  &.static {
+    top: 0;
+    right: 0;
+    display: block;
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+
+    @include media-breakpoint-up(sm) {
+      position: relative;
+      margin: 0.3rem 0 0.5rem;
+    }
+  }
+
+  .alert-button {
+    padding: 0;
+    margin: 0;
+    color: $white;
+    text-decoration: underline;
+    background: transparent;
+    border: none;
+    opacity: 0.9;
+
+    &:hover {
+      color: $secondary;
+      opacity: 1;
+      transition: 0.1s;
+    }
+  }
+}

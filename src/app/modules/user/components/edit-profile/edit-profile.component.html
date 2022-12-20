@@ -1,0 +1,88 @@
+<div class="pt-2 pt-lg-3 px-0 px-lg-3">
+  <h3 class="mb-2"><ng-container i18n>Personal data</ng-container></h3>
+  <form
+    #profileFormRef="ngForm"
+    (ngSubmit)="sendForm()"
+    *ngIf="profileForm"
+    [class.needs-validation]="!profileFormRef.submitted"
+    [class.was-validated]="profileFormRef.submitted"
+    [formGroup]="profileForm">
+    <div class="col-12 col-lg-6 col-xl-5 col-xxl-4">
+      <div *ngIf="firstName" class="form-floating mb-3">
+        <input
+          [formControl]="firstName"
+          class="form-control"
+          id="floating-first-name"
+          maxlength="150"
+          minlength="2"
+          required
+          trim
+          type="text" />
+        <label class="text-start" for="floating-first-name">
+          <i class="icon fa-solid fa-circle-user me-1"></i>
+          <ng-container i18n>First name</ng-container>
+        </label>
+        <app-form-errors
+          [control]="firstName"
+          [formRef]="profileFormRef"
+          class="invalid-feedback"></app-form-errors>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6 col-xl-5 col-xxl-4">
+      <div *ngIf="lastName" class="form-floating mb-3">
+        <input
+          [formControl]="lastName"
+          class="form-control"
+          id="floating-last-name"
+          maxlength="150"
+          minlength="2"
+          trim
+          type="text" />
+        <label class="text-start" for="floating-last-name">
+          <i class="icon fa-solid fa-circle-user me-1"></i>
+          <ng-container i18n>Last name</ng-container>
+        </label>
+        <app-form-errors
+          [control]="lastName"
+          [formRef]="profileFormRef"
+          class="invalid-feedback"></app-form-errors>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6 col-xl-5 col-xxl-4">
+      <div *ngIf="email" class="form-floating mb-3">
+        <input
+          [formControl]="email"
+          class="form-control cursor-not-allowed"
+          id="floating-email"
+          lowercase
+          maxlength="150"
+          placeholder="name@example.com"
+          trim
+          type="email" />
+        <label class="text-start" for="floating-email">
+          <i class="icon fa-solid fa-at"></i>
+          Email
+        </label>
+        <app-form-errors
+          [control]="email"
+          [formRef]="profileFormRef"
+          class="invalid-feedback"></app-form-errors>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6 col-xl-5 col-xxl-4 text-center mb-4">
+      <button
+        [class.is-loading-primary]="isButtonProfileLoading"
+        [disabled]="isButtonProfileLoading"
+        class="btn btn-primary"
+        type="submit">
+        <ng-container *ngIf="isButtonProfileLoading">
+          <span
+            aria-hidden="true"
+            class="spinner-border text-white spinner-border-sm me-1"
+            role="status"></span>
+        </ng-container>
+        <ng-container i18n>Save</ng-container>
+      </button>
+    </div>
+  </form>
+</div>

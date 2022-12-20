@@ -1,39 +1,53 @@
-import { ErrorHandler, NgModule, Optional, SkipSelf } from '@angular/core';
-import { TimingInterceptor } from './interceptors/timing.interceptor';
+import { LOCALE_ID, NgModule, Optional, SkipSelf } from '@angular/core';
+import { AppConfig } from '../../configs/app.config';
+import { Apollo, APOLLO_OPTIONS } from 'apollo-angular';
+import { HttpLink } from 'apollo-angular/http';
+import { AuthRepository } from '~modules/auth/store/auth.repository';
+import { ApolloClientOptions, ApolloLink, InMemoryCache } from '@apollo/client/core';
+import { environment } from '~environments/environment';
+import { setContext } from '@apollo/client/link/context';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
-import { NgxExampleLibraryModule } from '@ismaestro/ngx-example-library';
-import { LazyLoadImageModule } from 'ng-lazyload-image';
-import { APP_CONFIG, AppConfig } from '~app/configs/app.config';
-import { ROUTES_CONFIG, RoutesConfig } from '~app/configs/routes.config';
-import { ENDPOINTS_CONFIG, EndpointsConfig } from '~app/configs/endpoints.config';
-import { SentryErrorHandler } from './sentry.errorhandler';
-import { TokenInterceptor } from './interceptors/token.interceptor';
-import { StorageService } from '~shared/services/storage.service';
-import { Apollo } from 'apollo-angular';
-import { SharedModule } from '~shared/shared.module';
+import { TokenInterceptor } from '~modules/core/interceptors/token.interceptor';
+import { Router } from '@angular/router';
+import { AuthService } from '~modules/auth/shared/auth.service';
+import { DOCUMENT } from '@angular/common';
+
+function getAcceptLanguageContext(authRepository: AuthRepository) {
+  return setContext((operation, prevContext) => {
+    return {
+      headers: {
+        ...prevContext.headers,
+        'Accept-Language': authRepository.locale,
+      },
+    };
+  });
+}
 
 @NgModule({
-  imports: [
-    RouterModule,
-    BrowserAnimationsModule,
-    SharedModule,
-    NgxExampleLibraryModule.forRoot({
-      config: {
-        say: 'hello',
-      },
-    }),
-    LazyLoadImageModule,
-  ],
   providers: [
-    { provide: APP_CONFIG, useValue: AppConfig },
-    { provide: ROUTES_CONFIG, useValue: RoutesConfig },
-    { provide: ENDPOINTS_CONFIG, useValue: EndpointsConfig },
-    { provide: ErrorHandler, useClass: SentryErrorHandler },
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true, deps: [StorageService] },
-    { provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true },
-    StorageService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true,
+      deps: [Router, AuthService, AuthRepository, DOCUMENT],
+    },
+    {
+      provide: APOLLO_OPTIONS,
+      useFactory: (
+        httpLink: HttpLink,
+        authRepository: AuthRepository
+      ): ApolloClientOptions<unknown> => {
+        const acceptLanguage = getAcceptLanguageContext(authRepository);
+        return {
+          link: ApolloLink.from([
+            acceptLanguage,
+            httpLink.create({ uri: environment.graphqlHost + AppConfig.endpoints.graphql }),
+          ]),
+          cache: new InMemoryCache(),
+        };
+      },
+      deps: [HttpLink, AuthRepository, LOCALE_ID],
+    },
     Apollo,
   ],
 })

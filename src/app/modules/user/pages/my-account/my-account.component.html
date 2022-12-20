@@ -1,0 +1,105 @@
+<div class="container mw-100 p-0">
+  <div class="row">
+    <div class="col-12">
+      <div class="card card-primary card-section p-3 text-center text-md-start">
+        <h1 class="mb-2" i18n>My account</h1>
+        <div *ngIf="user" class="row d-flex align-items-center">
+          <div class="col-12 col-md-auto px-0 px-md-4 text-center">
+            <div class="avatar avatar-online">
+              <img
+                [src]=""
+                alt=""
+                class="w-px-40 h-auto main-avatar-circle rounded-circle"
+                referrerpolicy="no-referrer" />
+            </div>
+          </div>
+          <div class="col-12 col-md-auto pt-2 px-3">
+            <div class="flex-grow-1">
+              <p class="my-account-user-name d-block mb-2">
+                {{ user.firstName }} {{ user.lastName }}
+              </p>
+              <small class="d-block mb-1">
+                {{ user.email }}
+              </small>
+              <small class="d-block mb-1" i18n>Free plan</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 pt-2">
+      <div class="card card-section p-3">
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+              <button
+                [class.collapsed]="innerWidth < appConfig.breakpoints.md"
+                aria-controls="flush-collapseOne"
+                aria-expanded="false"
+                class="accordion-button"
+                data-bs-target="#flush-collapseOne"
+                data-bs-toggle="collapse"
+                type="button">
+                <ng-container i18n>Profile and password</ng-container>
+              </button>
+            </h2>
+            <div
+              [class.show]="innerWidth >= appConfig.breakpoints.md"
+              aria-labelledby="flush-headingOne"
+              class="accordion-collapse collapse"
+              id="flush-collapseOne">
+              <div *ngIf="user" class="accordion-body px-0 pt-lg-1 text-center text-lg-start mb-4">
+                <app-edit-profile [user]="user"></app-edit-profile>
+                <app-change-password></app-change-password>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingThree">
+              <button
+                aria-controls="flush-collapseThree"
+                aria-expanded="false"
+                class="accordion-button collapsed"
+                data-bs-target="#flush-collapseThree"
+                data-bs-toggle="collapse"
+                type="button">
+                <ng-container i18n>Language</ng-container>
+              </button>
+            </h2>
+            <div
+              aria-labelledby="flush-headingThree"
+              class="accordion-collapse collapse"
+              id="flush-collapseThree">
+              <div *ngIf="user" class="accordion-body px-0 pt-lg-1 text-center text-lg-start mb-4">
+                <app-change-language [user]="user"></app-change-language>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingFive">
+              <button
+                aria-controls="flush-collapseFive"
+                aria-expanded="false"
+                class="accordion-button collapsed accordion-button-danger"
+                data-bs-target="#flush-collapseFive"
+                data-bs-toggle="collapse"
+                type="button">
+                <ng-container i18n>Delete account</ng-container>
+              </button>
+            </h2>
+            <div
+              aria-labelledby="flush-headingFive"
+              class="accordion-collapse collapse"
+              id="flush-collapseFive">
+              <div *ngIf="user" class="accordion-body px-0 pt-lg-1 text-center text-lg-start mb-4">
+                <app-delete-account [user]="user"></app-delete-account>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

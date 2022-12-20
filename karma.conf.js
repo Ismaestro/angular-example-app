@@ -13,13 +13,13 @@ module.exports = function (config) {
       require('@angular-devkit/build-angular/plugins/karma'),
     ],
     client: {
-      clearContext: false, // leave Jasmine Spec Runner output visible in browser
+      clearContext: false,
     },
     jasmineHtmlReporter: {
-      suppressAll: true, // removes the duplicated traces
+      suppressAll: true,
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/angular.io-example'),
+      dir: require('path').join(__dirname, './coverage/angularexampleapp'),
       subdir: '.',
       reporters: [{ type: 'html' }, { type: 'text-summary' }],
     },

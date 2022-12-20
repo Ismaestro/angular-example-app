@@ -1,0 +1,33 @@
+<div class="pt-2 pt-lg-3 px-0 px-lg-3">
+  <h3 class="mb-2"><ng-container i18n>Select your language</ng-container></h3>
+  <form
+    #selectLanguageFormRef="ngForm"
+    *ngIf="selectLanguageForm"
+    [class.needs-validation]="!selectLanguageFormRef.submitted"
+    [class.was-validated]="selectLanguageFormRef.submitted"
+    [formGroup]="selectLanguageForm">
+    <div class="col-12 col-lg-6 col-xl-5 col-xxl-4">
+      <p class="small mb-2 mb-md-3" i18n>The page will be reloaded.</p>
+      <div class="form-check d-flex justify-content-center justify-content-lg-start mb-2">
+        <input
+          class="form-check-input me-1"
+          formControlName="language"
+          id="spanish"
+          name="language"
+          type="radio"
+          value="es" />
+        <label class="form-check-label" for="spanish"> Español </label>
+      </div>
+      <div class="form-check d-flex justify-content-center justify-content-lg-start">
+        <input
+          class="form-check-input me-1"
+          formControlName="language"
+          id="english"
+          name="language"
+          type="radio"
+          value="en" />
+        <label class="form-check-label" for="english"> English </label>
+      </div>
+    </div>
+  </form>
+</div>

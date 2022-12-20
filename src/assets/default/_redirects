@@ -1,0 +1,3 @@
+/es /es/index.html 200
+/es/* /es 200
+/*  /index.html 200
