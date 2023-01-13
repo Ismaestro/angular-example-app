@@ -17,7 +17,6 @@ registerLocaleData(localeEs, 'es');
   imports: [
     HttpClientModule,
     GraphQLModule,
-    HttpClientModule,
     SharedModule,
     CoreModule,
     RootModule,
