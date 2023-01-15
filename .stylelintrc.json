@@ -1,5 +1,6 @@
 {
-  "extends": ["stylelint-config-twbs-bootstrap", "stylelint-config-prettier"],
+  "extends": ["stylelint-config-prettier"],
+  "customSyntax": "postcss-scss",
   "rules": {
     "no-empty-source": [
       true,
