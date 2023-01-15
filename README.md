@@ -2,13 +2,13 @@
   <h3 align="center">Angular Example App</h3>
 
   <p align="center">
-    Example app with Angular 15 + i18n + Standalone Components
+    Example app with Angular 15 + i18n + Standalone Components and GraphQL
     <br>
     <br>
     :clap::clap::tada::tada::tada::tada::clap::clap:
     <br>
     <br>
-    Base project made with much :heart:. Contains CRUD, advanced patterns and much more!
+    Real World App made with much :heart:. Contains CRUD, advanced patterns and much more!
     <br>
     <br>
     <img src="https://media.giphy.com/media/lIbaRQKLbCWkUZUOYs/giphy.gif" alt="Demo example"/>
@@ -32,11 +32,11 @@ npm start
 [![GitHub stars](https://img.shields.io/github/stars/ismaestro/angular8-example-app.svg?style=social&label=Star)](https://github.com/ismaestro/angular8-example-app)
 [![GitHub forks](https://img.shields.io/github/forks/ismaestro/angular8-example-app.svg?style=social&label=Fork)](https://github.com/ismaestro/angular8-example-app/fork)
 
-## Backend
+## Server
 
-This project is using a real app deployed in Render.com, which you can see
+This project is using a real app deployed in render.com, which you can see
 [here](https://github.com/Ismaestro/nestjs-example-app). The server is using NestJS, Prisma,
-Postgres and GraphQL. Please check it out and feel free also to contribute or give me your thoughts.
+Postgres and GraphQL. Please check it out and also feel free to contribute or give me your thoughts.
 
 ## What's included
 
@@ -52,13 +52,16 @@ Postgres and GraphQL. Please check it out and feel free also to contribute or gi
 - [x] Use of [NgOptimizedImage](https://angular.io/guide/image-directive)
 - [x] SASS with BEM styles
 - [x] Unit and integration tests with spectator (in progress)
-- [x] End-to-end tests with Cypress (in progress)
+- [x] End-to-end tests with Cypress and Cucumber
 
 ## Bugs and feature requests
 
 Have a bug or a feature request? Please first read the issue guidelines and search for existing and
 closed issues. If your problem or idea is not addressed yet,
 [please open a new issue](https://github.com/Ismaestro/angular-example-app/issues/new).
+
+If you have an idea or you want to do something, tell me or just do it! I'm always happy to hear
+your feedback!
 
 ## Creators
 
@@ -69,9 +72,6 @@ closed issues. If your problem or idea is not addressed yet,
 ## Thanks
 
 Thanks to all contributors and their support.
-
-If you have an idea or you want to do something, tell me or just do it! I'm always happy to hear
-your feedback!
 
 ## Copyright and license
 
