@@ -11,7 +11,7 @@
     Base project made with much :heart:. Contains CRUD, advanced patterns and much more!
     <br>
     <br>
-    <img src="https://media.giphy.com/media/BIql9p3KQWYdjq4Sxe/giphy.gif" alt="Demo example"/>
+    <img src="https://media.giphy.com/media/lIbaRQKLbCWkUZUOYs/giphy.gif" alt="Demo example"/>
     <br>
     <br>
     <a href="https://angular-example-app.onrender.com/">DEMO HERE</a>
