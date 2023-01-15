@@ -1,6 +1,6 @@
 {
   "name": "angularexampleapp",
-  "version": "14.2.0",
+  "version": "15.0.0",
   "scripts": {
     "prepare": "husky install",
     "start": "ng serve --configuration=development-en --open",
