@@ -21,8 +21,8 @@ import { NgIf } from '@angular/common';
 import { Subject, takeUntil } from 'rxjs';
 import { ApolloError } from '@apollo/client/errors';
 import { AuthService } from '~modules/auth/shared/auth.service';
-import { AlertId, AlertService } from '~modules/core/services/alert.service';
-import { UtilService } from '~modules/core/services/util.service';
+import { AlertId, AlertService } from '~modules/shared/services/alert.service';
+import { UtilService } from '~modules/shared/services/util.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -38,8 +38,7 @@ export class EditProfileComponent implements OnInit, OnDestroy {
 
   isButtonProfileLoading: boolean;
   profileForm: FormGroup | undefined;
-  firstName: FormControl | undefined;
-  lastName: FormControl | undefined;
+  firstname: FormControl | undefined;
   email: FormControl | undefined;
 
   // eslint-disable-next-line max-params
@@ -54,18 +53,14 @@ export class EditProfileComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.firstName = new FormControl<string | null>(this.user?.firstName || '', [
+    this.firstname = new FormControl<string>(this.user?.firstname || '', [
       Validators.required,
       Validators.minLength(2),
     ]);
-    this.lastName = new FormControl<string | null>(this.user?.lastName || '', [
-      Validators.minLength(2),
-    ]);
-    this.email = new FormControl<string | null>({ value: this.user?.email || '', disabled: true });
+    this.email = new FormControl<string>({ value: this.user?.email || '', disabled: true });
 
     this.profileForm = this.formBuilder.group({
-      firstName: this.firstName,
-      lastName: this.lastName,
+      firstname: this.firstname,
       email: this.email,
     });
   }
@@ -77,8 +72,10 @@ export class EditProfileComponent implements OnInit, OnDestroy {
       const formValue = this.profileForm.getRawValue();
       this.authService
         .updateUser({
-          firstName: formValue.firstName,
-          lastName: formValue.lastName,
+          ...this.user,
+          ...{
+            firstname: formValue.firstname,
+          },
         })
         .pipe(takeUntil(this.destroy$))
         .subscribe({

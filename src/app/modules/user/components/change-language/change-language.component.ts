@@ -10,8 +10,8 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angul
 import { Subject, takeUntil } from 'rxjs';
 import { ApolloError } from '@apollo/client/errors';
 import { AuthService } from '~modules/auth/shared/auth.service';
-import { AlertId, AlertService } from '~modules/core/services/alert.service';
-import { UtilService } from '~modules/core/services/util.service';
+import { AlertId, AlertService } from '~modules/shared/services/alert.service';
+import { UtilService } from '~modules/shared/services/util.service';
 import { AuthRepository } from '~modules/auth/store/auth.repository';
 import { DOCUMENT, NgIf } from '@angular/common';
 import { User } from '~modules/user/shared/user.model';
@@ -48,7 +48,7 @@ export class ChangeLanguageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.language = new FormControl<string | null>(this.user?.lang || 'es');
+    this.language = new FormControl<string | null>(this.user?.language || AppConfig.defaultLang);
     this.selectLanguageForm = this.formBuilder.group({
       language: this.language,
     });
@@ -62,7 +62,12 @@ export class ChangeLanguageComponent implements OnInit, OnDestroy {
     if (this.selectLanguageForm?.valid && this.user) {
       const formValue = this.selectLanguageForm.getRawValue();
       this.authService
-        .updateUser({ lang: formValue.language })
+        .updateUser({
+          ...this.user,
+          ...{
+            language: formValue.language,
+          },
+        })
         .pipe(takeUntil(this.destroy$))
         .subscribe({
           next: () => {

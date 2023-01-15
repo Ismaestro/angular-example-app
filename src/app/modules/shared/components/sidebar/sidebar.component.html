@@ -15,6 +15,17 @@
           <ng-container i18n>Home</ng-container>
         </a>
       </li>
+      <li class="nav-item mt-2 mt-sm-4">
+        <a
+          (click)="closeSidebar()"
+          (keyup.enter)="closeSidebar()"
+          [class.active]="currentUrl === userRoutes.myHeroes"
+          [routerLink]="userRoutes.myHeroes"
+          class="nav-link">
+          <i class="icon fa-solid fa-mask me-2"></i>
+          <ng-container i18n>My heroes</ng-container>
+        </a>
+      </li>
     </ul>
   </div>
 </nav>

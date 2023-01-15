@@ -8,7 +8,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
-import { EventBusService, EventBusType } from '~modules/core/services/event-bus.service';
+import { EventBusService, EventBusType } from '~modules/shared/services/event-bus.service';
 import { DOCUMENT, NgIf } from '@angular/common';
 import { userRoutes } from '~modules/user/shared/user-routes';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';

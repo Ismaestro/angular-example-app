@@ -6,9 +6,9 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { EventBusService, EventBusType } from '~modules/core/services/event-bus.service';
+import { EventBusService, EventBusType } from '~modules/shared/services/event-bus.service';
 import { AppConfig } from '../../../../configs/app.config';
-import { AlertService } from '~modules/core/services/alert.service';
+import { AlertService } from '~modules/shared/services/alert.service';
 import { Subject, takeUntil } from 'rxjs';
 import { AuthRepository } from '~modules/auth/store/auth.repository';
 import { DOCUMENT } from '@angular/common';
@@ -44,8 +44,8 @@ export class LogoutPageComponent implements OnInit, OnDestroy {
 
     this.authRepository.$user.pipe(takeUntil(this.destroy$)).subscribe(user => {
       let langToRedirect = '';
-      if (user && user.lang !== AppConfig.defaultLang) {
-        langToRedirect = `/${user.lang}`;
+      if (user && user.language !== AppConfig.defaultLang) {
+        langToRedirect = `/${user.language}`;
       }
 
       this.authRepository.clear();

@@ -18,16 +18,16 @@ import { AuthService } from '~modules/auth/shared/auth.service';
 import { ApolloError } from '@apollo/client/errors';
 import { Subject, takeUntil } from 'rxjs';
 import { APP_CONFIG, AppConfig } from '../../../../configs/app.config';
-import { UtilService } from '~modules/core/services/util.service';
+import { UtilService } from '~modules/shared/services/util.service';
 import { ApiError } from '~modules/shared/interfaces/api-error.interface';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { userRoutes } from '~modules/user/shared/user-routes';
-import { ValidationService } from '~modules/core/services/validation.service';
-import { AlertId, AlertService } from '~modules/core/services/alert.service';
+import { ValidationService } from '~modules/shared/services/validation.service';
+import { AlertId, AlertService } from '~modules/shared/services/alert.service';
 import { CustomError } from '~modules/auth/shared/interfaces/custom-errors.enum';
 import { AuthUserData } from '~modules/auth/shared/interfaces/register-data.interface';
 import { authRoutes } from '~modules/auth/shared/auth-routes';
-import { EventBCType, EventBusService } from '~modules/core/services/event-bus.service';
+import { EventBCType, EventBusService } from '~modules/shared/services/event-bus.service';
 import { AuthRepository } from '~modules/auth/store/auth.repository';
 import { DOCUMENT, NgIf } from '@angular/common';
 import { FormErrorsComponent } from '~modules/shared/components/form-errors/form-errors.component';
@@ -137,7 +137,6 @@ export class LogInPageComponent implements OnDestroy, AfterViewInit {
   }
 
   handleLogInError(error: ApolloError) {
-    console.log(error);
     const networkError = this.utilService.checkNetworkError(error);
     if (!networkError) {
       const loginErrors = error.graphQLErrors;

@@ -30,11 +30,11 @@
                 "glob": "**/*",
                 "input": "src/assets/",
                 "output": "/assets/",
-                "ignore": ["default/*", "css/*", "js/*"]
+                "ignore": ["base/*", "css/*", "js/*"]
               },
               {
                 "glob": "**/*",
-                "input": "src/assets/default",
+                "input": "src/assets/base",
                 "output": "/"
               },
               "src/manifest.webmanifest"
@@ -113,7 +113,7 @@
               "browserTarget": "angularexampleapp:build:development-es"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development-en"
         },
         "extract-i18n": {
           "builder": "ng-extract-i18n-merge:ng-extract-i18n-merge",

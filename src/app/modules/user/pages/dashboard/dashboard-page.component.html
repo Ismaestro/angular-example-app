@@ -1,1 +1,35 @@
-HEROES
+<div class="container mt-4">
+  <div class="row mb-5">
+    <div class="col-12">
+      <h1 class="text-center mb-2" i18n>Top 5 public heroes</h1>
+      <p class="text-center mb-3" i18n>
+        This heroes are available to all the users and you can vote for them!
+      </p>
+      <div class="row">
+        <div
+          *ngFor="let hero of publicHeroes; let i = index; trackBy: trackHero"
+          class="col-12 col-sm-6 col-lg-4">
+          <div class="card mb-3">
+            <img
+              [ngSrc]="hero.image"
+              alt="{{ hero.realName }} image"
+              class="card-img-top"
+              height="207"
+              priority
+              width="414" />
+            <div class="card-body">
+              <p class="card-text card__hero-alter-ego">{{ hero.alterEgo }}</p>
+              <small class="card-text card__hero-real-name">{{ hero.realName }}</small>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+              {{ hero.usersVoted.length }} <ng-container i18n>votes</ng-container>
+              <button (click)="voteForHero(hero)" class="dashboard__action-button p-0">
+                <i class="icon fa-solid fa-heart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

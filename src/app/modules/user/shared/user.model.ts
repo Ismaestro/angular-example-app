@@ -1,16 +1,18 @@
+import { Hero } from '~modules/hero/shared/hero.model';
+
 export class User {
   id: string;
   email: string;
-  lang: string;
-  firstName: string;
-  lastName: string;
+  language: string;
+  firstname: string;
+  heroes: Hero[];
 
   // eslint-disable-next-line complexity
   constructor(user: User) {
     this.id = user?.id;
     this.email = user?.email;
-    this.lang = user?.lang || 'en';
-    this.firstName = user?.firstName;
-    this.lastName = user?.lastName;
+    this.language = user?.language || 'en';
+    this.firstname = user?.firstname;
+    this.heroes = user?.heroes;
   }
 }

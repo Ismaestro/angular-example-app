@@ -24,7 +24,7 @@
                 <div class="col-12 col-md-10">
                   <div class="form-floating mb-3">
                     <input
-                      [formControl]="firstName"
+                      [formControl]="firstname"
                       class="form-control"
                       id="floating-first-name"
                       maxlength="150"
@@ -38,7 +38,7 @@
                       <ng-container i18n>First name</ng-container>
                     </label>
                     <app-form-errors
-                      [control]="firstName"
+                      [control]="firstname"
                       [formRef]="registerFormRef"
                       class="invalid-feedback"></app-form-errors>
                   </div>
@@ -82,10 +82,10 @@
                         <i class="icon fa-solid fa-lock me-1"></i>
                         <ng-container i18n>Password</ng-container>
                       </label>
-                      <app-password-strength-meter
+                      <app-form-errors
                         [control]="password"
                         [formRef]="registerFormRef"
-                        [value]="password.value"></app-password-strength-meter>
+                        class="invalid-feedback"></app-form-errors>
                     </div>
                     <div class="password-eye-icon-container">
                       <i

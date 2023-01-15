@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { contains, isEmail } from 'class-validator';
-import { environment } from '~environments/environment';
+import { isEmail } from 'class-validator';
 
 @Injectable({
   providedIn: 'root',
@@ -9,10 +8,7 @@ import { environment } from '~environments/environment';
 export class ValidationService {
   static isEmailValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
-      const isValidEmail =
-        isEmail(control.value) &&
-        ((environment.production && !contains(control.value, '+')) || !environment.production);
-      return !isValidEmail ? { email: true } : null;
+      return !isEmail(control.value) ? { email: true } : null;
     };
   }
 }

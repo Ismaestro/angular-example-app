@@ -25,15 +25,10 @@
               <li class="nav-item">
                 <a
                   class="nav-link py-1 px-0"
-                  href="{{ environment.domain }}#how-it-works"
+                  href="https://github.com/Ismaestro/angular-example-app"
                   i18n
                   target="_blank"
                   >How it works</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link py-1 px-0" href="{{ environment.domain }}#blog" target="_blank"
-                  >Blog</a
                 >
               </li>
             </ul>
@@ -51,10 +46,10 @@
                   i18n-aria-label>
                   <div *ngIf="user" class="avatar cursor-pointer">
                     <img
-                      [src]=""
-                      alt=""
+                      alt="user avatar"
                       class="w-px-40 h-auto main-avatar-circle rounded-circle"
-                      referrerpolicy="no-referrer" />
+                      referrerpolicy="no-referrer"
+                      src="/assets/images/user.png" />
                   </div>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
@@ -64,16 +59,14 @@
                         <div class="flex-shrink-0 me-3">
                           <div *ngIf="user" class="avatar">
                             <img
-                              [src]=""
-                              alt=""
+                              alt="user avatar"
                               class="w-px-40 h-auto rounded-circle"
-                              referrerpolicy="no-referrer" />
+                              referrerpolicy="no-referrer"
+                              src="/assets/images/user.png" />
                           </div>
                         </div>
                         <div class="flex-grow-1">
-                          <span *ngIf="user" class="d-block"
-                            >{{ user.firstName }} {{ user.lastName }}</span
-                          >
+                          <span *ngIf="user" class="d-block">{{ user.firstname }}</span>
                           <small class="text-muted" i18n>Free plan</small>
                         </div>
                       </div>

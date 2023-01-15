@@ -1,4 +1,4 @@
-import { Alert, AlertId, AlertType } from '~modules/core/services/alert.service';
+import { Alert, AlertId, AlertType } from '~modules/shared/services/alert.service';
 import { translations } from '../../../../../locale/translations';
 
 // eslint-disable-next-line max-lines-per-function
@@ -54,6 +54,16 @@ export function getAlertConfigById(alertId: AlertId): Alert | undefined {
       id: AlertId.PASSWORD_CHANGED,
       type: AlertType.SUCCESS,
       message: translations.passwordChanged,
+    },
+    {
+      id: AlertId.HERO_DELETED,
+      type: AlertType.SUCCESS,
+      message: translations.heroDeleted,
+    },
+    {
+      id: AlertId.DOUBLE_VOTED,
+      type: AlertType.DANGER,
+      message: translations.doubleVoted,
     },
   ].find(alert => alert.id === alertId);
 }

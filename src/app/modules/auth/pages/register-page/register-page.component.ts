@@ -18,16 +18,16 @@ import { AuthService } from '~modules/auth/shared/auth.service';
 import { ApolloError } from '@apollo/client/errors';
 import { Subject, takeUntil } from 'rxjs';
 import { APP_CONFIG } from '../../../../configs/app.config';
-import { UtilService } from '~modules/core/services/util.service';
+import { UtilService } from '~modules/shared/services/util.service';
 import { ApiError } from '~modules/shared/interfaces/api-error.interface';
 import { Router, RouterLink } from '@angular/router';
-import { ValidationService } from '~modules/core/services/validation.service';
-import { AlertId, AlertService } from '~modules/core/services/alert.service';
+import { ValidationService } from '~modules/shared/services/validation.service';
+import { AlertId, AlertService } from '~modules/shared/services/alert.service';
 import { CustomError } from '~modules/auth/shared/interfaces/custom-errors.enum';
 import { AuthUserData } from '~modules/auth/shared/interfaces/register-data.interface';
 import { authRoutes } from '~modules/auth/shared/auth-routes';
 import { userRoutes } from '~modules/user/shared/user-routes';
-import { EventBCType, EventBusService } from '~modules/core/services/event-bus.service';
+import { EventBCType, EventBusService } from '~modules/shared/services/event-bus.service';
 import { AuthRepository } from '~modules/auth/store/auth.repository';
 import { DOCUMENT, NgIf } from '@angular/common';
 import { FormErrorsComponent } from '~modules/shared/components/form-errors/form-errors.component';
@@ -58,7 +58,7 @@ export class RegisterPageComponent implements OnDestroy {
   isButtonRegisterLoading: boolean;
   showPassword: boolean;
   registerForm: FormGroup;
-  firstName: FormControl;
+  firstname: FormControl;
   email: FormControl;
   password: FormControl;
   terms: FormControl;
@@ -82,7 +82,7 @@ export class RegisterPageComponent implements OnDestroy {
     this.renderer.addClass(this.document.body, 'bg-linear');
     this.showPassword = false;
     this.isButtonRegisterLoading = false;
-    this.firstName = new FormControl<string | null>('', [
+    this.firstname = new FormControl<string | null>('', [
       Validators.required,
       Validators.minLength(2),
     ]);
@@ -91,13 +91,16 @@ export class RegisterPageComponent implements OnDestroy {
       ValidationService.isEmailValidator(),
     ]);
     this.password = new FormControl<string | null>('', {
-      validators: [Validators.minLength(6)],
+      validators: [
+        Validators.minLength(4),
+        Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{4,}'),
+      ],
       updateOn: 'change',
     });
 
     this.terms = new FormControl<boolean | null>(false, [Validators.requiredTrue]);
     this.registerForm = this.formBuilder.group({
-      firstName: this.firstName,
+      firstname: this.firstname,
       email: this.email,
       password: this.password,
       terms: this.terms,
@@ -114,11 +117,10 @@ export class RegisterPageComponent implements OnDestroy {
 
       const formValue = this.registerForm.getRawValue();
       this.authService
-        .register({
-          firstName: formValue.firstName,
+        .signup({
+          firstname: formValue.firstname,
           email: formValue.email,
           password: formValue.password,
-          terms: formValue.terms,
         })
         .pipe(takeUntil(this.destroy$))
         .subscribe({

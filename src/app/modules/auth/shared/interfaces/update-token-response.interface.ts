@@ -1,7 +1,7 @@
-export interface UpdateTokenResponse {
+export interface RefreshTokenResponse {
   errors?: unknown;
   data?: {
-    updateToken: {
+    refreshToken: {
       accessToken: string;
       refreshToken: string;
     };

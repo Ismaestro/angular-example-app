@@ -9,10 +9,6 @@ ul {
   list-style: none;
 }
 
-.grecaptcha-badge {
-  visibility: hidden;
-}
-
 .cursor-pointer {
   cursor: pointer;
 }
@@ -39,8 +35,4 @@ ul {
   * {
     font-size: 0.95rem;
   }
-}
-
-.font-awesome {
-  font-family: $font-family-base, FontAwesome, sans-serif;
 }

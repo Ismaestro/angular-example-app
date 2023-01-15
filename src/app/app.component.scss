@@ -8,46 +8,44 @@ $xs2-mb: -125px;
 $md-mb: -120px;
 $lg-mb: -88px;
 
-:host {
-  .angularexampleapp-header-main-container {
-    min-height: 100%;
-    animation: fade-in 2s;
+.app__content-container {
+  min-height: 100%;
+  animation: fade-in 2s;
 
-    @media (min-width: 320px) {
-      margin-bottom: rem($xs-mb);
-    }
-    @media (min-width: 406px) {
-      margin-bottom: rem($xs2-mb);
-    }
-    @media (min-width: 620px) {
-      margin-bottom: rem($md-mb);
-    }
-    @media (min-width: 947px) {
-      margin-bottom: rem($lg-mb);
-    }
+  @media (min-width: 320px) {
+    margin-bottom: rem($xs-mb);
   }
-
-  .angularexampleapp-main-container {
-    @include media-breakpoint-up(lg) {
-      width: calc(100% - 256px);
-    }
-    @include media-breakpoint-only(xs) {
-      margin-top: 4.5rem;
-    }
+  @media (min-width: 406px) {
+    margin-bottom: rem($xs2-mb);
   }
+  @media (min-width: 620px) {
+    margin-bottom: rem($md-mb);
+  }
+  @media (min-width: 947px) {
+    margin-bottom: rem($lg-mb);
+  }
+}
 
-  .push-footer {
-    @media (min-width: 320px) {
-      height: rem(calc(abs($xs-mb) - 5px));
-    }
-    @media (min-width: 406px) {
-      height: rem(calc(abs($xs2-mb) - 5px));
-    }
-    @media (min-width: 620px) {
-      height: rem(calc(abs($md-mb) - 5px));
-    }
-    @media (min-width: 947px) {
-      height: rem(calc(abs($lg-mb) - 5px));
-    }
+.app__main-container {
+  @include media-breakpoint-up(lg) {
+    width: calc(100% - 256px);
+  }
+  @include media-breakpoint-only(xs) {
+    margin-top: 4.5rem;
+  }
+}
+
+.app__footer--push {
+  @media (min-width: 320px) {
+    height: rem(calc(abs($xs-mb) - 5px));
+  }
+  @media (min-width: 406px) {
+    height: rem(calc(abs($xs2-mb) - 5px));
+  }
+  @media (min-width: 620px) {
+    height: rem(calc(abs($md-mb) - 5px));
+  }
+  @media (min-width: 947px) {
+    height: rem(calc(abs($lg-mb) - 5px));
   }
 }

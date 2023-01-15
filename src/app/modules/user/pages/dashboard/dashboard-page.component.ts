@@ -7,14 +7,25 @@ import {
   LOCALE_ID,
   OnDestroy,
   OnInit,
+  TrackByFunction,
 } from '@angular/core';
 import { AuthRepository } from '~modules/auth/store/auth.repository';
 import { Subject, takeUntil } from 'rxjs';
 import { User } from '~modules/user/shared/user.model';
-import { DOCUMENT, NgIf } from '@angular/common';
+import { DOCUMENT, NgForOf, NgIf, NgOptimizedImage } from '@angular/common';
 import { AppConfig } from '../../../../configs/app.config';
 import { userRoutes } from '~modules/user/shared/user-routes';
 import { RouterLink } from '@angular/router';
+import { HeroOrderField, HeroService, OrderDirection } from '~modules/hero/shared/hero.service';
+import { Hero } from '~modules/hero/shared/hero.model';
+import { TrackByService } from '~modules/shared/services/track-by.service';
+import { ApolloError } from '@apollo/client/errors';
+import { ApiError } from '~modules/shared/interfaces/api-error.interface';
+import { CustomError } from '~modules/auth/shared/interfaces/custom-errors.enum';
+import { AlertId, AlertService } from '~modules/shared/services/alert.service';
+import { UtilService } from '~modules/shared/services/util.service';
+import { UserService } from '~modules/user/shared/user.service';
+import { HeroModalComponent } from '~modules/user/components/hero-modal/hero-modal.component';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -22,22 +33,30 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./dashboard-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgIf, RouterLink],
+  imports: [NgIf, RouterLink, NgForOf, NgOptimizedImage, HeroModalComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DashboardPageComponent implements OnInit, OnDestroy {
   destroy$: Subject<boolean> = new Subject<boolean>();
   user: User | undefined;
   window: Window;
+  publicHeroes: Hero[];
+  trackHero: TrackByFunction<Hero>;
 
   // eslint-disable-next-line max-params
   constructor(
     private authRepository: AuthRepository,
+    private heroService: HeroService,
+    private userService: UserService,
+    private utilService: UtilService,
+    private alertService: AlertService,
     private changeDetectorRef: ChangeDetectorRef,
     @Inject(LOCALE_ID) public locale: string,
     @Inject(DOCUMENT) private document: Document
   ) {
+    this.trackHero = TrackByService.trackHero;
     this.window = this.document.defaultView as Window;
+    this.publicHeroes = [];
   }
 
   ngOnInit() {
@@ -47,14 +66,65 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
         this.checkUserLanguage();
       }
     });
+
+    this.loadPublicHeroes();
+    this.changeDetectorRef.detectChanges();
   }
 
   checkUserLanguage() {
-    if (this.user?.lang !== this.locale) {
+    if (this.user?.language !== this.locale) {
       this.window.location.href =
-        (this.user?.lang && this.user.lang !== AppConfig.defaultLang ? `/${this.user.lang}` : '') +
-        userRoutes.dashboard;
+        (this.user?.language && this.user.language !== AppConfig.defaultLang
+          ? `/${this.user.language}`
+          : '') + userRoutes.dashboard;
     }
+  }
+
+  loadPublicHeroes() {
+    this.heroService
+      .searchHeroes({
+        query: '',
+        after: '',
+        first: 5,
+        orderBy: {
+          direction: OrderDirection.DESC,
+          field: HeroOrderField.USERS_VOTED,
+        },
+        skip: 0,
+      })
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(heroes => {
+        if (heroes) {
+          this.publicHeroes = heroes;
+          this.changeDetectorRef.markForCheck();
+        }
+      });
+  }
+
+  voteForHero(hero: Hero) {
+    this.heroService
+      .voteForHero(hero.id)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: () => {
+          this.loadPublicHeroes();
+        },
+        error: (error: ApolloError) => {
+          const networkError = this.utilService.checkNetworkError(error);
+          if (!networkError) {
+            const voteForHeroErrors = error.graphQLErrors;
+            if (voteForHeroErrors.length) {
+              for (const voteForHeroError of voteForHeroErrors) {
+                const apiError = voteForHeroError as unknown as ApiError;
+                if (apiError.code === CustomError.DOUBLE_VOTED) {
+                  this.alertService.create(AlertId.DOUBLE_VOTED);
+                }
+              }
+            }
+          }
+          this.changeDetectorRef.detectChanges();
+        },
+      });
   }
 
   ngOnDestroy() {

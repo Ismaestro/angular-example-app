@@ -8,23 +8,22 @@ import {
   changePasswordMutation,
   deleteAccountMutation,
   loginMutation,
-  registerMutation,
-  updateTokenMutation,
+  refreshTokenMutation,
+  signupMutation,
   updateUserMutation,
 } from '~modules/auth/shared/auth-mutations.graphql';
 import { User } from '~modules/user/shared/user.model';
-import { getMeQuery } from '~modules/auth/shared/auth-queries.graphql';
-import { GetMeResponse } from '~modules/auth/shared/interfaces/get-me-response.interface';
 import { RegisterPayload } from '~modules/auth/shared/interfaces/register-payload.interface';
 import { RegisterResponse } from '~modules/auth/shared/interfaces/register-response.interface';
 import { AuthUserData } from '~modules/auth/shared/interfaces/register-data.interface';
 import { OkData } from '~modules/shared/interfaces/ok-data.interface';
 import { UpdateUserResponse } from '~modules/auth/shared/interfaces/update-user-response.interface';
 import { UpdateUserData } from '~modules/auth/shared/interfaces/update-user-data.interface';
-import { UpdateTokenResponse } from '~modules/auth/shared/interfaces/update-token-response.interface';
+import { RefreshTokenResponse } from '~modules/auth/shared/interfaces/update-token-response.interface';
 import { UpdateTokenData } from '~modules/auth/shared/interfaces/update-token-data.interface';
 import { ChangePasswordResponse } from '~modules/auth/shared/interfaces/change-password-response.interface';
 import { DeleteAccountResponse } from '~modules/auth/shared/interfaces/delete-account-response.interface';
+import { AppConfig } from '../../../configs/app.config';
 
 @Injectable({
   providedIn: 'root',
@@ -32,22 +31,26 @@ import { DeleteAccountResponse } from '~modules/auth/shared/interfaces/delete-ac
 export class AuthService {
   constructor(private apollo: Apollo, private authRepository: AuthRepository) {}
 
-  register({
-    firstName,
-    email,
-    password,
-    terms,
-  }: RegisterPayload): Observable<AuthUserData | null> {
-    return this.apollo.mutate(registerMutation({ firstName, email, password, terms })).pipe(
-      map((response: unknown) => {
-        const registerData = (response as RegisterResponse).data?.register;
-        if (registerData) {
-          this.saveUserData(registerData);
-          return registerData;
-        }
-        return null;
+  signup({ firstname, email, password }: RegisterPayload): Observable<AuthUserData | null> {
+    return this.apollo
+      .mutate({
+        mutation: signupMutation,
+        variables: {
+          firstname,
+          email,
+          password,
+        },
       })
-    );
+      .pipe(
+        map((response: unknown) => {
+          const registerData = (response as RegisterResponse).data?.signup;
+          if (registerData) {
+            this.saveUserData(registerData);
+            return registerData;
+          }
+          return null;
+        })
+      );
   }
 
   logIn(email: string, password: string): Observable<AuthUserData | null> {
@@ -71,71 +74,88 @@ export class AuthService {
       );
   }
 
-  getMe(): Observable<User | null> {
-    return this.apollo.query(getMeQuery()).pipe(
-      map((response: unknown) => {
-        const getMeData = (response as GetMeResponse).data?.getMe;
-        if (getMeData) {
-          this.authRepository.setUser(getMeData);
-          return getMeData;
-        }
-        return null;
-      })
-    );
-  }
-
   updateUser(userData: UpdateUserData): Observable<User | null> {
-    return this.apollo.mutate(updateUserMutation(userData)).pipe(
-      map((response: unknown) => {
-        const updateUserData = (response as UpdateUserResponse).data?.updateUser;
-        if (updateUserData) {
-          this.authRepository.setUser(updateUserData);
-          return updateUserData;
-        }
-        return null;
+    return this.apollo
+      .mutate({
+        mutation: updateUserMutation,
+        variables: userData,
       })
-    );
+      .pipe(
+        map((response: unknown) => {
+          const updateUserData = (response as UpdateUserResponse).data?.updateUser;
+          if (updateUserData) {
+            this.authRepository.setUser(updateUserData);
+            return updateUserData;
+          }
+          return null;
+        })
+      );
   }
 
   changePassword(oldPassword: string, newPassword: string): Observable<OkData | null> {
-    return this.apollo.mutate(changePasswordMutation(oldPassword, newPassword)).pipe(
-      map((response: unknown) => {
-        const changePasswordData = (response as ChangePasswordResponse).data?.changePassword;
-        if (changePasswordData) {
-          return changePasswordData;
-        }
-        return null;
+    return this.apollo
+      .mutate({
+        mutation: changePasswordMutation,
+        variables: {
+          oldPassword,
+          newPassword,
+        },
       })
-    );
+      .pipe(
+        map((response: unknown) => {
+          const changePasswordData = (response as ChangePasswordResponse).data?.changePassword;
+          if (changePasswordData) {
+            return changePasswordData;
+          }
+          return null;
+        })
+      );
   }
 
   deleteAccount(password: string): Observable<OkData | null> {
-    return this.apollo.mutate(deleteAccountMutation(password)).pipe(
-      map((response: unknown) => {
-        const deleteAccountData = (response as DeleteAccountResponse).data?.deleteAccount;
-        if (deleteAccountData) {
-          return deleteAccountData;
-        }
-        return null;
+    return this.apollo
+      .mutate({
+        mutation: deleteAccountMutation,
+        variables: {
+          password,
+        },
       })
-    );
+      .pipe(
+        map((response: unknown) => {
+          const deleteAccountData = (response as DeleteAccountResponse).data?.deleteAccount;
+          if (deleteAccountData) {
+            return deleteAccountData;
+          }
+          return null;
+        })
+      );
   }
 
-  updateToken(): Observable<UpdateTokenData | null> {
+  refreshToken(): Observable<UpdateTokenData | null> {
     const refreshToken = this.authRepository.getRefreshTokenValue() || '';
-    return this.apollo.mutate(updateTokenMutation(refreshToken)).pipe(
-      map((response: unknown) => {
-        const updateTokenData = (response as UpdateTokenResponse).data?.updateToken;
-        if (updateTokenData) {
-          this.authRepository.updateTokens(
-            updateTokenData.accessToken,
-            updateTokenData.refreshToken
-          );
-          return updateTokenData;
-        }
-        return null;
+    return this.apollo
+      .mutate({
+        mutation: refreshTokenMutation,
+        context: {
+          headers: { [AppConfig.bypassAuthorization]: 'true' },
+        },
+        variables: {
+          refreshToken,
+        },
       })
-    );
+      .pipe(
+        map((response: unknown) => {
+          const refreshTokenData = (response as RefreshTokenResponse).data?.refreshToken;
+          if (refreshTokenData) {
+            this.authRepository.updateTokens(
+              refreshTokenData.accessToken,
+              refreshTokenData.refreshToken
+            );
+            return refreshTokenData;
+          }
+          return null;
+        })
+      );
   }
 
   private saveUserData(userData: AuthUserData) {

@@ -14,8 +14,8 @@ import EventBusEvent, {
   EventBCType,
   EventBusService,
   EventBusType,
-} from '~modules/core/services/event-bus.service';
-import { AlertId, AlertService } from '~modules/core/services/alert.service';
+} from '~modules/shared/services/event-bus.service';
+import { AlertId, AlertService } from '~modules/shared/services/alert.service';
 import { User } from '~modules/user/shared/user.model';
 import { translations } from '../locale/translations';
 import { AppConfig } from './configs/app.config';
@@ -161,7 +161,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
       if (isAccessTokenExpired) {
         if (!isRefreshTokenExpired) {
-          this.authService.updateToken().pipe(
+          this.authService.refreshToken().pipe(
             catchError((error): ObservableInput<HttpEvent<unknown>> => {
               this.navigateToLogout();
               return observableThrowError(error);

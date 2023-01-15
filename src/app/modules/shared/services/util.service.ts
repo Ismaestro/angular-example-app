@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApolloError } from '@apollo/client/errors';
-import { AlertId, AlertService } from '~modules/core/services/alert.service';
+import { AlertId, AlertService } from '~modules/shared/services/alert.service';
 import { CustomError } from '~modules/auth/shared/interfaces/custom-errors.enum';
 
 @Injectable({

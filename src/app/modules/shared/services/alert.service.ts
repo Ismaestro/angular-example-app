@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
-import { EventBusType } from '~modules/core/services/event-bus.service';
+import { EventBusType } from '~modules/shared/services/event-bus.service';
 
 export enum AlertType {
   SUCCESS = 'success',
@@ -20,6 +20,8 @@ export enum AlertId {
   CURRENT_PASSWORD_ERROR = 'CURRENT_PASSWORD_ERROR',
   SESSION_EXPIRED = 'SESSION_EXPIRED',
   ACCOUNT_DELETED = 'ACCOUNT_DELETED',
+  DOUBLE_VOTED = 'DOUBLE_VOTED',
+  HERO_DELETED = 'HERO_DELETED',
 }
 
 export interface AlertData {

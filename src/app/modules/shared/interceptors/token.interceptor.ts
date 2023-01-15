@@ -15,7 +15,7 @@ import { AuthService } from '~modules/auth/shared/auth.service';
 import { authRoutes } from '~modules/auth/shared/auth-routes';
 import { Router } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
-import { AlertId } from '~modules/core/services/alert.service';
+import { AlertId } from '~modules/shared/services/alert.service';
 
 export class TokenInterceptor implements HttpInterceptor {
   window: Window;
@@ -99,7 +99,7 @@ export class TokenInterceptor implements HttpInterceptor {
     next: HttpHandler,
     headers: { req_uuid: string; Authorization: string }
   ) {
-    return this.authService.updateToken().pipe(
+    return this.authService.refreshToken().pipe(
       switchMap(() => {
         const token = this.authRepository.getAccessTokenValue();
         headers['Authorization'] = `Bearer ${token}`;

@@ -86,9 +86,6 @@
       <trans-unit id="3235499372902751598" datatype="html">
         <source>Personal data</source>
       </trans-unit>
-      <trans-unit id="3586674587150281199" datatype="html">
-        <source>Last name</source>
-      </trans-unit>
       <trans-unit id="3768927257183755959" datatype="html">
         <source>Save</source>
       </trans-unit>
@@ -166,6 +163,54 @@
       </trans-unit>
       <trans-unit id="771984667796132675" datatype="html">
         <source>Angular Example App</source>
+      </trans-unit>
+      <trans-unit id="4100306273406016007" datatype="html">
+        <source>votes</source>
+      </trans-unit>
+      <trans-unit id="5909397162992279613" datatype="html">
+        <source>Top 5 public heroes</source>
+      </trans-unit>
+      <trans-unit id="6283991314060695536" datatype="html">
+        <source>Password must contain at least one lowercase letter, one uppercase letter and one number. No special characters allowed. </source>
+      </trans-unit>
+      <trans-unit id="423928307239211896" datatype="html">
+        <source> This heroes are available to all the users and you can vote for them! </source>
+      </trans-unit>
+      <trans-unit id="4758588840062363024" datatype="html">
+        <source>You can only vote each hero once.</source>
+      </trans-unit>
+      <trans-unit id="1008949863405692120" datatype="html">
+        <source>Alter-ego</source>
+      </trans-unit>
+      <trans-unit id="8097628895036343135" datatype="html">
+        <source>Real name</source>
+      </trans-unit>
+      <trans-unit id="3737543504924228701" datatype="html">
+        <source>Create a hero</source>
+      </trans-unit>
+      <trans-unit id="3839075859206996049" datatype="html">
+        <source>Your private heroes</source>
+      </trans-unit>
+      <trans-unit id="6232555467136163241" datatype="html">
+        <source>Now, the real one</source>
+      </trans-unit>
+      <trans-unit id="6873806236290728741" datatype="html">
+        <source>Alter ego</source>
+      </trans-unit>
+      <trans-unit id="7290439163208145456" datatype="html">
+        <source>Create hero</source>
+      </trans-unit>
+      <trans-unit id="7585826646011739428" datatype="html">
+        <source>Edit</source>
+      </trans-unit>
+      <trans-unit id="3179345075540180396" datatype="html">
+        <source>What&apos;s the hero&apos;s name?</source>
+      </trans-unit>
+      <trans-unit id="7705716581111712441" datatype="html">
+        <source>You don&apos;t have any heroes. Go and create one!</source>
+      </trans-unit>
+      <trans-unit id="8260681910901343399" datatype="html">
+        <source>Hero deleted!</source>
       </trans-unit>
     </body>
   </file>

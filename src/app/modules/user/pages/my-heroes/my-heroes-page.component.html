@@ -1,0 +1,54 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center mb-4" i18n>Your private heroes</h1>
+      <div class="row mb-3">
+        <div class="col-12">
+          <button (click)="openHeroModal()" class="btn btn-primary px-2 px-md-3">
+            <ng-container i18n>Create hero</ng-container>
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="table-responsive">
+            <table class="table table-success table-striped">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th i18n scope="col">Alter-ego</th>
+                  <th i18n scope="col">Real name</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngIf="userHeroes.length">
+                  <tr *ngFor="let hero of userHeroes; let i = index; trackBy: trackHero">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ hero.alterEgo }}</td>
+                    <td>{{ hero.realName }}</td>
+                    <td>
+                      <button (click)="deleteHero(hero)" class="dashboard__action-button p-0">
+                        <i class="icon fa-solid fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </ng-container>
+                <ng-container *ngIf="!userHeroes.length">
+                  <tr>
+                    <td colspan="5" i18n>You don't have any heroes. Go and create one!</td>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-hero-modal
+  [heroSelected]="heroSelected"
+  [heroesList]="userHeroes"
+  [modal]="heroModal"
+  [user]="user"></app-hero-modal>

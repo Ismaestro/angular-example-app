@@ -8,9 +8,9 @@
     [class.was-validated]="profileFormRef.submitted"
     [formGroup]="profileForm">
     <div class="col-12 col-lg-6 col-xl-5 col-xxl-4">
-      <div *ngIf="firstName" class="form-floating mb-3">
+      <div *ngIf="firstname" class="form-floating mb-3">
         <input
-          [formControl]="firstName"
+          [formControl]="firstname"
           class="form-control"
           id="floating-first-name"
           maxlength="150"
@@ -23,27 +23,7 @@
           <ng-container i18n>First name</ng-container>
         </label>
         <app-form-errors
-          [control]="firstName"
-          [formRef]="profileFormRef"
-          class="invalid-feedback"></app-form-errors>
-      </div>
-    </div>
-    <div class="col-12 col-lg-6 col-xl-5 col-xxl-4">
-      <div *ngIf="lastName" class="form-floating mb-3">
-        <input
-          [formControl]="lastName"
-          class="form-control"
-          id="floating-last-name"
-          maxlength="150"
-          minlength="2"
-          trim
-          type="text" />
-        <label class="text-start" for="floating-last-name">
-          <i class="icon fa-solid fa-circle-user me-1"></i>
-          <ng-container i18n>Last name</ng-container>
-        </label>
-        <app-form-errors
-          [control]="lastName"
+          [control]="firstname"
           [formRef]="profileFormRef"
           class="invalid-feedback"></app-form-errors>
       </div>

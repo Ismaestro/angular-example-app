@@ -5,8 +5,12 @@
 @import 'colors';
 @import 'variables';
 
+$avatar-size: 90px;
+
 .main-avatar-circle {
   border: 5px solid $white;
+  width: $avatar-size;
+  height: $avatar-size;
 }
 
 .my-account-user-name {

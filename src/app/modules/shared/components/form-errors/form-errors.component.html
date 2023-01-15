@@ -15,5 +15,11 @@
     <div *ngIf="control.errors['notYourEmail']">
       <ng-container i18n>This is not your email</ng-container>
     </div>
+    <div *ngIf="control.errors['pattern']">
+      <ng-container i18n
+        >Password must contain at least one lowercase letter, one uppercase letter and one number.
+        No special characters allowed.
+      </ng-container>
+    </div>
   </ng-container>
 </div>

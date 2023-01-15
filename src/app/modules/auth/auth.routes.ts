@@ -1,7 +1,7 @@
 import { Route } from '@angular/router';
 import { authPaths } from '~modules/auth/shared/auth-routes';
 import { LogInPageComponent } from '~modules/auth/pages/log-in-page/log-in-page.component';
-import { NoAuthGuard } from '~modules/core/guards/no-auth.guard';
+import { NoAuthGuard } from '~modules/shared/guards/no-auth.guard';
 import { appPaths } from '../../app-routes';
 import { RegisterPageComponent } from '~modules/auth/pages/register-page/register-page.component';
 import { LogoutPageComponent } from '~modules/auth/pages/logout-page/logout-page.component';

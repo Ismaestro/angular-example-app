@@ -113,10 +113,6 @@
         <source>Personal data</source>
         <target state="new">Información personal</target>
       </trans-unit>
-      <trans-unit id="3586674587150281199" datatype="html">
-        <source>Last name</source>
-        <target state="new">Apellidos</target>
-      </trans-unit>
       <trans-unit id="3768927257183755959" datatype="html">
         <source>Save</source>
         <target state="new">Guardar</target>
@@ -215,11 +211,75 @@
       </trans-unit>
       <trans-unit id="2648786936515738699" datatype="html">
         <source>created heroes</source>
-        <target state="new">created heroes</target>
+        <target state="new">heroes creados</target>
       </trans-unit>
       <trans-unit id="771984667796132675" datatype="html">
         <source>Angular Example App</source>
         <target state="new">Angular Example App</target>
+      </trans-unit>
+      <trans-unit id="6283991314060695536" datatype="html">
+        <source>Password must contain at least one lowercase letter, one uppercase letter and one number. No special characters allowed. </source>
+        <target state="new">La contraseña debe contener al menos una letra minúscula, una mayúscula y un número. No se admiten caracteres especiales. </target>
+      </trans-unit>
+      <trans-unit id="5909397162992279613" datatype="html">
+        <source>Top 5 public heroes</source>
+        <target state="new">Top 5 heroes públicos</target>
+      </trans-unit>
+      <trans-unit id="4100306273406016007" datatype="html">
+        <source>votes</source>
+        <target state="new">votos</target>
+      </trans-unit>
+      <trans-unit id="423928307239211896" datatype="html">
+        <source> This heroes are available to all the users and you can vote for them! </source>
+        <target state="new"> Estos héroes están disponibles para todos los usuarios y puedes votar por ellos. </target>
+      </trans-unit>
+      <trans-unit id="4758588840062363024" datatype="html">
+        <source>You can only vote each hero once.</source>
+        <target state="new">Sólo se puede votar a cada héroe una vez.</target>
+      </trans-unit>
+      <trans-unit id="1008949863405692120" datatype="html">
+        <source>Alter-ego</source>
+        <target state="new">Nombre</target>
+      </trans-unit>
+      <trans-unit id="8097628895036343135" datatype="html">
+        <source>Real name</source>
+        <target state="new">Nombre real</target>
+      </trans-unit>
+      <trans-unit id="3737543504924228701" datatype="html">
+        <source>Create a hero</source>
+        <target state="new">Create a hero</target>
+      </trans-unit>
+      <trans-unit id="7585826646011739428" datatype="html">
+        <source>Edit</source>
+        <target state="new">Edit</target>
+      </trans-unit>
+      <trans-unit id="3179345075540180396" datatype="html">
+        <source>What&apos;s the hero&apos;s name?</source>
+        <target state="new">What&apos;s the hero&apos;s name?</target>
+      </trans-unit>
+      <trans-unit id="6873806236290728741" datatype="html">
+        <source>Alter ego</source>
+        <target state="new">Alter ego</target>
+      </trans-unit>
+      <trans-unit id="6232555467136163241" datatype="html">
+        <source>Now, the real one</source>
+        <target state="new">Now, the real one</target>
+      </trans-unit>
+      <trans-unit id="3839075859206996049" datatype="html">
+        <source>Your private heroes</source>
+        <target state="new">Tus propios heroes</target>
+      </trans-unit>
+      <trans-unit id="7290439163208145456" datatype="html">
+        <source>Create hero</source>
+        <target state="new">Create hero</target>
+      </trans-unit>
+      <trans-unit id="7705716581111712441" datatype="html">
+        <source>You don&apos;t have any heroes. Go and create one!</source>
+        <target state="new">You don&apos;t have any heroes. Go and create one!</target>
+      </trans-unit>
+      <trans-unit id="8260681910901343399" datatype="html">
+        <source>Hero deleted!</source>
+        <target state="new">Hero deleted!</target>
       </trans-unit>
     </body>
   </file>

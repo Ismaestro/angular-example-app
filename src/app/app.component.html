@@ -1,16 +1,16 @@
 <ng-container *ngIf="!isLoggingOut">
   <ng-container *ngIf="isLoggedIn && !isArrivalRoute">
-    <div class="angularexampleapp-header-main-container">
+    <div class="app__content-container">
       <app-header></app-header>
       <div class="container mw-100">
         <div class="row justify-content-end">
           <app-sidebar [user]="user"></app-sidebar>
-          <main class="angularexampleapp-main-container col-12 col-sm-8 col-lg-9 col-xl-10">
+          <main class="app__main-container col-12 col-sm-8 col-lg-9 col-xl-10">
             <router-outlet></router-outlet>
           </main>
         </div>
       </div>
-      <div class="push-footer"></div>
+      <div class="app__footer--push"></div>
     </div>
     <div class="container mw-100">
       <app-footer></app-footer>

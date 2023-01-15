@@ -1,0 +1,82 @@
+<div
+  aria-hidden="true"
+  aria-labelledby="hero"
+  class="modal fade"
+  id="hero-modal"
+  role="dialog"
+  tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div *ngIf="heroSelected" class="modal-content">
+      <div class="modal-header">
+        <p class="modal-title" id="hero">
+          <ng-container *ngIf="!heroSelected.id" i18n>Create a hero</ng-container>
+          <ng-container *ngIf="heroSelected.id" i18n>Edit</ng-container> {{ heroSelected.alterEgo }}
+        </p>
+        <button (click)="closeModal()" aria-label="Close" class="btn-close" type="button">
+          <i class="icon fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <form
+          #heroFormRef="ngForm"
+          (submit)="sendForm()"
+          *ngIf="heroForm"
+          [class.needs-validation]="!heroFormRef.submitted"
+          [class.was-validated]="heroFormRef.submitted"
+          [formGroup]="heroForm"
+          class="exchange-form-container mx-auto">
+          <div *ngIf="alterEgo" class="mb-4">
+            <label class="form-label mb-3" for="alter-ego-form-control">
+              <ng-container i18n>What's the hero's name?</ng-container>
+            </label>
+            <div class="d-flex align-items-center">
+              <input
+                [formControl]="alterEgo"
+                class="form-control font-awesome"
+                i18n-placeholder
+                id="alter-ego-form-control"
+                placeholder="Alter ego"
+                type="text" />
+            </div>
+            <app-form-errors
+              [control]="alterEgo"
+              [formRef]="heroFormRef"
+              class="invalid-feedback"></app-form-errors>
+          </div>
+          <div *ngIf="realName" class="mb-4">
+            <label class="form-label mb-3" for="real-name-form-control">
+              <ng-container i18n>Now, the real one</ng-container>
+            </label>
+            <div class="d-flex align-items-center">
+              <input
+                [formControl]="realName"
+                class="form-control font-awesome"
+                i18n-placeholder
+                id="real-name-form-control"
+                placeholder="Real name"
+                type="text" />
+            </div>
+            <app-form-errors
+              [control]="realName"
+              [formRef]="heroFormRef"
+              class="invalid-feedback"></app-form-errors>
+          </div>
+          <div class="modal-footer pb-4">
+            <button
+              [class.is-loading-primary]="isButtonLoading"
+              [disabled]="isButtonLoading || !heroSelected"
+              class="btn btn-primary px-2 px-md-3 mt-n2">
+              <ng-container *ngIf="isButtonLoading">
+                <span
+                  aria-hidden="true"
+                  class="spinner-border text-white spinner-border-sm me-1"
+                  role="status"></span>
+              </ng-container>
+              <ng-container i18n>Save</ng-container>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

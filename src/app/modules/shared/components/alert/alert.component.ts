@@ -15,12 +15,12 @@ import {
   AlertId,
   AlertService,
   AlertType,
-} from '~modules/core/services/alert.service';
+} from '~modules/shared/services/alert.service';
 import { Subject, takeUntil } from 'rxjs';
 import { AppConfig } from '../../../../configs/app.config';
-import { EventBusService } from '~modules/core/services/event-bus.service';
+import { EventBusService } from '~modules/shared/services/event-bus.service';
 import { getAlertConfigById } from '~modules/shared/components/alert/alerts.config';
-import { TrackByService } from '~modules/core/services/track-by.service';
+import { TrackByService } from '~modules/shared/services/track-by.service';
 
 @Component({
   selector: 'app-alert',

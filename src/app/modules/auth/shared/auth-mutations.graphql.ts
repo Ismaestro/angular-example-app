@@ -1,202 +1,72 @@
 import { gql } from 'apollo-angular';
-import { RegisterPayload } from '~modules/auth/shared/interfaces/register-payload.interface';
-import { AppConfig } from '../../../configs/app.config';
-import { UpdateUserData } from '~modules/auth/shared/interfaces/update-user-data.interface';
 
 export const loginMutation = gql`
   mutation login($email: String!, $password: String!) {
     login(data: { email: $email, password: $password }) {
       accessToken
       refreshToken
+      user {
+        id
+        email
+        firstname
+        language
+        heroes {
+          id
+          realName
+          alterEgo
+          image
+        }
+      }
     }
   }
 `;
 
-// eslint-disable-next-line max-lines-per-function
-export const registerMutation = ({ firstName, email, password, terms }: RegisterPayload) => {
-  return {
-    mutation: gql`
-        mutation register {
-          register(
-          firstName: "${firstName}"
-          email: "${email}"
-          password: "${password}"
-          terms: ${terms}
-        ) {
-            accessToken
-            refreshToken
-            user {
-              id
-              email
-              lang
-              isEmailVerified
-              firstName
-              lastName
-              picture
-              availableDishes
-              starterOptionSelected
-              role
-              origin
-            }
-          }
-        }
-      `,
-  };
-};
+export const signupMutation = gql`
+  mutation signup($firstname: String!, $email: String!, $password: String!) {
+    signup(data: { firstname: $firstname, email: $email, password: $password }) {
+      accessToken
+      refreshToken
+      user {
+        id
+        email
+        firstname
+        language
+      }
+    }
+  }
+`;
 
-export const verifyEmailMutation = (token: string) => {
-  return {
-    mutation: gql`
-        mutation {
-          verifyEmail(
-            token: "${token}"
-          ) {
-            user {
-              id
-              email
-              lang
-              isEmailVerified
-              firstName
-              lastName
-              picture
-              availableDishes
-              starterOptionSelected
-              role
-              origin
-            }
-          }
-        }
-      `,
-  };
-};
+export const updateUserMutation = gql`
+  mutation updateUser($firstname: String!, $language: String!) {
+    updateUser(data: { firstname: $firstname, language: $language }) {
+      id
+      firstname
+      language
+    }
+  }
+`;
 
-export const resendVerificationEmailMutation = (email: string) => {
-  return {
-    mutation: gql`
-        mutation {
-          resendVerificationEmail(
-            email: "${email}"
-          ) {
-            ok
-          }
-        }
-      `,
-  };
-};
+export const changePasswordMutation = gql`
+  mutation changePassword($oldPassword: String!, $newPassword: String!) {
+    changePassword(data: { oldPassword: $oldPassword, newPassword: $newPassword }) {
+      id
+    }
+  }
+`;
 
-export const rememberPasswordMutation = (email: string) => {
-  return {
-    mutation: gql`
-        mutation {
-          rememberPassword(
-            email: "${email}"
-          ) {
-            ok
-          }
-        }
-      `,
-  };
-};
+export const refreshTokenMutation = gql`
+  mutation refreshToken($refreshToken: String!) {
+    refreshToken(token: $refreshToken) {
+      accessToken
+      refreshToken
+    }
+  }
+`;
 
-export const resetPasswordMutation = (token: string, newPassword: string) => {
-  return {
-    mutation: gql`
-        mutation resetPassword {
-          resetPassword(
-            token: "${token}"
-            newPassword: "${newPassword}"
-          ) {
-            accessToken
-            refreshToken
-            user {
-              id
-              email
-              lang
-              isEmailVerified
-              firstName
-              lastName
-              picture
-              availableDishes
-              starterOptionSelected
-              role
-              origin
-            }
-          }
-        }
-      `,
-  };
-};
-
-export const updateUserMutation = (userData: UpdateUserData) => {
-  const firstName = userData.firstName;
-  const lastName = userData.lastName;
-  const lang = userData.lang;
-  return {
-    mutation: gql`
-        mutation updateUser {
-          updateUser(
-            ${firstName ? 'firstName: "' + firstName + '"' : ''}
-            ${lastName ? 'lastName: "' + lastName + '"' : ''}
-            ${lang ? 'lang: ' + lang : ''}
-          ) {
-              id
-              email
-              lang
-              isEmailVerified
-              firstName
-              lastName
-              picture
-              availableDishes
-              starterOptionSelected
-              role
-              origin
-          }
-        }
-      `,
-  };
-};
-
-export const changePasswordMutation = (oldPassword: string, newPassword: string) => {
-  return {
-    mutation: gql`
-        mutation changePassword {
-          changePassword(
-            oldPassword: "${oldPassword}"
-            newPassword: "${newPassword}"
-          ) {
-            ok
-          }
-        }
-      `,
-  };
-};
-
-export const deleteAccountMutation = (password: string) => {
-  return {
-    mutation: gql`
-        mutation deleteAccount {
-          deleteAccount(
-            password: "${password}"
-          ) {
-            ok
-          }
-        }
-      `,
-  };
-};
-
-export const updateTokenMutation = (refreshToken: string) => {
-  return {
-    mutation: gql`
-        mutation updateToken {
-          updateToken(token: "${refreshToken}") {
-            accessToken
-            refreshToken
-          }
-        }
-      `,
-    context: {
-      headers: { [AppConfig.bypassAuthorization]: 'true' },
-    },
-  };
-};
+export const deleteAccountMutation = gql`
+  mutation deleteAccount($password: String!) {
+    deleteAccount(password: $password) {
+      ok
+    }
+  }
+`;

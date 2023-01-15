@@ -12,4 +12,6 @@ export const translations: any = {
   sessionExpired: $localize`Session has expired, please log in again.`,
   accountDeleted: $localize`The account has been deleted. We are sorry to see you go :(`,
   name: $localize`First name`,
+  doubleVoted: $localize`You can only vote each hero once.`,
+  heroDeleted: $localize`Hero deleted!`,
 };
