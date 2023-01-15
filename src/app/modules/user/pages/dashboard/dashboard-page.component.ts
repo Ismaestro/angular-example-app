@@ -96,7 +96,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
       .subscribe(heroes => {
         if (heroes) {
           this.publicHeroes = heroes;
-          this.changeDetectorRef.markForCheck();
+          this.changeDetectorRef.detectChanges();
         }
       });
   }

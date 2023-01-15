@@ -41,6 +41,7 @@ export const updateUserMutation = gql`
     updateUser(data: { firstname: $firstname, language: $language }) {
       id
       firstname
+      email
       language
     }
   }

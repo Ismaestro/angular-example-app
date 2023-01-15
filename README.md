@@ -14,7 +14,7 @@
     <img src="https://media.giphy.com/media/BIql9p3KQWYdjq4Sxe/giphy.gif" alt="Demo example"/>
     <br>
     <br>
-    <a href="https://ismaestro.github.io/angular-example-app/">DEMO HERE</a>
+    <a href="https://angular-example-app.onrender.com/">DEMO HERE</a>
   </p>
 </p>
 

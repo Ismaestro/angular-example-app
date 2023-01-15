@@ -49,6 +49,7 @@ export class HeroService {
           field: options.orderBy.field,
           skip: options.skip,
         },
+        fetchPolicy: 'network-only',
       })
       .pipe(
         map((response: unknown) => {
