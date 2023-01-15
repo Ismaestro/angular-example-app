@@ -188,9 +188,6 @@
       <trans-unit id="3737543504924228701" datatype="html">
         <source>Create a hero</source>
       </trans-unit>
-      <trans-unit id="3839075859206996049" datatype="html">
-        <source>Your private heroes</source>
-      </trans-unit>
       <trans-unit id="6232555467136163241" datatype="html">
         <source>Now, the real one</source>
       </trans-unit>
@@ -211,6 +208,9 @@
       </trans-unit>
       <trans-unit id="8260681910901343399" datatype="html">
         <source>Hero deleted!</source>
+      </trans-unit>
+      <trans-unit id="7822748941834007534" datatype="html">
+        <source>My heroes</source>
       </trans-unit>
     </body>
   </file>

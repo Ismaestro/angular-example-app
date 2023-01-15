@@ -247,15 +247,15 @@
       </trans-unit>
       <trans-unit id="3737543504924228701" datatype="html">
         <source>Create a hero</source>
-        <target state="new">Create a hero</target>
+        <target state="new">Crear heroe</target>
       </trans-unit>
       <trans-unit id="7585826646011739428" datatype="html">
         <source>Edit</source>
-        <target state="new">Edit</target>
+        <target state="new">Editar</target>
       </trans-unit>
       <trans-unit id="3179345075540180396" datatype="html">
         <source>What&apos;s the hero&apos;s name?</source>
-        <target state="new">What&apos;s the hero&apos;s name?</target>
+        <target state="new">¿Cual es el nombre del heroe?</target>
       </trans-unit>
       <trans-unit id="6873806236290728741" datatype="html">
         <source>Alter ego</source>
@@ -263,23 +263,23 @@
       </trans-unit>
       <trans-unit id="6232555467136163241" datatype="html">
         <source>Now, the real one</source>
-        <target state="new">Now, the real one</target>
-      </trans-unit>
-      <trans-unit id="3839075859206996049" datatype="html">
-        <source>Your private heroes</source>
-        <target state="new">Tus propios heroes</target>
+        <target state="new">Ahora, el nombre real</target>
       </trans-unit>
       <trans-unit id="7290439163208145456" datatype="html">
         <source>Create hero</source>
-        <target state="new">Create hero</target>
+        <target state="new">Crear hero</target>
       </trans-unit>
       <trans-unit id="7705716581111712441" datatype="html">
         <source>You don&apos;t have any heroes. Go and create one!</source>
-        <target state="new">You don&apos;t have any heroes. Go and create one!</target>
+        <target state="new">No tienes ningun heroe. Ve y crea uno!</target>
       </trans-unit>
       <trans-unit id="8260681910901343399" datatype="html">
         <source>Hero deleted!</source>
-        <target state="new">Hero deleted!</target>
+        <target state="new">Heroe eliminado!</target>
+      </trans-unit>
+      <trans-unit id="7822748941834007534" datatype="html">
+        <source>My heroes</source>
+        <target state="new">Mis heroes</target>
       </trans-unit>
     </body>
   </file>
