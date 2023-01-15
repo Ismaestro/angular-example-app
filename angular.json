@@ -186,12 +186,12 @@
       "i18n": {
         "sourceLocale": {
           "code": "en",
-          "baseHref": "/en/"
+          "baseHref": "/"
         },
         "locales": {
           "es": {
             "translation": "src/locale/messages.es.xlf",
-            "baseHref": "/"
+            "baseHref": "/es/"
           }
         }
       }
