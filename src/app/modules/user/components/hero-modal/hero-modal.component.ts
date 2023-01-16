@@ -26,7 +26,6 @@ import { Modal } from 'bootstrap';
 @Component({
   selector: 'app-hero-modal',
   templateUrl: './hero-modal.component.html',
-  styleUrls: ['./hero-modal.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [NgIf, FormErrorsComponent, ReactiveFormsModule, NgClass, NgForOf],

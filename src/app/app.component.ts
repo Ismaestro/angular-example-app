@@ -31,7 +31,6 @@ import { SidebarComponent } from '~modules/shared/components/sidebar/sidebar.com
 import { FooterComponent } from '~modules/shared/components/footer/footer.component';
 import { AlertComponent } from '~modules/shared/components/alert/alert.component';
 
-// TODO: refactor all queries and mutations to use variables
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
