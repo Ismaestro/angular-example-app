@@ -212,6 +212,9 @@
       <trans-unit id="7822748941834007534" datatype="html">
         <source>My heroes</source>
       </trans-unit>
+      <trans-unit id="2775762839876670031" datatype="html">
+        <source> Create as many as you want </source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

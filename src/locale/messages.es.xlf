@@ -281,6 +281,10 @@
         <source>My heroes</source>
         <target state="new">Mis heroes</target>
       </trans-unit>
+      <trans-unit id="2775762839876670031" datatype="html">
+        <source> Create as many as you want </source>
+        <target state="new"> Crea todos los que quieras! </target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
