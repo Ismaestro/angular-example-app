@@ -3,7 +3,6 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
-  Inject,
   Input,
   OnDestroy,
   ViewChild,
@@ -19,7 +18,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { FormErrorsComponent } from '~modules/shared/components/form-errors/form-errors.component';
-import { DOCUMENT, NgIf } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { Subject, takeUntil } from 'rxjs';
 import { ApolloError } from '@apollo/client/errors';
 import { AuthService } from '~modules/auth/shared/auth.service';

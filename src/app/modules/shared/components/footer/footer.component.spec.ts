@@ -4,6 +4,7 @@ import { appRoutes } from '../../../../app-routes';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
+// eslint-disable-next-line max-lines-per-function
 describe('FooterComponent', () => {
   let component: FooterComponent;
   let fixture: ComponentFixture<FooterComponent>;
