@@ -2,14 +2,13 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  Inject,
   Input,
   OnDestroy,
   OnInit,
 } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import { EventBusService, EventBusType } from '~modules/shared/services/event-bus.service';
-import { DOCUMENT, NgIf } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { userRoutes } from '~modules/user/shared/user-routes';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { User } from '~modules/user/shared/user.model';
@@ -35,7 +34,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
     private eventBusService: EventBusService,
     public router: Router,
     private changeDetectorRef: ChangeDetectorRef,
-    @Inject(DOCUMENT) private document: Document
+    private document: Document
   ) {
     this.showEmptySpace = false;
     this.currentUrl = '';

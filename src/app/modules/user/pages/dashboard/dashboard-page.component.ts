@@ -12,7 +12,7 @@ import {
 import { AuthRepository } from '~modules/auth/store/auth.repository';
 import { Subject, takeUntil } from 'rxjs';
 import { User } from '~modules/user/shared/user.model';
-import { DOCUMENT, NgForOf, NgIf, NgOptimizedImage } from '@angular/common';
+import { NgForOf, NgIf, NgOptimizedImage } from '@angular/common';
 import { AppConfig } from '../../../../configs/app.config';
 import { userRoutes } from '~modules/user/shared/user-routes';
 import { RouterLink } from '@angular/router';
@@ -52,7 +52,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
     private alertService: AlertService,
     private changeDetectorRef: ChangeDetectorRef,
     @Inject(LOCALE_ID) public locale: string,
-    @Inject(DOCUMENT) private document: Document
+    private document: Document
   ) {
     this.trackHero = TrackByService.trackHero;
     this.window = this.document.defaultView as Window;

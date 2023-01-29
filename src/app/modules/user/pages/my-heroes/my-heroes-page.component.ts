@@ -12,7 +12,7 @@ import {
 import { AuthRepository } from '~modules/auth/store/auth.repository';
 import { Subject, takeUntil } from 'rxjs';
 import { User } from '~modules/user/shared/user.model';
-import { DOCUMENT, NgForOf, NgIf, NgOptimizedImage } from '@angular/common';
+import { NgForOf, NgIf, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { HeroService } from '~modules/hero/shared/hero.service';
 import { Hero } from '~modules/hero/shared/hero.model';
@@ -50,7 +50,7 @@ export class MyHeroesPageComponent implements OnInit, OnDestroy {
     private alertService: AlertService,
     private changeDetectorRef: ChangeDetectorRef,
     @Inject(LOCALE_ID) public locale: string,
-    @Inject(DOCUMENT) private document: Document
+    private document: Document
   ) {
     this.trackHero = TrackByService.trackHero;
     this.window = this.document.defaultView as Window;

@@ -64,7 +64,7 @@ export class DeleteAccountComponent implements OnDestroy {
     private alertService: AlertService,
     private router: Router,
     private utilService: UtilService,
-    @Inject(DOCUMENT) private document: Document
+    private document: Document
   ) {
     this.window = this.document.defaultView as Window;
     this.numberOfHeroes = '-';

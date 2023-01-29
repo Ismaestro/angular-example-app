@@ -2,7 +2,6 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  Inject,
   OnDestroy,
   OnInit,
 } from '@angular/core';
@@ -11,7 +10,6 @@ import { AppConfig } from '../../../../configs/app.config';
 import { AlertService } from '~modules/shared/services/alert.service';
 import { Subject, takeUntil } from 'rxjs';
 import { AuthRepository } from '~modules/auth/store/auth.repository';
-import { DOCUMENT } from '@angular/common';
 import { environment } from '~environments/environment';
 import { ActivatedRoute } from '@angular/router';
 import { authRoutes } from '~modules/auth/shared/auth-routes';
@@ -33,7 +31,7 @@ export class LogoutPageComponent implements OnInit, OnDestroy {
     private authRepository: AuthRepository,
     private activatedRoute: ActivatedRoute,
     private changeDetectorRef: ChangeDetectorRef,
-    @Inject(DOCUMENT) private document: Document
+    private document: Document
   ) {
     this.window = this.document.defaultView as Window;
   }

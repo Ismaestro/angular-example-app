@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit } from '@
 import { AuthRepository } from '~modules/auth/store/auth.repository';
 import { Subject, takeUntil } from 'rxjs';
 import { User } from '~modules/user/shared/user.model';
-import { DOCUMENT, NgIf, UpperCasePipe } from '@angular/common';
+import { NgIf, UpperCasePipe } from '@angular/common';
 import { APP_CONFIG } from '../../../../configs/app.config';
 import { IAppConfig } from '../../../../configs/app-config.interface';
 import { EditProfileComponent } from '~modules/user/components/edit-profile/edit-profile.component';
@@ -32,7 +32,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
 
   constructor(
     private authRepository: AuthRepository,
-    @Inject(DOCUMENT) private document: Document,
+    private document: Document,
     @Inject(APP_CONFIG) public appConfig: IAppConfig
   ) {
     this.innerWidth = (this.document.defaultView as Window).innerWidth;

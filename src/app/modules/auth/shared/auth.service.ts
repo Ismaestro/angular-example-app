@@ -24,12 +24,21 @@ import { UpdateTokenData } from '~modules/auth/shared/interfaces/update-token-da
 import { ChangePasswordResponse } from '~modules/auth/shared/interfaces/change-password-response.interface';
 import { DeleteAccountResponse } from '~modules/auth/shared/interfaces/delete-account-response.interface';
 import { AppConfig } from '../../../configs/app.config';
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   constructor(private apollo: Apollo, private authRepository: AuthRepository) {}
+
+  static decodeToken(token: string): { exp: number } | null {
+    try {
+      return jwt_decode(token);
+    } catch (e) {
+      return null;
+    }
+  }
 
   signup({ firstname, email, password }: RegisterPayload): Observable<AuthUserData | null> {
     return this.apollo

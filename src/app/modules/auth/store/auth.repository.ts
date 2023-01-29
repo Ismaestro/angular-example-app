@@ -3,8 +3,8 @@ import { createStore, select, setProps, withProps } from '@ngneat/elf';
 import { AuthProps } from '~modules/auth/store/interfaces/auth-props.interface';
 import { localStorageStrategy, persistState } from '@ngneat/elf-persist-state';
 import { Observable } from 'rxjs';
-import jwt_decode from 'jwt-decode';
 import { User } from '~modules/user/shared/user.model';
+import { AuthService } from '~modules/auth/shared/auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthRepository {
@@ -56,7 +56,7 @@ export class AuthRepository {
     try {
       const token = this.getAccessTokenValue();
       if (token) {
-        return !!jwt_decode(token);
+        return !!AuthService.decodeToken(token);
       }
       return false;
     } catch (Error) {

@@ -29,7 +29,7 @@ import { authRoutes } from '~modules/auth/shared/auth-routes';
 import { userRoutes } from '~modules/user/shared/user-routes';
 import { EventBCType, EventBusService } from '~modules/shared/services/event-bus.service';
 import { AuthRepository } from '~modules/auth/store/auth.repository';
-import { DOCUMENT, NgIf } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { FormErrorsComponent } from '~modules/shared/components/form-errors/form-errors.component';
 import { LanguageSelectorComponent } from '~modules/auth/shared/components/language-selector/language-selector.component';
 import { TrimDirective } from '~modules/shared/directives/trim.directive';
@@ -76,7 +76,7 @@ export class RegisterPageComponent implements OnDestroy {
     private alertService: AlertService,
     private utilService: UtilService,
     @Inject(APP_CONFIG) public appConfig: IAppConfig,
-    @Inject(DOCUMENT) private document: Document
+    private document: Document
   ) {
     this.authRoutes = authRoutes;
     this.renderer.addClass(this.document.body, 'bg-linear');

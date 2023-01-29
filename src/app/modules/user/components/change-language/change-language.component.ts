@@ -1,11 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Inject,
-  Input,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
 import { ApolloError } from '@apollo/client/errors';
@@ -13,7 +6,7 @@ import { AuthService } from '~modules/auth/shared/auth.service';
 import { AlertId, AlertService } from '~modules/shared/services/alert.service';
 import { UtilService } from '~modules/shared/services/util.service';
 import { AuthRepository } from '~modules/auth/store/auth.repository';
-import { DOCUMENT, NgIf } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { User } from '~modules/user/shared/user.model';
 import { environment } from '~environments/environment';
 import { AppConfig } from '../../../../configs/app.config';
@@ -42,7 +35,7 @@ export class ChangeLanguageComponent implements OnInit, OnDestroy {
     private alertService: AlertService,
     private authRepository: AuthRepository,
     private utilService: UtilService,
-    @Inject(DOCUMENT) private document: Document
+    private document: Document
   ) {
     this.window = this.document.defaultView as Window;
   }

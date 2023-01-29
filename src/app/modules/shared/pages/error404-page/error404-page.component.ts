@@ -10,7 +10,6 @@ import {
 } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import { AuthRepository } from '~modules/auth/store/auth.repository';
-import { DOCUMENT } from '@angular/common';
 import { AppConfig } from '../../../../configs/app.config';
 
 @Component({
@@ -29,7 +28,7 @@ export class Error404PageComponent implements OnInit, OnDestroy {
   constructor(
     private renderer: Renderer2,
     private authRepository: AuthRepository,
-    @Inject(DOCUMENT) private document: Document,
+    private document: Document,
     @Inject(LOCALE_ID) public locale: string
   ) {
     this.urlToRedirect = this.locale !== AppConfig.defaultLang ? `/${locale}` : '/';

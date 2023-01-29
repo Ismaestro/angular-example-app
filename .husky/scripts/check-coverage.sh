@@ -1,6 +1,6 @@
 #!/bin/sh
 
-targetCoverage=1
+targetCoverage=44.0
 
 coverageHTML="$(sed 's:^ *::g' < coverage/index.html | tr -d \\n)"
 linesCoverageString=$(sed 's:.*<span class="strong">\([^<]*\)<.*:\1:' <<<"$coverageHTML")

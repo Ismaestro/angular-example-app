@@ -1,6 +1,5 @@
 import { Observable, ObservableInput, switchMap, throwError as observableThrowError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { Inject } from '@angular/core';
 import {
   HttpEvent,
   HttpHandler,
@@ -10,11 +9,9 @@ import {
 } from '@angular/common/http';
 import { AuthRepository } from '~modules/auth/store/auth.repository';
 import { AppConfig } from '../../../configs/app.config';
-import jwt_decode from 'jwt-decode';
 import { AuthService } from '~modules/auth/shared/auth.service';
 import { authRoutes } from '~modules/auth/shared/auth-routes';
 import { Router } from '@angular/router';
-import { DOCUMENT } from '@angular/common';
 import { AlertId } from '~modules/shared/services/alert.service';
 
 export class TokenInterceptor implements HttpInterceptor {
@@ -25,7 +22,7 @@ export class TokenInterceptor implements HttpInterceptor {
     private router: Router,
     private authService: AuthService,
     private authRepository: AuthRepository,
-    @Inject(DOCUMENT) private document: Document
+    private document: Document
   ) {
     this.window = this.document.defaultView as Window;
   }
@@ -56,11 +53,11 @@ export class TokenInterceptor implements HttpInterceptor {
   }
 
   getTokenExpirations(accessToken: string, refreshToken: string) {
-    const accessTokenValue: { exp: number } = jwt_decode(accessToken);
-    const isAccessTokenExpired = Date.now() >= accessTokenValue.exp * 1000;
+    const accessTokenValue = AuthService.decodeToken(accessToken);
+    const isAccessTokenExpired = Date.now() >= (accessTokenValue?.exp || 0) * 1000;
 
-    const refreshTokenValue: { exp: number } = jwt_decode(refreshToken);
-    const isRefreshTokenExpired = Date.now() >= refreshTokenValue.exp * 1000;
+    const refreshTokenValue = AuthService.decodeToken(refreshToken);
+    const isRefreshTokenExpired = Date.now() >= (refreshTokenValue?.exp || 0) * 1000;
 
     return { isAccessTokenExpired, isRefreshTokenExpired };
   }

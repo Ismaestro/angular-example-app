@@ -45,6 +45,7 @@ bootstrapApplication(AppComponent, {
       { path: '**', redirectTo: '404' },
     ]),
     { provide: APP_CONFIG, useValue: AppConfig },
+    { provide: Document, useExisting: DOCUMENT },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
