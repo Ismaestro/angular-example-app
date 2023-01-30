@@ -22,6 +22,14 @@ module.exports = function (config) {
       dir: require('path').join(__dirname, './coverage/angularexampleapp'),
       subdir: '.',
       reporters: [{ type: 'html' }, { type: 'text-summary' }],
+      check: {
+        global: {
+          statements: 42.7,
+          lines: 44.0,
+          branches: 41.4,
+          functions: 26.0,
+        },
+      },
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,

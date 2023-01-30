@@ -9,7 +9,6 @@
     "lint": "ng lint && stylelint \"src/**/*.{css,scss}\"",
     "test": "ng test --code-coverage --no-watch",
     "test:watch": "ng test --code-coverage",
-    "check:coverage": "sh .husky/scripts/check-coverage.sh",
     "e2e": "cypress run --browser chrome",
     "e2e:watch": "cypress open",
     "build": "ng build && mv -v dist/en/* dist/ && rm -Rf dist/en",
