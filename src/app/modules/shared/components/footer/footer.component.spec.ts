@@ -20,6 +20,7 @@ describe('FooterComponent', () => {
 
   it('should create', () => {
     fixture.detectChanges();
+    expect(component).toBeTruthy();
     expect(component.environment).toBe(environment);
     expect(component.appRoutes).toBe(appRoutes);
     expect(component.currentYear).toBe(new Date().getFullYear());
