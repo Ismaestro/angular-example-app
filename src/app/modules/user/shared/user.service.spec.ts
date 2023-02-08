@@ -4,6 +4,7 @@ import { TestBed } from '@angular/core/testing';
 import { getMeQuery } from '~modules/user/shared/user-queries.graphql';
 import { User } from '~modules/user/shared/user.model';
 
+// eslint-disable-next-line max-lines-per-function
 describe('UserService', () => {
   let controller: ApolloTestingController;
   let userService: UserService;

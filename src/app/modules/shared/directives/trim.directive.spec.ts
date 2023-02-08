@@ -1,10 +1,12 @@
 import { TrimDirective } from '~modules/shared/directives/trim.directive';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'app-test-component',
   template: `
     <form [formGroup]="form"><input id="test-input" type="text" trim [formControl]="input" /></form>
   `,
