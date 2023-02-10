@@ -14,6 +14,9 @@ module.exports = function (config) {
     ],
     client: {
       clearContext: false,
+      jasmine: {
+        random: false,
+      },
     },
     jasmineHtmlReporter: {
       suppressAll: true,
@@ -22,6 +25,7 @@ module.exports = function (config) {
       dir: require('path').join(__dirname, './coverage/angularexampleapp'),
       subdir: '.',
       reporters: [{ type: 'html' }, { type: 'text-summary' }],
+      fixWebpackSourcePaths: true,
       check: {
         global: {
           statements: 42.7,
