@@ -49,7 +49,7 @@ Postgres and GraphQL. Please check it out and also feel free to contribute or gi
 - [x] Responsive layout with Bootstrap 5
 - [x] Use of [NgOptimizedImage](https://angular.io/guide/image-directive)
 - [x] SASS with BEM styles
-- [x] Unit and integration test examples
+- [x] Example tests for: Component, Service, Interceptor, Directive and Guard
 - [x] End-to-end tests configuration with Cypress and Cucumber
 - [x] Very strict ESLint rules
 
