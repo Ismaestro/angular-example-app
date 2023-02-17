@@ -12,7 +12,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   `,
 })
 class HostComponent {
-  input = new FormControl(' patata ');
+  input = new FormControl(' value ');
   form = new FormGroup({
     input: this.input,
   });
@@ -32,8 +32,8 @@ describe('TrimDirective', () => {
   it('should trim spaces', () => {
     fixture.detectChanges();
     const input = fixture.debugElement.query(By.css('#test-input')).nativeElement;
-    expect(input.value).toBe(' patata ');
+    expect(input.value).toBe(' value ');
     input.dispatchEvent(new InputEvent('blur'));
-    expect(input.value).toBe('patata');
+    expect(input.value).toBe('value');
   });
 });
