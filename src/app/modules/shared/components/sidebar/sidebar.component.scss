@@ -5,7 +5,7 @@
 @import 'bootstrap/scss/mixins';
 @import 'variables';
 
-.sidebar {
+.sidebar__container {
   position: fixed;
   top: rem(64px);
   bottom: 0;
@@ -28,7 +28,7 @@
     width: 256px;
   }
 
-  .sidebar-logo-container {
+  .sidebar__logo-container {
     margin: rem(-12px) rem(16px) rem(-4px);
 
     @include media-breakpoint-up(lg) {
@@ -41,12 +41,14 @@
     @include media-breakpoint-only(xs) {
       /* stylelint-disable-next-line selector-pseudo-element-no-unknown */
       ::ng-deep {
-        .logo-first-word-letter {
+        .logo__first-word-letter {
           font-size: 2rem;
         }
-        .logo-second-word-letter {
+
+        .logo__second-word-letter {
           font-size: 2.4rem;
         }
+
         margin-top: rem(4px);
       }
     }
@@ -54,45 +56,46 @@
     @include media-breakpoint-only(sm) {
       /* stylelint-disable-next-line selector-pseudo-element-no-unknown */
       ::ng-deep {
-        .logo-first-word-letter {
+        .logo__first-word-letter {
           font-size: 1.6rem;
         }
-        .logo-second-word-letter {
+
+        .logo__second-word-letter {
           font-size: 2rem;
         }
       }
     }
   }
 
+  // stylelint-disable-next-line
   .nav-link.active {
     color: $white;
     background: $primary;
 
-    .icon {
+    .app__icon {
       color: $white;
     }
   }
 
-  .sidebar-heading {
-    font-size: 1rem;
-    text-transform: uppercase;
-  }
-
+  // stylelint-disable
   .fa-calendar-plus,
   .fa-circle-plus {
     font-size: 1.2rem;
   }
+  // stylelint-enable
 
+  // stylelint-disable-next-line
   .nav-link {
     transition: color 0.05s ease-in-out, background-color 0.05s ease-in-out,
       border-color 0.05s ease-in-out;
+
     &:hover {
       color: $white;
       cursor: pointer;
       background: lighten($primary, 5);
 
       a,
-      .icon {
+      .app__icon {
         color: $white;
       }
     }
@@ -114,7 +117,7 @@
   }
 }
 
-.sidebar-empty-space {
+.sidebar__empty-space {
   position: fixed;
   top: rem(64px);
   right: 0;

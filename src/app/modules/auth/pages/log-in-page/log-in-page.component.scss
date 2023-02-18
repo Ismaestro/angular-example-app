@@ -9,7 +9,7 @@
     font-size: 1.7rem;
   }
 
-  .login-page-container {
+  .login-page__container {
     @include media-breakpoint-up(sm) {
       @media (min-height: 685px) {
         position: absolute;
@@ -21,24 +21,11 @@
     }
   }
 
-  .login-page-card {
+  .login-page__card {
     max-width: $cards-max-width;
   }
 
-  .login-page-separator {
-    width: 40%;
-    margin-top: 1.5rem;
-  }
-
-  .log-in-remember-password {
-    padding-left: 0.8rem;
-
-    a {
-      font-size: $small-font-size;
-    }
-  }
-
-  .card-header {
+  .card__header {
     right: 0;
   }
 }

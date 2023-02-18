@@ -90,6 +90,10 @@
     "standard-version": "9.5.0",
     "stylelint": "14.16.1",
     "stylelint-config-prettier": "9.0.4",
+    "stylelint-config-recess-order": "4.0.0",
+    "stylelint-config-standard": "30.0.1",
+    "stylelint-order": "6.0.2",
+    "stylelint-selector-bem-pattern": "^2.1.1",
     "ts-loader": "9.4.2",
     "typescript": "4.9.4",
     "webpack-bundle-analyzer": "4.7.0"

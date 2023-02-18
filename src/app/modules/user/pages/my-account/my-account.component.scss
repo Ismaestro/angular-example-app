@@ -7,16 +7,17 @@
 
 $avatar-size: 90px;
 
-.main-avatar-circle {
-  border: 5px solid $white;
+.main__avatar-circle {
   width: $avatar-size;
   height: $avatar-size;
+  border: 5px solid $white;
 }
 
-.my-account-user-name {
+.my-account__user-name {
   letter-spacing: 2px;
 }
 
-.my-account-email-verified.text-warning {
+// stylelint-disable-next-line
+.my-account__email-verified.text-warning {
   color: $black-dark-100;
 }

@@ -4,7 +4,7 @@
 @import 'bootstrap/scss/mixins';
 @import 'variables';
 
-.angularexampleapp-footer-container {
+.footer__wrapper {
   height: rem(64px);
   animation: fade-in 2s;
 
@@ -15,7 +15,7 @@
     box-shadow: $section-box-shadow;
   }
 
-  .angularexampleapp-footer-content {
+  .footer__content {
     @include media-breakpoint-up(lg) {
       width: calc(100% - 256px);
     }
@@ -25,6 +25,7 @@
     width: rem(30px);
   }
 
+  // stylelint-disable-next-line
   .nav-link {
     margin: 0 rem(12px);
   }

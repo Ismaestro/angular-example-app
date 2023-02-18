@@ -4,6 +4,7 @@
 @import 'variables';
 
 :host {
+  // stylelint-disable-next-line
   .dropdown-toggle {
     color: $primary;
     background: transparent;

@@ -1,10 +1,10 @@
-<div class="register-page-container d-flex align-items-center justify-content-center">
+<div class="register-page__container d-flex align-items-center justify-content-center">
   <div class="container my-2">
     <div class="row">
       <div class="col-12">
         <main>
-          <div class="card text-center register-page-card mx-auto py-3 position-relative">
-            <div class="card-header text-end m-0 p-0 pe-4 position-absolute">
+          <div class="card text-center register-page__card mx-auto py-3 position-relative">
+            <div class="card__header text-end m-0 p-0 pe-4 position-absolute">
               <app-language-selector></app-language-selector>
             </div>
             <div class="card-body">
@@ -105,7 +105,7 @@
                       required
                       type="checkbox" />
                     <label
-                      class="register-terms-label form-check-label text-start"
+                      class="register-terms__label form-check-label text-start"
                       for="terms-input">
                       <ng-container i18n
                         >I've read and accept the terms and conditions and the privacy
@@ -138,7 +138,7 @@
                 <div class="col-12">
                   <p>
                     <span i18n>already have an account?</span>
-                    <a [routerLink]="authRoutes.logIn" class="register-login-link ms-1">
+                    <a [routerLink]="authRoutes.logIn" class="register__login-link ms-1">
                       <ng-container i18n>log in</ng-container>
                       <i class="ms-1 icon fa-solid fa-right-long"></i>
                     </a>

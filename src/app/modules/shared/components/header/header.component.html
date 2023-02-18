@@ -1,7 +1,6 @@
-<div class="angularexampleapp-header-container container mw-100">
+<div class="header__container container mw-100">
   <div class="row justify-content-end">
-    <div
-      class="col-12 col-sm-8 col-lg-9 col-xl-10 p-0 mt-sm-2 px-sm-2 angularexampleapp-header-content">
+    <div class="col-12 col-sm-8 col-lg-9 col-xl-10 p-0 mt-sm-2 px-sm-2 header__content">
       <app-alert class="d-flex"></app-alert>
       <header class="navbar d-block sticky-top px-3 py-1 mb-2">
         <div class="row align-items-center justify-content-between">
@@ -12,12 +11,12 @@
               aria-controls="sidebar"
               aria-expanded="false"
               aria-label="Lateral menu navigation"
-              class="header-button-sidebar d-sm-none collapsed"
+              class="header__button-sidebar d-sm-none header__button-sidebar--collapsed"
               data-bs-target="#sidebar"
               data-bs-toggle="collapse"
               i18n-aria-label
               type="button">
-              <i class="icon fa-solid fa-bars"></i>
+              <i class="app__icon fa-solid fa-bars"></i>
             </button>
           </div>
           <div class="col col-lg-6 p-0 ps-sm-2">
@@ -47,14 +46,14 @@
                   <div *ngIf="user" class="avatar cursor-pointer">
                     <img
                       alt="user avatar"
-                      class="w-px-40 h-auto main-avatar-circle rounded-circle"
+                      class="w-px-40 h-auto main__avatar-circle rounded-circle"
                       referrerpolicy="no-referrer"
                       src="/assets/images/user.png" />
                   </div>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
                   <li>
-                    <div class="dropdown-item no-hover">
+                    <div class="dropdown-item dropdown__item--no-hover">
                       <div class="d-flex align-items-center">
                         <div class="flex-shrink-0 me-3">
                           <div *ngIf="user" class="avatar">
@@ -77,10 +76,10 @@
                   </li>
                   <li>
                     <a
-                      [class.active]="currentUrl === userRoutes.myAccount"
+                      [class.dropdown__item--active]="currentUrl === userRoutes.myAccount"
                       [routerLink]="userRoutes.myAccount"
                       class="dropdown-item d-flex align-items-center">
-                      <i class="icon fa-solid fa-gear me-2"></i>
+                      <i class="app__icon fa-solid fa-gear me-2"></i>
                       <span class="align-middle" i18n>My account</span>
                     </a>
                   </li>
@@ -92,7 +91,7 @@
                       (click)="logout()"
                       (keyup.enter)="logout()"
                       class="dropdown-item d-flex align-items-center cursor-pointer">
-                      <i class="icon fa-solid fa-right-from-bracket me-2"></i>
+                      <i class="app__icon fa-solid fa-right-from-bracket me-2"></i>
                       <button (click)="logout()" (keyup.enter)="logout()" class="p-0">
                         <ng-container i18n>Log out</ng-container>
                       </button>

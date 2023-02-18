@@ -14,20 +14,22 @@
 }
 
 .dashboard__action-button {
-  border: none;
-  background: transparent;
-  align-items: center;
   display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
 
+  // stylelint-disable-next-line
   .fa-heart {
-    color: $red;
     font-size: 1.3rem;
+    color: $red;
 
     &:hover {
       animation: fa-beat 0.5s infinite linear;
     }
   }
 
+  // stylelint-disable-next-line
   .fa-trash {
     color: darken($red, 10);
   }

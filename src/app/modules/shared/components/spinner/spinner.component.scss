@@ -3,7 +3,7 @@
 @import 'bootstrap/scss/variables';
 
 :host {
-  .spinner-container div {
+  .spinner__container div {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -14,10 +14,12 @@
     transform: translate(-50%, -50%);
     animation: 3s linear infinite anim;
   }
-  .spinner-container div .green {
+
+  .spinner__container div .color__green {
     border: rem(4px) solid $primary;
   }
-  .spinner-container div .orange {
+
+  .spinner__container div .color__orange {
     border: rem(4px) solid $secondary;
   }
   @keyframes anim {
@@ -26,28 +28,35 @@
       height: 0;
       opacity: 0;
     }
+
     10% {
       opacity: 0.7;
     }
+
     100% {
       width: 20vmin;
       height: 20vmin;
       opacity: 0;
     }
   }
-  .spinner-container div:first-child {
+
+  .spinner__container div:first-child {
     animation-delay: 0.1s;
   }
-  .spinner-container div:nth-child(2) {
+
+  .spinner__container div:nth-child(2) {
     animation-delay: 0.4s;
   }
-  .spinner-container div:nth-child(3) {
+
+  .spinner__container div:nth-child(3) {
     animation-delay: 0.7s;
   }
-  .spinner-container div:nth-child(4) {
+
+  .spinner__container div:nth-child(4) {
     animation-delay: 1s;
   }
-  .spinner-container div:nth-child(5) {
+
+  .spinner__container div:nth-child(5) {
     animation-delay: 1.3s;
   }
 }
@@ -58,9 +67,11 @@
     height: 0;
     opacity: 0;
   }
+
   10% {
     opacity: 0.7;
   }
+
   100% {
     width: 20vmin;
     height: 20vmin;

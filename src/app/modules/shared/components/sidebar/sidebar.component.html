@@ -1,7 +1,7 @@
-<nav class="col-9 col-sm-4 col-lg-3 col-xl-2 d-md-block sidebar collapse" id="sidebar">
+<nav class="col-9 col-sm-4 col-lg-3 col-xl-2 d-md-block sidebar__container collapse" id="sidebar">
   <div class="pt-sm-3 pt-lg-2">
     <ul class="nav flex-column">
-      <li class="nav-item sidebar-logo-container">
+      <li class="nav-item sidebar__logo-container">
         <img alt="Home" class="ng-star-inserted" src="/assets/icons/icon-128x128.png" />
       </li>
       <li class="nav-item mt-2 mt-sm-4">
@@ -11,7 +11,7 @@
           [class.active]="currentUrl === userRoutes.dashboard"
           [routerLink]="userRoutes.dashboard"
           class="nav-link">
-          <i class="icon fa-solid fa-house-chimney me-2"></i>
+          <i class="app__icon fa-solid fa-house-chimney me-2"></i>
           <ng-container i18n>Home</ng-container>
         </a>
       </li>
@@ -22,7 +22,7 @@
           [class.active]="currentUrl === userRoutes.myHeroes"
           [routerLink]="userRoutes.myHeroes"
           class="nav-link">
-          <i class="icon fa-solid fa-mask me-2"></i>
+          <i class="app__icon fa-solid fa-mask me-2"></i>
           <ng-container i18n>My heroes</ng-container>
         </a>
       </li>
@@ -33,4 +33,4 @@
   (click)="closeSidebar()"
   (keyup.enter)="closeSidebar()"
   *ngIf="showEmptySpace"
-  class="sidebar-empty-space col-3 d-sm-none"></div>
+  class="sidebar__empty-space col-3 d-sm-none"></div>

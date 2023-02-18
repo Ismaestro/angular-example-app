@@ -8,7 +8,7 @@
     <div
       [class.d-block]="alert.options?.static"
       [class.d-flex]="!alert.options?.static"
-      class="d-sm-flex alert-content-container">
+      class="d-sm-flex alert__content-container">
       <p class="text-break">
         <ng-template [ngIf]="alert.icon"><i class="icon {{ alert.icon }}"></i> </ng-template>
         {{ alert.message }}

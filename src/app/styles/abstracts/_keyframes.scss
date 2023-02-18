@@ -2,6 +2,7 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -42,9 +43,11 @@
   0% {
     box-shadow: none;
   }
+
   50% {
     box-shadow: inset 0 0 0 rgb(255 255 255 / 0%), 0 0 0.0625rem 0.1rem rgb(0 155 112 / 100%);
   }
+
   100% {
     box-shadow: none;
   }
@@ -54,10 +57,12 @@
   0% {
     box-shadow: none;
   }
+
   50% {
     box-shadow: inset 0 0 0 rgb(255 255 255 / 50%),
       0 0 0.0625rem 0.1rem darken(rgb(0 155 112 / 100%), 10);
   }
+
   100% {
     box-shadow: none;
   }
@@ -78,6 +83,7 @@
   0% {
     opacity: 0.6;
   }
+
   100% {
     opacity: 1;
   }

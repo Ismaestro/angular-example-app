@@ -20,13 +20,16 @@ ul {
 ::-webkit-scrollbar {
   width: rem(9px);
 }
+
 ::-webkit-scrollbar-track {
   background: $blue-tertiary;
 }
+
 ::-webkit-scrollbar-thumb {
   background: $blue-secondary;
   border-radius: rem(4px);
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: $primary;
 }

@@ -7,13 +7,13 @@
 
 $header-color-text: $black-light-100;
 
-.angularexampleapp-header-container {
+.header__container {
   @include media-breakpoint-only(xs) {
     position: fixed;
     z-index: $z-index-sidebar;
   }
 
-  .angularexampleapp-header-content {
+  .header__content {
     @include media-breakpoint-up(lg) {
       width: calc(100% - 256px);
     }
@@ -26,32 +26,35 @@ header {
   border-radius: 0.375rem;
   box-shadow: $section-box-shadow;
 
+  // stylelint-disable-next-line
   .navbar-nav .dropdown-menu {
     position: absolute;
   }
 
+  // stylelint-disable-next-line
   .nav-link {
     margin: 0 rem(12px);
   }
 
-  .header-button-sidebar {
+  .header__button-sidebar {
     display: flex;
     align-items: center;
     background: transparent;
     border: none;
 
-    &.collapsed {
-      .icon {
+    &.header__button-sidebar--collapsed {
+      .app__icon {
         color: $primary;
       }
     }
 
-    .icon {
+    .app__icon {
       font-size: 1.6rem;
       color: $secondary;
     }
   }
 
+  // stylelint-disable-next-line
   .dropdown-toggle {
     background: transparent;
     border: none;
@@ -64,15 +67,19 @@ header {
     }
   }
 
+  // stylelint-disable-next-line
   .dropdown-toggle.show {
+    // stylelint-disable-next-line
     .rounded-circle {
       border: rem(2px) solid $primary;
     }
   }
 
+  // stylelint-disable-next-line
   .dropdown-menu {
     z-index: $z-index-sidebar;
 
+    // stylelint-disable-next-line
     .dropdown-item {
       min-width: rem(270px);
 
@@ -81,7 +88,7 @@ header {
         border: none;
       }
 
-      .icon {
+      .app__icon {
         width: rem(16px);
         height: rem(16px);
         color: $header-color-text;
@@ -99,13 +106,13 @@ header {
 
         span,
         button,
-        .icon {
+        .app__icon {
           color: $white;
         }
       }
 
-      &.no-hover:hover,
-      &.no-hover:focus {
+      &.dropdown__item--no-hover:hover,
+      &.dropdown__item--no-hover:focus {
         cursor: default;
         background: none;
 
@@ -116,14 +123,14 @@ header {
         }
       }
 
-      &.active {
+      &.dropdown__item--active {
         span,
         button {
           color: $white;
           background: $primary;
         }
 
-        .icon {
+        .app__icon {
           color: $white;
         }
 
@@ -140,12 +147,13 @@ header {
     }
   }
 
+  // stylelint-disable-next-line
   .rounded-circle {
     width: rem(40px);
     border: rem(1px) solid $primary;
   }
 
-  .main-avatar-circle:hover {
+  .main__avatar-circle:hover {
     border: rem(2px) solid $primary;
   }
 }
