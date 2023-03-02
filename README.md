@@ -70,7 +70,13 @@ your feedback!
 
 ## Thanks
 
-Thanks to all contributors and their support.
+I´m developing this project in my free time, but also thanks to all contributors!
+
+<p>
+  <a href="https://www.buymeacoffee.com/ismaestro">
+    <img src="https://res.cloudinary.com/ismaestro/image/upload/c_scale,w_200/v1677755383/angularexampleapp/bmc_qr_tjz1ws.png" alt="Buy me a coffe"/>
+  </a>
+</p>
 
 ## Copyright and license
 
