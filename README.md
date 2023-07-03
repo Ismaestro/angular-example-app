@@ -14,7 +14,7 @@
     <img src="https://media.giphy.com/media/lIbaRQKLbCWkUZUOYs/giphy.gif" alt="Demo example"/>
     <br>
     <br>
-    <a href="https://angular-example-app.onrender.com/">DEMO HERE</a>
+    <a href="https://angular-example-app.netlify.app/">DEMO HERE</a>
   </p>
 </p>
 
@@ -32,7 +32,7 @@ npm start
 
 ## Server
 
-This project is using a real app deployed in render.com, which you can see
+This project is using a real app deployed in fly.io, which you can see
 [here](https://github.com/Ismaestro/nestjs-example-app). The server is using NestJS, Prisma,
 Postgres and GraphQL. Please check it out and also feel free to contribute or give me your thoughts.
 
