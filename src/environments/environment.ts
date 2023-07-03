@@ -5,6 +5,6 @@
 export const environment = {
   production: false,
   // graphqlHost: 'http://localhost:3000/', // if you are running nestjs-example-app project
-  graphqlHost: 'https://nestjs-example-app.onrender.com/',
+  graphqlHost: 'https://fly.io/apps/nestjs-example-app/',
   domain: 'http://localhost:4200',
 };
