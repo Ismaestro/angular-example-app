@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  graphqlHost: 'https://fly.io/apps/nestjs-example-app/',
+  graphqlHost: 'https://nestjs-example-app.fly.dev/',
   domain: 'https://angular-example-app.onrender.com',
 };
