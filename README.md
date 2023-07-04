@@ -39,6 +39,7 @@ Postgres and GraphQL. Please check it out and also feel free to contribute or gi
 ## What's included
 
 - [x] Standalone components
+- [x] Functional Guards
 - [x] CRUD: create, update and remove heroes with this project!
 - [x] Authentication with JWT tokens (Interceptor and Guard)
 - [x] Internationalization with the official i18n. English and Spanish available.
