@@ -18,10 +18,9 @@ import { AuthService } from '~modules/auth/shared/auth.service';
 import { ApolloError } from '@apollo/client/errors';
 import { Subject, takeUntil } from 'rxjs';
 import { APP_CONFIG } from '../../../../configs/app.config';
-import { UtilService } from '~modules/shared/services/util.service';
+import { NetworkHelperService } from '~modules/shared/services/network-helper.service';
 import { ApiError } from '~modules/shared/interfaces/api-error.interface';
 import { Router, RouterLink } from '@angular/router';
-import { ValidationService } from '~modules/shared/services/validation.service';
 import { AlertId, AlertService } from '~modules/shared/services/alert.service';
 import { CustomError } from '~modules/auth/shared/interfaces/custom-errors.enum';
 import { AuthUserData } from '~modules/auth/shared/interfaces/register-data.interface';
@@ -35,6 +34,7 @@ import { LanguageSelectorComponent } from '~modules/auth/shared/components/langu
 import { TrimDirective } from '~modules/shared/directives/trim.directive';
 import { LowercaseDirective } from '~modules/shared/directives/lowercase.directive';
 import { IAppConfig } from '../../../../configs/app-config.interface';
+import { EmailValidators } from '~modules/shared/validators/email.validators';
 
 @Component({
   selector: 'app-register-page',
@@ -74,7 +74,7 @@ export class RegisterPageComponent implements OnDestroy {
     private router: Router,
     private changeDetectorRef: ChangeDetectorRef,
     private alertService: AlertService,
-    private utilService: UtilService,
+    private utilService: NetworkHelperService,
     @Inject(APP_CONFIG) public appConfig: IAppConfig,
     private document: Document
   ) {
@@ -88,7 +88,7 @@ export class RegisterPageComponent implements OnDestroy {
     ]);
     this.email = new FormControl<string | null>('', [
       Validators.required,
-      ValidationService.isEmailValidator(),
+      EmailValidators.isEmail(),
     ]);
     this.password = new FormControl<string | null>('', {
       validators: [

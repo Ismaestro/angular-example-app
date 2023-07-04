@@ -16,12 +16,12 @@ import { NgForOf, NgIf, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { HeroService } from '~modules/hero/shared/hero.service';
 import { Hero } from '~modules/hero/shared/hero.model';
-import { TrackByService } from '~modules/shared/services/track-by.service';
 import { AlertId, AlertService } from '~modules/shared/services/alert.service';
-import { UtilService } from '~modules/shared/services/util.service';
+import { NetworkHelperService } from '~modules/shared/services/network-helper.service';
 import { UserService } from '~modules/user/shared/user.service';
 import { Modal } from 'bootstrap';
 import { HeroModalComponent } from '~modules/user/components/hero-modal/hero-modal.component';
+import { TrackBy } from '~modules/shared/classes/track-by';
 
 @Component({
   selector: 'app-my-heroes-page',
@@ -46,13 +46,13 @@ export class MyHeroesPageComponent implements OnInit, OnDestroy {
     private authRepository: AuthRepository,
     private heroService: HeroService,
     private userService: UserService,
-    private utilService: UtilService,
+    private utilService: NetworkHelperService,
     private alertService: AlertService,
     private changeDetectorRef: ChangeDetectorRef,
     @Inject(LOCALE_ID) public locale: string,
     private document: Document
   ) {
-    this.trackHero = TrackByService.trackHero;
+    this.trackHero = TrackBy.trackHero;
     this.window = this.document.defaultView as Window;
     this.userHeroes = [];
   }

@@ -23,7 +23,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { ApolloError } from '@apollo/client/errors';
 import { AuthService } from '~modules/auth/shared/auth.service';
 import { AlertId, AlertService } from '~modules/shared/services/alert.service';
-import { UtilService } from '~modules/shared/services/util.service';
+import { NetworkHelperService } from '~modules/shared/services/network-helper.service';
 import { AuthRepository } from '~modules/auth/store/auth.repository';
 import { CustomError } from '~modules/auth/shared/interfaces/custom-errors.enum';
 import { authRoutes } from '~modules/auth/shared/auth-routes';
@@ -62,7 +62,7 @@ export class DeleteAccountComponent implements OnDestroy {
     private authRepository: AuthRepository,
     private alertService: AlertService,
     private router: Router,
-    private utilService: UtilService,
+    private utilService: NetworkHelperService,
     private document: Document
   ) {
     this.window = this.document.defaultView as Window;

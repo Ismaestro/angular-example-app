@@ -20,7 +20,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { AppConfig } from '../../../../configs/app.config';
 import { EventBusService } from '~modules/shared/services/event-bus.service';
 import { getAlertConfigById } from '~modules/shared/components/alert/alerts.config';
-import { TrackByService } from '~modules/shared/services/track-by.service';
+import { TrackBy } from '~modules/shared/classes/track-by';
 
 @Component({
   selector: 'app-alert',
@@ -43,7 +43,7 @@ export class AlertComponent implements OnInit, OnDestroy {
     private changeDetectorRef: ChangeDetectorRef,
     private eventBusService: EventBusService
   ) {
-    this.trackAlert = TrackByService.trackAlert;
+    this.trackAlert = TrackBy.trackAlert;
     this.alerts = [];
   }
 

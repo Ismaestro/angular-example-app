@@ -18,11 +18,10 @@ import { AuthService } from '~modules/auth/shared/auth.service';
 import { ApolloError } from '@apollo/client/errors';
 import { Subject, takeUntil } from 'rxjs';
 import { APP_CONFIG, AppConfig } from '../../../../configs/app.config';
-import { UtilService } from '~modules/shared/services/util.service';
+import { NetworkHelperService } from '~modules/shared/services/network-helper.service';
 import { ApiError } from '~modules/shared/interfaces/api-error.interface';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { userRoutes } from '~modules/user/shared/user-routes';
-import { ValidationService } from '~modules/shared/services/validation.service';
 import { AlertId, AlertService } from '~modules/shared/services/alert.service';
 import { CustomError } from '~modules/auth/shared/interfaces/custom-errors.enum';
 import { AuthUserData } from '~modules/auth/shared/interfaces/register-data.interface';
@@ -36,6 +35,7 @@ import { LowercaseDirective } from '~modules/shared/directives/lowercase.directi
 import { TrimDirective } from '~modules/shared/directives/trim.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { IAppConfig } from '../../../../configs/app-config.interface';
+import { EmailValidators } from '~modules/shared/validators/email.validators';
 
 @Component({
   selector: 'app-log-in-page',
@@ -72,7 +72,7 @@ export class LogInPageComponent implements OnDestroy, AfterViewInit {
     private router: Router,
     private changeDetectorRef: ChangeDetectorRef,
     private alertService: AlertService,
-    private utilService: UtilService,
+    private utilService: NetworkHelperService,
     private authRepository: AuthRepository,
     private activatedRoute: ActivatedRoute,
     @Inject(APP_CONFIG) public appConfig: IAppConfig,
@@ -83,7 +83,7 @@ export class LogInPageComponent implements OnDestroy, AfterViewInit {
     this.isButtonLogInLoading = false;
     this.email = new FormControl<string | null>('', [
       Validators.required,
-      ValidationService.isEmailValidator(),
+      EmailValidators.isEmail(),
     ]);
     this.password = new FormControl<string | null>('', [Validators.required]);
     this.logInForm = this.formBuilder.group({

@@ -18,14 +18,14 @@ import { userRoutes } from '~modules/user/shared/user-routes';
 import { RouterLink } from '@angular/router';
 import { HeroOrderField, HeroService, OrderDirection } from '~modules/hero/shared/hero.service';
 import { Hero } from '~modules/hero/shared/hero.model';
-import { TrackByService } from '~modules/shared/services/track-by.service';
 import { ApolloError } from '@apollo/client/errors';
 import { ApiError } from '~modules/shared/interfaces/api-error.interface';
 import { CustomError } from '~modules/auth/shared/interfaces/custom-errors.enum';
 import { AlertId, AlertService } from '~modules/shared/services/alert.service';
-import { UtilService } from '~modules/shared/services/util.service';
+import { NetworkHelperService } from '~modules/shared/services/network-helper.service';
 import { UserService } from '~modules/user/shared/user.service';
 import { HeroModalComponent } from '~modules/user/components/hero-modal/hero-modal.component';
+import { TrackBy } from '~modules/shared/classes/track-by';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -48,13 +48,13 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
     private authRepository: AuthRepository,
     private heroService: HeroService,
     private userService: UserService,
-    private utilService: UtilService,
+    private utilService: NetworkHelperService,
     private alertService: AlertService,
     private changeDetectorRef: ChangeDetectorRef,
     @Inject(LOCALE_ID) public locale: string,
     private document: Document
   ) {
-    this.trackHero = TrackByService.trackHero;
+    this.trackHero = TrackBy.trackHero;
     this.window = this.document.defaultView as Window;
     this.publicHeroes = [];
   }

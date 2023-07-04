@@ -23,7 +23,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { ApolloError } from '@apollo/client/errors';
 import { AuthService } from '~modules/auth/shared/auth.service';
 import { AlertId, AlertService } from '~modules/shared/services/alert.service';
-import { UtilService } from '~modules/shared/services/util.service';
+import { NetworkHelperService } from '~modules/shared/services/network-helper.service';
 import { AuthRepository } from '~modules/auth/store/auth.repository';
 import { ApiError } from '~modules/shared/interfaces/api-error.interface';
 import { CustomError } from '~modules/auth/shared/interfaces/custom-errors.enum';
@@ -53,7 +53,7 @@ export class ChangePasswordComponent implements OnDestroy {
     private authService: AuthService,
     private authRepository: AuthRepository,
     private alertService: AlertService,
-    private utilService: UtilService
+    private utilService: NetworkHelperService
   ) {
     this.isButtonChangePasswordLoading = false;
     this.showPassword = false;

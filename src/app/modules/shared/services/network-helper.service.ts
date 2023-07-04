@@ -6,7 +6,7 @@ import { CustomError } from '~modules/auth/shared/interfaces/custom-errors.enum'
 @Injectable({
   providedIn: 'root',
 })
-export class UtilService {
+export class NetworkHelperService {
   constructor(private alertService: AlertService) {}
 
   checkNetworkError(error: ApolloError): boolean {
