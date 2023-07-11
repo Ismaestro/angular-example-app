@@ -1,35 +1,59 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file. See
+[standard-version](https://github.com/conventional-changelog/standard-version) for commit
+guidelines.
 
 ## [15.0.0](https://github.com/Ismaestro/angular-example-app/compare/v13.2.2...v15.0.0) (2023-01-15)
 
-
 ### Features
 
-* **ANGULAR:** migrations to angular 15 ([4761892](https://github.com/Ismaestro/angular-example-app/commit/47618928e4e5ebb6fa87534a21791822daef4472))
-* **app:** add data service for heroes ([4a6fff8](https://github.com/Ismaestro/angular-example-app/commit/4a6fff83074aa416baab72f10dd8c362ff3f1f8a))
-* **app:** change port for e2e ([db838d7](https://github.com/Ismaestro/angular-example-app/commit/db838d755629f85f1027c98b468b3e40317c314e))
-* **app:** comment ([e693968](https://github.com/Ismaestro/angular-example-app/commit/e693968094c79394612909718e9dc2ed8ba8e5f8))
-* **app:** fix language issue ([d9beef2](https://github.com/Ismaestro/angular-example-app/commit/d9beef2ffcbdf2a8bf70dcc9aa1ba4c92e59920d))
-* **app:** fix responsive issues ([c993029](https://github.com/Ismaestro/angular-example-app/commit/c993029808b387aeb2605ba7506b4af51f50b66f))
-* **app:** fix variable name ([3a53f9f](https://github.com/Ismaestro/angular-example-app/commit/3a53f9fd04190e2e0a137dc1fd1ea1d9a3ed1575))
-* **APP:** new version with Angular 15 and Bootstrap 5 ([894e222](https://github.com/Ismaestro/angular-example-app/commit/894e222db28001e61cb44657c0ccbb8a6e677efe))
-* **APP:** refactor utils helper service and some imports ([352d447](https://github.com/Ismaestro/angular-example-app/commit/352d447105714823a1355c6a19d96c89fe070795))
-* **app:** restore port for e2e ([da65c8e](https://github.com/Ismaestro/angular-example-app/commit/da65c8ec923976eeacd21973d2f0daeb110f771a))
-* **BOOTSTRAP:** prepare all components for the new version with bootstrap ([fa35c38](https://github.com/Ismaestro/angular-example-app/commit/fa35c3861506bedd52b202b171a4eaa61daa9669))
-* **BOOTSTRAP:** prepare all components for the new version with bootstrap 2 ([ef6e068](https://github.com/Ismaestro/angular-example-app/commit/ef6e068c6438308695362e0a33e50da30869218b))
-* **GITHUB:** change dist folder in gh-pages workflow ([61036fe](https://github.com/Ismaestro/angular-example-app/commit/61036fea5bf54d3f18d95409b1f578cc3ef68d9a))
-* **GITHUB:** remove workflows and move to render ([eb2488c](https://github.com/Ismaestro/angular-example-app/commit/eb2488cb540a99d12c72efbb1ef6801048dc4cdd))
-* **HERO:** fix hero vote refresh data and readme ([6075bc9](https://github.com/Ismaestro/angular-example-app/commit/6075bc9dd06750a9679b252c9ce74af6cd3255cf))
-* **LOCALES:** fix i18n configuration base ref ([35d71ad](https://github.com/Ismaestro/angular-example-app/commit/35d71ad2a33070396a09cc850c4bc8263aae692c))
-* **README:** update gif link ([cb63b08](https://github.com/Ismaestro/angular-example-app/commit/cb63b08c2add19fd77194745e322449271dcd5aa))
-* **SIGNUP:** update controls and red color ([97115b5](https://github.com/Ismaestro/angular-example-app/commit/97115b58e1de7eb5367968e8b6fac58292a80053))
-* **STYLES:** fix stylelint issues ([98619ba](https://github.com/Ismaestro/angular-example-app/commit/98619ba82233cdb86a586b7296e4e800f1562330))
-* **STYLES:** remove test command until spectator fix ([170ec95](https://github.com/Ismaestro/angular-example-app/commit/170ec95b365268070ebe0d9f7740b133f07cd0f7))
-* **TEST:** comment check coverage script ([77e9935](https://github.com/Ismaestro/angular-example-app/commit/77e993510804f82e0b61d44befee7dde35296fbf))
-* **TEST:** fix problem with provider ([8f826cc](https://github.com/Ismaestro/angular-example-app/commit/8f826cc4ce54bde33b0aabbd7370c6e27a05290f))
-* **TEST:** upgrade spectator version ([769014a](https://github.com/Ismaestro/angular-example-app/commit/769014a1522d80c637ba2dbc9c910ccc942ba3c8))
+- **ANGULAR:** migrations to angular 15
+  ([4761892](https://github.com/Ismaestro/angular-example-app/commit/47618928e4e5ebb6fa87534a21791822daef4472))
+- **app:** add data service for heroes
+  ([4a6fff8](https://github.com/Ismaestro/angular-example-app/commit/4a6fff83074aa416baab72f10dd8c362ff3f1f8a))
+- **app:** change port for e2e
+  ([db838d7](https://github.com/Ismaestro/angular-example-app/commit/db838d755629f85f1027c98b468b3e40317c314e))
+- **app:** comment
+  ([e693968](https://github.com/Ismaestro/angular-example-app/commit/e693968094c79394612909718e9dc2ed8ba8e5f8))
+- **app:** fix language issue
+  ([d9beef2](https://github.com/Ismaestro/angular-example-app/commit/d9beef2ffcbdf2a8bf70dcc9aa1ba4c92e59920d))
+- **app:** fix responsive issues
+  ([c993029](https://github.com/Ismaestro/angular-example-app/commit/c993029808b387aeb2605ba7506b4af51f50b66f))
+- **app:** fix variable name
+  ([3a53f9f](https://github.com/Ismaestro/angular-example-app/commit/3a53f9fd04190e2e0a137dc1fd1ea1d9a3ed1575))
+- **APP:** new version with Angular 15 and Bootstrap 5
+  ([894e222](https://github.com/Ismaestro/angular-example-app/commit/894e222db28001e61cb44657c0ccbb8a6e677efe))
+- **APP:** refactor utils helper service and some imports
+  ([352d447](https://github.com/Ismaestro/angular-example-app/commit/352d447105714823a1355c6a19d96c89fe070795))
+- **app:** restore port for e2e
+  ([da65c8e](https://github.com/Ismaestro/angular-example-app/commit/da65c8ec923976eeacd21973d2f0daeb110f771a))
+- **BOOTSTRAP:** prepare all components for the new version with bootstrap
+  ([fa35c38](https://github.com/Ismaestro/angular-example-app/commit/fa35c3861506bedd52b202b171a4eaa61daa9669))
+- **BOOTSTRAP:** prepare all components for the new version with bootstrap 2
+  ([ef6e068](https://github.com/Ismaestro/angular-example-app/commit/ef6e068c6438308695362e0a33e50da30869218b))
+- **GITHUB:** change dist folder in gh-pages workflow
+  ([61036fe](https://github.com/Ismaestro/angular-example-app/commit/61036fea5bf54d3f18d95409b1f578cc3ef68d9a))
+- **GITHUB:** remove workflows and move to render
+  ([eb2488c](https://github.com/Ismaestro/angular-example-app/commit/eb2488cb540a99d12c72efbb1ef6801048dc4cdd))
+- **HERO:** fix hero vote refresh data and readme
+  ([6075bc9](https://github.com/Ismaestro/angular-example-app/commit/6075bc9dd06750a9679b252c9ce74af6cd3255cf))
+- **LOCALES:** fix i18n configuration base ref
+  ([35d71ad](https://github.com/Ismaestro/angular-example-app/commit/35d71ad2a33070396a09cc850c4bc8263aae692c))
+- **README:** update gif link
+  ([cb63b08](https://github.com/Ismaestro/angular-example-app/commit/cb63b08c2add19fd77194745e322449271dcd5aa))
+- **SIGNUP:** update controls and red color
+  ([97115b5](https://github.com/Ismaestro/angular-example-app/commit/97115b58e1de7eb5367968e8b6fac58292a80053))
+- **STYLES:** fix stylelint issues
+  ([98619ba](https://github.com/Ismaestro/angular-example-app/commit/98619ba82233cdb86a586b7296e4e800f1562330))
+- **STYLES:** remove test command until spectator fix
+  ([170ec95](https://github.com/Ismaestro/angular-example-app/commit/170ec95b365268070ebe0d9f7740b133f07cd0f7))
+- **TEST:** comment check coverage script
+  ([77e9935](https://github.com/Ismaestro/angular-example-app/commit/77e993510804f82e0b61d44befee7dde35296fbf))
+- **TEST:** fix problem with provider
+  ([8f826cc](https://github.com/Ismaestro/angular-example-app/commit/8f826cc4ce54bde33b0aabbd7370c6e27a05290f))
+- **TEST:** upgrade spectator version
+  ([769014a](https://github.com/Ismaestro/angular-example-app/commit/769014a1522d80c637ba2dbc9c910ccc942ba3c8))
 
 ### [13.2.2](https://github.com/Ismaestro/angular-example-app/compare/v13.2.1...v13.2.2) (2022-04-23)
 
