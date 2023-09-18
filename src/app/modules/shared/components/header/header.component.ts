@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private authRepository: AuthRepository,
     public router: Router,
     private changeDetectorRef: ChangeDetectorRef,
-    private document: Document
+    private document: Document,
   ) {
     this.environment = environment;
     this.userRoutes = userRoutes;

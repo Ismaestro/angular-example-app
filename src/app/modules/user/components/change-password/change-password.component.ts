@@ -53,7 +53,7 @@ export class ChangePasswordComponent implements OnDestroy {
     private authService: AuthService,
     private authRepository: AuthRepository,
     private alertService: AlertService,
-    private utilService: NetworkHelperService
+    private utilService: NetworkHelperService,
   ) {
     this.isButtonChangePasswordLoading = false;
     this.showPassword = false;
@@ -69,7 +69,7 @@ export class ChangePasswordComponent implements OnDestroy {
         oldPassword: this.oldPassword,
         newPassword: this.newPassword,
       },
-      { validators: this.checkPasswords }
+      { validators: this.checkPasswords },
     );
   }
 

@@ -47,7 +47,7 @@ export class EditProfileComponent implements OnInit, OnDestroy {
     private changeDetectorRef: ChangeDetectorRef,
     private authService: AuthService,
     private alertService: AlertService,
-    private utilService: NetworkHelperService
+    private utilService: NetworkHelperService,
   ) {
     this.isButtonProfileLoading = false;
   }

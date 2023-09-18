@@ -30,7 +30,10 @@ import jwt_decode from 'jwt-decode';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private apollo: Apollo, private authRepository: AuthRepository) {}
+  constructor(
+    private apollo: Apollo,
+    private authRepository: AuthRepository,
+  ) {}
 
   static decodeToken(token: string): { exp: number } | null {
     try {
@@ -58,7 +61,7 @@ export class AuthService {
             return registerData;
           }
           return null;
-        })
+        }),
       );
   }
 
@@ -79,7 +82,7 @@ export class AuthService {
             return loginData;
           }
           return null;
-        })
+        }),
       );
   }
 
@@ -97,7 +100,7 @@ export class AuthService {
             return updateUserData;
           }
           return null;
-        })
+        }),
       );
   }
 
@@ -117,7 +120,7 @@ export class AuthService {
             return changePasswordData;
           }
           return null;
-        })
+        }),
       );
   }
 
@@ -136,7 +139,7 @@ export class AuthService {
             return deleteAccountData;
           }
           return null;
-        })
+        }),
       );
   }
 
@@ -158,12 +161,12 @@ export class AuthService {
           if (refreshTokenData) {
             this.authRepository.updateTokens(
               refreshTokenData.accessToken,
-              refreshTokenData.refreshToken
+              refreshTokenData.refreshToken,
             );
             return refreshTokenData;
           }
           return null;
-        })
+        }),
       );
   }
 

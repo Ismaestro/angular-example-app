@@ -31,7 +31,7 @@ export class LogoutPageComponent implements OnInit, OnDestroy {
     private authRepository: AuthRepository,
     private activatedRoute: ActivatedRoute,
     private changeDetectorRef: ChangeDetectorRef,
-    private document: Document
+    private document: Document,
   ) {
     this.window = this.document.defaultView as Window;
   }

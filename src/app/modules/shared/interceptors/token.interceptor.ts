@@ -22,7 +22,7 @@ export class TokenInterceptor implements HttpInterceptor {
     private router: Router,
     private authService: AuthService,
     private authRepository: AuthRepository,
-    private document: Document
+    private document: Document,
   ) {
     this.window = this.document.defaultView as Window;
   }
@@ -34,7 +34,7 @@ export class TokenInterceptor implements HttpInterceptor {
     if (accessToken && refreshToken && !request.headers.get(AppConfig.bypassAuthorization)) {
       const { isAccessTokenExpired, isRefreshTokenExpired } = this.getTokenExpirations(
         accessToken,
-        refreshToken
+        refreshToken,
       );
 
       if (isAccessTokenExpired) {
@@ -67,7 +67,7 @@ export class TokenInterceptor implements HttpInterceptor {
       const bodyErrors = response.body.errors;
       if (bodyErrors?.length) {
         const unAuthorizeErrorFounded = bodyErrors.find(
-          (bodyError: { code: number }) => bodyError.code === 401
+          (bodyError: { code: number }) => bodyError.code === 401,
         );
         if (unAuthorizeErrorFounded) {
           this.navigateToLogout();
@@ -79,7 +79,7 @@ export class TokenInterceptor implements HttpInterceptor {
   sendRequest(
     request: HttpRequest<unknown>,
     next: HttpHandler,
-    headers: { req_uuid: string; Authorization: string }
+    headers: { req_uuid: string; Authorization: string },
   ) {
     const newRequest = request.clone({ setHeaders: headers });
     return next.handle(newRequest).pipe(
@@ -87,14 +87,14 @@ export class TokenInterceptor implements HttpInterceptor {
         this.checkUnAuthorizedError(response);
         return response;
       }),
-      catchError(err => observableThrowError(err))
+      catchError(err => observableThrowError(err)),
     );
   }
 
   updateExpiredToken(
     request: HttpRequest<unknown>,
     next: HttpHandler,
-    headers: { req_uuid: string; Authorization: string }
+    headers: { req_uuid: string; Authorization: string },
   ) {
     return this.authService.refreshToken().pipe(
       switchMap(() => {
@@ -108,7 +108,7 @@ export class TokenInterceptor implements HttpInterceptor {
       catchError((error): ObservableInput<HttpEvent<unknown>> => {
         this.navigateToLogout();
         return observableThrowError(error);
-      })
+      }),
     );
   }
 

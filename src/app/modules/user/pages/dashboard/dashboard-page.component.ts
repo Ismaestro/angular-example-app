@@ -52,7 +52,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
     private alertService: AlertService,
     private changeDetectorRef: ChangeDetectorRef,
     @Inject(LOCALE_ID) public locale: string,
-    private document: Document
+    private document: Document,
   ) {
     this.trackHero = TrackBy.trackHero;
     this.window = this.document.defaultView as Window;

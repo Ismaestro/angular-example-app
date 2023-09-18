@@ -33,7 +33,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
   constructor(
     private authRepository: AuthRepository,
     private document: Document,
-    @Inject(APP_CONFIG) public appConfig: IAppConfig
+    @Inject(APP_CONFIG) public appConfig: IAppConfig,
   ) {
     this.innerWidth = (this.document.defaultView as Window).innerWidth;
   }

@@ -35,7 +35,7 @@ export class ChangeLanguageComponent implements OnInit, OnDestroy {
     private alertService: AlertService,
     private authRepository: AuthRepository,
     private utilService: NetworkHelperService,
-    private document: Document
+    private document: Document,
   ) {
     this.window = this.document.defaultView as Window;
   }

@@ -128,7 +128,7 @@ describe('AppComponent', () => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     router.events = of(
-      new NavigationEnd(0, 'http://localhost:4200/login', 'http://localhost:4200/login')
+      new NavigationEnd(0, 'http://localhost:4200/login', 'http://localhost:4200/login'),
     );
     fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();

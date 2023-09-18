@@ -34,7 +34,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
     private eventBusService: EventBusService,
     public router: Router,
     private changeDetectorRef: ChangeDetectorRef,
-    private document: Document
+    private document: Document,
   ) {
     this.showEmptySpace = false;
     this.currentUrl = '';

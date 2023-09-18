@@ -18,7 +18,7 @@ export class AuthRepository {
         user: null,
         accessToken: null,
         refreshToken: null,
-      })
+      }),
     );
 
     persistState(this.authStore, {

@@ -11,7 +11,7 @@
 
   .register-page__container {
     @include media-breakpoint-up(sm) {
-      @media (min-height: 890px) {
+      @media (height >= 890px) {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -33,7 +33,7 @@
     right: 0;
   }
 
-  @media (max-width: 327px) {
+  @media (width <= 327px) {
     .register__login-link {
       display: block;
     }

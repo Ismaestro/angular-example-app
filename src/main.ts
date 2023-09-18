@@ -56,7 +56,7 @@ bootstrapApplication(AppComponent, {
       provide: APOLLO_OPTIONS,
       useFactory: (
         httpLink: HttpLink,
-        authRepository: AuthRepository
+        authRepository: AuthRepository,
       ): ApolloClientOptions<unknown> => ({
         link: ApolloLink.from([
           setContext((operation, prevContext) => ({

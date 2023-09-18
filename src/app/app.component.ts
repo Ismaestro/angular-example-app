@@ -58,7 +58,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute,
     private titleService: Title,
     private document: Document,
-    @Inject(LOCALE_ID) public locale: string
+    @Inject(LOCALE_ID) public locale: string,
   ) {
     this.isLoggingOut = false;
     this.isArrivalRoute = false;
@@ -164,7 +164,7 @@ export class AppComponent implements OnInit, OnDestroy {
               catchError((error): ObservableInput<HttpEvent<unknown>> => {
                 this.navigateToLogout();
                 return observableThrowError(error);
-              })
+              }),
             )
             .subscribe();
         } else {

@@ -12,16 +12,16 @@ $lg-mb: -88px;
   min-height: 100%;
   animation: fade-in 2s;
 
-  @media (min-width: 320px) {
+  @media (width >= 320px) {
     margin-bottom: rem($xs-mb);
   }
-  @media (min-width: 406px) {
+  @media (width >= 406px) {
     margin-bottom: rem($xs2-mb);
   }
-  @media (min-width: 620px) {
+  @media (width >= 620px) {
     margin-bottom: rem($md-mb);
   }
-  @media (min-width: 947px) {
+  @media (width >= 947px) {
     margin-bottom: rem($lg-mb);
   }
 }
@@ -36,16 +36,16 @@ $lg-mb: -88px;
 }
 
 .app__footer--push {
-  @media (min-width: 320px) {
+  @media (width >= 320px) {
     height: rem(calc(abs($xs-mb) - 5px));
   }
-  @media (min-width: 406px) {
+  @media (width >= 406px) {
     height: rem(calc(abs($xs2-mb) - 5px));
   }
-  @media (min-width: 620px) {
+  @media (width >= 620px) {
     height: rem(calc(abs($md-mb) - 5px));
   }
-  @media (min-width: 947px) {
+  @media (width >= 947px) {
     height: rem(calc(abs($lg-mb) - 5px));
   }
 }

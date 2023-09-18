@@ -76,7 +76,7 @@ export class RegisterPageComponent implements OnDestroy {
     private alertService: AlertService,
     private utilService: NetworkHelperService,
     @Inject(APP_CONFIG) public appConfig: IAppConfig,
-    private document: Document
+    private document: Document,
   ) {
     this.authRoutes = authRoutes;
     this.renderer.addClass(this.document.body, 'bg-linear');

@@ -11,5 +11,8 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
 })
 export class LanguageSelectorComponent {
-  constructor(public router: Router, @Inject(LOCALE_ID) public locale: string) {}
+  constructor(
+    public router: Router,
+    @Inject(LOCALE_ID) public locale: string,
+  ) {}
 }

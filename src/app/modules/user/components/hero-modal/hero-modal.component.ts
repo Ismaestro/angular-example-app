@@ -46,7 +46,7 @@ export class HeroModalComponent implements OnChanges, OnDestroy {
   constructor(
     private formBuilder: FormBuilder,
     private heroService: HeroService,
-    private changeDetectorRef: ChangeDetectorRef
+    private changeDetectorRef: ChangeDetectorRef,
   ) {
     this.translations = translations;
     this.isButtonLoading = false;

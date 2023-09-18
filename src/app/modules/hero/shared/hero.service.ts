@@ -61,7 +61,7 @@ export class HeroService {
             return [];
           }
           return null;
-        })
+        }),
       );
   }
 
@@ -74,7 +74,7 @@ export class HeroService {
       .pipe(
         map((response: unknown) => {
           return (response as CreateHeroResponse).data?.createHero || null;
-        })
+        }),
       );
   }
 
@@ -100,7 +100,7 @@ export class HeroService {
       .pipe(
         map((response: unknown) => {
           return (response as VoteForHeroResponse).data?.voteHero || null;
-        })
+        }),
       );
   }
 }

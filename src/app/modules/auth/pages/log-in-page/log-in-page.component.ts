@@ -76,7 +76,7 @@ export class LogInPageComponent implements OnDestroy, AfterViewInit {
     private authRepository: AuthRepository,
     private activatedRoute: ActivatedRoute,
     @Inject(APP_CONFIG) public appConfig: IAppConfig,
-    private document: Document
+    private document: Document,
   ) {
     this.window = this.document.defaultView as Window;
     this.authRoutes = authRoutes;

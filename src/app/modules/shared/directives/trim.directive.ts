@@ -6,7 +6,10 @@ import { NgControl } from '@angular/forms';
   standalone: true,
 })
 export class TrimDirective {
-  constructor(private el: ElementRef, @Optional() private ngControl: NgControl) {}
+  constructor(
+    private el: ElementRef,
+    @Optional() private ngControl: NgControl,
+  ) {}
 
   @HostListener('blur') onBlur() {
     const control = this.ngControl.control;

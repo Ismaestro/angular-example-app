@@ -1,5 +1,7 @@
 a {
-  background-size: 100% rem(2px), 0 rem(2px);
+  background-size:
+    100% rem(2px),
+    0 rem(2px);
 }
 
 a:hover {
@@ -11,7 +13,11 @@ a:hover {
       lighten($secondary, 0)
     );
   background-repeat: no-repeat;
-  background-position: 100% 100%, 0 100%;
-  background-size: 0 rem(2px), 100% rem(2px);
+  background-position:
+    100% 100%,
+    0 100%;
+  background-size:
+    0 rem(2px),
+    100% rem(2px);
   transition: background-size 500ms;
 }

@@ -20,7 +20,7 @@ export class UserService {
       .pipe(
         map((response: unknown) => {
           return (response as GetMeResponse).data?.me || null;
-        })
+        }),
       );
   }
 }

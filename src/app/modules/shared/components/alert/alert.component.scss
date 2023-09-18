@@ -1,4 +1,4 @@
-@media (max-width: 575px) {
+@media (width <= 575px) {
   .alert__content-container {
     word-break: break-word;
   }

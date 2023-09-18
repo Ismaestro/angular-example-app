@@ -30,14 +30,15 @@ describe('FooterComponent', () => {
   it('should have a link class by default', () => {
     fixture.detectChanges();
     expect(fixture.debugElement.query(By.css('#how-it-works')).nativeElement).toHaveClass(
-      'nav-link'
+      'nav-link',
     );
   });
 
   it('should contains logo text', () => {
     fixture.detectChanges();
     expect(
-      fixture.debugElement.query(By.css('#footer__copyright-container p')).nativeElement.textContent
+      fixture.debugElement.query(By.css('#footer__copyright-container p')).nativeElement
+        .textContent,
     ).toContain('© 2023 Angular Example App');
   });
 });

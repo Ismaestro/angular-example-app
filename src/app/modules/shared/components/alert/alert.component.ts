@@ -41,7 +41,7 @@ export class AlertComponent implements OnInit, OnDestroy {
   constructor(
     private alertService: AlertService,
     private changeDetectorRef: ChangeDetectorRef,
-    private eventBusService: EventBusService
+    private eventBusService: EventBusService,
   ) {
     this.trackAlert = TrackBy.trackAlert;
     this.alerts = [];

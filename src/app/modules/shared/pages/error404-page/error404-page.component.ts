@@ -29,7 +29,7 @@ export class Error404PageComponent implements OnInit, OnDestroy {
     private renderer: Renderer2,
     private authRepository: AuthRepository,
     private document: Document,
-    @Inject(LOCALE_ID) public locale: string
+    @Inject(LOCALE_ID) public locale: string,
   ) {
     this.urlToRedirect = this.locale !== AppConfig.defaultLang ? `/${locale}` : '/';
   }
