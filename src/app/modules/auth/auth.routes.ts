@@ -7,11 +7,11 @@ import { LogoutPageComponent } from '~modules/auth/pages/logout-page/logout-page
 import { noAuthenticationGuard } from '~modules/shared/guards/no-authentication.guard';
 
 export const AUTH_ROUTES: Route[] = [
-  { path: authPaths.logIn, component: LogInPageComponent, canActivate: [noAuthenticationGuard()] },
+  { path: authPaths.logIn, component: LogInPageComponent, canActivate: [noAuthenticationGuard] },
   {
     path: authPaths.register,
     component: RegisterPageComponent,
-    canActivate: [noAuthenticationGuard()],
+    canActivate: [noAuthenticationGuard],
   },
   {
     path: authPaths.logout,

@@ -10,17 +10,17 @@ export const USER_ROUTES: Route[] = [
   {
     path: userPaths.dashboard,
     component: DashboardPageComponent,
-    canActivate: [authenticationGuard()],
+    canActivate: [authenticationGuard],
   },
   {
     path: userPaths.myHeroes,
     component: MyHeroesPageComponent,
-    canActivate: [authenticationGuard()],
+    canActivate: [authenticationGuard],
   },
   {
     path: userPaths.myAccount,
     component: MyAccountComponent,
-    canActivate: [authenticationGuard()],
+    canActivate: [authenticationGuard],
   },
   { path: '**', redirectTo: appPaths.error404 },
 ];
