@@ -22,7 +22,7 @@ import { User } from '~modules/user/shared/user.model';
   imports: [RouterModule, NgIf],
 })
 export class SidebarComponent implements OnInit, OnDestroy {
-  @Input() user: User | undefined;
+  @Input({ required: true }) user: User | undefined;
 
   userRoutes: typeof userRoutes;
   currentUrl: string;

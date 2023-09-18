@@ -16,8 +16,8 @@ import { FormControl, FormGroupDirective } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormErrorsComponent implements DoCheck {
-  @Input() formRef: FormGroupDirective | undefined;
-  @Input() control: FormControl | undefined;
+  @Input({ required: true }) formRef: FormGroupDirective | undefined;
+  @Input({ required: true }) control: FormControl | undefined;
 
   constructor(private changeDetectorRef: ChangeDetectorRef) {}
 

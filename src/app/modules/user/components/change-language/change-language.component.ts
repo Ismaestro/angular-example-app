@@ -20,7 +20,7 @@ import { userRoutes } from '~modules/user/shared/user-routes';
   imports: [ReactiveFormsModule, NgIf],
 })
 export class ChangeLanguageComponent implements OnInit, OnDestroy {
-  @Input() user: User | undefined;
+  @Input({ required: true }) user: User | undefined;
 
   destroy$: Subject<boolean> = new Subject<boolean>();
 

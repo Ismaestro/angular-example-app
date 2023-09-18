@@ -40,7 +40,7 @@ import { TrimDirective } from '~modules/shared/directives/trim.directive';
   imports: [ReactiveFormsModule, FormErrorsComponent, NgIf, FormsModule, TrimDirective],
 })
 export class DeleteAccountComponent implements OnDestroy {
-  @Input() user: User | undefined;
+  @Input({ required: true }) user: User | undefined;
 
   @ViewChild('closeModal') closeModal: ElementRef | undefined;
 

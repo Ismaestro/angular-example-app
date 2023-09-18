@@ -32,7 +32,7 @@ import { NetworkHelperService } from '~modules/shared/services/network-helper.se
   imports: [ReactiveFormsModule, TrimDirective, FormErrorsComponent, LowercaseDirective, NgIf],
 })
 export class EditProfileComponent implements OnInit, OnDestroy {
-  @Input() user: User | undefined;
+  @Input({ required: true }) user: User | undefined;
 
   destroy$: Subject<boolean> = new Subject<boolean>();
 

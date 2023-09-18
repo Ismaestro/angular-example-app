@@ -31,10 +31,10 @@ import { Modal } from 'bootstrap';
   imports: [NgIf, FormErrorsComponent, ReactiveFormsModule, NgClass, NgForOf],
 })
 export class HeroModalComponent implements OnChanges, OnDestroy {
-  @Input() modal: Modal | undefined;
-  @Input() user: User | undefined;
-  @Input() heroSelected: Hero | undefined;
-  @Input() heroesList: Hero[] | undefined;
+  @Input({ required: true }) modal: Modal | undefined;
+  @Input({ required: true }) user: User | undefined;
+  @Input({ required: true }) heroSelected: Hero | undefined;
+  @Input({ required: true }) heroesList: Hero[] | undefined;
 
   destroy$: Subject<boolean> = new Subject<boolean>();
   translations: typeof translations;
