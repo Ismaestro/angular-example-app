@@ -4,6 +4,99 @@ All notable changes to this project will be documented in this file. See
 [standard-version](https://github.com/conventional-changelog/standard-version) for commit
 guidelines.
 
+## [16.0.0](https://github.com/Ismaestro/angular-example-app/compare/v15.0.0...v16.0.0) (2023-09-18)
+
+### Features
+
+- **angular16:** activates lint-staged config
+  ([6b358d6](https://github.com/Ismaestro/angular-example-app/commit/6b358d647019879fcaf680ca4327a45c071ac381))
+- **angular16:** activates lint-staged config for json files
+  ([ce3ff5e](https://github.com/Ismaestro/angular-example-app/commit/ce3ff5e68752d335d3c998b2f2df0d4bd438156d))
+- **angular16:** fix inject problem out of allowed zones
+  ([39fb3e8](https://github.com/Ismaestro/angular-example-app/commit/39fb3e832d3e0c486aca4e34e0b567983b1a51bd))
+- **angular16:** fix linter error with label rule
+  ([b4aa105](https://github.com/Ismaestro/angular-example-app/commit/b4aa1052f206901dafc5ab41b797c091a529e2ee))
+- **angular16:** fix playwright config
+  ([0198bef](https://github.com/Ismaestro/angular-example-app/commit/0198bef5e509b742e3cb57e0bc2d3640a5324530))
+- **angular16:** fixed some dependencies
+  ([3ef699c](https://github.com/Ismaestro/angular-example-app/commit/3ef699c4d6d61341e16484d5156977d5e73408c2))
+- **angular16:** increase some dependencies versions
+  ([dad644e](https://github.com/Ismaestro/angular-example-app/commit/dad644e0da8b052a05f4f9f7c2b820efbde9de27))
+- **angular16:** set all inputs to required
+  ([02c146b](https://github.com/Ismaestro/angular-example-app/commit/02c146b7aaa6feee09e8c24092ab90de6de63f3d))
+- **angular16:** update lib value in ts config
+  ([d243de8](https://github.com/Ismaestro/angular-example-app/commit/d243de87bfb10ffca54523fd7ba10d404655970e))
+- **angular16:** updates @angular-eslint/schematics dependency
+  ([45ddeb8](https://github.com/Ismaestro/angular-example-app/commit/45ddeb84c704a006633bb0b77d2822766b8cfa51))
+- **angular16:** updates apollo-angular dependency
+  ([503df91](https://github.com/Ismaestro/angular-example-app/commit/503df91c105e2f1615b8cbaed58edc86c08a583b))
+- **angular16:** updates browserlist file
+  ([5b2780b](https://github.com/Ismaestro/angular-example-app/commit/5b2780b26ede213d7fb01fc0932b115ba7b38399))
+- **angular16:** updates ci command
+  ([2779e98](https://github.com/Ismaestro/angular-example-app/commit/2779e987d8bba5237034be3c07a44fcf31ff2d96))
+- **angular16:** updates corejs dependency
+  ([c8109ef](https://github.com/Ismaestro/angular-example-app/commit/c8109ef56077023a26ee49a5e747d0512d10932a))
+- **angular16:** updates ng-extract-i18n-merge dependency
+  ([2c7663b](https://github.com/Ismaestro/angular-example-app/commit/2c7663b67eb7d436cbb2982f83a7d48d06582ae5))
+- **angular16:** updates ng-mocks dependency
+  ([b97dc12](https://github.com/Ismaestro/angular-example-app/commit/b97dc12f5ed6c33e16d331c98b998bc9ca224489))
+- **angular16:** updates prettier and linter config and moves to lint staged
+  ([4147371](https://github.com/Ismaestro/angular-example-app/commit/4147371dfeee6ad29f791fa67f8710e92a35d606))
+- **changelog:** prettier over the changelog file
+  ([f816a65](https://github.com/Ismaestro/angular-example-app/commit/f816a65fca2fae10af08af225fc2ea3a13c0ab84))
+- **DOC:** update readme file
+  ([255417e](https://github.com/Ismaestro/angular-example-app/commit/255417e8158b27041397c92443daeee0a7c2cce2))
+- **flyio:** change server prod value
+  ([8699866](https://github.com/Ismaestro/angular-example-app/commit/8699866d2253846f1b3c266e206c6fa29732a20b))
+- **flyio:** fix server prod value
+  ([350dbc7](https://github.com/Ismaestro/angular-example-app/commit/350dbc7ae9b254b68f29858738454f2bd603f1d9))
+- **flyio:** test fly.io server
+  ([4911775](https://github.com/Ismaestro/angular-example-app/commit/491177552d69f21ba9ca6a54388ec82bc84f40d5))
+- **guards:** add functional guards
+  ([be0c5db](https://github.com/Ismaestro/angular-example-app/commit/be0c5db9cde2b5f6b894ee180d88d4f0df29cb95))
+- **guards:** updates readme file
+  ([8db29aa](https://github.com/Ismaestro/angular-example-app/commit/8db29aa115a0b0966dc83c1dd5335d41877255db))
+- **i18n:** fix language selector and update some texts in spanish
+  ([c409aaa](https://github.com/Ismaestro/angular-example-app/commit/c409aaa4a3456167059e93890fd30f4ce2ed7045))
+- **karma:** add check coverage
+  ([10c03e9](https://github.com/Ismaestro/angular-example-app/commit/10c03e93ed7925f95e7ec5343f67f9abf3cf4f09))
+- **lint:** fix linter errors
+  ([5767e12](https://github.com/Ismaestro/angular-example-app/commit/5767e12ac4637288a22d1cb3cd51c8740c944d59))
+- **netlify:** update readme and domain
+  ([c0ff39e](https://github.com/Ismaestro/angular-example-app/commit/c0ff39e508bfd8acb236d4e3ae43f972691998ea))
+- **package:** fix release scripts
+  ([be812ee](https://github.com/Ismaestro/angular-example-app/commit/be812ee3f24214b8766a345b2dabe211579fbb8d))
+- **PLAYWRIGHT:** adds playwright package and first test
+  ([8d24f4e](https://github.com/Ismaestro/angular-example-app/commit/8d24f4e4e3f152f5358a924d82210de322a5e473))
+- **PLAYWRIGHT:** remove from pre push hook
+  ([28a8f2b](https://github.com/Ismaestro/angular-example-app/commit/28a8f2b80548591e16640a8fb68ec959fda36204))
+- **readme:** update readme texts
+  ([54406c3](https://github.com/Ismaestro/angular-example-app/commit/54406c33dae62deb65590d8d67b107a28566883f))
+- **services:** refactor services to classes
+  ([2ef9133](https://github.com/Ismaestro/angular-example-app/commit/2ef91334c6e5a3cca8870a1cfdebc8af4adfd360))
+- **sonar:** fix table description
+  ([4de60a5](https://github.com/Ismaestro/angular-example-app/commit/4de60a5c676f05159c60ecd0a77bba19496b6089))
+- **sonar:** update sonar budget
+  ([93f7458](https://github.com/Ismaestro/angular-example-app/commit/93f74584393b3bf59e78a71d304d74aa9bdeb0b1))
+- **STYLELINT:** adds plugins and rules and fix issues
+  ([39ade48](https://github.com/Ismaestro/angular-example-app/commit/39ade482aa291f7cce055f92fe9034c5156b0142))
+- **test:** add app and footer components tests
+  ([b37412a](https://github.com/Ismaestro/angular-example-app/commit/b37412ac7e91f9d03205027689047fd4ccf4173b))
+- **test:** add guard test
+  ([f34cd77](https://github.com/Ismaestro/angular-example-app/commit/f34cd77149f983e92dc7a5f4d96e96c01c5d9bef))
+- **test:** add interceptor tests
+  ([f5fbe0e](https://github.com/Ismaestro/angular-example-app/commit/f5fbe0e79ae9c458da97afd25800eba0ec965794))
+- **test:** add service and directive tests
+  ([a6831a7](https://github.com/Ismaestro/angular-example-app/commit/a6831a798847380c047bea9dcdd5c5ea5d706703))
+- **test:** create spec file for alert component
+  ([bfdb894](https://github.com/Ismaestro/angular-example-app/commit/bfdb8949d55fc51e78442830d2a7e2bada0096e1))
+- **test:** fix linter issues
+  ([5b83a45](https://github.com/Ismaestro/angular-example-app/commit/5b83a450487f3569a94a76b2e1c6af81a3a89833))
+- **TEST:** replace misspelled word
+  ([de95dbf](https://github.com/Ismaestro/angular-example-app/commit/de95dbf09c3e8c7e7547ef0b9831bf8344796c67))
+- **todos:** remove useless todos
+  ([d50f2a0](https://github.com/Ismaestro/angular-example-app/commit/d50f2a0541d624c4a8451ebdb9cddaff43179350))
+
 ## [15.0.0](https://github.com/Ismaestro/angular-example-app/compare/v13.2.2...v15.0.0) (2023-01-15)
 
 ### Features
