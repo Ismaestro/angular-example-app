@@ -19,7 +19,7 @@
     "allowSyntheticDefaultImports": true,
     "target": "ES2022",
     "module": "es2020",
-    "lib": ["es2020", "dom"],
+    "lib": ["ES2022", "dom"],
     "paths": {
       "~assets/*": ["src/assets/*"],
       "~environments/*": ["src/environments/*"],
