@@ -14,7 +14,7 @@
     "playwright": "playwright test",
     "build": "ng build && mv -v dist/en/* dist/ && rm -Rf dist/en",
     "bundle-report": "ng build --stats-json && webpack-bundle-analyzer dist/en/stats.json",
-    "ci": "npm run lint && npm run test && npm run e2e && npm run build",
+    "ci": "npm run lint && npm run test && npm run e2e && npm run playwright && npm run build",
     "release:patch": "standard-version --release-as patch && git push --follow-tags origin master",
     "release:minor": "standard-version --release-as minor && git push --follow-tags origin master",
     "release:major": "standard-version --release-as major && git push --follow-tags origin master",
