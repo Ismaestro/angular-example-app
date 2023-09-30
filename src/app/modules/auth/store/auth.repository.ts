@@ -59,7 +59,7 @@ export class AuthRepository {
         return !!AuthService.decodeToken(token);
       }
       return false;
-    } catch (Error) {
+    } catch (error) {
       return false;
     }
   }

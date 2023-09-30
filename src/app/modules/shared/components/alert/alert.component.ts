@@ -93,8 +93,8 @@ export class AlertComponent implements OnInit, OnDestroy {
   }
 
   setAlertKeys(alertData: AlertData, newAlert: Alert) {
-    newAlert.code = alertData.options?.code || undefined;
-    newAlert.delay = alertData.options?.delay || 0;
+    newAlert.code = alertData.options?.code ?? undefined;
+    newAlert.delay = alertData.options?.delay ?? 0;
   }
 
   setAlertTimeOut(newAlert: Alert) {

@@ -73,7 +73,7 @@ export class HeroService {
       })
       .pipe(
         map((response: unknown) => {
-          return (response as CreateHeroResponse).data?.createHero || null;
+          return (response as CreateHeroResponse).data?.createHero ?? null;
         }),
       );
   }
@@ -86,7 +86,7 @@ export class HeroService {
           heroId,
         },
       })
-      .pipe(map((response: unknown) => (response as DeleteHeroResponse).data?.removeHero || null));
+      .pipe(map((response: unknown) => (response as DeleteHeroResponse).data?.removeHero ?? null));
   }
 
   voteForHero(heroId: string): Observable<Hero | null> {
@@ -99,7 +99,7 @@ export class HeroService {
       })
       .pipe(
         map((response: unknown) => {
-          return (response as VoteForHeroResponse).data?.voteHero || null;
+          return (response as VoteForHeroResponse).data?.voteHero ?? null;
         }),
       );
   }

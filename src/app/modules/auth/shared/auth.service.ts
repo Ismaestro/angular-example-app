@@ -144,7 +144,7 @@ export class AuthService {
   }
 
   refreshToken(): Observable<UpdateTokenData | null> {
-    const refreshToken = this.authRepository.getRefreshTokenValue() || '';
+    const refreshToken = this.authRepository.getRefreshTokenValue() ?? '';
     return this.apollo
       .mutate({
         mutation: refreshTokenMutation,

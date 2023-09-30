@@ -54,10 +54,10 @@ export class TokenInterceptor implements HttpInterceptor {
 
   getTokenExpirations(accessToken: string, refreshToken: string) {
     const accessTokenValue = AuthService.decodeToken(accessToken);
-    const isAccessTokenExpired = Date.now() >= (accessTokenValue?.exp || 0) * 1000;
+    const isAccessTokenExpired = Date.now() >= (accessTokenValue?.exp ?? 0) * 1000;
 
     const refreshTokenValue = AuthService.decodeToken(refreshToken);
-    const isRefreshTokenExpired = Date.now() >= (refreshTokenValue?.exp || 0) * 1000;
+    const isRefreshTokenExpired = Date.now() >= (refreshTokenValue?.exp ?? 0) * 1000;
 
     return { isAccessTokenExpired, isRefreshTokenExpired };
   }
@@ -87,7 +87,9 @@ export class TokenInterceptor implements HttpInterceptor {
         this.checkUnAuthorizedError(response);
         return response;
       }),
-      catchError(err => observableThrowError(err)),
+      catchError(error => {
+        throw new Error(error);
+      }),
     );
   }
 
@@ -103,11 +105,15 @@ export class TokenInterceptor implements HttpInterceptor {
         const updateTokenRequest = request.clone({
           setHeaders: headers,
         });
-        return next.handle(updateTokenRequest).pipe(catchError(err => observableThrowError(err)));
+        return next.handle(updateTokenRequest).pipe(
+          catchError(error => {
+            throw new Error(error);
+          }),
+        );
       }),
       catchError((error): ObservableInput<HttpEvent<unknown>> => {
         this.navigateToLogout();
-        return observableThrowError(error);
+        throw new Error(error);
       }),
     );
   }

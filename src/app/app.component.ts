@@ -114,7 +114,7 @@ export class AppComponent implements OnInit, OnDestroy {
       const refreshToken = this.authRepository.getRefreshTokenValue();
       if (refreshToken) {
         const refreshTokenValue = AuthService.decodeToken(refreshToken);
-        const isRefreshTokenExpired = Date.now() >= (refreshTokenValue?.exp || 0) * 1000;
+        const isRefreshTokenExpired = Date.now() >= (refreshTokenValue?.exp ?? 0) * 1000;
         if (isRefreshTokenExpired && !event.url.includes(authRoutes.logout)) {
           this.router.navigate([authRoutes.logout], {
             queryParams: {
@@ -152,9 +152,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
     if (accessToken && refreshToken) {
       const accessTokenValue = AuthService.decodeToken(accessToken);
-      const isAccessTokenExpired = Date.now() >= (accessTokenValue?.exp || 0) * 1000;
+      const isAccessTokenExpired = Date.now() >= (accessTokenValue?.exp ?? 0) * 1000;
       const refreshTokenValue = AuthService.decodeToken(refreshToken);
-      const isRefreshTokenExpired = Date.now() >= (refreshTokenValue?.exp || 0) * 1000;
+      const isRefreshTokenExpired = Date.now() >= (refreshTokenValue?.exp ?? 0) * 1000;
       if (isAccessTokenExpired) {
         if (!isRefreshTokenExpired) {
           this.authService
@@ -163,7 +163,7 @@ export class AppComponent implements OnInit, OnDestroy {
               takeUntil(this.destroy$),
               catchError((error): ObservableInput<HttpEvent<unknown>> => {
                 this.navigateToLogout();
-                return observableThrowError(error);
+                throw new Error(error);
               }),
             )
             .subscribe();

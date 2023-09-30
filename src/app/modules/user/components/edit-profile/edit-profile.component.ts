@@ -53,11 +53,11 @@ export class EditProfileComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.firstname = new FormControl<string>(this.user?.firstname || '', [
+    this.firstname = new FormControl<string>(this.user?.firstname ?? '', [
       Validators.required,
       Validators.minLength(2),
     ]);
-    this.email = new FormControl<string>({ value: this.user?.email || '', disabled: true });
+    this.email = new FormControl<string>({ value: this.user?.email ?? '', disabled: true });
 
     this.profileForm = this.formBuilder.group({
       firstname: this.firstname,

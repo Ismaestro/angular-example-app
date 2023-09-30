@@ -5,7 +5,6 @@ import { ApolloError } from '@apollo/client/errors';
 import { AuthService } from '~modules/auth/shared/auth.service';
 import { AlertId, AlertService } from '~modules/shared/services/alert.service';
 import { NetworkHelperService } from '~modules/shared/services/network-helper.service';
-import { AuthRepository } from '~modules/auth/store/auth.repository';
 import { NgIf } from '@angular/common';
 import { User } from '~modules/user/shared/user.model';
 import { environment } from '~environments/environment';
@@ -33,7 +32,6 @@ export class ChangeLanguageComponent implements OnInit, OnDestroy {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private alertService: AlertService,
-    private authRepository: AuthRepository,
     private utilService: NetworkHelperService,
     private document: Document,
   ) {
@@ -41,7 +39,7 @@ export class ChangeLanguageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.language = new FormControl<string | null>(this.user?.language || AppConfig.defaultLang);
+    this.language = new FormControl<string | null>(this.user?.language ?? AppConfig.defaultLang);
     this.selectLanguageForm = this.formBuilder.group({
       language: this.language,
     });
