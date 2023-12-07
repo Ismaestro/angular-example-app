@@ -15,7 +15,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:browser-esbuild",
           "options": {
             "outputPath": "dist/",
             "index": "src/index.html",
@@ -85,14 +85,12 @@
             "development-en": {
               "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "sourceMap": true,
               "namedChunks": true
             },
             "development-es": {
               "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "sourceMap": true,
               "namedChunks": true,
               "localize": ["es"]
