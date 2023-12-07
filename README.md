@@ -51,7 +51,7 @@ Postgres and GraphQL. Please check it out and also feel free to contribute or gi
 - [x] Use of [NgOptimizedImage](https://angular.io/guide/image-directive)
 - [x] SASS with BEM styles
 - [x] Example tests for: Component, Service, Interceptor, Directive and Guard
-- [x] End-to-end tests configuration with Cypress and Cucumber, and Playwright
+- [x] End-to-end tests configuration with Playwright
 - [x] Very strict ESLint rules
 
 ## Bugs and feature requests

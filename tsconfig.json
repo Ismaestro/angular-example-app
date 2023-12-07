@@ -29,7 +29,6 @@
     "typeRoots": ["./node_modules/@types", "./src/typings.d.ts"],
     "useDefineForClassFields": false
   },
-  "exclude": ["cypress", "./cypress.config.ts"],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
