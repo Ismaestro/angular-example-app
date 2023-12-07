@@ -85,7 +85,7 @@
     "karma-jasmine-html-reporter": "2.1.0",
     "lint-staged": "^14.0.1",
     "ng-extract-i18n-merge": "2.9.0",
-    "ng-mocks": "14.11.0",
+    "ng-mocks": "14.12.1",
     "playwright": "1.38.0",
     "postcss-scss": "4.0.8",
     "prettier": "3.0.3",
