@@ -2,7 +2,7 @@
   <h3 align="center">Angular Example App</h3>
 
   <p align="center">
-    Example app with Angular 16 + i18n + Standalone Components and GraphQL
+    Example app with Angular 17 + i18n + Standalone Components and Es-Build Enabled
     <br>
     <br>
     :clap::clap::tada::tada::tada::tada::clap::clap:
