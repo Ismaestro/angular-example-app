@@ -11,8 +11,7 @@
   bottom: 0;
   left: 0;
   z-index: $z-index-sidebar;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden auto;
   background: $white;
   border-radius: 0.375rem;
   box-shadow: $section-box-shadow;
