@@ -24,7 +24,7 @@ import { UpdateTokenData } from '~modules/auth/shared/interfaces/update-token-da
 import { ChangePasswordResponse } from '~modules/auth/shared/interfaces/change-password-response.interface';
 import { DeleteAccountResponse } from '~modules/auth/shared/interfaces/delete-account-response.interface';
 import { AppConfig } from '../../../configs/app.config';
-import jwt_decode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',
@@ -37,7 +37,7 @@ export class AuthService {
 
   static decodeToken(token: string): { exp: number } | null {
     try {
-      return jwt_decode(token);
+      return jwtDecode(token);
     } catch (e) {
       return null;
     }
