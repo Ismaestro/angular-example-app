@@ -106,7 +106,9 @@ describe('AuthHttpInterceptor', () => {
     authRepositorySpy.getAccessTokenValue.and.returnValue('access');
     authRepositorySpy.getRefreshTokenValue.and.returnValue('refresh');
     authServiceSpy.refreshToken.and.returnValue(throwError(() => true));
-    httpClient.get('/test4').subscribe();
+    httpClient.get('/test4').subscribe({
+      error: () => {},
+    });
     controller.expectNone('/test4');
     expect(authServiceSpy.refreshToken).toHaveBeenCalled();
     expect(routerSpy.navigate).toHaveBeenCalledWith(['/auth/logout'], {
