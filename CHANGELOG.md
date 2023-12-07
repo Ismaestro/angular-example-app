@@ -4,6 +4,35 @@ All notable changes to this project will be documented in this file. See
 [standard-version](https://github.com/conventional-changelog/standard-version) for commit
 guidelines.
 
+## [17.0.0](https://github.com/Ismaestro/angular-example-app/compare/v16.0.0...v17.0.0) (2023-12-07)
+
+### Features
+
+- **angular16:** update readme file
+  ([7b15d30](https://github.com/Ismaestro/angular-example-app/commit/7b15d30606b6e35e91e4f0daf95325c81dfe949a))
+- **ANGULAR17:** fix e2e script
+  ([3dfaff8](https://github.com/Ismaestro/angular-example-app/commit/3dfaff87a637f40deb5acd5169bf1a1acd135b70))
+- **ANGULAR17:** fix tests
+  ([887ef0c](https://github.com/Ismaestro/angular-example-app/commit/887ef0cb0ba122a698ffd69a007325aa39092d91))
+- **ANGULAR17:** fixes stylelint issue
+  ([e1d5c24](https://github.com/Ismaestro/angular-example-app/commit/e1d5c24111b19d252e4ec2f48b9effccca5599c5))
+- **ANGULAR17:** ng update ng-extract-i18n-merge
+  ([84a0383](https://github.com/Ismaestro/angular-example-app/commit/84a0383ed326ae56fd31e5f8c00ab5ebf4674ace))
+- **ANGULAR17:** ng update ng-mocks
+  ([077f962](https://github.com/Ismaestro/angular-example-app/commit/077f962d7328ea33638596b7cb3742fb6083a653))
+- **ANGULAR17:** ng update to angular 17
+  ([9f6e0cd](https://github.com/Ismaestro/angular-example-app/commit/9f6e0cd2acf5f04ed5c7a572f1b0738ddbb08670))
+- **ANGULAR17:** remove cypress in favor of playwright
+  ([9a33c1a](https://github.com/Ismaestro/angular-example-app/commit/9a33c1abeeb7826e31c3ccb1357707f7d5da1e67))
+- **ANGULAR17:** replace angular icon
+  ([8660966](https://github.com/Ismaestro/angular-example-app/commit/8660966081b77982b3d9c0b9b52f5a1d2f2d09b9))
+- **ANGULAR17:** start using es-build!!
+  ([4dc57ae](https://github.com/Ismaestro/angular-example-app/commit/4dc57ae949f0165e3aa4c00451a499f817b82826))
+- **ANGULAR17:** updates rest of dependencies except bootstrap
+  ([4c6d097](https://github.com/Ismaestro/angular-example-app/commit/4c6d097a881826142275fb3446c9090750fda568))
+- **sonar:** fix sonar lint issues
+  ([614d649](https://github.com/Ismaestro/angular-example-app/commit/614d6490fbc2fb4330283bb753b01a29c606f6f4))
+
 ## [16.0.0](https://github.com/Ismaestro/angular-example-app/compare/v15.0.0...v16.0.0) (2023-09-18)
 
 ### Features
