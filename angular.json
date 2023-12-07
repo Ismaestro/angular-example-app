@@ -104,13 +104,13 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angularexampleapp:build:production"
+              "buildTarget": "angularexampleapp:build:production"
             },
             "development-en": {
-              "browserTarget": "angularexampleapp:build:development-en"
+              "buildTarget": "angularexampleapp:build:development-en"
             },
             "development-es": {
-              "browserTarget": "angularexampleapp:build:development-es"
+              "buildTarget": "angularexampleapp:build:development-es"
             }
           },
           "defaultConfiguration": "development-en"

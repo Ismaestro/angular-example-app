@@ -2,7 +2,7 @@
   <ng-container *ngIf="control.errors && (control.touched || formRef.submitted)">
     <div *ngIf="control.errors['required']"><ng-container i18n>Field required</ng-container></div>
     <div *ngIf="control.errors['email']">
-      <ng-container i18n>Format invalid. example@domain.com</ng-container>
+      <ng-container i18n>Format invalid. example&#64;domain.com</ng-container>
     </div>
     <div *ngIf="control.errors['minlength']">
       <ng-container i18n
