@@ -30,7 +30,7 @@ steps:
   displayName: 'Install Angular CLI and Dependencies'
 
 - script: |
-     mkdir $(System.DefaultWorkingDirectory)/dist-new
+     mkdir $(Build.ArtifactStagingDirectory)/dist-new
 
 
 - script: |
@@ -44,7 +44,7 @@ steps:
 
 - script: |   
    pwd $(System.DefaultWorkingDirectory)
-   ls
+   ls 
 
 - task: CopyFiles@2
   inputs:
@@ -56,5 +56,11 @@ steps:
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)/dist'
     ArtifactName: 'dist'
-  displayName: 'Publish Build Artifacts'
+  displayName: 'Publish Build Artifacts' 
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/dist-new'
+    ArtifactName: 'dist'
+  displayName: 'Publish Build Artifacts'  
 
