@@ -33,6 +33,10 @@ steps:
     ng build --configuration=production
   displayName: 'Build Angular Application'
 
+- script: |
+   pwd $(Build.ArtifactStagingDirectory)
+   ls
+
 - task: CopyFiles@2
   inputs:
     contents: 'dist/**'
