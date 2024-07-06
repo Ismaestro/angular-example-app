@@ -70,14 +70,14 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    contents: 'dist/**'
+    contents: 'dist-new/**'
     targetFolder: '$(Build.ArtifactStagingDirectory)/dist-new'
   displayName: 'Copy Files to Artifact Staging Directory'
 
-- script: |   
-   cd $(System.DefaultWorkingDirectory)/dist
-   ls -a
-  displayName: "default directory content in dist" 
+# - script: |   
+#    cd $(System.DefaultWorkingDirectory)/dist
+#    ls -a
+#   displayName: "default directory content in dist" 
 
 - task: PublishBuildArtifacts@1
   inputs:
