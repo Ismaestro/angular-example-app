@@ -30,6 +30,10 @@ steps:
   displayName: 'Install Angular CLI and Dependencies'
 
 - script: |
+     mkdir $(System.DefaultWorkingDirectory)/dist-new
+
+
+- script: |
     ng build --configuration=production && gzipper c ./dist/ --include js,css,html,ttf,woff2,woff,txt,svg,json,png,jpg,jpeg,gif,scss,eot,ico,xml,application/xml,application --output-file-format [filename].[ext] ./dist-new/
        
   displayName: 'Build Angular Application'
