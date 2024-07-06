@@ -35,7 +35,7 @@ steps:
 
 
 - script: |
-    ng build --configuration=production && gzipper c ./dist/ --include js,css,html,ttf,woff2,woff,txt,svg,json,png,jpg,jpeg,gif,scss,eot,ico,xml,application/xml,application --output-file-format [filename].[ext] ./dist-new/
+    ng build --configuration=production && gzipper c $(Build.ArtifactStagingDirectory)/dist/ --include js,css,html,ttf,woff2,woff,txt,svg,json,png,jpg,jpeg,gif,scss,eot,ico,xml,application/xml,application --output-file-format [filename].[ext] $(Build.ArtifactStagingDirectory)/dist-new/
        
   displayName: 'Build Angular Application'
 
