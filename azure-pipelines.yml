@@ -32,20 +32,20 @@ steps:
 
 - script: |
      mkdir $(Build.ArtifactStagingDirectory)/dist-new
-
+     
 
 - script: |
-    ng build --configuration=production && gzipper c $(Build.ArtifactStagingDirectory)/dist/ --include js,css,html,ttf,woff2,woff,txt,svg,json,png,jpg,jpeg,gif,scss,eot,ico,xml,application/xml,application --output-file-format [filename].[ext] $(Build.ArtifactStagingDirectory)/dist-new/
+    ng build --configuration=production && gzipper c $(System.DefaultWorkingDirectory)/dist/ --include js,css,html,ttf,woff2,woff,txt,svg,json,png,jpg,jpeg,gif,scss,eot,ico,xml,application/xml,application --output-file-format [filename].[ext] $(Build.ArtifactStagingDirectory)/dist-new/
        
   displayName: 'Build Angular Application'
 
 - script: |
-   pwd $(Build.ArtifactStagingDirectory)
-   ls
+   pwd $(Build.ArtifactStagingDirectory)/dist
+   ls -a
 
 - script: |   
-   pwd $(System.DefaultWorkingDirectory)
-   ls 
+   pwd $(System.DefaultWorkingDirectory)/dist
+   ls -a
 
 - task: CopyFiles@2
   inputs:
