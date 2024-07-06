@@ -17,6 +17,13 @@ steps:
     versionSpec: '14.x'
   displayName: 'Install Node.js'
 
+- script: npm cache clean --force
+  displayName: 'Clean npm cache'
+
+- script: npm install -g npm@latest
+  displayName: 'Update npm'
+
+
 - script: |
     npm install -g @angular/cli
     npm install
