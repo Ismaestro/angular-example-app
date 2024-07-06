@@ -40,13 +40,13 @@ steps:
   displayName: 'Build Angular Application'
 
 - script: |
-   pwd $(Build.ArtifactStagingDirectory)/dist
+   cd $(Build.ArtifactStagingDirectory)/dist
    ls -a
-
+  displayName: "artifact directory content in dist"
 - script: |   
-   pwd $(System.DefaultWorkingDirectory)/dist
+   cd $(System.DefaultWorkingDirectory)/dist
    ls -a
-
+  displayName: "default directory content in dist" 
 - task: CopyFiles@2
   inputs:
     contents: 'dist/**'
@@ -61,15 +61,26 @@ steps:
 
 
 
+# - task: CopyFiles@2
+#   inputs:
+#     SourceFolder: 'dist'
+#     Contents: '**/*.gz'
+#     TargetFolder: '$(Build.ArtifactStagingDirectory)/dist-new'
+#   displayName: 'Copy Compressed Files to Target Directory'
+
 - task: CopyFiles@2
   inputs:
-    SourceFolder: 'dist'
-    Contents: '**/*.gz'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)/dist-new'
-  displayName: 'Copy Compressed Files to Target Directory'
+    contents: 'dist/**'
+    targetFolder: '$(Build.ArtifactStagingDirectory)/dist-new'
+  displayName: 'Copy Files to Artifact Staging Directory'
+
+- script: |   
+   cd $(System.DefaultWorkingDirectory)/dist
+   ls -a
+  displayName: "default directory content in dist" 
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/dist'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/dist-new'
     ArtifactName: 'compressed-dist'
   displayName: 'Publish Compressed Build Artifacts'
