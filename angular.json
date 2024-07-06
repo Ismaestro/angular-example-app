@@ -109,7 +109,8 @@
             },
             "development-es": {
               "buildTarget": "angularexampleapp:build:development-es"
-            }
+            } ,
+           "compress": "gzipper compress ./dist"
           },
           "defaultConfiguration": "development-en"
         },
