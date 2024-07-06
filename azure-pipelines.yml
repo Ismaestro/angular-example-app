@@ -34,9 +34,12 @@ steps:
 
 
 - script: |
-    ng build --configuration=production && gzipper c ./dist/ --include js,css,html,ttf,woff2,woff,txt,svg,json,png,jpg,jpeg,gif,scss,eot,ico,xml,application/xml,application --output-file-format [filename].[ext] ./dist-new/
+    ng build --configuration=production 
        
   displayName: 'Build Angular Application'
+
+- script: npm run compress
+  displayName: 'Compress Build Output with gzipper'
 
 - script: |
    pwd $(Build.ArtifactStagingDirectory)
@@ -58,9 +61,17 @@ steps:
     ArtifactName: 'dist'
   displayName: 'Publish Build Artifacts' 
 
+
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'dist'
+    Contents: '**/*.gz'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/dist-new'
+  displayName: 'Copy Compressed Files to Target Directory'
+
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/dist-new'
-    ArtifactName: 'dist'
-  displayName: 'Publish Build Artifacts'  
-
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/dist'
+    ArtifactName: 'compressed-dist'
+  displayName: 'Publish Compressed Build Artifacts'
