@@ -37,6 +37,10 @@ steps:
    pwd $(Build.ArtifactStagingDirectory)
    ls
 
+- script: |   
+   pwd $(System.DefaultWorkingDirectory)
+   ls
+
 - task: CopyFiles@2
   inputs:
     contents: 'dist/**'
