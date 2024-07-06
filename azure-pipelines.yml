@@ -30,7 +30,7 @@ steps:
   displayName: 'Install Angular CLI and Dependencies'
 
 - script: |
-    ng build --prod
+    ng build --production
   displayName: 'Build Angular Application'
 
 - task: CopyFiles@2
