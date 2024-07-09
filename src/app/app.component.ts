@@ -29,7 +29,7 @@ import { HeaderComponent } from '~modules/shared/components/header/header.compon
 import { SidebarComponent } from '~modules/shared/components/sidebar/sidebar.component';
 import { FooterComponent } from '~modules/shared/components/footer/footer.component';
 import { AlertComponent } from '~modules/shared/components/alert/alert.component';
-
+                         
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
