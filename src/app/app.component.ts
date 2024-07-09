@@ -173,7 +173,7 @@ export class AppComponent implements OnInit, OnDestroy {
         }
       }
     }
-
+         
     return true;
   }
 
