@@ -1,0 +1,19 @@
+@import 'variables';
+
+:host {
+  display: block;
+  height: calc(100% - 16px);
+  padding-top: 16px;
+  background-color: #0d47a1;
+}
+
+.login__container {
+  height: calc(100vh - 48px);
+  padding: 16px 16px 0;
+  margin: 0 16px;
+  background: white;
+  border-radius: 4px;
+
+  @media screen and (width >= $sm-breakpoint) {
+  }
+}

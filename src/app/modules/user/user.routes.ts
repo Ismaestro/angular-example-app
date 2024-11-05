@@ -1,26 +1,13 @@
 import { Route } from '@angular/router';
-import { appPaths } from '../../app-routes';
-import { userPaths } from '~modules/user/shared/user-routes';
-import { DashboardPageComponent } from '~modules/user/pages/dashboard/dashboard-page.component';
-import { MyAccountComponent } from '~modules/user/pages/my-account/my-account.component';
-import { MyHeroesPageComponent } from '~modules/user/pages/my-heroes/my-heroes-page.component';
+import { DashboardComponent } from '~modules/user/pages/dashboard/dashboard.component';
 import { authenticationGuard } from '~modules/shared/guards/authentication.guard';
+import { ROOT_PATHS, USER_PATHS } from '~modules/shared/consts/paths.consts';
 
 export const USER_ROUTES: Route[] = [
   {
-    path: userPaths.dashboard,
-    component: DashboardPageComponent,
+    path: USER_PATHS.dashboard,
+    component: DashboardComponent,
     canActivate: [authenticationGuard],
   },
-  {
-    path: userPaths.myHeroes,
-    component: MyHeroesPageComponent,
-    canActivate: [authenticationGuard],
-  },
-  {
-    path: userPaths.myAccount,
-    component: MyAccountComponent,
-    canActivate: [authenticationGuard],
-  },
-  { path: '**', redirectTo: appPaths.error404 },
+  { path: '**', redirectTo: ROOT_PATHS.error404 },
 ];

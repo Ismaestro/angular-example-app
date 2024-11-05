@@ -1,15 +1,13 @@
-import { Directive, ElementRef, HostListener, Optional } from '@angular/core';
+import { Directive, ElementRef, HostListener, inject } from '@angular/core';
 import { NgControl } from '@angular/forms';
 
 @Directive({
-  selector: '[lowercase]',
+  selector: '[appLowercase]',
   standalone: true,
 })
 export class LowercaseDirective {
-  constructor(
-    private el: ElementRef,
-    @Optional() private ngControl: NgControl,
-  ) {}
+  el = inject(ElementRef);
+  ngControl = inject(NgControl);
 
   @HostListener('keydown') onKeyDown() {
     const control = this.ngControl.control;

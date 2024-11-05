@@ -1,21 +1,14 @@
-import { Route } from '@angular/router';
-import { authPaths } from '~modules/auth/shared/auth-routes';
-import { LogInPageComponent } from '~modules/auth/pages/log-in-page/log-in-page.component';
-import { appPaths } from '../../app-routes';
-import { RegisterPageComponent } from '~modules/auth/pages/register-page/register-page.component';
-import { LogoutPageComponent } from '~modules/auth/pages/logout-page/logout-page.component';
+import { LogInComponent } from '~modules/auth/pages/log-in/log-in.component';
+import { RegisterComponent } from '~modules/auth/pages/register/register.component';
 import { noAuthenticationGuard } from '~modules/shared/guards/no-authentication.guard';
+import { AUTH_PATHS, ROOT_PATHS } from '~modules/shared/consts/paths.consts';
 
-export const AUTH_ROUTES: Route[] = [
-  { path: authPaths.logIn, component: LogInPageComponent, canActivate: [noAuthenticationGuard] },
+export const AUTH_ROUTES = [
+  { path: AUTH_PATHS.logIn, component: LogInComponent, canActivate: [noAuthenticationGuard] },
   {
-    path: authPaths.register,
-    component: RegisterPageComponent,
+    path: AUTH_PATHS.register,
+    component: RegisterComponent,
     canActivate: [noAuthenticationGuard],
   },
-  {
-    path: authPaths.logout,
-    component: LogoutPageComponent,
-  },
-  { path: '**', redirectTo: appPaths.error404 },
+  { path: '**', redirectTo: ROOT_PATHS.error404 },
 ];

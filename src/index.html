@@ -1,22 +1,19 @@
 <!doctype html>
-<html class="h-100" lang="en">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <title>Angular Example App</title>
     <base href="/" />
     <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' data: *.gstatic.com *.jsdelivr.net pokeapi.co *.githubusercontent.com; style-src 'self' 'unsafe-inline'; script-src 'self';" />
+    <meta content="#1976d2" name="theme-color" />
     <link href="/assets/icons/icon-72x72.png" rel="icon" type="image/x-icon" />
     <link href="/assets/icons/icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
-    <meta content="#1976d2" name="theme-color" />
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin href="https://kit.fontawesome.com" rel="preconnect" />
-    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://i.ibb.co" rel="preconnect" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Unbounded:wght@300&display=swap"
-      rel="stylesheet" />
+    <link rel="preconnect" href="https://raw.githubusercontent.com" />
     <style>
-      .spinner {
+      .spinner__container {
         position: fixed;
         top: calc(50% - 4rem);
         left: calc(50% - 2rem);
@@ -35,14 +32,9 @@
       }
     </style>
   </head>
-  <body class="h-100">
+  <body>
     <app-root>
-      <div class="spinner"></div>
+      <div class="spinner__container"></div>
     </app-root>
-    <script crossorigin="anonymous" defer src="https://kit.fontawesome.com/af3c3ec846.js"></script>
-    <script
-      crossorigin="anonymous"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

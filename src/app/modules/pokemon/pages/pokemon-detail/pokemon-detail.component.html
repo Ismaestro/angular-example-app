@@ -1,0 +1,6 @@
+@if (pokemon$ | async; as pokemon) {
+  <img ngSrc="{{ pokemon.sprites.front_default }}" width="96" height="96" priority />
+  <p>Id: {{ pokemon.id }}</p>
+  <p>Name: {{ pokemon.name }}</p>
+  <p>Weight: {{ pokemon.weight }}</p>
+}

@@ -5,18 +5,6 @@
         <source>¡Welcome back!</source>
         <target state="new">¡Bienvenido de nuevo!</target>
       </trans-unit>
-      <trans-unit id="1266887509445371246" datatype="html">
-        <source>Incorrect username or password.</source>
-        <target state="new">Usuario o contraseña incorrectos.</target>
-      </trans-unit>
-      <trans-unit id="6359903276769185793" datatype="html">
-        <source>Oops! An unexpected error has occurred. Please contact us at support@angularexampleapp.com if it continues.</source>
-        <target state="new">¡Ups! Ha ocurrido un error que no nos esperábamos. Por favor, si continúa, ponte en contacto con nosotros en support@angularexampleapp.com</target>
-      </trans-unit>
-      <trans-unit id="1215928954805901442" datatype="html">
-        <source>A network problem has occurred. Please make sure you are connected and if the problem persists please contact support at support@angularexampleapp.com</source>
-        <target state="new">Ha ocurrido un problema de red. Por favor, asegúrate de tener conexión y si continúa el problema ponte en contacto con soporte en support@angularexampleapp.com</target>
-      </trans-unit>
       <trans-unit id="1431416938026210429" datatype="html">
         <source>Password</source>
         <target state="new">Contraseña</target>
@@ -35,7 +23,7 @@
       </trans-unit>
       <trans-unit id="7954280865758228265" datatype="html">
         <source>¡Register, and create your first hero!</source>
-        <target state="new">¡Regístrate, y crea tu primer menú!</target>
+        <target state="new">¡Regístrate, y crea tu primer heroe!</target>
       </trans-unit>
       <trans-unit id="5342432350421167093" datatype="html">
         <source>First name</source>
@@ -57,10 +45,6 @@
         <source>log in</source>
         <target state="new">iniciar sesión</target>
       </trans-unit>
-      <trans-unit id="4154348331795382612" datatype="html">
-        <source>This email is not available, please, choose another one</source>
-        <target state="new">El email no está disponible, por favor, elige uno distinto</target>
-      </trans-unit>
       <trans-unit id="1621161289141771238" datatype="html">
         <source>Minimum <x id="INTERPOLATION" equiv-text="{{ control.errors[&apos;minlength&apos;].requiredLength }}"/> caracters.</source>
         <target state="new">Mínimo <x id="INTERPOLATION" equiv-text="{{ control.errors[&apos;minlength&apos;].requiredLength }}"/> caracteres.</target>
@@ -73,113 +57,9 @@
         <source>Format invalid. example@domain.com</source>
         <target state="new">Formato inválido. example@domain.com</target>
       </trans-unit>
-      <trans-unit id="6309828574111583895" datatype="html">
-        <source>Change password</source>
-        <target state="new">Cambiar contraseña</target>
-      </trans-unit>
-      <trans-unit id="1219180098424873532" datatype="html">
-        <source>Password has been changed successfully.</source>
-        <target state="new">La contraseña se ha cambiado correctamente.</target>
-      </trans-unit>
-      <trans-unit id="7844326657653350387" datatype="html">
-        <source>Free plan</source>
-        <target state="new">Plan gratuito</target>
-      </trans-unit>
-      <trans-unit id="8893390761160292681" datatype="html">
-        <source>My account</source>
-        <target state="new">Mi cuenta</target>
-      </trans-unit>
-      <trans-unit id="7507948636555938109" datatype="html">
-        <source>Log out</source>
-        <target state="new">Cerrar sesión</target>
-      </trans-unit>
       <trans-unit id="2407860499554401189" datatype="html">
         <source>How it works</source>
         <target state="new">Cómo funciona</target>
-      </trans-unit>
-      <trans-unit id="2821179408673282599" datatype="html">
-        <source>Home</source>
-        <target state="new">Inicio</target>
-      </trans-unit>
-      <trans-unit id="4784041587862665079" datatype="html">
-        <source>Lateral menu navigation</source>
-        <target state="new">Menu de navegacion lateral</target>
-      </trans-unit>
-      <trans-unit id="8265882805853277046" datatype="html">
-        <source>User menu navigation</source>
-        <target state="new">Menu de navegacion de tu usuario</target>
-      </trans-unit>
-      <trans-unit id="3235499372902751598" datatype="html">
-        <source>Personal data</source>
-        <target state="new">Información personal</target>
-      </trans-unit>
-      <trans-unit id="3768927257183755959" datatype="html">
-        <source>Save</source>
-        <target state="new">Guardar</target>
-      </trans-unit>
-      <trans-unit id="6776231426264064815" datatype="html">
-        <source>User updated successfully.</source>
-        <target state="new">El usuario se ha actualizado correctamente.</target>
-      </trans-unit>
-      <trans-unit id="1375188762769896369" datatype="html">
-        <source>Change your password</source>
-        <target state="new">Cambia tu contraseña</target>
-      </trans-unit>
-      <trans-unit id="5340498030552368470" datatype="html">
-        <source>Current password</source>
-        <target state="new">Contraseña actual</target>
-      </trans-unit>
-      <trans-unit id="3588415639242079458" datatype="html">
-        <source>New password</source>
-        <target state="new">Contraseña nueva</target>
-      </trans-unit>
-      <trans-unit id="2824206654510999861" datatype="html">
-        <source>User not updated due to some fail. Check all the fields in the form are passing.</source>
-        <target state="new">No se ha podido actualizar el perfil. Por favor, comprueba que todos los campos son correctos.</target>
-      </trans-unit>
-      <trans-unit id="2354352882577999908" datatype="html">
-        <source>Passwords must be different from each other</source>
-        <target state="new">Las contraseñas deben ser distintas.</target>
-      </trans-unit>
-      <trans-unit id="901557200765704590" datatype="html">
-        <source>Current password does not match.</source>
-        <target state="new">La contraseña actual no es correcta.</target>
-      </trans-unit>
-      <trans-unit id="7103828350585875909" datatype="html">
-        <source>Session has expired, please log in again.</source>
-        <target state="new">La sesión ha caducado. Por favor, inicia sesión de nuevo. Volverás donde estabas!</target>
-      </trans-unit>
-      <trans-unit id="5481197392701906162" datatype="html">
-        <source>Select your language</source>
-        <target state="new">Elige tu idioma</target>
-      </trans-unit>
-      <trans-unit id="3737360822545312412" datatype="html">
-        <source>The page will be reloaded.</source>
-        <target state="new">La pagina se recargará sola.</target>
-      </trans-unit>
-      <trans-unit id="4259409142651869276" datatype="html">
-        <source>Profile and password</source>
-        <target state="new">Perfil y contraseña</target>
-      </trans-unit>
-      <trans-unit id="2826581353496868063" datatype="html">
-        <source>Language</source>
-        <target state="new">Idioma</target>
-      </trans-unit>
-      <trans-unit id="7662015208795302518" datatype="html">
-        <source>Delete account</source>
-        <target state="new">Baja</target>
-      </trans-unit>
-      <trans-unit id="4213652665644405260" datatype="html">
-        <source>The account has been deleted. We are sorry to see you go :(</source>
-        <target state="new">La cuenta ha sido eliminada. Sentimos que te vayas... :(</target>
-      </trans-unit>
-      <trans-unit id="6788923511143922618" datatype="html">
-        <source>Caution!</source>
-        <target state="new">¡Cuidado!</target>
-      </trans-unit>
-      <trans-unit id="2520605306994744004" datatype="html">
-        <source>Delete my account</source>
-        <target state="new">Eliminar mi cuenta</target>
       </trans-unit>
       <trans-unit id="4254485305637011570" datatype="html">
         <source>What you typed is not</source>
@@ -189,101 +69,13 @@
         <source>This is not your email</source>
         <target state="new">Este no es tu email</target>
       </trans-unit>
-      <trans-unit id="5167485422000595913" datatype="html">
-        <source>Once you delete your account, <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>there is no going back<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. Please be certain.</source>
-        <target state="new">Una vez que borres la cuenta, <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>no hay marcha atrás<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. Por favor, estate seguro de continuar.</target>
-      </trans-unit>
-      <trans-unit id="7201627181565913379" datatype="html">
-        <source>Are you sure you want to do this?</source>
-        <target state="new">Estas seguro de lo que vas a hacer?</target>
-      </trans-unit>
-      <trans-unit id="2742011011603567815" datatype="html">
-        <source>You will immediately delete:</source>
-        <target state="new">Vas a eliminar de forma inmediata:</target>
-      </trans-unit>
-      <trans-unit id="6021953765688332948" datatype="html">
-        <source>To verify, type <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="START_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;em id=&quot;text-to-write&quot;&gt;"/>delete my account<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;/em&gt;"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
-        <target state="new">Para asegurarnos, escribe <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="START_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;em id=&quot;text-to-write&quot;&gt;"/>eliminar mi cuenta<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;/em&gt;"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></target>
-      </trans-unit>
-      <trans-unit id="8993927868496022340" datatype="html">
-        <source>Cancel plan and delete this account</source>
-        <target state="new">Cancelar el plan y eliminar mi cuenta</target>
-      </trans-unit>
-      <trans-unit id="2648786936515738699" datatype="html">
-        <source>created heroes</source>
-        <target state="new">heroes creados</target>
-      </trans-unit>
-      <trans-unit id="771984667796132675" datatype="html">
-        <source>Angular Example App</source>
-        <target state="new">Angular Example App</target>
-      </trans-unit>
       <trans-unit id="6283991314060695536" datatype="html">
         <source>Password must contain at least one lowercase letter, one uppercase letter and one number. No special characters allowed. </source>
         <target state="new">La contraseña debe contener al menos una letra minúscula, una mayúscula y un número. No se admiten caracteres especiales. </target>
       </trans-unit>
-      <trans-unit id="5909397162992279613" datatype="html">
-        <source>Top 5 public heroes</source>
-        <target state="new">Top 5 heroes públicos</target>
-      </trans-unit>
-      <trans-unit id="4100306273406016007" datatype="html">
-        <source>votes</source>
-        <target state="new">votos</target>
-      </trans-unit>
-      <trans-unit id="423928307239211896" datatype="html">
-        <source> This heroes are available to all the users and you can vote for them! </source>
-        <target state="new"> Estos héroes están disponibles para todos los usuarios y puedes votar por ellos. </target>
-      </trans-unit>
-      <trans-unit id="4758588840062363024" datatype="html">
-        <source>You can only vote each hero once.</source>
-        <target state="new">Sólo se puede votar a cada héroe una vez.</target>
-      </trans-unit>
-      <trans-unit id="1008949863405692120" datatype="html">
-        <source>Alter-ego</source>
-        <target state="new">Nombre</target>
-      </trans-unit>
-      <trans-unit id="8097628895036343135" datatype="html">
-        <source>Real name</source>
-        <target state="new">Nombre real</target>
-      </trans-unit>
-      <trans-unit id="3737543504924228701" datatype="html">
-        <source>Create a hero</source>
-        <target state="new">Crear heroe</target>
-      </trans-unit>
-      <trans-unit id="7585826646011739428" datatype="html">
-        <source>Edit</source>
-        <target state="new">Editar</target>
-      </trans-unit>
-      <trans-unit id="3179345075540180396" datatype="html">
-        <source>What&apos;s the hero&apos;s name?</source>
-        <target state="new">¿Cual es el nombre del heroe?</target>
-      </trans-unit>
-      <trans-unit id="6873806236290728741" datatype="html">
-        <source>Alter ego</source>
-        <target state="new">Alter ego</target>
-      </trans-unit>
-      <trans-unit id="6232555467136163241" datatype="html">
-        <source>Now, the real one</source>
-        <target state="new">Ahora, el nombre real</target>
-      </trans-unit>
-      <trans-unit id="7290439163208145456" datatype="html">
-        <source>Create hero</source>
-        <target state="new">Crear hero</target>
-      </trans-unit>
-      <trans-unit id="7705716581111712441" datatype="html">
-        <source>You don&apos;t have any heroes. Go and create one!</source>
-        <target state="new">No tienes ningun heroe. Ve y crea uno!</target>
-      </trans-unit>
-      <trans-unit id="8260681910901343399" datatype="html">
-        <source>Hero deleted!</source>
-        <target state="new">Heroe eliminado!</target>
-      </trans-unit>
-      <trans-unit id="7822748941834007534" datatype="html">
-        <source>My heroes</source>
-        <target state="new">Mis heroes</target>
-      </trans-unit>
-      <trans-unit id="2775762839876670031" datatype="html">
-        <source> Create as many as you want </source>
-        <target state="new"> Crea todos los que quieras! </target>
+      <trans-unit id="771984667796132675" datatype="html">
+        <source>Angular Example App</source>
+        <target state="new">Angular Example App ES</target>
       </trans-unit>
     </body>
   </file>

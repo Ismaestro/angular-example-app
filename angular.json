@@ -15,40 +15,30 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser-esbuild",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/",
+            "outputPath": "dist/angularexampleapp",
             "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "browser": "src/main.ts",
+            "polyfills": ["zone.js", "@angular/localize/init"],
             "tsConfig": "tsconfig.app.json",
             "i18nMissingTranslation": "warning",
             "inlineStyleLanguage": "scss",
-            "extractLicenses": false,
             "assets": [
               {
                 "glob": "**/*",
-                "input": "src/assets/",
-                "output": "/assets/",
-                "ignore": ["base/*", "css/*", "js/*"]
-              },
-              {
-                "glob": "**/*",
-                "input": "src/assets/base",
-                "output": "/"
-              },
-              "src/manifest.webmanifest"
+                "input": "public/assets",
+                "output": "assets"
+              }
             ],
-            "styles": ["src/app/styles/index.scss"],
+            "styles": [
+              "normalize.css/normalize.css",
+              "@shoelace-style/shoelace/dist/themes/light.css",
+              "src/styles/index.scss"
+            ],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "./node_modules",
-                "src/app/styles/abstracts",
-                "src/app/styles/base",
-                "src/app/styles/components"
-              ]
+              "includePaths": ["src/styles"]
             },
-            "allowedCommonJsDependencies": ["validator"],
             "scripts": []
           },
           "configurations": {
@@ -56,13 +46,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "700kb",
-                  "maximumError": "800Kb"
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "45kb"
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
                 }
               ],
               "fileReplacements": [
@@ -71,28 +61,22 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": {
-                "scripts": true,
-                "styles": {
-                  "minify": true,
-                  "inlineCritical": false
-                },
-                "fonts": true
-              },
               "outputHashing": "all",
               "localize": ["es", "en"]
             },
-            "development-en": {
-              "buildOptimizer": false,
-              "optimization": false,
+            "production-sourcemaps": {
               "sourceMap": true,
-              "namedChunks": true
+              "outputHashing": "all"
+            },
+            "development-en": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
             },
             "development-es": {
-              "buildOptimizer": false,
               "optimization": false,
+              "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true,
               "localize": ["es"]
             }
           },
@@ -125,20 +109,23 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["zone.js", "zone.js/testing", "@angular/localize/init"],
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/assets", "src/manifest.webmanifest"],
-            "styles": ["src/app/styles/index.scss"],
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public/assets"
+              }
+            ],
+            "styles": [
+              "normalize.css/normalize.css",
+              "@shoelace-style/shoelace/dist/themes/light.css",
+              "src/styles/index.scss"
+            ],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "./node_modules",
-                "src/app/styles/abstracts",
-                "src/app/styles/base",
-                "src/app/styles/components"
-              ]
+              "includePaths": ["src/styles"]
             },
             "scripts": []
           }

@@ -1,15 +1,14 @@
-import { userRoutes } from '~modules/user/shared/user-routes';
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthRepository } from '~modules/auth/store/auth.repository';
+import { USER_URLS } from '~modules/shared/consts/urls.consts';
+import { AuthService } from '~modules/auth/shared/auth.service';
 
 export const noAuthenticationGuard = () => {
-  const authRepository: AuthRepository = inject(AuthRepository);
-  if (!authRepository.isLoggedInValue()) {
-    return true;
-  } else {
-    const router: Router = inject(Router);
-    router.navigate([userRoutes.dashboard]);
+  const authService = inject(AuthService);
+  if (authService.isUserLoggedIn()) {
+    const router = inject(Router);
+    router.navigate([USER_URLS.dashboard]);
     return false;
   }
+  return true;
 };

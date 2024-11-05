@@ -47,7 +47,7 @@ Postgres and GraphQL. Please check it out and also feel free to contribute or gi
 - [x] Amazing reactive functionalities with [elf](https://github.com/ngneat/elf)
 - [x] More logical directory structure
 - [x] Following the [best practices](https://angular.io/guide/styleguide)!
-- [x] Responsive layout with Bootstrap 5
+- [x] Responsive layout with CSS Grid and Flexbox
 - [x] Use of [NgOptimizedImage](https://angular.io/guide/image-directive)
 - [x] SASS with BEM styles
 - [x] Example tests for: Component, Service, Interceptor, Directive and Guard

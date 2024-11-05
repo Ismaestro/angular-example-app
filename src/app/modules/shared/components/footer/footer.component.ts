@@ -1,7 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { environment } from '~environments/environment';
-import { appRoutes } from '../../../../app-routes';
-import { RouterModule } from '@angular/router';
+import { TickerComponent } from '~modules/shared/components/ticker/ticker.component';
 
 @Component({
   selector: 'app-footer',
@@ -9,16 +7,8 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./footer.component.scss'],
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterModule],
+  imports: [TickerComponent],
 })
 export class FooterComponent {
-  environment: typeof environment;
-  appRoutes: typeof appRoutes;
-  currentYear: number;
-
-  constructor() {
-    this.environment = environment;
-    this.appRoutes = appRoutes;
-    this.currentYear = new Date().getFullYear();
-  }
+  currentYear = new Date().getFullYear();
 }

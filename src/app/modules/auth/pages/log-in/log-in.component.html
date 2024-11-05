@@ -1,0 +1,58 @@
+<div class="login__container">
+  <main>
+    <div class="language-selector__container">
+      <app-language-selector></app-language-selector>
+    </div>
+    <h1 class="heading__title" i18n>¡Welcome back!</h1>
+    <form class="login__form" [formGroup]="logInForm" (ngSubmit)="sendForm()">
+      <div class="form-control__container">
+        <input
+          class="form-control"
+          id="floating-email"
+          appLowercase
+          maxlength="150"
+          placeholder="name@example.com"
+          required
+          appTrim
+          type="email"
+          [formControl]="email" />
+        <label class="text-start" for="floating-email"
+          ><i class="icon fa-solid fa-at me-1"></i>Email</label
+        >
+        <app-form-errors class="invalid-feedback" [control]="email"></app-form-errors>
+      </div>
+      <div class="form-control__container">
+        <input
+          autocomplete
+          class="form-control"
+          id="floating-password"
+          minlength="8"
+          placeholder="Password"
+          required
+          type="password"
+          [formControl]="password"
+          (keyup.enter)="sendForm(); $event.preventDefault()" />
+        <label class="text-start" for="floating-password"
+          ><i class="icon fa-solid fa-lock me-1"></i>
+          <ng-container i18n>Password</ng-container></label
+        >
+        <app-form-errors class="invalid-feedback" [control]="password"></app-form-errors>
+      </div>
+      <div class="form-control__container">
+        <sl-button pill type="submit" [attr.loading]="isButtonLogInLoading || null">
+          <ng-container i18n>Enter</ng-container>
+        </sl-button>
+      </div>
+      <div class="login__footer">
+        <p>
+          <span i18n>don't have an account yet?</span>
+          <a class="ms-1" [routerLink]="authUrls.register">
+            <ng-container i18n>register</ng-container>
+            <i class="ms-1 icon fa-solid fa-right-long"></i>
+          </a>
+          <br />
+        </p>
+      </div>
+    </form>
+  </main>
+</div>

@@ -2,15 +2,6 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="1266887509445371246" datatype="html">
-        <source>Incorrect username or password.</source>
-      </trans-unit>
-      <trans-unit id="1215928954805901442" datatype="html">
-        <source>A network problem has occurred. Please make sure you are connected and if the problem persists please contact support at support@angularexampleapp.com</source>
-      </trans-unit>
-      <trans-unit id="6359903276769185793" datatype="html">
-        <source>Oops! An unexpected error has occurred. Please contact us at support@angularexampleapp.com if it continues.</source>
-      </trans-unit>
       <trans-unit id="8083833302822858845" datatype="html">
         <source>¡Welcome back!</source>
       </trans-unit>
@@ -31,9 +22,6 @@
       </trans-unit>
       <trans-unit id="3838405600100023738" datatype="html">
         <source>already have an account?</source>
-      </trans-unit>
-      <trans-unit id="4154348331795382612" datatype="html">
-        <source>This email is not available, please, choose another one</source>
       </trans-unit>
       <trans-unit id="5342432350421167093" datatype="html">
         <source>First name</source>
@@ -56,164 +44,20 @@
       <trans-unit id="7897553137344337439" datatype="html">
         <source>Field required</source>
       </trans-unit>
-      <trans-unit id="1219180098424873532" datatype="html">
-        <source>Password has been changed successfully.</source>
-      </trans-unit>
-      <trans-unit id="6309828574111583895" datatype="html">
-        <source>Change password</source>
-      </trans-unit>
-      <trans-unit id="7507948636555938109" datatype="html">
-        <source>Log out</source>
-      </trans-unit>
-      <trans-unit id="7844326657653350387" datatype="html">
-        <source>Free plan</source>
-      </trans-unit>
-      <trans-unit id="8893390761160292681" datatype="html">
-        <source>My account</source>
-      </trans-unit>
       <trans-unit id="2407860499554401189" datatype="html">
         <source>How it works</source>
-      </trans-unit>
-      <trans-unit id="2821179408673282599" datatype="html">
-        <source>Home</source>
-      </trans-unit>
-      <trans-unit id="4784041587862665079" datatype="html">
-        <source>Lateral menu navigation</source>
-      </trans-unit>
-      <trans-unit id="8265882805853277046" datatype="html">
-        <source>User menu navigation</source>
-      </trans-unit>
-      <trans-unit id="3235499372902751598" datatype="html">
-        <source>Personal data</source>
-      </trans-unit>
-      <trans-unit id="3768927257183755959" datatype="html">
-        <source>Save</source>
-      </trans-unit>
-      <trans-unit id="6776231426264064815" datatype="html">
-        <source>User updated successfully.</source>
-      </trans-unit>
-      <trans-unit id="1375188762769896369" datatype="html">
-        <source>Change your password</source>
-      </trans-unit>
-      <trans-unit id="2824206654510999861" datatype="html">
-        <source>User not updated due to some fail. Check all the fields in the form are passing.</source>
-      </trans-unit>
-      <trans-unit id="3588415639242079458" datatype="html">
-        <source>New password</source>
-      </trans-unit>
-      <trans-unit id="5340498030552368470" datatype="html">
-        <source>Current password</source>
-      </trans-unit>
-      <trans-unit id="2354352882577999908" datatype="html">
-        <source>Passwords must be different from each other</source>
-      </trans-unit>
-      <trans-unit id="901557200765704590" datatype="html">
-        <source>Current password does not match.</source>
-      </trans-unit>
-      <trans-unit id="7103828350585875909" datatype="html">
-        <source>Session has expired, please log in again.</source>
-      </trans-unit>
-      <trans-unit id="3737360822545312412" datatype="html">
-        <source>The page will be reloaded.</source>
-      </trans-unit>
-      <trans-unit id="5481197392701906162" datatype="html">
-        <source>Select your language</source>
-      </trans-unit>
-      <trans-unit id="4259409142651869276" datatype="html">
-        <source>Profile and password</source>
-      </trans-unit>
-      <trans-unit id="2826581353496868063" datatype="html">
-        <source>Language</source>
-      </trans-unit>
-      <trans-unit id="7662015208795302518" datatype="html">
-        <source>Delete account</source>
-      </trans-unit>
-      <trans-unit id="4213652665644405260" datatype="html">
-        <source>The account has been deleted. We are sorry to see you go :(</source>
-      </trans-unit>
-      <trans-unit id="6788923511143922618" datatype="html">
-        <source>Caution!</source>
-      </trans-unit>
-      <trans-unit id="2520605306994744004" datatype="html">
-        <source>Delete my account</source>
       </trans-unit>
       <trans-unit id="253845658548175967" datatype="html">
         <source>This is not your email</source>
       </trans-unit>
-      <trans-unit id="2742011011603567815" datatype="html">
-        <source>You will immediately delete:</source>
-      </trans-unit>
       <trans-unit id="4254485305637011570" datatype="html">
         <source>What you typed is not</source>
-      </trans-unit>
-      <trans-unit id="5167485422000595913" datatype="html">
-        <source>Once you delete your account, <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>there is no going back<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. Please be certain.</source>
-      </trans-unit>
-      <trans-unit id="6021953765688332948" datatype="html">
-        <source>To verify, type <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/><x id="START_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;em id=&quot;text-to-write&quot;&gt;"/>delete my account<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;/em&gt;"/><x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/></source>
-      </trans-unit>
-      <trans-unit id="7201627181565913379" datatype="html">
-        <source>Are you sure you want to do this?</source>
-      </trans-unit>
-      <trans-unit id="8993927868496022340" datatype="html">
-        <source>Cancel plan and delete this account</source>
-      </trans-unit>
-      <trans-unit id="2648786936515738699" datatype="html">
-        <source>created heroes</source>
-      </trans-unit>
-      <trans-unit id="771984667796132675" datatype="html">
-        <source>Angular Example App</source>
-      </trans-unit>
-      <trans-unit id="4100306273406016007" datatype="html">
-        <source>votes</source>
-      </trans-unit>
-      <trans-unit id="5909397162992279613" datatype="html">
-        <source>Top 5 public heroes</source>
       </trans-unit>
       <trans-unit id="6283991314060695536" datatype="html">
         <source>Password must contain at least one lowercase letter, one uppercase letter and one number. No special characters allowed. </source>
       </trans-unit>
-      <trans-unit id="423928307239211896" datatype="html">
-        <source> This heroes are available to all the users and you can vote for them! </source>
-      </trans-unit>
-      <trans-unit id="4758588840062363024" datatype="html">
-        <source>You can only vote each hero once.</source>
-      </trans-unit>
-      <trans-unit id="1008949863405692120" datatype="html">
-        <source>Alter-ego</source>
-      </trans-unit>
-      <trans-unit id="8097628895036343135" datatype="html">
-        <source>Real name</source>
-      </trans-unit>
-      <trans-unit id="3737543504924228701" datatype="html">
-        <source>Create a hero</source>
-      </trans-unit>
-      <trans-unit id="6232555467136163241" datatype="html">
-        <source>Now, the real one</source>
-      </trans-unit>
-      <trans-unit id="6873806236290728741" datatype="html">
-        <source>Alter ego</source>
-      </trans-unit>
-      <trans-unit id="7290439163208145456" datatype="html">
-        <source>Create hero</source>
-      </trans-unit>
-      <trans-unit id="7585826646011739428" datatype="html">
-        <source>Edit</source>
-      </trans-unit>
-      <trans-unit id="3179345075540180396" datatype="html">
-        <source>What&apos;s the hero&apos;s name?</source>
-      </trans-unit>
-      <trans-unit id="7705716581111712441" datatype="html">
-        <source>You don&apos;t have any heroes. Go and create one!</source>
-      </trans-unit>
-      <trans-unit id="8260681910901343399" datatype="html">
-        <source>Hero deleted!</source>
-      </trans-unit>
-      <trans-unit id="7822748941834007534" datatype="html">
-        <source>My heroes</source>
-      </trans-unit>
-      <trans-unit id="2775762839876670031" datatype="html">
-        <source> Create as many as you want </source>
+      <trans-unit id="771984667796132675" datatype="html">
+        <source>Angular Example App</source>
       </trans-unit>
     </body>
   </file>

@@ -1,0 +1,26 @@
+<app-pokemon-card [(counter)]="counter">
+  <h3 ngProjectAs="card-title">Hello</h3>
+  <card-body>Pokemon card</card-body>
+</app-pokemon-card>
+
+<a [routerLink]="firstPokemonRoute">First pokemon</a>
+
+<p>
+  <!-- eslint-disable @angular-eslint/template/no-call-expression -->
+  Total of pokemon card clicks: {{ counter() }}
+</p>
+
+<div [formGroup]="profileForm">
+  <div formArrayName="aliases">
+    <h2>Aliases</h2>
+    <button type="button" (click)="addAlias()">+ Add another alias</button>
+    @for (alias of aliases.controls; let i = $index; track i) {
+      <div>
+        <!-- The repeated alias template -->
+        <label for="alias-{{ i }}">Alias:</label>
+        <input id="alias-{{ i }}" type="text" [formControlName]="i" />
+      </div>
+    }
+    <p>Form Status: {{ profileForm.status }}</p>
+  </div>
+</div>
