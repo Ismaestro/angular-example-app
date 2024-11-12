@@ -1,0 +1,67 @@
+:root {
+  --breakpoint-xs: 700px;
+  --breakpoint-sm: 775px;
+  --breakpoint-md: 900px;
+  --breakpoint-lg: 1200px;
+  --breakpoint-xl: 1800px;
+}
+
+@mixin for-phone-only {
+  @media (max-width: var(--breakpoint-xs)) {
+    @content;
+  }
+}
+
+@mixin for-tablet-portrait-up {
+  @media (min-width: var(--breakpoint-xs)) {
+    @content;
+  }
+}
+
+@mixin for-tablet {
+  @media (min-width: var(--breakpoint-xs)) and (max-width: var(--breakpoint-md)) {
+    @content;
+  }
+}
+
+@mixin for-tablet-up {
+  @media (min-width: var(--breakpoint-sm)) {
+    @content;
+  }
+}
+
+@mixin for-tablet-landscape-up {
+  @media (min-width: var(--breakpoint-md)) {
+    @content;
+  }
+}
+
+@mixin for-desktop-up {
+  @media (min-width: var(--breakpoint-lg)) {
+    @content;
+  }
+}
+
+@mixin for-big-desktop-up {
+  @media (min-width: var(--breakpoint-xl)) {
+    @content;
+  }
+}
+
+@mixin for-desktop-down {
+  @media (max-width: var(--breakpoint-lg)) {
+    @content;
+  }
+}
+
+@mixin for-tablet-landscape-down {
+  @media (max-width: var(--breakpoint-md)) {
+    @content;
+  }
+}
+
+@mixin for-tablet-down {
+  @media (max-width: var(--breakpoint-sm)) {
+    @content;
+  }
+}

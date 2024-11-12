@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { PokemonCardComponent } from '~modules/pokemon/shared/components/pokemon-card/pokemon-card.component';
-import { POKEMON_URLS } from '~modules/shared/consts/urls.consts';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NgForOf } from '@angular/common';
 
@@ -16,8 +15,6 @@ import { NgForOf } from '@angular/common';
 })
 export class DashboardComponent {
   protected counter = signal(0);
-
-  firstPokemonRoute = POKEMON_URLS.detail('bulbasaur');
 
   profileForm = new FormGroup({
     aliases: new FormArray([]),

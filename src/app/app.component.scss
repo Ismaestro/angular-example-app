@@ -1,5 +1,9 @@
 .app__content-container,
 .router-outlet__container {
   display: block;
-  height: calc(100% - 20px);
+  height: calc(100% - 45px);
+
+  @media (width > 768px) {
+    height: calc(100% - 58px);
+  }
 }

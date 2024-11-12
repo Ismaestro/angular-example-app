@@ -23,12 +23,28 @@ import { AsyncPipe, NgOptimizedImage } from '@angular/common';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PokemonDetailComponent implements OnInit {
-  @Input() pokemonId!: string;
+  private _pokemonId!: string;
 
   pokemonService = inject(PokemonService);
   pokemon$!: Observable<Pokemon>;
 
-  ngOnInit(): void {
-    this.pokemon$ = this.pokemonService.getPokemon(this.pokemonId);
+  @Input()
+  set pokemonId(value: string) {
+    this._pokemonId = value;
+    this.loadPokemon();
+  }
+
+  get pokemonId(): string {
+    return this._pokemonId;
+  }
+
+  ngOnInit() {
+    this.loadPokemon();
+  }
+
+  loadPokemon() {
+    if (this._pokemonId) {
+      this.pokemon$ = this.pokemonService.getPokemon(this._pokemonId);
+    }
   }
 }

@@ -4,5 +4,6 @@ export type Pokemon = {
   weight: string;
   sprites: {
     front_default: string;
+    front_shiny: string;
   };
 };

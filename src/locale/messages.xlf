@@ -36,16 +36,13 @@
         <source>¡Register, and create your first hero!</source>
       </trans-unit>
       <trans-unit id="1621161289141771238" datatype="html">
-        <source>Minimum <x id="INTERPOLATION" equiv-text="{{ control.errors[&apos;minlength&apos;].requiredLength }}"/> caracters.</source>
+        <source>Minimum <x id="INTERPOLATION" equiv-text="{{ control().errors?.[&apos;minlength&apos;].requiredLength }}"/> caracters.</source>
       </trans-unit>
       <trans-unit id="4297600712275534665" datatype="html">
         <source>Format invalid. example@domain.com</source>
       </trans-unit>
       <trans-unit id="7897553137344337439" datatype="html">
         <source>Field required</source>
-      </trans-unit>
-      <trans-unit id="2407860499554401189" datatype="html">
-        <source>How it works</source>
       </trans-unit>
       <trans-unit id="253845658548175967" datatype="html">
         <source>This is not your email</source>
@@ -58,6 +55,27 @@
       </trans-unit>
       <trans-unit id="771984667796132675" datatype="html">
         <source>Angular Example App</source>
+      </trans-unit>
+      <trans-unit id="2336550011721758066" datatype="html">
+        <source>Log in</source>
+      </trans-unit>
+      <trans-unit id="2821179408673282599" datatype="html">
+        <source>Home</source>
+      </trans-unit>
+      <trans-unit id="4541118533130714111" datatype="html">
+        <source>Repeat Password</source>
+      </trans-unit>
+      <trans-unit id="4763932744918921654" datatype="html">
+        <source>What&apos;s your favourite pokemon?</source>
+      </trans-unit>
+      <trans-unit id="6570363013146073520" datatype="html">
+        <source>Dashboard</source>
+      </trans-unit>
+      <trans-unit id="7507948636555938109" datatype="html">
+        <source>Log out</source>
+      </trans-unit>
+      <trans-unit id="8563030151048628698" datatype="html">
+        <source>pokemon image</source>
       </trans-unit>
     </body>
   </file>

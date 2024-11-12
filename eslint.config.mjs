@@ -20,7 +20,6 @@ export default tsEslint.config(
     extends: [
       eslint.configs.recommended,
       ...tsEslint.configs.recommended,
-      ...tsEslint.configs.stylistic,
       ...angular.configs.tsRecommended,
       pluginPromise.configs['flat/recommended'],
     ],

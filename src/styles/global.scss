@@ -1,11 +1,29 @@
-* {
-  font-family: system-ui;
-  font-style: normal;
-  font-weight: normal;
-  font-optical-sizing: auto;
-}
+@use 'base/reset';
+@use 'base/media-queries' as mq;
+@use 'base/z-index';
+@use 'base/border-radius';
+@use 'base/spacing';
+@use 'custom/typography';
+@use 'custom/themes';
+@use 'components/forms';
+@use 'components/buttons';
+@use 'components/kbd';
 
-html,
-body {
-  height: 100%;
-}
+// Base
+@include reset.reset;
+@include mq.for-phone-only;
+@include mq.for-tablet-portrait-up;
+@include mq.for-tablet-landscape-up;
+@include mq.for-desktop-up;
+@include mq.for-big-desktop-up;
+@include mq.for-tablet-landscape-down;
+@include mq.for-tablet-landscape-down;
+
+// Custom
+@include typography.typography;
+@include themes.themes;
+
+// Components
+@include forms.forms;
+@include buttons.buttons;
+@include kbd.kbd;

@@ -34,7 +34,7 @@
             "styles": [
               "normalize.css/normalize.css",
               "@shoelace-style/shoelace/dist/themes/light.css",
-              "src/styles/index.scss"
+              "src/styles/global.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": ["src/styles"]
@@ -122,7 +122,7 @@
             "styles": [
               "normalize.css/normalize.css",
               "@shoelace-style/shoelace/dist/themes/light.css",
-              "src/styles/index.scss"
+              "src/styles/global.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": ["src/styles"]

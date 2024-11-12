@@ -1,26 +1,26 @@
-import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
-import { AUTH_URLS, ROOT_URLS, USER_URLS } from '~modules/shared/consts/urls.consts';
-import { translations } from '../../../../../locale/translations';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  CUSTOM_ELEMENTS_SCHEMA,
+  effect,
+  inject,
+} from '@angular/core';
+import { POKEMON_URLS, ROOT_URLS } from '~modules/shared/consts/urls.consts';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '~modules/auth/shared/auth.service';
 import { FirstTitleCasePipe } from '~modules/shared/pipes/first-title-case.pipe';
 import { PokemonSearchComponent } from '~modules/pokemon/shared/components/pokemon-search/pokemon-search.component';
+import { NgOptimizedImage } from '@angular/common';
+import { Pokemon } from '~modules/pokemon/shared/pokemon.type';
+import {
+  HEADER_NAV_ITEMS,
+  NavItem,
+  NavItemId,
+  NavItemType,
+} from '~modules/shared/components/header/header.const';
 
-enum NavItemType {
-  LINK = 'LINK',
-  BUTTON = 'BUTTON',
-  INPUT = 'INPUT',
-}
-
-interface NavItem {
-  id: string;
-  type: NavItemType;
-  text: string;
-  isUserRequired?: boolean;
-  url?: string;
-  click?: () => void;
-  change?: (value: string) => void;
-}
+import '@shoelace-style/shoelace/dist/components/button/button.js';
+import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 
 @Component({
   selector: 'app-header',
@@ -28,66 +28,55 @@ interface NavItem {
   styleUrls: ['./header.component.scss'],
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, RouterLinkActive, FirstTitleCasePipe, PokemonSearchComponent],
+  imports: [
+    RouterLink,
+    RouterLinkActive,
+    FirstTitleCasePipe,
+    PokemonSearchComponent,
+    NgOptimizedImage,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HeaderComponent {
   router = inject(Router);
   authService = inject(AuthService);
-
+  ROOT_URLS = ROOT_URLS;
   navItemType = NavItemType;
-  isUserLoggedIn = false;
-  navItems: NavItem[] = [
-    {
-      id: 'home',
-      url: ROOT_URLS.home,
-      text: translations.home,
-      type: NavItemType.LINK,
-    },
-    {
-      id: 'login',
-      url: AUTH_URLS.logIn,
-      text: translations.logIn,
-      isUserRequired: false,
-      type: NavItemType.LINK,
-    },
-    {
-      id: 'register',
-      url: AUTH_URLS.register,
-      text: translations.register,
-      isUserRequired: false,
-      type: NavItemType.LINK,
-    },
-    {
-      id: 'dashboard',
-      url: USER_URLS.dashboard,
-      text: translations.dashboard,
-      isUserRequired: true,
-      type: NavItemType.LINK,
-    },
-    {
-      id: 'logout',
-      isUserRequired: true,
-      click: () => {
-        this.authService.logOut();
-        this.router.navigate([ROOT_URLS.home]);
-      },
-      text: translations.logout,
-      type: NavItemType.BUTTON,
-    },
-    {
-      id: 'search',
-      isUserRequired: false,
-      change: (pokemonName: string) => {
-        console.log('pokemon search', pokemonName);
-      },
-      text: translations.logout,
-      type: NavItemType.INPUT,
-    },
-  ];
+  isUserLoggedIn = this.authService.isUserLoggedIn();
+  navItems: NavItem[] = HEADER_NAV_ITEMS;
+  menuActive = false;
+  pokemonLoaded: Pokemon | undefined;
+  pokemonLoading = false;
+  pokemonLoadedRoute = '';
 
   constructor() {
     effect(() => {
       this.isUserLoggedIn = this.authService.isUserLoggedIn();
     });
+
+    this.findNavItem(NavItemId.LOGOUT)!.click = this.logoutUser.bind(this);
+    this.findNavItem(NavItemId.SEARCH)!.change = this.loadPokemonLink.bind(this);
+  }
+
+  findNavItem(id: NavItemId) {
+    return this.navItems.find(item => item.id === id);
+  }
+
+  logoutUser() {
+    this.pokemonLoaded = undefined;
+    this.authService.logOut();
+    this.router.navigate([ROOT_URLS.home]);
+  }
+
+  loadPokemonLink(event: unknown) {
+    this.pokemonLoaded = event as Pokemon;
+    const pokemonName = this.pokemonLoaded.name;
+    if (pokemonName) {
+      this.pokemonLoadedRoute = POKEMON_URLS.detail(pokemonName);
+    }
+  }
+
+  toggleMenu() {
+    this.menuActive = !this.menuActive;
   }
 }

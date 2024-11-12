@@ -6,7 +6,7 @@ import {
   withPreloading,
   withRouterConfig,
 } from '@angular/router';
-import { provideHttpClient, withInterceptors, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { DOCUMENT } from '@angular/common';
 import { AUTH_PATHS, POKEMON_PATHS, USER_PATHS } from '~modules/shared/consts/paths.consts';
 import { Error404Component } from '~modules/root/pages/error-404/error-404.component';

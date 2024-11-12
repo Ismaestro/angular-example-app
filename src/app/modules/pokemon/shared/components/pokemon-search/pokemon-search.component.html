@@ -1,3 +1,8 @@
-<sl-input placeholder="Search" size="medium" (sl-input)="termChange($event)" [value]="termValue">
+<sl-input
+  i18n-placeholder
+  placeholder="Find a pokemon"
+  size="medium"
+  (sl-input)="termChange($event)"
+  [value]="termValue">
   <sl-icon name="search" slot="prefix"></sl-icon>
 </sl-input>

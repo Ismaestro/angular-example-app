@@ -1,0 +1,80 @@
+@use 'media-queries' as mq;
+
+@mixin reset() {
+  :root {
+    --fallback-font-stack: ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI',
+      roboto, 'Helvetica Neue', arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+      'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --page-width: 80ch;
+    --layout-padding: 3.12rem;
+    --primary-nav-width: 110px;
+    --secondary-nav-width: 16.25rem;
+    --fixed-content-height: calc(100vh - var(--layout-padding) * 2);
+
+    @include mq.for-tablet-landscape-down {
+      --layout-padding: 2rem;
+    }
+
+    @include mq.for-phone-only {
+      --layout-padding: 1rem;
+    }
+  }
+
+  html {
+    // Define the default font for the document
+    font-family: var(--inter-font), serif;
+    font-size: 16px;
+    color: var(--primary-contrast);
+    background-color: var(--page-background);
+    transition:
+      color 0.3s ease,
+      background-color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    margin: 0;
+    overflow: hidden auto;
+  }
+
+  html,
+  body {
+    height: 100vh;
+    min-height: 100vh;
+
+    @supports (height: 100svh) {
+      height: 100svh;
+    }
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  img {
+    width: 100%;
+    margin: 1rem 0;
+    overflow: hidden;
+    border-radius: 0.25rem;
+
+    &[src$='#small'] {
+      max-width: 250px;
+    }
+
+    &[src$='#medium'] {
+      max-width: 450px;
+    }
+  }
+
+  abbr[title] {
+    text-decoration: none;
+  }
+}

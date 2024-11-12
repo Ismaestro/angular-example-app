@@ -46,7 +46,7 @@
         <target state="new">iniciar sesión</target>
       </trans-unit>
       <trans-unit id="1621161289141771238" datatype="html">
-        <source>Minimum <x id="INTERPOLATION" equiv-text="{{ control.errors[&apos;minlength&apos;].requiredLength }}"/> caracters.</source>
+        <source>Minimum <x id="INTERPOLATION" equiv-text="{{ control().errors?.[&apos;minlength&apos;].requiredLength }}"/> caracters.</source>
         <target state="new">Mínimo <x id="INTERPOLATION" equiv-text="{{ control.errors[&apos;minlength&apos;].requiredLength }}"/> caracteres.</target>
       </trans-unit>
       <trans-unit id="7897553137344337439" datatype="html">
@@ -56,10 +56,6 @@
       <trans-unit id="4297600712275534665" datatype="html">
         <source>Format invalid. example@domain.com</source>
         <target state="new">Formato inválido. example@domain.com</target>
-      </trans-unit>
-      <trans-unit id="2407860499554401189" datatype="html">
-        <source>How it works</source>
-        <target state="new">Cómo funciona</target>
       </trans-unit>
       <trans-unit id="4254485305637011570" datatype="html">
         <source>What you typed is not</source>
@@ -76,6 +72,34 @@
       <trans-unit id="771984667796132675" datatype="html">
         <source>Angular Example App</source>
         <target state="new">Angular Example App ES</target>
+      </trans-unit>
+      <trans-unit id="4541118533130714111" datatype="html">
+        <source>Repeat Password</source>
+        <target state="new">Repeat Password</target>
+      </trans-unit>
+      <trans-unit id="4763932744918921654" datatype="html">
+        <source>What&apos;s your favourite pokemon?</source>
+        <target state="new">What&apos;s your favourite pokemon?</target>
+      </trans-unit>
+      <trans-unit id="2821179408673282599" datatype="html">
+        <source>Home</source>
+        <target state="new">Home</target>
+      </trans-unit>
+      <trans-unit id="2336550011721758066" datatype="html">
+        <source>Log in</source>
+        <target state="new">Log in</target>
+      </trans-unit>
+      <trans-unit id="6570363013146073520" datatype="html">
+        <source>Dashboard</source>
+        <target state="new">Dashboard</target>
+      </trans-unit>
+      <trans-unit id="7507948636555938109" datatype="html">
+        <source>Log out</source>
+        <target state="new">Log out</target>
+      </trans-unit>
+      <trans-unit id="8563030151048628698" datatype="html">
+        <source>pokemon image</source>
+        <target state="new">pokemon image</target>
       </trans-unit>
     </body>
   </file>

@@ -1,27 +1,69 @@
-<nav>
-  @for (item of navItems; track item.id) {
-    @if (
-      (item.isUserRequired && isUserLoggedIn) ||
-      (!item.isUserRequired && !isUserLoggedIn) ||
-      item.isUserRequired === undefined
-    ) {
-      @switch (item.type) {
-        @case (navItemType.LINK) {
-          <a
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
-            ariaCurrentWhenActive="page"
-            [routerLink]="item.url">
-            {{ item.text | firstTitleCase }}
-          </a>
-        }
-        @case (navItemType.BUTTON) {
-          <button (click)="item.click && item.click()">{{ item.text | firstTitleCase }}</button>
-        }
-        @case (navItemType.INPUT) {
-          <app-pokemon-search (change)="item.change && item.change($event)" />
-        }
+<nav class="nav__container">
+  <div class="nav__hamburger" (click)="toggleMenu()">
+    <sl-icon name="list"></sl-icon>
+  </div>
+  <div class="nav__items" [class.active]="menuActive">
+    <div class="nav__item">
+      <a class="nav__link" [routerLink]="ROOT_URLS.home">
+        <img
+          alt="pokemon image"
+          i18n-alt
+          ngSrc="/assets/icons/icon-50x50.png"
+          width="50"
+          height="50"
+          priority />
+      </a>
+    </div>
+    @for (item of navItems; track item.id) {
+      @if (
+        (item.isUserRequired && isUserLoggedIn) ||
+        (!item.isUserRequired && !isUserLoggedIn) ||
+        item.isUserRequired === undefined
+      ) {
+        <div class="nav__item">
+          @switch (item.type) {
+            @case (navItemType.LINK) {
+              <a
+                class="nav__link"
+                [class.nav__link--gradient]="item.withGradient"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                ariaCurrentWhenActive="page"
+                [routerLink]="item.url">
+                {{ item.text | firstTitleCase }}
+              </a>
+            }
+            @case (navItemType.INPUT) {
+              <app-pokemon-search
+                (loading)="pokemonLoading = $event"
+                (pokemonLoaded)="item.change && item.change($event)" />
+              @if (pokemonLoaded?.sprites?.front_default) {
+                <a [routerLink]="pokemonLoadedRoute">
+                  <img
+                    alt="pokemon image"
+                    i18n-alt
+                    ngSrc="{{ pokemonLoaded?.sprites?.front_default }}"
+                    width="50"
+                    height="50"
+                    priority />
+                </a>
+              }
+              @if (pokemonLoading) {
+                <div class="loading-circle"></div>
+              }
+            }
+            @case (navItemType.BUTTON) {
+              <sl-button
+                class="button--primary"
+                size="medium"
+                pill
+                (click)="item.click && item.click()"
+                >{{ item.text | firstTitleCase }}</sl-button
+              >
+            }
+          }
+        </div>
       }
     }
-  }
+  </div>
 </nav>
