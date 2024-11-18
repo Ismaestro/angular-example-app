@@ -1,9 +1,40 @@
-.app__content-container,
-.router-outlet__container {
-  display: block;
-  height: calc(100% - 45px);
+@use 'base/media-queries' as mq;
 
-  @media (width > 768px) {
-    height: calc(100% - 58px);
+:host {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 2560px;
+  min-height: 100vh;
+  margin-inline: auto;
+}
+
+.app__content-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+
+  @include mq.for-tablet {
+    width: 100%;
+  }
+}
+
+.app__content-skip-button {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 1000;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--page-background);
+  background: var(--primary-contrast);
+  border: 1px solid var(--vivid-pink);
+  border-radius: 0.25rem;
+  transition: transform 0.3s ease-out;
+  transform: translateY(-150%);
+
+  &:focus {
+    transform: translateY(0);
   }
 }

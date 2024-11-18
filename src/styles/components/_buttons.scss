@@ -1,98 +1,40 @@
+@use 'custom/colors';
+
 @mixin buttons() {
-  sl-button.button--primary::part(base) {
-    position: relative;
-    width: max-content;
-    padding: 0.75rem 1.5rem;
+  sl-button.button--primary::part(base),
+  sl-button.button--icon::part(base) {
+    display: flex;
+    align-items: center;
+    padding-block: 0.375rem;
+    padding-inline: 0.75rem;
     font-family: var(--inter-font), serif;
-    font-weight: 600;
-    color: transparent;
-    appearance: none;
-    cursor: pointer;
-    background: transparent;
-    background: linear-gradient(
-      var(--angle),
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.4rem;
+    color: color-mix(in srgb, var(--pill-accent) 60%, white 70%);
+    letter-spacing: -0.0088rem;
+    background: color-mix(in srgb, var(--pill-accent) 10%, white 2%);
     border: 0;
-    border: none;
-    border-radius: 0.25rem;
-    outline: none;
+    border-radius: 2.75rem;
+    transition: background 0.3s ease;
 
-    // border gradient / background
-    --angle: 90deg;
-
-    // Remove excess padding and border in Firefox 4+
-    &::-moz-focus-inner {
-      padding: 0;
-      border: 0;
-    }
-
-    &:disabled {
-      color: var(--quinary-contrast);
-      cursor: not-allowed;
-
-      // Gradient stroke
-      background: var(--quinary-contrast);
-
-      &::before {
-        background: var(--page-bg-radial-gradient);
-        background-color: var(--page-background);
-        opacity: 1;
-      }
-    }
-
-    // text & radial gradient
-    &::before {
-      position: absolute;
-      inset: 1px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary-contrast);
-      content: attr(text);
-      background: var(--page-bg-radial-gradient);
-      border-radius: 0.2rem;
-      transition:
-        opacity 0.3s ease,
-        background 0.3s ease;
-    }
-
-    // solid color negative space - CSS transition supported
-    &::after {
-      position: absolute;
-      inset: 1px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary-contrast);
-      content: attr(text);
-      background: var(--page-background);
-      border-radius: 0.2rem;
-      transition:
-        opacity 0.3s ease,
-        background 0.3s ease;
-    }
+    --pill-accent: var(--hot-red);
 
     &:hover {
-      animation: spin-gradient 4s linear infinite forwards;
-
-      &::before {
-        background: var(--soft-pink-radial-gradient);
-        background-color: var(--page-background);
-        opacity: 0.9;
-      }
-
-      &::after {
-        opacity: 0;
-      }
+      background: color-mix(in srgb, var(--pill-accent) 20%, white 10%);
     }
+  }
 
-    &:active {
-      &::before {
-        opacity: 0.8;
-      }
+  sl-button.button--icon::part(base) {
+    font-size: 1.5rem;
+    color: var(--quaternary-contrast);
+    background: transparent;
+
+    &:hover {
+      color: var(--full-contrast);
+      background: transparent;
+      transition: color 0.3s ease;
     }
   }
 }

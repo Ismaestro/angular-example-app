@@ -5,6 +5,7 @@
     background-color: #fff;
 
     @include colors.root-definitions;
+    @include colors.light-mode-definitions;
   }
 
   .theme-dark--mode {

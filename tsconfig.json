@@ -24,8 +24,8 @@
     "paths": {
       "~assets/*": ["src/assets/*"],
       "~environments/*": ["src/environments/*"],
-      "~shared/*": ["src/app/shared/*"],
-      "~modules/*": ["src/app/modules/*"]
+      "~core/*": ["src/app/core/*"],
+      "~features/*": ["src/app/features/*"]
     }
   },
   "angularCompilerOptions": {

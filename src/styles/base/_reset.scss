@@ -2,9 +2,6 @@
 
 @mixin reset() {
   :root {
-    --fallback-font-stack: ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI',
-      roboto, 'Helvetica Neue', arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
-      'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     --page-width: 80ch;
     --layout-padding: 3.12rem;
     --primary-nav-width: 110px;

@@ -1,9 +1,11 @@
 @mixin typography() {
   :root {
+    --fallback-font-stack: ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI',
+      roboto, 'Helvetica Neue', arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+      'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     --code-font: 'DM Mono', monospace;
     --inter-font: 'Inter', var(--fallback-font-stack);
     --inter-tight-font: 'Inter Tight', var(--fallback-font-stack);
-    --icons: 'Material Symbols Outlined';
     --selection-background: var(--vivid-pink);
     --selection-color: var(--vivid-pink);
 

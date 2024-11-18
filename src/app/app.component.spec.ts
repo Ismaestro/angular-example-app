@@ -1,7 +1,7 @@
 import { AppComponent } from './app.component';
-import { HeaderComponent } from '~modules/shared/components/header/header.component';
+import { HeaderComponent } from '~core/components/header/header.component';
 import { MockComponent } from 'ng-mocks';
-import { FooterComponent } from '~modules/shared/components/footer/footer.component';
+import { FooterComponent } from '~core/components/footer/footer.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Title } from '@angular/platform-browser';
 
