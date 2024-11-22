@@ -17,19 +17,19 @@ export const appRoutes: Route[] = [
     path: AUTHENTICATION_PATHS.base,
     loadChildren: () =>
       import('./features/authentication/authentication.routes').then(
-        mod => mod.AUTHENTICATION_ROUTES,
+        (mod) => mod.AUTHENTICATION_ROUTES,
       ),
   },
   {
     path: DASHBOARD_PATHS.base,
     loadChildren: () =>
-      import('./features/dashboard/dashboard.routes').then(mod => mod.DASHBOARD_ROUTES),
+      import('./features/dashboard/dashboard.routes').then((mod) => mod.DASHBOARD_ROUTES),
   },
   {
     path: POKEMON_DETAIL_PATHS.base,
     loadChildren: () =>
       import('./features/pokemon-detail/pokemon-detail.routes').then(
-        mod => mod.POKEMON_DETAIL_ROUTES,
+        (mod) => mod.POKEMON_DETAIL_ROUTES,
       ),
   },
   { path: '404', component: Error404Component },

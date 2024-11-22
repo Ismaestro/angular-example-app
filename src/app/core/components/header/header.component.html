@@ -11,7 +11,8 @@
           ngSrc="/assets/icons/favicon-48x48.png"
           width="48"
           height="48"
-          priority />
+          priority
+        />
       </a>
     </div>
     @for (item of navItems; track item.id) {
@@ -28,14 +29,16 @@
                 routerLinkActive="active"
                 [routerLinkActiveOptions]="{ exact: true }"
                 ariaCurrentWhenActive="page"
-                [routerLink]="item.url">
+                [routerLink]="item.url"
+              >
                 {{ item.text | firstTitleCase }}
               </a>
             }
             @case (navItemType.INPUT) {
               <app-pokemon-search
                 (loading)="pokemonLoading = $event"
-                (pokemonLoaded)="item.change && item.change($event)" />
+                (pokemonLoaded)="item.change && item.change($event)"
+              />
               @if (pokemonLoaded?.sprites?.front_default) {
                 <a [routerLink]="pokemonLoadedRoute">
                   <img
@@ -45,7 +48,8 @@
                     ngSrc="{{ pokemonLoaded?.sprites?.front_default }}"
                     width="44"
                     height="44"
-                    priority />
+                    priority
+                  />
                 </a>
               }
               @if (pokemonLoading) {

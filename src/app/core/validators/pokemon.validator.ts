@@ -8,7 +8,7 @@ export class PokemonValidator implements AsyncValidator {
   constructor(private pokemonService: PokemonService) {}
   validate(control: AbstractControl): Observable<ValidationErrors | null> {
     return this.pokemonService.getPokemon(control.value).pipe(
-      map(pokemon => (pokemon ? null : { uniqueRole: true })),
+      map((pokemon) => (pokemon ? null : { uniqueRole: true })),
       catchError(() => of({ uniqueRole: true })),
     );
   }

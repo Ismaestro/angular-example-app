@@ -67,7 +67,7 @@ export class HeaderComponent {
   }
 
   private findNavItem(id: NavItemId) {
-    return this.navItems.find(item => item.id === id);
+    return this.navItems.find((item) => item.id === id);
   }
 
   private logoutUser() {

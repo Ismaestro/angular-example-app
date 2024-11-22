@@ -161,5 +161,5 @@ export default tsEslint.config(
       '@angular-eslint/template/table-scope': 'error',
     },
   },
-  eslintConfigPrettier
+  eslintConfigPrettier,
 );

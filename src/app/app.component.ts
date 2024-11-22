@@ -40,9 +40,9 @@ export class AppComponent implements OnInit {
     this.router.events
       .pipe(
         filter((e): e is NavigationEnd => e instanceof NavigationEnd),
-        map(event => event.urlAfterRedirects),
+        map((event) => event.urlAfterRedirects),
       )
-      .subscribe(url => {
+      .subscribe((url) => {
         this.updateCanonicalLink(url);
       });
   }

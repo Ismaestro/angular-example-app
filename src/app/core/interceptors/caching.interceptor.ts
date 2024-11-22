@@ -22,7 +22,7 @@ export function cachingInterceptor(
     }
 
     return next(req).pipe(
-      tap(event => {
+      tap((event) => {
         if (event instanceof HttpResponse) {
           cache.set(req.urlWithParams, event.clone());
         }

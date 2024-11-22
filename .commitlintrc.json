@@ -1,15 +1,11 @@
 {
   "extends": ["@commitlint/config-conventional"],
   "rules": {
-    "type-enum": [
-      2,
-      "always",
-      ["build", "docs", "feat", "fix", "perf", "refactor", "test"]
-    ],
+    "type-enum": [2, "always", ["build", "docs", "feat", "fix", "perf", "refactor", "test"]],
     "scope-enum": [
       2,
       "always",
-      ["tools" ,"version", "app", "core", "authentication", "dashboard", "home", "pokemon-detail"]
+      ["tools", "version", "app", "core", "authentication", "dashboard", "home", "pokemon-detail"]
     ],
     "subject-case": [2, "always", "lower-case"],
     "subject-full-stop": [2, "never"]

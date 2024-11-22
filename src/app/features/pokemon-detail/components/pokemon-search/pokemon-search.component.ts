@@ -31,11 +31,11 @@ export class PokemonSearchComponent implements OnInit {
   termValue = '';
 
   ngOnInit() {
-    this.searchSubject.pipe(debounceTime(300)).subscribe(term => {
+    this.searchSubject.pipe(debounceTime(300)).subscribe((term) => {
       this.loading.emit(true);
 
       this.pokemonService.getPokemon(term).subscribe({
-        next: pokemon => {
+        next: (pokemon) => {
           this.pokemonLoaded.emit(pokemon);
           this.loading.emit(false);
         },

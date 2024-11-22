@@ -71,7 +71,7 @@ export class ThemeManagerService {
   }
 
   private watchPreferredColorScheme() {
-    window.matchMedia(PREFERS_COLOR_SCHEME_DARK).addEventListener('change', event => {
+    window.matchMedia(PREFERS_COLOR_SCHEME_DARK).addEventListener('change', (event) => {
       const scheme = event.matches ? Theme.DARK : Theme.LIGHT;
       this.setThemeBodyClasses(scheme);
     });
