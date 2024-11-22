@@ -1,0 +1,25 @@
+@use '../base/colors';
+
+@mixin menu-items() {
+  sl-menu-item {
+    &.menu-item--primary {
+      a {
+        font-size: 0.9rem;
+      }
+
+      &::part(base) {
+        padding: 4px 0;
+
+        &:hover {
+          color: color-mix(in srgb, var(--hot-red) 60%, white 70%);
+          background: color-mix(in srgb, var(--hot-red) 10%, white 2%);
+          transition: background 0.3s ease;
+
+          &:hover {
+            background: color-mix(in srgb, var(--hot-red) 20%, white 10%);
+          }
+        }
+      }
+    }
+  }
+}

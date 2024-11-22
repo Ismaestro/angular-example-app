@@ -8,7 +8,6 @@ import { LowercaseDirective } from '~core/directives/lowercase.directive';
 import { emailValidator } from '~core/validators/email.validator';
 import { passwordsMatchValidator, passwordValidator } from '~core/validators/password.validator';
 import { PokemonValidator } from '~core/validators/pokemon.validator';
-import { LanguageSelectorComponent } from '~features/authentication/components/language-selector/language-selector.component';
 
 @Component({
   selector: 'app-register',
@@ -20,7 +19,6 @@ import { LanguageSelectorComponent } from '~features/authentication/components/l
     RouterModule,
     ReactiveFormsModule,
     FormErrorsComponent,
-    LanguageSelectorComponent,
     TrimDirective,
     LowercaseDirective,
   ],

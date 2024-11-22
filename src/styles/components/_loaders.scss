@@ -1,0 +1,16 @@
+@mixin loaders() {
+  .loading__circle {
+    width: var(--spacing-3xl);
+    height: var(--spacing-3xl);
+    border: var(--spacing-sm) solid rgb(0 0 0 / 10%);
+    border-left-color: var(--gray-500);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

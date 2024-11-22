@@ -3,11 +3,14 @@
 @use 'base/z-index';
 @use 'base/border-radius';
 @use 'base/spacing';
-@use 'custom/typography';
-@use 'custom/themes';
+@use 'base/typography';
+@use 'base/themes';
 @use 'components/forms';
 @use 'components/buttons';
+@use 'components/menu';
+@use 'components/menu-items';
 @use 'components/kbd';
+@use 'components/loaders';
 
 // Base
 @include reset.reset;
@@ -18,12 +21,13 @@
 @include mq.for-big-desktop-up;
 @include mq.for-tablet-landscape-down;
 @include mq.for-tablet-landscape-down;
-
-// Custom
 @include typography.typography;
 @include themes.themes;
 
 // Components
 @include forms.forms;
 @include buttons.buttons;
+@include menu.menu;
+@include menu-items.menu-items;
 @include kbd.kbd;
+@include loaders.loaders;

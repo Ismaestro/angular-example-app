@@ -15,11 +15,11 @@
     @include colors.dark-mode-definitions;
   }
 
-  /* stylelint-disable selector-class-pattern */
   // Shoelace components theme
   :root,
   :host,
   .sl-theme-light {
+    /* stylelint-disable-line selector-class-pattern */
     --sl-color-primary-50: var(--sl-color-fuchsia-50);
     --sl-color-primary-100: var(--sl-color-fuchsia-100);
     --sl-color-primary-200: var(--sl-color-fuchsia-200);
@@ -34,6 +34,7 @@
   }
 
   .sl-theme-dark {
+    /* stylelint-disable-line selector-class-pattern */
     --sl-color-fuchsia-50: var(--sl-color-primary-950);
     --sl-color-fuchsia-100: var(--sl-color-primary-900);
     --sl-color-fuchsia-200: var(--sl-color-primary-800);

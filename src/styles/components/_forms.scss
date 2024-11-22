@@ -1,11 +1,12 @@
 @mixin forms() {
-  /* stylelint-disable selector-class-pattern */
-  .ng-valid[required],
+  .ng-valid[required], /* stylelint-disable-line selector-class-pattern */
   .ng-valid.required {
+    /* stylelint-disable-line selector-class-pattern */
     border-left: 5px solid #42a948;
   }
 
   .ng-invalid:not(form) {
+    /* stylelint-disable-line selector-class-pattern */
     border-left: 5px solid #a94442;
   }
 }

@@ -12,7 +12,6 @@ export type NavItem = {
   type: NavItemType;
   text: string;
   isUserRequired?: boolean;
-  withGradient?: boolean;
   url?: string;
   click?: () => void;
   change?: (value: unknown) => void;
@@ -46,7 +45,6 @@ export const HEADER_NAV_ITEMS = [
     url: AUTH_URLS.register,
     text: translations.register,
     isUserRequired: false,
-    withGradient: true,
     type: NavItemType.LINK,
   },
   {

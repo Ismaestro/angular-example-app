@@ -1,142 +1,117 @@
-.nav__container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  border-bottom: 1px solid #232125;
+@use 'base/media-queries' as mq;
 
-  .active {
-    padding-bottom: var(--spacing-4xl);
-  }
-}
-
-.nav__hamburger {
-  display: none;
-}
-
-.nav__items {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  color: inherit;
-  text-decoration: none;
-}
-
-.nav__item {
-  display: flex;
-  align-items: center;
-  margin: 10px 0;
-}
-
-.nav__link {
-  color: #a39fa9;
-  text-decoration: none;
-
-  &:hover {
-    color: #fbfbfb;
-  }
-}
-
-.nav__link--gradient {
-  width: fit-content;
-  font-weight: 500;
-  color: transparent;
-  background-image: linear-gradient(
-    90deg,
-    color-mix(in srgb, oklch(63.32% 0.24 31.68deg), white 60%) 0%,
-    color-mix(in srgb, oklch(69.02% 0.277 332.77deg), white 70%) 50%,
-    color-mix(in srgb, oklch(53.18% 0.28 296.97deg), white 70%) 100%
-  );
-  background-clip: text;
-
-  &:hover {
-    color: transparent;
-    background-image: linear-gradient(
-      0deg,
-      color-mix(in srgb, oklch(63.32% 0.24 31.68deg), white 60%) 0%,
-      color-mix(in srgb, oklch(69.02% 0.277 332.77deg), white 70%) 50%,
-      color-mix(in srgb, oklch(53.18% 0.28 296.97deg), white 70%) 100%
-    );
-  }
-}
-
-@media (width >= 768px) {
-  .nav__container {
-    flex-direction: row;
-    align-items: center;
-    padding-bottom: 0;
-
-    .active {
-      padding-bottom: 0;
-    }
-  }
-
-  .nav__hamburger {
-    display: none;
-  }
-
-  .nav__items {
-    flex-direction: row;
-    width: auto;
-  }
-
-  .nav__item {
-    margin: 0 10px;
-  }
-
-  .nav__link.active {
-    position: relative;
-  }
-
-  .nav__link.active::after {
-    position: absolute;
-    bottom: -30px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    content: '';
-    background-color: white;
-  }
-}
-
-@media (width <= 767px) {
+:host {
   .nav__container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
-  }
+    border-bottom: 1px solid var(--gray-800);
 
-  .nav__hamburger {
-    display: block;
-    padding: var(--spacing-xl) var(--spacing-md);
-    margin-left: auto;
-  }
+    @include mq.for-tablet-up {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding: 0 var(--spacing-r-xl);
+    }
 
-  .nav__items {
-    display: none;
-  }
+    &.open {
+      padding-bottom: var(--spacing-3xl);
 
-  .nav__items.active {
-    display: flex;
-    padding-top: 0;
-  }
-}
+      @include mq.for-tablet-up {
+        padding-bottom: 0;
+      }
+    }
 
-.loading-circle {
-  width: 24px;
-  height: 24px;
-  margin-left: 10px;
-  border: 4px solid rgb(0 0 0 / 10%);
-  border-left-color: #a39fa9;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
+    .nav__hamburger {
+      display: block;
+      padding: var(--spacing-xl) var(--spacing-md);
+      margin-left: auto;
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
+      @include mq.for-tablet-up {
+        display: none;
+      }
+    }
+
+    .nav__items {
+      display: none;
+      flex-direction: column;
+      gap: var(--spacing-r-lg);
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      color: inherit;
+      text-decoration: none;
+
+      @include mq.for-tablet-up {
+        display: flex;
+        flex-flow: row wrap;
+      }
+
+      &.active {
+        display: flex;
+        padding-top: 0;
+      }
+
+      .nav__item {
+        display: flex;
+        align-items: center;
+        margin: var(--spacing-md) 0;
+
+        &:first-of-type {
+          margin: 0;
+        }
+
+        @include mq.for-tablet-up {
+          margin: var(--spacing-xxl) var(--spacing-lg);
+
+          &:nth-child(-n + 0) {
+            align-self: flex-start;
+          }
+
+          &:nth-child(5):not(.user-logged) {
+            margin-left: auto;
+          }
+
+          &.user-logged:nth-child(4) {
+            margin-left: auto;
+          }
+        }
+
+        .nav__link {
+          color: var(--gray-400);
+          text-decoration: none;
+
+          &:hover {
+            color: var(--gray-50);
+          }
+
+          @include mq.for-tablet-up {
+            &.active {
+              position: relative;
+
+              &::after {
+                position: absolute;
+                bottom: -30px;
+                left: 0;
+                width: 100%;
+                height: var(--spacing-xs);
+                content: '';
+                background-color: var(--full-contrast);
+              }
+            }
+          }
+
+          img:first-of-type {
+            margin: 0;
+          }
+        }
+
+        .pokemon-search__image {
+          display: flex;
+          margin: 0;
+        }
+      }
+    }
   }
 }

@@ -7,7 +7,6 @@ import { emailValidator } from '~core/validators/email.validator';
 import { AUTH_URLS, USER_URLS } from '~core/consts/urls.consts';
 import { LowercaseDirective } from '~core/directives/lowercase.directive';
 import { passwordValidator } from '~core/validators/password.validator';
-import { LanguageSelectorComponent } from '~features/authentication/components/language-selector/language-selector.component';
 import { AuthenticationService } from '~features/authentication/services/authentication.service';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
@@ -22,7 +21,6 @@ import '@shoelace-style/shoelace/dist/components/button/button.js';
     ReactiveFormsModule,
     RouterModule,
     FormErrorsComponent,
-    LanguageSelectorComponent,
     TrimDirective,
     LowercaseDirective,
   ],

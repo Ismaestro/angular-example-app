@@ -1,40 +1,70 @@
-@use 'custom/colors';
+@use '../base/colors';
 
 @mixin buttons() {
-  sl-button.button--primary::part(base),
-  sl-button.button--icon::part(base) {
-    display: flex;
-    align-items: center;
-    padding-block: 0.375rem;
-    padding-inline: 0.75rem;
-    font-family: var(--inter-font), serif;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4rem;
-    color: color-mix(in srgb, var(--pill-accent) 60%, white 70%);
-    letter-spacing: -0.0088rem;
-    background: color-mix(in srgb, var(--pill-accent) 10%, white 2%);
-    border: 0;
-    border-radius: 2.75rem;
-    transition: background 0.3s ease;
+  sl-button {
+    &.button--primary::part(base),
+    &.button--icon::part(base) {
+      display: flex;
+      align-items: center;
+      padding-block: 0.375rem;
+      padding-inline: 0.75rem;
+      font-family: var(--inter-font), serif;
+      font-size: 0.875rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 1.4rem;
+      color: color-mix(in srgb, var(--hot-red) 60%, white 70%);
+      letter-spacing: -0.0088rem;
+      background: color-mix(in srgb, var(--hot-red) 10%, white 2%);
+      border: 0;
+      border-radius: 2.75rem;
+      transition: background 0.3s ease;
 
-    --pill-accent: var(--hot-red);
-
-    &:hover {
-      background: color-mix(in srgb, var(--pill-accent) 20%, white 10%);
+      &:hover {
+        background: color-mix(in srgb, var(--hot-red) 20%, white 10%);
+      }
     }
-  }
 
-  sl-button.button--icon::part(base) {
-    font-size: 1.5rem;
-    color: var(--quaternary-contrast);
-    background: transparent;
+    &.button--icon {
+      &::part(base) {
+        padding-inline: 0;
+        font-size: 1.5rem;
+        color: var(--quaternary-contrast);
+        background: transparent;
 
-    &:hover {
-      color: var(--full-contrast);
-      background: transparent;
-      transition: color 0.3s ease;
+        &:hover {
+          color: var(--full-contrast);
+          background: transparent;
+          transition: color 0.3s ease;
+        }
+      }
+
+      &::part(label) {
+        padding: 0;
+      }
+    }
+
+    &.dropdown-button--primary::part(base) {
+      display: flex;
+      align-items: center;
+      padding-block: 0.375rem;
+      font-family: var(--inter-font), serif;
+      font-size: 0.875rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 1.4rem;
+      color: color-mix(in srgb, var(--hot-red) 60%, white 70%);
+      letter-spacing: -0.0087rem;
+      background: color-mix(in srgb, var(--hot-red) 10%, white 2%);
+      border: 0;
+      border-radius: 2.75rem;
+      transition: background 0.3s ease;
+
+      --pill-accent: var(--hot-red);
+
+      &:hover {
+        background: color-mix(in srgb, var(--hot-red) 20%, white 10%);
+      }
     }
   }
 }

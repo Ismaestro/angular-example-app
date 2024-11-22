@@ -1,6 +1,8 @@
 <sl-input
+  class="pokemon-search__input"
   i18n-placeholder
   placeholder="Find a pokemon"
+  clearable
   size="medium"
   (sl-input)="termChange($event)"
   [value]="termValue">

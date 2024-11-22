@@ -1,0 +1,17 @@
+@use '../base/colors';
+
+@mixin menu() {
+  sl-menu {
+    &.menu--primary {
+      margin-top: 8px;
+      background: var(--octonary-contrast);
+      border: 1px solid var(--senary-contrast);
+      border-radius: 0.25rem;
+      box-shadow: none;
+
+      a {
+        color: var(--full-contrast);
+      }
+    }
+  }
+}

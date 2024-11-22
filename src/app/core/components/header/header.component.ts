@@ -18,10 +18,11 @@ import {
 import { PokemonSearchComponent } from '~features/pokemon-detail/components/pokemon-search/pokemon-search.component';
 import { AuthenticationService } from '~features/authentication/services/authentication.service';
 import { Pokemon } from '~features/pokemon-detail/types/pokemon.type';
+import { Theme, ThemeManagerService } from '~core/services/theme-manager.service';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
-import { Theme, ThemeManagerService } from '~core/services/theme-manager.service';
+import { LanguageSelectorComponent } from '~core/components/language-selector/language-selector.component';
 
 @Component({
   selector: 'app-header',
@@ -35,6 +36,7 @@ import { Theme, ThemeManagerService } from '~core/services/theme-manager.service
     FirstTitleCasePipe,
     PokemonSearchComponent,
     NgOptimizedImage,
+    LanguageSelectorComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
@@ -49,7 +51,7 @@ export class HeaderComponent {
   readonly navItems: NavItem[] = HEADER_NAV_ITEMS;
 
   isUserLoggedIn = this.authenticationService.isUserLoggedIn();
-  menuActive = false;
+  menuOpen = false;
   pokemonLoaded: Pokemon | undefined;
   pokemonLoading = false;
   pokemonLoadedRoute = '';
@@ -83,12 +85,12 @@ export class HeaderComponent {
   }
 
   toggleMenu() {
-    this.menuActive = !this.menuActive;
+    this.menuOpen = !this.menuOpen;
   }
 
   toggleTheme() {
     this.themeSelected =
-      this.themeManagerService.getThemeFromLocalStorageValue() === Theme.DARK
+      this.themeManagerService.getThemeFromLocalStorageValue() === Theme.DARK || !this.themeSelected
         ? Theme.LIGHT
         : Theme.DARK;
     this.themeManagerService.setTheme(this.themeSelected);
