@@ -18,18 +18,18 @@
   .adev-lines-text,
   .adev-build-text,
   .adev-build-webgl-text {
+    top: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    top: 0;
+    justify-content: center;
     width: 100vw;
-    height: 100vh;
     max-width: 2560px;
+    height: 100vh;
     margin-inline: auto;
-    pointer-events: none;
     overflow: hidden;
+    text-align: center;
+    pointer-events: none;
 
     @supports (height: 100lvh) {
       height: 100lvh;
@@ -37,9 +37,9 @@
   }
 
   .adev-build-webgl-text {
+    position: fixed;
     display: none;
     visibility: hidden;
-    position: fixed;
   }
 
   .adev-scale-container,
@@ -50,12 +50,9 @@
 
   .adev-lines-container {
     &::before {
-      content: '';
       position: absolute;
-      left: -50px;
-      top: 0;
-      right: -50px;
-      bottom: -50px;
+      inset: 0 -50px -50px;
+      content: '';
       background-color: var(--page-background);
       filter: blur(25px);
     }
@@ -72,23 +69,23 @@
     h2 {
       color: var(--gray-unfilled);
 
-      @media screen and (max-width: 1000px) {
+      @media screen and (width <= 1000px) {
         font-size: 2.75rem;
       }
     }
 
     .adev-gradient {
       position: absolute;
-      left: 0;
       top: 0;
       right: 0;
-      //background: url('../../../assets/textures/gradient.jpg');
-      background-size: cover;
+      left: 0;
+      clip-path: inset(0%);
       background-position: center;
       background-clip: text;
-      -webkit-background-clip: text;
+
+      // background: url('../../../assets/textures/gradient.jpg');
+      background-size: cover;
       -webkit-text-fill-color: transparent;
-      clip-path: inset(0%);
     }
   }
 
@@ -98,21 +95,21 @@
     background-color: var(--page-background);
 
     img {
-      margin: 0 auto;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      width: 75vw;
       height: auto;
       min-height: 60vh;
-      width: 75vw;
+      margin: 0 auto;
     }
   }
 
   &.adev-header {
     .adev-cta,
     .adev-arrow {
-      opacity: 1;
       visibility: visible;
+      opacity: 1;
     }
   }
 

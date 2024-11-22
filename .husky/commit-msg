@@ -1,8 +1,1 @@
-set +e
-
 npx commitlint --edit
-if [ $? -ne 0 ]; then
-  echo "WARNING: failed to run commit message validation (npx commitlint --edit)"
-fi
-
-exit 0;

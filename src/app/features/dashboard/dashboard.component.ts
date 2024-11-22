@@ -7,7 +7,6 @@ import { PokemonCardComponent } from '~features/pokemon-detail/components/pokemo
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [RouterLink, ReactiveFormsModule, PokemonCardComponent, NgForOf],
