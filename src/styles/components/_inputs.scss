@@ -1,5 +1,3 @@
-@use '../base/colors';
-
 @mixin inputs() {
   sl-input.input--primary {
     --sl-input-background-color: var(--page-background);

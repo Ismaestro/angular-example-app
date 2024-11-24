@@ -1,5 +1,3 @@
-@use '../base/colors';
-
 @mixin buttons() {
   sl-button {
     &.button--primary::part(base),
