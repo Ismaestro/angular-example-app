@@ -3,29 +3,20 @@
   kbd:not(:has(kbd)) {
     position: relative;
     display: inline-block;
-    min-width: 14px;
-    min-height: 20px;
-    padding: 1px 0.4em;
-    margin: 0 0.1em;
+    min-width: var(--spacing-xl);
+    min-height: var(--spacing-xxl);
+    padding: 0 var(--spacing-r-lg);
+    margin: 0 var(--spacing-r-xs);
     font-family: sans-serif;
-    line-height: 1.5;
+    line-height: var(--line-height-xxl);
     color: var(--tertiary-contrast);
     text-align: center;
     text-shadow: 0 1px 0 var(--octonary-contrast);
     vertical-align: middle;
     border: 1px solid var(--quinary-contrast);
-    border-radius: 3px;
+    border-radius: var(--border-radius-sm);
     box-shadow:
       0 1px 0 rgb(0 0 0 / 20%),
       0 0 0 2px var(--octonary-contrast) inset;
-
-    @media (prefers-reduced-motion: no-preference) {
-      *:hover > & {
-        top: 1px;
-        box-shadow:
-          0 0.5px 0 rgb(0 0 0 / 20%),
-          0 0 0 2px var(--octonary-contrast) inset;
-      }
-    }
   }
 }

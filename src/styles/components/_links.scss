@@ -1,0 +1,21 @@
+@mixin links() {
+  a {
+    transition: color 0.3s ease;
+  }
+
+  p > a,
+  td > a,
+  div > a,
+  code > a,
+  li a {
+    color: var(--bright-blue);
+
+    &:hover {
+      color: var(--vivid-pink);
+    }
+
+    &:active {
+      color: var(--hot-red);
+    }
+  }
+}

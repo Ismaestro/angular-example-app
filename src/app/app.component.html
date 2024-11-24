@@ -1,6 +1,8 @@
 <button (click)="focusFirstHeading()" class="app__content-skip-button">Skip to main content</button>
 <div class="app__content-container">
   <app-header></app-header>
-  <router-outlet></router-outlet>
+  <div class="app__page-container">
+    <router-outlet></router-outlet>
+  </div>
   <app-footer></app-footer>
 </div>

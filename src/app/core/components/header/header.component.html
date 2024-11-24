@@ -1,11 +1,9 @@
 <nav class="nav__container" [class.open]="menuOpen">
-  <sl-button class="button--icon nav__hamburger" (click)="toggleMenu()">
-    <sl-icon name="list"></sl-icon>
-  </sl-button>
-  <div class="nav__items" [class.active]="menuOpen">
+  <div class="nav-mobile__container" [class.open]="menuOpen">
     <div class="nav__item">
       <a class="nav__link" [routerLink]="ROOT_URLS.home">
         <img
+          class="nav__logo--mobile"
           alt="angular logo"
           i18n-alt
           ngSrc="/assets/icons/favicon-48x48.png"
@@ -15,6 +13,27 @@
         />
       </a>
     </div>
+    <div class="nav__item">
+      <sl-button class="button--icon nav__hamburger" (click)="toggleMenu()">
+        <sl-icon name="list"></sl-icon>
+      </sl-button>
+    </div>
+  </div>
+  <div class="nav__items" [class.open]="menuOpen">
+    @if (!menuOpen) {
+      <div class="nav__item">
+        <a class="nav__link" [routerLink]="ROOT_URLS.home">
+          <img
+            alt="angular logo"
+            i18n-alt
+            ngSrc="/assets/icons/favicon-48x48.png"
+            width="48"
+            height="48"
+            priority
+          />
+        </a>
+      </div>
+    }
     @for (item of navItems; track item.id) {
       @if (
         (item.isUserRequired && isUserLoggedIn) ||
@@ -46,8 +65,8 @@
                     alt="pokemon image"
                     i18n-alt
                     ngSrc="{{ pokemonLoaded?.sprites?.front_default }}"
-                    width="44"
-                    height="44"
+                    width="40"
+                    height="40"
                     priority
                   />
                 </a>
@@ -74,14 +93,16 @@
       <app-language-selector></app-language-selector>
     </div>
 
-    <div class="nav__item">
-      <sl-button class="button--icon" (click)="toggleTheme()">
-        @if (themeSelected === Theme.DARK || !themeSelected) {
-          <sl-icon name="brightness-high-fill"></sl-icon>
-        } @else {
-          <sl-icon name="moon"></sl-icon>
-        }
-      </sl-button>
-    </div>
+    @if (!isUserLoggedIn) {
+      <div class="nav__item">
+        <sl-button class="button--icon" (click)="toggleTheme()">
+          @if (themeSelected === Theme.DARK || !themeSelected) {
+            <sl-icon name="brightness-high-fill"></sl-icon>
+          } @else {
+            <sl-icon name="moon"></sl-icon>
+          }
+        </sl-button>
+      </div>
+    }
   </div>
 </nav>

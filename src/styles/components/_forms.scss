@@ -1,12 +1,10 @@
 @mixin forms() {
-  .ng-valid[required], /* stylelint-disable-line selector-class-pattern */
+  .ng-valid[required],
   .ng-valid.required {
-    /* stylelint-disable-line selector-class-pattern */
-    border-left: 5px solid #42a948;
+    border-left: var(--spacing-sm) solid var(--symbolic-green);
   }
 
   .ng-invalid:not(form) {
-    /* stylelint-disable-line selector-class-pattern */
-    border-left: 5px solid #a94442;
+    border-left: var(--spacing-sm) solid var(--hot-red);
   }
 }

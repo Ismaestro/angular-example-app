@@ -3,10 +3,10 @@
 @mixin menu() {
   sl-menu {
     &.menu--primary {
-      margin-top: 8px;
+      margin-top: var(--spacing-r-md);
       background: var(--octonary-contrast);
       border: 1px solid var(--senary-contrast);
-      border-radius: 0.25rem;
+      border-radius: var(--border-radius-sm);
       box-shadow: none;
 
       a {

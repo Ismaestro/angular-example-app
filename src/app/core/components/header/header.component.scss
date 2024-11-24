@@ -23,10 +23,25 @@
       }
     }
 
-    .nav__hamburger {
-      display: block;
-      padding: var(--spacing-xl) var(--spacing-md);
-      margin-left: auto;
+    .nav-mobile__container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+
+      &.open {
+        border-bottom: 1px solid var(--gray-800);
+      }
+
+      .nav__hamburger {
+        display: block;
+        padding: var(--spacing-xl) var(--spacing-xl);
+        margin-left: auto;
+      }
+
+      .nav__item:first-of-type {
+        margin-left: var(--spacing-r-xl);
+      }
 
       @include mq.for-tablet-up {
         display: none;
@@ -48,7 +63,7 @@
         flex-flow: row wrap;
       }
 
-      &.active {
+      &.open {
         display: flex;
         padding-top: 0;
       }
@@ -59,11 +74,19 @@
         margin: var(--spacing-md) 0;
 
         &:first-of-type {
-          margin: 0;
+          margin-top: var(--spacing-r-4xl);
         }
 
         @include mq.for-tablet-up {
           margin: var(--spacing-xxl) var(--spacing-lg);
+
+          &:first-of-type {
+            margin: 0 var(--spacing-md) 0;
+          }
+
+          &:last-of-type {
+            margin-right: var(--spacing-sm);
+          }
 
           &:nth-child(-n + 0) {
             align-self: flex-start;
@@ -79,11 +102,12 @@
         }
 
         .nav__link {
-          color: var(--gray-400);
+          font-size: var(--font-size-md);
+          color: var(--quaternary-contrast);
           text-decoration: none;
 
           &:hover {
-            color: var(--gray-50);
+            color: var(--primary-contrast);
           }
 
           @include mq.for-tablet-up {
@@ -92,7 +116,7 @@
 
               &::after {
                 position: absolute;
-                bottom: -30px;
+                bottom: -31px;
                 left: 0;
                 width: 100%;
                 height: var(--spacing-xs);
@@ -110,6 +134,10 @@
         .pokemon-search__image {
           display: flex;
           margin: 0;
+        }
+
+        app-pokemon-search {
+          width: 250px;
         }
       }
     }

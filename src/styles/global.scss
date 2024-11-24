@@ -5,8 +5,10 @@
 @use 'base/spacing';
 @use 'base/typography';
 @use 'base/themes';
-@use 'components/forms';
+@use 'components/links';
 @use 'components/buttons';
+@use 'components/forms';
+@use 'components/inputs';
 @use 'components/menu';
 @use 'components/menu-items';
 @use 'components/kbd';
@@ -25,8 +27,10 @@
 @include themes.themes;
 
 // Components
-@include forms.forms;
+@include links.links;
 @include buttons.buttons;
+@include forms.forms;
+@include inputs.inputs;
 @include menu.menu;
 @include menu-items.menu-items;
 @include kbd.kbd;

@@ -14,8 +14,8 @@
     width: 100%;
     min-height: 100vh;
 
-    @include mq.for-tablet {
-      width: 100%;
+    .app__page-container {
+      padding: var(--layout-padding);
     }
   }
 
@@ -23,7 +23,7 @@
     position: absolute;
     top: var(--spacing-r-md);
     left: var(--spacing-r-md);
-    z-index: 1000;
+    z-index: var(--z-index-skip-button);
     padding: var(--spacing-r-md);
     font-size: var(--font-size-xs);
     color: var(--page-background);

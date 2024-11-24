@@ -9,6 +9,7 @@ import {
 import { debounceTime, Subject } from 'rxjs';
 import { Pokemon } from '~features/pokemon-detail/types/pokemon.type';
 import { PokemonService } from '~features/pokemon-detail/services/pokemon.service';
+import { SlInputIconFocusDirective } from '~core/directives/sl-input-icon-focus.directive';
 
 import '@shoelace-style/shoelace/dist/components/input/input.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
@@ -20,6 +21,7 @@ import '@shoelace-style/shoelace/dist/components/icon/icon.js';
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [SlInputIconFocusDirective],
 })
 export class PokemonSearchComponent implements OnInit {
   private readonly pokemonService = inject(PokemonService);
@@ -29,6 +31,7 @@ export class PokemonSearchComponent implements OnInit {
   readonly pokemonLoaded = output<Pokemon>();
 
   termValue = '';
+  isPokemonLoaded = false;
 
   ngOnInit() {
     this.searchSubject.pipe(debounceTime(300)).subscribe((term) => {
@@ -37,9 +40,13 @@ export class PokemonSearchComponent implements OnInit {
       this.pokemonService.getPokemon(term).subscribe({
         next: (pokemon) => {
           this.pokemonLoaded.emit(pokemon);
+          this.isPokemonLoaded = true;
           this.loading.emit(false);
         },
-        error: () => this.loading.emit(false),
+        error: () => {
+          this.isPokemonLoaded = false;
+          this.loading.emit(false);
+        },
       });
     });
   }

@@ -2,25 +2,16 @@
 
 @mixin reset() {
   :root {
-    --page-width: 80ch;
-    --layout-padding: 3.12rem;
-    --primary-nav-width: 110px;
-    --secondary-nav-width: 16.25rem;
-    --fixed-content-height: calc(100vh - var(--layout-padding) * 2);
+    --layout-padding: var(--spacing-r-xl);
 
-    @include mq.for-tablet-landscape-down {
-      --layout-padding: 2rem;
-    }
-
-    @include mq.for-phone-only {
-      --layout-padding: 1rem;
+    @include mq.for-tablet-up {
+      --layout-padding: var(--spacing-r-4xl);
     }
   }
 
   html {
-    // Define the default font for the document
     font-family: var(--inter-font), serif;
-    font-size: 16px;
+    font-size: var(--font-size-md);
     color: var(--primary-contrast);
     background-color: var(--page-background);
     transition:
@@ -58,17 +49,9 @@
 
   img {
     width: 100%;
-    margin: 1rem 0;
+    margin: var(--spacing-r-xl) 0;
     overflow: hidden;
-    border-radius: 0.25rem;
-
-    &[src$='#small'] {
-      max-width: 250px;
-    }
-
-    &[src$='#medium'] {
-      max-width: 450px;
-    }
+    border-radius: var(--border-radius-sm);
   }
 
   abbr[title] {

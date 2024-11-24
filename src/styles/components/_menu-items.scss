@@ -4,11 +4,11 @@
   sl-menu-item {
     &.menu-item--primary {
       a {
-        font-size: 0.9rem;
+        font-size: var(--font-size-sm);
       }
 
       &::part(base) {
-        padding: 4px 0;
+        padding: var(--spacing-r-sm) 0;
 
         &:hover {
           color: color-mix(in srgb, var(--hot-red) 60%, white 70%);

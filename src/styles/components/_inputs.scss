@@ -1,0 +1,37 @@
+@use '../base/colors';
+
+@mixin inputs() {
+  sl-input.input--primary {
+    --sl-input-background-color: var(--page-background);
+    --sl-input-background-color-hover: var(--page-background);
+    --sl-input-background-color-focus: var(--sl-input-background-color);
+    --sl-input-border-color: var(--senary-contrast);
+    --sl-input-border-color-hover: var(--primary-contrast);
+    --sl-input-border-color-focus: var(--vivid-pink);
+    --sl-input-font-family: var(--inter-font);
+    --sl-input-font-size-medium: var(--font-size-md);
+    --sl-input-color: var(--tertiary-contrast);
+    --sl-input-color-hover: var(--primary-contrast);
+    --sl-input-color-focus: var(--primary-contrast);
+    --sl-input-placeholder-color: var(--quaternary-contrast);
+    --sl-input-focus-ring-color: none;
+    --sl-input-focus-ring-offset: 0;
+
+    &::part(base) {
+      transition:
+        color 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+    }
+
+    sl-icon {
+      transition: color 0.3s ease;
+    }
+
+    &:hover {
+      sl-icon {
+        color: var(--primary-contrast);
+      }
+    }
+  }
+}
