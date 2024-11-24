@@ -62,6 +62,11 @@
 
   --page-color: var(--full-contrast);
   --page-background: var(--gray-1000);
+  --buttons-background: color-mix(in srgb, var(--hot-red) 10%, white 2%);
+  --buttons-background-hover: color-mix(in srgb, var(--hot-red) 20%, white 10%);
+  --buttons-color: color-mix(in srgb, var(--hot-red) 60%, white 70%);
+  --icons-color: var(--quaternary-contrast);
+  --icons-color-hover: var(--full-contrast);
 }
 
 @mixin light-mode-definitions() {
@@ -80,6 +85,11 @@
 
   --page-color: var(--primary-contrast);
   --page-background: var(--full-white);
+  --buttons-background: color-mix(in srgb, var(--indigo-blue) 10%, white 2%);
+  --buttons-background-hover: color-mix(in srgb, var(--indigo-blue) 20%, white 10%);
+  --buttons-color: color-mix(in srgb, var(--indigo-blue) 60%, white 70%);
+  --icons-color: var(--quaternary-contrast);
+  --icons-color-hover: var(--full-contrast);
 }
 
 @mixin themes() {

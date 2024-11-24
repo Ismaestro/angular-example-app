@@ -11,32 +11,33 @@
       font-size: var(--font-size-sm);
       font-weight: var(--font-weight-xregular);
       line-height: var(--line-height-lg);
-      color: color-mix(in srgb, var(--hot-red) 60%, white 70%);
+      color: var(--buttons-color);
       letter-spacing: -0.0088rem;
-      background: color-mix(in srgb, var(--hot-red) 10%, white 2%);
+      background: var(--buttons-background);
       border: 0;
       border-radius: var(--border-radius-max);
       transition: background 0.3s ease;
 
       &:hover {
-        background: color-mix(in srgb, var(--hot-red) 20%, white 10%);
+        background: var(--buttons-background-hover);
       }
     }
 
     &.dropdown-button--primary::part(label) {
       padding: 0;
       margin-right: var(--spacing-r-sm);
+      font-weight: var(--font-weight-bold);
     }
 
     &.button--icon {
       &::part(base) {
         padding-inline: 0;
         font-size: var(--font-size-lg);
-        color: var(--quaternary-contrast);
+        color: var(--icons-color);
         background: transparent;
 
         &:hover {
-          color: var(--full-contrast);
+          color: var(--icons-color-hover);
           background: transparent;
           transition: color 0.3s ease;
         }
