@@ -8,14 +8,14 @@
   div > a,
   code > a,
   li a {
-    color: var(--bright-blue);
+    color: var(--brand-color-secondary);
 
     &:hover {
-      color: var(--vivid-pink);
+      color: var(--brand-color-tertiary);
     }
 
     &:active {
-      color: var(--hot-red);
+      color: var(--brand-color-primary);
     }
   }
 }

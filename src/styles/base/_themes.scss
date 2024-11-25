@@ -1,108 +1,17 @@
 @use 'primitive-colors';
-
-/*
-   ============================================================
-   ⚠️ Themes File ⚠️
-   ============================================================
-   This file contains the variables for the application's color themes.
-   These variables are intended to be used all across the app. Developers
-   must use this ones, not the primitive ones.
-
-   Keeping the theme variables scoped to their intended purpose ensures consistency
-   and maintainability of the application's design system.
-   ============================================================
-*/
-@mixin dark-mode-definitions() {
-  // Primitives
-  --bright-blue: color-mix(in srgb, oklch(51.01% 0.274 263.83deg), var(--full-contrast) 60%);
-  --indigo-blue: color-mix(in srgb, oklch(51.64% 0.229 281.65deg), var(--full-contrast) 70%);
-  --electric-violet: color-mix(in srgb, oklch(53.18% 0.28 296.97deg), var(--full-contrast) 70%);
-  --french-violet: color-mix(in srgb, oklch(47.66% 0.246 305.88deg), var(--full-contrast) 70%);
-  --vivid-pink: color-mix(in srgb, oklch(69.02% 0.277 332.77deg), var(--full-contrast) 70%);
-  --hot-pink: color-mix(in srgb, oklch(59.91% 0.239 8.14deg), var(--full-contrast) 70%);
-  --hot-red: color-mix(in srgb, oklch(61.42% 0.238 15.34deg), var(--full-contrast) 70%);
-  --orange-red: color-mix(in srgb, oklch(63.32% 0.24 31.68deg), var(--full-contrast) 60%);
-  --super-green: color-mix(in srgb, oklch(79.12% 0.257 155.13deg), var(--full-contrast) 70%);
-  --light-pink: color-mix(in srgb, var(--vivid-pink) 5%, var(--page-background) 75%);
-  --symbolic-purple: color-mix(in srgb, oklch(42.86% 0.29 266.4deg), var(--full-contrast) 65%);
-  --symbolic-gray: color-mix(in srgb, oklch(66.98% 0 0deg), var(--full-contrast) 65%);
-  --symbolic-blue: color-mix(in srgb, oklch(42.45% 0.223 263.38deg), var(--full-contrast) 65%);
-  --symbolic-pink: color-mix(in srgb, oklch(63.67% 0.254 13.47deg), var(--full-contrast) 65%);
-  --symbolic-orange: color-mix(in srgb, oklch(64.73% 0.2376 33.1832deg), var(--full-contrast) 65%);
-  --symbolic-yellow: color-mix(in srgb, oklch(78.09% 0.163 65.69deg), var(--full-contrast) 65%);
-  --symbolic-green: color-mix(in srgb, oklch(67.83% 0.229 142.73deg), var(--full-contrast) 65%);
-  --symbolic-cyan: color-mix(in srgb, oklch(67.05% 0.1205 181.3402deg), var(--full-contrast) 65%);
-  --symbolic-magenta: color-mix(
-    in srgb,
-    oklch(51.74% 0.2545 315.2626deg),
-    var(--full-contrast) 65%
-  );
-  --symbolic-teal: color-mix(in srgb, oklch(57.59% 0.083 230.58deg), var(--full-contrast) 65%);
-  --symbolic-brown: color-mix(in srgb, oklch(49.06% 0.128 46.41deg), var(--full-contrast) 65%);
-  --symbolic-lime: color-mix(in srgb, oklch(70.33% 0.2078 135.6684deg), var(--full-contrast) 65%);
-  --page-bg-radial-gradient: radial-gradient(circle, black 0%, black 100%);
-  --soft-pink-radial-gradient: radial-gradient(
-    circle at center bottom,
-    var(--light-pink) 0%,
-    color-mix(in srgb, black, transparent 15%) 80%
-  );
-
-  // Contrasts
-  --full-contrast: var(--full-white);
-  --primary-contrast: var(--gray-50);
-  --secondary-contrast: var(--gray-300);
-  --tertiary-contrast: var(--gray-300);
-  --quaternary-contrast: var(--gray-400);
-  --quinary-contrast: var(--gray-500);
-  --senary-contrast: var(--gray-700);
-  --septenary-contrast: var(--gray-800);
-  --octonary-contrast: var(--gray-900);
-
-  // DO NOT use grays anymore, use contrast variables
-
-  --page-color: var(--full-contrast);
-  --page-background: var(--gray-1000);
-  --buttons-background: color-mix(in srgb, var(--hot-red) 10%, white 2%);
-  --buttons-background-hover: color-mix(in srgb, var(--hot-red) 20%, white 10%);
-  --buttons-color: color-mix(in srgb, var(--hot-red) 60%, white 70%);
-  --icons-color: var(--quaternary-contrast);
-  --icons-color-hover: var(--full-contrast);
-}
-
-@mixin light-mode-definitions() {
-  // Contrast
-  --full-contrast: var(--full-black);
-  --primary-contrast: var(--gray-900);
-  --secondary-contrast: var(--gray-800);
-  --tertiary-contrast: var(--gray-700);
-  --quaternary-contrast: var(--gray-500);
-  --quinary-contrast: var(--gray-300);
-  --senary-contrast: var(--gray-200);
-  --septenary-contrast: var(--gray-100);
-  --octonary-contrast: var(--gray-50);
-
-  // DO NOT use grays anymore, use contrast variables
-
-  --page-color: var(--primary-contrast);
-  --page-background: var(--full-white);
-  --buttons-background: color-mix(in srgb, var(--indigo-blue) 10%, white 2%);
-  --buttons-background-hover: color-mix(in srgb, var(--indigo-blue) 20%, white 10%);
-  --buttons-color: color-mix(in srgb, var(--indigo-blue) 60%, white 70%);
-  --icons-color: var(--quaternary-contrast);
-  --icons-color-hover: var(--full-contrast);
-}
+@use 'color-definitions';
 
 @mixin themes() {
-  .theme-light--mode {
+  .theme-dark--mode {
     @include primitive-colors.primitive-colors;
-    @include light-mode-definitions;
+    @include color-definitions.dark-definitions;
 
     background-color: var(--page-background);
   }
 
-  .theme-dark--mode {
+  .theme-light--mode {
     @include primitive-colors.primitive-colors;
-    @include dark-mode-definitions;
+    @include color-definitions.light-definitions;
 
     background-color: var(--page-background);
   }

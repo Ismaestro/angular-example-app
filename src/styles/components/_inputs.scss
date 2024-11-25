@@ -1,18 +1,18 @@
 @mixin inputs() {
   sl-input.input--primary {
-    --sl-input-background-color: var(--page-background);
-    --sl-input-background-color-hover: var(--page-background);
-    --sl-input-background-color-focus: var(--sl-input-background-color);
-    --sl-input-border-color: var(--senary-contrast);
-    --sl-input-border-color-hover: var(--primary-contrast);
-    --sl-input-border-color-focus: var(--vivid-pink);
+    --sl-input-background-color: var(--inputs-background-color);
+    --sl-input-background-color-hover: var(--inputs-background-color-hover);
+    --sl-input-background-color-focus: var(--inputs-background-color-focus);
+    --sl-input-border-color: var(--inputs-border-color);
+    --sl-input-border-color-hover: var(--inputs-border-color-hover);
+    --sl-input-border-color-focus: var(--inputs-border-color-focus);
     --sl-input-font-family: var(--inter-font);
     --sl-input-font-size-medium: var(--font-size-md);
-    --sl-input-color: var(--tertiary-contrast);
-    --sl-input-color-hover: var(--primary-contrast);
-    --sl-input-color-focus: var(--primary-contrast);
-    --sl-input-placeholder-color: var(--quaternary-contrast);
-    --sl-input-focus-ring-color: none;
+    --sl-input-color: var(--inputs-color);
+    --sl-input-color-hover: var(--inputs-color-hover);
+    --sl-input-color-focus: var(--inputs-color-focus);
+    --sl-input-placeholder-color: var(--inputs-placeholder-color);
+    --sl-input-focus-ring-color: var(--inputs-focus-ring-color);
     --sl-input-focus-ring-offset: 0;
 
     &::part(base) {
@@ -28,7 +28,7 @@
 
     &:hover {
       sl-icon {
-        color: var(--primary-contrast);
+        color: var(--icons-color-hover);
       }
     }
   }

@@ -9,12 +9,12 @@
         padding: var(--spacing-r-sm) 0;
 
         &:hover {
-          color: color-mix(in srgb, var(--hot-red) 60%, white 70%);
-          background: color-mix(in srgb, var(--hot-red) 10%, white 2%);
+          color: var(--menu-items-color);
+          background: var(--menu-items-background);
           transition: background 0.3s ease;
 
           &:hover {
-            background: color-mix(in srgb, var(--hot-red) 20%, white 10%);
+            background: var(--menu-items-background-hover);
           }
         }
       }

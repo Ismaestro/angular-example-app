@@ -2,13 +2,13 @@
   sl-menu {
     &.menu--primary {
       margin-top: var(--spacing-r-md);
-      background: var(--octonary-contrast);
+      background: var(--menus-background);
       border: 1px solid var(--senary-contrast);
       border-radius: var(--border-radius-sm);
       box-shadow: none;
 
       a {
-        color: var(--full-contrast);
+        color: var(--menus-color);
       }
     }
   }

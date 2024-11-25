@@ -6,7 +6,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid var(--gray-800);
+    border-bottom: 1px solid var(--septenary-contrast);
 
     @include mq.for-tablet-up {
       flex-direction: row;
@@ -30,7 +30,7 @@
       width: 100%;
 
       &.open {
-        border-bottom: 1px solid var(--gray-800);
+        border-bottom: 1px solid var(--septenary-contrast);
       }
 
       .nav__hamburger {
