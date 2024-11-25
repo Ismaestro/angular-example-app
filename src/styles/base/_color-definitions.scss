@@ -37,6 +37,11 @@
   --text-color-primary: var(--primary-contrast);
   --text-color-secondary: var(--quaternary-contrast);
 
+  // Links
+  --links-color: var(--brand-color-secondary);
+  --links-color-hover: var(--brand-color-tertiary);
+  --links-color-active: var(--brand-color-primary);
+
   // Buttons
   --buttons-background: color-mix(in srgb, var(--brand-color-primary) 10%, white 2%);
   --buttons-background-hover: color-mix(in srgb, var(--brand-color-primary) 20%, white 10%);
@@ -93,6 +98,11 @@
   --page-background: var(--primitive-full-white);
   --text-color-primary: var(--primary-contrast);
   --text-color-secondary: var(--quaternary-contrast);
+
+  // Links
+  --links-color: var(--brand-color-secondary);
+  --links-color-hover: var(--brand-color-tertiary);
+  --links-color-active: var(--brand-color-primary);
 
   // Buttons
   --buttons-background: color-mix(in srgb, var(--primitive-indigo-blue) 10%, white 2%);

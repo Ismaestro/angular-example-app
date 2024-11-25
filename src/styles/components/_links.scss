@@ -8,14 +8,14 @@
   div > a,
   code > a,
   li a {
-    color: var(--brand-color-secondary);
+    color: var(--links-color);
 
     &:hover {
-      color: var(--brand-color-tertiary);
+      color: var(--links-color-hover);
     }
 
     &:active {
-      color: var(--brand-color-primary);
+      color: var(--links-color-active);
     }
   }
 }
