@@ -103,11 +103,11 @@
 
         .nav__link {
           font-size: var(--font-size-md);
-          color: var(--quaternary-contrast);
+          color: var(--text-color-secondary);
           text-decoration: none;
 
           &:hover {
-            color: var(--primary-contrast);
+            color: var(--text-color-secondary-hover);
           }
 
           @include mq.for-tablet-up {

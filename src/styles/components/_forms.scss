@@ -2,10 +2,10 @@
   // TODO: refactor this classes
   .ng-valid[required],
   .ng-valid.required {
-    border-left: var(--spacing-sm) solid var(--symbolic-green);
+    border-left: var(--spacing-sm) solid var(--status-color-success);
   }
 
   .ng-invalid:not(form) {
-    border-left: var(--spacing-sm) solid var(--primitive-hot-red);
+    border-left: var(--spacing-sm) solid var(--status-color-error);
   }
 }

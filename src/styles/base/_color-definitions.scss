@@ -34,8 +34,16 @@
   // General
   --page-color: var(--full-contrast);
   --page-background: var(--primitive-gray-1000);
+
+  // Texts
   --text-color-primary: var(--primary-contrast);
+  --text-color-primary-hover: var(--primary-contrast);
   --text-color-secondary: var(--quaternary-contrast);
+  --text-color-secondary-hover: var(--primary-contrast);
+
+  // Status
+  --status-color-success: var(--primitive-vitalize-green);
+  --status-color-error: var(--primitive-hot-red);
 
   // Links
   --links-color: var(--brand-color-secondary);
@@ -96,8 +104,16 @@
   // General
   --page-color: var(--primary-contrast);
   --page-background: var(--primitive-full-white);
+
+  // Texts
   --text-color-primary: var(--primary-contrast);
+  --text-color-primary-hover: var(--primary-contrast);
   --text-color-secondary: var(--quaternary-contrast);
+  --text-color-secondary-hover: var(--primary-contrast);
+
+  // Status
+  --status-color-success: var(--primitive-vitalize-green);
+  --status-color-error: var(--primitive-hot-red);
 
   // Links
   --links-color: var(--brand-color-secondary);
