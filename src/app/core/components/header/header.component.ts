@@ -95,4 +95,8 @@ export class HeaderComponent {
         : Theme.DARK;
     this.themeManagerService.setTheme(this.themeSelected);
   }
+
+  closeMenu() {
+    this.menuOpen = false;
+  }
 }

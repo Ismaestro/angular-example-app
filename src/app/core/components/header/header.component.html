@@ -44,6 +44,7 @@
           @switch (item.type) {
             @case (navItemType.LINK) {
               <a
+                (click)="closeMenu()"
                 class="nav__link"
                 routerLinkActive="active"
                 [routerLinkActiveOptions]="{ exact: true }"
