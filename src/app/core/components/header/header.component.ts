@@ -8,7 +8,7 @@ import {
 import { POKEMON_URLS, ROOT_URLS } from '~core/consts/urls.consts';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { FirstTitleCasePipe } from '~core/pipes/first-title-case.pipe';
-import { NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage, NgTemplateOutlet } from '@angular/common';
 import {
   HEADER_NAV_ITEMS,
   NavItem,
@@ -19,10 +19,10 @@ import { PokemonSearchComponent } from '~features/pokemon-detail/components/poke
 import { AuthenticationService } from '~features/authentication/services/authentication.service';
 import { Pokemon } from '~features/pokemon-detail/types/pokemon.type';
 import { Theme, ThemeManagerService } from '~core/services/theme-manager.service';
+import { LanguageSelectorComponent } from '~core/components/language-selector/language-selector.component';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
-import { LanguageSelectorComponent } from '~core/components/language-selector/language-selector.component';
 
 @Component({
   selector: 'app-header',
@@ -37,6 +37,7 @@ import { LanguageSelectorComponent } from '~core/components/language-selector/la
     PokemonSearchComponent,
     NgOptimizedImage,
     LanguageSelectorComponent,
+    NgTemplateOutlet,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

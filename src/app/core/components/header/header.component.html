@@ -1,18 +1,6 @@
 <nav class="nav__container" [class.open]="menuOpen">
   <div class="nav-mobile__container" [class.open]="menuOpen">
-    <div class="nav__item">
-      <a class="nav__link" [routerLink]="ROOT_URLS.home">
-        <img
-          class="nav__logo--mobile"
-          alt="angular logo"
-          i18n-alt
-          ngSrc="/assets/icons/favicon-48x48.png"
-          width="48"
-          height="48"
-          priority
-        />
-      </a>
-    </div>
+    <ng-container [ngTemplateOutlet]="logoNavItem" />
     <div class="nav__item">
       <sl-button class="button--icon nav__hamburger" (click)="toggleMenu()">
         <sl-icon name="list"></sl-icon>
@@ -21,18 +9,7 @@
   </div>
   <div class="nav__items" [class.open]="menuOpen">
     @if (!menuOpen) {
-      <div class="nav__item">
-        <a class="nav__link" [routerLink]="ROOT_URLS.home">
-          <img
-            alt="angular logo"
-            i18n-alt
-            ngSrc="/assets/icons/favicon-48x48.png"
-            width="48"
-            height="48"
-            priority
-          />
-        </a>
-      </div>
+      <ng-container [ngTemplateOutlet]="logoNavItem" />
     }
     @for (item of navItems; track item.id) {
       @if (
@@ -107,3 +84,18 @@
     }
   </div>
 </nav>
+
+<ng-template #logoNavItem>
+  <div class="nav__item">
+    <a class="nav__link" [routerLink]="ROOT_URLS.home">
+      <img
+        alt="angular logo"
+        i18n-alt
+        ngSrc="/assets/icons/favicon-48x48.png"
+        width="48"
+        height="48"
+        priority
+      />
+    </a>
+  </div>
+</ng-template>
