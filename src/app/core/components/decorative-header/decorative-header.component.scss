@@ -8,6 +8,7 @@ $svg-width: 200px;
     display: flex;
     flex-direction: column-reverse;
     padding: var(--spacing-r-3xl);
+    margin-block-end: var(--spacing-r-4xl);
     overflow: hidden;
     background: var(--septenary-contrast);
     border-radius: var(--border-radius-xl);

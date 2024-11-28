@@ -22,7 +22,7 @@
     --font-size-md: 1rem;
     --font-size-lg: 1.5rem;
     --font-size-xl: 2rem;
-    --font-size-xxl: 4rem;
+    --font-size-xxl: 2.25rem;
 
     // Line height
     --line-height-xs: 0.9rem;
@@ -32,6 +32,11 @@
     --line-height-xl: 2rem;
     --line-height-xxl: 2.5rem;
     --line-height-max: 3.5rem;
+
+    // Line height
+    --letter-spacing-sm: -0.0088rem;
+    --letter-spacing-md: -0.01rem;
+    --letter-spacing-lg: -0.025rem;
   }
 
   h1,
@@ -40,15 +45,26 @@
   h4,
   h5,
   h6 {
+    margin: 0;
     font-family: var(--inter-tight-font), serif;
     font-weight: var(--font-weight-xregular);
     text-wrap: balance;
   }
 
+  h1 {
+    font-size: var(--font-size-xxl);
+  }
+
+  h2 {
+    margin-block: var(--spacing-r-3xl) var(--spacing-r-md);
+    font-size: var(--font-size-xl);
+  }
+
   p {
+    margin-block: 0 var(--spacing-r-xl);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
-    line-height: var(--line-height-md);
+    line-height: var(--line-height-lg);
     letter-spacing: var(--letter-spacing-sm);
   }
 
@@ -62,7 +78,7 @@
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-lg);
-    letter-spacing: -0.01rem;
+    letter-spacing: var(--letter-spacing-md);
   }
 
   a {
@@ -78,5 +94,9 @@
     border-style: solid;
     border-block-start-width: 1px;
     transition: border-color 0.3s ease;
+  }
+
+  .text--medium {
+    font-size: larger;
   }
 }
