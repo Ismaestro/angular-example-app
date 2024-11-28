@@ -1,8 +1,10 @@
 import { DOCUMENT } from '@angular/common';
-import { Injectable, inject } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { environment } from '~environments/environment.prod';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({
+  providedIn: 'root',
+})
 export class HeaderService {
   private readonly document = inject(DOCUMENT);
 

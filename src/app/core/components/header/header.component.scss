@@ -1,5 +1,8 @@
 @use 'base/media-queries' as mq;
 
+$pokemon-search-input-width: 230px;
+$line-active-item-bottom: -31px;
+
 :host {
   .nav__container {
     display: flex;
@@ -116,7 +119,7 @@
 
               &::after {
                 position: absolute;
-                bottom: -31px;
+                bottom: $line-active-item-bottom;
                 left: 0;
                 width: 100%;
                 height: var(--spacing-xs);
@@ -137,7 +140,7 @@
         }
 
         app-pokemon-search {
-          width: 250px;
+          width: $pokemon-search-input-width;
         }
       }
     }

@@ -1,3 +1,13 @@
 :host {
-  // TODO: add content
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  width: 100%;
+  max-width: var(--page-width);
+  padding: var(--layout-padding);
+
+  .home__heading-kbd {
+    margin: var(--spacing-r-md) 0;
+  }
 }

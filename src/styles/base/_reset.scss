@@ -2,6 +2,7 @@
 
 @mixin reset() {
   :root {
+    --page-width: 80ch;
     --layout-padding: var(--spacing-r-xl);
 
     @include mq.for-tablet-up {
@@ -49,12 +50,16 @@
 
   img {
     width: 100%;
-    margin: var(--spacing-r-xl) 0;
+    margin: 0;
     overflow: hidden;
     border-radius: var(--border-radius-sm);
   }
 
   abbr[title] {
     text-decoration: none;
+  }
+
+  h1 {
+    margin: 0;
   }
 }
