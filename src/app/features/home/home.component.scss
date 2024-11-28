@@ -1,3 +1,5 @@
+@use 'base/media-queries' as mq;
+
 $separator-container-margin-top: -20px;
 $separator-image-width: 200px;
 $separator-margin-bottom: -51px;
@@ -24,6 +26,17 @@ $separator-margin-bottom: -51px;
       width: $separator-image-width;
       height: auto;
       margin-bottom: $separator-margin-bottom;
+    }
+  }
+
+  .cards__grid-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: var(--spacing-r-xxl);
+    margin-block: var(--spacing-r-xl);
+
+    @include mq.for-tablet-portrait-up {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 }

@@ -80,6 +80,12 @@
   --menu-items-background: color-mix(in srgb, var(--brand-color-primary) 10%, white 2%);
   --menu-items-background-hover: color-mix(in srgb, var(--brand-color-primary) 20%, white 10%);
   --menu-items-color: color-mix(in srgb, var(--brand-color-primary) 60%, white 70%);
+
+  // Cards
+  --card-background-hover: var(--primitive-subtle-purple);
+  --card-link-background-hover: var(
+    --pink-to-highlight-to-purple-to-blue-horizontal-mixed-gradient
+  );
 }
 
 @mixin light-definitions() {
@@ -150,4 +156,8 @@
   --menu-items-background: color-mix(in srgb, var(--brand-color-primary) 10%, white 2%);
   --menu-items-background-hover: color-mix(in srgb, var(--brand-color-primary) 20%, white 10%);
   --menu-items-color: color-mix(in srgb, var(--brand-color-primary) 60%, white 70%);
+
+  // Cards
+  --card-background-hover: var(--primitive-cotton-ball);
+  --card-link-background-hover: var(--pink-to-highlight-to-purple-to-blue-horizontal-gradient);
 }

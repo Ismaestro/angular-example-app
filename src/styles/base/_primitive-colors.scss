@@ -13,9 +13,13 @@
 @mixin primitive-colors() {
   // Base
   --primitive-bright-blue: oklch(51.01% 0.274 263.83deg); // #0546ff
+  --primitive-subtle-purple: oklch(33.72% 0.0108 271.08deg); // #35373D
+  --primitive-cotton-ball: oklch(97.54% 0.0115 264.51deg); // #f3f7ff
   --primitive-indigo-blue: oklch(51.64% 0.229 281.65deg); // #5c44e4
   --primitive-vivid-pink: oklch(69.02% 0.277 332.77deg); // #f637e3
+  --primitive-electric-violet: oklch(53.18% 0.28 296.97deg); // #8514f5
   --primitive-hot-red: oklch(61.42% 0.238 15.34deg); // #f11653
+  --primitive-orange-red: oklch(63.32% 0.24 31.68deg); // #fa2c04
   --primitive-vitalize-green: oklch(64.01% 0.1751 146.74deg); // #28a745
 
   // Mixed
@@ -32,6 +36,16 @@
   --primitive-hot-red-mixed: color-mix(
     in srgb,
     oklch(61.42% 0.238 15.34deg),
+    var(--full-contrast) 70%
+  );
+  --primitive-orange-red-mixed: color-mix(
+    in srgb,
+    oklch(63.32% 0.24 31.68deg),
+    var(--full-contrast) 60%
+  );
+  --primitive-electric-violet-mixed: color-mix(
+    in srgb,
+    oklch(53.18% 0.28 296.97deg),
     var(--full-contrast) 70%
   );
 
@@ -51,4 +65,42 @@
   --primitive-gray-200: oklch(91.75% 0.004 301.42deg); // #e4e3e6
   --primitive-gray-100: oklch(97.12% 0.002 325.59deg); // #f6f5f6
   --primitive-gray-50: oklch(98.81% 0 0deg); // #fbfbfb
+
+  // Gradients
+  --pink-to-highlight-to-purple-to-blue-horizontal-gradient: linear-gradient(
+    140deg,
+    var(--primitive-vivid-pink) 0%,
+    var(--primitive-vivid-pink) 15%,
+    color-mix(in srgb, var(--primitive-vivid-pink), var(--primitive-electric-violet) 50%) 25%,
+    color-mix(in srgb, var(--primitive-vivid-pink), var(--primitive-electric-violet) 10%) 35%,
+    color-mix(in srgb, var(--primitive-vivid-pink), var(--primitive-orange-red) 50%) 42%,
+    color-mix(in srgb, var(--primitive-vivid-pink), var(--primitive-orange-red) 50%) 44%,
+    color-mix(in srgb, var(--primitive-vivid-pink), var(--page-background) 70%) 47%,
+    var(--primitive-electric-violet) 48%,
+    var(--primitive-bright-blue) 60%
+  );
+
+  // Mixed gradients
+  --pink-to-highlight-to-purple-to-blue-horizontal-mixed-gradient: linear-gradient(
+    140deg,
+    var(--primitive-vivid-pink-mixed) 0%,
+    var(--primitive-vivid-pink-mixed) 15%,
+    color-mix(
+        in srgb,
+        var(--primitive-vivid-pink-mixed),
+        var(--primitive-electric-violet-mixed) 50%
+      )
+      25%,
+    color-mix(
+        in srgb,
+        var(--primitive-vivid-pink-mixed),
+        var(--primitive-electric-violet-mixed) 10%
+      )
+      35%,
+    color-mix(in srgb, var(--primitive-vivid-pink-mixed), var(--primitive-orange-red-mixed) 50%) 42%,
+    color-mix(in srgb, var(--primitive-vivid-pink-mixed), var(--primitive-orange-red-mixed) 50%) 44%,
+    color-mix(in srgb, var(--primitive-vivid-pink-mixed), var(--page-background) 70%) 47%,
+    var(--primitive-electric-violet-mixed) 48%,
+    var(--primitive-bright-blue-mixed) 60%
+  );
 }
