@@ -1,3 +1,7 @@
+$separator-container-margin-top: -20px;
+$separator-image-width: 200px;
+$separator-margin-bottom: -51px;
+
 :host {
   box-sizing: border-box;
   display: flex;
@@ -9,5 +13,17 @@
 
   .home__heading-kbd {
     margin: var(--spacing-r-md) 0;
+  }
+
+  .separator__container {
+    margin-top: $separator-container-margin-top;
+    text-align: center;
+    border-bottom: 1px solid var(--septenary-contrast);
+
+    img {
+      width: $separator-image-width;
+      height: auto;
+      margin-bottom: $separator-margin-bottom;
+    }
   }
 }

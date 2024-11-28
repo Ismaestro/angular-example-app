@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { NgTemplateOutlet } from '@angular/common';
+import { NgOptimizedImage } from '@angular/common';
 import { DecorativeHeaderComponent } from '~core/components/decorative-header/decorative-header.component';
 
 @Component({
@@ -8,6 +8,6 @@ import { DecorativeHeaderComponent } from '~core/components/decorative-header/de
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgTemplateOutlet, DecorativeHeaderComponent],
+  imports: [DecorativeHeaderComponent, NgOptimizedImage],
 })
 export class HomeComponent {}
