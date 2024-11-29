@@ -3,11 +3,11 @@
   placeholder="Find a pokemon"
   i18n-placeholder
   clearable
-  size="medium"
+  size="medium" i18n-size
   appSlInputIconFocus
   [class.is-pokemon-loaded]="isPokemonLoaded"
   [value]="termValue"
   (sl-input)="termChange($event)"
 >
-  <sl-icon name="search" slot="prefix" />
+  <sl-icon name="search" slot="prefix" i18n-slot />
 </sl-input>

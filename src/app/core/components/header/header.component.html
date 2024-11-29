@@ -23,7 +23,7 @@
               <a
                 class="nav__link"
                 routerLinkActive="active"
-                ariaCurrentWhenActive="page"
+                ariaCurrentWhenActive="page" i18n-ariaCurrentWhenActive
                 [routerLinkActiveOptions]="{ exact: true }"
                 [routerLink]="item.url"
                 (click)="closeMenu()"
@@ -56,7 +56,7 @@
             @case (navItemType.BUTTON) {
               <sl-button
                 class="button--primary"
-                size="medium"
+                size="medium" i18n-size
                 pill
                 (click)="item.click && item.click()"
                 >{{ item.text | firstTitleCase }}</sl-button
@@ -91,7 +91,7 @@
       <img
         alt="angular logo"
         i18n-alt
-        ngSrc="/assets/icons/favicon-48x48.png"
+        ngSrc="/assets/icons/favicon-48x48.png" i18n-ngSrc
         width="48"
         height="48"
         priority

@@ -23,20 +23,18 @@
                       maxlength="150"
                       minlength="2"
                       placeholder="name@example.com"
+                      i18n-placeholder
                       required
                       appTrim
                       type="text"
                       [formControl]="firstname"
                     />
-                    <app-form-errors
-                      class="invalid-feedback"
-                      [control]="firstname"
-                    />
+                    <app-form-errors class="invalid-feedback" [control]="firstname" />
                   </div>
                 </div>
                 <div class="col-12 col-md-10">
                   <div class="form-floating mb-3">
-                    <label class="text-start" for="floating-email">
+                    <label i18n class="text-start" for="floating-email">
                       <i class="icon fa-solid fa-at"></i>
                       Email
                     </label>
@@ -46,6 +44,7 @@
                       appLowercase
                       maxlength="150"
                       placeholder="name@example.com"
+                      i18n-placeholder
                       required
                       appTrim
                       type="email"
@@ -65,6 +64,7 @@
                         class="form-control"
                         id="floating-password"
                         placeholder="Password"
+                        i18n-placeholder
                         required
                         [class.is-invalid]="password.errors && password.errors['passwordStrength']"
                         [formControl]="password"
@@ -72,16 +72,15 @@
                         [type]="showPassword ? 'text' : 'password'"
                         (keyup)="updatePassword()"
                       />
-                      <app-form-errors
-                        class="invalid-feedback"
-                        [control]="password"
-                      />
+                      <app-form-errors class="invalid-feedback" [control]="password" />
                     </div>
                     <div class="password-eye-icon-container">
                       <button
+                        i18n
                         type="button"
                         class="icon fa-solid fa-eye"
                         aria-label="Toggle password visibility"
+                        i18n-aria-label
                         [class.active]="showPassword"
                         (click)="togglePasswordType()"
                         (keyup)="togglePasswordType()"
@@ -100,16 +99,14 @@
                         class="form-control"
                         id="repeat-password"
                         placeholder="Repeat password"
+                        i18n-placeholder
                         required
                         [formControl]="repeatPassword"
                         [minLength]="6"
                         [type]="'password'"
                         (keyup)="updatePassword()"
                       />
-                      <app-form-errors
-                        class="invalid-feedback"
-                        [control]="repeatPassword"
-                      />
+                      <app-form-errors class="invalid-feedback" [control]="repeatPassword" />
                     </div>
                   </div>
                 </div>
@@ -122,15 +119,13 @@
                       class="form-control"
                       id="favourite-pokemon"
                       placeholder="This will validate against PokeAPI."
+                      i18n-placeholder
                       required
                       [formControl]="favouritePokemon"
                       [minLength]="2"
                       [type]="'text'"
                     />
-                    <app-form-errors
-                      class="invalid-feedback"
-                      [control]="favouritePokemon"
-                    />
+                    <app-form-errors class="invalid-feedback" [control]="favouritePokemon" />
                   </div>
                 </div>
                 <div class="col-12 col-md-10">
@@ -160,7 +155,7 @@
                   registerForm.errors?.['passwordsMatch'] &&
                   (registerForm.touched || registerForm.dirty)
                 ) {
-                  <div class="cross-validation-error-message alert alert-danger">
+                  <div i18n class="cross-validation-error-message alert alert-danger">
                     Passwords must be the same.
                   </div>
                 }

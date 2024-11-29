@@ -5,7 +5,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 @Component({
   selector: 'app-ticker',
   template: ` <!-- eslint-disable @angular-eslint/template/no-call-expression -->
-    seconds after app started: {{ counter() }}`,
+    <ng-container i18n>seconds after app started: {{ counter() }}</ng-container>`,
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

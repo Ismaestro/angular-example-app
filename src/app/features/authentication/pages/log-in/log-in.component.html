@@ -9,12 +9,13 @@
           appLowercase
           maxlength="150"
           placeholder="name@example.com"
+          i18n-placeholder
           required
           appTrim
           type="email"
           [formControl]="email"
         />
-        <label class="text-start" for="floating-email"
+        <label i18n class="text-start" for="floating-email"
           ><i class="icon fa-solid fa-at me-1"></i>Email</label
         >
         <app-form-errors class="invalid-feedback" [control]="email" />
@@ -26,6 +27,7 @@
           id="floating-password"
           minlength="8"
           placeholder="Password"
+          i18n-placeholder
           required
           type="password"
           [formControl]="password"
