@@ -8,7 +8,7 @@ export enum NavItemType {
 }
 
 export type NavItem = {
-  id: string;
+  id: NavItemId;
   type: NavItemType;
   text: string;
   isUserRequired?: boolean;

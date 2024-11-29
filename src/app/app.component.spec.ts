@@ -2,7 +2,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from '~core/components/header/header.component';
 import { MockComponent } from 'ng-mocks';
 import { FooterComponent } from '~core/components/footer/footer.component';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import type { ComponentFixture } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { Title } from '@angular/platform-browser';
 
 describe('AppComponent', () => {

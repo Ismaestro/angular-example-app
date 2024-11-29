@@ -6,4 +6,7 @@ import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.j
 
 setBasePath('https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.17.1/cdn/');
 
-bootstrapApplication(AppComponent, appConfig).catch((err) => console.error(err));
+bootstrapApplication(AppComponent, appConfig).catch((error) => {
+  // eslint-disable-next-line no-console
+  console.error(error);
+});

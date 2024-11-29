@@ -1,14 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { InjectionToken, PLATFORM_ID, inject } from '@angular/core';
-
-export const LOCAL_STORAGE = new InjectionToken<Storage | null>('LOCAL_STORAGE', {
-  providedIn: 'root',
-  factory: () => getStorage(inject(PLATFORM_ID)),
-});
-
-const getStorage = (platformId: object): Storage | null => {
-  return isPlatformBrowser(platformId) ? new LocalStorage() : null;
-};
+import { inject, InjectionToken, PLATFORM_ID } from '@angular/core';
 
 /**
  * LocalStorage is wrapper class for localStorage, operations can fail due to various reasons,
@@ -27,7 +18,7 @@ class LocalStorage implements Storage {
     try {
       localStorage.clear();
     } catch {
-      /* empty */
+      /* Empty */
     }
   }
 
@@ -51,7 +42,7 @@ class LocalStorage implements Storage {
     try {
       localStorage.removeItem(key);
     } catch {
-      /* empty */
+      /* Empty */
     }
   }
 
@@ -59,7 +50,15 @@ class LocalStorage implements Storage {
     try {
       localStorage.setItem(key, value);
     } catch {
-      /* empty */
+      /* Empty */
     }
   }
 }
+
+const getStorage = (platformId: object): Storage | null =>
+  isPlatformBrowser(platformId) ? new LocalStorage() : null;
+
+export const LOCAL_STORAGE = new InjectionToken<Storage | null>('LOCAL_STORAGE', {
+  providedIn: 'root',
+  factory: () => getStorage(inject(PLATFORM_ID)),
+});

@@ -1,10 +1,10 @@
+import type { OnInit } from '@angular/core';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   inject,
   input,
-  OnInit,
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 

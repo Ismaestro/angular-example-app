@@ -1,10 +1,11 @@
-import { HttpEvent, HttpHandlerFn, HttpRequest } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import type { HttpEvent, HttpHandlerFn, HttpRequest } from '@angular/common/http';
+import type { Observable } from 'rxjs';
 
 export function loggingInterceptor(
-  req: HttpRequest<unknown>,
+  request: HttpRequest<unknown>,
   next: HttpHandlerFn,
 ): Observable<HttpEvent<unknown>> {
-  console.log(req.url);
-  return next(req);
+  // eslint-disable-next-line no-console
+  console.log(request.url);
+  return next(request);
 }

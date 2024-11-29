@@ -1,5 +1,8 @@
 import { ChangeDetectionStrategy, Component, model } from '@angular/core';
 
+const COUNTER_INCREMENT_SIZE = 1,
+  COUNTER_STARTS = 0;
+
 @Component({
   selector: 'app-pokemon-card',
   templateUrl: './pokemon-card.component.html',
@@ -11,9 +14,9 @@ import { ChangeDetectionStrategy, Component, model } from '@angular/core';
   },
 })
 export class PokemonCardComponent {
-  counter = model<number>(0);
+  counter = model<number>(COUNTER_STARTS);
 
   increaseCounter() {
-    this.counter.set(this.counter() + 1);
+    this.counter.set(this.counter() + COUNTER_INCREMENT_SIZE);
   }
 }

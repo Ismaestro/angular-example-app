@@ -7,7 +7,7 @@ export const noAuthenticationGuard = () => {
   const authenticationService = inject(AuthenticationService);
   if (authenticationService.isUserLoggedIn()) {
     const router = inject(Router);
-    router.navigate([USER_URLS.dashboard]);
+    void router.navigate([USER_URLS.dashboard]);
     return false;
   }
   return true;

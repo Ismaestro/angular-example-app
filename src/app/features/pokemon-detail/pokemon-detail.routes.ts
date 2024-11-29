@@ -1,4 +1,4 @@
-import { Route } from '@angular/router';
+import type { Route } from '@angular/router';
 import { ROOT_PATHS } from '~core/consts/paths.consts';
 import { PokemonDetailComponent } from '~features/pokemon-detail/pages/pokemon-detail/pokemon-detail.component';
 

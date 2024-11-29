@@ -5,6 +5,9 @@ import eslintComments from 'eslint-plugin-eslint-comments';
 import typescriptEslint from '@typescript-eslint/eslint-plugin';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import pluginPromise from 'eslint-plugin-promise';
+import eslintPluginUnicorn from 'eslint-plugin-unicorn';
+
+const APP_PREFIX = 'app';
 
 export default tsEslint.config(
   {
@@ -18,9 +21,10 @@ export default tsEslint.config(
       },
     },
     extends: [
-      eslint.configs.recommended,
-      ...tsEslint.configs.recommended,
-      ...angular.configs.tsRecommended,
+      eslint.configs.all,
+      ...tsEslint.configs.all,
+      ...angular.configs.tsAll,
+      eslintPluginUnicorn.configs['flat/all'],
       pluginPromise.configs['flat/recommended'],
     ],
     plugins: {
@@ -29,89 +33,16 @@ export default tsEslint.config(
     },
     processor: angular.processInlineTemplates,
     rules: {
-      '@typescript-eslint/await-thenable': 'error',
-      '@typescript-eslint/no-restricted-types': 'error',
-      '@typescript-eslint/no-empty-object-type': 'error',
-      '@typescript-eslint/no-unsafe-function-type': 'error',
-      '@typescript-eslint/no-wrapper-object-types': 'error',
-      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
-      '@typescript-eslint/dot-notation': 'off',
-      '@typescript-eslint/explicit-member-accessibility': [
-        'off',
-        {
-          accessibility: 'explicit',
-        },
-      ],
-      '@typescript-eslint/no-for-in-array': 'error',
-      '@typescript-eslint/no-unnecessary-type-assertion': 'error',
-      '@typescript-eslint/no-use-before-define': 'off',
-      '@typescript-eslint/require-array-sort-compare': [
-        'error',
-        {
-          ignoreStringArrays: true,
-        },
-      ],
-      '@typescript-eslint/quotes': 'off',
-      '@typescript-eslint/naming-convention': 'off',
-      '@typescript-eslint/member-ordering': 'off',
-      '@typescript-eslint/no-shadow': ['error'],
-      '@typescript-eslint/no-unused-expressions': 'off',
-      '@angular-eslint/use-injectable-provided-in': 'error',
-      '@angular-eslint/use-lifecycle-interface': 'error',
-      '@angular-eslint/no-pipe-impure': 'error',
-      '@angular-eslint/prefer-on-push-component-change-detection': 'error',
-      '@angular-eslint/no-conflicting-lifecycle': 'error',
-      '@angular-eslint/no-forward-ref': 'error',
-      '@angular-eslint/no-input-prefix': 'error',
-      '@angular-eslint/no-input-rename': 'error',
-      '@angular-eslint/no-output-on-prefix': 'error',
-      '@angular-eslint/no-output-rename': 'error',
-      '@angular-eslint/prefer-output-readonly': 'error',
-      '@angular-eslint/relative-url-prefix': 'error',
-      '@angular-eslint/use-component-selector': 'error',
-      '@angular-eslint/use-component-view-encapsulation': 'error',
-      '@angular-eslint/use-pipe-transform-interface': 'error',
-      '@angular-eslint/component-class-suffix': 'error',
-      '@angular-eslint/directive-class-suffix': 'error',
-      '@angular-eslint/pipe-prefix': 'error',
-      '@angular-eslint/directive-selector': [
-        'error',
-        {
-          type: 'attribute',
-          prefix: 'app',
-          style: 'camelCase',
-        },
-      ],
-      '@angular-eslint/component-selector': [
-        'error',
-        {
-          type: 'element',
-          prefix: 'app',
-          style: 'kebab-case',
-        },
-      ],
-      'eslint-comments/no-use': 'error',
-      'brace-style': [
-        'error',
-        '1tbs',
-        {
-          allowSingleLine: true,
-        },
-      ],
-      'default-case-last': 'error',
-      'dot-notation': 'off',
-      'id-denylist': 'off',
-      'id-match': 'off',
       complexity: [
         'error',
         {
-          max: 8,
+          max: 5,
         },
       ],
       'max-len': [
         'error',
         {
-          code: 400,
+          code: 300,
         },
       ],
       'max-lines-per-function': [
@@ -123,21 +54,73 @@ export default tsEslint.config(
       'max-params': [
         'error',
         {
-          max: 3,
+          max: 2,
         },
       ],
-      'promise/always-return': 'error',
-      'promise/no-return-wrap': 'error',
-      'promise/param-names': 'error',
-      'promise/catch-or-return': 'error',
-      'promise/no-native': 'off',
-      'promise/no-nesting': 'error',
-      'promise/no-promise-in-callback': 'error',
-      'promise/no-callback-in-promise': 'error',
-      'promise/no-new-statics': 'error',
-      'promise/no-return-in-finally': 'error',
-      'promise/valid-params': 'error',
+      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+      '@typescript-eslint/explicit-member-accessibility': [
+        'error',
+        {
+          accessibility: 'no-public',
+        },
+      ],
+      '@angular-eslint/directive-selector': [
+        'error',
+        {
+          type: 'attribute',
+          prefix: APP_PREFIX,
+          style: 'camelCase',
+        },
+      ],
+      '@angular-eslint/component-selector': [
+        'error',
+        {
+          type: 'element',
+          prefix: APP_PREFIX,
+          style: 'kebab-case',
+        },
+      ],
       'promise/no-multiple-resolved': 'error',
+      'promise/spec-only': 'error',
+      'eslint-comments/no-use': ['error', { 'allow': ['eslint-disable-next-line'] }],
+
+      // Off
+      'sort-keys': 'off',
+      'no-underscore-dangle': 'off',
+      'sort-imports': 'off',
+      'new-cap': 'off',
+      'strict': 'off',
+      'one-var': 'off',
+      'no-undefined': 'off',
+      'no-inline-comments': 'off',
+      'no-void': 'off',
+      'func-style': 'off',
+      'no-duplicate-imports': 'off',
+      'no-implicit-coercion': 'off',
+      'no-ternary': 'off',
+      'no-implicit-globals': 'off',
+      '@angular-eslint/runtime-localize': 'off',
+      '@angular-eslint/no-host-metadata-property': 'off',
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
+      '@typescript-eslint/explicit-function-return-type': 'off',
+      '@typescript-eslint/prefer-readonly-parameter-types': 'off',
+      '@typescript-eslint/unbound-method': 'off',
+      '@typescript-eslint/no-unsafe-argument': 'off',
+      '@typescript-eslint/no-magic-numbers': 'off',
+      '@typescript-eslint/use-unknown-in-catch-callback-variable': 'off',
+      '@typescript-eslint/no-extraneous-class': 'off',
+      '@typescript-eslint/strict-boolean-expressions': 'off',
+      '@typescript-eslint/no-unsafe-assignment': 'off',
+      '@typescript-eslint/no-non-null-assertion': 'off',
+      '@typescript-eslint/no-unsafe-call': 'off',
+      '@typescript-eslint/no-unsafe-member-access': 'off',
+      '@typescript-eslint/init-declarations': 'off',
+      '@typescript-eslint/naming-convention': 'off',
+      '@typescript-eslint/member-ordering': 'off',
+      '@typescript-eslint/class-methods-use-this': 'off',
+      'unicorn/prefer-top-level-await': 'off',
+      'unicorn/no-null': 'off',
+      'unicorn/prefer-global-this': 'off',
     },
   },
   {

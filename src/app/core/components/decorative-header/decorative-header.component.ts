@@ -1,12 +1,13 @@
+import type { OnInit } from '@angular/core';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   inject,
   input,
-  OnInit,
 } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import type { SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { FileService } from '~core/services/file.service';
 
 @Component({

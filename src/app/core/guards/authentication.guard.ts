@@ -7,9 +7,9 @@ export const authenticationGuard = () => {
   const authenticationService = inject(AuthenticationService);
   if (authenticationService.isUserLoggedIn()) {
     return true;
-  } else {
-    const router = inject(Router);
-    router.navigate([AUTH_URLS.logIn]);
-    return false;
   }
+
+  const router = inject(Router);
+  void router.navigate([AUTH_URLS.logIn]);
+  return false;
 };

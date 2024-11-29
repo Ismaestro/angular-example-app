@@ -6,7 +6,7 @@ import { CardComponent } from '~core/components/card/card.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  styleUrl: './home.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [DecorativeHeaderComponent, NgOptimizedImage, CardComponent],

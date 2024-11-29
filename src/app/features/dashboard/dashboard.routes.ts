@@ -1,4 +1,4 @@
-import { Route } from '@angular/router';
+import type { Route } from '@angular/router';
 import { DashboardComponent } from '~features/dashboard/dashboard.component';
 import { authenticationGuard } from '~core/guards/authentication.guard';
 import { ROOT_PATHS, DASHBOARD_PATHS } from '~core/consts/paths.consts';

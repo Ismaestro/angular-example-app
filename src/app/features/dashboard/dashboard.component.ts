@@ -1,15 +1,15 @@
 import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { NgForOf } from '@angular/common';
 import { PokemonCardComponent } from '~features/pokemon-detail/components/pokemon-card/pokemon-card.component';
+
+const COUNTER_STARTS = 0;
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule, PokemonCardComponent, NgForOf],
+  imports: [ReactiveFormsModule, PokemonCardComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DashboardComponent {
@@ -17,7 +17,7 @@ export class DashboardComponent {
     aliases: new FormArray([]),
   });
 
-  protected counter = signal(0);
+  protected counter = signal(COUNTER_STARTS);
 
   get aliases() {
     return this.profileForm.get('aliases') as FormArray;

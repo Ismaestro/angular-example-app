@@ -52,7 +52,7 @@ export class LogInComponent {
     if (this.logInForm.valid) {
       this.isButtonLogInLoading = true;
       this.authService.logIn(this.logInForm.getRawValue());
-      this.router.navigate([USER_URLS.dashboard]);
+      void this.router.navigate([USER_URLS.dashboard]);
     }
   }
 }

@@ -9,15 +9,11 @@ import { POKEMON_URLS, ROOT_URLS } from '~core/consts/urls.consts';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { FirstTitleCasePipe } from '~core/pipes/first-title-case.pipe';
 import { NgOptimizedImage, NgTemplateOutlet } from '@angular/common';
-import {
-  HEADER_NAV_ITEMS,
-  NavItem,
-  NavItemId,
-  NavItemType,
-} from '~core/components/header/header.const';
+import type { NavItem } from '~core/components/header/header.const';
+import { HEADER_NAV_ITEMS, NavItemId, NavItemType } from '~core/components/header/header.const';
 import { PokemonSearchComponent } from '~features/pokemon-detail/components/pokemon-search/pokemon-search.component';
 import { AuthenticationService } from '~features/authentication/services/authentication.service';
-import { Pokemon } from '~features/pokemon-detail/types/pokemon.type';
+import type { Pokemon } from '~features/pokemon-detail/types/pokemon.type';
 import { Theme, ThemeManagerService } from '~core/services/theme-manager.service';
 import { LanguageSelectorComponent } from '~core/components/language-selector/language-selector.component';
 
@@ -27,7 +23,7 @@ import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  styleUrl: './header.component.scss',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
@@ -74,7 +70,7 @@ export class HeaderComponent {
   private logoutUser() {
     this.pokemonLoaded = undefined;
     this.authenticationService.logOut();
-    this.router.navigate([ROOT_URLS.home]);
+    void this.router.navigate([ROOT_URLS.home]);
   }
 
   private loadPokemonLink(event: unknown) {
@@ -91,7 +87,8 @@ export class HeaderComponent {
 
   toggleTheme() {
     this.themeSelected =
-      this.themeManagerService.getThemeFromLocalStorageValue() === Theme.DARK || !this.themeSelected
+      this.themeManagerService.getThemeFromLocalStorageValue() === Theme.DARK ||
+      this.themeSelected === null
         ? Theme.LIGHT
         : Theme.DARK;
     this.themeManagerService.setTheme(this.themeSelected);

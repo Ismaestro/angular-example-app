@@ -72,7 +72,6 @@ export class RegisterComponent {
     this.terms.updateValueAndValidity();
     if (this.registerForm.valid) {
       this.isButtonRegisterLoading = true;
-      console.log(this.registerForm.getRawValue());
     }
   }
 

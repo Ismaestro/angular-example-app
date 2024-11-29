@@ -6,7 +6,7 @@
     "start": "ng serve --configuration=development-en --open",
     "start:es": "ng serve --configuration=development-es --open",
     "extract": "ng extract-i18n --format=xlf --output-path=src/locale",
-    "lint": "ng lint --fix && npm run stylelint",
+    "lint": "ng lint && npm run stylelint",
     "stylelint": "npx stylelint \"**/*.{css,scss}\"",
     "test": "ng test --code-coverage --no-watch",
     "test:watch": "ng test --code-coverage",
@@ -31,7 +31,7 @@
     "@angular/router": "18.2.6",
     "rxjs": "7.8.1",
     "tslib": "2.7.0",
-    "zone.js": "0.15.0"
+    "zone.js": "0.14.10"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "18.2.6",
@@ -57,6 +57,7 @@
     "eslint-plugin-eslint-comments": "3.2.0",
     "eslint-plugin-prettier": "5.2.1",
     "eslint-plugin-promise": "7.1.0",
+    "eslint-plugin-unicorn": "56.0.1",
     "husky": "9.1.6",
     "jasmine-core": "5.3.0",
     "karma": "6.4.4",

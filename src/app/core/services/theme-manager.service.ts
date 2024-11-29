@@ -1,18 +1,22 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { Injectable, inject, signal, PLATFORM_ID } from '@angular/core';
+import { inject, Injectable, PLATFORM_ID, signal } from '@angular/core';
 import { Subject } from 'rxjs';
 import { LOCAL_STORAGE } from '~core/providers/local-storage';
 
 // Keep these constants in sync with the code in index.html
-const THEME_PREFERENCE_LOCAL_STORAGE_KEY = 'themePreference';
-const DARK_THEME_CLASS_NAME = 'theme-dark--mode';
-const LIGHT_THEME_CLASS_NAME = 'theme-light--mode';
-const PREFERS_COLOR_SCHEME_DARK = '(prefers-color-scheme: dark)';
+const DARK_THEME_CLASS_NAME = 'theme-dark--mode',
+  LIGHT_THEME_CLASS_NAME = 'theme-light--mode',
+  PREFERS_COLOR_SCHEME_DARK = '(prefers-color-scheme: dark)',
+  THEME_PREFERENCE_LOCAL_STORAGE_KEY = 'themePreference';
 
 export enum Theme {
   DARK = 'dark',
   LIGHT = 'light',
   AUTO = 'auto',
+}
+
+function preferredScheme(): Theme.DARK | Theme.LIGHT {
+  return globalThis.matchMedia(PREFERS_COLOR_SCHEME_DARK).matches ? Theme.DARK : Theme.LIGHT;
 }
 
 @Injectable({
@@ -44,8 +48,8 @@ export class ThemeManagerService {
   // 1. Read theme preferences stored in localStorage
   // 2. In case when there are no stored user preferences, then read them from device preferences.
   private loadThemePreference(): void {
-    const savedUserPreference = this.getThemeFromLocalStorageValue();
-    const useTheme = savedUserPreference ?? Theme.AUTO;
+    const savedUserPreference = this.getThemeFromLocalStorageValue(),
+      useTheme = savedUserPreference ?? Theme.AUTO;
 
     this.theme.set(useTheme);
     this.setThemeBodyClasses(useTheme === Theme.AUTO ? preferredScheme() : useTheme);
@@ -65,13 +69,13 @@ export class ThemeManagerService {
   }
 
   private setThemeInLocalStorage(): void {
-    if (this.theme()) {
+    if (this.theme() !== null) {
       this.localStorage?.setItem(THEME_PREFERENCE_LOCAL_STORAGE_KEY, this.theme()!);
     }
   }
 
   private watchPreferredColorScheme() {
-    window.matchMedia(PREFERS_COLOR_SCHEME_DARK).addEventListener('change', (event) => {
+    globalThis.matchMedia(PREFERS_COLOR_SCHEME_DARK).addEventListener('change', (event) => {
       const scheme = event.matches ? Theme.DARK : Theme.LIGHT;
       this.setThemeBodyClasses(scheme);
     });
@@ -81,8 +85,4 @@ export class ThemeManagerService {
     const theme = this.localStorage?.getItem(THEME_PREFERENCE_LOCAL_STORAGE_KEY) as Theme | null;
     return theme ?? null;
   }
-}
-
-function preferredScheme(): Theme.DARK | Theme.LIGHT {
-  return window.matchMedia(PREFERS_COLOR_SCHEME_DARK).matches ? Theme.DARK : Theme.LIGHT;
 }

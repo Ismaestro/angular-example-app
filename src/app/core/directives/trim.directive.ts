@@ -10,7 +10,7 @@ export class TrimDirective {
   private readonly ngControl = inject(NgControl);
 
   @HostListener('blur') onBlur() {
-    const control = this.ngControl.control;
+    const { control } = this.ngControl;
     if (control) {
       control.setValue(this.el.nativeElement.value.trim());
     }

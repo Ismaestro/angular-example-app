@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import type { OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { translations } from '../locale/translations';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { Title } from '@angular/platform-browser';
@@ -39,7 +40,7 @@ export class AppComponent implements OnInit {
   private subscribeRouteEvents() {
     this.router.events
       .pipe(
-        filter((e): e is NavigationEnd => e instanceof NavigationEnd),
+        filter((event): event is NavigationEnd => event instanceof NavigationEnd),
         map((event) => event.urlAfterRedirects),
       )
       .subscribe((url) => {

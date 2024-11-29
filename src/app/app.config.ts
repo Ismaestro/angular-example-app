@@ -1,4 +1,5 @@
-import { ApplicationConfig, inject } from '@angular/core';
+import type { ApplicationConfig } from '@angular/core';
+import { inject } from '@angular/core';
 import {
   createUrlTreeFromSnapshot,
   PreloadAllModules,

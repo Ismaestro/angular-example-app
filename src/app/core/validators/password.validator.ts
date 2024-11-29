@@ -1,24 +1,26 @@
-import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import type { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 export function passwordValidator(): ValidatorFn {
+  const validators = [
+    (value: string) => /[A-Z]/u.test(value), // Has uppercase
+    (value: string) => /[a-z]/u.test(value), // Has lowercase
+    (value: string) => /[0-9]/u.test(value), // Has numeric
+    (value: string) => value.length >= 8, // Is valid length
+  ];
+
   return (control: AbstractControl): ValidationErrors | null => {
-    const value = control.value;
+    const value = control.value as string;
     if (!value) {
       return null;
     }
-    const hasUpperCase = /[A-Z]/.test(value);
-    const hasLowerCase = /[a-z]/.test(value);
-    const hasNumeric = /[0-9]/.test(value);
-    const isValidLength = value.length >= 8;
-    const passwordValid = hasUpperCase && hasLowerCase && hasNumeric && isValidLength;
-    return passwordValid ? null : { passwordStrength: true };
+    return validators.every((function_) => function_(value)) ? null : { passwordStrength: true };
   };
 }
 
 export const passwordsMatchValidator: ValidatorFn = (
   control: AbstractControl,
 ): ValidationErrors | null => {
-  const password = control.get('password');
-  const repeatPassword = control.get('repeatPassword');
+  const password = control.get('password'),
+    repeatPassword = control.get('repeatPassword');
   return password?.value === repeatPassword?.value ? null : { passwordsMatch: true };
 };
