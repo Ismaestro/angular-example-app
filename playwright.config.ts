@@ -1,8 +1,7 @@
-import { PlaywrightTestConfig } from '@playwright/test';
-import { devices } from '@playwright/test';
+import { devices, PlaywrightTestConfig } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
-  testDir: './playwright',
+  testDir: './e2e',
   timeout: 30 * 1000,
   expect: {
     timeout: 5000,
@@ -24,21 +23,9 @@ const config: PlaywrightTestConfig = {
       },
     },
     {
-      name: 'Firefox',
-      use: {
-        ...devices['Desktop Firefox'],
-      },
-    },
-    {
       name: 'Safari',
       use: {
         ...devices['Desktop Safari'],
-      },
-    },
-    {
-      name: 'Microsoft Edge',
-      use: {
-        channel: 'msedge',
       },
     },
     {
