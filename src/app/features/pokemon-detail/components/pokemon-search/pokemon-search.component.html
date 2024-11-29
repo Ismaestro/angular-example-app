@@ -1,13 +1,13 @@
 <sl-input
   class="input--primary pokemon-search__input"
-  [class.is-pokemon-loaded]="isPokemonLoaded"
-  i18n-placeholder
   placeholder="Find a pokemon"
+  i18n-placeholder
   clearable
   size="medium"
   appSlInputIconFocus
-  (sl-input)="termChange($event)"
+  [class.is-pokemon-loaded]="isPokemonLoaded"
   [value]="termValue"
+  (sl-input)="termChange($event)"
 >
-  <sl-icon name="search" slot="prefix"></sl-icon>
+  <sl-icon name="search" slot="prefix" />
 </sl-input>

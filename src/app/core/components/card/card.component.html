@@ -1,10 +1,10 @@
 <!-- eslint-disable @angular-eslint/template/no-call-expression -->
-<a [href]="href()" class="card__container">
+<a class="card__container" [href]="href()">
   <h3 class="card__heading">
-    <ng-content select="heading"></ng-content>
+    <ng-content select="heading" />
   </h3>
-  <ng-content select="body"></ng-content>
+  <ng-content select="body" />
   <div class="card__link">
-    <ng-content select="link"></ng-content>
+    <ng-content select="link" />
   </div>
 </a>

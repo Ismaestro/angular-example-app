@@ -142,7 +142,7 @@ export default tsEslint.config(
   },
   {
     files: ['**/*.html'],
-    extends: [...angular.configs.templateRecommended, ...angular.configs.templateAccessibility],
+    extends: [...angular.configs.templateAll],
     rules: {
       '@angular-eslint/template/no-call-expression': 'error',
       '@angular-eslint/template/no-any': 'error',

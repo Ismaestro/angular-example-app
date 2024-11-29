@@ -31,7 +31,7 @@
                     <app-form-errors
                       class="invalid-feedback"
                       [control]="firstname"
-                    ></app-form-errors>
+                    />
                   </div>
                 </div>
                 <div class="col-12 col-md-10">
@@ -51,7 +51,7 @@
                       type="email"
                       [formControl]="email"
                     />
-                    <app-form-errors class="invalid-feedback" [control]="email"></app-form-errors>
+                    <app-form-errors class="invalid-feedback" [control]="email" />
                   </div>
                 </div>
                 <div class="col-12 col-md-10 mb-3">
@@ -75,16 +75,16 @@
                       <app-form-errors
                         class="invalid-feedback"
                         [control]="password"
-                      ></app-form-errors>
+                      />
                     </div>
                     <div class="password-eye-icon-container">
                       <button
                         type="button"
                         class="icon fa-solid fa-eye"
+                        aria-label="Toggle password visibility"
                         [class.active]="showPassword"
                         (click)="togglePasswordType()"
                         (keyup)="togglePasswordType()"
-                        aria-label="Toggle password visibility"
                       >
                         eye
                       </button>
@@ -109,7 +109,7 @@
                       <app-form-errors
                         class="invalid-feedback"
                         [control]="repeatPassword"
-                      ></app-form-errors>
+                      />
                     </div>
                   </div>
                 </div>
@@ -130,7 +130,7 @@
                     <app-form-errors
                       class="invalid-feedback"
                       [control]="favouritePokemon"
-                    ></app-form-errors>
+                    />
                   </div>
                 </div>
                 <div class="col-12 col-md-10">
@@ -152,7 +152,7 @@
                       >
                     </label>
                     <div class="ms-n3">
-                      <app-form-errors class="invalid-feedback" [control]="terms"></app-form-errors>
+                      <app-form-errors class="invalid-feedback" [control]="terms" />
                     </div>
                   </div>
                 </div>

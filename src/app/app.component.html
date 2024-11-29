@@ -1,8 +1,10 @@
-<button (click)="focusFirstHeading()" class="app__content-skip-button">Skip to main content</button>
+<button class="app__content-skip-button" type="button" (click)="focusFirstHeading()">
+  Skip to main content
+</button>
 <div class="app__content-container">
-  <app-header></app-header>
+  <app-header />
   <div class="app__page-container">
-    <router-outlet></router-outlet>
+    <router-outlet />
   </div>
-  <app-footer></app-footer>
+  <app-footer />
 </div>

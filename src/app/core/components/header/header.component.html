@@ -3,7 +3,7 @@
     <ng-container [ngTemplateOutlet]="logoNavItem" />
     <div class="nav__item">
       <sl-button class="button--icon nav__hamburger" (click)="toggleMenu()">
-        <sl-icon name="list"></sl-icon>
+        <sl-icon name="list" />
       </sl-button>
     </div>
   </div>
@@ -21,12 +21,12 @@
           @switch (item.type) {
             @case (navItemType.LINK) {
               <a
-                (click)="closeMenu()"
                 class="nav__link"
                 routerLinkActive="active"
-                [routerLinkActiveOptions]="{ exact: true }"
                 ariaCurrentWhenActive="page"
+                [routerLinkActiveOptions]="{ exact: true }"
                 [routerLink]="item.url"
+                (click)="closeMenu()"
               >
                 {{ item.text | firstTitleCase }}
               </a>
@@ -42,10 +42,10 @@
                     class="pokemon-search__image"
                     alt="pokemon image"
                     i18n-alt
-                    ngSrc="{{ pokemonLoaded?.sprites?.front_default }}"
                     width="40"
                     height="40"
                     priority
+                    [ngSrc]="pokemonLoaded?.sprites?.front_default || ''"
                   />
                 </a>
               }
@@ -68,16 +68,16 @@
     }
 
     <div class="nav__item">
-      <app-language-selector></app-language-selector>
+      <app-language-selector />
     </div>
 
     @if (!isUserLoggedIn) {
       <div class="nav__item">
         <sl-button class="button--icon" (click)="toggleTheme()">
           @if (themeSelected === Theme.DARK || !themeSelected) {
-            <sl-icon name="brightness-high-fill"></sl-icon>
+            <sl-icon name="brightness-high-fill" />
           } @else {
-            <sl-icon name="moon"></sl-icon>
+            <sl-icon name="moon" />
           }
         </sl-button>
       </div>

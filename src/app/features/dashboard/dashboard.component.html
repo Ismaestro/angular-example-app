@@ -15,8 +15,8 @@
     @for (alias of aliases.controls; let i = $index; track i) {
       <div>
         <!-- The repeated alias template -->
-        <label for="alias-{{ i }}">Alias:</label>
-        <input id="alias-{{ i }}" type="text" [formControlName]="i" />
+        <label [for]="'alias-' + i">Alias:</label>
+        <input type="text" [id]="'alias-' + i" [formControlName]="i" />
       </div>
     }
     <p>Form Status: {{ profileForm.status }}</p>
