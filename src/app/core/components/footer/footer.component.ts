@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { TickerComponent } from '~core/components/ticker/ticker.component';
 
 @Component({
   selector: 'app-footer',
@@ -7,6 +6,6 @@ import { TickerComponent } from '~core/components/ticker/ticker.component';
   styleUrl: './footer.component.scss',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [TickerComponent],
+  imports: [],
 })
 export class FooterComponent {}
