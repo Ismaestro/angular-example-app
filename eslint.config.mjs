@@ -82,7 +82,10 @@ export default tsEslint.config(
       ],
       'promise/no-multiple-resolved': 'error',
       'promise/spec-only': 'error',
-      'eslint-comments/no-use': ['error', { 'allow': ['eslint-disable-next-line'] }],
+      'eslint-comments/no-use': [
+        'error',
+        { 'allow': ['eslint-disable-next-line', 'eslint-disable', 'eslint-enable'] },
+      ],
 
       // Off
       'sort-keys': 'off',
