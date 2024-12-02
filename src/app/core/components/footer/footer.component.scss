@@ -1,6 +1,8 @@
 @use 'base/media-queries' as mq;
 
 :host {
+  margin-top: auto;
+
   .footer-container {
     container: footer / inline-size;
     position: relative;
