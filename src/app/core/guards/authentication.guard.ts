@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { AUTH_URLS } from '~core/consts/urls.consts';
+import { AUTH_URLS } from '~core/constants/urls.constants';
 import { AuthenticationService } from '~features/authentication/services/authentication.service';
 
 export const authenticationGuard = () => {

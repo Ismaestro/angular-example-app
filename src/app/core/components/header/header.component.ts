@@ -5,12 +5,12 @@ import {
   effect,
   inject,
 } from '@angular/core';
-import { POKEMON_URLS, ROOT_URLS } from '~core/consts/urls.consts';
+import { POKEMON_URLS, ROOT_URLS } from '~core/constants/urls.constants';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { FirstTitleCasePipe } from '~core/pipes/first-title-case.pipe';
 import { NgOptimizedImage, NgTemplateOutlet } from '@angular/common';
-import type { NavItem } from '~core/components/header/header.const';
-import { HEADER_NAV_ITEMS, NavItemId, NavItemType } from '~core/components/header/header.const';
+import type { NavItem } from '~core/components/header/header.constants';
+import { HEADER_NAV_ITEMS, NavItemId, NavItemType } from '~core/components/header/header.constants';
 import { PokemonSearchComponent } from '~features/pokemon-detail/components/pokemon-search/pokemon-search.component';
 import { AuthenticationService } from '~features/authentication/services/authentication.service';
 import type { Pokemon } from '~features/pokemon-detail/types/pokemon.type';

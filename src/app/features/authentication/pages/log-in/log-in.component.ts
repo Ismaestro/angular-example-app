@@ -4,7 +4,7 @@ import { Router, RouterModule } from '@angular/router';
 import { FormErrorsComponent } from '~core/components/form-errors/form-errors.component';
 import { TrimDirective } from '~core/directives/trim.directive';
 import { emailValidator } from '~core/validators/email.validator';
-import { AUTH_URLS, USER_URLS } from '~core/consts/urls.consts';
+import { AUTH_URLS, USER_URLS } from '~core/constants/urls.constants';
 import { LowercaseDirective } from '~core/directives/lowercase.directive';
 import { passwordValidator } from '~core/validators/password.validator';
 import { AuthenticationService } from '~features/authentication/services/authentication.service';

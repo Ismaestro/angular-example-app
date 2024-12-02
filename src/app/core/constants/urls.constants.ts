@@ -3,7 +3,7 @@ import {
   DASHBOARD_PATHS,
   POKEMON_DETAIL_PATHS,
   ROOT_PATHS,
-} from '~core/consts/paths.consts';
+} from '~core/constants/paths.constants';
 
 export const ROOT_URLS = {
   home: `/${ROOT_PATHS.home}`,

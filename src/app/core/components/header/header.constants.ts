@@ -1,5 +1,5 @@
 import { translations } from '../../../../locale/translations';
-import { AUTH_URLS, ROOT_URLS, USER_URLS } from '~core/consts/urls.consts';
+import { AUTH_URLS, ROOT_URLS, USER_URLS } from '~core/constants/urls.constants';
 
 export enum NavItemType {
   LINK = 'LINK',

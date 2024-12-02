@@ -1,7 +1,7 @@
 import type { Route } from '@angular/router';
 import { DashboardComponent } from '~features/dashboard/dashboard.component';
 import { authenticationGuard } from '~core/guards/authentication.guard';
-import { ROOT_PATHS, DASHBOARD_PATHS } from '~core/consts/paths.consts';
+import { DASHBOARD_PATHS, ROOT_PATHS } from '~core/constants/paths.constants';
 
 export const DASHBOARD_ROUTES: Route[] = [
   {

@@ -3,7 +3,7 @@ import {
   DASHBOARD_PATHS,
   POKEMON_DETAIL_PATHS,
   ROOT_PATHS,
-} from '~core/consts/paths.consts';
+} from '~core/constants/paths.constants';
 import { Error404Component } from '~core/components/error-404/error-404.component';
 import type { Route } from '@angular/router';
 import { HomeComponent } from '~features/home/home.component';

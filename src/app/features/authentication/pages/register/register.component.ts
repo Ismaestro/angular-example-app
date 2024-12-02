@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angu
 import { RouterModule } from '@angular/router';
 import { FormErrorsComponent } from '~core/components/form-errors/form-errors.component';
 import { TrimDirective } from '~core/directives/trim.directive';
-import { AUTH_URLS } from '~core/consts/urls.consts';
+import { AUTH_URLS } from '~core/constants/urls.constants';
 import { LowercaseDirective } from '~core/directives/lowercase.directive';
 import { emailValidator } from '~core/validators/email.validator';
 import { passwordsMatchValidator, passwordValidator } from '~core/validators/password.validator';
