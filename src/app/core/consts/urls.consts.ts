@@ -1,8 +1,8 @@
 import {
   AUTHENTICATION_PATHS,
+  DASHBOARD_PATHS,
   POKEMON_DETAIL_PATHS,
   ROOT_PATHS,
-  DASHBOARD_PATHS,
 } from '~core/consts/paths.consts';
 
 export const ROOT_URLS = {
