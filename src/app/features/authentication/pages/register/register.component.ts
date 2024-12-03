@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { FormErrorsComponent } from '~core/components/form-errors/form-errors.component';
 import { TrimDirective } from '~core/directives/trim.directive';
 import { AUTH_URLS } from '~core/constants/urls.constants';
 import { LowercaseDirective } from '~core/directives/lowercase.directive';
@@ -14,13 +13,7 @@ import { PokemonValidator } from '~core/validators/pokemon.validator';
   templateUrl: './register.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [
-    RouterModule,
-    ReactiveFormsModule,
-    FormErrorsComponent,
-    TrimDirective,
-    LowercaseDirective,
-  ],
+  imports: [RouterModule, ReactiveFormsModule, TrimDirective, LowercaseDirective],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class RegisterComponent {

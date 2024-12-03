@@ -1,4 +1,25 @@
 @mixin inputs() {
+  sl-input.ng-invalid.ng-touched:not(form) {
+    &::part(form-control-input) {
+      --sl-input-border-color: var(--status-color-error);
+      --sl-input-border-color-hover: var(--status-color-error);
+      --sl-input-border-color-focus: var(--status-color-error);
+      --sl-input-placeholder-color: var(--status-color-error);
+    }
+
+    &::part(form-control-help-text) {
+      color: var(--status-color-error);
+    }
+  }
+
+  sl-input.ng-valid.ng-touched:not(form) {
+    &::part(form-control-input) {
+      --sl-input-border-color: var(--status-color-success);
+      --sl-input-border-color-hover: var(--status-color-success);
+      --sl-input-border-color-focus: var(--status-color-success);
+    }
+  }
+
   sl-input.input--primary {
     --sl-input-background-color: var(--inputs-background-color);
     --sl-input-background-color-hover: var(--inputs-background-color-hover);
@@ -20,6 +41,20 @@
         color 0.3s ease,
         background-color 0.3s ease,
         border-color 0.3s ease;
+    }
+
+    &::part(form-control) {
+      text-align: start;
+    }
+
+    &::part(form-control-label) {
+      margin-block-end: var(--spacing-r-sm);
+    }
+
+    &::part(form-control-help-text) {
+      margin-top: var(--spacing-r-sm);
+      font-size: var(--font-size-xs);
+      color: var(--inputs-color);
     }
 
     sl-icon {

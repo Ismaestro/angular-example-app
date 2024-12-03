@@ -1,17 +1,12 @@
 @use 'base/media-queries' as mq;
+@use 'base/pages';
 
 $separator-container-margin-top: -20px;
 $separator-image-width: 200px;
 $separator-margin-bottom: -51px;
 
 :host {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-self: center;
-  width: 100%;
-  max-width: var(--page-width);
-  padding: var(--layout-padding);
+  @include pages.read-page;
 
   .home__heading-kbd {
     margin: var(--spacing-r-md) 0;

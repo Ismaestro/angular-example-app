@@ -1,57 +1,60 @@
 <div class="login__container">
   <main>
     <h1 class="heading__title" i18n>¡Welcome back!</h1>
-    <form class="login__form" [formGroup]="logInForm" (ngSubmit)="sendForm()">
+    <form #loginForm="ngForm" class="login__form" [formGroup]="logInForm" (ngSubmit)="sendForm()">
       <div class="form-control__container">
-        <input
-          class="form-control"
-          id="floating-email"
-          appLowercase
-          maxlength="150"
-          placeholder="name@example.com"
+        <sl-input
+          class="input--primary"
+          placeholder="Enter your email"
+          label="Email"
+          size="medium"
+          i18n-label
           i18n-placeholder
-          required
-          appTrim
-          type="email"
+          appSlInputIconFocus
+          i18n-size
+          ngDefaultControl
+          [attr.help-text]="email.invalid && loginForm['submitted'] ? translations.emailHelpText : ''"
           [formControl]="email"
-        />
-        <label i18n class="text-start" for="floating-email"
-          ><i class="icon fa-solid fa-at me-1"></i>Email</label
         >
-        <app-form-errors class="invalid-feedback" [control]="email" />
+          <sl-icon name="person-circle" slot="prefix" i18n-slot />
+        </sl-input>
       </div>
       <div class="form-control__container">
-        <input
-          autocomplete
-          class="form-control"
-          id="floating-password"
-          minlength="8"
-          placeholder="Password"
-          i18n-placeholder
-          required
+        <sl-input
           type="password"
+          class="input--primary"
+          placeholder="Enter your password"
+          password-toggle
+          label="Password"
+          size="medium"
+          i18n-label
+          i18n-placeholder
+          appSlInputIconFocus
+          i18n-size
+          ngDefaultControl
+          [attr.help-text]="password.invalid && loginForm['submitted'] ? translations.passwordHelpText : ''"
           [formControl]="password"
-          (keyup.enter)="sendForm(); $event.preventDefault()"
-        />
-        <label class="text-start" for="floating-password"
-          ><i class="icon fa-solid fa-lock me-1"></i>
-          <ng-container i18n>Password</ng-container></label
         >
-        <app-form-errors class="invalid-feedback" [control]="password" />
+          <sl-icon name="lock" slot="prefix" i18n-slot />
+        </sl-input>
       </div>
       <div class="form-control__container">
-        <sl-button pill type="submit" [attr.loading]="isButtonLogInLoading || null">
+        <sl-button
+          class="button--primary"
+          size="medium"
+          i18n-size
+          pill
+          type="submit"
+          [attr.loading]="isButtonLogInLoading || null"
+        >
           <ng-container i18n>Enter</ng-container>
         </sl-button>
       </div>
-      <div class="login__footer">
-        <p>
-          <span i18n>don't have an account yet?</span>
-          <a class="ms-1" [routerLink]="authUrls.register">
-            <ng-container i18n>register</ng-container>
-            <i class="ms-1 icon fa-solid fa-right-long"></i>
+      <div>
+        <p class="form-footer__paragraph">
+          <a class="form-footer__link" [routerLink]="authUrls.register">
+            <ng-container i18n>Don't have an account yet? Register</ng-container>
           </a>
-          <br />
         </p>
       </div>
     </form>

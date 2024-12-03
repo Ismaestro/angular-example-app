@@ -1,0 +1,37 @@
+@use 'base/media-queries' as mq;
+@use 'base/pages';
+
+$login-form-max-width: 400px;
+
+:host {
+  @include pages.read-page;
+
+  text-align: center;
+
+  .heading__title {
+    margin-block-end: var(--spacing-r-3xl);
+  }
+
+  .login__form {
+    max-width: $login-form-max-width;
+    padding: var(--spacing-r-5xl) var(--spacing-r-xl);
+    margin: 0 auto;
+    border: 1px solid var(--senary-contrast);
+
+    .form-control__container {
+      margin-block: var(--spacing-r-xl);
+
+      &:first-of-type {
+        margin-block-start: 0;
+      }
+    }
+
+    .form-footer__paragraph {
+      margin: 0;
+
+      .form-footer__link {
+        font-size: var(--font-size-sm);
+      }
+    }
+  }
+}

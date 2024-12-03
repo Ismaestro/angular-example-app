@@ -3,6 +3,10 @@
     transition: color 0.3s ease;
   }
 
+  p a {
+    text-decoration: underline;
+  }
+
   p > a,
   td > a,
   div > a,

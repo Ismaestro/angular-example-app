@@ -122,14 +122,14 @@
   --status-color-error: var(--primitive-hot-red);
 
   // Links
-  --links-color: var(--brand-color-secondary);
+  --links-color: var(--brand-color-primary);
   --links-color-hover: var(--brand-color-tertiary);
-  --links-color-active: var(--brand-color-primary);
+  --links-color-active: var(--brand-color-secondary);
 
   // Buttons
   --buttons-background: color-mix(in srgb, var(--primitive-indigo-blue) 10%, white 2%);
   --buttons-background-hover: color-mix(in srgb, var(--primitive-indigo-blue) 20%, white 10%);
-  --buttons-color: color-mix(in srgb, var(--primitive-indigo-blue) 60%, white 70%);
+  --buttons-color: var(--primitive-indigo-blue);
 
   // Icons
   --icons-color: var(--quaternary-contrast);

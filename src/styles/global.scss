@@ -1,5 +1,4 @@
 @use 'base/reset';
-@use 'base/media-queries' as mq;
 @use 'base/z-index';
 @use 'base/border-radius';
 @use 'base/spacing';
@@ -7,7 +6,6 @@
 @use 'base/themes';
 @use 'components/links';
 @use 'components/buttons';
-@use 'components/forms';
 @use 'components/inputs';
 @use 'components/menu';
 @use 'components/menu-items';
@@ -16,20 +14,12 @@
 
 // Base
 @include reset.reset;
-@include mq.for-phone-only;
-@include mq.for-tablet-portrait-up;
-@include mq.for-tablet-landscape-up;
-@include mq.for-desktop-up;
-@include mq.for-big-desktop-up;
-@include mq.for-tablet-landscape-down;
-@include mq.for-tablet-landscape-down;
 @include typography.typography;
 @include themes.themes;
 
 // Components
 @include links.links;
 @include buttons.buttons;
-@include forms.forms;
 @include inputs.inputs;
 @include menu.menu;
 @include menu-items.menu-items;

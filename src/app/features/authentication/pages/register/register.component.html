@@ -29,7 +29,6 @@
                       type="text"
                       [formControl]="firstname"
                     />
-                    <app-form-errors class="invalid-feedback" [control]="firstname" />
                   </div>
                 </div>
                 <div class="col-12 col-md-10">
@@ -50,7 +49,6 @@
                       type="email"
                       [formControl]="email"
                     />
-                    <app-form-errors class="invalid-feedback" [control]="email" />
                   </div>
                 </div>
                 <div class="col-12 col-md-10 mb-3">
@@ -72,7 +70,6 @@
                         [type]="showPassword ? 'text' : 'password'"
                         (keyup)="updatePassword()"
                       />
-                      <app-form-errors class="invalid-feedback" [control]="password" />
                     </div>
                     <div class="password-eye-icon-container">
                       <button
@@ -106,7 +103,6 @@
                         [type]="'password'"
                         (keyup)="updatePassword()"
                       />
-                      <app-form-errors class="invalid-feedback" [control]="repeatPassword" />
                     </div>
                   </div>
                 </div>
@@ -125,7 +121,6 @@
                       [minLength]="2"
                       [type]="'text'"
                     />
-                    <app-form-errors class="invalid-feedback" [control]="favouritePokemon" />
                   </div>
                 </div>
                 <div class="col-12 col-md-10">
@@ -146,9 +141,7 @@
                         policy</ng-container
                       >
                     </label>
-                    <div class="ms-n3">
-                      <app-form-errors class="invalid-feedback" [control]="terms" />
-                    </div>
+                    <div class="ms-n3"></div>
                   </div>
                 </div>
                 @if (

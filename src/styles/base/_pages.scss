@@ -1,0 +1,9 @@
+@mixin read-page() {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  width: 100%;
+  max-width: var(--page-width);
+  padding: var(--layout-padding);
+}
