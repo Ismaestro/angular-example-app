@@ -9,13 +9,20 @@ import { DOCUMENT } from '@angular/common';
 import { filter, map } from 'rxjs';
 import { HeaderService } from '~core/services/header.service';
 import { ProgressBarComponent } from '~core/components/progress-bar/progress-bar.component';
+import { CookiePopupComponent } from '~core/components/cookie-popup/cookie-popup.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, ProgressBarComponent],
+  imports: [
+    RouterOutlet,
+    HeaderComponent,
+    FooterComponent,
+    ProgressBarComponent,
+    CookiePopupComponent,
+  ],
   standalone: true,
 })
 export class AppComponent implements OnInit {

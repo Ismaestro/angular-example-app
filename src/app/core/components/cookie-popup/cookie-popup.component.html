@@ -1,0 +1,19 @@
+<!-- eslint-disable-next-line @angular-eslint/template/no-call-expression -->
+@if (!hasAccepted()) {
+  <div class="cookies__container">
+    <p i18n>
+      We use Google Tag Manager and Google Analytics on this site to make it work smoothly and
+      understand how people use it.
+    </p>
+    <div>
+      <sl-button
+        i18n
+        class="dropdown-button--primary"
+        aria-label="Ok, got it!"
+        i18n-aria-label
+        (click)="acceptCookies()"
+        >Ok, got it!</sl-button
+      >
+    </div>
+  </div>
+}
