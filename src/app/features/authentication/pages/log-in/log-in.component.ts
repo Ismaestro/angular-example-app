@@ -7,6 +7,7 @@ import { passwordValidator } from '~core/validators/password.validator';
 import { AuthenticationService } from '~features/authentication/services/authentication.service';
 import { SlInputIconFocusDirective } from '~core/directives/sl-input-icon-focus.directive';
 import { translations } from '../../../../../locale/translations';
+import { NgOptimizedImage } from '@angular/common';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/input/input.js';
@@ -18,7 +19,7 @@ import '@shoelace-style/shoelace/dist/components/icon/icon.js';
   styleUrl: './log-in.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [ReactiveFormsModule, RouterModule, SlInputIconFocusDirective],
+  imports: [ReactiveFormsModule, RouterModule, SlInputIconFocusDirective, NgOptimizedImage],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LogInComponent {

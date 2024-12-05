@@ -18,11 +18,19 @@ $login-form-max-width: 400px;
     margin: 0 auto;
     border: 1px solid var(--senary-contrast);
 
+    @include mq.for-tablet-up {
+      padding: var(--spacing-r-6xl) var(--spacing-r-xl);
+    }
+
     .form-control__container {
       margin-block: var(--spacing-r-xl);
 
       &:first-of-type {
         margin-block-start: 0;
+      }
+
+      @include mq.for-tablet-up {
+        margin-block: var(--spacing-r-4xl);
       }
     }
 
@@ -31,6 +39,25 @@ $login-form-max-width: 400px;
 
       .form-footer__link {
         font-size: var(--font-size-sm);
+      }
+    }
+
+    .login__image-container {
+      position: relative;
+
+      .login__image {
+        position: absolute;
+        right: 7px;
+        bottom: -52px;
+        width: 55px;
+        height: auto;
+
+        @include mq.for-tablet-up {
+          right: -6px;
+          bottom: -65px;
+          width: 75px;
+          height: auto;
+        }
       }
     }
   }
