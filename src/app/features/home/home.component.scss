@@ -1,5 +1,5 @@
 @use 'base/media-queries' as mq;
-@use 'base/pages';
+@use '../../../styles/components/pages';
 
 $separator-image-width: 130px;
 $separator-margin: 0 10px 35px 0;

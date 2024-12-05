@@ -1,73 +1,76 @@
-<div class="login__container">
-  <main>
-    <h1 class="heading__title" i18n>¡Welcome back!</h1>
-    <form #loginForm="ngForm" class="login__form" [formGroup]="logInForm" (ngSubmit)="sendForm()">
-      <div class="form-control__container">
-        <sl-input
-          class="input--primary"
-          placeholder="Enter your email"
-          label="Email"
-          size="medium"
-          i18n-label
-          i18n-placeholder
-          appSlInputIconFocus
-          i18n-size
-          ngDefaultControl
-          [attr.help-text]="email.invalid && loginForm['submitted'] ? translations.emailHelpText : ''"
-          [formControl]="email"
-        >
-          <sl-icon name="person-circle" slot="prefix" i18n-slot />
-        </sl-input>
-      </div>
-      <div class="form-control__container">
-        <sl-input
-          type="password"
-          class="input--primary"
-          placeholder="Enter your password"
-          password-toggle
-          label="Password"
-          size="medium"
-          i18n-label
-          i18n-placeholder
-          appSlInputIconFocus
-          i18n-size
-          ngDefaultControl
-          [attr.help-text]="password.invalid && loginForm['submitted'] ? translations.passwordHelpText : ''"
-          [formControl]="password"
-        >
-          <sl-icon name="lock" slot="prefix" i18n-slot />
-        </sl-input>
-      </div>
-      <div class="form-control__container">
-        <sl-button
-          class="button--primary"
-          size="medium"
-          i18n-size
-          pill
-          type="submit"
-          [attr.loading]="isButtonLogInLoading || null"
-        >
-          <ng-container i18n>Enter</ng-container>
-        </sl-button>
-      </div>
-      <div>
-        <p class="form-footer__paragraph">
-          <a class="form-footer__link" [routerLink]="authUrls.register">
-            <ng-container i18n>Don't have an account yet? Register</ng-container>
-          </a>
-        </p>
-      </div>
-      <div class="login__image-container">
-        <img
-          class="login__image"
-          alt="angular logo"
-          i18n-alt
-          ngSrc="/assets/images/pikachu.png"
-          i18n-ngSrc
-          width="200"
-          height="200"
-        />
-      </div>
-    </form>
-  </main>
-</div>
+<main>
+  <h1 class="first-heading__title" i18n>¡Welcome back!</h1>
+  <form
+    #loginForm="ngForm"
+    class="form__container login__form"
+    [formGroup]="logInForm"
+    (ngSubmit)="sendForm()"
+  >
+    <div class="form-control__container">
+      <sl-input
+        class="input--primary"
+        placeholder="Enter your email"
+        label="Email"
+        size="medium"
+        i18n-label
+        i18n-placeholder
+        appSlInputIconFocus
+        i18n-size
+        ngDefaultControl
+        [attr.help-text]="email.invalid && loginForm['submitted'] ? translations.emailHelpText : ''"
+        [formControl]="email"
+      >
+        <sl-icon name="person-circle" slot="prefix" i18n-slot />
+      </sl-input>
+    </div>
+    <div class="form-control__container">
+      <sl-input
+        type="password"
+        class="input--primary"
+        placeholder="Enter your password"
+        password-toggle
+        label="Password"
+        size="medium"
+        i18n-label
+        i18n-placeholder
+        appSlInputIconFocus
+        i18n-size
+        ngDefaultControl
+        [attr.help-text]="password.invalid && loginForm['submitted'] ? translations.passwordHelpText : ''"
+        [formControl]="password"
+      >
+        <sl-icon name="lock" slot="prefix" i18n-slot />
+      </sl-input>
+    </div>
+    <div class="form-control__container">
+      <sl-button
+        class="button--primary"
+        size="medium"
+        i18n-size
+        pill
+        type="submit"
+        [attr.loading]="isButtonLogInLoading || null"
+      >
+        <ng-container i18n>Enter</ng-container>
+      </sl-button>
+    </div>
+    <div>
+      <p class="form-footer__paragraph">
+        <a class="form-footer__link" [routerLink]="authUrls.register">
+          <ng-container i18n>Don't have an account yet? Register</ng-container>
+        </a>
+      </p>
+    </div>
+    <div class="login__image-container">
+      <img
+        class="login__image"
+        alt="angular logo"
+        i18n-alt
+        ngSrc="/assets/images/pikachu.png"
+        i18n-ngSrc
+        width="200"
+        height="200"
+      />
+    </div>
+  </form>
+</main>

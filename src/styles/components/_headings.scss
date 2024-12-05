@@ -1,0 +1,7 @@
+@use 'base/media-queries' as mq;
+
+@mixin headings() {
+  .first-heading__title {
+    margin-block-end: var(--spacing-r-3xl);
+  }
+}

@@ -27,20 +27,19 @@ export class LogInComponent {
   private readonly formBuilder = inject(FormBuilder);
   private readonly authService = inject(AuthenticationService);
 
-  readonly translations = translations;
-  readonly authUrls = AUTH_URLS;
-  readonly email = new FormControl<string>('', [
+  translations = translations;
+  authUrls = AUTH_URLS;
+  email = new FormControl<string>('', [
     Validators.required,
     Validators.minLength(4),
     emailValidator(),
   ]);
-  readonly password = new FormControl<string>('', [
+  password = new FormControl<string>('', [
     Validators.required,
     Validators.minLength(6),
     passwordValidator(),
   ]);
-
-  readonly logInForm = this.formBuilder.group({
+  logInForm = this.formBuilder.group({
     email: this.email,
     password: this.password,
   });

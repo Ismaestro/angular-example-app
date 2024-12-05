@@ -4,8 +4,10 @@
 @use 'base/spacing';
 @use 'base/typography';
 @use 'base/themes';
+@use 'components/headings';
 @use 'components/links';
 @use 'components/buttons';
+@use 'components/forms';
 @use 'components/inputs';
 @use 'components/menu';
 @use 'components/menu-items';
@@ -18,8 +20,10 @@
 @include themes.themes;
 
 // Components
+@include headings.headings;
 @include links.links;
 @include buttons.buttons;
+@include forms.forms;
 @include inputs.inputs;
 @include menu.menu;
 @include menu-items.menu-items;
