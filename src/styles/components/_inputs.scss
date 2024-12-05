@@ -1,25 +1,4 @@
 @mixin inputs() {
-  sl-input.ng-invalid.ng-touched:not(form) {
-    &::part(form-control-input) {
-      --sl-input-border-color: var(--status-color-error);
-      --sl-input-border-color-hover: var(--status-color-error);
-      --sl-input-border-color-focus: var(--status-color-error);
-      --sl-input-placeholder-color: var(--status-color-error);
-    }
-
-    &::part(form-control-help-text) {
-      color: var(--status-color-error);
-    }
-  }
-
-  sl-input.ng-valid.ng-touched:not(form) {
-    &::part(form-control-input) {
-      --sl-input-border-color: var(--status-color-success);
-      --sl-input-border-color-hover: var(--status-color-success);
-      --sl-input-border-color-focus: var(--status-color-success);
-    }
-  }
-
   sl-input.input--primary {
     --sl-input-background-color: var(--inputs-background-color);
     --sl-input-background-color-hover: var(--inputs-background-color-hover);
@@ -41,6 +20,10 @@
         color 0.3s ease,
         background-color 0.3s ease,
         border-color 0.3s ease;
+    }
+
+    &::part(input)::placeholder {
+      font-size: var(--font-size-sm);
     }
 
     &::part(form-control) {
@@ -65,6 +48,27 @@
       sl-icon {
         color: var(--icons-color-hover);
       }
+    }
+  }
+
+  sl-input.ng-invalid.ng-touched:not(form) {
+    &::part(form-control-input) {
+      --sl-input-border-color: var(--status-color-error);
+      --sl-input-border-color-hover: var(--status-color-error);
+      --sl-input-border-color-focus: var(--status-color-error);
+      --sl-input-placeholder-color: var(--status-color-error);
+    }
+
+    &::part(form-control-help-text) {
+      color: var(--status-color-error);
+    }
+  }
+
+  sl-input.ng-valid.ng-touched:not(form) {
+    &::part(form-control-input) {
+      --sl-input-border-color: var(--status-color-success);
+      --sl-input-border-color-hover: var(--status-color-success);
+      --sl-input-border-color-focus: var(--status-color-success);
     }
   }
 }
