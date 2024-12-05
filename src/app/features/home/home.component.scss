@@ -1,9 +1,8 @@
 @use 'base/media-queries' as mq;
 @use 'base/pages';
 
-$separator-container-margin-top: -20px;
-$separator-image-width: 200px;
-$separator-margin-bottom: -51px;
+$separator-image-width: 130px;
+$separator-margin: 0 10px 35px 0;
 
 :host {
   @include pages.read-page;
@@ -13,14 +12,13 @@ $separator-margin-bottom: -51px;
   }
 
   .separator__container {
-    margin-top: $separator-container-margin-top;
     text-align: center;
     border-bottom: 1px solid var(--septenary-contrast);
 
     img {
       width: $separator-image-width;
       height: auto;
-      margin-bottom: $separator-margin-bottom;
+      margin: $separator-margin;
     }
   }
 
