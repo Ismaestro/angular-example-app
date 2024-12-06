@@ -11,7 +11,6 @@ import type { Pokemon } from '~features/pokemon-detail/types/pokemon.type';
 import { PokemonService } from '~features/pokemon-detail/services/pokemon.service';
 import { SlInputIconFocusDirective } from '~core/directives/sl-input-icon-focus.directive';
 
-import '@shoelace-style/shoelace/dist/components/input/input.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 
 const SEARCH_DEBOUNCE_TIME = 300;

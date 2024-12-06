@@ -21,6 +21,9 @@
   --primitive-hot-red: oklch(61.42% 0.238 15.34deg); // #f11653
   --primitive-orange-red: oklch(63.32% 0.24 31.68deg); // #fa2c04
   --primitive-vitalize-green: oklch(64.01% 0.1751 146.74deg); // #28a745
+  --primitive-peach-echo: oklch(12.16% 0.079 270.91deg); // #020024
+  --primitive-kissed-mist: oklch(88.15% 0.0908 328.72deg); // #fac3f6
+  --primitive-pink-illusion: oklch(83.64% 0.0968 307.17deg); // #dab9fb
 
   // Mixed
   --primitive-bright-blue-mixed: color-mix(
@@ -78,6 +81,12 @@
     color-mix(in srgb, var(--primitive-vivid-pink), var(--page-background) 70%) 47%,
     var(--primitive-electric-violet) 48%,
     var(--primitive-bright-blue) 60%
+  );
+  --pink-to-purple-horizontal-gradient: linear-gradient(
+    90deg,
+    var(--primitive-peach-echo) 0%,
+    var(--primitive-kissed-mist) 0%,
+    var(--primitive-pink-illusion) 100%
   );
 
   // Mixed gradients

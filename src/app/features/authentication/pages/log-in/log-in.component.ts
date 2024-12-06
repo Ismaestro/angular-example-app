@@ -43,7 +43,6 @@ export class LogInComponent {
     email: this.email,
     password: this.password,
   });
-
   isButtonLogInLoading = false;
 
   sendForm() {

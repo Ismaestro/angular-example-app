@@ -16,11 +16,3 @@ export function passwordValidator(): ValidatorFn {
     return validators.every((function_) => function_(value)) ? null : { passwordStrength: true };
   };
 }
-
-export const passwordsMatchValidator: ValidatorFn = (
-  control: AbstractControl,
-): ValidationErrors | null => {
-  const password = control.get('password'),
-    repeatPassword = control.get('repeatPassword');
-  return password?.value === repeatPassword?.value ? null : { passwordsMatch: true };
-};

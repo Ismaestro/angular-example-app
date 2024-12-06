@@ -70,7 +70,13 @@
   --inputs-color-hover: var(--primary-contrast);
   --inputs-color-focus: var(--primary-contrast);
   --inputs-placeholder-color: var(--quaternary-contrast);
+  --inputs-help-text-color: var(--quinary-contrast);
   --inputs-focus-ring-color: none;
+
+  // Checkboxes
+  --checkboxes-color: var(--tertiary-contrast);
+  --checkboxes-control-background: var(--pink-to-purple-horizontal-gradient);
+  --checkboxes-checked-icon-color: var(--octonary-contrast);
 
   // Menus
   --menus-background: var(--octonary-contrast);
@@ -145,8 +151,14 @@
   --inputs-color: var(--tertiary-contrast);
   --inputs-color-hover: var(--primary-contrast);
   --inputs-color-focus: var(--primary-contrast);
-  --inputs-placeholder-color: var(--quaternary-contrast);
+  --inputs-placeholder-color: var(--tertiary-contrast);
+  --inputs-help-text-color: var(--quinary-contrast);
   --inputs-focus-ring-color: none;
+
+  // Checkboxes
+  --checkboxes-color: var(--tertiary-contrast);
+  --checkboxes-control-background: var(--pink-to-purple-horizontal-gradient);
+  --checkboxes-checked-icon-color: var(--primary-contrast);
 
   // Menus
   --menus-background: var(--octonary-contrast);

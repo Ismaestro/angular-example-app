@@ -1,3 +1,5 @@
+$loading-icon-suffix-width: 30px;
+
 @mixin inputs() {
   sl-input.input--primary {
     --sl-input-background-color: var(--inputs-background-color);
@@ -14,6 +16,8 @@
     --sl-input-placeholder-color: var(--inputs-placeholder-color);
     --sl-input-focus-ring-color: var(--inputs-focus-ring-color);
     --sl-input-focus-ring-offset: 0;
+    --sl-input-required-content: '';
+    --sl-input-required-content-offset: 0;
 
     &::part(base) {
       transition:
@@ -37,7 +41,13 @@
     &::part(form-control-help-text) {
       margin-top: var(--spacing-r-sm);
       font-size: var(--font-size-xs);
-      color: var(--inputs-color);
+      color: var(--inputs-placeholder-color);
+    }
+
+    .loading__image {
+      width: $loading-icon-suffix-width;
+      height: auto;
+      margin-inline-end: var(--spacing-r-sm);
     }
 
     sl-icon {

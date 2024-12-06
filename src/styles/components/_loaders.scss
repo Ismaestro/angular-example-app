@@ -7,6 +7,10 @@
     border-radius: 50%;
     animation: spin 1s linear infinite;
   }
+
+  .loading__image {
+    animation: spin 1s linear infinite;
+  }
 }
 
 @keyframes spin {

@@ -23,7 +23,8 @@
               <a
                 class="nav__link"
                 routerLinkActive="active"
-                ariaCurrentWhenActive="page" i18n-ariaCurrentWhenActive
+                ariaCurrentWhenActive="page"
+                i18n-ariaCurrentWhenActive
                 [routerLinkActiveOptions]="{ exact: true }"
                 [routerLink]="item.url"
                 (click)="closeMenu()"
@@ -56,22 +57,24 @@
             @case (navItemType.BUTTON) {
               <sl-button
                 class="button--primary"
-                size="medium" i18n-size
+                size="medium"
+                i18n-size
                 pill
                 (click)="item.click && item.click()"
-                >{{ item.text | firstTitleCase }}</sl-button
-              >
+                >{{ item.text | firstTitleCase }}
+                <sl-icon slot="suffix" i18n-slot name="box-arrow-right" />
+              </sl-button>
             }
           }
         </div>
       }
     }
 
-    <div class="nav__item">
-      <app-language-selector />
-    </div>
-
     @if (!isUserLoggedIn) {
+      <div class="nav__item">
+        <app-language-selector />
+      </div>
+
       <div class="nav__item">
         <sl-button class="button--icon" (click)="toggleTheme()">
           @if (themeSelected === Theme.DARK || !themeSelected) {
@@ -91,7 +94,8 @@
       <img
         alt="angular logo"
         i18n-alt
-        ngSrc="/assets/icons/favicon-48x48.png" i18n-ngSrc
+        ngSrc="/assets/icons/favicon-48x48.png"
+        i18n-ngSrc
         width="48"
         height="48"
         priority

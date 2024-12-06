@@ -11,6 +11,10 @@ $login-form-max-width: 400px;
   .login__form {
     max-width: $login-form-max-width;
 
+    .form-footer__paragraph {
+      padding-block-end: 1rem;
+    }
+
     .login__image-container {
       position: relative;
 
@@ -25,7 +29,6 @@ $login-form-max-width: 400px;
           right: -6px;
           bottom: -65px;
           width: 75px;
-          height: auto;
         }
       }
     }

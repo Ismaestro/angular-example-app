@@ -9,6 +9,7 @@
 @use 'components/buttons';
 @use 'components/forms';
 @use 'components/inputs';
+@use 'components/checkboxes';
 @use 'components/menu';
 @use 'components/menu-items';
 @use 'components/kbd';
@@ -25,6 +26,7 @@
 @include buttons.buttons;
 @include forms.forms;
 @include inputs.inputs;
+@include checkboxes.checkboxes;
 @include menu.menu;
 @include menu-items.menu-items;
 @include kbd.kbd;

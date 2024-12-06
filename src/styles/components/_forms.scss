@@ -11,14 +11,18 @@
     }
 
     .form-control__container {
-      margin-block: var(--spacing-r-xl);
+      margin-block: var(--spacing-r-3xl);
+
+      .button--primary {
+        margin-block-start: var(--spacing-r-md);
+      }
 
       &:first-of-type {
         margin-block-start: 0;
       }
 
       @include mq.for-tablet-up {
-        margin-block: var(--spacing-r-4xl);
+        margin-block: var(--spacing-r-3xl);
       }
     }
 

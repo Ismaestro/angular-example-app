@@ -1,74 +1,102 @@
-import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
+import type { OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  CUSTOM_ELEMENTS_SCHEMA,
+  inject,
+} from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { TrimDirective } from '~core/directives/trim.directive';
 import { AUTH_URLS } from '~core/constants/urls.constants';
-import { LowercaseDirective } from '~core/directives/lowercase.directive';
 import { emailValidator } from '~core/validators/email.validator';
-import { passwordsMatchValidator, passwordValidator } from '~core/validators/password.validator';
+import { passwordValidator } from '~core/validators/password.validator';
 import { PokemonValidator } from '~core/validators/pokemon.validator';
+import { NgOptimizedImage } from '@angular/common';
+import { SlInputIconFocusDirective } from '~core/directives/sl-input-icon-focus.directive';
+import { translations } from '../../../../../locale/translations';
+import { merge } from 'rxjs';
+import { AppSlCheckboxControlDirective } from '~core/directives/sl-checkbox-control.directive';
+
+import '@shoelace-style/shoelace/dist/components/button/button.js';
+import '@shoelace-style/shoelace/dist/components/input/input.js';
+import '@shoelace-style/shoelace/dist/components/icon/icon.js';
+import '@shoelace-style/shoelace/dist/components/checkbox/checkbox.js';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
+  styleUrl: './register.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [RouterModule, ReactiveFormsModule, TrimDirective, LowercaseDirective],
+  imports: [
+    RouterModule,
+    ReactiveFormsModule,
+    NgOptimizedImage,
+    SlInputIconFocusDirective,
+    AppSlCheckboxControlDirective,
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   private readonly formBuilder = inject(FormBuilder);
-  private readonly pokemonValidator = inject(PokemonValidator);
+  private readonly validatingPokemonValue = () => this.pokemonValidator.isPokemonValidating();
 
-  readonly authUrls = AUTH_URLS;
-  readonly firstname = new FormControl('', [Validators.required, Validators.minLength(2)]);
-  readonly email = new FormControl('', [
-    Validators.required,
-    Validators.minLength(4),
-    emailValidator(),
-  ]);
-  readonly password = new FormControl('', {
-    validators: [Validators.required, Validators.minLength(6), passwordValidator()],
+  pokemonValidator = inject(PokemonValidator);
+  translations = translations;
+  authUrls = AUTH_URLS;
+  firstname = new FormControl('', [Validators.required, Validators.minLength(2)]);
+  email = new FormControl('', [Validators.required, Validators.minLength(4), emailValidator()]);
+  password = new FormControl('', {
+    validators: [Validators.required, passwordValidator()],
     updateOn: 'change',
   });
-  readonly repeatPassword = new FormControl('', {
-    validators: [Validators.required, Validators.minLength(6), passwordValidator()],
+  confirmPassword = new FormControl('', {
+    validators: [Validators.required, passwordValidator()],
     updateOn: 'change',
   });
-  readonly favouritePokemon = new FormControl('', {
+  favouritePokemon = new FormControl('', {
     validators: [Validators.required, Validators.minLength(2)],
     asyncValidators: [this.pokemonValidator.validate.bind(this.pokemonValidator)],
-    updateOn: 'blur',
+    updateOn: 'change',
   });
-  readonly terms = new FormControl(false, [Validators.requiredTrue]);
-  readonly registerForm = this.formBuilder.group(
-    {
-      firstname: this.firstname,
-      email: this.email,
-      password: this.password,
-      repeatPassword: this.repeatPassword,
-      favouritePokemon: this.favouritePokemon,
-      terms: this.terms,
-    },
-    { validators: passwordsMatchValidator },
-  );
-
+  terms = new FormControl(null, [Validators.requiredTrue]);
+  registerForm = this.formBuilder.group({
+    firstname: this.firstname,
+    email: this.email,
+    password: this.password,
+    confirmPassword: this.confirmPassword,
+    favouritePokemon: this.favouritePokemon,
+    terms: this.terms,
+  });
   isButtonRegisterLoading = false;
-  showPassword = false;
+  confirmPasswordHelpText = '';
+  isPokemonValidating = computed(this.validatingPokemonValue);
 
-  updatePassword() {
-    this.password.updateValueAndValidity({ emitEvent: false });
+  ngOnInit() {
+    this.favouritePokemon.setErrors({ pokemonName: true });
+    merge(this.password.valueChanges, this.confirmPassword.valueChanges).subscribe(() => {
+      this.checkPasswords();
+    });
   }
 
-  sendForm() {
-    this.terms.markAsTouched();
-    this.terms.updateValueAndValidity();
-    if (this.registerForm.valid) {
-      this.isButtonRegisterLoading = true;
+  checkPasswords() {
+    const areValuesEqual = this.password.value === this.confirmPassword.value;
+    if (areValuesEqual && this.confirmPassword.getRawValue()) {
+      this.confirmPasswordHelpText = '';
+      this.confirmPassword.setErrors(null);
+    } else {
+      if (this.confirmPassword.touched) {
+        this.confirmPasswordHelpText = translations.confirmPasswordHelpText;
+      }
+      this.confirmPassword.setErrors({ mismatch: true });
     }
   }
 
-  togglePasswordType() {
-    this.showPassword = !this.showPassword;
+  sendForm() {
+    this.registerForm.markAllAsTouched();
+    if (this.registerForm.valid) {
+      this.isButtonRegisterLoading = true;
+    }
   }
 }
