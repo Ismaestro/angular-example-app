@@ -7,74 +7,151 @@
       </sl-button>
     </div>
   </div>
-  <div class="nav__items" [class.open]="menuOpen">
+  <div class="nav__items" [class.open]="menuOpen" [class.user-logged]="isUserLoggedIn">
     @if (!menuOpen) {
       <ng-container [ngTemplateOutlet]="logoNavItem" />
     }
-    @for (item of navItems; track item.id) {
-      @if (
-        (item.isUserRequired && isUserLoggedIn) ||
-        (!item.isUserRequired && !isUserLoggedIn) ||
-        item.isUserRequired === undefined
-      ) {
-        <div class="nav__item" [class.user-logged]="isUserLoggedIn">
-          @switch (item.type) {
-            @case (navItemType.LINK) {
-              <a
-                class="nav__link"
-                routerLinkActive="active"
-                ariaCurrentWhenActive="page"
-                i18n-ariaCurrentWhenActive
-                [routerLinkActiveOptions]="{ exact: true }"
-                [routerLink]="item.url"
-                (click)="closeMenu()"
-              >
-                {{ item.text | firstTitleCase }}
-              </a>
-            }
-            @case (navItemType.INPUT) {
-              <app-pokemon-search
-                (loading)="pokemonLoading = $event"
-                (pokemonLoaded)="item.change && item.change($event)"
-              />
-              @if (pokemonLoaded?.sprites?.front_default) {
-                <a [routerLink]="pokemonLoadedRoute">
-                  <img
-                    class="pokemon-search__image"
-                    alt="pokemon image"
-                    i18n-alt
-                    width="40"
-                    height="40"
-                    priority
-                    [ngSrc]="pokemonLoaded?.sprites?.front_default || ''"
-                  />
-                </a>
-              }
-              @if (pokemonLoading) {
-                <div class="loading__circle"></div>
-              }
-            }
-            @case (navItemType.BUTTON) {
-              <sl-button
-                class="button--primary"
-                size="medium"
-                i18n-size
-                pill
-                (click)="item.click && item.click()"
-                >{{ item.text | firstTitleCase }}
-                <sl-icon slot="suffix" i18n-slot name="box-arrow-right" />
-              </sl-button>
-            }
-          }
-        </div>
-      }
-    }
+    <ng-template #logoNavItem>
+      <div class="nav__item">
+        <a class="nav__link" [routerLink]="ROOT_URLS.home">
+          <img
+            alt="angular logo"
+            i18n-alt
+            ngSrc="/assets/icons/favicon-48x48.png"
+            i18n-ngSrc
+            width="48"
+            height="48"
+            priority
+          />
+        </a>
+      </div>
+    </ng-template>
 
+    <!-- HOME -->
+    <div class="nav__item">
+      <a
+        class="nav__link"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        i18n-ariaCurrentWhenActive
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLink]="ROOT_URLS.home"
+        (click)="closeMenu()"
+      >
+        {{ 'Home' | firstTitleCase }}
+      </a>
+    </div>
+
+    <!-- LOGIN -->
     @if (!isUserLoggedIn) {
+      <div class="nav__item">
+        <a
+          class="nav__link"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          i18n-ariaCurrentWhenActive
+          [routerLinkActiveOptions]="{ exact: true }"
+          [routerLink]="AUTH_URLS.logIn"
+          (click)="closeMenu()"
+        >
+          {{ 'Log In' | firstTitleCase }}
+        </a>
+      </div>
+
+      <!-- REGISTER -->
+      <div class="nav__item">
+        <a
+          class="nav__link"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          i18n-ariaCurrentWhenActive
+          [routerLinkActiveOptions]="{ exact: true }"
+          [routerLink]="AUTH_URLS.register"
+          (click)="closeMenu()"
+        >
+          {{ 'Register' | firstTitleCase }}
+        </a>
+      </div>
+
       <div class="nav__item">
         <app-language-selector />
       </div>
 
+      <ng-container [ngTemplateOutlet]="themeButton" />
+    } @else {
+      <!-- DASHBOARD -->
+      <div class="nav__item">
+        <a
+          class="nav__link"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          i18n-ariaCurrentWhenActive
+          [routerLinkActiveOptions]="{ exact: true }"
+          [routerLink]="USER_URLS.dashboard"
+          (click)="closeMenu()"
+        >
+          {{ 'Dashboard' | firstTitleCase }}
+        </a>
+      </div>
+
+      <!-- SEARCH -->
+      <div class="nav__item">
+        <app-pokemon-search
+          (loading)="pokemonLoading = $event"
+          (pokemonLoaded)="loadPokemonLink($event)"
+        />
+        @if (pokemonLoaded?.sprites?.front_default) {
+          <a [routerLink]="pokemonLoadedRoute">
+            <img
+              class="pokemon-search__image"
+              alt="pokemon image"
+              i18n-alt
+              width="40"
+              height="40"
+              priority
+              [ngSrc]="pokemonLoaded?.sprites?.front_default || ''"
+            />
+          </a>
+        }
+        @if (pokemonLoading) {
+          <div class="loading__circle"></div>
+        }
+      </div>
+
+      <ng-container [ngTemplateOutlet]="themeButton" />
+
+      <!-- USER MENU -->
+      <div class="nav__item">
+        <sl-dropdown>
+          <sl-button class="dropdown-button--avatar" slot="trigger" i18n-slot>
+            <img
+              class="avatar__image"
+              alt="angular logo"
+              i18n-alt
+              ngSrc="/assets/images/gengar.png"
+              i18n-ngSrc
+              width="300"
+              height="300"
+              priority
+            />
+          </sl-button>
+          <sl-menu class="menu--primary">
+            <sl-menu-item class="menu-item--primary" value="logout">
+              <sl-button
+                class="button__as-link--primary"
+                size="medium"
+                i18n-size
+                pill
+                (click)="logoutUser()"
+              >
+                {{ 'Logout' | firstTitleCase }}
+              </sl-button>
+            </sl-menu-item>
+          </sl-menu>
+        </sl-dropdown>
+      </div>
+    }
+    <ng-template #themeButton>
       <div class="nav__item">
         <sl-button class="button--icon" (click)="toggleTheme()">
           @if (themeSelected === Theme.DARK || !themeSelected) {
@@ -84,22 +161,6 @@
           }
         </sl-button>
       </div>
-    }
+    </ng-template>
   </div>
 </nav>
-
-<ng-template #logoNavItem>
-  <div class="nav__item">
-    <a class="nav__link" [routerLink]="ROOT_URLS.home">
-      <img
-        alt="angular logo"
-        i18n-alt
-        ngSrc="/assets/icons/favicon-48x48.png"
-        i18n-ngSrc
-        width="48"
-        height="48"
-        priority
-      />
-    </a>
-  </div>
-</ng-template>

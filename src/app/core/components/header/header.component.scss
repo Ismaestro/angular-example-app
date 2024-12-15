@@ -2,6 +2,7 @@
 
 $pokemon-search-input-width: 230px;
 $line-active-item-bottom: -31px;
+$avatar-size: 40px;
 
 :host {
   .nav__container {
@@ -71,6 +72,20 @@ $line-active-item-bottom: -31px;
         padding-top: 0;
       }
 
+      @include mq.for-tablet-up {
+        &.user-logged {
+          .nav__item:nth-child(4) {
+            margin-left: auto;
+          }
+        }
+
+        &:not(.user-logged) {
+          .nav__item:nth-child(5) {
+            margin-left: auto;
+          }
+        }
+      }
+
       .nav__item {
         display: flex;
         align-items: center;
@@ -93,14 +108,6 @@ $line-active-item-bottom: -31px;
 
           &:nth-child(-n + 0) {
             align-self: flex-start;
-          }
-
-          &:nth-child(5):not(.user-logged) {
-            margin-left: auto;
-          }
-
-          &.user-logged:nth-child(4) {
-            margin-left: auto;
           }
         }
 
@@ -143,6 +150,12 @@ $line-active-item-bottom: -31px;
           width: $pokemon-search-input-width;
         }
       }
+    }
+
+    .avatar__image {
+      width: $avatar-size;
+      height: $avatar-size;
+      border-radius: 50%;
     }
   }
 }

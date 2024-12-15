@@ -1,10 +1,19 @@
 @mixin buttons() {
   sl-button {
-    &.button--primary::part(base),
-    &.button--icon::part(base),
-    &.dropdown-button--primary::part(base) {
+    &::part(base) {
       display: flex;
       align-items: center;
+      border: 0;
+      border-radius: var(--border-radius-max);
+      transition: background 0.3s ease;
+    }
+
+    &::part(label) {
+      padding: 0;
+    }
+
+    &.button--primary::part(base),
+    &.dropdown-button--primary::part(base) {
       padding-block: var(--spacing-r-sm);
       padding-inline: var(--spacing-r-xl);
       font-family: var(--inter-font), serif;
@@ -14,9 +23,6 @@
       color: var(--buttons-color);
       letter-spacing: -0.0088rem;
       background: var(--buttons-background);
-      border: 0;
-      border-radius: var(--border-radius-max);
-      transition: background 0.3s ease;
 
       &:hover {
         background: var(--buttons-background-hover);
@@ -24,28 +30,49 @@
     }
 
     &.dropdown-button--primary::part(label) {
-      padding: 0;
       margin-right: var(--spacing-r-sm);
       font-weight: var(--font-weight-bold);
     }
 
-    &.button--icon {
-      &::part(base) {
-        padding-inline: 0;
-        font-size: var(--font-size-lg);
-        color: var(--icons-color);
+    &.button--icon::part(base) {
+      padding-inline: 0;
+      font-size: var(--font-size-lg);
+      color: var(--icons-color);
+      background: transparent;
+
+      &:hover {
+        color: var(--icons-color-hover);
         background: transparent;
+        transition: color 0.3s ease;
+      }
+    }
 
-        &:hover {
-          color: var(--icons-color-hover);
-          background: transparent;
-          transition: color 0.3s ease;
-        }
+    &.button__as-link--primary::part(base) {
+      color: var(--text-color-secondary);
+      background: transparent;
+      border: 0;
+
+      &:hover {
+        color: var(--text-color-secondary-hover);
       }
 
-      &::part(label) {
-        padding: 0;
+      &:active {
+        color: var(--text-color-secondary-hover);
       }
+    }
+
+    &.dropdown-button--avatar::part(base) {
+      background: transparent;
+      box-shadow: 0 0 0 0 transparent;
+      transition: box-shadow 0.5s ease;
+
+      &:hover {
+        box-shadow: 0 0 0 1px var(--text-color-secondary-hover);
+      }
+    }
+
+    &.dropdown-button--avatar::part(label) {
+      display: flex;
     }
   }
 }
