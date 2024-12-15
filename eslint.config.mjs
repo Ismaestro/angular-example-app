@@ -86,6 +86,7 @@ export default tsEslint.config(
         'error',
         { 'allow': ['eslint-disable-next-line', 'eslint-disable', 'eslint-enable'] },
       ],
+      'no-warning-comments': ['error', { 'terms': ['warn'] }],
 
       // Off
       'sort-keys': 'off',
@@ -104,6 +105,7 @@ export default tsEslint.config(
       'no-implicit-globals': 'off',
       '@angular-eslint/runtime-localize': 'off',
       '@angular-eslint/no-host-metadata-property': 'off',
+      '@typescript-eslint/no-use-before-define': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/prefer-readonly-parameter-types': 'off',

@@ -3,7 +3,7 @@ import { HttpContextToken, HttpResponse } from '@angular/common/http';
 import type { Observable } from 'rxjs';
 import { of, tap } from 'rxjs';
 
-export const CACHING_ENABLED = new HttpContextToken<boolean>(() => true);
+export const CACHING_ENABLED = new HttpContextToken<boolean>(() => false);
 
 const cache = new Map<string, HttpResponse<unknown>>();
 

@@ -15,9 +15,6 @@ export class PokemonService {
   getPokemon(pokemonName: string): Observable<Pokemon> {
     return this.httpClient.get<Pokemon>(`${POKEMON_API_HOST}/pokemon/${pokemonName.trim()}`, {
       params: new HttpParams().set('limit', '1'),
-      headers: {
-        'X-Debug-Level': 'verbose',
-      },
       context: new HttpContext().set(CACHING_ENABLED, true),
     });
   }

@@ -16,6 +16,7 @@ import { loggingInterceptor } from '~core/interceptors/logging.interceptor';
 import { cachingInterceptor } from '~core/interceptors/caching.interceptor';
 import { appRoutes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { authenticationInterceptor } from '~core/interceptors/authentication.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -43,7 +44,10 @@ export const appConfig: ApplicationConfig = {
       withRouterConfig({ paramsInheritanceStrategy: 'always', onSameUrlNavigation: 'reload' }),
       withPreloading(PreloadAllModules),
     ),
-    provideHttpClient(withFetch(), withInterceptors([loggingInterceptor, cachingInterceptor])),
+    provideHttpClient(
+      withFetch(),
+      withInterceptors([authenticationInterceptor, loggingInterceptor, cachingInterceptor]),
+    ),
     provideAnimationsAsync(),
   ],
 };

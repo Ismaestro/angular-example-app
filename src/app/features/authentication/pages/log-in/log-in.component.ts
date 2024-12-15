@@ -49,8 +49,15 @@ export class LogInComponent {
     this.logInForm.markAllAsTouched();
     if (this.logInForm.valid) {
       this.isButtonLogInLoading = true;
-      this.authService.logIn(this.logInForm.getRawValue());
-      void this.router.navigate([USER_URLS.dashboard]);
+      const formValue = this.logInForm.getRawValue();
+      this.authService.logIn({ email: formValue.email!, password: formValue.password! }).subscribe({
+        next: () => {
+          void this.router.navigate([USER_URLS.dashboard]);
+        },
+        error: () => {
+          // TODO: implement alert
+        },
+      });
     }
   }
 }
