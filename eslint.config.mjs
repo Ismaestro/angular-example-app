@@ -51,7 +51,8 @@ export default tsEslint.config(
           max: 30,
         },
       ],
-      'max-params': [
+      'no-plusplus': ['error', { 'allowForLoopAfterthoughts': true }],
+      '@typescript-eslint/max-params': [
         'error',
         {
           max: 2,
@@ -89,6 +90,7 @@ export default tsEslint.config(
       'no-warning-comments': ['error', { 'terms': ['warn'] }],
 
       // Off
+      'max-params': 'off',
       'sort-keys': 'off',
       'no-underscore-dangle': 'off',
       'sort-imports': 'off',

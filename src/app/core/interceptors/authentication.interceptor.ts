@@ -56,7 +56,7 @@ function isRefreshTokenError(errorResponse: HttpErrorResponse): boolean {
   );
 }
 
-// eslint-disable-next-line max-params
+// eslint-disable-next-line @typescript-eslint/max-params
 function tryRefreshToken(
   request: HttpRequest<unknown>,
   next: HttpHandlerFn,

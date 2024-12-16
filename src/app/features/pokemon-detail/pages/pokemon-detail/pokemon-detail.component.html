@@ -1,15 +1,19 @@
-@if (pokemon$ | async; as pokemon) {
-  <div class="test">
-    <img
-      alt="pokemon image"
-      i18n-alt
-      width="96"
-      height="96"
-      priority
-      [ngSrc]="pokemon.sprites.front_default"
-    />
+<canvas #canvas></canvas>
+
+@if (pokemon) {
+  <div class="pokemon-card__container">
+    <div class="pokemon-card__image-container">
+      @if (croppedImageUrl) {
+        <!-- eslint-disable @angular-eslint/template/prefer-ngsrc -->
+        <img
+          class="pokemon-card__pokemon-image"
+          alt="pokemon image"
+          [class.loaded]="croppedImageLoaded"
+          [src]="croppedImageUrl"
+          i18n-alt
+          (load)="croppedImageLoaded = true"
+        />
+      }
+    </div>
   </div>
-  <p i18n>Id: {{ pokemon.id }}</p>
-  <p i18n>Name: {{ pokemon.name }}</p>
-  <p i18n>Weight: {{ pokemon.weight }}</p>
 }

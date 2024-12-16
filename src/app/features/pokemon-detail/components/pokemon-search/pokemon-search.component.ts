@@ -56,6 +56,15 @@ export class PokemonSearchComponent {
     }
   }
 
+  resetStates() {
+    this.termValue = '';
+    this.pokemonLoaded = undefined;
+    this.pokemonNotFound = false;
+    this.pokemonLoading = false;
+    this.pokemonLoadedRoute = '';
+    this.changeDetectorRef.markForCheck();
+  }
+
   assignInputValue(event: Event) {
     const inputEvent = event as CustomEvent;
     this.termValue = (inputEvent.target as HTMLInputElement).value;

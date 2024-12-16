@@ -8,7 +8,9 @@
     i18n-size
     appSlInputIconFocus
     [class.has-action]="termValue || pokemonLoaded?.name"
+    [value]="termValue"
     (sl-input)="assignInputValue($event)"
+    (keydown.enter)="searchPokemon()"
   >
     <sl-icon name="search" slot="prefix" i18n-slot />
   </sl-input>
@@ -34,7 +36,7 @@
   }
 
   @if (pokemonLoaded?.sprites?.front_default) {
-    <a [routerLink]="pokemonLoadedRoute">
+    <a [routerLink]="pokemonLoadedRoute" (click)="resetStates()">
       <img
         class="search__pokemon-image"
         alt="pokemon image"
