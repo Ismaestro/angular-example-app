@@ -1,0 +1,259 @@
+@use 'base/media-queries' as mq;
+
+$pokedex-red: #cd112f;
+$pokedex-black: #000;
+$pokedex-dark-gray: #222;
+$pokedex-light-gray: #dedede;
+$pokedex-green: #52af5f;
+$pokedex-blue: #08cbf8;
+$pokedex-white: #fff;
+$pokedex-text-dark: #032d28;
+
+:host {
+  .pokedex__container {
+    position: relative;
+
+    &.closed {
+      .pokedex__flap-container {
+        transform: rotateX(180deg) translate(0, -14px);
+      }
+
+      .pokedex__joystick-container {
+        left: -100px;
+      }
+
+      .pokedex__pad-container::before {
+        background: $pokedex-black;
+      }
+    }
+
+    .pokedex__separator,
+    .pokedex__bottom-part-container {
+      background: $pokedex-red;
+      border: 2px solid $pokedex-black;
+    }
+
+    .pokedex__flap-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: transform 1s;
+      transform: rotateX(360deg);
+      transform-origin: 0% 100%;
+      transform-style: preserve-3d;
+
+      figure {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        backface-visibility: hidden;
+      }
+
+      .pokedex__flap-front,
+      .pokedex__flap-back {
+        background: $pokedex-red;
+        border: 2px solid $pokedex-black;
+      }
+
+      .pokedex__flap-front {
+        border-bottom-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+        transform: rotateX(180deg);
+      }
+
+      .pokedex__flap-back {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 25px;
+
+        &::before {
+          position: absolute;
+          width: 50px;
+          height: 100px;
+          margin-top: 23px;
+          margin-left: -52px;
+          content: ' ';
+          background: $pokedex-red;
+          border: 2px solid $pokedex-black;
+          border-right-width: 0;
+          border-top-left-radius: 50px;
+          border-bottom-left-radius: 50px;
+        }
+      }
+    }
+
+    .pokedex__top-part-container {
+      position: relative;
+      z-index: 11;
+      width: 230px;
+      height: 150px;
+      margin-left: 70px;
+      cursor: pointer;
+      perspective: 800px;
+    }
+
+    .pokedex__separator {
+      position: relative;
+      z-index: 10;
+      width: 230px;
+      height: 10px;
+      margin-left: 70px;
+      border-bottom-width: 0;
+    }
+
+    .pokedex__bottom-part-container {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: row;
+      width: 300px;
+      height: 150px;
+      border-top-left-radius: 75px;
+      border-bottom-right-radius: 25px;
+      border-bottom-left-radius: 75px;
+    }
+
+    .pokedex__joystick-container {
+      position: absolute;
+      left: 0;
+      z-index: 1;
+      width: 100px;
+      height: 100px;
+      margin-top: -130px;
+      margin-left: 300px;
+      content: ' ';
+      background: $pokedex-dark-gray;
+      border: 2px solid $pokedex-black;
+      border-top-right-radius: 50px;
+      border-bottom-right-radius: 50px;
+      transition: left 1s ease;
+
+      @include mq.for-phone-only {
+        display: none;
+      }
+
+      .pokedex__joystick-tracker {
+        width: 90px;
+        height: 90px;
+        margin: 3px;
+        background: $pokedex-light-gray;
+        border: 2px solid $pokedex-black;
+        border-radius: 50%;
+
+        &::before,
+        &::after {
+          position: absolute;
+          content: ' ';
+        }
+
+        &::before {
+          width: 70px;
+          height: 70px;
+          margin-top: 8px;
+          margin-left: 8px;
+          border: 2px solid $pokedex-dark-gray;
+          border-radius: 50%;
+        }
+
+        &::after {
+          width: 10px;
+          height: 10px;
+          margin-top: -2px;
+          margin-left: 20px;
+          background: $pokedex-dark-gray;
+          border-radius: 50%;
+        }
+      }
+
+      .pokedex__joystick-button {
+        width: 50px;
+        height: 50px;
+        margin-top: 18px;
+        margin-left: 18px;
+        background: $pokedex-blue;
+        border: 2px solid $pokedex-dark-gray;
+        border-radius: 50%;
+      }
+    }
+
+    .pokedex__top-text-container,
+    .pokedex__bottom-text-container {
+      height: 100px;
+      padding: 8px;
+      margin: 12px;
+      margin-left: 34px;
+      border: 4px solid $pokedex-black;
+      border-radius: 8px;
+    }
+
+    .pokedex__top-text-container {
+      margin-left: 24px;
+      color: $pokedex-text-dark;
+      background: $pokedex-white;
+    }
+
+    .pokedex__bottom-text-container {
+      flex: 1;
+      color: white;
+      background: $pokedex-text-dark;
+    }
+
+    .pokedex__pad-container {
+      width: 66px;
+      background: $pokedex-dark-gray;
+      border-right: 4px solid $pokedex-black;
+      border-top-left-radius: 75px;
+      border-bottom-left-radius: 75px;
+
+      &::before {
+        position: absolute;
+        width: 12px;
+        height: 6px;
+        margin-top: 70px;
+        content: ' ';
+        background: $pokedex-green;
+        border: 2px solid $pokedex-black;
+        border-left-width: 0;
+      }
+
+      .pokedex__pad {
+        position: absolute;
+        width: 85px;
+        height: 85px;
+        margin-top: 30px;
+        margin-left: 17px;
+        background: $pokedex-light-gray;
+        border: 2px solid $pokedex-black;
+        border-right-width: 0;
+        border-top-left-radius: 41px;
+        border-bottom-left-radius: 41px;
+
+        &::before,
+        &::after {
+          position: absolute;
+          width: 50px;
+          height: 15px;
+          margin-top: 35px;
+          margin-left: 20px;
+          content: ' ';
+          background: $pokedex-dark-gray;
+        }
+
+        &::after {
+          transform: rotate(90deg);
+        }
+      }
+
+      .pokedex__pad-circle {
+        position: absolute;
+        width: 65px;
+        height: 65px;
+        margin-top: 40px;
+        margin-left: 30px;
+        border: 2px solid #a9a9a9;
+        border-radius: 50%;
+      }
+    }
+  }
+}

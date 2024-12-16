@@ -1,0 +1,28 @@
+<div class="pokedex__container" [class.closed]="isPokedexClosed">
+  <div
+    class="pokedex__top-part-container"
+    tabindex="0"
+    (click)="togglePokedex()"
+    (keydown)="togglePokedex()"
+  >
+    <div class="pokedex__flap-container">
+      <figure class="pokedex__flap-front"></figure>
+      <figure class="pokedex__flap-back">
+        <div i18n class="pokedex__top-text-container">aqui va el texto con los datos</div>
+      </figure>
+    </div>
+  </div>
+  <div class="pokedex__separator"></div>
+  <div class="pokedex__bottom-part-container">
+    <div class="pokedex__pad-container">
+      <div class="pokedex__pad"></div>
+      <div class="pokedex__pad-circle"></div>
+    </div>
+    <div i18n class="pokedex__bottom-text-container">aqui van mas datos?</div>
+  </div>
+  <div class="pokedex__joystick-container">
+    <div class="pokedex__joystick-tracker">
+      <div class="pokedex__joystick-button"></div>
+    </div>
+  </div>
+</div>

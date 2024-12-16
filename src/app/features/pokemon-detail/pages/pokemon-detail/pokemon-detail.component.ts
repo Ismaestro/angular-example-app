@@ -13,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 import { SubscriptionManagerService } from '~core/services/subscription-manager.service';
 import { takeUntil } from 'rxjs';
 import { PokemonBattlefieldComponent } from '~features/pokemon-detail/components/pokemon-battlefield/pokemon-battlefield.component';
+import { PokedexComponent } from '~features/pokemon-detail/components/pokedex/pokedex.component';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -21,7 +22,7 @@ import { PokemonBattlefieldComponent } from '~features/pokemon-detail/components
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [PokemonBattlefieldComponent],
+  imports: [PokemonBattlefieldComponent, PokedexComponent],
 })
 export class PokemonDetailComponent implements OnInit, OnDestroy {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
