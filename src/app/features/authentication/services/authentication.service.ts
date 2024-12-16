@@ -45,6 +45,7 @@ export class AuthenticationService {
           favouritePokemonId: registerRequest.favouritePokemonId,
           terms: registerRequest.terms,
         },
+        // TODO: send language
         { withCredentials: true },
       )
       .pipe(

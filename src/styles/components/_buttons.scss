@@ -62,8 +62,7 @@
     }
 
     &.dropdown-button--avatar::part(base) {
-      background: transparent;
-      box-shadow: 0 0 0 0 transparent;
+      box-shadow: 0 0 0 1px var(--text-color-secondary);
       transition: box-shadow 0.5s ease;
 
       &:hover {
