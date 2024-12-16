@@ -7,7 +7,7 @@
     size="medium"
     i18n-size
     appSlInputIconFocus
-    [class.has-action]="termValue || pokemonLoaded?.name"
+    [class.has-action]="termValue && pokemonLoading"
     [value]="termValue"
     (sl-input)="assignInputValue($event)"
     (keydown.enter)="searchPokemon()"
@@ -15,9 +15,7 @@
     <sl-icon name="search" slot="prefix" i18n-slot />
   </sl-input>
 
-  @if (
-    termValue && (pokemonLoading || (!pokemonLoading && !pokemonLoaded?.sprites?.front_default))
-  ) {
+  @if (termValue && pokemonLoading) {
     <sl-button class="button--image" slot="trigger" i18n-slot (click)="searchPokemon()">
       <img
         class="search__loading-image"
@@ -30,22 +28,7 @@
         i18n-ngSrc
         height="100"
         [class.loading__image]="pokemonLoading"
-        [class.not-found]="pokemonNotFound"
       />
     </sl-button>
-  }
-
-  @if (pokemonLoaded?.sprites?.front_default) {
-    <a [routerLink]="pokemonLoadedRoute" (click)="resetStates()">
-      <img
-        class="search__pokemon-image"
-        alt="pokemon image"
-        i18n-alt
-        width="40"
-        height="40"
-        priority
-        [ngSrc]="pokemonLoaded?.sprites?.front_default || ''"
-      />
-    </a>
   }
 </div>
