@@ -1,5 +1,5 @@
 export type Pokemon = {
-  id: string;
+  id: number;
   name: string;
   weight: string;
   sprites: {

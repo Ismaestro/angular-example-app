@@ -9,9 +9,14 @@ export class PokemonValidator implements AsyncValidator {
   private readonly pokemonService = inject(PokemonService);
 
   private readonly isPokemonValidatingSignal = signal(false);
+  private pokemonValue = 0;
 
   isPokemonValidating(): boolean {
     return this.isPokemonValidatingSignal();
+  }
+
+  getPokemonValue(): number {
+    return this.pokemonValue;
   }
 
   validate(control: AbstractControl): Observable<ValidationErrors | null> {
@@ -19,8 +24,9 @@ export class PokemonValidator implements AsyncValidator {
     if (pokemonName) {
       this.isPokemonValidatingSignal.set(true);
       return this.pokemonService.getPokemon(pokemonName.trim().toLowerCase()).pipe(
-        map(() => {
+        map((pokemon) => {
           this.isPokemonValidatingSignal.set(false);
+          this.pokemonValue = pokemon.id;
           return null;
         }),
         catchError(() => {

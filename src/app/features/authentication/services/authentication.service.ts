@@ -13,8 +13,13 @@ import type {
   RefreshTokenResponse,
   RefreshTokenResponseData,
 } from '~features/authentication/types/refresh-token.response.type';
+import type { RegisterRequest } from '~features/authentication/types/register-request.type';
+import type {
+  RegisterResponse,
+  RegisterResponseData,
+} from '~features/authentication/types/register-response.type';
 
-const IS_SESSION_ALIVE = 'isSessionAlive';
+const IS_SESSION_ALIVE_KEY = 'isSessionAlive';
 
 @Injectable({
   providedIn: 'root',
@@ -22,12 +27,34 @@ const IS_SESSION_ALIVE = 'isSessionAlive';
 export class AuthenticationService {
   private readonly storageService = inject(LOCAL_STORAGE);
   private readonly httpClient = inject(HttpClient);
-  private readonly isUserLoggedInSignal = signal(!!this.storageService?.getItem(IS_SESSION_ALIVE));
+  private readonly isUserLoggedInSignal = signal(
+    !!this.storageService?.getItem(IS_SESSION_ALIVE_KEY),
+  );
 
   private readonly apiUrl = environment.apiBaseUrl;
 
-  isUserLoggedIn(): boolean {
-    return this.isUserLoggedInSignal();
+  register(registerRequest: RegisterRequest): Observable<RegisterResponseData> {
+    const registerEndpoint = `${this.apiUrl}/v1/authentication`;
+    return this.httpClient
+      .post<RegisterResponse>(
+        registerEndpoint,
+        {
+          email: registerRequest.email,
+          password: registerRequest.password,
+          firstname: registerRequest.firstname,
+          favouritePokemonId: registerRequest.favouritePokemonId,
+          terms: registerRequest.terms,
+        },
+        { withCredentials: true },
+      )
+      .pipe(
+        map((response: RegisterResponse) => {
+          const { data } = response;
+          this.storageService?.setItem(IS_SESSION_ALIVE_KEY, 'true');
+          this.isUserLoggedInSignal.set(true);
+          return data;
+        }),
+      );
   }
 
   logIn(loginRequest: LoginRequest): Observable<LoginResponseData> {
@@ -44,7 +71,7 @@ export class AuthenticationService {
       .pipe(
         map((response: LoginResponse) => {
           const { data } = response;
-          this.storageService?.setItem(IS_SESSION_ALIVE, 'true');
+          this.storageService?.setItem(IS_SESSION_ALIVE_KEY, 'true');
           this.isUserLoggedInSignal.set(true);
           return data;
         }),
@@ -61,7 +88,11 @@ export class AuthenticationService {
   }
 
   logOut() {
-    this.storageService?.removeItem(IS_SESSION_ALIVE);
+    this.storageService?.removeItem(IS_SESSION_ALIVE_KEY);
     this.isUserLoggedInSignal.set(false);
+  }
+
+  isUserLoggedIn(): boolean {
+    return this.isUserLoggedInSignal();
   }
 }

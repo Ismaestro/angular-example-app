@@ -1,8 +1,8 @@
 import type { User } from '~features/authentication/types/user.type';
 import type { ApiResponse } from '~core/types/api-response.type';
 
-export type LoginResponseData = {
+export type RegisterResponseData = {
   user: User;
 };
 
-export type LoginResponse = ApiResponse<LoginResponseData>;
+export type RegisterResponse = ApiResponse<RegisterResponseData>;

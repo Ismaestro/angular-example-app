@@ -7,8 +7,8 @@ import {
   inject,
 } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { AUTH_URLS } from '~core/constants/urls.constants';
+import { Router, RouterModule } from '@angular/router';
+import { AUTH_URLS, USER_URLS } from '~core/constants/urls.constants';
 import { emailValidator } from '~core/validators/email.validator';
 import { passwordValidator } from '~core/validators/password.validator';
 import { PokemonValidator } from '~core/validators/pokemon.validator';
@@ -22,6 +22,7 @@ import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/input/input.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import '@shoelace-style/shoelace/dist/components/checkbox/checkbox.js';
+import { AuthenticationService } from '~features/authentication/services/authentication.service';
 
 @Component({
   selector: 'app-register',
@@ -39,7 +40,9 @@ import '@shoelace-style/shoelace/dist/components/checkbox/checkbox.js';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class RegisterComponent implements OnInit {
+  private readonly router = inject(Router);
   private readonly formBuilder = inject(FormBuilder);
+  private readonly authService = inject(AuthenticationService);
   private readonly validatingPokemonValue = () => this.pokemonValidator.isPokemonValidating();
 
   pokemonValidator = inject(PokemonValidator);
@@ -97,6 +100,23 @@ export class RegisterComponent implements OnInit {
     this.registerForm.markAllAsTouched();
     if (this.registerForm.valid) {
       this.isButtonRegisterLoading = true;
+      const formValue = this.registerForm.getRawValue();
+      this.authService
+        .register({
+          email: formValue.email!,
+          password: formValue.password!,
+          firstname: formValue.firstname!,
+          favouritePokemonId: this.pokemonValidator.getPokemonValue(),
+          terms: formValue.terms!,
+        })
+        .subscribe({
+          next: () => {
+            void this.router.navigate([USER_URLS.dashboard]);
+          },
+          error: () => {
+            // TODO: implement alert
+          },
+        });
     }
   }
 }

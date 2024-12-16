@@ -11,9 +11,11 @@ $register-form-max-width: 400px;
   .register__form {
     position: relative;
     max-width: $register-form-max-width;
+    padding: var(--spacing-r-7xl) var(--spacing-r-xl);
     margin-block-start: var(--spacing-r-6xl);
 
     @include mq.for-tablet-up {
+      padding: var(--spacing-r-8xl) var(--spacing-r-xl);
       margin-block-start: var(--spacing-r-7xl);
     }
 
