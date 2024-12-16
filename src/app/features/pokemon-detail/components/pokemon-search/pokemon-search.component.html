@@ -1,14 +1,49 @@
-<sl-input
-  class="input--primary pokemon-search__input"
-  placeholder="Catch a pokemon"
-  i18n-placeholder
-  clearable
-  size="medium"
-  i18n-size
-  appSlInputIconFocus
-  [class.is-pokemon-loaded]="isPokemonLoaded"
-  [value]="termValue"
-  (sl-input)="termChange($event)"
->
-  <sl-icon name="search" slot="prefix" i18n-slot />
-</sl-input>
+<div class="search__container">
+  <sl-input
+    class="input--primary search__input"
+    placeholder="Find a pokemon!"
+    i18n-placeholder
+    clearable
+    size="medium"
+    i18n-size
+    appSlInputIconFocus
+    [class.has-action]="termValue || pokemonLoaded?.name"
+    (sl-input)="assignInputValue($event)"
+  >
+    <sl-icon name="search" slot="prefix" i18n-slot />
+  </sl-input>
+
+  @if (
+    termValue && (pokemonLoading || (!pokemonLoading && !pokemonLoaded?.sprites?.front_default))
+  ) {
+    <sl-button class="button--image" slot="trigger" i18n-slot (click)="searchPokemon()">
+      <img
+        class="search__loading-image"
+        alt="angular logo"
+        slot="suffix"
+        ngSrc="/assets/images/pokeball.png"
+        i18n-slot
+        i18n-alt
+        width="100"
+        i18n-ngSrc
+        height="100"
+        [class.loading__image]="pokemonLoading"
+        [class.not-found]="pokemonNotFound"
+      />
+    </sl-button>
+  }
+
+  @if (pokemonLoaded?.sprites?.front_default) {
+    <a [routerLink]="pokemonLoadedRoute">
+      <img
+        class="search__pokemon-image"
+        alt="pokemon image"
+        i18n-alt
+        width="40"
+        height="40"
+        priority
+        [ngSrc]="pokemonLoaded?.sprites?.front_default || ''"
+      />
+    </a>
+  }
+</div>

@@ -15,7 +15,6 @@ import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 @Component({
   selector: 'app-theme-button',
   templateUrl: './theme-button.component.html',
-  styleUrl: './theme-button.component.scss',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

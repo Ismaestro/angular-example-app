@@ -1,3 +1,31 @@
-.pokemon-search__input.is-pokemon-loaded {
-  margin-right: var(--spacing-lg);
+$pokemon-search-input-width: 230px;
+$pokemon-search-loading-image-size: 40px;
+
+:host {
+  width: $pokemon-search-input-width;
+
+  .search__container {
+    display: flex;
+    align-items: center;
+
+    .search__input.has-action {
+      margin-right: var(--spacing-xl);
+    }
+
+    .search__loading-image {
+      width: $pokemon-search-loading-image-size;
+      height: $pokemon-search-loading-image-size;
+
+      &.not-found {
+        filter: grayscale(100%) brightness(80%);
+      }
+    }
+
+    .search__pokemon-image {
+      display: flex;
+      margin: 0;
+      transition: transform 0.4s ease;
+      transform: scale(1.6);
+    }
+  }
 }

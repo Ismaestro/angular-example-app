@@ -61,6 +61,11 @@
       }
     }
 
+    &.button--image::part(base) {
+      background: transparent;
+      border: 0;
+    }
+
     &.dropdown-button--avatar::part(base) {
       box-shadow: 0 0 0 1px var(--text-color-secondary);
       transition: box-shadow 0.5s ease;

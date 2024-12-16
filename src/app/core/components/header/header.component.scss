@@ -1,6 +1,5 @@
 @use 'base/media-queries' as mq;
 
-$pokemon-search-input-width: 230px;
 $line-active-item-bottom: -31px;
 $avatar-size: 40px;
 
@@ -87,8 +86,7 @@ $avatar-size: 40px;
       }
 
       .nav__item {
-        display: flex;
-        align-items: center;
+        display: block;
         margin: var(--spacing-md) 0;
 
         &:first-of-type {
@@ -139,15 +137,6 @@ $avatar-size: 40px;
           img:first-of-type {
             margin: 0;
           }
-        }
-
-        .pokemon-search__image {
-          display: flex;
-          margin: 0;
-        }
-
-        app-pokemon-search {
-          width: $pokemon-search-input-width;
         }
       }
     }

@@ -98,10 +98,7 @@
 
       <!-- SEARCH -->
       <div class="nav__item">
-        <app-pokemon-search
-          (loading)="pokemonLoading = $event"
-          (pokemonLoaded)="loadPokemonLink($event)"
-        />
+        <app-pokemon-search />
       </div>
 
       <!-- USER MENU -->
@@ -126,7 +123,7 @@
                 size="medium"
                 i18n-size
                 pill
-                (click)="logoutUser()"
+                (click)="logOutUser()"
               >
                 {{ 'Log out' | firstTitleCase }}
               </sl-button>

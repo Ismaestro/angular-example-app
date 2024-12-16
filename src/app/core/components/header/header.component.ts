@@ -5,13 +5,12 @@ import {
   effect,
   inject,
 } from '@angular/core';
-import { AUTH_URLS, POKEMON_URLS, ROOT_URLS, USER_URLS } from '~core/constants/urls.constants';
+import { AUTH_URLS, ROOT_URLS, USER_URLS } from '~core/constants/urls.constants';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { FirstTitleCasePipe } from '~core/pipes/first-title-case.pipe';
 import { NgOptimizedImage, NgTemplateOutlet } from '@angular/common';
 import { PokemonSearchComponent } from '~features/pokemon-detail/components/pokemon-search/pokemon-search.component';
 import { AuthenticationService } from '~features/authentication/services/authentication.service';
-import type { Pokemon } from '~features/pokemon-detail/types/pokemon.type';
 import { LanguageSelectorComponent } from '~core/components/language-selector/language-selector.component';
 import { ThemeButtonComponent } from '~core/components/theme-button/theme-button.component';
 
@@ -49,9 +48,6 @@ export class HeaderComponent {
 
   isUserLoggedIn = this.authenticationService.isUserLoggedIn();
   menuOpen = false;
-  pokemonLoaded: Pokemon | undefined;
-  pokemonLoading = false;
-  pokemonLoadedRoute = '';
 
   constructor() {
     effect(() => {
@@ -59,18 +55,9 @@ export class HeaderComponent {
     });
   }
 
-  logoutUser() {
-    this.pokemonLoaded = undefined;
+  logOutUser() {
     this.authenticationService.logOut();
     void this.router.navigate([ROOT_URLS.home]);
-  }
-
-  loadPokemonLink(event: unknown) {
-    this.pokemonLoaded = event as Pokemon;
-    const pokemonName = this.pokemonLoaded.name;
-    if (pokemonName) {
-      this.pokemonLoadedRoute = POKEMON_URLS.detail(pokemonName);
-    }
   }
 
   toggleMenu() {

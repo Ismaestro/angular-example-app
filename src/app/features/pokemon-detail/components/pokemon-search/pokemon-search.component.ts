@@ -1,60 +1,70 @@
-import type { OnInit } from '@angular/core';
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
   inject,
-  output,
 } from '@angular/core';
-import { debounceTime, Subject } from 'rxjs';
 import type { Pokemon } from '~features/pokemon-detail/types/pokemon.type';
 import { PokemonService } from '~features/pokemon-detail/services/pokemon.service';
 import { SlInputIconFocusDirective } from '~core/directives/sl-input-icon-focus.directive';
+import { NgOptimizedImage } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
+import '@shoelace-style/shoelace/dist/components/button/button.js';
+import '@shoelace-style/shoelace/dist/components/input/input.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
-
-const SEARCH_DEBOUNCE_TIME = 300;
+import { POKEMON_URLS } from '~core/constants/urls.constants';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-pokemon-search',
   templateUrl: './pokemon-search.component.html',
   styleUrl: './pokemon-search.component.scss',
   standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [SlInputIconFocusDirective],
+  imports: [SlInputIconFocusDirective, NgOptimizedImage, RouterLink],
 })
-export class PokemonSearchComponent implements OnInit {
-  termValue = '';
-  isPokemonLoaded = false;
-
-  readonly loading = output<boolean>();
-  readonly pokemonLoaded = output<Pokemon>();
-
+export class PokemonSearchComponent {
+  private readonly changeDetectorRef = inject(ChangeDetectorRef);
   private readonly pokemonService = inject(PokemonService);
-  private readonly searchSubject = new Subject<string>();
 
-  ngOnInit() {
-    this.searchSubject.pipe(debounceTime(SEARCH_DEBOUNCE_TIME)).subscribe((term) => {
-      this.loading.emit(true);
+  termValue = '';
+  pokemonLoaded: Pokemon | undefined;
+  pokemonNotFound = false;
+  pokemonLoading = false;
+  pokemonLoadedRoute = '';
 
-      this.pokemonService.getPokemon(term).subscribe({
+  searchPokemon() {
+    if (this.termValue) {
+      this.pokemonLoading = true;
+
+      this.pokemonService.getPokemon(this.termValue).subscribe({
         next: (pokemon) => {
-          this.pokemonLoaded.emit(pokemon);
-          this.isPokemonLoaded = true;
-          this.loading.emit(false);
+          this.pokemonLoading = false;
+          this.pokemonNotFound = false;
+          this.pokemonLoaded = pokemon;
+          this.pokemonLoadedRoute = POKEMON_URLS.detail(this.pokemonLoaded.name);
+          this.changeDetectorRef.markForCheck();
         },
         error: () => {
-          this.isPokemonLoaded = false;
-          this.loading.emit(false);
+          this.pokemonLoading = false;
+          this.pokemonNotFound = true;
+          this.changeDetectorRef.markForCheck();
         },
       });
-    });
+    }
   }
 
-  termChange(event: Event) {
+  assignInputValue(event: Event) {
     const inputEvent = event as CustomEvent;
     this.termValue = (inputEvent.target as HTMLInputElement).value;
-    this.searchSubject.next(this.termValue);
+    if (!this.termValue) {
+      this.pokemonLoaded = undefined;
+      this.pokemonLoading = false;
+      this.pokemonNotFound = false;
+    } else if (this.pokemonLoaded) {
+      this.pokemonLoaded = undefined;
+    }
   }
 }
