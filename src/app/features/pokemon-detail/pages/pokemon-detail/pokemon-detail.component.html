@@ -1,19 +1,5 @@
-<canvas #canvas></canvas>
-
 @if (pokemon) {
-  <div class="pokemon-card__container">
-    <div class="pokemon-card__image-container">
-      @if (croppedImageUrl) {
-        <!-- eslint-disable @angular-eslint/template/prefer-ngsrc -->
-        <img
-          class="pokemon-card__pokemon-image"
-          alt="pokemon image"
-          [class.loaded]="croppedImageLoaded"
-          [src]="croppedImageUrl"
-          i18n-alt
-          (load)="croppedImageLoaded = true"
-        />
-      }
-    </div>
-  </div>
+  <app-pokemon-battlefield [pokemon]="pokemon" />
 }
+
+<!--<app-catch-pokemon />-->

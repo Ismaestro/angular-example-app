@@ -1,0 +1,59 @@
+@use 'base/media-queries' as mq;
+@use 'components/pages';
+
+$battle-terrain-container-color: #444;
+
+:host {
+  .pokemon-card__image-container {
+    position: relative;
+    width: 285px;
+    height: 160px;
+    background-image: url('/assets/images/battle-grass.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: 3px solid $battle-terrain-container-color;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 var(--spacing-sm) var(--spacing-md) rgb(0 0 0 / 30%);
+
+    @include mq.for-tablet-up {
+      width: 512px;
+      height: 288px;
+    }
+
+    .pokemon-card__pokemon-image {
+      position: absolute;
+      right: 45px;
+      bottom: 55px;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      opacity: 0;
+      transition:
+        opacity 0.5s ease-in-out,
+        transform 0.5s ease-in-out;
+      transform: scale(0.3) translateY(30px);
+      scale: 0.7;
+
+      &.loaded {
+        opacity: 1;
+        transform: scale(1.3) translateY(-5px);
+      }
+
+      @include mq.for-tablet-up {
+        right: 110px;
+        bottom: 135px;
+        transform: scale(0.8) translateY(30px);
+        scale: 1.3;
+
+        &.loaded {
+          transform: scale(1.3) translateY(-5px);
+        }
+      }
+    }
+  }
+
+  canvas {
+    display: none;
+  }
+}
