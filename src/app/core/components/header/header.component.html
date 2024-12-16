@@ -77,7 +77,9 @@
         <app-language-selector />
       </div>
 
-      <ng-container [ngTemplateOutlet]="themeButton" />
+      <div class="nav__item">
+        <app-theme-button />
+      </div>
     } @else {
       <!-- DASHBOARD -->
       <div class="nav__item">
@@ -100,25 +102,7 @@
           (loading)="pokemonLoading = $event"
           (pokemonLoaded)="loadPokemonLink($event)"
         />
-        @if (pokemonLoaded?.sprites?.front_default) {
-          <a [routerLink]="pokemonLoadedRoute">
-            <img
-              class="pokemon-search__image"
-              alt="pokemon image"
-              i18n-alt
-              width="40"
-              height="40"
-              priority
-              [ngSrc]="pokemonLoaded?.sprites?.front_default || ''"
-            />
-          </a>
-        }
-        @if (pokemonLoading) {
-          <div class="loading__circle"></div>
-        }
       </div>
-
-      <ng-container [ngTemplateOutlet]="themeButton" />
 
       <!-- USER MENU -->
       <div class="nav__item">
@@ -151,16 +135,5 @@
         </sl-dropdown>
       </div>
     }
-    <ng-template #themeButton>
-      <div class="nav__item">
-        <sl-button class="button--icon" (click)="toggleTheme()">
-          @if (themeSelected === Theme.DARK || !themeSelected) {
-            <sl-icon name="brightness-high-fill" />
-          } @else {
-            <sl-icon name="moon" />
-          }
-        </sl-button>
-      </div>
-    </ng-template>
   </div>
 </nav>
