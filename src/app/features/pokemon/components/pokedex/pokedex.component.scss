@@ -177,8 +177,8 @@ $pokedex-text-dark: #032d28;
       }
     }
 
-    .pokedex__top-text-container,
-    .pokedex__bottom-text-container {
+    .pokedex__top-data-container,
+    .pokedex__bottom-data-container {
       height: 100px;
       padding: 8px;
       margin: 12px;
@@ -187,13 +187,22 @@ $pokedex-text-dark: #032d28;
       border-radius: 8px;
     }
 
-    .pokedex__top-text-container {
+    .pokedex__top-data-container {
+      display: flex;
+      flex-direction: row;
       margin-left: 24px;
       color: $pokedex-text-dark;
       background: $pokedex-white;
+
+      .pokedex__pokemon-image-container {
+        .pokedex__pokemon-image {
+          width: 100px;
+          height: auto;
+        }
+      }
     }
 
-    .pokedex__bottom-text-container {
+    .pokedex__bottom-data-container {
       flex: 1;
       color: white;
       background: $pokedex-text-dark;

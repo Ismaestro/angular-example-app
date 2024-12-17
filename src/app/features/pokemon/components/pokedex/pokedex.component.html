@@ -8,7 +8,14 @@
     <div class="pokedex__flap-container">
       <figure class="pokedex__flap-front"></figure>
       <figure class="pokedex__flap-back">
-        <div i18n class="pokedex__top-text-container">aqui va el texto con los datos</div>
+        <div i18n class="pokedex__top-data-container">
+          <div class="pokedex__pokemon-image-container">
+            <app-pokemon-image [image]="pokemonImage" />
+          </div>
+          <div class="pokedex__top-text-container">
+            <p>Name: XXXXXXXXX</p>
+          </div>
+        </div>
       </figure>
     </div>
   </div>
@@ -18,7 +25,7 @@
       <div class="pokedex__pad"></div>
       <div class="pokedex__pad-circle"></div>
     </div>
-    <div i18n class="pokedex__bottom-text-container">aqui van mas datos?</div>
+    <div i18n class="pokedex__bottom-data-container">aqui van mas datos?</div>
   </div>
   <div class="pokedex__joystick-container">
     <div class="pokedex__joystick-tracker">

@@ -33,10 +33,11 @@ export class PokemonSearchComponent {
   pokemonLoading = false;
 
   searchPokemon() {
-    if (this.termValue) {
+    const pokemonName = this.termValue.trim().toLowerCase();
+    if (pokemonName) {
       this.pokemonLoading = true;
 
-      this.pokemonService.getPokemon(this.termValue).subscribe({
+      this.pokemonService.getPokemon(pokemonName).subscribe({
         next: (pokemon) => {
           this.pokemonLoading = false;
           this.termValue = '';
