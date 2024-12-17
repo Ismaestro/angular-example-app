@@ -39,7 +39,7 @@ $pokedex-text-dark: #032d28;
       height: 100%;
       transition: transform 1s;
       transform: rotateX(360deg);
-      transform-origin: 0% 100%;
+      transform-origin: 0 100%;
       transform-style: preserve-3d;
 
       figure {
@@ -181,8 +181,7 @@ $pokedex-text-dark: #032d28;
     .pokedex__bottom-data-container {
       height: 100px;
       padding: 8px;
-      margin: 12px;
-      margin-left: 34px;
+      margin: 12px 12px 12px 34px;
       border: 4px solid $pokedex-black;
       border-radius: 8px;
     }
@@ -190,14 +189,32 @@ $pokedex-text-dark: #032d28;
     .pokedex__top-data-container {
       display: flex;
       flex-direction: row;
+      gap: var(--spacing-lg);
       margin-left: 24px;
       color: $pokedex-text-dark;
       background: $pokedex-white;
 
       .pokedex__pokemon-image-container {
+        display: flex;
+        align-items: center;
+        max-width: 60px;
+
         .pokedex__pokemon-image {
           width: 100px;
           height: auto;
+        }
+      }
+
+      .pokedex__top-text-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        p {
+          margin-bottom: var(--spacing-r-sm);
+          font-size: var(--font-size-xs);
+          font-weight: var(--font-weight-light);
+          line-height: var(--line-height-xs);
         }
       }
     }

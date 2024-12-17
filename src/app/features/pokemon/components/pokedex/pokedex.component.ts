@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 import type { Pokemon } from '~features/pokemon/types/pokemon.type';
 import { PokemonImageComponent } from '~features/pokemon/components/pokemon-image/pokemon-image.component';
+import { FirstTitleCasePipe } from '~core/pipes/first-title-case.pipe';
 
 @Component({
   selector: 'app-pokedex',
@@ -18,7 +19,7 @@ import { PokemonImageComponent } from '~features/pokemon/components/pokemon-imag
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [PokemonImageComponent],
+  imports: [PokemonImageComponent, FirstTitleCasePipe],
 })
 export class PokedexComponent implements OnInit {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);

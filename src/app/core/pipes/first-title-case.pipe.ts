@@ -6,7 +6,7 @@ import { Pipe } from '@angular/core';
   standalone: true,
 })
 export class FirstTitleCasePipe implements PipeTransform {
-  transform(value: string): string {
-    return value[0].toUpperCase() + value.slice(1);
+  transform(value: string | undefined): string {
+    return value ? value[0].toUpperCase() + value.slice(1) : '';
   }
 }
