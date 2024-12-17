@@ -4,14 +4,6 @@ export type Pokemon = {
   name: string;
   height: string;
   weight: string;
-  types: [
-    {
-      slot: number;
-      type: {
-        name: string;
-      };
-    },
-  ];
   sprites: {
     front_default: string;
     front_shiny: string;
