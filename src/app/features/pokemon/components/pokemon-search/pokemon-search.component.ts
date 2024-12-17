@@ -5,7 +5,7 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
   inject,
 } from '@angular/core';
-import { PokemonService } from '~features/pokemon-detail/services/pokemon.service';
+import { PokemonService } from '~features/pokemon/services/pokemon.service';
 import { SlInputIconFocusDirective } from '~core/directives/sl-input-icon-focus.directive';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';

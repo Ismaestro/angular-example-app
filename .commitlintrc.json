@@ -5,7 +5,7 @@
     "scope-enum": [
       2,
       "always",
-      ["tools", "styles", "e2e", "version", "app", "core", "authentication", "dashboard", "home", "pokemon-detail"]
+      ["tools", "styles", "e2e", "version", "app", "core", "authentication", "home", "pokemon", "pokedex"]
     ],
     "subject-case": [2, "always", "lower-case"],
     "subject-full-stop": [2, "never"]

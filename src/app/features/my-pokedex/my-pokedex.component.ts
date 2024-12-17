@@ -7,20 +7,20 @@ import {
   signal,
 } from '@angular/core';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { PokemonCardComponent } from '~features/pokemon-detail/components/pokemon-card/pokemon-card.component';
+import { PokemonCardComponent } from '~features/pokemon/components/pokemon-card/pokemon-card.component';
 import { UserService } from '~features/authentication/services/user.service';
 
 const COUNTER_STARTS = 0;
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
+  selector: 'app-my-pokedex',
+  templateUrl: './my-pokedex.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [ReactiveFormsModule, PokemonCardComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class DashboardComponent implements OnInit {
+export class MyPokedexComponent implements OnInit {
   private readonly userService = inject(UserService);
 
   readonly profileForm = new FormGroup({

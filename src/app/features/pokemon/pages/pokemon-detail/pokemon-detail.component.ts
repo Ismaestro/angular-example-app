@@ -6,14 +6,14 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
   inject,
 } from '@angular/core';
-import { PokemonService } from '~features/pokemon-detail/services/pokemon.service';
-import type { Pokemon } from '~features/pokemon-detail/types/pokemon.type';
+import { PokemonService } from '~features/pokemon/services/pokemon.service';
+import type { Pokemon } from '~features/pokemon/types/pokemon.type';
 import type { ParamMap } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { SubscriptionManagerService } from '~core/services/subscription-manager.service';
 import { takeUntil } from 'rxjs';
-import { PokemonBattlefieldComponent } from '~features/pokemon-detail/components/pokemon-battlefield/pokemon-battlefield.component';
-import { PokedexComponent } from '~features/pokemon-detail/components/pokedex/pokedex.component';
+import { PokemonBattlefieldComponent } from '~features/pokemon/components/pokemon-battlefield/pokemon-battlefield.component';
+import { PokedexComponent } from '~features/pokemon/components/pokedex/pokedex.component';
 
 @Component({
   selector: 'app-pokemon-detail',

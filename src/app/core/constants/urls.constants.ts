@@ -1,12 +1,8 @@
-import {
-  AUTHENTICATION_PATHS,
-  DASHBOARD_PATHS,
-  POKEMON_DETAIL_PATHS,
-  ROOT_PATHS,
-} from '~core/constants/paths.constants';
+import { AUTHENTICATION_PATHS, POKEMON_PATHS, ROOT_PATHS } from '~core/constants/paths.constants';
 
 export const ROOT_URLS = {
   home: `/${ROOT_PATHS.home}`,
+  myPokedex: `/${ROOT_PATHS.myPokedex}`,
   error404: `/${ROOT_PATHS.error404}`,
 };
 
@@ -16,9 +12,10 @@ export const AUTH_URLS = {
 };
 
 export const USER_URLS = {
-  dashboard: `/${DASHBOARD_PATHS.base}/${DASHBOARD_PATHS.base}`,
+  // TODO: refactor this line
+  myAccount: `/my-account`,
 };
 
 export const POKEMON_URLS = {
-  detail: (id: string) => `/${POKEMON_DETAIL_PATHS.base}/${id}`,
+  detail: (id: string) => `/${POKEMON_PATHS.base}/${id}`,
 };

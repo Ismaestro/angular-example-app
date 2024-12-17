@@ -89,10 +89,6 @@
         <source>Log in</source>
         <target state="new">Log in</target>
       </trans-unit>
-      <trans-unit id="6570363013146073520" datatype="html">
-        <source>Dashboard</source>
-        <target state="new">Dashboard</target>
-      </trans-unit>
       <trans-unit id="7507948636555938109" datatype="html">
         <source>Log out</source>
         <target state="new">Log out</target>

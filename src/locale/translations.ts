@@ -8,6 +8,5 @@ export const translations = {
   confirmPasswordHelpText: $localize`Passwords do not match.`,
   pokemonHelpText: $localize`Field required. PokeAPI does not found that pokemon name.`,
   register: $localize`Register`,
-  dashboard: $localize`Dashboard`,
   logout: $localize`Log out`,
 };

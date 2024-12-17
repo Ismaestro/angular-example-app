@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { AUTH_URLS, USER_URLS } from '~core/constants/urls.constants';
+import { AUTH_URLS, ROOT_URLS } from '~core/constants/urls.constants';
 import { emailValidator } from '~core/validators/email.validator';
 import { passwordValidator } from '~core/validators/password.validator';
 import { PokemonValidator } from '~core/validators/pokemon.validator';
@@ -111,7 +111,7 @@ export class RegisterComponent implements OnInit {
         })
         .subscribe({
           next: () => {
-            void this.router.navigate([USER_URLS.dashboard]);
+            void this.router.navigate([ROOT_URLS.myPokedex]);
           },
           error: () => {
             // TODO: implement alert

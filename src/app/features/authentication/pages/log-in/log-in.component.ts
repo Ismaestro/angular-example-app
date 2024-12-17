@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, inject } fr
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { emailValidator } from '~core/validators/email.validator';
-import { AUTH_URLS, USER_URLS } from '~core/constants/urls.constants';
+import { AUTH_URLS, ROOT_URLS } from '~core/constants/urls.constants';
 import { passwordValidator } from '~core/validators/password.validator';
 import { AuthenticationService } from '~features/authentication/services/authentication.service';
 import { SlInputIconFocusDirective } from '~core/directives/sl-input-icon-focus.directive';
@@ -52,7 +52,7 @@ export class LogInComponent {
       const formValue = this.logInForm.getRawValue();
       this.authService.logIn({ email: formValue.email!, password: formValue.password! }).subscribe({
         next: () => {
-          void this.router.navigate([USER_URLS.dashboard]);
+          void this.router.navigate([ROOT_URLS.myPokedex]);
         },
         error: () => {
           // TODO: implement alert

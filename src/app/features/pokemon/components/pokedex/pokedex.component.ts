@@ -7,7 +7,7 @@ import {
   inject,
   input,
 } from '@angular/core';
-import type { Pokemon } from '~features/pokemon-detail/types/pokemon.type';
+import type { Pokemon } from '~features/pokemon/types/pokemon.type';
 
 @Component({
   selector: 'app-pokedex',

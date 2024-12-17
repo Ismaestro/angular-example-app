@@ -2,7 +2,7 @@ import type { Observable } from 'rxjs';
 import { catchError, map, of } from 'rxjs';
 import { inject, Injectable, signal } from '@angular/core';
 import type { AbstractControl, AsyncValidator, ValidationErrors } from '@angular/forms';
-import { PokemonService } from '~features/pokemon-detail/services/pokemon.service';
+import { PokemonService } from '~features/pokemon/services/pokemon.service';
 
 @Injectable({ providedIn: 'root' })
 export class PokemonValidator implements AsyncValidator {

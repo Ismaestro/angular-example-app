@@ -10,7 +10,7 @@ import {
   type Signal,
   viewChild,
 } from '@angular/core';
-import type { Pokemon } from '~features/pokemon-detail/types/pokemon.type';
+import type { Pokemon } from '~features/pokemon/types/pokemon.type';
 import { CropImageService } from '~core/services/crop-image.service';
 
 @Component({

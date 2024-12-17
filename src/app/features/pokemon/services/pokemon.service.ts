@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import type { Observable } from 'rxjs';
 import { HttpClient, HttpContext, HttpParams } from '@angular/common/http';
 import { CACHING_ENABLED } from '~core/interceptors/caching.interceptor';
-import type { Pokemon } from '~features/pokemon-detail/types/pokemon.type';
+import type { Pokemon } from '~features/pokemon/types/pokemon.type';
 
 const POKEMON_API_HOST = 'https://pokeapi.co/api/v2';
 

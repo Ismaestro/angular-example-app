@@ -5,11 +5,11 @@ import {
   effect,
   inject,
 } from '@angular/core';
-import { AUTH_URLS, ROOT_URLS, USER_URLS } from '~core/constants/urls.constants';
+import { AUTH_URLS, POKEMON_URLS, ROOT_URLS, USER_URLS } from '~core/constants/urls.constants';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { FirstTitleCasePipe } from '~core/pipes/first-title-case.pipe';
 import { NgOptimizedImage, NgTemplateOutlet } from '@angular/common';
-import { PokemonSearchComponent } from '~features/pokemon-detail/components/pokemon-search/pokemon-search.component';
+import { PokemonSearchComponent } from '~features/pokemon/components/pokemon-search/pokemon-search.component';
 import { AuthenticationService } from '~features/authentication/services/authentication.service';
 import { LanguageSelectorComponent } from '~core/components/language-selector/language-selector.component';
 import { ThemeButtonComponent } from '~core/components/theme-button/theme-button.component';
@@ -19,6 +19,7 @@ import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import '@shoelace-style/shoelace/dist/components/dropdown/dropdown.js';
 import '@shoelace-style/shoelace/dist/components/menu/menu.js';
 import '@shoelace-style/shoelace/dist/components/menu-item/menu-item.js';
+import { ROOT_PATHS } from '~core/constants/paths.constants';
 
 @Component({
   selector: 'app-header',
@@ -67,4 +68,7 @@ export class HeaderComponent {
   closeMenu() {
     this.menuOpen = false;
   }
+
+  protected readonly POKEMON_URLS = POKEMON_URLS;
+  protected readonly ROOT_PATHS = ROOT_PATHS;
 }
