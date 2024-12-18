@@ -15,7 +15,7 @@
           <div class="pokedex__top-text-container">
             <!-- eslint-disable-next-line @angular-eslint/template/no-call-expression -->
             @if (pokemon()) {
-              <p>{{pokemon()?.name | firstTitleCase}}</p>
+              <p class="pokemon__name-text">{{pokemon()?.name | firstTitleCase}}</p>
               <p>N.º: {{pokemon()?.order}}</p>
               <p>Height: {{pokemon()?.height}} dm</p>
               <p>Weight: {{pokemon()?.weight}} hg</p>
@@ -31,8 +31,22 @@
       <div class="pokedex__pad"></div>
       <div class="pokedex__pad-circle"></div>
     </div>
-    <div i18n class="pokedex__bottom-data-container">
-      <p>CATCH</p>
+    <div class="pokedex__bottom-data-container">
+      @if (userHasPokemon) {
+        <p i18n>Already got this one, keep going!</p>
+      } @else {
+        <p i18n>Still gotta catch 'em all, this one's missing from your Pokédex!</p>
+        <div class="pokedex-actions__container">
+          <sl-button
+            i18n
+            class="button--pokemon-style"
+            [disabled]="isPokedexButtonDisabled"
+            (click)="notifyBattlefield()"
+          >
+            POKEBALL
+          </sl-button>
+        </div>
+      }
     </div>
   </div>
   <div class="pokedex__joystick-container">

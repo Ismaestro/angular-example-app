@@ -5,7 +5,7 @@ $screen-lg: 1200px;
 $screen-xl: 1800px;
 
 @mixin for-phone-only {
-  @media (max-width: $screen-xs) {
+  @media (max-width: $screen-sm) {
     @content;
   }
 }

@@ -1,3 +1,7 @@
+$pokedex-background-color: #f8f8f8;
+$pokedex-text-color: #4e4e4e;
+$pokedex-button-border-color: #7d7897;
+
 @mixin buttons() {
   sl-button {
     &::part(base) {
@@ -58,6 +62,49 @@
 
       &:active {
         color: var(--text-color-secondary-hover);
+      }
+    }
+
+    &.button--pokemon-style::part(base) {
+      position: relative;
+      min-height: 0;
+      padding: var(--spacing-sm) var(--spacing-xl);
+      color: $pokedex-text-color;
+      background: $pokedex-background-color;
+      border: 3px solid $pokedex-button-border-color;
+      border-radius: var(--border-radius-sm);
+
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: var(--spacing-xs);
+        content: '▶';
+        opacity: 0;
+        transition: opacity 0.1s;
+        transform: translateY(-50%);
+      }
+
+      &:hover {
+        color: $pokedex-text-color;
+
+        &::before {
+          opacity: 1;
+        }
+      }
+
+      &:active {
+        color: $pokedex-text-color;
+      }
+    }
+
+    &.button--pokemon-style::part(label) {
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-bold);
+      line-height: var(--line-height-md);
+      opacity: 0.8;
+
+      &:hover {
+        opacity: 1;
       }
     }
 

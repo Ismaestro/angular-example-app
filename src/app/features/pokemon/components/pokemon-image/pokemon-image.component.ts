@@ -12,6 +12,7 @@ import {
   viewChild,
 } from '@angular/core';
 import { CropImageService } from '~core/services/crop-image.service';
+import { NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-pokemon-image',
@@ -19,6 +20,7 @@ import { CropImageService } from '~core/services/crop-image.service';
   styleUrl: './pokemon-image.component.scss',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [NgStyle],
 })
 export class PokemonImageComponent implements AfterViewInit {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
@@ -28,6 +30,7 @@ export class PokemonImageComponent implements AfterViewInit {
 
   canvas: Signal<ElementRef<HTMLCanvasElement> | undefined> = viewChild('canvas');
   image = input<string>();
+  imageWidth = input<string>('100%');
   croppedBase64Image!: string;
   croppedImageLoaded = false;
 
@@ -52,14 +55,11 @@ export class PokemonImageComponent implements AfterViewInit {
         .getCroppedImageURL(canvasElement.nativeElement, imageValue)
         .then((base64Image) => {
           this.croppedBase64Image = base64Image;
+          this.load.emit(true);
           this.changeDetectorRef.markForCheck();
           return base64Image;
         });
     }
-  }
-
-  emitLoadEvent() {
-    this.load.emit(true);
   }
 
   private resetState() {

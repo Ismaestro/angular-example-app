@@ -88,6 +88,7 @@ export default tsEslint.config(
         { 'allow': ['eslint-disable-next-line', 'eslint-disable', 'eslint-enable'] },
       ],
       'no-warning-comments': ['error', { 'terms': ['warn'] }],
+      'capitalized-comments': ['error', 'always', { 'ignoreConsecutiveComments': true }],
 
       // Off
       'max-params': 'off',

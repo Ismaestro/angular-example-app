@@ -7,7 +7,6 @@ import {
   signal,
 } from '@angular/core';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { PokemonCardComponent } from '~features/pokemon/components/pokemon-card/pokemon-card.component';
 import { UserService } from '~features/authentication/services/user.service';
 
 const COUNTER_STARTS = 0;
@@ -17,7 +16,7 @@ const COUNTER_STARTS = 0;
   templateUrl: './my-pokedex.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [ReactiveFormsModule, PokemonCardComponent],
+  imports: [ReactiveFormsModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class MyPokedexComponent implements OnInit {

@@ -5,6 +5,7 @@ import {
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
   inject,
+  signal,
 } from '@angular/core';
 import { PokemonService } from '~features/pokemon/services/pokemon.service';
 import type { Pokemon } from '~features/pokemon/types/pokemon.type';
@@ -14,6 +15,7 @@ import { SubscriptionManagerService } from '~core/services/subscription-manager.
 import { takeUntil } from 'rxjs';
 import { PokemonBattlefieldComponent } from '~features/pokemon/components/pokemon-battlefield/pokemon-battlefield.component';
 import { PokedexComponent } from '~features/pokemon/components/pokedex/pokedex.component';
+import { PokedexAction } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -30,6 +32,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   private readonly activatedRoute = inject(ActivatedRoute);
   private readonly pokemonService = inject(PokemonService);
 
+  pokedexAction = signal(PokedexAction.POKEMON_LOADED);
   pokemon!: Pokemon;
 
   ngOnInit() {
