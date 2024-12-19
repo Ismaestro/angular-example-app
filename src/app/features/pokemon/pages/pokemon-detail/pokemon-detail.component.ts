@@ -15,7 +15,7 @@ import { SubscriptionManagerService } from '~core/services/subscription-manager.
 import { takeUntil } from 'rxjs';
 import { PokemonBattlefieldComponent } from '~features/pokemon/components/pokemon-battlefield/pokemon-battlefield.component';
 import { PokedexComponent } from '~features/pokemon/components/pokedex/pokedex.component';
-import { PokedexAction } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
+import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -32,7 +32,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
   private readonly activatedRoute = inject(ActivatedRoute);
   private readonly pokemonService = inject(PokemonService);
 
-  pokedexAction = signal(PokedexAction.POKEMON_LOADED);
+  pokemonBattleEvent = signal(BattleEvent.POKEMON_LOADED);
   pokemon!: Pokemon;
 
   ngOnInit() {
@@ -59,6 +59,7 @@ export class PokemonDetailComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (pokemon) => {
           this.pokemon = pokemon;
+          this.pokemonBattleEvent.set(BattleEvent.RESET_BATTLE);
           this.changeDetectorRef.markForCheck();
         },
         error: () => {

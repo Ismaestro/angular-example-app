@@ -38,7 +38,7 @@
     />
   </div>
   <div class="pokemon-battlefield__pokemon-image-container" [class.loaded]="pokemonImageLoaded">
-    <app-pokemon-catch [pokedexAction]="pokedexAction" (end)="notifyPokedex()">
+    <app-pokemon-catch [pokemonBattleEvent]="pokemonBattleEvent">
       <ng-container ngProjectAs="image">
         <app-pokemon-image
           [image]="pokemonImage"

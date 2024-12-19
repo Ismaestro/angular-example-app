@@ -5,7 +5,7 @@ export type User = {
   createdAt: string;
   updatedAt: string;
   email: string;
-  firstname: string;
+  name: string;
   language: Language;
-  pokemonIdsCaught?: number[];
+  caughtPokemonIds?: number[];
 };

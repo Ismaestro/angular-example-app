@@ -48,7 +48,7 @@ export class RegisterComponent implements OnInit {
   pokemonValidator = inject(PokemonValidator);
   translations = translations;
   authUrls = AUTH_URLS;
-  firstname = new FormControl('', [Validators.required, Validators.minLength(2)]);
+  name = new FormControl('', [Validators.required, Validators.minLength(2)]);
   email = new FormControl('', [Validators.required, Validators.minLength(4), emailValidator()]);
   password = new FormControl('', {
     validators: [Validators.required, passwordValidator()],
@@ -65,7 +65,7 @@ export class RegisterComponent implements OnInit {
   });
   terms = new FormControl(null, [Validators.requiredTrue]);
   registerForm = this.formBuilder.group({
-    firstname: this.firstname,
+    name: this.name,
     email: this.email,
     password: this.password,
     confirmPassword: this.confirmPassword,
@@ -78,6 +78,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.favouritePokemon.setErrors({ pokemonName: true });
+    // TODO: check all subscribes to unsubscribe
     merge(this.password.valueChanges, this.confirmPassword.valueChanges).subscribe(() => {
       this.checkPasswords();
     });
@@ -105,7 +106,7 @@ export class RegisterComponent implements OnInit {
         .register({
           email: formValue.email!,
           password: formValue.password!,
-          firstname: formValue.firstname!,
+          name: formValue.name!,
           favouritePokemonId: this.pokemonValidator.getPokemonValue(),
           terms: formValue.terms!,
         })

@@ -41,7 +41,7 @@ export class AuthenticationService {
         {
           email: registerRequest.email,
           password: registerRequest.password,
-          firstname: registerRequest.firstname,
+          name: registerRequest.name,
           favouritePokemonId: registerRequest.favouritePokemonId,
           terms: registerRequest.terms,
         },

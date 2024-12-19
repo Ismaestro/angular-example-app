@@ -32,7 +32,12 @@
       <div class="pokedex__pad-circle"></div>
     </div>
     <div class="pokedex__bottom-data-container">
-      @if (userHasPokemon) {
+      @if (userHasCaught) {
+        <p i18n>
+          🎯 Nice catch, {{user?.name}}! You’re one step closer to being a Pokémon Master—keep it
+          up! 🌟
+        </p>
+      } @else if (userHasPokemon) {
         <p i18n>Already got this one, keep going!</p>
       } @else {
         <p i18n>Still gotta catch 'em all, this one's missing from your Pokédex!</p>
@@ -41,7 +46,7 @@
             i18n
             class="button--pokemon-style"
             [disabled]="isPokedexButtonDisabled"
-            (click)="notifyBattlefield()"
+            (click)="catchPokemon()"
           >
             POKEBALL
           </sl-button>

@@ -12,7 +12,6 @@ import {
   withViewTransitions,
 } from '@angular/router';
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
-import { loggingInterceptor } from '~core/interceptors/logging.interceptor';
 import { cachingInterceptor } from '~core/interceptors/caching.interceptor';
 import { appRoutes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -46,7 +45,7 @@ export const appConfig: ApplicationConfig = {
     ),
     provideHttpClient(
       withFetch(),
-      withInterceptors([authenticationInterceptor, loggingInterceptor, cachingInterceptor]),
+      withInterceptors([authenticationInterceptor, cachingInterceptor]),
     ),
     provideAnimationsAsync(),
   ],

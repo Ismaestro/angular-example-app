@@ -6,12 +6,11 @@ import {
   effect,
   inject,
   Input,
-  output,
   type WritableSignal,
 } from '@angular/core';
 import { NgOptimizedImage, NgStyle } from '@angular/common';
 import { catchAnimations } from '~features/pokemon/components/pokemon-catch/pokemon-catch.animations';
-import { PokedexAction } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
+import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
 
 enum PokeballState {
   Idle = 'idle',
@@ -42,10 +41,8 @@ enum PokemonState {
 export class PokemonCatchComponent implements OnInit {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
 
-  readonly end = output<boolean>();
-
   // TODO: review why signal-style here is not working
-  @Input() pokedexAction!: WritableSignal<PokedexAction>;
+  @Input() pokemonBattleEvent!: WritableSignal<BattleEvent>;
 
   pokeballState: PokeballState = PokeballState.Idle;
   pokemonState: PokemonState = PokemonState.Idle;
@@ -57,8 +54,16 @@ export class PokemonCatchComponent implements OnInit {
 
   constructor() {
     effect(() => {
-      if (this.pokedexAction() === PokedexAction.THROW_POKEBALL) {
+      if (this.pokemonBattleEvent() === BattleEvent.THROW_POKEBALL) {
         this.startCatchAnimation();
+      }
+      if (
+        this.pokemonBattleEvent() === BattleEvent.POKEMON_LOADED ||
+        this.pokemonBattleEvent() === BattleEvent.RESET_BATTLE
+      ) {
+        this.pokeballState = PokeballState.Idle;
+        this.pokemonState = PokemonState.Idle;
+        this.changeDetectorRef.markForCheck();
       }
     });
   }
@@ -93,7 +98,7 @@ export class PokemonCatchComponent implements OnInit {
 
     setTimeout(() => {
       this.pokeballState = PokeballState.Shining;
-      this.end.emit(true);
+      this.pokemonBattleEvent.set(BattleEvent.CATCH_ANIMATION_ENDED);
       this.changeDetectorRef.markForCheck();
     }, 6500);
   }

@@ -1,7 +1,7 @@
 export type RegisterRequest = {
   email: string;
   password: string;
-  firstname: string;
+  name: string;
   favouritePokemonId: number;
   terms: boolean;
 };

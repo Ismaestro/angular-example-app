@@ -5,7 +5,7 @@ import {
   effect,
   inject,
 } from '@angular/core';
-import { AUTH_URLS, POKEMON_URLS, ROOT_URLS, USER_URLS } from '~core/constants/urls.constants';
+import { AUTH_URLS, ROOT_URLS } from '~core/constants/urls.constants';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { FirstTitleCasePipe } from '~core/pipes/first-title-case.pipe';
 import { NgOptimizedImage, NgTemplateOutlet } from '@angular/common';
@@ -43,9 +43,9 @@ export class HeaderComponent {
   private readonly authenticationService = inject(AuthenticationService);
 
   readonly router = inject(Router);
+  readonly ROOT_PATHS = ROOT_PATHS;
   readonly ROOT_URLS = ROOT_URLS;
   readonly AUTH_URLS = AUTH_URLS;
-  readonly USER_URLS = USER_URLS;
 
   isUserLoggedIn = this.authenticationService.isUserLoggedIn();
   menuOpen = false;
@@ -68,7 +68,4 @@ export class HeaderComponent {
   closeMenu() {
     this.menuOpen = false;
   }
-
-  protected readonly POKEMON_URLS = POKEMON_URLS;
-  protected readonly ROOT_PATHS = ROOT_PATHS;
 }

@@ -12,7 +12,7 @@ import type { Pokemon } from '~features/pokemon/types/pokemon.type';
 import { PokemonImageComponent } from '~features/pokemon/components/pokemon-image/pokemon-image.component';
 import { PokemonCatchComponent } from '~features/pokemon/components/pokemon-catch/pokemon-catch.component';
 import { NgOptimizedImage } from '@angular/common';
-import { PokedexAction } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
+import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
 
 @Component({
   selector: 'app-pokemon-battlefield',
@@ -26,7 +26,7 @@ export class PokemonBattlefieldComponent implements OnInit {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
 
   // TODO: review why signal-style here is not working
-  @Input() pokedexAction!: WritableSignal<PokedexAction>;
+  @Input() pokemonBattleEvent!: WritableSignal<BattleEvent>;
 
   pokemon = input<Pokemon>();
   pokemonImage: string | undefined;
@@ -35,16 +35,9 @@ export class PokemonBattlefieldComponent implements OnInit {
 
   constructor() {
     effect(() => {
-      const pokemonValue = this.pokemon();
-      if (pokemonValue) {
-        this.pokemonImage = pokemonValue.sprites.front_default;
-        this.changeDetectorRef.markForCheck();
-      }
-      if (this.pokedexAction() === PokedexAction.THROW_POKEBALL) {
-        // Console.log('time to update the user with the pokemon and save the state for later');
-        this.startCatchAnimation = true;
-        this.changeDetectorRef.markForCheck();
-      }
+      this.updatePokemonImage();
+      this.handleThrowPokeballEvent();
+      this.handleResetBattleEvent();
     });
   }
 
@@ -56,7 +49,26 @@ export class PokemonBattlefieldComponent implements OnInit {
     this.pokemonImageLoaded = loaded;
   }
 
-  notifyPokedex() {
-    this.pokedexAction.set(PokedexAction.CATCH_ANIMATION_ENDED);
+  private updatePokemonImage(): void {
+    const pokemonValue = this.pokemon();
+    if (pokemonValue) {
+      this.pokemonImage = pokemonValue.sprites.front_default;
+      this.changeDetectorRef.markForCheck();
+    }
+  }
+
+  private handleThrowPokeballEvent(): void {
+    if (this.pokemonBattleEvent() === BattleEvent.THROW_POKEBALL) {
+      this.startCatchAnimation = true;
+      this.changeDetectorRef.markForCheck();
+    }
+  }
+
+  private handleResetBattleEvent(): void {
+    if (this.pokemonBattleEvent() === BattleEvent.RESET_BATTLE) {
+      this.startCatchAnimation = false;
+      this.pokemonImageLoaded = false;
+      this.changeDetectorRef.markForCheck();
+    }
   }
 }
