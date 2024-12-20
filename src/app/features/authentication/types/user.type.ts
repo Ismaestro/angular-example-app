@@ -7,5 +7,6 @@ export type User = {
   email: string;
   name: string;
   language: Language;
+  favouritePokemonId: number;
   caughtPokemonIds?: number[];
 };

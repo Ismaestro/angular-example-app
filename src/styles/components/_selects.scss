@@ -1,7 +1,7 @@
 $loading-icon-suffix-width: 30px;
 
-@mixin inputs() {
-  sl-input.input--primary {
+@mixin selects() {
+  sl-select.select--primary {
     --sl-input-background-color: var(--inputs-background-color);
     --sl-input-background-color-hover: var(--inputs-background-color-hover);
     --sl-input-background-color-focus: var(--inputs-background-color-focus);
@@ -18,6 +18,7 @@ $loading-icon-suffix-width: 30px;
     --sl-input-focus-ring-offset: 0;
     --sl-input-required-content: '';
     --sl-input-required-content-offset: 0;
+    --sl-panel-background-color: var(--panels-background);
 
     &::part(base) {
       transition:

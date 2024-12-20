@@ -12,8 +12,12 @@ const POKEMON_API_HOST = 'https://pokeapi.co/api/v2';
 export class PokemonService {
   private readonly httpClient = inject(HttpClient);
 
-  getPokemon(pokemonName: string): Observable<Pokemon> {
-    return this.httpClient.get<Pokemon>(`${POKEMON_API_HOST}/pokemon/${pokemonName.trim()}`, {
+  getPokemon(pokemonIdOrName: string | number): Observable<Pokemon> {
+    let valueToLookFor = pokemonIdOrName;
+    if (typeof pokemonIdOrName === 'string') {
+      valueToLookFor = pokemonIdOrName.trim();
+    }
+    return this.httpClient.get<Pokemon>(`${POKEMON_API_HOST}/pokemon/${valueToLookFor}`, {
       params: new HttpParams().set('limit', '1'),
       context: new HttpContext().set(CACHING_ENABLED, true),
     });

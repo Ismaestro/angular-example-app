@@ -78,6 +78,15 @@
   --checkboxes-control-background: var(--pink-to-purple-horizontal-gradient);
   --checkboxes-checked-icon-color: var(--octonary-contrast);
 
+  // Panels
+  --panels-background: var(--octonary-contrast);
+  --panels-color: var(--full-contrast);
+
+  // Options
+  --options-background: color-mix(in srgb, var(--brand-color-primary) 10%, white 2%);
+  --options-background-hover: color-mix(in srgb, var(--brand-color-primary) 20%, white 10%);
+  --options-color: color-mix(in srgb, var(--brand-color-primary) 60%, white 70%);
+
   // Menus
   --menus-background: var(--octonary-contrast);
   --menus-color: var(--full-contrast);
@@ -159,6 +168,15 @@
   --checkboxes-color: var(--tertiary-contrast);
   --checkboxes-control-background: var(--pink-to-purple-horizontal-gradient);
   --checkboxes-checked-icon-color: var(--primary-contrast);
+
+  // Panels
+  --panels-background: var(--octonary-contrast);
+  --panels-color: var(--full-contrast);
+
+  // Options
+  --options-background: color-mix(in srgb, var(--brand-color-primary) 10%, white 2%);
+  --options-background-hover: color-mix(in srgb, var(--brand-color-primary) 20%, white 10%);
+  --options-color: color-mix(in srgb, var(--brand-color-primary) 90%, white 70%);
 
   // Menus
   --menus-background: var(--octonary-contrast);

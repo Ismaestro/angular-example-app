@@ -10,12 +10,8 @@
 
         &:hover {
           color: var(--menu-items-color);
-          background: var(--menu-items-background);
+          background: var(--menu-items-background-hover);
           transition: background 0.3s ease;
-
-          &:hover {
-            background: var(--menu-items-background-hover);
-          }
         }
       }
     }

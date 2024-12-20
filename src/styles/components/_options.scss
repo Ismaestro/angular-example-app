@@ -1,0 +1,20 @@
+@mixin options() {
+  sl-option {
+    &.sl-option--primary {
+      &::part(base) {
+        padding: var(--spacing-r-sm);
+        color: var(--options-color);
+        background: var(--options-background);
+
+        &:hover {
+          background: var(--options-background-hover);
+          transition: background 0.3s ease;
+        }
+      }
+
+      &::part(label) {
+        font-size: var(--font-size-sm);
+      }
+    }
+  }
+}

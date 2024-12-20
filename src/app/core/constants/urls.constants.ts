@@ -9,11 +9,7 @@ export const ROOT_URLS = {
 export const AUTH_URLS = {
   logIn: `/${AUTHENTICATION_PATHS.base}/${AUTHENTICATION_PATHS.logIn}`,
   register: `/${AUTHENTICATION_PATHS.base}/${AUTHENTICATION_PATHS.register}`,
-};
-
-export const USER_URLS = {
-  // TODO: refactor this line
-  myAccount: `/my-account`,
+  myAccount: `/${AUTHENTICATION_PATHS.base}/${AUTHENTICATION_PATHS.myAccount}`,
 };
 
 export const POKEMON_URLS = {

@@ -9,6 +9,8 @@
 @use 'components/buttons';
 @use 'components/forms';
 @use 'components/inputs';
+@use 'components/selects';
+@use 'components/options';
 @use 'components/checkboxes';
 @use 'components/menu';
 @use 'components/menu-items';
@@ -26,6 +28,8 @@
 @include buttons.buttons;
 @include forms.forms;
 @include inputs.inputs;
+@include selects.selects;
+@include options.options;
 @include checkboxes.checkboxes;
 @include menu.menu;
 @include menu-items.menu-items;

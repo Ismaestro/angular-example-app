@@ -118,6 +118,19 @@
           </sl-button>
           <sl-menu class="menu--primary">
             <sl-menu-item class="menu-item--primary" value="logout">
+              <a
+                class="nav__link"
+                routerLinkActive="active"
+                ariaCurrentWhenActive="page"
+                i18n-ariaCurrentWhenActive
+                [routerLinkActiveOptions]="{ exact: true }"
+                [routerLink]="AUTH_URLS.myAccount"
+                (click)="closeMenu()"
+              >
+                {{ 'My account' | firstTitleCase }}
+              </a>
+            </sl-menu-item>
+            <sl-menu-item class="menu-item--primary" value="logout">
               <sl-button
                 class="button__as-link--primary"
                 size="medium"
