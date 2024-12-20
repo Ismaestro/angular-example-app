@@ -1,6 +1,7 @@
 import type { OnInit } from '@angular/core';
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   computed,
   CUSTOM_ELEMENTS_SCHEMA,
@@ -8,7 +9,7 @@ import {
 } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { AUTH_URLS, ROOT_URLS } from '~core/constants/urls.constants';
+import { AUTH_URLS, POKEMON_URLS, ROOT_URLS } from '~core/constants/urls.constants';
 import { emailValidator } from '~core/validators/email.validator';
 import { passwordValidator } from '~core/validators/password.validator';
 import { PokemonValidator } from '~core/validators/pokemon.validator';
@@ -17,12 +18,13 @@ import { SlInputIconFocusDirective } from '~core/directives/sl-input-icon-focus.
 import { translations } from '../../../../../locale/translations';
 import { merge } from 'rxjs';
 import { AppSlCheckboxControlDirective } from '~core/directives/sl-checkbox-control.directive';
+import { AuthenticationService } from '~features/authentication/services/authentication.service';
+import { NumberService } from '~core/services/number.service';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/input/input.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import '@shoelace-style/shoelace/dist/components/checkbox/checkbox.js';
-import { AuthenticationService } from '~features/authentication/services/authentication.service';
 
 @Component({
   selector: 'app-register',
@@ -40,13 +42,16 @@ import { AuthenticationService } from '~features/authentication/services/authent
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class RegisterComponent implements OnInit {
+  private readonly changeDetectorRef = inject(ChangeDetectorRef);
   private readonly router = inject(Router);
   private readonly formBuilder = inject(FormBuilder);
   private readonly authService = inject(AuthenticationService);
+  private readonly numberService = inject(NumberService);
   private readonly validatingPokemonValue = () => this.pokemonValidator.isPokemonValidating();
 
   pokemonValidator = inject(PokemonValidator);
   translations = translations;
+  pokemonAppearAudio!: HTMLAudioElement;
   authUrls = AUTH_URLS;
   name = new FormControl('', [Validators.required, Validators.minLength(2)]);
   email = new FormControl('', [Validators.required, Validators.minLength(4), emailValidator()]);
@@ -73,6 +78,7 @@ export class RegisterComponent implements OnInit {
     terms: this.terms,
   });
   isButtonRegisterLoading = false;
+  registrationCompleted = false;
   confirmPasswordHelpText = '';
   isPokemonValidating = computed(this.validatingPokemonValue);
 
@@ -82,6 +88,8 @@ export class RegisterComponent implements OnInit {
     merge(this.password.valueChanges, this.confirmPassword.valueChanges).subscribe(() => {
       this.checkPasswords();
     });
+    this.pokemonAppearAudio = new Audio('/assets/sounds/battle-effect.mp3');
+    this.pokemonAppearAudio.volume = 0.3;
   }
 
   checkPasswords() {
@@ -112,12 +120,34 @@ export class RegisterComponent implements OnInit {
         })
         .subscribe({
           next: () => {
-            void this.router.navigate([ROOT_URLS.myPokedex]);
+            this.playSoundAndNavigate();
           },
           error: () => {
             // TODO: implement alert
+            this.isButtonRegisterLoading = false;
+            this.changeDetectorRef.markForCheck();
           },
         });
     }
+  }
+
+  private playSoundAndNavigate() {
+    this.pokemonAppearAudio
+      .play()
+      .then(() => {
+        this.registrationCompleted = true;
+        this.changeDetectorRef.markForCheck();
+        const ANIMATION_END_TIME = 2300;
+        setTimeout(() => {
+          const LAST_POKEMON_ID = 1025;
+          void this.router.navigate([
+            POKEMON_URLS.detail(String(this.numberService.getRandomNumber(1, LAST_POKEMON_ID))),
+          ]);
+        }, ANIMATION_END_TIME);
+        return true;
+      })
+      .catch(() => {
+        void this.router.navigate([ROOT_URLS.myPokedex]);
+      });
   }
 }

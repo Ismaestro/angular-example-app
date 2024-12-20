@@ -51,6 +51,7 @@
         i18n-size
         pill
         type="submit"
+        [disabled]="isButtonLogInLoading"
         [attr.loading]="isButtonLogInLoading || null"
       >
         <ng-container i18n>Enter</ng-container>

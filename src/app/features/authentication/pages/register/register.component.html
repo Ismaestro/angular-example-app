@@ -135,9 +135,11 @@
       <sl-button
         class="button--primary"
         size="medium"
-        i18n-size
         pill
+        i18n-size
         type="submit"
+        [disabled]="isButtonRegisterLoading"
+        [class.pokemon-appear]="registrationCompleted"
         [attr.loading]="isButtonRegisterLoading || null"
       >
         <ng-container i18n>Create account</ng-container>

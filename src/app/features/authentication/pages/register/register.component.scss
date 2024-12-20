@@ -39,6 +39,11 @@ $register-form-max-width: 400px;
         width: 95px;
       }
     }
+
+    .button--primary.pokemon-appear {
+      border-radius: var(--border-radius-max);
+      animation: flash 0.7s infinite;
+    }
   }
 }
 
@@ -51,5 +56,16 @@ $register-form-max-width: 400px;
 @keyframes fade-out {
   to {
     opacity: 0;
+  }
+}
+
+@keyframes flash {
+  0%,
+  100% {
+    background-color: white;
+  }
+
+  50% {
+    background-color: black;
   }
 }
