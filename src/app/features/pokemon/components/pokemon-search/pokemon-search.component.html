@@ -1,12 +1,12 @@
 <div class="search__container">
+  <!-- eslint-disable @angular-eslint/template/no-call-expression -->
   <sl-input
     class="input--primary search__input"
-    placeholder="Find a pokemon!"
-    i18n-placeholder
     clearable
     size="medium"
-    i18n-size
     appSlInputIconFocus
+    i18n-size
+    [placeholder]="title()"
     [class.has-action]="termValue && pokemonLoading"
     [value]="termValue"
     (sl-input)="assignInputValue($event)"

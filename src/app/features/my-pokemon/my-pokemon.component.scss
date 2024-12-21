@@ -1,0 +1,42 @@
+@use 'base/media-queries' as mq;
+@use 'components/pages';
+
+$grid-columns: 3;
+$empty-image-width: 200px;
+
+:host {
+  @include pages.read-page;
+
+  text-align: center;
+
+  .my-pokemon__search-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .my-pokemon__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-r-xl);
+
+    @include mq.for-tablet-up {
+      grid-template-columns: repeat($grid-columns, 1fr);
+    }
+  }
+
+  .pokemons-empty__container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-r-4xl);
+    align-items: center;
+
+    @include mq.for-tablet-up {
+      margin-left: 60px;
+    }
+
+    .pokemons-empty__image {
+      width: $empty-image-width;
+      height: auto;
+    }
+  }
+}

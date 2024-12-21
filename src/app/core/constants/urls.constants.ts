@@ -2,7 +2,7 @@ import { AUTHENTICATION_PATHS, POKEMON_PATHS, ROOT_PATHS } from '~core/constants
 
 export const ROOT_URLS = {
   home: `/${ROOT_PATHS.home}`,
-  myPokedex: `/${ROOT_PATHS.myPokedex}`,
+  myPokedex: `/${ROOT_PATHS.myPokemon}`,
   error404: `/${ROOT_PATHS.error404}`,
 };
 

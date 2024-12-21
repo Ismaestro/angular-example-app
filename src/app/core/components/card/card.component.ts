@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'app-card',
@@ -6,6 +7,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   styleUrl: './card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
+  imports: [NgTemplateOutlet],
 })
 export class CardComponent {
   href = input<string>('');

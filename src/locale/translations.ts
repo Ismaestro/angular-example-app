@@ -9,4 +9,6 @@ export const translations = {
   pokemonHelpText: $localize`Field required. PokeAPI does not found that pokemon name.`,
   register: $localize`Register`,
   logout: $localize`Log out`,
+  findMore: $localize`Find more!`,
+  findPokemon: $localize`Find a pokemon`,
 };

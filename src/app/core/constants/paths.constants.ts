@@ -1,6 +1,6 @@
 export const ROOT_PATHS = {
   home: '',
-  myPokedex: 'my-pokedex',
+  myPokemon: 'my-pokemon',
   error404: '404',
 };
 

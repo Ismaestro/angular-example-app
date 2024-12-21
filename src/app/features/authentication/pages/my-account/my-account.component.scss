@@ -2,6 +2,7 @@
 @use 'components/pages';
 
 $update-user-form-max-width: 400px;
+$decorative-image-width: 200px;
 
 :host {
   @include pages.read-page;
@@ -12,6 +13,7 @@ $update-user-form-max-width: 400px;
     position: relative;
     max-width: $update-user-form-max-width;
     padding: var(--spacing-r-4xl) var(--spacing-r-xl);
+    margin-block-end: var(--spacing-r-4xl);
 
     @include mq.for-tablet-up {
       padding: var(--spacing-r-4xl) var(--spacing-r-xl);
@@ -39,6 +41,21 @@ $update-user-form-max-width: 400px;
         @include mq.for-tablet-up {
           width: 15%;
         }
+      }
+    }
+  }
+
+  .decorative__container {
+    position: relative;
+
+    .decorative__image {
+      width: $decorative-image-width;
+      height: auto;
+
+      @include mq.for-tablet-landscape-up {
+        position: absolute;
+        right: -55px;
+        bottom: 26px;
       }
     }
   }

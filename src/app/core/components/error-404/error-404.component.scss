@@ -1,0 +1,13 @@
+@use 'base/media-queries' as mq;
+@use 'components/pages';
+
+:host {
+  @include pages.read-page;
+
+  text-align: center;
+
+  img {
+    width: 300px;
+    height: auto;
+  }
+}

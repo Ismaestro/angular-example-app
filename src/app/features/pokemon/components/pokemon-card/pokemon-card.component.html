@@ -1,0 +1,20 @@
+<app-card>
+  <ng-container i18n ngProjectAs="heading">
+    <h2 class="card__heading">{{ pokemon()?.name | firstTitleCase }}</h2>
+  </ng-container>
+  <ng-container ngProjectAs="body">
+    <div class="pokemon__image-container">
+      <img
+        alt="angular logo"
+        i18n-alt
+        width="100"
+        height="100"
+        priority
+        [ngSrc]="pokemonImage || ''"
+      />
+    </div>
+    <p i18n>N.º: {{pokemon()?.order}}</p>
+    <p i18n>Height: {{pokemon()?.height}} dm</p>
+    <p i18n>Weight: {{pokemon()?.weight}} hg</p>
+  </ng-container>
+</app-card>

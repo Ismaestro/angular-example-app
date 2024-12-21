@@ -4,6 +4,7 @@ import {
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
   inject,
+  input,
 } from '@angular/core';
 import { PokemonService } from '~features/pokemon/services/pokemon.service';
 import { SlInputIconFocusDirective } from '~core/directives/sl-input-icon-focus.directive';
@@ -14,6 +15,7 @@ import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import { POKEMON_URLS } from '~core/constants/urls.constants';
 import { Router } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
+import { translations } from '../../../../../locale/translations';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -29,6 +31,7 @@ export class PokemonSearchComponent {
   private readonly router = inject(Router);
   private readonly pokemonService = inject(PokemonService);
 
+  title = input<string>(translations.findPokemon);
   termValue = '';
   pokemonLoading = false;
 

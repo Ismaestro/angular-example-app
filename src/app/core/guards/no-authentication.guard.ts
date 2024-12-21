@@ -7,7 +7,7 @@ export const noAuthenticationGuard = () => {
   const authenticationService = inject(AuthenticationService);
   if (authenticationService.isUserLoggedIn()) {
     const router = inject(Router);
-    void router.navigate([ROOT_PATHS.myPokedex]);
+    void router.navigate([ROOT_PATHS.myPokemon]);
     return false;
   }
   return true;

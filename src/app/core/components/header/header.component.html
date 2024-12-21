@@ -81,7 +81,7 @@
         <app-theme-button />
       </div>
     } @else {
-      <!-- MY POKEDEX -->
+      <!-- MY POKEMON -->
       <div class="nav__item">
         <a
           class="nav__link"
@@ -89,10 +89,10 @@
           ariaCurrentWhenActive="page"
           i18n-ariaCurrentWhenActive
           [routerLinkActiveOptions]="{ exact: true }"
-          [routerLink]="ROOT_PATHS.myPokedex"
+          [routerLink]="ROOT_PATHS.myPokemon"
           (click)="closeMenu()"
         >
-          {{ 'My Pokedex' | firstTitleCase }}
+          {{ 'My Pokemon' | firstTitleCase }}
         </a>
       </div>
 

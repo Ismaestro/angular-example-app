@@ -1,10 +1,20 @@
-<!-- eslint-disable-next-line @angular-eslint/template/no-call-expression -->
-<a class="card__container" [href]="href()">
-  <h3 class="card__heading">
+<!-- eslint-disable @angular-eslint/template/no-call-expression -->
+@if (href()) {
+  <a class="card__container" [href]="href()">
+    <ng-container [ngTemplateOutlet]="cardContent" />
+  </a>
+} @else {
+  <div class="card__container">
+    <ng-container [ngTemplateOutlet]="cardContent" />
+  </div>
+}
+
+<ng-template #cardContent>
+  <div class="card__heading">
     <ng-content select="heading" />
-  </h3>
+  </div>
   <ng-content select="body" />
   <div class="card__link">
     <ng-content select="link" />
   </div>
-</a>
+</ng-template>

@@ -24,6 +24,7 @@ import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import '@shoelace-style/shoelace/dist/components/select/select.js';
 import '@shoelace-style/shoelace/dist/components/option/option.js';
 import { ThemeButtonComponent } from '~core/components/theme-button/theme-button.component';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-my-account',
@@ -38,6 +39,7 @@ import { ThemeButtonComponent } from '~core/components/theme-button/theme-button
     PokemonImageComponent,
     AppSlSelectControlDirective,
     ThemeButtonComponent,
+    NgOptimizedImage,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

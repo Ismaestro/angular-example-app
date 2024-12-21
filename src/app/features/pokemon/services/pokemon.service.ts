@@ -1,5 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import type { Observable } from 'rxjs';
+import { forkJoin, map } from 'rxjs';
 import { HttpClient, HttpContext, HttpParams } from '@angular/common/http';
 import { CACHING_ENABLED } from '~core/interceptors/caching.interceptor';
 import type { Pokemon } from '~features/pokemon/types/pokemon.type';
@@ -21,5 +22,14 @@ export class PokemonService {
       params: new HttpParams().set('limit', '1'),
       context: new HttpContext().set(CACHING_ENABLED, true),
     });
+  }
+
+  getPokemons(ids: number[]): Observable<Pokemon[]> {
+    const getPokemonRequests = ids.map((id) => this.getPokemon(id));
+    return forkJoin(getPokemonRequests).pipe(
+      map((pokemons: Pokemon[]) =>
+        pokemons.sort((pokemonA, pokemonB) => Number(pokemonA.order) - Number(pokemonB.order)),
+      ),
+    );
   }
 }

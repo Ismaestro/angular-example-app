@@ -1,0 +1,36 @@
+<main>
+  <h1 class="first-heading__title" i18n>My Pokemon</h1>
+  <div class="my-pokemon__search-container">
+    <app-pokemon-search
+      [title]="userPokemon?.length ? translations.findMore : translations.findPokemon"
+    />
+  </div>
+  <ul i18n class="my-pokemon__grid">
+    @for (pokemon of userPokemon; track pokemon.id) {
+      <li>
+        <app-pokemon-card [pokemon]="pokemon" />
+      </li>
+    }
+  </ul>
+  @if (!userPokemon?.length) {
+    <div class="pokemons-empty__container">
+      <div>
+        <p i18n>
+          Uh-oh, it looks like you haven’t caught any Pokémon yet! Need help finding a pokemon? Try
+          using the search bar to track them down. Gotta catch ‘em all!
+        </p>
+      </div>
+      <div>
+        <img
+          class="pokemons-empty__image"
+          alt="angular logo"
+          i18n-alt
+          ngSrc="/assets/images/ash-jumping.png"
+          i18n-ngSrc
+          width="675"
+          height="1280"
+        />
+      </div>
+    </div>
+  }
+</main>
