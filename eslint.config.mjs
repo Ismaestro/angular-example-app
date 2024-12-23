@@ -106,6 +106,8 @@ export default tsEslint.config(
       'no-implicit-coercion': 'off',
       'no-ternary': 'off',
       'no-implicit-globals': 'off',
+      '@angular-eslint/prefer-standalone': 'off',
+      '@angular-eslint/prefer-standalone-component': 'off',
       '@angular-eslint/runtime-localize': 'off',
       '@angular-eslint/no-host-metadata-property': 'off',
       '@typescript-eslint/switch-exhaustiveness-check': 'off',
