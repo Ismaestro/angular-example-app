@@ -5,6 +5,7 @@ import {
   Component,
   computed,
   CUSTOM_ELEMENTS_SCHEMA,
+  DestroyRef,
   inject,
 } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -26,6 +27,7 @@ import '@shoelace-style/shoelace/dist/components/input/input.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import '@shoelace-style/shoelace/dist/components/checkbox/checkbox.js';
 import { AlertService } from '~core/services/alert.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-register',
@@ -50,6 +52,7 @@ export class RegisterComponent implements OnInit {
   private readonly numberService = inject(NumberService);
   private readonly alertService = inject(AlertService);
   private readonly validatingPokemonValue = () => this.pokemonValidator.isPokemonValidating();
+  private readonly destroyRef = inject(DestroyRef);
 
   pokemonValidator = inject(PokemonValidator);
   translations = translations;
@@ -87,9 +90,11 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.favouritePokemon.setErrors({ pokemonName: true });
     // TODO: check all subscribes to unsubscribe
-    merge(this.password.valueChanges, this.confirmPassword.valueChanges).subscribe(() => {
-      this.checkPasswords();
-    });
+    merge(this.password.valueChanges, this.confirmPassword.valueChanges)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(() => {
+        this.checkPasswords();
+      });
     this.pokemonAppearAudio = new Audio('/assets/sounds/battle-effect.mp3');
     this.pokemonAppearAudio.volume = 0.3;
   }
@@ -120,6 +125,7 @@ export class RegisterComponent implements OnInit {
           favouritePokemonId: this.pokemonValidator.getPokemonValue(),
           terms: formValue.terms!,
         })
+        .pipe(takeUntilDestroyed(this.destroyRef))
         .subscribe({
           next: () => {
             this.playSoundAndNavigate();

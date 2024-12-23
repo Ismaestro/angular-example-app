@@ -4,6 +4,7 @@ import {
   ChangeDetectorRef,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
+  DestroyRef,
   inject,
 } from '@angular/core';
 import { UserService } from '~features/authentication/services/user.service';
@@ -15,6 +16,7 @@ import { NgOptimizedImage } from '@angular/common';
 import { PokemonSearchComponent } from '~features/pokemon/components/pokemon-search/pokemon-search.component';
 import { translations } from '../../../locale/translations';
 import { AlertService } from '~core/services/alert.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-my-pokemon',
@@ -30,28 +32,35 @@ export class MyPokemonComponent implements OnInit {
   private readonly pokemonService = inject(PokemonService);
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
   private readonly alertService = inject(AlertService);
+  private readonly destroyRef = inject(DestroyRef);
 
   readonly translations = translations;
   user: User | undefined;
   userPokemon: Pokemon[] | undefined;
 
   ngOnInit() {
-    this.userService.getMe().subscribe({
-      next: (user) => {
-        this.user = user;
+    this.userService
+      .getMe({ cache: false })
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: (user) => {
+          this.user = user;
 
-        if (this.user.caughtPokemonIds) {
-          this.pokemonService.getPokemons(this.user.caughtPokemonIds).subscribe({
-            next: (pokemons) => {
-              this.userPokemon = pokemons;
-              this.changeDetectorRef.markForCheck();
-            },
-            error: () => {
-              this.alertService.createErrorAlert(translations.genericErrorAlert);
-            },
-          });
-        }
-      },
-    });
+          if (this.user.caughtPokemonIds) {
+            this.pokemonService
+              .getPokemons(this.user.caughtPokemonIds)
+              .pipe(takeUntilDestroyed(this.destroyRef))
+              .subscribe({
+                next: (pokemons) => {
+                  this.userPokemon = pokemons;
+                  this.changeDetectorRef.markForCheck();
+                },
+                error: () => {
+                  this.alertService.createErrorAlert(translations.genericErrorAlert);
+                },
+              });
+          }
+        },
+      });
   }
 }

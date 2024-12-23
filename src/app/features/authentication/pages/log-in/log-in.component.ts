@@ -3,6 +3,7 @@ import {
   ChangeDetectorRef,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
+  DestroyRef,
   inject,
 } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -19,6 +20,7 @@ import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/input/input.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import { AlertService } from '~core/services/alert.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-log-in',
@@ -35,6 +37,7 @@ export class LogInComponent {
   private readonly router = inject(Router);
   private readonly formBuilder = inject(FormBuilder);
   private readonly authService = inject(AuthenticationService);
+  private readonly destroyRef = inject(DestroyRef);
 
   translations = translations;
   authUrls = AUTH_URLS;
@@ -59,23 +62,26 @@ export class LogInComponent {
     if (this.logInForm.valid) {
       this.isButtonLogInLoading = true;
       const formValue = this.logInForm.getRawValue();
-      this.authService.logIn({ email: formValue.email!, password: formValue.password! }).subscribe({
-        next: () => {
-          this.isButtonLogInLoading = false;
-          this.changeDetectorRef.markForCheck();
-          void this.router.navigate([ROOT_URLS.myPokedex]);
-        },
-        error: (response) => {
-          this.isButtonLogInLoading = false;
+      this.authService
+        .logIn({ email: formValue.email!, password: formValue.password! })
+        .pipe(takeUntilDestroyed(this.destroyRef))
+        .subscribe({
+          next: () => {
+            this.isButtonLogInLoading = false;
+            this.changeDetectorRef.markForCheck();
+            void this.router.navigate([ROOT_URLS.myPokedex]);
+          },
+          error: (response) => {
+            this.isButtonLogInLoading = false;
 
-          let errorMessage = translations.genericErrorAlert;
-          if (response.error.internalCode === 2002) {
-            errorMessage = translations.loginCredentialsError;
-          }
-          this.alertService.createErrorAlert(errorMessage);
-          this.changeDetectorRef.markForCheck();
-        },
-      });
+            let errorMessage = translations.genericErrorAlert;
+            if (response.error.internalCode === 2002) {
+              errorMessage = translations.loginCredentialsError;
+            }
+            this.alertService.createErrorAlert(errorMessage);
+            this.changeDetectorRef.markForCheck();
+          },
+        });
     }
   }
 }

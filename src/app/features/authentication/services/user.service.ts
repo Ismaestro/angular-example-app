@@ -19,11 +19,12 @@ export class UserService {
 
   private readonly apiUrl = environment.apiBaseUrl;
 
-  getMe(): Observable<User> {
+  getMe(options?: { cache: boolean }): Observable<User> {
+    const { cache = true } = options ?? {};
     const getMeEndpoint = `${this.apiUrl}/v1/user`;
     return this.httpClient
       .get<GetMeResponse>(getMeEndpoint, {
-        context: new HttpContext().set(CACHING_ENABLED, true),
+        context: new HttpContext().set(CACHING_ENABLED, cache),
         withCredentials: true,
       })
       .pipe(

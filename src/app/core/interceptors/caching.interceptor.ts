@@ -28,3 +28,7 @@ export function cachingInterceptor(
 
   return next(request);
 }
+
+export function clearCache() {
+  cache.clear();
+}

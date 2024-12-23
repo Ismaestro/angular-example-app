@@ -3,6 +3,7 @@ import {
   ChangeDetectorRef,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
+  DestroyRef,
   inject,
   input,
 } from '@angular/core';
@@ -17,6 +18,7 @@ import { Router } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { translations } from '../../../../../locale/translations';
 import { AlertService } from '~core/services/alert.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -32,6 +34,7 @@ export class PokemonSearchComponent {
   private readonly router = inject(Router);
   private readonly pokemonService = inject(PokemonService);
   private readonly alertService = inject(AlertService);
+  private readonly destroyRef = inject(DestroyRef);
 
   title = input<string>(translations.findPokemon);
   termValue = '';
@@ -42,19 +45,22 @@ export class PokemonSearchComponent {
     if (pokemonName) {
       this.pokemonLoading = true;
 
-      this.pokemonService.getPokemon(pokemonName).subscribe({
-        next: (pokemon) => {
-          this.pokemonLoading = false;
-          this.termValue = '';
-          void this.router.navigate([POKEMON_URLS.detail(pokemon.name)]);
-          this.changeDetectorRef.markForCheck();
-        },
-        error: () => {
-          this.pokemonLoading = false;
-          this.alertService.createErrorAlert(translations.pokemonNotFoundError);
-          this.changeDetectorRef.markForCheck();
-        },
-      });
+      this.pokemonService
+        .getPokemon(pokemonName)
+        .pipe(takeUntilDestroyed(this.destroyRef))
+        .subscribe({
+          next: (pokemon) => {
+            this.pokemonLoading = false;
+            this.termValue = '';
+            void this.router.navigate([POKEMON_URLS.detail(pokemon.name)]);
+            this.changeDetectorRef.markForCheck();
+          },
+          error: () => {
+            this.pokemonLoading = false;
+            this.alertService.createErrorAlert(translations.pokemonNotFoundError);
+            this.changeDetectorRef.markForCheck();
+          },
+        });
     }
   }
 

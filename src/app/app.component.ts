@@ -1,5 +1,5 @@
 import type { OnInit } from '@angular/core';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject } from '@angular/core';
 import { translations } from '../locale/translations';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { Title } from '@angular/platform-browser';
@@ -12,6 +12,7 @@ import { ProgressBarComponent } from '~core/components/progress-bar/progress-bar
 import { CookiePopupComponent } from '~core/components/cookie-popup/cookie-popup.component';
 
 import '@shoelace-style/shoelace/dist/components/alert/alert.js';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-root',
@@ -32,6 +33,7 @@ export class AppComponent implements OnInit {
   private readonly router = inject(Router);
   private readonly titleService = inject(Title);
   private readonly headerService = inject(HeaderService);
+  private readonly destroyRef = inject(DestroyRef);
 
   ngOnInit() {
     this.setMetaTags();
@@ -50,6 +52,7 @@ export class AppComponent implements OnInit {
   private subscribeRouteEvents() {
     this.router.events
       .pipe(
+        takeUntilDestroyed(this.destroyRef),
         filter((event): event is NavigationEnd => event instanceof NavigationEnd),
         map((event) => event.urlAfterRedirects),
       )

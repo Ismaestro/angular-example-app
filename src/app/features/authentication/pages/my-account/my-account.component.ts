@@ -4,6 +4,7 @@ import {
   ChangeDetectorRef,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
+  DestroyRef,
   inject,
 } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -26,6 +27,7 @@ import '@shoelace-style/shoelace/dist/components/input/input.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import '@shoelace-style/shoelace/dist/components/select/select.js';
 import '@shoelace-style/shoelace/dist/components/option/option.js';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-my-account',
@@ -50,6 +52,7 @@ export class MyAccountComponent implements OnInit {
   private readonly userService = inject(UserService);
   private readonly pokemonService = inject(PokemonService);
   private readonly alertService = inject(AlertService);
+  private readonly destroyRef = inject(DestroyRef);
 
   translations = translations;
   user: User | undefined;
@@ -71,31 +74,37 @@ export class MyAccountComponent implements OnInit {
   }
 
   loadUserInfo() {
-    this.userService.getMe().subscribe({
-      next: (user: User) => {
-        this.user = user;
-        this.name.setValue(this.user.name);
-        this.email.setValue(this.user.email);
-        this.language.setValue(this.user.language);
-        this.loadPokemonImage();
-      },
-      error: () => {
-        this.alertService.createErrorAlert(translations.genericErrorAlert);
-      },
-    });
+    this.userService
+      .getMe()
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: (user: User) => {
+          this.user = user;
+          this.name.setValue(this.user.name);
+          this.email.setValue(this.user.email);
+          this.language.setValue(this.user.language);
+          this.loadPokemonImage();
+        },
+        error: () => {
+          this.alertService.createErrorAlert(translations.genericErrorAlert);
+        },
+      });
   }
 
   loadPokemonImage() {
-    this.pokemonService.getPokemon(this.user!.favouritePokemonId).subscribe({
-      next: (pokemon) => {
-        this.userFavouritePokemon = pokemon;
-        this.pokemonImage = this.userFavouritePokemon.sprites.front_default;
-        this.changeDetectorRef.markForCheck();
-      },
-      error: () => {
-        this.alertService.createErrorAlert(translations.genericErrorAlert);
-      },
-    });
+    this.pokemonService
+      .getPokemon(this.user!.favouritePokemonId)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: (pokemon) => {
+          this.userFavouritePokemon = pokemon;
+          this.pokemonImage = this.userFavouritePokemon.sprites.front_default;
+          this.changeDetectorRef.markForCheck();
+        },
+        error: () => {
+          this.alertService.createErrorAlert(translations.genericErrorAlert);
+        },
+      });
   }
 
   sendForm() {
@@ -108,6 +117,7 @@ export class MyAccountComponent implements OnInit {
           name: formValue.name!,
           language: formValue.language!,
         })
+        .pipe(takeUntilDestroyed(this.destroyRef))
         .subscribe({
           next: () => {
             this.isButtonUpdateUserFormLoading = false;

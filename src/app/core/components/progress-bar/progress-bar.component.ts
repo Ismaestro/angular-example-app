@@ -1,5 +1,5 @@
 import type { OnInit, Signal } from '@angular/core';
-import { ChangeDetectionStrategy, Component, inject, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, viewChild } from '@angular/core';
 import { NgProgressbar, NgProgressRef } from 'ngx-progressbar';
 import {
   NavigationCancel,
@@ -10,6 +10,7 @@ import {
   Router,
 } from '@angular/router';
 import { filter, map, switchMap, take } from 'rxjs/operators';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 /** Time to wait after navigation starts before showing the progress bar.
  * This delay allows a small amount of time to skip showing the progress bar
@@ -29,6 +30,7 @@ export const PROGRESS_BAR_DELAY = 30;
 })
 export class ProgressBarComponent implements OnInit {
   private readonly router = inject(Router);
+  private readonly destroyRef = inject(DestroyRef);
 
   progressBar: Signal<NgProgressRef | undefined> = viewChild(NgProgressRef);
 
@@ -39,31 +41,38 @@ export class ProgressBarComponent implements OnInit {
   private setupPageNavigationDimming() {
     this.router.events
       .pipe(
+        takeUntilDestroyed(this.destroyRef),
         filter((event) => event instanceof NavigationStart),
-        map(() =>
-          // Only apply set the property if the navigation is not "immediate"
-          setTimeout(() => {
-            this.progressBar()?.start();
-          }, PROGRESS_BAR_DELAY),
-        ),
-        switchMap((timeoutId) =>
-          this.router.events.pipe(
-            filter(
-              (event) =>
-                event instanceof NavigationEnd ||
-                event instanceof NavigationCancel ||
-                event instanceof NavigationSkipped ||
-                event instanceof NavigationError,
-            ),
-            take(1),
-            map(() => timeoutId),
-          ),
-        ),
+        map(() => this.startProgressBarWithDelay()),
+        switchMap((timeoutId) => this.waitForNavigationEnd(timeoutId)),
       )
       .subscribe((timeoutId) => {
-        // When the navigation finishes, prevent the navigating class from being applied in the timeout.
-        clearTimeout(timeoutId);
-        this.progressBar()?.complete();
+        this.clearNavigationTimeout(timeoutId);
       });
+  }
+
+  private startProgressBarWithDelay(): number {
+    return setTimeout(() => {
+      this.progressBar()?.start();
+    }, PROGRESS_BAR_DELAY) as unknown as number;
+  }
+
+  private waitForNavigationEnd(timeoutId: number) {
+    return this.router.events.pipe(
+      filter(
+        (event) =>
+          event instanceof NavigationEnd ||
+          event instanceof NavigationCancel ||
+          event instanceof NavigationSkipped ||
+          event instanceof NavigationError,
+      ),
+      take(1),
+      map(() => timeoutId),
+    );
+  }
+
+  private clearNavigationTimeout(timeoutId: number) {
+    clearTimeout(timeoutId);
+    this.progressBar()?.complete();
   }
 }

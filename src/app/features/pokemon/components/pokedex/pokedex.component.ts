@@ -4,6 +4,7 @@ import {
   ChangeDetectorRef,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
+  DestroyRef,
   effect,
   inject,
   Input,
@@ -17,6 +18,7 @@ import type { User } from '~features/authentication/types/user.type';
 import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
 import { AlertService } from '~core/services/alert.service';
 import { translations } from '../../../../../locale/translations';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-pokedex',
@@ -31,6 +33,7 @@ export class PokedexComponent implements OnInit {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
   private readonly userService = inject(UserService);
   private readonly alertService = inject(AlertService);
+  private readonly destroyRef = inject(DestroyRef);
 
   // TODO: review why signal-style here is not working
   @Input() pokemonBattleEvent!: WritableSignal<BattleEvent>;
@@ -55,20 +58,23 @@ export class PokedexComponent implements OnInit {
   ngOnInit() {
     const pokemonValue = this.pokemon();
     if (pokemonValue) {
-      this.userService.getMe().subscribe({
-        next: (user: User) => {
-          this.user = user;
-          this.pokemonImage = pokemonValue.sprites.front_default;
-          this.userHasPokemon = user.caughtPokemonIds?.includes(pokemonValue.id) ?? false;
-          setTimeout(() => {
-            this.isPokedexClosed = false;
-            this.changeDetectorRef.markForCheck();
-          }, 300);
-        },
-        error: () => {
-          this.alertService.createErrorAlert(translations.genericErrorAlert);
-        },
-      });
+      this.userService
+        .getMe()
+        .pipe(takeUntilDestroyed(this.destroyRef))
+        .subscribe({
+          next: (user: User) => {
+            this.user = user;
+            this.pokemonImage = pokemonValue.sprites.front_default;
+            this.userHasPokemon = user.caughtPokemonIds?.includes(pokemonValue.id) ?? false;
+            setTimeout(() => {
+              this.isPokedexClosed = false;
+              this.changeDetectorRef.markForCheck();
+            }, 300);
+          },
+          error: () => {
+            this.alertService.createErrorAlert(translations.genericErrorAlert);
+          },
+        });
     }
   }
 
@@ -85,12 +91,15 @@ export class PokedexComponent implements OnInit {
     this.userHasCaught = false;
     const pokemonId = this.pokemon()?.id;
     if (pokemonId) {
-      this.userService.catchPokemon({ pokemonId }).subscribe({
-        next: (user) => {
-          this.notifyBattlefield();
-          this.updatedUser = user;
-        },
-      });
+      this.userService
+        .catchPokemon({ pokemonId })
+        .pipe(takeUntilDestroyed(this.destroyRef))
+        .subscribe({
+          next: (user) => {
+            this.notifyBattlefield();
+            this.updatedUser = user;
+          },
+        });
     }
   }
 
