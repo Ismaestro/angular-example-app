@@ -70,7 +70,6 @@
     "karma-jasmine-html-reporter": "2.1.0",
     "lint-staged": "15.2.10",
     "ng-extract-i18n-merge": "2.13.1",
-    "ng-mocks": "14.13.1",
     "normalize.css": "8.0.1",
     "playwright": "1.47.2",
     "postcss-scss": "4.0.9",
