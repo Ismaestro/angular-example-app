@@ -5,6 +5,7 @@
 @use 'base/typography';
 @use 'base/themes';
 @use 'components/headings';
+@use 'components/alerts';
 @use 'components/links';
 @use 'components/buttons';
 @use 'components/forms';
@@ -24,6 +25,7 @@
 
 // Components
 @include headings.headings;
+@include alerts.alerts;
 @include links.links;
 @include buttons.buttons;
 @include forms.forms;

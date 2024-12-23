@@ -16,6 +16,7 @@ import { POKEMON_URLS } from '~core/constants/urls.constants';
 import { Router } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { translations } from '../../../../../locale/translations';
+import { AlertService } from '~core/services/alert.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -30,6 +31,7 @@ export class PokemonSearchComponent {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
   private readonly router = inject(Router);
   private readonly pokemonService = inject(PokemonService);
+  private readonly alertService = inject(AlertService);
 
   title = input<string>(translations.findPokemon);
   termValue = '';
@@ -49,7 +51,7 @@ export class PokemonSearchComponent {
         },
         error: () => {
           this.pokemonLoading = false;
-          // TODO: show alert
+          this.alertService.createErrorAlert(translations.pokemonNotFoundError);
           this.changeDetectorRef.markForCheck();
         },
       });

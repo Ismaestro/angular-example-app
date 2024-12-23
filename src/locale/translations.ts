@@ -11,4 +11,9 @@ export const translations = {
   logout: $localize`Log out`,
   findMore: $localize`Find more!`,
   findPokemon: $localize`Find a pokemon`,
+  myAccountSuccessAlert: $localize`Account settings saved. You're all set!`,
+  genericErrorAlert: $localize`Oops! Something went wrong. Please try again later or leave an issue if it persists.`,
+  loginCredentialsError: $localize`Invalid credentials. Not very effective, try again!`,
+  genericRegisterError: $localize`Register failed. This attempt wasn’t very effective, try again!`,
+  pokemonNotFoundError: $localize`Pokémon not found. Double-check the name and try again!`,
 };

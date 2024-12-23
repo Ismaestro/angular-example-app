@@ -15,6 +15,8 @@ import { FirstTitleCasePipe } from '~core/pipes/first-title-case.pipe';
 import { UserService } from '~features/authentication/services/user.service';
 import type { User } from '~features/authentication/types/user.type';
 import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
+import { AlertService } from '~core/services/alert.service';
+import { translations } from '../../../../../locale/translations';
 
 @Component({
   selector: 'app-pokedex',
@@ -28,10 +30,12 @@ import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-
 export class PokedexComponent implements OnInit {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
   private readonly userService = inject(UserService);
+  private readonly alertService = inject(AlertService);
 
   // TODO: review why signal-style here is not working
   @Input() pokemonBattleEvent!: WritableSignal<BattleEvent>;
 
+  translations = translations;
   pokemon = input<Pokemon>();
   user: User | undefined;
   updatedUser: User | undefined;
@@ -62,7 +66,7 @@ export class PokedexComponent implements OnInit {
           }, 300);
         },
         error: () => {
-          // TODO: show alert
+          this.alertService.createErrorAlert(translations.genericErrorAlert);
         },
       });
     }

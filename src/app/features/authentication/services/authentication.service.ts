@@ -18,6 +18,7 @@ import type {
   RegisterResponse,
   RegisterResponseData,
 } from '~features/authentication/types/register-response.type';
+import { LanguageService } from '~core/services/language.service';
 
 const IS_SESSION_ALIVE_KEY = 'isSessionAlive';
 
@@ -27,6 +28,7 @@ const IS_SESSION_ALIVE_KEY = 'isSessionAlive';
 export class AuthenticationService {
   private readonly storageService = inject(LOCAL_STORAGE);
   private readonly httpClient = inject(HttpClient);
+  private readonly languageService = inject(LanguageService);
   private readonly isUserLoggedInSignal = signal(
     !!this.storageService?.getItem(IS_SESSION_ALIVE_KEY),
   );
@@ -45,8 +47,12 @@ export class AuthenticationService {
           favouritePokemonId: registerRequest.favouritePokemonId,
           terms: registerRequest.terms,
         },
-        // TODO: send language
-        { withCredentials: true },
+        {
+          withCredentials: true,
+          headers: {
+            'Accept-Language': this.languageService.convertLocaleToAcceptLanguage(),
+          },
+        },
       )
       .pipe(
         map((response: RegisterResponse) => {

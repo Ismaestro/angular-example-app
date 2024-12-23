@@ -25,6 +25,7 @@ import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/input/input.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import '@shoelace-style/shoelace/dist/components/checkbox/checkbox.js';
+import { AlertService } from '~core/services/alert.service';
 
 @Component({
   selector: 'app-register',
@@ -47,6 +48,7 @@ export class RegisterComponent implements OnInit {
   private readonly formBuilder = inject(FormBuilder);
   private readonly authService = inject(AuthenticationService);
   private readonly numberService = inject(NumberService);
+  private readonly alertService = inject(AlertService);
   private readonly validatingPokemonValue = () => this.pokemonValidator.isPokemonValidating();
 
   pokemonValidator = inject(PokemonValidator);
@@ -123,8 +125,8 @@ export class RegisterComponent implements OnInit {
             this.playSoundAndNavigate();
           },
           error: () => {
-            // TODO: implement alert
             this.isButtonRegisterLoading = false;
+            this.alertService.createErrorAlert(translations.genericRegisterError);
             this.changeDetectorRef.markForCheck();
           },
         });

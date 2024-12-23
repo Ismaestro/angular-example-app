@@ -14,6 +14,7 @@ import type { Pokemon } from '~features/pokemon/types/pokemon.type';
 import { NgOptimizedImage } from '@angular/common';
 import { PokemonSearchComponent } from '~features/pokemon/components/pokemon-search/pokemon-search.component';
 import { translations } from '../../../locale/translations';
+import { AlertService } from '~core/services/alert.service';
 
 @Component({
   selector: 'app-my-pokemon',
@@ -28,6 +29,7 @@ export class MyPokemonComponent implements OnInit {
   private readonly userService = inject(UserService);
   private readonly pokemonService = inject(PokemonService);
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
+  private readonly alertService = inject(AlertService);
 
   readonly translations = translations;
   user: User | undefined;
@@ -45,7 +47,7 @@ export class MyPokemonComponent implements OnInit {
               this.changeDetectorRef.markForCheck();
             },
             error: () => {
-              // TODO: show alert
+              this.alertService.createErrorAlert(translations.genericErrorAlert);
             },
           });
         }

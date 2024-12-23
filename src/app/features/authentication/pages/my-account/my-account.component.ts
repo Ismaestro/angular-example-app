@@ -17,14 +17,15 @@ import { PokemonService } from '~features/pokemon/services/pokemon.service';
 import type { Pokemon } from '~features/pokemon/types/pokemon.type';
 import { PokemonImageComponent } from '~features/pokemon/components/pokemon-image/pokemon-image.component';
 import { AppSlSelectControlDirective } from '~core/directives/sl-select-control.directive';
+import { ThemeButtonComponent } from '~core/components/theme-button/theme-button.component';
+import { NgOptimizedImage } from '@angular/common';
+import { AlertService } from '~core/services/alert.service';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/input/input.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import '@shoelace-style/shoelace/dist/components/select/select.js';
 import '@shoelace-style/shoelace/dist/components/option/option.js';
-import { ThemeButtonComponent } from '~core/components/theme-button/theme-button.component';
-import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-my-account',
@@ -48,6 +49,7 @@ export class MyAccountComponent implements OnInit {
   private readonly formBuilder = inject(FormBuilder);
   private readonly userService = inject(UserService);
   private readonly pokemonService = inject(PokemonService);
+  private readonly alertService = inject(AlertService);
 
   translations = translations;
   user: User | undefined;
@@ -78,7 +80,7 @@ export class MyAccountComponent implements OnInit {
         this.loadPokemonImage();
       },
       error: () => {
-        // TODO: show alert
+        this.alertService.createErrorAlert(translations.genericErrorAlert);
       },
     });
   }
@@ -91,7 +93,7 @@ export class MyAccountComponent implements OnInit {
         this.changeDetectorRef.markForCheck();
       },
       error: () => {
-        // TODO: show alert
+        this.alertService.createErrorAlert(translations.genericErrorAlert);
       },
     });
   }
@@ -109,12 +111,12 @@ export class MyAccountComponent implements OnInit {
         .subscribe({
           next: () => {
             this.isButtonUpdateUserFormLoading = false;
-            // TODO: implement alert
+            this.alertService.createSuccessAlert(translations.myAccountSuccessAlert);
             this.changeDetectorRef.markForCheck();
           },
           error: () => {
             this.isButtonUpdateUserFormLoading = false;
-            // TODO: implement alert
+            this.alertService.createErrorAlert(translations.genericErrorAlert);
             this.changeDetectorRef.markForCheck();
           },
         });

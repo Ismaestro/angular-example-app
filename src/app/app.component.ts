@@ -11,6 +11,8 @@ import { HeaderService } from '~core/services/header.service';
 import { ProgressBarComponent } from '~core/components/progress-bar/progress-bar.component';
 import { CookiePopupComponent } from '~core/components/cookie-popup/cookie-popup.component';
 
+import '@shoelace-style/shoelace/dist/components/alert/alert.js';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

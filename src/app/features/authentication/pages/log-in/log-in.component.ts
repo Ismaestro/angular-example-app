@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  CUSTOM_ELEMENTS_SCHEMA,
+  inject,
+} from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { emailValidator } from '~core/validators/email.validator';
@@ -12,6 +18,7 @@ import { NgOptimizedImage } from '@angular/common';
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/input/input.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
+import { AlertService } from '~core/services/alert.service';
 
 @Component({
   selector: 'app-log-in',
@@ -23,6 +30,8 @@ import '@shoelace-style/shoelace/dist/components/icon/icon.js';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LogInComponent {
+  private readonly changeDetectorRef = inject(ChangeDetectorRef);
+  private readonly alertService = inject(AlertService);
   private readonly router = inject(Router);
   private readonly formBuilder = inject(FormBuilder);
   private readonly authService = inject(AuthenticationService);
@@ -52,10 +61,19 @@ export class LogInComponent {
       const formValue = this.logInForm.getRawValue();
       this.authService.logIn({ email: formValue.email!, password: formValue.password! }).subscribe({
         next: () => {
+          this.isButtonLogInLoading = false;
+          this.changeDetectorRef.markForCheck();
           void this.router.navigate([ROOT_URLS.myPokedex]);
         },
-        error: () => {
-          // TODO: implement alert
+        error: (response) => {
+          this.isButtonLogInLoading = false;
+
+          let errorMessage = translations.genericErrorAlert;
+          if (response.error.internalCode === 2002) {
+            errorMessage = translations.loginCredentialsError;
+          }
+          this.alertService.createErrorAlert(errorMessage);
+          this.changeDetectorRef.markForCheck();
         },
       });
     }
