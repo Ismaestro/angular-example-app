@@ -89,7 +89,6 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.favouritePokemon.setErrors({ pokemonName: true });
-    // TODO: check all subscribes to unsubscribe
     merge(this.password.valueChanges, this.confirmPassword.valueChanges)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {

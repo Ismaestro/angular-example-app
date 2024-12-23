@@ -41,9 +41,7 @@ enum PokemonState {
 export class PokemonCatchComponent implements OnInit {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
 
-  // TODO: review why signal-style here is not working
   @Input() pokemonBattleEvent!: WritableSignal<BattleEvent>;
-
   pokeballState: PokeballState = PokeballState.Idle;
   pokemonState: PokemonState = PokemonState.Idle;
 

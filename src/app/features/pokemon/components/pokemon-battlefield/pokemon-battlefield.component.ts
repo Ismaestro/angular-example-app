@@ -25,9 +25,7 @@ import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-
 export class PokemonBattlefieldComponent implements OnInit {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
 
-  // TODO: review why signal-style here is not working
   @Input() pokemonBattleEvent!: WritableSignal<BattleEvent>;
-
   pokemon = input<Pokemon>();
   pokemonImage: string | undefined;
   startCatchAnimation = false;

@@ -35,9 +35,7 @@ export class PokedexComponent implements OnInit {
   private readonly alertService = inject(AlertService);
   private readonly destroyRef = inject(DestroyRef);
 
-  // TODO: review why signal-style here is not working
   @Input() pokemonBattleEvent!: WritableSignal<BattleEvent>;
-
   translations = translations;
   pokemon = input<Pokemon>();
   user: User | undefined;
