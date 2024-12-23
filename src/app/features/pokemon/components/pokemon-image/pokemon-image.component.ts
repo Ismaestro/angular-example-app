@@ -15,12 +15,11 @@ import { CropImageService } from '~core/services/crop-image.service';
 import { NgStyle } from '@angular/common';
 
 @Component({
-  selector: 'app-pokemon-image',
-  templateUrl: './pokemon-image.component.html',
-  styleUrl: './pokemon-image.component.scss',
-  standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgStyle],
+    selector: 'app-pokemon-image',
+    templateUrl: './pokemon-image.component.html',
+    styleUrl: './pokemon-image.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [NgStyle]
 })
 export class PokemonImageComponent implements AfterViewInit {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);

@@ -23,22 +23,21 @@ import { ROOT_PATHS } from '~core/constants/paths.constants';
 import { clearCache } from '~core/interceptors/caching.interceptor';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
-  standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    RouterLink,
-    RouterLinkActive,
-    FirstTitleCasePipe,
-    PokemonSearchComponent,
-    NgOptimizedImage,
-    LanguageSelectorComponent,
-    NgTemplateOutlet,
-    ThemeButtonComponent,
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        RouterLink,
+        RouterLinkActive,
+        FirstTitleCasePipe,
+        PokemonSearchComponent,
+        NgOptimizedImage,
+        LanguageSelectorComponent,
+        NgTemplateOutlet,
+        ThemeButtonComponent,
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HeaderComponent {
   private readonly authenticationService = inject(AuthenticationService);

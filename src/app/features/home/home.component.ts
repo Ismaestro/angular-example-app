@@ -4,11 +4,10 @@ import { DecorativeHeaderComponent } from '~core/components/decorative-header/de
 import { CardComponent } from '~core/components/card/card.component';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [DecorativeHeaderComponent, NgOptimizedImage, CardComponent],
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [DecorativeHeaderComponent, NgOptimizedImage, CardComponent]
 })
 export class HomeComponent {}

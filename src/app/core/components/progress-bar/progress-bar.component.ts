@@ -20,13 +20,12 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 export const PROGRESS_BAR_DELAY = 30;
 
 @Component({
-  selector: 'app-progress-bar',
-  template: `
+    selector: 'app-progress-bar',
+    template: `
     <ng-progress aria-label="Page load progress" i18n-aria-label />
   `,
-  imports: [NgProgressbar],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
+    imports: [NgProgressbar],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProgressBarComponent implements OnInit {
   private readonly router = inject(Router);

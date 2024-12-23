@@ -23,13 +23,12 @@ import { AlertService } from '~core/services/alert.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
-  selector: 'app-log-in',
-  templateUrl: './log-in.component.html',
-  styleUrl: './log-in.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [ReactiveFormsModule, RouterModule, SlInputIconFocusDirective, NgOptimizedImage],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-log-in',
+    templateUrl: './log-in.component.html',
+    styleUrl: './log-in.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [ReactiveFormsModule, RouterModule, SlInputIconFocusDirective, NgOptimizedImage],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class LogInComponent {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);

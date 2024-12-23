@@ -6,12 +6,11 @@ import { FirstTitleCasePipe } from '~core/pipes/first-title-case.pipe';
 import { NgOptimizedImage } from '@angular/common';
 
 @Component({
-  selector: 'app-pokemon-card',
-  templateUrl: './pokemon-card.component.html',
-  styleUrl: './pokemon-card.component.scss',
-  standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CardComponent, FirstTitleCasePipe, NgOptimizedImage],
+    selector: 'app-pokemon-card',
+    templateUrl: './pokemon-card.component.html',
+    styleUrl: './pokemon-card.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CardComponent, FirstTitleCasePipe, NgOptimizedImage]
 })
 export class PokemonCardComponent implements OnInit {
   pokemon = input<Pokemon>();

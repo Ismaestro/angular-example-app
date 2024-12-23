@@ -15,12 +15,11 @@ import { NgOptimizedImage } from '@angular/common';
 import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
 
 @Component({
-  selector: 'app-pokemon-battlefield',
-  templateUrl: './pokemon-battlefield.component.html',
-  styleUrl: './pokemon-battlefield.component.scss',
-  standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [PokemonImageComponent, PokemonCatchComponent, NgOptimizedImage],
+    selector: 'app-pokemon-battlefield',
+    templateUrl: './pokemon-battlefield.component.html',
+    styleUrl: './pokemon-battlefield.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [PokemonImageComponent, PokemonCatchComponent, NgOptimizedImage]
 })
 export class PokemonBattlefieldComponent implements OnInit {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);

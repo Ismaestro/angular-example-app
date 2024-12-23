@@ -21,13 +21,12 @@ import { translations } from '../../../../../locale/translations';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
-  selector: 'app-pokedex',
-  templateUrl: './pokedex.component.html',
-  styleUrl: './pokedex.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [PokemonImageComponent, FirstTitleCasePipe],
+    selector: 'app-pokedex',
+    templateUrl: './pokedex.component.html',
+    styleUrl: './pokedex.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [PokemonImageComponent, FirstTitleCasePipe]
 })
 export class PokedexComponent implements OnInit {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);

@@ -27,16 +27,15 @@ enum PokemonState {
 }
 
 @Component({
-  selector: 'app-pokemon-catch',
-  templateUrl: './pokemon-catch.component.html',
-  styleUrl: './pokemon-catch.component.scss',
-  standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [catchAnimations],
-  imports: [NgOptimizedImage, NgStyle],
-  host: {
-    '(window:resize)': 'loadAnimationPositions()',
-  },
+    selector: 'app-pokemon-catch',
+    templateUrl: './pokemon-catch.component.html',
+    styleUrl: './pokemon-catch.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    animations: [catchAnimations],
+    imports: [NgOptimizedImage, NgStyle],
+    host: {
+        '(window:resize)': 'loadAnimationPositions()',
+    }
 })
 export class PokemonCatchComponent implements OnInit {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);

@@ -15,18 +15,17 @@ import '@shoelace-style/shoelace/dist/components/alert/alert.js';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    RouterOutlet,
-    HeaderComponent,
-    FooterComponent,
-    ProgressBarComponent,
-    CookiePopupComponent,
-  ],
-  standalone: true,
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        RouterOutlet,
+        HeaderComponent,
+        FooterComponent,
+        ProgressBarComponent,
+        CookiePopupComponent,
+    ]
 })
 export class AppComponent implements OnInit {
   private readonly document = inject(DOCUMENT);

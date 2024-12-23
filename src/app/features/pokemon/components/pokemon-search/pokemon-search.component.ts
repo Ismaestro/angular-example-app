@@ -21,13 +21,12 @@ import { AlertService } from '~core/services/alert.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'app-pokemon-search',
-  templateUrl: './pokemon-search.component.html',
-  styleUrl: './pokemon-search.component.scss',
-  standalone: true,
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [SlInputIconFocusDirective, NgOptimizedImage],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-pokemon-search',
+    templateUrl: './pokemon-search.component.html',
+    styleUrl: './pokemon-search.component.scss',
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    imports: [SlInputIconFocusDirective, NgOptimizedImage]
 })
 export class PokemonSearchComponent {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);

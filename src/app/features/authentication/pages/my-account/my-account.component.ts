@@ -30,21 +30,20 @@ import '@shoelace-style/shoelace/dist/components/option/option.js';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
-  selector: 'app-my-account',
-  templateUrl: './my-account.component.html',
-  styleUrl: './my-account.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [
-    RouterModule,
-    ReactiveFormsModule,
-    SlInputIconFocusDirective,
-    PokemonImageComponent,
-    AppSlSelectControlDirective,
-    ThemeButtonComponent,
-    NgOptimizedImage,
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-my-account',
+    templateUrl: './my-account.component.html',
+    styleUrl: './my-account.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        RouterModule,
+        ReactiveFormsModule,
+        SlInputIconFocusDirective,
+        PokemonImageComponent,
+        AppSlSelectControlDirective,
+        ThemeButtonComponent,
+        NgOptimizedImage,
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class MyAccountComponent implements OnInit {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);

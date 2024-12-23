@@ -19,13 +19,12 @@ import { AlertService } from '~core/services/alert.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
-  selector: 'app-my-pokemon',
-  templateUrl: './my-pokemon.component.html',
-  styleUrl: './my-pokemon.component.scss',
-  imports: [PokemonCardComponent, NgOptimizedImage, PokemonSearchComponent],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-my-pokemon',
+    templateUrl: './my-pokemon.component.html',
+    styleUrl: './my-pokemon.component.scss',
+    imports: [PokemonCardComponent, NgOptimizedImage, PokemonSearchComponent],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class MyPokemonComponent implements OnInit {
   private readonly userService = inject(UserService);

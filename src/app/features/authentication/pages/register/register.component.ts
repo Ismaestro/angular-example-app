@@ -30,19 +30,18 @@ import { AlertService } from '~core/services/alert.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrl: './register.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [
-    RouterModule,
-    ReactiveFormsModule,
-    NgOptimizedImage,
-    SlInputIconFocusDirective,
-    AppSlCheckboxControlDirective,
-  ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    selector: 'app-register',
+    templateUrl: './register.component.html',
+    styleUrl: './register.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        RouterModule,
+        ReactiveFormsModule,
+        NgOptimizedImage,
+        SlInputIconFocusDirective,
+        AppSlCheckboxControlDirective,
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class RegisterComponent implements OnInit {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
