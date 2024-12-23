@@ -39,7 +39,7 @@
         <app-pokemon-image
           [image]="pokemonImage"
           [imageWidth]="'170%'"
-          (load)="startPokemonInitialAnimation($event)"
+          (loaded)="startPokemonInitialAnimation($event)"
         />
       </ng-container>
     </app-pokemon-catch>

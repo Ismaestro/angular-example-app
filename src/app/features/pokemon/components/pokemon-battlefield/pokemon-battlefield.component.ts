@@ -15,17 +15,19 @@ import { NgOptimizedImage } from '@angular/common';
 import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
 
 @Component({
-    selector: 'app-pokemon-battlefield',
-    templateUrl: './pokemon-battlefield.component.html',
-    styleUrl: './pokemon-battlefield.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [PokemonImageComponent, PokemonCatchComponent, NgOptimizedImage]
+  selector: 'app-pokemon-battlefield',
+  templateUrl: './pokemon-battlefield.component.html',
+  styleUrl: './pokemon-battlefield.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [PokemonImageComponent, PokemonCatchComponent, NgOptimizedImage],
 })
 export class PokemonBattlefieldComponent implements OnInit {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
 
+  // eslint-disable-next-line @angular-eslint/prefer-signals
   @Input() pokemonBattleEvent!: WritableSignal<BattleEvent>;
-  pokemon = input<Pokemon>();
+  readonly pokemon = input<Pokemon>();
+
   pokemonImage: string | undefined;
   startCatchAnimation = false;
   pokemonImageLoaded = false;
@@ -55,14 +57,14 @@ export class PokemonBattlefieldComponent implements OnInit {
   }
 
   private handleThrowPokeballEvent(): void {
-    if (this.pokemonBattleEvent() === BattleEvent.THROW_POKEBALL) {
+    if ((this.pokemonBattleEvent() as unknown as BattleEvent) === BattleEvent.THROW_POKEBALL) {
       this.startCatchAnimation = true;
       this.changeDetectorRef.markForCheck();
     }
   }
 
   private handleResetBattleEvent(): void {
-    if (this.pokemonBattleEvent() === BattleEvent.RESET_BATTLE) {
+    if ((this.pokemonBattleEvent() as unknown as BattleEvent) === BattleEvent.RESET_BATTLE) {
       this.startCatchAnimation = false;
       this.pokemonImageLoaded = false;
       this.changeDetectorRef.markForCheck();

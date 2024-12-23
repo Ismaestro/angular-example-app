@@ -18,9 +18,9 @@ import '@shoelace-style/shoelace/dist/components/button/button.js';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CookiePopupComponent {
-  hasAccepted = signal<boolean>(false);
-
   private readonly cookieConsentService = inject(CookieConsentService);
+
+  readonly hasAccepted = signal<boolean>(false);
 
   constructor() {
     try {

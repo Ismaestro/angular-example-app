@@ -30,18 +30,18 @@ import { AlertService } from '~core/services/alert.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
-    selector: 'app-register',
-    templateUrl: './register.component.html',
-    styleUrl: './register.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [
-        RouterModule,
-        ReactiveFormsModule,
-        NgOptimizedImage,
-        SlInputIconFocusDirective,
-        AppSlCheckboxControlDirective,
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrl: './register.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    RouterModule,
+    ReactiveFormsModule,
+    NgOptimizedImage,
+    SlInputIconFocusDirective,
+    AppSlCheckboxControlDirective,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class RegisterComponent implements OnInit {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
@@ -52,6 +52,8 @@ export class RegisterComponent implements OnInit {
   private readonly alertService = inject(AlertService);
   private readonly validatingPokemonValue = () => this.pokemonValidator.isPokemonValidating();
   private readonly destroyRef = inject(DestroyRef);
+
+  readonly isPokemonValidating = computed(this.validatingPokemonValue);
 
   pokemonValidator = inject(PokemonValidator);
   translations = translations;
@@ -84,7 +86,6 @@ export class RegisterComponent implements OnInit {
   isButtonRegisterLoading = false;
   registrationCompleted = false;
   confirmPasswordHelpText = '';
-  isPokemonValidating = computed(this.validatingPokemonValue);
 
   ngOnInit() {
     this.favouritePokemon.setErrors({ pokemonName: true });

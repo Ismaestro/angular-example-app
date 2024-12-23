@@ -21,12 +21,12 @@ import { translations } from '../../../../../locale/translations';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
-    selector: 'app-pokedex',
-    templateUrl: './pokedex.component.html',
-    styleUrl: './pokedex.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    imports: [PokemonImageComponent, FirstTitleCasePipe]
+  selector: 'app-pokedex',
+  templateUrl: './pokedex.component.html',
+  styleUrl: './pokedex.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [PokemonImageComponent, FirstTitleCasePipe],
 })
 export class PokedexComponent implements OnInit {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
@@ -34,9 +34,11 @@ export class PokedexComponent implements OnInit {
   private readonly alertService = inject(AlertService);
   private readonly destroyRef = inject(DestroyRef);
 
-  @Input() pokemonBattleEvent!: WritableSignal<BattleEvent>;
+  // eslint-disable-next-line @angular-eslint/prefer-signals
+  @Input() readonly pokemonBattleEvent!: WritableSignal<BattleEvent>;
+  readonly pokemon = input<Pokemon>();
+
   translations = translations;
-  pokemon = input<Pokemon>();
   user: User | undefined;
   updatedUser: User | undefined;
   userHasCaught = false;
@@ -81,7 +83,9 @@ export class PokedexComponent implements OnInit {
 
   notifyBattlefield() {
     this.isPokedexButtonDisabled = true;
-    this.pokemonBattleEvent.set(BattleEvent.THROW_POKEBALL);
+    (this.pokemonBattleEvent as unknown as WritableSignal<BattleEvent>).set(
+      BattleEvent.THROW_POKEBALL,
+    );
   }
 
   catchPokemon() {
@@ -111,7 +115,7 @@ export class PokedexComponent implements OnInit {
 
   private handleBattleEvents(): void {
     const event = this.pokemonBattleEvent();
-    switch (event) {
+    switch (event as unknown as BattleEvent) {
       case BattleEvent.CATCH_ANIMATION_ENDED: {
         this.handleCatchAnimationEnded();
         break;

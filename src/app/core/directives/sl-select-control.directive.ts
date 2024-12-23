@@ -26,7 +26,7 @@ export class AppSlSelectControlDirective implements ControlValueAccessor {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   private onTouchedFn = () => {};
 
-  value = model('');
+  readonly value = model('');
 
   writeValue(value: string): void {
     this.value.set(value);

@@ -26,7 +26,7 @@ export class AppSlCheckboxControlDirective implements ControlValueAccessor {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   private onTouchedFn = () => {};
 
-  checked = model(false);
+  readonly checked = model(false);
 
   writeValue(value: boolean): void {
     this.checked.set(value);

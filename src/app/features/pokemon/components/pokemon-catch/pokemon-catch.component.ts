@@ -27,20 +27,22 @@ enum PokemonState {
 }
 
 @Component({
-    selector: 'app-pokemon-catch',
-    templateUrl: './pokemon-catch.component.html',
-    styleUrl: './pokemon-catch.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    animations: [catchAnimations],
-    imports: [NgOptimizedImage, NgStyle],
-    host: {
-        '(window:resize)': 'loadAnimationPositions()',
-    }
+  selector: 'app-pokemon-catch',
+  templateUrl: './pokemon-catch.component.html',
+  styleUrl: './pokemon-catch.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [catchAnimations],
+  imports: [NgOptimizedImage, NgStyle],
+  host: {
+    '(window:resize)': 'loadAnimationPositions()',
+  },
 })
 export class PokemonCatchComponent implements OnInit {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
 
+  // eslint-disable-next-line @angular-eslint/prefer-signals
   @Input() pokemonBattleEvent!: WritableSignal<BattleEvent>;
+
   pokeballState: PokeballState = PokeballState.Idle;
   pokemonState: PokemonState = PokemonState.Idle;
 
@@ -77,22 +79,18 @@ export class PokemonCatchComponent implements OnInit {
       this.pokemonState = PokemonState.Shining;
       this.changeDetectorRef.markForCheck();
     }, 500);
-
     setTimeout(() => {
       this.pokemonState = PokemonState.Disappear;
       this.changeDetectorRef.markForCheck();
     }, 1500);
-
     setTimeout(() => {
       this.pokeballState = PokeballState.Falling;
       this.changeDetectorRef.markForCheck();
     }, 1700);
-
     setTimeout(() => {
       this.pokeballState = PokeballState.Shaking;
       this.changeDetectorRef.markForCheck();
     }, 3000);
-
     setTimeout(() => {
       this.pokeballState = PokeballState.Shining;
       this.pokemonBattleEvent.set(BattleEvent.CATCH_ANIMATION_ENDED);

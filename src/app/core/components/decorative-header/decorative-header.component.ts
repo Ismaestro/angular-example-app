@@ -25,9 +25,9 @@ export class DecorativeHeaderComponent implements OnInit {
   private readonly domSanitizer = inject(DomSanitizer);
   private readonly destroyRef = inject(DestroyRef);
 
-  svgContent: SafeHtml | null = null;
+  readonly svgUrl = input<string>('');
 
-  svgUrl = input<string>('');
+  svgContent: SafeHtml | null = null;
 
   ngOnInit(): void {
     if (this.svgUrl()) {

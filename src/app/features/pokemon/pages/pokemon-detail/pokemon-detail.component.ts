@@ -21,12 +21,12 @@ import { ROOT_URLS } from '~core/constants/urls.constants';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
-    selector: 'app-pokemon-detail',
-    templateUrl: './pokemon-detail.component.html',
-    styleUrl: './pokemon-detail.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    imports: [PokemonBattlefieldComponent, PokedexComponent]
+  selector: 'app-pokemon-detail',
+  templateUrl: './pokemon-detail.component.html',
+  styleUrl: './pokemon-detail.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [PokemonBattlefieldComponent, PokedexComponent],
 })
 export class PokemonDetailComponent implements OnInit {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
@@ -36,7 +36,8 @@ export class PokemonDetailComponent implements OnInit {
   private readonly pokemonService = inject(PokemonService);
   private readonly alertService = inject(AlertService);
 
-  pokemonBattleEvent = signal(BattleEvent.POKEMON_LOADED);
+  readonly pokemonBattleEvent = signal(BattleEvent.POKEMON_LOADED);
+
   pokemon!: Pokemon;
 
   ngOnInit() {

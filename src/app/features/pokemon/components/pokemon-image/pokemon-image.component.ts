@@ -15,21 +15,21 @@ import { CropImageService } from '~core/services/crop-image.service';
 import { NgStyle } from '@angular/common';
 
 @Component({
-    selector: 'app-pokemon-image',
-    templateUrl: './pokemon-image.component.html',
-    styleUrl: './pokemon-image.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [NgStyle]
+  selector: 'app-pokemon-image',
+  templateUrl: './pokemon-image.component.html',
+  styleUrl: './pokemon-image.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [NgStyle],
 })
 export class PokemonImageComponent implements AfterViewInit {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
   private readonly cropImageService = inject(CropImageService);
 
-  readonly load = output<boolean>();
+  readonly loaded = output<boolean>();
+  readonly canvas: Signal<ElementRef<HTMLCanvasElement> | undefined> = viewChild('canvas');
+  readonly image = input<string>();
+  readonly imageWidth = input<string>('100%');
 
-  canvas: Signal<ElementRef<HTMLCanvasElement> | undefined> = viewChild('canvas');
-  image = input<string>();
-  imageWidth = input<string>('100%');
   croppedBase64Image!: string;
   croppedImageLoaded = false;
 
@@ -54,7 +54,7 @@ export class PokemonImageComponent implements AfterViewInit {
         .getCroppedImageURL(canvasElement.nativeElement, imageValue)
         .then((base64Image) => {
           this.croppedBase64Image = base64Image;
-          this.load.emit(true);
+          this.loaded.emit(true);
           this.changeDetectorRef.markForCheck();
           return base64Image;
         });
