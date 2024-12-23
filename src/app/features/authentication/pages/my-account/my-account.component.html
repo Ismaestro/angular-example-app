@@ -17,13 +17,12 @@
         i18n-label
         i18n-placeholder
         appSlInputIconFocus
-        i18n-size
         required
         ngDefaultControl
         [attr.help-text]="translations.fieldRequired"
         [formControl]="name"
       >
-        <sl-icon name="person" slot="prefix" i18n-slot />
+        <sl-icon name="person" slot="prefix" />
       </sl-input>
     </div>
     <div class="form-control__container">
@@ -32,12 +31,11 @@
         label="Email"
         size="medium"
         i18n-label
-        i18n-size
         required
         ngDefaultControl
         [formControl]="email"
       >
-        <sl-icon name="person-circle" slot="prefix" i18n-slot />
+        <sl-icon name="person-circle" slot="prefix" />
       </sl-input>
     </div>
     <div class="form-control__container">
@@ -47,7 +45,6 @@
         ngDefaultControl
         appSlSelectControl
         size="medium"
-        i18n-size
         [formControl]="language"
         i18n-label
       >
@@ -67,7 +64,6 @@
       <sl-button
         class="button--primary"
         size="medium"
-        i18n-size
         pill
         type="submit"
         [attr.loading]="isButtonUpdateUserFormLoading || null"
@@ -80,7 +76,6 @@
     <img
       class="decorative__image"
       ngSrc="/assets/images/ash.png"
-      i18n-ngSrc
       alt="ash standing"
       i18n-alt
       height="562"

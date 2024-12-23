@@ -13,69 +13,21 @@
         <source>Enter</source>
         <target state="new">Entrar</target>
       </trans-unit>
-      <trans-unit id="5171955077815308738" datatype="html">
-        <source>don&apos;t have an account yet?</source>
-        <target state="new">¿no tienes cuenta?</target>
-      </trans-unit>
-      <trans-unit id="5915338689523424386" datatype="html">
-        <source>register</source>
-        <target state="new">registro</target>
-      </trans-unit>
-      <trans-unit id="7954280865758228265" datatype="html">
-        <source>¡Register, and create your first hero!</source>
-        <target state="new">¡Regístrate, y crea tu primer heroe!</target>
-      </trans-unit>
-      <trans-unit id="5342432350421167093" datatype="html">
-        <source>First name</source>
-        <target state="new">Nombre</target>
-      </trans-unit>
-      <trans-unit id="3226710404307317902" datatype="html">
-        <source>I&apos;ve read and accept the terms and conditions and the privacy policy</source>
-        <target state="new">He leído y acepto la política de privacidad y los términos y condiciones</target>
-      </trans-unit>
       <trans-unit id="3301086086650990787" datatype="html">
         <source>Register</source>
         <target state="new">Regístrate</target>
       </trans-unit>
-      <trans-unit id="3838405600100023738" datatype="html">
-        <source>already have an account?</source>
-        <target state="new">¿ya tienes una cuenta?</target>
-      </trans-unit>
-      <trans-unit id="6848854315007631078" datatype="html">
-        <source>log in</source>
-        <target state="new">iniciar sesión</target>
-      </trans-unit>
-      <trans-unit id="1621161289141771238" datatype="html">
-        <source>Minimum <x id="INTERPOLATION" equiv-text="{{ control().errors?.[&apos;minlength&apos;].requiredLength }}"/> caracters.</source>
-        <target state="new">Mínimo <x id="INTERPOLATION" equiv-text="{{ control.errors[&apos;minlength&apos;].requiredLength }}"/> caracteres.</target>
-      </trans-unit>
-      <trans-unit id="7897553137344337439" datatype="html">
-        <source>Field required</source>
+      <trans-unit id="3706454661895788858" datatype="html">
+        <source>Field required.</source>
         <target state="new">Campo requerido</target>
       </trans-unit>
-      <trans-unit id="4297600712275534665" datatype="html">
-        <source>Format invalid. example@domain.com</source>
-        <target state="new">Formato inválido. example@domain.com</target>
-      </trans-unit>
-      <trans-unit id="4254485305637011570" datatype="html">
-        <source>What you typed is not</source>
-        <target state="new">Lo que has escrito no es</target>
-      </trans-unit>
-      <trans-unit id="253845658548175967" datatype="html">
-        <source>This is not your email</source>
-        <target state="new">Este no es tu email</target>
-      </trans-unit>
-      <trans-unit id="6283991314060695536" datatype="html">
-        <source>Password must contain at least one lowercase letter, one uppercase letter and one number. No special characters allowed. </source>
+      <trans-unit id="9015979275910770507" datatype="html">
+        <source>Must contain at least one lowercase letter, one uppercase letter and one number. No special characters.</source>
         <target state="new">La contraseña debe contener al menos una letra minúscula, una mayúscula y un número. No se admiten caracteres especiales. </target>
       </trans-unit>
       <trans-unit id="771984667796132675" datatype="html">
         <source>Angular Example App</source>
         <target state="new">Angular Example App ES</target>
-      </trans-unit>
-      <trans-unit id="4541118533130714111" datatype="html">
-        <source>Repeat Password</source>
-        <target state="new">Repeat Password</target>
       </trans-unit>
       <trans-unit id="4763932744918921654" datatype="html">
         <source>What&apos;s your favourite pokemon?</source>
@@ -96,6 +48,388 @@
       <trans-unit id="8563030151048628698" datatype="html">
         <source>pokemon image</source>
         <target state="new">pokemon image</target>
+      </trans-unit>
+      <trans-unit id="3906374096707451187" datatype="html">
+        <source> Skip to main content </source>
+        <target state="new"> Skip to main content </target>
+      </trans-unit>
+      <trans-unit id="4705896958282279066" datatype="html">
+        <source> This site uses Google Tag Manager and Google Analytics to make it work smoothly and also understand how people use it. </source>
+        <target state="new"> This site uses Google Tag Manager and Google Analytics to make it work smoothly and also understand how people use it. </target>
+      </trans-unit>
+      <trans-unit id="5553776930806289663" datatype="html">
+        <source>Ok, got it!</source>
+        <target state="new">Ok, got it!</target>
+      </trans-unit>
+      <trans-unit id="4480466648551521017" datatype="html">
+        <source>Error 404: A Wild Error Appeared</source>
+        <target state="new">Error 404: A Wild Error Appeared</target>
+      </trans-unit>
+      <trans-unit id="6448505059864540544" datatype="html">
+        <source>ash and pikachu sad</source>
+        <target state="new">ash and pikachu sad</target>
+      </trans-unit>
+      <trans-unit id="8413653130434546022" datatype="html">
+        <source>Angular</source>
+        <target state="new">Angular</target>
+      </trans-unit>
+      <trans-unit id="7023829683035637619" datatype="html">
+        <source>Angular blog</source>
+        <target state="new">Angular blog</target>
+      </trans-unit>
+      <trans-unit id="7751010942038334793" datatype="html">
+        <source>Blog</source>
+        <target state="new">Blog</target>
+      </trans-unit>
+      <trans-unit id="2995774437111770399" datatype="html">
+        <source>X</source>
+        <target state="new">X</target>
+      </trans-unit>
+      <trans-unit id="8401085193044135025" datatype="html">
+        <source>YouTube</source>
+        <target state="new">YouTube</target>
+      </trans-unit>
+      <trans-unit id="3385320857836800705" datatype="html">
+        <source>Join the discussions at Angular Community Discord server.</source>
+        <target state="new">Join the discussions at Angular Community Discord server.</target>
+      </trans-unit>
+      <trans-unit id="4182095487772075673" datatype="html">
+        <source> Discord </source>
+        <target state="new"> Discord </target>
+      </trans-unit>
+      <trans-unit id="1534029177398918729" datatype="html">
+        <source>GitHub</source>
+        <target state="new">GitHub</target>
+      </trans-unit>
+      <trans-unit id="2999632421041217652" datatype="html">
+        <source>Contribute to Angular Example App</source>
+        <target state="new">Contribute to Angular Example App</target>
+      </trans-unit>
+      <trans-unit id="2156635906230663334" datatype="html">
+        <source> Contribute </source>
+        <target state="new"> Contribute </target>
+      </trans-unit>
+      <trans-unit id="3570800946906329961" datatype="html">
+        <source>Post issues and suggestions on github.</source>
+        <target state="new">Post issues and suggestions on github.</target>
+      </trans-unit>
+      <trans-unit id="4583602242273481020" datatype="html">
+        <source> Report Issues </source>
+        <target state="new"> Report Issues </target>
+      </trans-unit>
+      <trans-unit id="2446117790692479672" datatype="html">
+        <source>Resources</source>
+        <target state="new">Resources</target>
+      </trans-unit>
+      <trans-unit id="4982761710982945838" datatype="html">
+        <source>Stack Overflow: where the community answers your technical Angular questions.</source>
+        <target state="new">Stack Overflow: where the community answers your technical Angular questions.</target>
+      </trans-unit>
+      <trans-unit id="6561048040308058569" datatype="html">
+        <source> Stack Overflow </source>
+        <target state="new"> Stack Overflow </target>
+      </trans-unit>
+      <trans-unit id="8520351263082417377" datatype="html">
+        <source>Angular Google Developer Experts</source>
+        <target state="new">Angular Google Developer Experts</target>
+      </trans-unit>
+      <trans-unit id="4346349683507785886" datatype="html">
+        <source> Angular Google Developer Experts </source>
+        <target state="new"> Angular Google Developer Experts </target>
+      </trans-unit>
+      <trans-unit id="1949800099101277248" datatype="html">
+        <source>Languages</source>
+        <target state="new">Languages</target>
+      </trans-unit>
+      <trans-unit id="5866254605255506989" datatype="html">
+        <source>English</source>
+        <target state="new">English</target>
+      </trans-unit>
+      <trans-unit id="1206520795340730278" datatype="html">
+        <source>English (US)</source>
+        <target state="new">English (US)</target>
+      </trans-unit>
+      <trans-unit id="7535527225967694107" datatype="html">
+        <source>Español</source>
+        <target state="new">Español</target>
+      </trans-unit>
+      <trans-unit id="4176833090298296042" datatype="html">
+        <source> Español (España)</source>
+        <target state="new"> Español (España)</target>
+      </trans-unit>
+      <trans-unit id="6692431734660320901" datatype="html">
+        <source> ©2016-2025. Code licensed under a <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://opensource.org/license/mit&quot; target=&quot;_blank&quot; title=&quot;License text&quot; i18n-title &gt;"/>MIT License<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a &gt;"/></source>
+        <target state="new"> ©2016-2025. Code licensed under a <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://opensource.org/license/mit&quot; target=&quot;_blank&quot; title=&quot;License text&quot; i18n-title &gt;"/>MIT License<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a &gt;"/></target>
+      </trans-unit>
+      <trans-unit id="8146468428782651144" datatype="html">
+        <source>License text</source>
+        <target state="new">License text</target>
+      </trans-unit>
+      <trans-unit id="5575467067123609782" datatype="html">
+        <source>angular logo</source>
+        <target state="new">angular logo</target>
+      </trans-unit>
+      <trans-unit id="6066456905066879060" datatype="html">
+        <source>ES-ES</source>
+        <target state="new">ES-ES</target>
+      </trans-unit>
+      <trans-unit id="2820549809276148270" datatype="html">
+        <source>EN-US</source>
+        <target state="new">EN-US</target>
+      </trans-unit>
+      <trans-unit id="3959583247915483678" datatype="html">
+        <source>Page load progress</source>
+        <target state="new">Page load progress</target>
+      </trans-unit>
+      <trans-unit id="203827529942340818" datatype="html">
+        <source>Enter your email</source>
+        <target state="new">Enter your email</target>
+      </trans-unit>
+      <trans-unit id="4768749765465246664" datatype="html">
+        <source>Email</source>
+        <target state="new">Email</target>
+      </trans-unit>
+      <trans-unit id="2772023564304193657" datatype="html">
+        <source>Enter your password</source>
+        <target state="new">Enter your password</target>
+      </trans-unit>
+      <trans-unit id="8183540845277493557" datatype="html">
+        <source>Don&apos;t have an account yet? Register</source>
+        <target state="new">Don&apos;t have an account yet? Register</target>
+      </trans-unit>
+      <trans-unit id="8893390761160292681" datatype="html">
+        <source>My account</source>
+        <target state="new">My account</target>
+      </trans-unit>
+      <trans-unit id="3264452655068017433" datatype="html">
+        <source>Enter your name</source>
+        <target state="new">Enter your name</target>
+      </trans-unit>
+      <trans-unit id="8953033926734869941" datatype="html">
+        <source>Name</source>
+        <target state="new">Name</target>
+      </trans-unit>
+      <trans-unit id="2826581353496868063" datatype="html">
+        <source>Language</source>
+        <target state="new">Language</target>
+      </trans-unit>
+      <trans-unit id="1448946353661594760" datatype="html">
+        <source>Español (España)</source>
+        <target state="new">Español (España)</target>
+      </trans-unit>
+      <trans-unit id="1463997545495016475" datatype="html">
+        <source>Your favourite pokemon is:</source>
+        <target state="new">Your favourite pokemon is:</target>
+      </trans-unit>
+      <trans-unit id="3768927257183755959" datatype="html">
+        <source>Save</source>
+        <target state="new">Save</target>
+      </trans-unit>
+      <trans-unit id="2041654170011922770" datatype="html">
+        <source>ash standing</source>
+        <target state="new">ash standing</target>
+      </trans-unit>
+      <trans-unit id="686712156074129473" datatype="html">
+        <source>¡Register and complete your Pokédex!</source>
+        <target state="new">¡Register and complete your Pokédex!</target>
+      </trans-unit>
+      <trans-unit id="3129358389635860873" datatype="html">
+        <source>Retype the password</source>
+        <target state="new">Retype the password</target>
+      </trans-unit>
+      <trans-unit id="3782563238994348625" datatype="html">
+        <source>Confirm password</source>
+        <target state="new">Confirm password</target>
+      </trans-unit>
+      <trans-unit id="7647115740628930372" datatype="html">
+        <source>Type a pokemon</source>
+        <target state="new">Type a pokemon</target>
+      </trans-unit>
+      <trans-unit id="4133302803644425201" datatype="html">
+        <source>Validating...</source>
+        <target state="new">Validating...</target>
+      </trans-unit>
+      <trans-unit id="9023761150161723521" datatype="html">
+        <source> I’ve caught &apos;em all (the terms and privacy policy) and I’m cool with them! </source>
+        <target state="new"> I’ve caught &apos;em all (the terms and privacy policy) and I’m cool with them! </target>
+      </trans-unit>
+      <trans-unit id="5907476126990913307" datatype="html">
+        <source>Create account</source>
+        <target state="new">Create account</target>
+      </trans-unit>
+      <trans-unit id="6470465744110022708" datatype="html">
+        <source>Do you have an account? Log in</source>
+        <target state="new">Do you have an account? Log in</target>
+      </trans-unit>
+      <trans-unit id="8515623719828483173" datatype="html">
+        <source> Angular <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/><x id="START_TAG_KBD" ctype="x-kbd" equiv-text="&lt;kbd class=&quot;home__heading-kbd&quot;&gt;"/>Example<x id="CLOSE_TAG_KBD" ctype="x-kbd" equiv-text="&lt;/kbd&gt;"/> App </source>
+        <target state="new"> Angular <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/><x id="START_TAG_KBD" ctype="x-kbd" equiv-text="&lt;kbd class=&quot;home__heading-kbd&quot;&gt;"/>Example<x id="CLOSE_TAG_KBD" ctype="x-kbd" equiv-text="&lt;/kbd&gt;"/> App </target>
+      </trans-unit>
+      <trans-unit id="5831080362044041624" datatype="html">
+        <source> This project is a modern, real-world application designed as a foundation for creating new Angular-based projects and also a practical resource for learning. </source>
+        <target state="new"> This project is a modern, real-world application designed as a foundation for creating new Angular-based projects and also a practical resource for learning. </target>
+      </trans-unit>
+      <trans-unit id="7358438134446811618" datatype="html">
+        <source> It comes with features like internationalization, standalone components, a more logical folder structure, etc, making it a great starting point for building scalable Angular apps. </source>
+        <target state="new"> It comes with features like internationalization, standalone components, a more logical folder structure, etc, making it a great starting point for building scalable Angular apps. </target>
+      </trans-unit>
+      <trans-unit id="8976378127227472342" datatype="html">
+        <source> Whether you’re looking for a boilerplate or a solid base project, this setup is designed to help you create clean, maintainable code with ease. </source>
+        <target state="new"> Whether you’re looking for a boilerplate or a solid base project, this setup is designed to help you create clean, maintainable code with ease. </target>
+      </trans-unit>
+      <trans-unit id="8795992692534730306" datatype="html">
+        <source> This project leverages the <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>PokeAPI<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/> to provide fun and practical examples, making it easier to understand key concepts in Angular development. By using data from the Pokémon universe, it offers a familiar and engaging way to showcase features like fetching data, handling API calls, and displaying dynamic content. </source>
+        <target state="new"> This project leverages the <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>PokeAPI<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/> to provide fun and practical examples, making it easier to understand key concepts in Angular development. By using data from the Pokémon universe, it offers a familiar and engaging way to showcase features like fetching data, handling API calls, and displaying dynamic content. </target>
+      </trans-unit>
+      <trans-unit id="5023424198144676396" datatype="html">
+        <source>Key features</source>
+        <target state="new">Key features</target>
+      </trans-unit>
+      <trans-unit id="4808423561126464596" datatype="html">
+        <source><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/> Keep your codebase organized with an opinionated component model and flexible dependency injection system <x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></source>
+        <target state="new"><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/> Keep your codebase organized with an opinionated component model and flexible dependency injection system <x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="1478158665020767354" datatype="html">
+        <source>Angular components make it easy to split your code into well-encapsulated parts.</source>
+        <target state="new">Angular components make it easy to split your code into well-encapsulated parts.</target>
+      </trans-unit>
+      <trans-unit id="105922035602561739" datatype="html">
+        <source> The versatile dependency injection helps you keep your code modular, loosely-coupled, and testable. </source>
+        <target state="new"> The versatile dependency injection helps you keep your code modular, loosely-coupled, and testable. </target>
+      </trans-unit>
+      <trans-unit id="7135539332123082582" datatype="html">
+        <source>Get started with Components</source>
+        <target state="new">Get started with Components</target>
+      </trans-unit>
+      <trans-unit id="8461145943495811496" datatype="html">
+        <source>My Pokemon</source>
+        <target state="new">My Pokemon</target>
+      </trans-unit>
+      <trans-unit id="933803439276929125" datatype="html">
+        <source>
+          <x id="START_BLOCK_FOR" equiv-text="@for (pokemon of userPokemon; track pokemon.id) {"/>
+          <x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li&gt;"/>
+          <x id="START_TAG_APP_POKEMON_CARD" ctype="x-app_pokemon_card" equiv-text="&lt;app-pokemon-card [pokemon]=&quot;pokemon&quot; /&gt;"/>
+          <x id="CLOSE_TAG_APP_POKEMON_CARD" ctype="x-app_pokemon_card" equiv-text="&lt;app-pokemon-card [pokemon]=&quot;pokemon&quot; /&gt;"/>
+          <x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li&gt;"/>
+          <x id="CLOSE_BLOCK_FOR" equiv-text="}"/>
+        </source>
+        <target state="new">
+          <x id="START_BLOCK_FOR" equiv-text="@for (pokemon of userPokemon; track pokemon.id) {"/>
+          <x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li&gt;"/>
+          <x id="START_TAG_APP_POKEMON_CARD" ctype="x-app_pokemon_card" equiv-text="&lt;app-pokemon-card [pokemon]=&quot;pokemon&quot; /&gt;"/>
+          <x id="CLOSE_TAG_APP_POKEMON_CARD" ctype="x-app_pokemon_card" equiv-text="&lt;app-pokemon-card [pokemon]=&quot;pokemon&quot; /&gt;"/>
+          <x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li&gt;"/>
+          <x id="CLOSE_BLOCK_FOR" equiv-text="}"/>
+        </target>
+      </trans-unit>
+      <trans-unit id="8314391617152635292" datatype="html">
+        <source> Uh-oh, it looks like you haven’t caught any Pokémon yet! Need help finding a pokemon? Try using the search bar to track them down. Gotta catch ‘em all! </source>
+        <target state="new"> Uh-oh, it looks like you haven’t caught any Pokémon yet! Need help finding a pokemon? Try using the search bar to track them down. Gotta catch ‘em all! </target>
+      </trans-unit>
+      <trans-unit id="1415797238546551663" datatype="html">
+        <source><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;pokedex__pokemon-image-container&quot;&gt;"/><x id="START_TAG_APP_POKEMON_IMAGE" ctype="x-app_pokemon_image" equiv-text="&lt;app-pokemon-image [image]=&quot;pokemonImage&quot; /&gt;"/><x id="CLOSE_TAG_APP_POKEMON_IMAGE" ctype="x-app_pokemon_image" equiv-text="&lt;app-pokemon-image [image]=&quot;pokemonImage&quot; /&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/><x id="START_TAG_DIV_1" ctype="x-div_1" equiv-text="&lt;div class=&quot;pokedex__top-text-container&quot;&gt;"/><x id="START_BLOCK_IF" equiv-text="@if (pokemon()) {"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p class=&quot;pokemon__name-text&quot;&gt;"/><x id="INTERPOLATION" equiv-text="{{pokemon()?.name | firstTitleCase}}"/><x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH_1" equiv-text="&lt;p&gt;"/>N.º: <x id="INTERPOLATION_1" equiv-text="{{pokemon()?.order}}"/><x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH_1" equiv-text="&lt;p&gt;"/>Height: <x id="INTERPOLATION_2" equiv-text="{{pokemon()?.height}}"/> dm<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH_1" equiv-text="&lt;p&gt;"/>Weight: <x id="INTERPOLATION_3" equiv-text="{{pokemon()?.weight}}"/> hg<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="CLOSE_BLOCK_IF" equiv-text="}"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/></source>
+        <target state="new"><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;pokedex__pokemon-image-container&quot;&gt;"/><x id="START_TAG_APP_POKEMON_IMAGE" ctype="x-app_pokemon_image" equiv-text="&lt;app-pokemon-image [image]=&quot;pokemonImage&quot; /&gt;"/><x id="CLOSE_TAG_APP_POKEMON_IMAGE" ctype="x-app_pokemon_image" equiv-text="&lt;app-pokemon-image [image]=&quot;pokemonImage&quot; /&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/><x id="START_TAG_DIV_1" ctype="x-div_1" equiv-text="&lt;div class=&quot;pokedex__top-text-container&quot;&gt;"/><x id="START_BLOCK_IF" equiv-text="@if (pokemon()) {"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p class=&quot;pokemon__name-text&quot;&gt;"/><x id="INTERPOLATION" equiv-text="{{pokemon()?.name | firstTitleCase}}"/><x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH_1" equiv-text="&lt;p&gt;"/>N.º: <x id="INTERPOLATION_1" equiv-text="{{pokemon()?.order}}"/><x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH_1" equiv-text="&lt;p&gt;"/>Height: <x id="INTERPOLATION_2" equiv-text="{{pokemon()?.height}}"/> dm<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH_1" equiv-text="&lt;p&gt;"/>Weight: <x id="INTERPOLATION_3" equiv-text="{{pokemon()?.weight}}"/> hg<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="CLOSE_BLOCK_IF" equiv-text="}"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="5505216764235661105" datatype="html">
+        <source> 🎯 Nice catch, <x id="INTERPOLATION" equiv-text="{{user?.name}}"/>! You’re one step closer to being a Pokémon Master—keep it up! 🌟 </source>
+        <target state="new"> 🎯 Nice catch, <x id="INTERPOLATION" equiv-text="{{user?.name}}"/>! You’re one step closer to being a Pokémon Master—keep it up! 🌟 </target>
+      </trans-unit>
+      <trans-unit id="1335130496718084363" datatype="html">
+        <source>Already got this one, keep going!</source>
+        <target state="new">Already got this one, keep going!</target>
+      </trans-unit>
+      <trans-unit id="1000621969408641474" datatype="html">
+        <source>Still gotta catch &apos;em all, this one&apos;s missing from your Pokédex!</source>
+        <target state="new">Still gotta catch &apos;em all, this one&apos;s missing from your Pokédex!</target>
+      </trans-unit>
+      <trans-unit id="9030610327675553750" datatype="html">
+        <source> POKEBALL </source>
+        <target state="new"> POKEBALL </target>
+      </trans-unit>
+      <trans-unit id="8844151061219581698" datatype="html">
+        <source>Trainer frame 1</source>
+        <target state="new">Trainer frame 1</target>
+      </trans-unit>
+      <trans-unit id="1944557953539728996" datatype="html">
+        <source>Trainer frame 2</source>
+        <target state="new">Trainer frame 2</target>
+      </trans-unit>
+      <trans-unit id="6083403403631944991" datatype="html">
+        <source>Trainer frame 3</source>
+        <target state="new">Trainer frame 3</target>
+      </trans-unit>
+      <trans-unit id="971297184908956530" datatype="html">
+        <source>Trainer frame 4</source>
+        <target state="new">Trainer frame 4</target>
+      </trans-unit>
+      <trans-unit id="1273051304087206603" datatype="html">
+        <source>
+          <x id="START_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;h2 class=&quot;card__heading&quot;&gt;"/>
+          <x id="INTERPOLATION" equiv-text="{{ pokemon()?.name | firstTitleCase }}"/>
+          <x id="CLOSE_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;/h2&gt;"/>
+        </source>
+        <target state="new">
+          <x id="START_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;h2 class=&quot;card__heading&quot;&gt;"/>
+          <x id="INTERPOLATION" equiv-text="{{ pokemon()?.name | firstTitleCase }}"/>
+          <x id="CLOSE_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;/h2&gt;"/>
+        </target>
+      </trans-unit>
+      <trans-unit id="3616505908279277966" datatype="html">
+        <source>N.º: <x id="INTERPOLATION" equiv-text="{{pokemon()?.order}}"/></source>
+        <target state="new">N.º: <x id="INTERPOLATION" equiv-text="{{pokemon()?.order}}"/></target>
+      </trans-unit>
+      <trans-unit id="5157210307460756815" datatype="html">
+        <source>Height: <x id="INTERPOLATION" equiv-text="{{pokemon()?.height}}"/> dm</source>
+        <target state="new">Height: <x id="INTERPOLATION" equiv-text="{{pokemon()?.height}}"/> dm</target>
+      </trans-unit>
+      <trans-unit id="1651947138133669" datatype="html">
+        <source>Weight: <x id="INTERPOLATION" equiv-text="{{pokemon()?.weight}}"/> hg</source>
+        <target state="new">Weight: <x id="INTERPOLATION" equiv-text="{{pokemon()?.weight}}"/> hg</target>
+      </trans-unit>
+      <trans-unit id="4377004748613683272" datatype="html">
+        <source>Pokeball</source>
+        <target state="new">Pokeball</target>
+      </trans-unit>
+      <trans-unit id="3030107611360910923" datatype="html">
+        <source>Field required. Format: example@domain.com</source>
+        <target state="new">Field required. Format: example@domain.com</target>
+      </trans-unit>
+      <trans-unit id="1543538730036692975" datatype="html">
+        <source>Passwords do not match.</source>
+        <target state="new">Passwords do not match.</target>
+      </trans-unit>
+      <trans-unit id="8192371491020855861" datatype="html">
+        <source>Field required. PokeAPI does not found that pokemon name.</source>
+        <target state="new">Field required. PokeAPI does not found that pokemon name.</target>
+      </trans-unit>
+      <trans-unit id="4201846903475880496" datatype="html">
+        <source>Find more!</source>
+        <target state="new">Find more!</target>
+      </trans-unit>
+      <trans-unit id="7321419453389412321" datatype="html">
+        <source>Find a pokemon</source>
+        <target state="new">Find a pokemon</target>
+      </trans-unit>
+      <trans-unit id="4310922273540502870" datatype="html">
+        <source>Account settings saved. You&apos;re all set!</source>
+        <target state="new">Account settings saved. You&apos;re all set!</target>
+      </trans-unit>
+      <trans-unit id="8355236492226718944" datatype="html">
+        <source>Oops! Something went wrong. Please try again later or leave an issue if it persists.</source>
+        <target state="new">Oops! Something went wrong. Please try again later or leave an issue if it persists.</target>
+      </trans-unit>
+      <trans-unit id="3792117578788899429" datatype="html">
+        <source>Invalid credentials. Not very effective, try again!</source>
+        <target state="new">Invalid credentials. Not very effective, try again!</target>
+      </trans-unit>
+      <trans-unit id="4022823352084662376" datatype="html">
+        <source>Register failed. This attempt wasn’t very effective, try again!</source>
+        <target state="new">Register failed. This attempt wasn’t very effective, try again!</target>
+      </trans-unit>
+      <trans-unit id="1711725680914111687" datatype="html">
+        <source>Pokémon not found. Double-check the name and try again!</source>
+        <target state="new">Pokémon not found. Double-check the name and try again!</target>
       </trans-unit>
     </body>
   </file>

@@ -140,6 +140,7 @@ export default tsEslint.config(
         'error',
         {
           'checkId': false,
+          'checkAttributes': false,
         },
       ],
     },

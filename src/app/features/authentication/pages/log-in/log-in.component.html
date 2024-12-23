@@ -15,13 +15,12 @@
         i18n-label
         i18n-placeholder
         appSlInputIconFocus
-        i18n-size
         required
         ngDefaultControl
         [attr.help-text]="email.invalid && loginFormRef['submitted'] ? translations.emailHelpText : ''"
         [formControl]="email"
       >
-        <sl-icon name="person-circle" slot="prefix" i18n-slot />
+        <sl-icon name="person-circle" slot="prefix" />
       </sl-input>
     </div>
     <div class="form-control__container">
@@ -35,20 +34,18 @@
         i18n-label
         i18n-placeholder
         appSlInputIconFocus
-        i18n-size
         required
         ngDefaultControl
         [attr.help-text]="password.invalid && loginFormRef['submitted'] ? translations.passwordHelpText : ''"
         [formControl]="password"
       >
-        <sl-icon name="lock" slot="prefix" i18n-slot />
+        <sl-icon name="lock" slot="prefix" />
       </sl-input>
     </div>
     <div class="form-control__container">
       <sl-button
         class="button--primary"
         size="medium"
-        i18n-size
         pill
         type="submit"
         [disabled]="isButtonLogInLoading"
@@ -70,7 +67,6 @@
         alt="angular logo"
         i18n-alt
         ngSrc="/assets/images/pikachu.png"
-        i18n-ngSrc
         width="200"
         height="200"
       />
