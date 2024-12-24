@@ -2,6 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { LOCAL_STORAGE } from '~core/providers/local-storage';
 
 declare const window: Window &
+  // eslint-disable-next-line @typescript-eslint/max-params
   typeof globalThis & { gtag?: (a: string, b: string, o: object) => void };
 
 const CONSENT_COOKIE_KEY = 'isCookiesConsentAccepted';

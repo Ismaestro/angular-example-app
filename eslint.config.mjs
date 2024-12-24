@@ -110,6 +110,7 @@ export default tsEslint.config(
       '@angular-eslint/prefer-standalone-component': 'off',
       '@angular-eslint/runtime-localize': 'off',
       '@angular-eslint/no-host-metadata-property': 'off',
+      '@typescript-eslint/no-unsafe-type-assertion': 'off',
       '@typescript-eslint/switch-exhaustiveness-check': 'off',
       '@typescript-eslint/no-use-before-define': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
