@@ -36,7 +36,8 @@ export class PokemonDetailComponent implements OnInit {
   private readonly pokemonService = inject(PokemonService);
   private readonly alertService = inject(AlertService);
 
-  readonly pokemonBattleEvent = signal(BattleEvent.POKEMON_LOADED);
+  // eslint-disable-next-line @angular-eslint/prefer-signals
+  pokemonBattleEvent = signal(BattleEvent.POKEMON_LOADED);
 
   pokemon!: Pokemon;
 

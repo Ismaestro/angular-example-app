@@ -10,22 +10,22 @@ import { filter, map } from 'rxjs';
 import { HeaderService } from '~core/services/header.service';
 import { ProgressBarComponent } from '~core/components/progress-bar/progress-bar.component';
 import { CookiePopupComponent } from '~core/components/cookie-popup/cookie-popup.component';
-
-import '@shoelace-style/shoelace/dist/components/alert/alert.js';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
+import '@shoelace-style/shoelace/dist/components/alert/alert.js';
+
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [
-        RouterOutlet,
-        HeaderComponent,
-        FooterComponent,
-        ProgressBarComponent,
-        CookiePopupComponent,
-    ]
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    RouterOutlet,
+    HeaderComponent,
+    FooterComponent,
+    ProgressBarComponent,
+    CookiePopupComponent,
+  ],
 })
 export class AppComponent implements OnInit {
   private readonly document = inject(DOCUMENT);

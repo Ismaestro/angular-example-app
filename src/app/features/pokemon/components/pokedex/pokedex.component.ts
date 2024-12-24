@@ -35,7 +35,7 @@ export class PokedexComponent implements OnInit {
   private readonly destroyRef = inject(DestroyRef);
 
   // eslint-disable-next-line @angular-eslint/prefer-signals
-  @Input() readonly pokemonBattleEvent!: WritableSignal<BattleEvent>;
+  @Input() pokemonBattleEvent!: WritableSignal<BattleEvent>;
   readonly pokemon = input<Pokemon>();
 
   translations = translations;
