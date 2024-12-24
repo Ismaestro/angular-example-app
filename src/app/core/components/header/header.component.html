@@ -36,7 +36,7 @@
         [routerLink]="ROOT_URLS.home"
         (click)="closeMenu()"
       >
-        {{ 'Home' | firstTitleCase }}
+        {{ translations.home }}
       </a>
     </div>
 
@@ -51,7 +51,7 @@
           [routerLink]="AUTH_URLS.logIn"
           (click)="closeMenu()"
         >
-          {{ 'Log In' | firstTitleCase }}
+          {{ translations.logIn }}
         </a>
       </div>
 
@@ -65,7 +65,7 @@
           [routerLink]="AUTH_URLS.register"
           (click)="closeMenu()"
         >
-          {{ 'Register' | firstTitleCase }}
+          {{ translations.register }}
         </a>
       </div>
 
@@ -87,7 +87,7 @@
           [routerLink]="ROOT_PATHS.myPokemon"
           (click)="closeMenu()"
         >
-          {{ 'My Pokemon' | firstTitleCase }}
+          {{ translations.myPokemon }}
         </a>
       </div>
 
@@ -120,12 +120,12 @@
                 [routerLink]="AUTH_URLS.myAccount"
                 (click)="closeMenu()"
               >
-                {{ 'My account' | firstTitleCase }}
+                {{ translations.myAccount }}
               </a>
             </sl-menu-item>
             <sl-menu-item class="menu-item--primary" value="logout">
               <sl-button class="button__as-link--primary" size="medium" pill (click)="logOutUser()">
-                {{ 'Log out' | firstTitleCase }}
+                {{ 'Log out' }}
               </sl-button>
             </sl-menu-item>
           </sl-menu>

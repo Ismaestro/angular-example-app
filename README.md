@@ -55,22 +55,16 @@ Found a bug or have a feature request? Before submitting, please check the issue
 If you have an idea or you want to do something, tell me or just do it! I'm always happy to hear
 your feedback!
 
-## Creators
+## Contributors
 
-**Ismael Ramos**
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 
-- <https://github.com/ismaestro>
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
 
-## Thanks
-
-This project is a labor of love that I’m developing in my free time. A huge thank you to all the contributors who help make it better!
-
-If you’d like to support the project, consider buying me a coffee:
-<p>
-  <a href="https://www.buymeacoffee.com/ismaestro">
-    <img src="https://res.cloudinary.com/ismaestro/image/upload/c_scale,w_200/v1677755383/angularexampleapp/bmc_qr_tjz1ws.png" alt="Buy me a coffe"/>
-  </a>
-</p>
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ## Copyright and license
 

@@ -7,7 +7,6 @@ import {
 } from '@angular/core';
 import { AUTH_URLS, ROOT_URLS } from '~core/constants/urls.constants';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { FirstTitleCasePipe } from '~core/pipes/first-title-case.pipe';
 import { NgOptimizedImage, NgTemplateOutlet } from '@angular/common';
 import { PokemonSearchComponent } from '~features/pokemon/components/pokemon-search/pokemon-search.component';
 import { AuthenticationService } from '~features/authentication/services/authentication.service';
@@ -21,6 +20,7 @@ import '@shoelace-style/shoelace/dist/components/menu/menu.js';
 import '@shoelace-style/shoelace/dist/components/menu-item/menu-item.js';
 import { ROOT_PATHS } from '~core/constants/paths.constants';
 import { clearCache } from '~core/interceptors/caching.interceptor';
+import { translations } from '../../../../locale/translations';
 
 @Component({
   selector: 'app-header',
@@ -30,7 +30,6 @@ import { clearCache } from '~core/interceptors/caching.interceptor';
   imports: [
     RouterLink,
     RouterLinkActive,
-    FirstTitleCasePipe,
     PokemonSearchComponent,
     NgOptimizedImage,
     LanguageSelectorComponent,
@@ -46,6 +45,7 @@ export class HeaderComponent {
   readonly ROOT_PATHS = ROOT_PATHS;
   readonly ROOT_URLS = ROOT_URLS;
   readonly AUTH_URLS = AUTH_URLS;
+  readonly translations = translations;
 
   isUserLoggedIn = this.authenticationService.isUserLoggedIn();
   menuOpen = false;

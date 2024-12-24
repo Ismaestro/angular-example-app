@@ -319,6 +319,9 @@
       <trans-unit id="971297184908956530" datatype="html">
         <source>Trainer frame 4</source>
       </trans-unit>
+      <trans-unit id="6820690424571383768" datatype="html">
+        <source>My pokemon</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>
