@@ -1,0 +1,20 @@
+$pokemon-search-input-width: 230px;
+$pokemon-search-loading-image-size: 20px;
+
+:host {
+  width: $pokemon-search-input-width;
+
+  .search__container {
+    display: flex;
+    align-items: center;
+
+    .search__input.has-action {
+      margin-right: var(--spacing-lg);
+    }
+
+    .search__loading-image {
+      width: $pokemon-search-loading-image-size;
+      height: $pokemon-search-loading-image-size;
+    }
+  }
+}

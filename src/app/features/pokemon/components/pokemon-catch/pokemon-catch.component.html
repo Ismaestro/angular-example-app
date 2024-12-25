@@ -1,0 +1,22 @@
+@if (pokemonState !== 'disappear') {
+  <div class="pokemon__container" [@pokemonAnimation]="pokemonState">
+    <ng-content select="image" />
+  </div>
+}
+
+<!-- eslint-disable-next-line @angular-eslint/template/no-inline-styles -->
+<img
+  ngSrc="/assets/images/pokeball.png"
+  alt="Pokeball"
+  class="pokeball__image"
+  i18n-alt
+  height="100"
+  width="100"
+  [@pokeballAnimation]="pokeballState"
+  [ngStyle]="{
+    '--pokeball-starting-point': pokeballStartingPoint,
+    '--pokeball-pokemon-x-point': pokeballPokemonXPoint,
+    '--pokeball-pokemon-y-point': pokeballPokemonYPoint,
+    '--pokeball-ground-y-point': pokeballGroundYPoint
+  }"
+/>

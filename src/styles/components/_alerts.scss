@@ -1,0 +1,31 @@
+@mixin alerts() {
+  sl-alert {
+    &::part(base) {
+      font-size: var(--font-size-sm);
+      background-color: var(--page-background);
+      border-radius: var(--border-radius-sm);
+      box-shadow: 0 0 10px 0 rgb(0 0 0 / 10%);
+      transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease;
+    }
+
+    &::part(message),
+    &::part(close-button) {
+      color: var(--primary-contrast);
+    }
+
+    &.alert--success {
+      &::part(base) {
+        border: 1px solid var(--status-color-success);
+      }
+    }
+
+    &.alert--error {
+      &::part(base) {
+        border: 1px solid var(--status-color-error);
+      }
+    }
+  }
+}

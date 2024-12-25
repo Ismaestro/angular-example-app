@@ -1,51 +1,37 @@
-@import 'functions';
-@import 'bootstrap/scss/functions';
-@import 'bootstrap/scss/variables';
-@import 'bootstrap/scss/mixins';
+@use 'base/media-queries' as mq;
 
-$xs-mb: -155px;
-$xs2-mb: -125px;
-$md-mb: -120px;
-$lg-mb: -88px;
+$page-max-width: 2560px;
 
-.app__content-container {
-  min-height: 100%;
-  animation: fade-in 2s;
+:host {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  min-height: 100vh;
+  margin-inline: auto;
 
-  @media (width >= 320px) {
-    margin-bottom: rem($xs-mb);
+  .app__main-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
   }
-  @media (width >= 406px) {
-    margin-bottom: rem($xs2-mb);
-  }
-  @media (width >= 620px) {
-    margin-bottom: rem($md-mb);
-  }
-  @media (width >= 947px) {
-    margin-bottom: rem($lg-mb);
-  }
-}
 
-.app__main-container {
-  @include media-breakpoint-up(lg) {
-    width: calc(100% - 256px);
-  }
-  @include media-breakpoint-only(xs) {
-    margin-top: 4.5rem;
-  }
-}
+  .app__content-skip-button {
+    position: absolute;
+    top: var(--spacing-r-md);
+    left: var(--spacing-r-md);
+    z-index: var(--z-index-skip-button);
+    padding: var(--spacing-r-md);
+    font-size: var(--font-size-xs);
+    color: var(--page-background);
+    background: var(--primary-contrast);
+    border: 1px solid var(--brand-color-tertiary);
+    border-radius: var(--border-radius-sm);
+    transition: transform 0.3s ease-out;
+    transform: translateY(-150%);
 
-.app__footer--push {
-  @media (width >= 320px) {
-    height: rem(calc(abs($xs-mb) - 5px));
-  }
-  @media (width >= 406px) {
-    height: rem(calc(abs($xs2-mb) - 5px));
-  }
-  @media (width >= 620px) {
-    height: rem(calc(abs($md-mb) - 5px));
-  }
-  @media (width >= 947px) {
-    height: rem(calc(abs($lg-mb) - 5px));
+    &:focus {
+      transform: translateY(0);
+    }
   }
 }

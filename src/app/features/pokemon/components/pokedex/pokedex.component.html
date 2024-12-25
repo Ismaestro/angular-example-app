@@ -1,0 +1,62 @@
+<div class="pokedex__container" [class.closed]="isPokedexClosed">
+  <div
+    class="pokedex__top-part-container"
+    tabindex="0"
+    (click)="togglePokedex()"
+    (keydown)="togglePokedex()"
+  >
+    <div class="pokedex__flap-container">
+      <figure class="pokedex__flap-front"></figure>
+      <figure class="pokedex__flap-back">
+        <div i18n class="pokedex__top-data-container">
+          <div class="pokedex__pokemon-image-container">
+            <app-pokemon-image [image]="pokemonImage" />
+          </div>
+          <div class="pokedex__top-text-container">
+            <!-- eslint-disable-next-line @angular-eslint/template/no-call-expression -->
+            @if (pokemon()) {
+              <p class="pokemon__name-text">{{pokemon()?.name | firstTitleCase}}</p>
+              <p>N.º: {{pokemon()?.order}}</p>
+              <p>Height: {{pokemon()?.height}} dm</p>
+              <p>Weight: {{pokemon()?.weight}} hg</p>
+            }
+          </div>
+        </div>
+      </figure>
+    </div>
+  </div>
+  <div class="pokedex__separator"></div>
+  <div class="pokedex__bottom-part-container">
+    <div class="pokedex__pad-container">
+      <div class="pokedex__pad"></div>
+      <div class="pokedex__pad-circle"></div>
+    </div>
+    <div class="pokedex__bottom-data-container">
+      @if (userHasCaught) {
+        <p i18n>
+          🎯 Nice catch, {{user?.name}}! You’re one step closer to being a Pokémon Master—keep it
+          up! 🌟
+        </p>
+      } @else if (userHasPokemon) {
+        <p i18n>Already got this one, keep going!</p>
+      } @else {
+        <p i18n>Still gotta catch 'em all, this one's missing from your Pokédex!</p>
+        <div class="pokedex-actions__container">
+          <sl-button
+            i18n
+            class="button--pokemon-style"
+            [disabled]="isPokedexButtonDisabled"
+            (click)="catchPokemon()"
+          >
+            POKEBALL
+          </sl-button>
+        </div>
+      }
+    </div>
+  </div>
+  <div class="pokedex__joystick-container">
+    <div class="pokedex__joystick-tracker">
+      <div class="pokedex__joystick-button"></div>
+    </div>
+  </div>
+</div>

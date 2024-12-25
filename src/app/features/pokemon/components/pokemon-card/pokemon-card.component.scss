@@ -1,0 +1,24 @@
+@use 'base/media-queries' as mq;
+
+$pokemon-image-size: 100px;
+
+:host {
+  .card__heading {
+    margin-block: 0;
+    font-size: var(--font-size-lg);
+  }
+
+  .pokemon__image-container {
+    width: $pokemon-image-size;
+    height: $pokemon-image-size;
+    margin: 0 auto var(--spacing-r-xl);
+
+    img {
+      height: 100%;
+    }
+  }
+
+  p {
+    margin-bottom: var(--spacing-r-sm);
+  }
+}

@@ -1,11 +1,17 @@
 {
-  "arrowParens": "avoid",
-  "bracketSpacing": true,
-  "bracketSameLine": true,
   "printWidth": 100,
-  "proseWrap": "always",
-  "semi": true,
-  "singleQuote": true,
   "tabWidth": 2,
-  "useTabs": false
+  "useTabs": false,
+  "embeddedLanguageFormatting": "off",
+  "singleQuote": true,
+  "semi": true,
+  "quoteProps": "preserve",
+  "bracketSpacing": true,
+  "trailingComma": "all",
+  "overrides": [
+    {
+      "files": ".prettierrc",
+      "options": { "parser": "json" }
+    }
+  ]
 }

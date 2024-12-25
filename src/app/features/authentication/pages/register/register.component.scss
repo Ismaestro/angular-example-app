@@ -1,0 +1,71 @@
+@use 'base/media-queries' as mq;
+@use 'components/pages';
+
+$register-form-max-width: 400px;
+
+:host {
+  @include pages.read-page;
+
+  text-align: center;
+
+  .register__form {
+    position: relative;
+    max-width: $register-form-max-width;
+    padding: var(--spacing-r-7xl) var(--spacing-r-xl);
+    margin-block-start: var(--spacing-r-6xl);
+
+    @include mq.for-tablet-up {
+      padding: var(--spacing-r-8xl) var(--spacing-r-xl);
+      margin-block-start: var(--spacing-r-7xl);
+    }
+
+    .register-form__image {
+      position: absolute;
+      top: -37px;
+      left: -19px;
+      width: 82px;
+      height: auto;
+      opacity: 0;
+      animation: fade-in 5s forwards;
+
+      &:hover {
+        opacity: 1;
+        animation: fade-out 1s forwards;
+      }
+
+      @include mq.for-tablet-up {
+        top: -42px;
+        left: -40px;
+        width: 95px;
+      }
+    }
+
+    .button--primary.pokemon-appear {
+      border-radius: var(--border-radius-max);
+      animation: flash 0.7s infinite;
+    }
+  }
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes flash {
+  0%,
+  100% {
+    background-color: white;
+  }
+
+  50% {
+    background-color: black;
+  }
+}

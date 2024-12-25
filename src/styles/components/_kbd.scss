@@ -1,0 +1,21 @@
+@mixin kbd() {
+  // We only target non-nested kbd elements
+  kbd:not(:has(kbd)) {
+    position: relative;
+    display: inline-block;
+    min-width: var(--spacing-xl);
+    min-height: var(--spacing-xxl);
+    padding: 0 var(--spacing-r-lg);
+    font-family: sans-serif;
+    line-height: var(--line-height-xxl);
+    color: var(--text-color-secondary);
+    text-align: center;
+    text-shadow: 0 1px 0 var(--octonary-contrast);
+    vertical-align: middle;
+    border: 1px solid var(--quinary-contrast);
+    border-radius: var(--border-radius-sm);
+    box-shadow:
+      0 1px 0 rgb(0 0 0 / 20%),
+      0 0 0 2px var(--octonary-contrast) inset;
+  }
+}

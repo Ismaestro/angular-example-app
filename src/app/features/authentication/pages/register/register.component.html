@@ -1,0 +1,147 @@
+<main>
+  <h1 class="first-heading__title" i18n>¡Register and complete your Pokédex!</h1>
+  <form class="form__container register__form" [formGroup]="registerForm" (ngSubmit)="sendForm()">
+    <img
+      class="register-form__image"
+      alt="angular logo"
+      i18n-alt
+      ngSrc="/assets/images/haunter.png"
+      width="200"
+      height="200"
+    />
+    <div class="form-control__container">
+      <sl-input
+        class="input--primary"
+        placeholder="Enter your name"
+        label="Name"
+        size="medium"
+        i18n-label
+        i18n-placeholder
+        appSlInputIconFocus
+        required
+        ngDefaultControl
+        [attr.help-text]="translations.fieldRequired"
+        [formControl]="name"
+      >
+        <sl-icon name="person" slot="prefix" />
+      </sl-input>
+    </div>
+    <div class="form-control__container">
+      <sl-input
+        class="input--primary"
+        placeholder="Enter your email"
+        label="Email"
+        size="medium"
+        i18n-label
+        i18n-placeholder
+        appSlInputIconFocus
+        required
+        ngDefaultControl
+        [attr.help-text]="translations.emailHelpText"
+        [formControl]="email"
+      >
+        <sl-icon name="person-circle" slot="prefix" />
+      </sl-input>
+    </div>
+    <div class="form-control__container">
+      <sl-input
+        type="password"
+        class="input--primary"
+        placeholder="Enter your password"
+        password-toggle
+        label="Password"
+        size="medium"
+        i18n-label
+        i18n-placeholder
+        appSlInputIconFocus
+        required
+        ngDefaultControl
+        [attr.help-text]="translations.passwordHelpText"
+        [formControl]="password"
+      >
+        <sl-icon name="lock" slot="prefix" />
+      </sl-input>
+    </div>
+    <div class="form-control__container">
+      <sl-input
+        type="password"
+        class="input--primary"
+        placeholder="Retype the password"
+        password-toggle
+        label="Confirm password"
+        size="medium"
+        i18n-label
+        i18n-placeholder
+        appSlInputIconFocus
+        required
+        ngDefaultControl
+        [attr.help-text]="confirmPasswordHelpText"
+        [formControl]="confirmPassword"
+      >
+        <sl-icon name="lock" slot="prefix" />
+      </sl-input>
+    </div>
+    <div class="form-control__container">
+      <sl-input
+        type="text"
+        class="input--primary"
+        placeholder="Type a pokemon"
+        label="What's your favourite pokemon?"
+        size="medium"
+        i18n-label
+        i18n-placeholder
+        appSlInputIconFocus
+        ngDefaultControl
+        required
+        [attr.help-text]="favouritePokemon['touched'] && !favouritePokemon['valid'] ? translations.pokemonHelpText : ''"
+        [formControl]="favouritePokemon"
+      >
+        <sl-icon name="star" slot="prefix" />
+        <!-- eslint-disable-next-line @angular-eslint/template/no-call-expression -->
+        @if (isPokemonValidating()) {
+          <p i18n slot="help-text">Validating...</p>
+          <img
+            class="loading__image"
+            alt="angular logo"
+            slot="suffix"
+            i18n-alt
+            ngSrc="/assets/images/pokeball.png"
+            width="100"
+            height="100"
+          />
+        }
+      </sl-input>
+    </div>
+    <div class="form-control__container">
+      <sl-checkbox
+        class="checkbox--primary"
+        i18n
+        appSlCheckboxControl
+        [attr.help-text]="terms['touched'] && !terms['valid'] ? translations.fieldRequired : ''"
+        [formControl]="terms"
+      >
+        I’ve caught 'em all (the terms and privacy policy) and I’m cool with them!
+      </sl-checkbox>
+    </div>
+    <div class="form-control__container">
+      <sl-button
+        class="button--primary"
+        size="medium"
+        pill
+        type="submit"
+        [disabled]="isButtonRegisterLoading"
+        [class.pokemon-appear]="registrationCompleted"
+        [attr.loading]="isButtonRegisterLoading || null"
+      >
+        <ng-container i18n>Create account</ng-container>
+      </sl-button>
+    </div>
+    <div>
+      <p class="form-footer__paragraph">
+        <a class="form-footer__link" [routerLink]="authUrls.logIn">
+          <ng-container i18n>Do you have an account? Log in</ng-container>
+        </a>
+      </p>
+    </div>
+  </form>
+</main>

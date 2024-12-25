@@ -1,0 +1,15 @@
+@use 'base/media-queries' as mq;
+
+:host {
+  .pokemon__image {
+    height: auto;
+
+    @include mq.for-phone-only {
+      width: 100% !important;
+    }
+  }
+
+  canvas {
+    display: none;
+  }
+}

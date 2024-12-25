@@ -1,0 +1,150 @@
+@use 'base/media-queries' as mq;
+
+$line-active-item-bottom: -31px;
+$avatar-size: 40px;
+
+:host {
+  .nav__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--septenary-contrast);
+
+    @include mq.for-tablet-up {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding: 0 var(--spacing-r-xl);
+    }
+
+    &.open {
+      padding-bottom: var(--spacing-3xl);
+
+      @include mq.for-tablet-up {
+        padding-bottom: 0;
+      }
+    }
+
+    .nav-mobile__container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+
+      &.open {
+        border-bottom: 1px solid var(--septenary-contrast);
+      }
+
+      .nav__hamburger {
+        display: block;
+        padding: var(--spacing-xl) var(--spacing-xl);
+        margin-left: auto;
+      }
+
+      .nav__item:first-of-type {
+        margin-left: var(--spacing-r-xl);
+      }
+
+      @include mq.for-tablet-up {
+        display: none;
+      }
+    }
+
+    .nav__items {
+      display: none;
+      flex-direction: column;
+      gap: var(--spacing-r-lg);
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      color: inherit;
+      text-decoration: none;
+
+      @include mq.for-tablet-up {
+        display: flex;
+        flex-flow: row wrap;
+      }
+
+      &.open {
+        display: flex;
+        padding-top: 0;
+      }
+
+      @include mq.for-tablet-up {
+        &.user-logged {
+          .nav__item:nth-child(4) {
+            margin-left: auto;
+          }
+        }
+
+        &:not(.user-logged) {
+          .nav__item:nth-child(5) {
+            margin-left: auto;
+          }
+        }
+      }
+
+      .nav__item {
+        display: block;
+        margin: var(--spacing-md) 0;
+
+        &:first-of-type {
+          margin-top: var(--spacing-r-4xl);
+        }
+
+        @include mq.for-tablet-up {
+          margin: var(--spacing-xxl) var(--spacing-lg);
+
+          &:first-of-type {
+            margin: 0 var(--spacing-md) 0;
+          }
+
+          &:last-of-type {
+            margin-right: var(--spacing-sm);
+          }
+
+          &:nth-child(-n + 0) {
+            align-self: flex-start;
+          }
+        }
+
+        .nav__link {
+          font-size: var(--font-size-md);
+          color: var(--text-color-secondary);
+          text-decoration: none;
+
+          &:hover {
+            color: var(--text-color-secondary-hover);
+          }
+
+          @include mq.for-tablet-up {
+            &.active {
+              position: relative;
+
+              &::after {
+                position: absolute;
+                bottom: $line-active-item-bottom;
+                left: 0;
+                width: 100%;
+                height: var(--spacing-xs);
+                content: '';
+                background-color: var(--full-contrast);
+              }
+            }
+          }
+
+          img:first-of-type {
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    .avatar__image {
+      width: $avatar-size;
+      height: $avatar-size;
+      border-radius: 50%;
+    }
+  }
+}

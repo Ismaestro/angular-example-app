@@ -1,0 +1,115 @@
+/*
+   ============================================================
+   ⚠️ Primitive Colors ⚠️
+   ============================================================
+   STRICTLY FORBIDDEN: DO NOT use these color variables anywhere else in the application.
+   These are **ONLY** for the color themes (_themes.scss). Any other usage will cause inconsistency
+   and break the design system.
+   ============================================================
+*/
+
+// Using OKLCH color space for better color reproduction on P3 displays, as well as better human-readability
+// https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch
+@mixin primitive-colors() {
+  // Base
+  --primitive-bright-blue: oklch(51.01% 0.274 263.83deg); // #0546ff
+  --primitive-subtle-purple: oklch(33.72% 0.0108 271.08deg); // #35373D
+  --primitive-cotton-ball: oklch(97.54% 0.0115 264.51deg); // #f3f7ff
+  --primitive-indigo-blue: oklch(51.64% 0.229 281.65deg); // #5c44e4
+  --primitive-vivid-pink: oklch(69.02% 0.277 332.77deg); // #f637e3
+  --primitive-electric-violet: oklch(53.18% 0.28 296.97deg); // #8514f5
+  --primitive-hot-red: oklch(61.42% 0.238 15.34deg); // #f11653
+  --primitive-orange-red: oklch(63.32% 0.24 31.68deg); // #fa2c04
+  --primitive-vitalize-green: oklch(64.01% 0.1751 146.74deg); // #28a745
+  --primitive-peach-echo: oklch(12.16% 0.079 270.91deg); // #020024
+  --primitive-kissed-mist: oklch(88.15% 0.0908 328.72deg); // #fac3f6
+  --primitive-pink-illusion: oklch(83.64% 0.0968 307.17deg); // #dab9fb
+
+  // Mixed
+  --primitive-bright-blue-mixed: color-mix(
+    in srgb,
+    oklch(51.01% 0.274 263.83deg),
+    var(--full-contrast) 60%
+  );
+  --primitive-vivid-pink-mixed: color-mix(
+    in srgb,
+    oklch(69.02% 0.277 332.77deg),
+    var(--full-contrast) 70%
+  );
+  --primitive-hot-red-mixed: color-mix(
+    in srgb,
+    oklch(61.42% 0.238 15.34deg),
+    var(--full-contrast) 70%
+  );
+  --primitive-orange-red-mixed: color-mix(
+    in srgb,
+    oklch(63.32% 0.24 31.68deg),
+    var(--full-contrast) 60%
+  );
+  --primitive-electric-violet-mixed: color-mix(
+    in srgb,
+    oklch(53.18% 0.28 296.97deg),
+    var(--full-contrast) 70%
+  );
+
+  // Full
+  --primitive-full-white: white;
+  --primitive-full-black: black;
+
+  // Grays
+  --primitive-gray-1000: oklch(16.93% 0.004 285.95deg); // #0f0f11
+  --primitive-gray-900: oklch(19.37% 0.006 300.98deg); // #151417
+  --primitive-gray-800: oklch(25.16% 0.008 308.11deg); // #232125
+  --primitive-gray-700: oklch(36.98% 0.014 302.71deg); // #413e46
+  --primitive-gray-600: oklch(44% 0.019 306.08deg); // #55505b
+  --primitive-gray-500: oklch(54.84% 0.023 304.99deg); // #746e7c
+  --primitive-gray-400: oklch(70.9% 0.015 304.04deg); // #a39fa9
+  --primitive-gray-300: oklch(84.01% 0.009 308.34deg); // #ccc9cf
+  --primitive-gray-200: oklch(91.75% 0.004 301.42deg); // #e4e3e6
+  --primitive-gray-100: oklch(97.12% 0.002 325.59deg); // #f6f5f6
+  --primitive-gray-50: oklch(98.81% 0 0deg); // #fbfbfb
+
+  // Gradients
+  --pink-to-highlight-to-purple-to-blue-horizontal-gradient: linear-gradient(
+    140deg,
+    var(--primitive-vivid-pink) 0%,
+    var(--primitive-vivid-pink) 15%,
+    color-mix(in srgb, var(--primitive-vivid-pink), var(--primitive-electric-violet) 50%) 25%,
+    color-mix(in srgb, var(--primitive-vivid-pink), var(--primitive-electric-violet) 10%) 35%,
+    color-mix(in srgb, var(--primitive-vivid-pink), var(--primitive-orange-red) 50%) 42%,
+    color-mix(in srgb, var(--primitive-vivid-pink), var(--primitive-orange-red) 50%) 44%,
+    color-mix(in srgb, var(--primitive-vivid-pink), var(--page-background) 70%) 47%,
+    var(--primitive-electric-violet) 48%,
+    var(--primitive-bright-blue) 60%
+  );
+  --pink-to-purple-horizontal-gradient: linear-gradient(
+    90deg,
+    var(--primitive-peach-echo) 0%,
+    var(--primitive-kissed-mist) 0%,
+    var(--primitive-pink-illusion) 100%
+  );
+
+  // Mixed gradients
+  --pink-to-highlight-to-purple-to-blue-horizontal-mixed-gradient: linear-gradient(
+    140deg,
+    var(--primitive-vivid-pink-mixed) 0%,
+    var(--primitive-vivid-pink-mixed) 15%,
+    color-mix(
+        in srgb,
+        var(--primitive-vivid-pink-mixed),
+        var(--primitive-electric-violet-mixed) 50%
+      )
+      25%,
+    color-mix(
+        in srgb,
+        var(--primitive-vivid-pink-mixed),
+        var(--primitive-electric-violet-mixed) 10%
+      )
+      35%,
+    color-mix(in srgb, var(--primitive-vivid-pink-mixed), var(--primitive-orange-red-mixed) 50%) 42%,
+    color-mix(in srgb, var(--primitive-vivid-pink-mixed), var(--primitive-orange-red-mixed) 50%) 44%,
+    color-mix(in srgb, var(--primitive-vivid-pink-mixed), var(--page-background) 70%) 47%,
+    var(--primitive-electric-violet-mixed) 48%,
+    var(--primitive-bright-blue-mixed) 60%
+  );
+}

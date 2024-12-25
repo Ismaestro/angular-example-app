@@ -1,0 +1,42 @@
+@mixin checkboxes() {
+  sl-checkbox.checkbox--primary {
+    --sl-input-required-content: '';
+    --sl-input-required-content-offset: 0;
+
+    &::part(base) {
+      font-size: var(--font-size-sm);
+      color: var(--checkboxes-color);
+      text-align: start;
+      transition:
+        color 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+    }
+
+    &::part(form-control-help-text) {
+      text-align: start;
+    }
+
+    &::part(checked-icon) {
+      color: var(--checkboxes-checked-icon-color);
+    }
+
+    &::part(control) {
+      background: var(--checkboxes-control-background);
+      border-radius: 1px;
+    }
+
+    &:hover {
+      sl-icon {
+        color: var(--icons-color-hover);
+      }
+    }
+  }
+
+  sl-checkbox.ng-invalid.ng-touched:not(form) {
+    &::part(form-control-help-text),
+    &::part(label) {
+      color: var(--status-color-error);
+    }
+  }
+}

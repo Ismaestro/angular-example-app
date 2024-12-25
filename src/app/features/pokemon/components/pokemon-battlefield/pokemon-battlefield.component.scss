@@ -1,0 +1,101 @@
+@use 'base/media-queries' as mq;
+@use 'components/pages';
+
+$battle-terrain-container-border-color: #444;
+
+:host {
+  .pokemon-battlefield__container {
+    position: relative;
+    width: 285px;
+    height: 160px;
+    background-image: url('/assets/images/battle-grass.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: 3px solid $battle-terrain-container-border-color;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 var(--spacing-sm) var(--spacing-md) rgb(0 0 0 / 30%);
+
+    @include mq.for-tablet-up {
+      width: 512px;
+      height: 288px;
+    }
+
+    .pokemon-battlefield__trainer-container {
+      .pokemon-battlefield__trainer-image {
+        position: absolute;
+        bottom: 0;
+        left: 70px;
+        width: 45px;
+        height: auto;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+
+        @include mq.for-tablet-up {
+          bottom: 0;
+          left: 150px;
+          width: 65px;
+        }
+      }
+
+      .trainer-1 {
+        opacity: 1;
+      }
+
+      &.animate .trainer-1 {
+        animation:
+          trainer-throw-pokeball 0.3s 0s forwards,
+          stay-visible 0s 0.9s forwards;
+      }
+
+      &.animate .trainer-2 {
+        animation: trainer-throw-pokeball 0.3s 0.2s forwards;
+      }
+
+      &.animate .trainer-3 {
+        animation: trainer-throw-pokeball 0.3s 0.4s forwards;
+      }
+
+      &.animate .trainer-4 {
+        animation: trainer-throw-pokeball 0.3s 0.6s forwards;
+      }
+    }
+
+    .pokemon-battlefield__pokemon-image-container {
+      opacity: 0;
+      transition:
+        opacity 0.5s ease-in-out,
+        transform 0.5s ease-in-out;
+      transform: translateY(30px);
+
+      &.loaded {
+        opacity: 1;
+        transform: translateY(-5px);
+      }
+    }
+  }
+}
+
+@keyframes trainer-throw-pokeball {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes stay-visible {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

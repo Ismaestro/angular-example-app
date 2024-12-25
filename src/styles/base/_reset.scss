@@ -1,0 +1,73 @@
+@use 'media-queries' as mq;
+
+@mixin reset() {
+  :root {
+    --page-width: 80ch;
+    --layout-padding: var(--spacing-r-xl);
+
+    @include mq.for-tablet-up {
+      --layout-padding: var(--spacing-r-4xl);
+    }
+  }
+
+  html {
+    font-family: var(--inter-font), serif;
+    font-size: var(--font-size-md);
+    color: var(--page-color);
+    background-color: var(--page-background);
+    transition:
+      color 0.3s ease,
+      background-color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    margin: 0;
+    overflow: hidden auto;
+  }
+
+  html,
+  body {
+    height: 100vh;
+    min-height: 100vh;
+
+    @supports (height: 100svh) {
+      height: 100svh;
+    }
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  img {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    border-radius: var(--border-radius-sm);
+  }
+
+  abbr[title] {
+    text-decoration: none;
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+  ul {
+    padding-inline-start: 0;
+
+    li {
+      list-style: none;
+    }
+  }
+}

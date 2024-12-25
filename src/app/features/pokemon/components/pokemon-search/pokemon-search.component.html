@@ -1,0 +1,31 @@
+<div class="search__container">
+  <!-- eslint-disable @angular-eslint/template/no-call-expression -->
+  <sl-input
+    class="input--primary search__input"
+    clearable
+    size="medium"
+    appSlInputIconFocus
+    [placeholder]="title()"
+    [class.has-action]="termValue && pokemonLoading"
+    [value]="termValue"
+    (sl-input)="assignInputValue($event)"
+    (keydown.enter)="searchPokemon()"
+  >
+    <sl-icon name="search" slot="prefix" />
+  </sl-input>
+
+  @if (termValue && pokemonLoading) {
+    <sl-button class="button--image" slot="trigger" (click)="searchPokemon()">
+      <img
+        class="search__loading-image"
+        alt="angular logo"
+        slot="suffix"
+        ngSrc="/assets/images/pokeball.png"
+        i18n-alt
+        width="100"
+        height="100"
+        [class.loading__image]="pokemonLoading"
+      />
+    </sl-button>
+  }
+</div>

@@ -1,0 +1,86 @@
+<main>
+  <h1 class="first-heading__title" i18n>My account</h1>
+  <form
+    class="form__container update-user__form"
+    [formGroup]="updateUserForm"
+    (ngSubmit)="sendForm()"
+  >
+    <div class="theme-button__container">
+      <app-theme-button />
+    </div>
+    <div class="form-control__container">
+      <sl-input
+        class="input--primary"
+        placeholder="Enter your name"
+        label="Name"
+        size="medium"
+        i18n-label
+        i18n-placeholder
+        appSlInputIconFocus
+        required
+        ngDefaultControl
+        [attr.help-text]="translations.fieldRequired"
+        [formControl]="name"
+      >
+        <sl-icon name="person" slot="prefix" />
+      </sl-input>
+    </div>
+    <div class="form-control__container">
+      <sl-input
+        class="input--primary"
+        label="Email"
+        size="medium"
+        i18n-label
+        required
+        ngDefaultControl
+        [formControl]="email"
+      >
+        <sl-icon name="person-circle" slot="prefix" />
+      </sl-input>
+    </div>
+    <div class="form-control__container">
+      <sl-select
+        label="Language"
+        class="select--primary"
+        ngDefaultControl
+        appSlSelectControl
+        size="medium"
+        [formControl]="language"
+        i18n-label
+      >
+        <sl-option class="sl-option--primary" i18n value="en-US">English (US)</sl-option>
+        <sl-option class="sl-option--primary" i18n value="es-ES">Español (España)</sl-option>
+      </sl-select>
+    </div>
+    <div class="form-control__container favourite-pokemon__container">
+      <p i18n>Your favourite pokemon is:</p>
+      @if (pokemonImage) {
+        <div class="favourite-pokemon__image-container">
+          <app-pokemon-image [image]="pokemonImage" />
+        </div>
+      }
+    </div>
+    <div class="form-control__container">
+      <sl-button
+        class="button--primary"
+        size="medium"
+        pill
+        type="submit"
+        [attr.loading]="isButtonUpdateUserFormLoading || null"
+      >
+        <ng-container i18n>Save</ng-container>
+      </sl-button>
+    </div>
+  </form>
+  <div class="decorative__container">
+    <img
+      class="decorative__image"
+      ngSrc="/assets/images/ash.png"
+      alt="ash standing"
+      i18n-alt
+      height="562"
+      width="261"
+      priority
+    />
+  </div>
+</main>

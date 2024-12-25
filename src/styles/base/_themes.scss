@@ -1,0 +1,18 @@
+@use 'primitive-colors';
+@use 'color-definitions';
+
+@mixin themes() {
+  .theme-dark--mode {
+    @include primitive-colors.primitive-colors;
+    @include color-definitions.dark-definitions;
+
+    background-color: var(--page-background);
+  }
+
+  .theme-light--mode {
+    @include primitive-colors.primitive-colors;
+    @include color-definitions.light-definitions;
+
+    background-color: var(--page-background);
+  }
+}

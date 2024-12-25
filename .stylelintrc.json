@@ -1,9 +1,5 @@
 {
-  "extends": [
-    "stylelint-config-standard",
-    "stylelint-config-recess-order",
-    "stylelint-config-prettier"
-  ],
+  "extends": ["stylelint-config-standard-scss", "stylelint-config-recess-order"],
   "customSyntax": "postcss-scss",
   "plugins": ["stylelint-order"],
   "rules": {
@@ -11,6 +7,6 @@
     "function-no-unknown": null,
     "no-descending-specificity": null,
     "at-rule-no-unknown": null,
-    "selector-class-pattern": "([a-zA-Z0-9^]+[-]?[a-zA-Z0-9^]+)(?:--|__)([a-zA-Z0-9^]+[-]?[a-zA-Z0-9^]+)"
+    "selector-class-pattern": "^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*(__[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*)?(--[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*)?$"
   }
 }

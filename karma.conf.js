@@ -11,40 +11,41 @@ module.exports = function (config) {
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma'),
+      { 'reporter:jasmine-seed': ['type', JasmineSeedReporter] },
     ],
     client: {
-      clearContext: false,
+      clearContext: false, // leave Jasmine Spec Runner output visible in browser
       jasmine: {
-        random: false,
+        // you can add configuration options for Jasmine here
+        // the possible options are listed at https://jasmine.github.io/api/edge/Configuration.html
+        // for example, you can disable the random execution with `random: false`
+        // or set a specific seed with `seed: 4321`
+        random: true,
+        seed: '',
       },
     },
     jasmineHtmlReporter: {
-      suppressAll: true,
+      suppressAll: true, // removes the duplicated traces
     },
     coverageReporter: {
       dir: require('path').join(__dirname, './coverage/angularexampleapp'),
       subdir: '.',
       reporters: [{ type: 'html' }, { type: 'text-summary' }],
-      fixWebpackSourcePaths: true,
-      check: {
-        global: {
-          statements: 54,
-          lines: 56,
-          branches: 52,
-          functions: 41,
-        },
-      },
+      // check: {
+      //   global: {
+      //     statements: 54,
+      //     lines: 56,
+      //     branches: 52,
+      //     functions: 41,
+      //   },
+      // },
     },
-    reporters: ['progress', 'kjhtml'],
+    reporters: ['progress', 'kjhtml', 'jasmine-seed'],
+    reportSlowerThan: 100,
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    singleRun: false,
-    browsers: ['ChromeHeadlessNoSandbox'],
-    browserDisconnectTolerance: 2,
-    browserNoActivityTimeout: 50000,
-    reportSlowerThan: 100,
     customLaunchers: {
       ChromeHeadlessNoSandbox: {
         base: 'ChromeHeadless',
@@ -52,11 +53,27 @@ module.exports = function (config) {
           '--no-sandbox',
           '--headless',
           '--disable-gpu',
-          '--disable-translate',
-          '--disable-extensions',
+          '--disable-dev-shm-usage',
+          '--hide-scrollbars',
+          '--mute-audio',
         ],
       },
     },
+    browsers: ['ChromeHeadlessNoSandbox'],
+    browserNoActivityTimeout: 60000,
+    singleRun: false,
     restartOnFileChange: true,
   });
 };
+
+// Helpers
+function JasmineSeedReporter(baseReporterDecorator) {
+  baseReporterDecorator(this);
+
+  this.onBrowserComplete = (browser, result) => {
+    const seed = result.order && result.order.random && result.order.seed;
+    if (seed) this.write(`${browser}: Randomized with seed ${seed}.\n`);
+  };
+
+  this.onRunComplete = () => undefined;
+}

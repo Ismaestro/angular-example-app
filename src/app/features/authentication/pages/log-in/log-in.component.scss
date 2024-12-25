@@ -1,0 +1,36 @@
+@use 'base/media-queries' as mq;
+@use 'components/pages';
+
+$login-form-max-width: 400px;
+
+:host {
+  @include pages.read-page;
+
+  text-align: center;
+
+  .login__form {
+    max-width: $login-form-max-width;
+
+    .form-footer__paragraph {
+      padding-block-end: 1rem;
+    }
+
+    .login__image-container {
+      position: relative;
+
+      .login__image {
+        position: absolute;
+        right: 7px;
+        bottom: -52px;
+        width: 55px;
+        height: auto;
+
+        @include mq.for-tablet-up {
+          right: -6px;
+          bottom: -65px;
+          width: 75px;
+        }
+      }
+    }
+  }
+}

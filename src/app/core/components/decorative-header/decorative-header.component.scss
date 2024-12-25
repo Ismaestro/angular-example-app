@@ -1,0 +1,38 @@
+@use 'base/media-queries' as mq;
+
+$svg-width: 200px;
+
+:host {
+  .decorative-header__container {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: var(--spacing-r-3xl);
+    margin-block-end: var(--spacing-r-4xl);
+    overflow: hidden;
+    background: var(--septenary-contrast);
+    border-radius: var(--border-radius-xl);
+    transition: background 0.3s ease;
+
+    @include mq.for-tablet-portrait-up {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .decorative-header__image {
+      width: $svg-width;
+      height: auto;
+      margin-bottom: var(--spacing-r-xl);
+
+      // stylelint-disable selector-pseudo-element-no-unknown
+      ::ng-deep svg {
+        overflow: unset;
+      }
+
+      @include mq.for-tablet-portrait-up {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

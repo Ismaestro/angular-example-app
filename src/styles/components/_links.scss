@@ -1,0 +1,25 @@
+@mixin links() {
+  a {
+    transition: color 0.3s ease;
+  }
+
+  p a {
+    text-decoration: underline;
+  }
+
+  p > a,
+  td > a,
+  div > a,
+  code > a,
+  li a {
+    color: var(--links-color);
+
+    &:hover {
+      color: var(--links-color-hover);
+    }
+
+    &:active {
+      color: var(--links-color-active);
+    }
+  }
+}

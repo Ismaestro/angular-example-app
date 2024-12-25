@@ -1,0 +1,102 @@
+@mixin typography() {
+  :root {
+    --fallback-font-stack: ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI',
+      roboto, 'Helvetica Neue', arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+      'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --code-font: 'DM Mono', monospace;
+    --inter-font: 'Inter', var(--fallback-font-stack);
+    --inter-tight-font: 'Inter Tight', var(--fallback-font-stack);
+
+    // Font weight
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-xregular: 500;
+    --font-weight-bold: 700;
+
+    // Font style
+    --font-style-normal: normal;
+
+    // Font size
+    --font-size-xs: 0.8125rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.5rem;
+    --font-size-xl: 2rem;
+    --font-size-xxl: 2.25rem;
+
+    // Line height
+    --line-height-xs: 0.9rem;
+    --line-height-sm: 1rem;
+    --line-height-md: 1.25rem;
+    --line-height-lg: 1.5rem;
+    --line-height-xl: 2rem;
+    --line-height-xxl: 2.5rem;
+    --line-height-max: 3.5rem;
+
+    // Letter spacing
+    --letter-spacing-sm: -0.0088rem;
+    --letter-spacing-md: -0.01rem;
+    --letter-spacing-lg: -0.025rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    font-family: var(--inter-tight-font), serif;
+    font-weight: var(--font-weight-xregular);
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: var(--font-size-xxl);
+  }
+
+  h2 {
+    margin-block: var(--spacing-r-3xl) var(--spacing-r-md);
+    font-size: var(--font-size-xl);
+  }
+
+  p {
+    margin-block: 0 var(--spacing-r-xl);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-lg);
+    letter-spacing: var(--letter-spacing-sm);
+  }
+
+  p ~ ul,
+  p ~ ol {
+    margin-block-start: 0;
+  }
+
+  ul,
+  ol {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-lg);
+    letter-spacing: var(--letter-spacing-md);
+  }
+
+  a {
+    font-weight: var(--font-weight-xregular);
+    text-decoration: none;
+  }
+
+  hr {
+    width: 100%;
+    margin-block: var(--spacing-r-xl);
+    border: 0;
+    border-color: var(--senary-contrast);
+    border-style: solid;
+    border-block-start-width: 1px;
+    transition: border-color 0.3s ease;
+  }
+
+  .text--medium {
+    font-size: larger;
+  }
+}

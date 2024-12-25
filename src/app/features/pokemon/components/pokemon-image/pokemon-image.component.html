@@ -1,0 +1,11 @@
+<canvas #canvas></canvas>
+@if (croppedBase64Image) {
+  <!-- eslint-disable @angular-eslint/template/prefer-ngsrc,@angular-eslint/template/no-inline-styles,@angular-eslint/template/no-call-expression -->
+  <img
+    class="pokemon__image"
+    alt="pokemon image"
+    [ngStyle]="{ width: imageWidth() }"
+    [src]="croppedBase64Image"
+    i18n-alt
+  />
+}

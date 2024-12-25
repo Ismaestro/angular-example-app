@@ -1,0 +1,136 @@
+<nav class="nav__container" [class.open]="menuOpen">
+  <div class="nav-mobile__container" [class.open]="menuOpen">
+    <ng-container [ngTemplateOutlet]="logoNavItem" />
+    <div class="nav__item">
+      <sl-button class="button--icon nav__hamburger" (click)="toggleMenu()">
+        <sl-icon name="list" />
+      </sl-button>
+    </div>
+  </div>
+  <div class="nav__items" [class.open]="menuOpen" [class.user-logged]="isUserLoggedIn">
+    @if (!menuOpen) {
+      <ng-container [ngTemplateOutlet]="logoNavItem" />
+    }
+    <ng-template #logoNavItem>
+      <div class="nav__item">
+        <a class="nav__link" [routerLink]="ROOT_URLS.home">
+          <img
+            alt="angular logo"
+            i18n-alt
+            ngSrc="/assets/icons/favicon-48x48.png"
+            width="48"
+            height="48"
+            priority
+          />
+        </a>
+      </div>
+    </ng-template>
+
+    <!-- HOME -->
+    <div class="nav__item">
+      <a
+        class="nav__link"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        [routerLinkActiveOptions]="{ exact: true }"
+        [routerLink]="ROOT_URLS.home"
+        (click)="closeMenu()"
+      >
+        {{ translations.home }}
+      </a>
+    </div>
+
+    <!-- LOGIN -->
+    @if (!isUserLoggedIn) {
+      <div class="nav__item">
+        <a
+          class="nav__link"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          [routerLinkActiveOptions]="{ exact: true }"
+          [routerLink]="AUTH_URLS.logIn"
+          (click)="closeMenu()"
+        >
+          {{ translations.logIn }}
+        </a>
+      </div>
+
+      <!-- REGISTER -->
+      <div class="nav__item">
+        <a
+          class="nav__link"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          [routerLinkActiveOptions]="{ exact: true }"
+          [routerLink]="AUTH_URLS.register"
+          (click)="closeMenu()"
+        >
+          {{ translations.register }}
+        </a>
+      </div>
+
+      <div class="nav__item">
+        <app-language-selector />
+      </div>
+
+      <div class="nav__item">
+        <app-theme-button />
+      </div>
+    } @else {
+      <!-- MY POKEMON -->
+      <div class="nav__item">
+        <a
+          class="nav__link"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          [routerLinkActiveOptions]="{ exact: true }"
+          [routerLink]="ROOT_PATHS.myPokemon"
+          (click)="closeMenu()"
+        >
+          {{ translations.myPokemon }}
+        </a>
+      </div>
+
+      <!-- SEARCH -->
+      <div class="nav__item">
+        <app-pokemon-search />
+      </div>
+
+      <!-- USER MENU -->
+      <div class="nav__item">
+        <sl-dropdown>
+          <sl-button class="dropdown-button--avatar" slot="trigger">
+            <img
+              class="avatar__image"
+              alt="angular logo"
+              i18n-alt
+              ngSrc="/assets/images/gengar.png"
+              width="300"
+              height="300"
+              priority
+            />
+          </sl-button>
+          <sl-menu class="menu--primary">
+            <sl-menu-item class="menu-item--primary" value="logout">
+              <a
+                class="nav__link"
+                routerLinkActive="active"
+                ariaCurrentWhenActive="page"
+                [routerLinkActiveOptions]="{ exact: true }"
+                [routerLink]="AUTH_URLS.myAccount"
+                (click)="closeMenu()"
+              >
+                {{ translations.myAccount }}
+              </a>
+            </sl-menu-item>
+            <sl-menu-item class="menu-item--primary" value="logout">
+              <sl-button class="button__as-link--primary" size="medium" pill (click)="logOutUser()">
+                {{ 'Log out' }}
+              </sl-button>
+            </sl-menu-item>
+          </sl-menu>
+        </sl-dropdown>
+      </div>
+    }
+  </div>
+</nav>

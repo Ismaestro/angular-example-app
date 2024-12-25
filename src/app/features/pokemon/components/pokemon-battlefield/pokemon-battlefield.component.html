@@ -1,0 +1,48 @@
+<div class="pokemon-battlefield__container">
+  <div class="pokemon-battlefield__trainer-container" [class.animate]="startCatchAnimation">
+    <img
+      class="pokemon-battlefield__trainer-image trainer-1"
+      ngSrc="/assets/images/trainer-1.png"
+      alt="Trainer frame 1"
+      i18n-alt
+      height="230"
+      width="117"
+    />
+    <img
+      class="pokemon-battlefield__trainer-image trainer-2"
+      ngSrc="/assets/images/trainer-2.png"
+      alt="Trainer frame 2"
+      i18n-alt
+      height="224"
+      width="138"
+    />
+    <img
+      class="pokemon-battlefield__trainer-image trainer-3"
+      ngSrc="/assets/images/trainer-3.png"
+      alt="Trainer frame 3"
+      i18n-alt
+      height="234"
+      width="127"
+    />
+    <img
+      class="pokemon-battlefield__trainer-image trainer-4"
+      ngSrc="/assets/images/trainer-4.png"
+      alt="Trainer frame 4"
+      i18n-alt
+      height="218"
+      width="178"
+    />
+  </div>
+  <div class="pokemon-battlefield__pokemon-image-container" [class.loaded]="pokemonImageLoaded">
+    <!-- eslint-disable-next-line @angular-eslint/template/no-call-expression -->
+    <app-pokemon-catch [pokemonBattleEvent]="pokemonBattleEvent()">
+      <ng-container ngProjectAs="image">
+        <app-pokemon-image
+          [image]="pokemonImage"
+          [imageWidth]="'170%'"
+          (loaded)="startPokemonInitialAnimation($event)"
+        />
+      </ng-container>
+    </app-pokemon-catch>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+@use 'base/media-queries' as mq;
+@use 'components/pages';
+
+$pokedex-container-offset: 60px;
+
+:host {
+  @include pages.read-page;
+
+  align-items: center;
+
+  .pokedex__container {
+    margin: var(--spacing-r-4xl) 0;
+
+    @include mq.for-tablet-up {
+      margin: var(--spacing-r-4xl) $pokedex-container-offset 0 0;
+    }
+  }
+}

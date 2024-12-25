@@ -1,0 +1,62 @@
+@use 'base/media-queries' as mq;
+@use 'components/pages';
+
+$update-user-form-max-width: 400px;
+$decorative-image-width: 200px;
+
+:host {
+  @include pages.read-page;
+
+  text-align: center;
+
+  .update-user__form {
+    position: relative;
+    max-width: $update-user-form-max-width;
+    padding: var(--spacing-r-4xl) var(--spacing-r-xl);
+    margin-block-end: var(--spacing-r-4xl);
+
+    @include mq.for-tablet-up {
+      padding: var(--spacing-r-4xl) var(--spacing-r-xl);
+    }
+
+    .theme-button__container {
+      position: absolute;
+      top: var(--spacing-r-lg);
+      right: var(--spacing-r-lg);
+    }
+
+    .form-control__container:last-of-type {
+      margin: 0;
+    }
+
+    .favourite-pokemon__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .favourite-pokemon__image-container {
+        width: 20%;
+        height: auto;
+
+        @include mq.for-tablet-up {
+          width: 15%;
+        }
+      }
+    }
+  }
+
+  .decorative__container {
+    position: relative;
+
+    .decorative__image {
+      width: $decorative-image-width;
+      height: auto;
+
+      @include mq.for-tablet-landscape-up {
+        position: absolute;
+        right: -55px;
+        bottom: 26px;
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@use 'base/media-queries' as mq;
+
+@mixin forms() {
+  .form__container {
+    padding: var(--spacing-r-5xl) var(--spacing-r-xl);
+    margin: 0 auto;
+    border: 1px solid var(--senary-contrast);
+
+    @include mq.for-tablet-up {
+      padding: var(--spacing-r-6xl) var(--spacing-r-xl);
+    }
+
+    .form-control__container {
+      margin-block: var(--spacing-r-3xl);
+
+      .button--primary {
+        margin-block-start: var(--spacing-r-md);
+      }
+
+      &:first-of-type {
+        margin-block-start: 0;
+      }
+
+      @include mq.for-tablet-up {
+        margin-block: var(--spacing-r-3xl);
+      }
+    }
+
+    .form-footer__paragraph {
+      margin: 0;
+
+      .form-footer__link {
+        font-size: var(--font-size-sm);
+      }
+    }
+  }
+}

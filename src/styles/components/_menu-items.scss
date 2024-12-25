@@ -1,0 +1,19 @@
+@mixin menu-items() {
+  sl-menu-item {
+    &.menu-item--primary {
+      a {
+        font-size: var(--font-size-sm);
+      }
+
+      &::part(base) {
+        padding: var(--spacing-r-sm) 0;
+
+        &:hover {
+          color: var(--menu-items-color);
+          background: var(--menu-items-background-hover);
+          transition: background 0.3s ease;
+        }
+      }
+    }
+  }
+}
