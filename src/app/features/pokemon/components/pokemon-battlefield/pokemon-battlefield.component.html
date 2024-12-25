@@ -34,7 +34,8 @@
     />
   </div>
   <div class="pokemon-battlefield__pokemon-image-container" [class.loaded]="pokemonImageLoaded">
-    <app-pokemon-catch [pokemonBattleEvent]="pokemonBattleEvent">
+    <!-- eslint-disable-next-line @angular-eslint/template/no-call-expression -->
+    <app-pokemon-catch [pokemonBattleEvent]="pokemonBattleEvent()">
       <ng-container ngProjectAs="image">
         <app-pokemon-image
           [image]="pokemonImage"

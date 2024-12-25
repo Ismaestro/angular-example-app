@@ -5,7 +5,6 @@ import {
   Component,
   effect,
   inject,
-  Input,
   input,
 } from '@angular/core';
 import type { Pokemon } from '~features/pokemon/types/pokemon.type';
@@ -24,8 +23,7 @@ import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-
 export class PokemonBattlefieldComponent implements OnInit {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
 
-  // eslint-disable-next-line @angular-eslint/prefer-signals
-  @Input() pokemonBattleEvent!: WritableSignal<BattleEvent>;
+  readonly pokemonBattleEvent = input.required<WritableSignal<BattleEvent>>();
   readonly pokemon = input<Pokemon>();
 
   pokemonImage: string | undefined;
@@ -57,14 +55,14 @@ export class PokemonBattlefieldComponent implements OnInit {
   }
 
   private handleThrowPokeballEvent(): void {
-    if ((this.pokemonBattleEvent() as unknown as BattleEvent) === BattleEvent.THROW_POKEBALL) {
+    if ((this.pokemonBattleEvent()() as unknown as BattleEvent) === BattleEvent.THROW_POKEBALL) {
       this.startCatchAnimation = true;
       this.changeDetectorRef.markForCheck();
     }
   }
 
   private handleResetBattleEvent(): void {
-    if ((this.pokemonBattleEvent() as unknown as BattleEvent) === BattleEvent.RESET_BATTLE) {
+    if ((this.pokemonBattleEvent()() as unknown as BattleEvent) === BattleEvent.RESET_BATTLE) {
       this.startCatchAnimation = false;
       this.pokemonImageLoaded = false;
       this.changeDetectorRef.markForCheck();

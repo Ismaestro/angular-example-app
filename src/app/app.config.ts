@@ -1,5 +1,5 @@
 import type { ApplicationConfig } from '@angular/core';
-import { inject } from '@angular/core';
+import { inject, provideExperimentalZonelessChangeDetection } from '@angular/core';
 import {
   createUrlTreeFromSnapshot,
   PreloadAllModules,
@@ -19,6 +19,7 @@ import { authenticationInterceptor } from '~core/interceptors/authentication.int
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideExperimentalZonelessChangeDetection(),
     provideRouter(
       appRoutes,
       withInMemoryScrolling(),

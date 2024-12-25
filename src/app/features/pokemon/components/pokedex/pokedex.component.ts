@@ -7,7 +7,6 @@ import {
   DestroyRef,
   effect,
   inject,
-  Input,
   input,
 } from '@angular/core';
 import type { Pokemon } from '~features/pokemon/types/pokemon.type';
@@ -34,8 +33,7 @@ export class PokedexComponent implements OnInit {
   private readonly alertService = inject(AlertService);
   private readonly destroyRef = inject(DestroyRef);
 
-  // eslint-disable-next-line @angular-eslint/prefer-signals
-  @Input() pokemonBattleEvent!: WritableSignal<BattleEvent>;
+  readonly pokemonBattleEvent = input.required<WritableSignal<BattleEvent>>();
   readonly pokemon = input<Pokemon>();
 
   translations = translations;
@@ -83,7 +81,7 @@ export class PokedexComponent implements OnInit {
 
   notifyBattlefield() {
     this.isPokedexButtonDisabled = true;
-    (this.pokemonBattleEvent as unknown as WritableSignal<BattleEvent>).set(
+    (this.pokemonBattleEvent() as unknown as WritableSignal<BattleEvent>).set(
       BattleEvent.THROW_POKEBALL,
     );
   }
@@ -114,7 +112,7 @@ export class PokedexComponent implements OnInit {
   }
 
   private handleBattleEvents(): void {
-    const event = this.pokemonBattleEvent();
+    const event = this.pokemonBattleEvent()();
     switch (event as unknown as BattleEvent) {
       case BattleEvent.CATCH_ANIMATION_ENDED: {
         this.handleCatchAnimationEnded();

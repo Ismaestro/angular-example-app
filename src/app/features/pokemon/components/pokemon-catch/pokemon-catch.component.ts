@@ -5,7 +5,7 @@ import {
   Component,
   effect,
   inject,
-  Input,
+  input,
   type WritableSignal,
 } from '@angular/core';
 import { NgOptimizedImage, NgStyle } from '@angular/common';
@@ -40,8 +40,7 @@ enum PokemonState {
 export class PokemonCatchComponent implements OnInit {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
 
-  // eslint-disable-next-line @angular-eslint/prefer-signals
-  @Input() pokemonBattleEvent!: WritableSignal<BattleEvent>;
+  readonly pokemonBattleEvent = input.required<WritableSignal<BattleEvent>>();
 
   pokeballState: PokeballState = PokeballState.Idle;
   pokemonState: PokemonState = PokemonState.Idle;
@@ -53,12 +52,13 @@ export class PokemonCatchComponent implements OnInit {
 
   constructor() {
     effect(() => {
-      if (this.pokemonBattleEvent() === BattleEvent.THROW_POKEBALL) {
+      const pokemonBattleEvent = this.pokemonBattleEvent();
+      if (pokemonBattleEvent() === BattleEvent.THROW_POKEBALL) {
         this.startCatchAnimation();
       }
       if (
-        this.pokemonBattleEvent() === BattleEvent.POKEMON_LOADED ||
-        this.pokemonBattleEvent() === BattleEvent.RESET_BATTLE
+        pokemonBattleEvent() === BattleEvent.POKEMON_LOADED ||
+        pokemonBattleEvent() === BattleEvent.RESET_BATTLE
       ) {
         this.pokeballState = PokeballState.Idle;
         this.pokemonState = PokemonState.Idle;
@@ -93,7 +93,7 @@ export class PokemonCatchComponent implements OnInit {
     }, 3000);
     setTimeout(() => {
       this.pokeballState = PokeballState.Shining;
-      this.pokemonBattleEvent.set(BattleEvent.CATCH_ANIMATION_ENDED);
+      this.pokemonBattleEvent().set(BattleEvent.CATCH_ANIMATION_ENDED);
       this.changeDetectorRef.markForCheck();
     }, 6500);
   }
