@@ -11,7 +11,7 @@
     A real-world app crafted with :heart: and dedication!. Showcasing CRUD operations, advanced patterns, and much more. Dive in and explore!
     <br>
     <br>
-    <img src="https://res.cloudinary.com/ismaestro/image/upload/v1735163663/angularexampleapp/Screenshot_2024-12-25_at_22.54.17_f951zc.png" alt="Demo example"/>
+    <img style="width: 20%; margin: 0 auto;" src="https://res.cloudinary.com/ismaestro/image/upload/v1735164052/angularexampleapp/ash-pikachu_dem2w0.png" alt="Demo example"/>
     <br>
     <br>
     <a href="https://angular-example-app.netlify.app/">DEMO HERE</a>
