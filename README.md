@@ -1,4 +1,4 @@
-<div align="center" style="text-align: center; width: 60%; margin: 0 auto;">
+<div align="center" style="text-align: center; width: 70%; margin: 0 auto;">
   <h1 align="center">Angular Example App</h1>
 
   <p align="center">
@@ -11,7 +11,7 @@
     A real-world app crafted with :heart: and dedication!. Showcasing CRUD operations, advanced patterns, and much more. Dive in and explore!
     <br>
     <br>
-    <img src="https://res.cloudinary.com/ismaestro/image/upload/v1734989388/angularexampleapp/demo_zs7lia.gif" alt="Demo example"/>
+    <img src="https://res.cloudinary.com/ismaestro/image/upload/v1735163663/angularexampleapp/Screenshot_2024-12-25_at_22.54.17_f951zc.png" alt="Demo example"/>
     <br>
     <br>
     <a href="https://angular-example-app.netlify.app/">DEMO HERE</a>
@@ -24,6 +24,10 @@
 npm i
 npm start
 ```
+
+## Status
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f593abee-25b9-424a-bd54-6bc52aff7230/deploy-status)](https://app.netlify.com/sites/angular-example-app/deploys)
 
 ## Server
 
