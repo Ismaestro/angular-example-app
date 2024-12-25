@@ -245,10 +245,6 @@
         <source>Type a pokemon</source>
         <target state="new">Escribe un Pokémon</target>
       </trans-unit>
-      <trans-unit id="4133302803644425201" datatype="html">
-        <source>Validating...</source>
-        <target state="new">Validando...</target>
-      </trans-unit>
       <trans-unit id="9023761150161723521" datatype="html">
         <source> I’ve caught &apos;em all (the terms and privacy policy) and I’m cool with them! </source>
         <target state="new"> He atrapado todos (los términos y la política de privacidad) y estoy de acuerdo con ellos! </target>

@@ -141,9 +141,6 @@
       <trans-unit id="4022823352084662376" datatype="html">
         <source>Register failed. This attempt wasn’t very effective, try again!</source>
       </trans-unit>
-      <trans-unit id="4133302803644425201" datatype="html">
-        <source>Validating...</source>
-      </trans-unit>
       <trans-unit id="4176833090298296042" datatype="html">
         <source> Español (España)</source>
       </trans-unit>
