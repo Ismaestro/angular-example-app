@@ -7,7 +7,7 @@ export const translations = {
   myPokemon: $localize`My pokemon`,
   logOut: $localize`Log out`,
   fieldRequired: $localize`Field required.`,
-  emailHelpText: $localize`Field required. Format: example@domain.com`,
+  emailHelpText: $localize`No real email validation. Field required. Format: example@domain.com`,
   passwordHelpText: $localize`Must contain at least one lowercase letter, one uppercase letter and one number. No special characters.`,
   confirmPasswordHelpText: $localize`Passwords do not match.`,
   pokemonHelpText: $localize`Field required. PokeAPI does not found that pokemon name.`,

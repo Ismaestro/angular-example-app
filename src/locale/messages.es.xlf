@@ -263,7 +263,7 @@
       </trans-unit>
       <trans-unit id="8515623719828483173" datatype="html">
         <source> Angular <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/><x id="START_TAG_KBD" ctype="x-kbd" equiv-text="&lt;kbd class=&quot;home__heading-kbd&quot;&gt;"/>Example<x id="CLOSE_TAG_KBD" ctype="x-kbd" equiv-text="&lt;/kbd&gt;"/> App </source>
-        <target state="new"> Angular <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/><x id="START_TAG_KBD" ctype="x-kbd" equiv-text="&lt;kbd class=&quot;home__heading-kbd&quot;&gt;"/>Ejemplo<x id="CLOSE_TAG_KBD" ctype="x-kbd" equiv-text="&lt;/kbd&gt;"/> App </target>
+        <target state="new"> Angular <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/><x id="START_TAG_KBD" ctype="x-kbd" equiv-text="&lt;kbd class=&quot;home__heading-kbd&quot;&gt;"/>Example<x id="CLOSE_TAG_KBD" ctype="x-kbd" equiv-text="&lt;/kbd&gt;"/> App </target>
       </trans-unit>
       <trans-unit id="5831080362044041624" datatype="html">
         <source> This project is a modern, real-world application designed as a foundation for creating new Angular-based projects and also a practical resource for learning. </source>
@@ -284,22 +284,6 @@
       <trans-unit id="5023424198144676396" datatype="html">
         <source>Key features</source>
         <target state="new">Características clave</target>
-      </trans-unit>
-      <trans-unit id="4808423561126464596" datatype="html">
-        <source><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/> Keep your codebase organized with an opinionated component model and flexible dependency injection system <x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></source>
-        <target state="new"><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/> Mantén tu base de código organizada con un modelo de componentes opinado y un sistema flexible de inyección de dependencias <x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></target>
-      </trans-unit>
-      <trans-unit id="1478158665020767354" datatype="html">
-        <source>Angular components make it easy to split your code into well-encapsulated parts.</source>
-        <target state="new">Los componentes de Angular facilitan dividir tu código en partes bien encapsuladas.</target>
-      </trans-unit>
-      <trans-unit id="105922035602561739" datatype="html">
-        <source> The versatile dependency injection helps you keep your code modular, loosely-coupled, and testable. </source>
-        <target state="new">La versátil inyección de dependencias te ayuda a mantener tu código modular, débilmente acoplado y testeable.</target>
-      </trans-unit>
-      <trans-unit id="7135539332123082582" datatype="html">
-        <source>Get started with Components</source>
-        <target state="new">Comienza con los componentes</target>
       </trans-unit>
       <trans-unit id="8461145943495811496" datatype="html">
         <source>My Pokemon</source>
@@ -395,10 +379,6 @@
         <source>My pokemon</source>
         <target state="new">Mis Pokémon</target>
       </trans-unit>
-      <trans-unit id="3030107611360910923" datatype="html">
-        <source>Field required. Format: example@domain.com</source>
-        <target state="new">Campo requerido. Formato: ejemplo@dominio.com</target>
-      </trans-unit>
       <trans-unit id="1543538730036692975" datatype="html">
         <source>Passwords do not match.</source>
         <target state="new">Las contraseñas no coinciden.</target>
@@ -434,6 +414,74 @@
       <trans-unit id="1711725680914111687" datatype="html">
         <source>Pokémon not found. Double-check the name and try again!</source>
         <target state="new">Pokémon no encontrado. ¡Verifica el nombre y vuelve a intentarlo!</target>
+      </trans-unit>
+      <trans-unit id="3164493940889051124" datatype="html">
+        <source><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Angular Signals<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></source>
+        <target state="new"><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Angular Signals<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="7680046165638889668" datatype="html">
+        <source>Unlock reactivity with Angular Signals.</source>
+        <target state="new">Desbloquea la reactividad con Angular Signals.</target>
+      </trans-unit>
+      <trans-unit id="7623666311824205556" datatype="html">
+        <source> Signals provide a declarative way to manage state and reactivity in your application, simplifying data flow and improving performance. </source>
+        <target state="new"> Signals ofrecen una forma declarativa de gestionar el estado y la reactividad en tu aplicación, simplificando el flujo de datos y mejorando el rendimiento. </target>
+      </trans-unit>
+      <trans-unit id="7755502772624126238" datatype="html">
+        <source>Learn more about Signals</source>
+        <target state="new">Aprende más sobre Signals</target>
+      </trans-unit>
+      <trans-unit id="3509701308598634542" datatype="html">
+        <source><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Internationalization<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></source>
+        <target state="new"><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Internationalization<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="5371828026227187692" datatype="html">
+        <source>Build apps for a global audience.</source>
+        <target state="new">Crea aplicaciones para una audiencia global.</target>
+      </trans-unit>
+      <trans-unit id="4667572349058874775" datatype="html">
+        <source> Angular’s internationalization tools make it seamless to localize your app, handle translations, and format dates, numbers, and currencies for any locale. </source>
+        <target state="new"> Las herramientas de internacionalización de Angular facilitan la localización de tu aplicación, el manejo de traducciones y el formato de fechas, números y monedas para cualquier ubicación. </target>
+      </trans-unit>
+      <trans-unit id="19928707238720227" datatype="html">
+        <source>Explore Internationalization</source>
+        <target state="new">Explora la Internacionalización</target>
+      </trans-unit>
+      <trans-unit id="1621780816147444852" datatype="html">
+        <source><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Reactive Forms<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></source>
+        <target state="new"><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Reactive Forms<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="5028423997546001256" datatype="html">
+        <source>Effortless form handling and validation.</source>
+        <target state="new">Gestión y validación de formularios sin esfuerzo.</target>
+      </trans-unit>
+      <trans-unit id="8266707669188290771" datatype="html">
+        <source> Reactive Forms empower you to create robust, dynamic forms with a model-driven approach, making validation, dynamic updates, and testing a breeze. </source>
+        <target state="new"> Reactive Forms te permiten crear formularios robustos y dinámicos con un enfoque basado en modelos, facilitando la validación, las actualizaciones dinámicas y las pruebas. </target>
+      </trans-unit>
+      <trans-unit id="4869980192320162230" datatype="html">
+        <source>Start with Reactive Forms</source>
+        <target state="new">Comienza con Reactive Forms</target>
+      </trans-unit>
+      <trans-unit id="2657017183893383482" datatype="html">
+        <source><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Animations<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></source>
+        <target state="new"><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Animations<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></target>
+      </trans-unit>
+      <trans-unit id="998113163585598828" datatype="html">
+        <source>Bring your UI to life with Angular Animations.</source>
+        <target state="new">Da vida a tu interfaz de usuario con Angular Animations.</target>
+      </trans-unit>
+      <trans-unit id="2976285442101094791" datatype="html">
+        <source> Create smooth transitions and engaging effects with Angular’s powerful animation API, making your application visually appealing and interactive. </source>
+        <target state="new"> Crea transiciones suaves y efectos atractivos con la potente API de animación de Angular, haciendo que tu aplicación sea visualmente atractiva e interactiva. </target>
+      </trans-unit>
+      <trans-unit id="4932058897590347667" datatype="html">
+        <source>Discover Angular Animations</source>
+        <target state="new">Descubre Angular Animations</target>
+      </trans-unit>
+      <trans-unit id="381575201384767307" datatype="html">
+        <source>No real email validation. Field required. Format: example@domain.com</source>
+        <target state="new">Sin validación real de correo electrónico. Campo requerido. Formato: ejemplo@dominio.com</target>
       </trans-unit>
     </body>
   </file>

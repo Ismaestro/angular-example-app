@@ -46,6 +46,7 @@ The server is built with NestJS, Prisma, and Postgres, ensuring a robust and mod
 - [x] Logical Directory Structure: Easy-to-navigate, organized codebase.
 - [x] Best Practices: Adheres to the [Angular Style Guide](https://angular.io/guide/styleguide).
 - [x] Responsive Design: Built with CSS Grid and Flexbox for layouts.
+- [x] Accessible: Usage of [Shoelace](https://shoelace.style/), a forward-thinking library of web components.
 - [x] Optimized Images: Leveraging [NgOptimizedImage](https://angular.io/guide/image-directive) for performance.
 - [x] SASS & BEM Styles: Maintainable and scalable styling.
 - [x] Animations: Smooth and engaging UI interactions using Angular's powerful animations API.
