@@ -19,12 +19,12 @@ import { AlertService } from '~core/services/alert.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
-    selector: 'app-my-pokemon',
-    templateUrl: './my-pokemon.component.html',
-    styleUrl: './my-pokemon.component.scss',
-    imports: [PokemonCardComponent, NgOptimizedImage, PokemonSearchComponent],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-my-pokemon',
+  templateUrl: './my-pokemon.component.html',
+  styleUrl: './my-pokemon.component.scss',
+  imports: [PokemonCardComponent, NgOptimizedImage, PokemonSearchComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class MyPokemonComponent implements OnInit {
   private readonly userService = inject(UserService);
@@ -44,8 +44,7 @@ export class MyPokemonComponent implements OnInit {
       .subscribe({
         next: (user) => {
           this.user = user;
-
-          if (this.user.caughtPokemonIds) {
+          if (this.user.caughtPokemonIds.length > 0) {
             this.pokemonService
               .getPokemons(this.user.caughtPokemonIds)
               .pipe(takeUntilDestroyed(this.destroyRef))
@@ -58,6 +57,9 @@ export class MyPokemonComponent implements OnInit {
                   this.alertService.createErrorAlert(translations.genericErrorAlert);
                 },
               });
+          } else {
+            this.userPokemon = [];
+            this.changeDetectorRef.markForCheck();
           }
         },
       });

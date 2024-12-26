@@ -5,14 +5,19 @@
       [title]="userPokemon?.length ? translations.findMore : translations.findPokemon"
     />
   </div>
-  <ul i18n class="my-pokemon__grid">
-    @for (pokemon of userPokemon; track pokemon.id) {
+  @if (userPokemon === undefined) {
+    <ul class="my-pokemon__grid fade-out">
       <li>
-        <app-pokemon-card [pokemon]="pokemon" />
+        <app-pokemon-card [loading]="true" />
       </li>
-    }
-  </ul>
-  @if (!userPokemon?.length) {
+      <li>
+        <app-pokemon-card [loading]="true" />
+      </li>
+      <li>
+        <app-pokemon-card [loading]="true" />
+      </li>
+    </ul>
+  } @else if (!userPokemon.length) {
     <div class="pokemons-empty__container">
       <div>
         <p i18n>
@@ -31,5 +36,13 @@
         />
       </div>
     </div>
+  } @else {
+    <ul i18n class="my-pokemon__grid fade-in">
+      @for (pokemon of userPokemon; track pokemon.id) {
+        <li>
+          <app-pokemon-card [pokemon]="pokemon" />
+        </li>
+      }
+    </ul>
   }
 </main>

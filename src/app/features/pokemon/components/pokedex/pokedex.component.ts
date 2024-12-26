@@ -62,7 +62,7 @@ export class PokedexComponent implements OnInit {
           next: (user: User) => {
             this.user = user;
             this.pokemonImage = pokemonValue.sprites.front_default;
-            this.userHasPokemon = user.caughtPokemonIds?.includes(pokemonValue.id) ?? false;
+            this.userHasPokemon = user.caughtPokemonIds.includes(pokemonValue.id);
             setTimeout(() => {
               this.isPokedexClosed = false;
               this.changeDetectorRef.markForCheck();
@@ -106,7 +106,7 @@ export class PokedexComponent implements OnInit {
     const pokemonValue = this.pokemon();
     if (pokemonValue) {
       this.pokemonImage = pokemonValue.sprites.front_default;
-      this.userHasPokemon = this.user?.caughtPokemonIds?.includes(pokemonValue.id) ?? false;
+      this.userHasPokemon = this.user?.caughtPokemonIds.includes(pokemonValue.id) ?? false;
       this.changeDetectorRef.markForCheck();
     }
   }
