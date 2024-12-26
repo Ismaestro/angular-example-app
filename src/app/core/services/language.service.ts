@@ -23,7 +23,7 @@ export class LanguageService {
     if (userLanguage === this.localeId || userLanguage === (DEFAULT_LANGUAGE as string)) {
       void this.router.navigate([path]);
     } else {
-      void this.router.navigate([`${localeToRedirect}${path}`]);
+      window.location.href = `/${localeToRedirect}${path}`;
     }
   }
 
