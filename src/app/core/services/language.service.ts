@@ -19,10 +19,18 @@ export class LanguageService {
   }
 
   navigateWithUserLanguage(userLanguage: string, path: string) {
+    const localeToRedirect = this.getLocaleFromUserLanguage(userLanguage);
     if (userLanguage === this.localeId || userLanguage === (DEFAULT_LANGUAGE as string)) {
       void this.router.navigate([path]);
     } else {
-      void this.router.navigate([`${userLanguage}${path}`]);
+      void this.router.navigate([`${localeToRedirect}${path}`]);
     }
+  }
+
+  private getLocaleFromUserLanguage(userLanguage: string) {
+    if (userLanguage === (Language.ES_ES as string)) {
+      return Locale.ES;
+    }
+    return Locale.EN;
   }
 }
