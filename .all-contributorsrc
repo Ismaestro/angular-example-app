@@ -1,4 +1,21 @@
 {
   "projectName": "angular-example-app",
-  "projectOwner": "ismaestro"
+  "projectOwner": "Ismaestro",
+  "files": [
+    "README.md"
+  ],
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributorsPerLine": 7,
+  "contributors": [
+    {
+      "login": "magicalyak",
+      "name": "Tom Gamull",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6165889?v=4",
+      "profile": "https://magicalyak.org",
+      "contributions": [
+        "infra"
+      ]
+    }
+  ]
 }
