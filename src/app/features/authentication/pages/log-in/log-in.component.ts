@@ -7,7 +7,7 @@ import {
   inject,
 } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { emailValidator } from '~core/validators/email.validator';
 import { AUTH_URLS, ROOT_URLS } from '~core/constants/urls.constants';
 import { passwordValidator } from '~core/validators/password.validator';
@@ -21,21 +21,24 @@ import '@shoelace-style/shoelace/dist/components/input/input.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import { AlertService } from '~core/services/alert.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import type { User } from '~features/authentication/types/user.type';
+import { LanguageService } from '~core/services/language.service';
 
 @Component({
-    selector: 'app-log-in',
-    templateUrl: './log-in.component.html',
-    styleUrl: './log-in.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [ReactiveFormsModule, RouterModule, SlInputIconFocusDirective, NgOptimizedImage],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-log-in',
+  templateUrl: './log-in.component.html',
+  styleUrl: './log-in.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [ReactiveFormsModule, RouterModule, SlInputIconFocusDirective, NgOptimizedImage],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LogInComponent {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
   private readonly alertService = inject(AlertService);
-  private readonly router = inject(Router);
+
   private readonly formBuilder = inject(FormBuilder);
   private readonly authService = inject(AuthenticationService);
+  private readonly languageService = inject(LanguageService);
   private readonly destroyRef = inject(DestroyRef);
 
   translations = translations;
@@ -65,10 +68,13 @@ export class LogInComponent {
         .logIn({ email: formValue.email!, password: formValue.password! })
         .pipe(takeUntilDestroyed(this.destroyRef))
         .subscribe({
-          next: () => {
+          next: (user: User) => {
             this.isButtonLogInLoading = false;
             this.changeDetectorRef.markForCheck();
-            void this.router.navigate([ROOT_URLS.myPokedex]);
+            this.languageService.navigateWithUserLanguage(
+              user.language as string,
+              ROOT_URLS.myPokedex,
+            );
           },
           error: (response) => {
             this.isButtonLogInLoading = false;

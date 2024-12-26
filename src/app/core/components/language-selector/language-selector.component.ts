@@ -13,13 +13,13 @@ import '@shoelace-style/shoelace/dist/components/menu/menu.js';
 import '@shoelace-style/shoelace/dist/components/menu-item/menu-item.js';
 
 @Component({
-    selector: 'app-language-selector',
-    templateUrl: './language-selector.component.html',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [UpperCasePipe],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-language-selector',
+  templateUrl: './language-selector.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [UpperCasePipe],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LanguageSelectorComponent {
   readonly router = inject(Router);
-  readonly locale = inject(LOCALE_ID);
+  readonly localeId = inject(LOCALE_ID);
 }

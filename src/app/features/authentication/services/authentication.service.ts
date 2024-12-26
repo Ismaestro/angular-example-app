@@ -5,10 +5,7 @@ import type { Observable } from 'rxjs';
 import { map } from 'rxjs';
 import type { LoginRequest } from '~features/authentication/types/login-request.type';
 import { environment } from '~environments/environment';
-import type {
-  LoginResponse,
-  LoginResponseData,
-} from '~features/authentication/types/login-response.type';
+import type { LoginResponse } from '~features/authentication/types/login-response.type';
 import type {
   RefreshTokenResponse,
   RefreshTokenResponseData,
@@ -19,6 +16,7 @@ import type {
   RegisterResponseData,
 } from '~features/authentication/types/register-response.type';
 import { LanguageService } from '~core/services/language.service';
+import type { User } from '~features/authentication/types/user.type';
 
 const IS_SESSION_ALIVE_KEY = 'isSessionAlive';
 
@@ -64,7 +62,7 @@ export class AuthenticationService {
       );
   }
 
-  logIn(loginRequest: LoginRequest): Observable<LoginResponseData> {
+  logIn(loginRequest: LoginRequest): Observable<User> {
     const loginEndpoint = `${this.apiUrl}/v1/authentication/login`;
     return this.httpClient
       .post<LoginResponse>(
@@ -80,7 +78,7 @@ export class AuthenticationService {
           const { data } = response;
           this.storageService?.setItem(IS_SESSION_ALIVE_KEY, 'true');
           this.isUserLoggedInSignal.set(true);
-          return data;
+          return data.user;
         }),
       );
   }

@@ -28,22 +28,24 @@ import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import '@shoelace-style/shoelace/dist/components/select/select.js';
 import '@shoelace-style/shoelace/dist/components/option/option.js';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { LanguageService } from '~core/services/language.service';
+import { AUTH_URLS } from '~core/constants/urls.constants';
 
 @Component({
-    selector: 'app-my-account',
-    templateUrl: './my-account.component.html',
-    styleUrl: './my-account.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [
-        RouterModule,
-        ReactiveFormsModule,
-        SlInputIconFocusDirective,
-        PokemonImageComponent,
-        AppSlSelectControlDirective,
-        ThemeButtonComponent,
-        NgOptimizedImage,
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  selector: 'app-my-account',
+  templateUrl: './my-account.component.html',
+  styleUrl: './my-account.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    RouterModule,
+    ReactiveFormsModule,
+    SlInputIconFocusDirective,
+    PokemonImageComponent,
+    AppSlSelectControlDirective,
+    ThemeButtonComponent,
+    NgOptimizedImage,
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class MyAccountComponent implements OnInit {
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
@@ -52,6 +54,7 @@ export class MyAccountComponent implements OnInit {
   private readonly pokemonService = inject(PokemonService);
   private readonly alertService = inject(AlertService);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly languageService = inject(LanguageService);
 
   translations = translations;
   user: User | undefined;
@@ -110,25 +113,36 @@ export class MyAccountComponent implements OnInit {
     this.updateUserForm.markAllAsTouched();
     if (this.updateUserForm.valid) {
       this.isButtonUpdateUserFormLoading = true;
-      const formValue = this.updateUserForm.getRawValue();
-      this.userService
-        .updateUser({
-          name: formValue.name!,
-          language: formValue.language!,
-        })
-        .pipe(takeUntilDestroyed(this.destroyRef))
-        .subscribe({
-          next: () => {
-            this.isButtonUpdateUserFormLoading = false;
-            this.alertService.createSuccessAlert(translations.myAccountSuccessAlert);
-            this.changeDetectorRef.markForCheck();
-          },
-          error: () => {
-            this.isButtonUpdateUserFormLoading = false;
-            this.alertService.createErrorAlert(translations.genericErrorAlert);
-            this.changeDetectorRef.markForCheck();
-          },
-        });
+      this.updateUser();
     }
+  }
+
+  updateUser() {
+    const formValue = this.updateUserForm.getRawValue();
+    this.userService
+      .updateUser({
+        name: formValue.name!,
+        language: formValue.language!,
+      })
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: () => {
+          this.isButtonUpdateUserFormLoading = false;
+          this.alertService.createSuccessAlert(translations.myAccountSuccessAlert);
+          this.changeDetectorRef.markForCheck();
+
+          if (this.user?.language !== formValue.language) {
+            this.languageService.navigateWithUserLanguage(
+              formValue.language as string,
+              AUTH_URLS.myAccount,
+            );
+          }
+        },
+        error: () => {
+          this.isButtonUpdateUserFormLoading = false;
+          this.alertService.createErrorAlert(translations.genericErrorAlert);
+          this.changeDetectorRef.markForCheck();
+        },
+      });
   }
 }
