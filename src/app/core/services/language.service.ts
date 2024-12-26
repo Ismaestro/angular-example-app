@@ -1,5 +1,4 @@
 import { inject, Injectable, LOCALE_ID } from '@angular/core';
-import { DEFAULT_LANGUAGE } from '~core/constants/language.constants';
 import { Router } from '@angular/router';
 import { Language } from '~core/enums/language.enum';
 import { Locale } from '~core/enums/locale.enum';
@@ -18,17 +17,24 @@ export class LanguageService {
     return Language.EN_US;
   }
 
-  navigateWithUserLanguage(userLanguage: string, path: string) {
-    const localeToRedirect = this.getLocaleFromUserLanguage(userLanguage);
-    if (userLanguage === this.localeId || userLanguage === (DEFAULT_LANGUAGE as string)) {
-      void this.router.navigate([path]);
+  navigateWithUserLanguage(language: Language, pathToRedirect: string) {
+    const localeToRedirect = this.getLocaleFromLanguage(language);
+    if (this.doesLocaleMatchLanguage(language)) {
+      void this.router.navigate([pathToRedirect]);
     } else {
-      window.location.href = `/${localeToRedirect}${path}`;
+      window.location.href = `/${localeToRedirect}${pathToRedirect}`;
     }
   }
 
-  private getLocaleFromUserLanguage(userLanguage: string) {
-    if (userLanguage === (Language.ES_ES as string)) {
+  private doesLocaleMatchLanguage(language: Language) {
+    if (this.localeId === (Locale.ES as string)) {
+      return language === Language.ES_ES;
+    }
+    return language === Language.EN_US;
+  }
+
+  private getLocaleFromLanguage(language: Language) {
+    if (language === Language.ES_ES) {
       return Locale.ES;
     }
     return Locale.EN;

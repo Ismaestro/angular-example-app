@@ -71,10 +71,7 @@ export class LogInComponent {
           next: (user: User) => {
             this.isButtonLogInLoading = false;
             this.changeDetectorRef.markForCheck();
-            this.languageService.navigateWithUserLanguage(
-              user.language as string,
-              ROOT_URLS.myPokedex,
-            );
+            this.languageService.navigateWithUserLanguage(user.language, ROOT_URLS.myPokedex);
           },
           error: (response) => {
             this.isButtonLogInLoading = false;

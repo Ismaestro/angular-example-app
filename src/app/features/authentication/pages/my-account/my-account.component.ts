@@ -130,13 +130,7 @@ export class MyAccountComponent implements OnInit {
           this.isButtonUpdateUserFormLoading = false;
           this.alertService.createSuccessAlert(translations.myAccountSuccessAlert);
           this.changeDetectorRef.markForCheck();
-
-          if (this.user?.language !== formValue.language) {
-            this.languageService.navigateWithUserLanguage(
-              formValue.language as string,
-              AUTH_URLS.myAccount,
-            );
-          }
+          this.languageService.navigateWithUserLanguage(formValue.language!, AUTH_URLS.myAccount);
         },
         error: () => {
           this.isButtonUpdateUserFormLoading = false;
