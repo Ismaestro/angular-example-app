@@ -70,6 +70,7 @@ your feedback!
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://magicalyak.org"><img src="https://avatars.githubusercontent.com/u/6165889?v=4?s=100" width="100px;" alt="Tom Gamull"/><br /><sub><b>Tom Gamull</b></sub></a><br /><a href="#infra-magicalyak" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/mansya"><img src="https://avatars.githubusercontent.com/u/33461607?v=4?s=100" width="100px;" alt="mansyaprime"/><br /><sub><b>mansyaprime</b></sub></a><br /><a href="#code-mansya" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/microsoft/Secure-Supply-Chain/"><img src="https://avatars.githubusercontent.com/u/90811840?v=4?s=100" width="100px;" alt="rancyr"/><br /><sub><b>rancyr</b></sub></a><br /><a href="#code-v-rr" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
