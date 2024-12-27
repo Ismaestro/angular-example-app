@@ -2,13 +2,10 @@
   <h1 align="center">Angular Example App</h1>
 
   <p align="center">
-    Example app with Angular 19 + i18n + Standalone Components
+    Base project with Angular 19 and i18n
     <br>
     <br>
-    :clap::clap::tada::tada::tada::tada::clap::clap:
-    <br>
-    <br>
-    A real-world app crafted with :heart: and dedication!. Showcasing CRUD operations, advanced patterns, and much more. Dive in and explore!
+    A real-world app made with :heart: and dedication!. Showcasing CRUD operations, advanced patterns, and much more. Dive in and explore!
     <br>
     <br>
     <img style="width: 15%; margin: 0 auto;" src="https://res.cloudinary.com/ismaestro/image/upload/v1735164052/angularexampleapp/ash-pikachu_dem2w0.png" alt="Demo example"/>
@@ -50,8 +47,8 @@ The server is built with NestJS, Prisma, and Postgres, ensuring a robust and mod
 - [x] Optimized Images: Leveraging [NgOptimizedImage](https://angular.io/guide/image-directive) for performance.
 - [x] SASS & BEM Styles: Maintainable and scalable styling.
 - [x] Animations: Smooth and engaging UI interactions using Angular's powerful animations API.
-- [ ] Comprehensive Testing: Example tests for Components, Services, Interceptors, Directives, and Guards.
-- [ ] End-to-End Testing: Fully configured with Playwright.
+- [ ] Comprehensive Testing: Example tests for Components, Services, Interceptors, Directives, and Guards. [PENDING]
+- [ ] End-to-End Testing: Fully configured with Playwright. [PENDING]
 
 ## Bugs and feature requests
 
@@ -93,7 +90,6 @@ your feedback!
 
 ## Copyright and license
 
-Code and documentation copyright 2023 the authors. Code released under the
-[MIT License](https://github.com/Ismaestro/angular-example-app/blob/master/LICENSE).
+Code and documentation copyright 2025 to the authors.
 
-Enjoy :metal:
+Code released under the [MIT License](https://github.com/Ismaestro/angular-example-app/blob/master/LICENSE).
