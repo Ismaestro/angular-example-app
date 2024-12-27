@@ -40,7 +40,7 @@ The server is built with NestJS, Prisma, and Postgres, ensuring a robust and mod
 - [x] Standalone Components: Modern and modular Angular architecture.
 - [x] Functional Guards: Enhanced route protection with clean and reusable logic.
 - [x] Pokémon Fun!: Interact with Pokémon data via the PokeAPI.
-- [x] Authentication: Secure JWT-based authentication with http only cookies instead of local or session storage.
+- [x] Authentication: Secure JWT-based authentication.
 - [x] Internationalization (i18n): Multilingual support with English and Spanish.
 - [x] Lazy Loading: Efficient module loading for improved performance.
 - [x] Logical Directory Structure: Easy-to-navigate, organized codebase.
