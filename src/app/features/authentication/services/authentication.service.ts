@@ -39,7 +39,7 @@ export class AuthenticationService {
       .post<RegisterResponse>(
         registerEndpoint,
         {
-          email: registerRequest.email,
+          email: registerRequest.email.trim().toLowerCase(),
           password: registerRequest.password,
           name: registerRequest.name,
           favouritePokemonId: registerRequest.favouritePokemonId,
@@ -68,7 +68,7 @@ export class AuthenticationService {
       .post<LoginResponse>(
         loginEndpoint,
         {
-          email: loginRequest.email,
+          email: loginRequest.email.trim().toLowerCase(),
           password: loginRequest.password,
         },
         { withCredentials: true },
