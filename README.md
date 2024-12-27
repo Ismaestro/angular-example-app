@@ -79,6 +79,7 @@ your feedback!
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/scip92"><img src="https://avatars.githubusercontent.com/u/15237896?v=4?s=100" width="100px;" alt="Max"/><br /><sub><b>Max</b></sub></a><br /><a href="#code-scip92" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/HerbertKarajan"><img src="https://avatars.githubusercontent.com/u/20851191?v=4?s=100" width="100px;" alt="Karajan"/><br /><sub><b>Karajan</b></sub></a><br /><a href="#code-HerbertKarajan" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/carlchandev"><img src="https://avatars.githubusercontent.com/u/34772941?v=4?s=100" width="100px;" alt="Carl Chan"/><br /><sub><b>Carl Chan</b></sub></a><br /><a href="#code-carlchandev" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
