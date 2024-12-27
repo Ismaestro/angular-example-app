@@ -76,6 +76,9 @@ your feedback!
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/microsoft/Secure-Supply-Chain/"><img src="https://avatars.githubusercontent.com/u/90811840?v=4?s=100" width="100px;" alt="rancyr"/><br /><sub><b>rancyr</b></sub></a><br /><a href="#code-v-rr" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://www.codingphase.com"><img src="https://avatars.githubusercontent.com/u/26421899?v=4?s=100" width="100px;" alt="codingphasedotcom"/><br /><sub><b>codingphasedotcom</b></sub></a><br /><a href="#code-codingphasedotcom" title="Code">💻</a></td>
     </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/scip92"><img src="https://avatars.githubusercontent.com/u/15237896?v=4?s=100" width="100px;" alt="Max"/><br /><sub><b>Max</b></sub></a><br /><a href="#code-scip92" title="Code">💻</a></td>
+    </tr>
   </tbody>
 </table>
 
