@@ -1,3 +1,3 @@
-import { Language } from '~core/enums/language.enum';
+import { Locale } from '~core/enums/locale.enum';
 
-export const DEFAULT_LANGUAGE = Language.EN_US;
+export const DEFAULT_LOCALE = Locale.EN;

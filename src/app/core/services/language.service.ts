@@ -2,6 +2,7 @@ import { inject, Injectable, LOCALE_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { Language } from '~core/enums/language.enum';
 import { Locale } from '~core/enums/locale.enum';
+import { DEFAULT_LOCALE } from '~core/constants/language.constants';
 
 @Injectable({
   providedIn: 'root',
@@ -18,11 +19,14 @@ export class LanguageService {
   }
 
   navigateWithUserLanguage(language: Language, pathToRedirect: string) {
-    const localeToRedirect = this.getLocaleFromLanguage(language);
     if (this.doesLocaleMatchLanguage(language)) {
       void this.router.navigate([pathToRedirect]);
     } else {
-      window.location.href = `/${localeToRedirect}${pathToRedirect}`;
+      const localeToRedirect = this.getLocaleFromLanguage(language);
+      window.location.href =
+        localeToRedirect === DEFAULT_LOCALE
+          ? pathToRedirect
+          : `/${localeToRedirect}${pathToRedirect}`;
     }
   }
 
@@ -33,10 +37,10 @@ export class LanguageService {
     return language === Language.EN_US;
   }
 
-  private getLocaleFromLanguage(language: Language) {
+  private getLocaleFromLanguage(language: Language): Locale {
     if (language === Language.ES_ES) {
       return Locale.ES;
     }
-    return Locale.EN;
+    return DEFAULT_LOCALE;
   }
 }
