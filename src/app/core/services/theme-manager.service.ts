@@ -45,17 +45,14 @@ export class ThemeManagerService {
     this.setThemeBodyClasses(theme === Theme.AUTO ? preferredScheme() : theme);
   }
 
-  // 1. Read theme preferences stored in localStorage
-  // 2. In case when there are no stored user preferences, then read them from device preferences.
   private loadThemePreference(): void {
     const savedUserPreference = this.getThemeFromLocalStorageValue(),
-      useTheme = savedUserPreference ?? Theme.AUTO;
+      useTheme = savedUserPreference ?? Theme.DARK;
 
     this.theme.set(useTheme);
     this.setThemeBodyClasses(useTheme === Theme.AUTO ? preferredScheme() : useTheme);
   }
 
-  // Set theme classes on the body element
   private setThemeBodyClasses(theme: Theme.DARK | Theme.LIGHT): void {
     const documentClassList = this.document.documentElement.classList;
     if (theme === Theme.DARK) {
