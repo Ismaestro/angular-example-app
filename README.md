@@ -72,6 +72,7 @@ your feedback!
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/mansya"><img src="https://avatars.githubusercontent.com/u/33461607?v=4?s=100" width="100px;" alt="mansyaprime"/><br /><sub><b>mansyaprime</b></sub></a><br /><a href="#code-mansya" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/codeimmortal"><img src="https://avatars.githubusercontent.com/u/16804408?v=4?s=100" width="100px;" alt="codeimmortal"/><br /><sub><b>codeimmortal</b></sub></a><br /><a href="#code-codeimmortal" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/tomasfse"><img src="https://avatars.githubusercontent.com/u/22914697?v=4?s=100" width="100px;" alt="tomasfse"/><br /><sub><b>tomasfse</b></sub></a><br /><a href="#code-tomasfse" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://golu7679.github.io"><img src="https://avatars.githubusercontent.com/u/55990159?v=4?s=100" width="100px;" alt="golu"/><br /><sub><b>golu</b></sub></a><br /><a href="#code-golu7679" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
