@@ -25,7 +25,6 @@ export class UserService {
     return this.httpClient
       .get<GetMeResponse>(getMeEndpoint, {
         context: new HttpContext().set(CACHING_ENABLED, cache),
-        withCredentials: true,
       })
       .pipe(
         map((response: GetMeResponse) => {
@@ -37,24 +36,18 @@ export class UserService {
 
   updateUser(updateUserRequest: UpdateUserRequest): Observable<User> {
     const updateUserEndpoint = `${this.apiUrl}/v1/user`;
-    return this.httpClient
-      .patch<UpdateUserResponse>(updateUserEndpoint, updateUserRequest, {
-        withCredentials: true,
-      })
-      .pipe(
-        map((response: UpdateUserResponse) => {
-          const { data } = response;
-          return data.user;
-        }),
-      );
+    return this.httpClient.patch<UpdateUserResponse>(updateUserEndpoint, updateUserRequest).pipe(
+      map((response: UpdateUserResponse) => {
+        const { data } = response;
+        return data.user;
+      }),
+    );
   }
 
   catchPokemon(catchPokemonRequest: CatchPokemonRequest): Observable<User> {
     const catchPokemonEndpoint = `${this.apiUrl}/v1/user/pokemon/catch`;
     return this.httpClient
-      .post<CatchPokemonResponse>(catchPokemonEndpoint, catchPokemonRequest, {
-        withCredentials: true,
-      })
+      .post<CatchPokemonResponse>(catchPokemonEndpoint, catchPokemonRequest)
       .pipe(
         map((response: CatchPokemonResponse) => {
           const { data } = response;

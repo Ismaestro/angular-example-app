@@ -18,7 +18,8 @@ import type {
 import { LanguageService } from '~core/services/language.service';
 import type { User } from '~features/authentication/types/user.type';
 
-const IS_SESSION_ALIVE_KEY = 'isSessionAlive';
+export const ACCESS_TOKEN_KEY = 'access-token';
+export const REFRESH_TOKEN_KEY = 'refresh-token';
 
 @Injectable({
   providedIn: 'root',
@@ -27,9 +28,7 @@ export class AuthenticationService {
   private readonly storageService = inject(LOCAL_STORAGE);
   private readonly httpClient = inject(HttpClient);
   private readonly languageService = inject(LanguageService);
-  private readonly isUserLoggedInSignal = signal(
-    !!this.storageService?.getItem(IS_SESSION_ALIVE_KEY),
-  );
+  private readonly isUserLoggedInSignal = signal(!!this.storageService?.getItem(ACCESS_TOKEN_KEY));
 
   private readonly apiUrl = environment.apiBaseUrl;
 
@@ -46,7 +45,6 @@ export class AuthenticationService {
           terms: registerRequest.terms,
         },
         {
-          withCredentials: true,
           headers: {
             'Accept-Language': this.languageService.convertLocaleToAcceptLanguage(),
           },
@@ -55,7 +53,7 @@ export class AuthenticationService {
       .pipe(
         map((response: RegisterResponse) => {
           const { data } = response;
-          this.storageService?.setItem(IS_SESSION_ALIVE_KEY, 'true');
+          this.saveTokens(data);
           this.isUserLoggedInSignal.set(true);
           return data;
         }),
@@ -65,18 +63,14 @@ export class AuthenticationService {
   logIn(loginRequest: LoginRequest): Observable<User> {
     const loginEndpoint = `${this.apiUrl}/v1/authentication/login`;
     return this.httpClient
-      .post<LoginResponse>(
-        loginEndpoint,
-        {
-          email: loginRequest.email.trim().toLowerCase(),
-          password: loginRequest.password,
-        },
-        { withCredentials: true },
-      )
+      .post<LoginResponse>(loginEndpoint, {
+        email: loginRequest.email.trim().toLowerCase(),
+        password: loginRequest.password,
+      })
       .pipe(
         map((response: LoginResponse) => {
           const { data } = response;
-          this.storageService?.setItem(IS_SESSION_ALIVE_KEY, 'true');
+          this.saveTokens(data);
           this.isUserLoggedInSignal.set(true);
           return data.user;
         }),
@@ -85,19 +79,37 @@ export class AuthenticationService {
 
   refreshToken(): Observable<RefreshTokenResponseData> {
     const refreshTokenEndpoint = `${this.apiUrl}/v1/authentication/token/refresh`;
-    return this.httpClient.post<RefreshTokenResponse>(
-      refreshTokenEndpoint,
-      {},
-      { withCredentials: true },
-    );
+    return this.httpClient
+      .post<RefreshTokenResponse>(refreshTokenEndpoint, {
+        refreshToken: this.storageService?.getItem(REFRESH_TOKEN_KEY),
+      })
+      .pipe(
+        map((response: RefreshTokenResponse) => {
+          const { data } = response;
+          this.saveTokens(data);
+          return data;
+        }),
+      );
   }
 
   logOut() {
-    this.storageService?.removeItem(IS_SESSION_ALIVE_KEY);
+    this.removeTokens();
     this.isUserLoggedInSignal.set(false);
   }
 
   isUserLoggedIn(): boolean {
     return this.isUserLoggedInSignal();
+  }
+
+  private saveTokens(data: { accessToken: string; refreshToken?: string }) {
+    this.storageService?.setItem(ACCESS_TOKEN_KEY, data.accessToken);
+    if (data.refreshToken) {
+      this.storageService?.setItem(REFRESH_TOKEN_KEY, data.refreshToken);
+    }
+  }
+
+  private removeTokens() {
+    this.storageService?.removeItem(ACCESS_TOKEN_KEY);
+    this.storageService?.removeItem(REFRESH_TOKEN_KEY);
   }
 }

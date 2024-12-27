@@ -9,9 +9,15 @@ import { BehaviorSubject, throwError } from 'rxjs';
 import { catchError, filter, switchMap, take } from 'rxjs/operators';
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '~features/authentication/services/authentication.service';
+import {
+  ACCESS_TOKEN_KEY,
+  AuthenticationService,
+} from '~features/authentication/services/authentication.service';
 import { AppError } from '~core/enums/app-error.enum';
 import { AUTH_URLS } from '~core/constants/urls.constants';
+import { LOCAL_STORAGE } from '~core/providers/local-storage';
+import { translations } from '../../../locale/translations';
+import { AlertService } from '~core/services/alert.service';
 
 const isRefreshing = new BehaviorSubject<boolean>(false);
 
@@ -20,22 +26,72 @@ export function authenticationInterceptor(
   next: HttpHandlerFn,
 ): Observable<HttpEvent<unknown>> {
   const authenticationService = inject(AuthenticationService);
+  const alertService = inject(AlertService);
+  const storageService = inject(LOCAL_STORAGE);
   const router = inject(Router);
-  return next(request).pipe(
-    catchError((errorResponse: HttpErrorResponse) => {
-      if (isAccessTokenError(errorResponse)) {
-        return tryRefreshToken(request, next, authenticationService);
-      }
 
-      if (isRefreshTokenError(errorResponse)) {
-        authenticationService.logOut();
-        void router.navigate([AUTH_URLS.logIn]);
-        return throwError(() => new Error('Session expired. Please log in again.'));
-      }
+  const clonedRequest = attachAccessToken(request, storageService);
+  return handleRequest({
+    request: clonedRequest,
+    next,
+    authenticationService,
+    alertService,
+    storageService,
+    router,
+  });
+}
 
-      return throwError(() => errorResponse);
-    }),
+function attachAccessToken(
+  request: HttpRequest<unknown>,
+  storageService: Storage | null,
+): HttpRequest<unknown> {
+  const accessToken = storageService?.getItem(ACCESS_TOKEN_KEY);
+  if (accessToken) {
+    return request.clone({
+      setHeaders: { Authorization: `Bearer ${accessToken}` },
+    });
+  }
+  return request;
+}
+
+function handleRequest(parameters: {
+  request: HttpRequest<unknown>;
+  next: HttpHandlerFn;
+  authenticationService: AuthenticationService;
+  alertService: AlertService;
+  storageService: Storage | null;
+  router: Router;
+}): Observable<HttpEvent<unknown>> {
+  return parameters.next(parameters.request).pipe(
+    catchError((errorResponse: HttpErrorResponse) =>
+      handleErrors({
+        errorResponse,
+        ...parameters,
+      }),
+    ),
   );
+}
+
+function handleErrors(parameters: {
+  request: HttpRequest<unknown>;
+  next: HttpHandlerFn;
+  authenticationService: AuthenticationService;
+  alertService: AlertService;
+  storageService: Storage | null;
+  router: Router;
+  errorResponse: HttpErrorResponse;
+}): Observable<HttpEvent<unknown>> {
+  if (isAccessTokenError(parameters.errorResponse)) {
+    return tryRefreshToken(parameters);
+  }
+
+  if (isRefreshTokenError(parameters.errorResponse)) {
+    parameters.authenticationService.logOut();
+    void parameters.router.navigate([AUTH_URLS.logIn]);
+    return throwError(() => new Error('Session expired. Please log in again.'));
+  }
+
+  return throwError(() => parameters.errorResponse);
 }
 
 function isAccessTokenError(errorResponse: HttpErrorResponse): boolean {
@@ -56,30 +112,76 @@ function isRefreshTokenError(errorResponse: HttpErrorResponse): boolean {
   );
 }
 
-// eslint-disable-next-line @typescript-eslint/max-params
-function tryRefreshToken(
-  request: HttpRequest<unknown>,
-  next: HttpHandlerFn,
-  authenticationService: AuthenticationService,
-): Observable<HttpEvent<unknown>> {
+function tryRefreshToken(parameters: {
+  request: HttpRequest<unknown>;
+  next: HttpHandlerFn;
+  authenticationService: AuthenticationService;
+  alertService: AlertService;
+  storageService: Storage | null;
+  router: Router;
+}): Observable<HttpEvent<unknown>> {
   if (!isRefreshing.getValue()) {
-    isRefreshing.next(true);
-
-    return authenticationService.refreshToken().pipe(
-      switchMap(() => {
-        isRefreshing.next(false);
-        return next(request.clone({ withCredentials: true }));
-      }),
-      catchError((error: HttpErrorResponse) => {
-        isRefreshing.next(false);
-        return throwError(() => error);
-      }),
-    );
+    return handleTokenRefresh(parameters);
   }
 
+  return waitForTokenRefresh(parameters);
+}
+
+function handleTokenRefresh(parameters: {
+  request: HttpRequest<unknown>;
+  next: HttpHandlerFn;
+  authenticationService: AuthenticationService;
+  alertService: AlertService;
+  storageService: Storage | null;
+  router: Router;
+}): Observable<HttpEvent<unknown>> {
+  isRefreshing.next(true);
+
+  return parameters.authenticationService.refreshToken().pipe(
+    switchMap(() => {
+      isRefreshing.next(false);
+      return retryRequestWithRefreshedToken(parameters);
+    }),
+    catchError((error: HttpErrorResponse) => {
+      isRefreshing.next(false);
+      handleRefreshError(parameters);
+      return throwError(() => error);
+    }),
+  );
+}
+
+function waitForTokenRefresh(parameters: {
+  request: HttpRequest<unknown>;
+  next: HttpHandlerFn;
+  storageService: Storage | null;
+}): Observable<HttpEvent<unknown>> {
   return isRefreshing.pipe(
     filter((refreshing) => !refreshing),
     take(1),
-    switchMap(() => next(request.clone({ withCredentials: true }))),
+    switchMap(() => retryRequestWithRefreshedToken(parameters)),
   );
+}
+
+function retryRequestWithRefreshedToken(parameters: {
+  request: HttpRequest<unknown>;
+  next: HttpHandlerFn;
+  storageService: Storage | null;
+}): Observable<HttpEvent<unknown>> {
+  const refreshedToken = parameters.storageService?.getItem(ACCESS_TOKEN_KEY);
+  const clonedRequest = refreshedToken
+    ? parameters.request.clone({
+        setHeaders: { Authorization: `Bearer ${refreshedToken}` },
+      })
+    : parameters.request;
+  return parameters.next(clonedRequest);
+}
+
+function handleRefreshError(parameters: {
+  authenticationService: AuthenticationService;
+  alertService: AlertService;
+  router: Router;
+}): void {
+  parameters.authenticationService.logOut();
+  parameters.alertService.createErrorAlert(translations.sessionExpired);
+  void parameters.router.navigate([AUTH_URLS.logIn]);
 }
