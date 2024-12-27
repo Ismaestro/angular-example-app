@@ -74,6 +74,7 @@ your feedback!
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/tomasfse"><img src="https://avatars.githubusercontent.com/u/22914697?v=4?s=100" width="100px;" alt="tomasfse"/><br /><sub><b>tomasfse</b></sub></a><br /><a href="#code-tomasfse" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://golu7679.github.io"><img src="https://avatars.githubusercontent.com/u/55990159?v=4?s=100" width="100px;" alt="golu"/><br /><sub><b>golu</b></sub></a><br /><a href="#code-golu7679" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/microsoft/Secure-Supply-Chain/"><img src="https://avatars.githubusercontent.com/u/90811840?v=4?s=100" width="100px;" alt="rancyr"/><br /><sub><b>rancyr</b></sub></a><br /><a href="#code-v-rr" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://www.codingphase.com"><img src="https://avatars.githubusercontent.com/u/26421899?v=4?s=100" width="100px;" alt="codingphasedotcom"/><br /><sub><b>codingphasedotcom</b></sub></a><br /><a href="#code-codingphasedotcom" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
