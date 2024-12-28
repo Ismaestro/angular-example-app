@@ -94,8 +94,10 @@ export class RegisterComponent implements OnInit {
       .subscribe(() => {
         this.checkPasswords();
       });
-    this.pokemonAppearAudio = new Audio('/assets/sounds/battle-effect.mp3');
-    this.pokemonAppearAudio.volume = 0.3;
+    this.pokemonAppearAudio = new Audio(
+      'https://res.cloudinary.com/ismaestro/video/upload/v1735370897/angularexampleapp/assets/sounds/battle-effect_gqckbf.mp3',
+    );
+    this.pokemonAppearAudio.volume = 0.1;
   }
 
   checkPasswords() {

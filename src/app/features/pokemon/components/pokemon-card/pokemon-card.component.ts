@@ -3,7 +3,6 @@ import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, input } fro
 import type { Pokemon } from '~features/pokemon/types/pokemon.type';
 import { CardComponent } from '~core/components/card/card.component';
 import { FirstTitleCasePipe } from '~core/pipes/first-title-case.pipe';
-import { NgOptimizedImage } from '@angular/common';
 
 import '@shoelace-style/shoelace/dist/components/skeleton/skeleton.js';
 
@@ -12,7 +11,7 @@ import '@shoelace-style/shoelace/dist/components/skeleton/skeleton.js';
   templateUrl: './pokemon-card.component.html',
   styleUrl: './pokemon-card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CardComponent, FirstTitleCasePipe, NgOptimizedImage],
+  imports: [CardComponent, FirstTitleCasePipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PokemonCardComponent implements OnInit {

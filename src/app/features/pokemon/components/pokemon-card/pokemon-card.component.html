@@ -6,14 +6,8 @@
     </ng-container>
     <ng-container ngProjectAs="body">
       <div class="pokemon__image-container">
-        <img
-          alt="angular logo"
-          i18n-alt
-          width="100"
-          height="100"
-          priority
-          [ngSrc]="pokemonImage || ''"
-        />
+        <!-- eslint-disable-next-line @angular-eslint/template/prefer-ngsrc -->
+        <img alt="angular logo" i18n-alt width="100" height="100" [src]="pokemonImage || ''" />
       </div>
       <p i18n>N.º: {{pokemon()?.order}}</p>
       <p i18n>Height: {{pokemon()?.height}} dm</p>

@@ -59,6 +59,7 @@ export class HeaderComponent {
   logOutUser() {
     this.authenticationService.logOut();
     clearCache();
+    this.closeMenu();
     void this.router.navigate([ROOT_URLS.home]);
   }
 

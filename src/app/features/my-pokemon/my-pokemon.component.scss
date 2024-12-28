@@ -19,19 +19,9 @@ $empty-image-width: 200px;
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--spacing-r-xl);
-    visibility: hidden;
-    opacity: 0;
 
     @include mq.for-tablet-up {
       grid-template-columns: repeat($grid-columns, 1fr);
-    }
-
-    &.fade-in {
-      animation: fade-in 0.1s forwards;
-    }
-
-    &.fade-out {
-      animation: fade-out 0.4s forwards;
     }
   }
 
@@ -49,29 +39,5 @@ $empty-image-width: 200px;
       width: $empty-image-width;
       height: auto;
     }
-  }
-}
-
-@keyframes fade-in {
-  from {
-    visibility: hidden;
-    opacity: 0;
-  }
-
-  to {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-
-@keyframes fade-out {
-  from {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  to {
-    visibility: hidden;
-    opacity: 0;
   }
 }

@@ -6,7 +6,7 @@
     />
   </div>
   @if (userPokemon === undefined) {
-    <ul class="my-pokemon__grid fade-out">
+    <ul class="my-pokemon__grid">
       <li>
         <app-pokemon-card [loading]="true" />
       </li>
@@ -30,14 +30,14 @@
           class="pokemons-empty__image"
           alt="angular logo"
           i18n-alt
-          ngSrc="/assets/images/ash-jumping.png"
+          ngSrc="angularexampleapp/assets/images/ash-jumping.png"
           width="675"
           height="1280"
         />
       </div>
     </div>
   } @else {
-    <ul i18n class="my-pokemon__grid fade-in">
+    <ul i18n class="my-pokemon__grid">
       @for (pokemon of userPokemon; track pokemon.id) {
         <li>
           <app-pokemon-card [pokemon]="pokemon" />
