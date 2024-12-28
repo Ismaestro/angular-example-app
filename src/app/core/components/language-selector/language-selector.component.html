@@ -2,12 +2,12 @@
   <sl-button class="dropdown-button--primary" slot="trigger" caret>{{
       localeIdText | uppercase
   }}</sl-button>
-  <sl-menu class="menu--primary">
-    <sl-menu-item class="menu-item--primary" value="cut"
-      ><a i18n [href]="'/es' + router.url">ES-ES</a></sl-menu-item
-    >
-    <sl-menu-item class="menu-item--primary" value="copy"
-      ><a i18n [href]="router.url">EN-US</a></sl-menu-item
-    >
-  </sl-menu>
+  <div class="dropdown__content-container">
+    <div class="dropdown__item-container">
+      <a i18n [href]="'/es' + router.url">ES-ES</a>
+    </div>
+    <div class="dropdown__item-container">
+      <a i18n [href]="router.url">EN-US</a>
+    </div>
+  </div>
 </sl-dropdown>

@@ -98,22 +98,21 @@
 
       <!-- USER MENU -->
       <div class="nav__item">
-        <sl-dropdown>
+        <sl-dropdown #avatarDropdown>
           <sl-button class="dropdown-button--avatar" slot="trigger">
             <img
               class="avatar__image"
               alt="avatar image"
               i18n-alt
-              ngSrc="angularexampleapp/assets/images/gengar"
+              ngSrc="angularexampleapp/assets/images/gengar.png"
               width="300"
               height="300"
               priority
             />
           </sl-button>
-          <sl-menu class="menu--primary">
-            <sl-menu-item class="menu-item--primary" value="logout">
+          <div class="dropdown__content-container">
+            <div class="dropdown__item-container">
               <a
-                class="nav__link"
                 routerLinkActive="active"
                 ariaCurrentWhenActive="page"
                 [routerLinkActiveOptions]="{ exact: true }"
@@ -122,13 +121,13 @@
               >
                 {{ translations.myAccount }}
               </a>
-            </sl-menu-item>
-            <sl-menu-item class="menu-item--primary" value="logout">
-              <sl-button class="button__as-link--primary" size="medium" pill (click)="logOutUser()">
+            </div>
+            <div class="dropdown__item-container">
+              <sl-button class="button__as-link--primary" size="medium" (click)="logOutUser()">
                 <ng-container i18n>Log out</ng-container>
               </sl-button>
-            </sl-menu-item>
-          </sl-menu>
+            </div>
+          </div>
         </sl-dropdown>
       </div>
     }

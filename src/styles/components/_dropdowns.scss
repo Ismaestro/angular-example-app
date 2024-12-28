@@ -1,0 +1,42 @@
+@use 'base/media-queries' as mq;
+
+@mixin dropdowns() {
+  .dropdown__content-container {
+    margin-block-start: var(--spacing-r-xl);
+    background: var(--dropdowns-background);
+    border: 1px solid var(--senary-contrast);
+    border-radius: var(--border-radius-sm);
+    box-shadow: none;
+
+    .dropdown__item-container {
+      &:hover {
+        color: var(--dropdown-items-color);
+        background: var(--dropdown-items-background-hover);
+        transition: background 0.3s ease;
+      }
+
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: var(--spacing-r-xl);
+        font-size: var(--font-size-md);
+        color: var(--text-color-secondary);
+        text-decoration: none;
+
+        &:hover {
+          color: var(--text-color-secondary-hover);
+        }
+      }
+
+      sl-button.button__as-link--primary {
+        &::part(base) {
+          display: block;
+          width: 100%;
+          height: 100%;
+          padding: var(--spacing-r-md) var(--spacing-r-xl);
+        }
+      }
+    }
+  }
+}

@@ -7,14 +7,13 @@
 @use 'components/headings';
 @use 'components/alerts';
 @use 'components/links';
+@use 'components/dropdowns';
 @use 'components/buttons';
 @use 'components/forms';
 @use 'components/inputs';
 @use 'components/selects';
 @use 'components/options';
 @use 'components/checkboxes';
-@use 'components/menu';
-@use 'components/menu-items';
 @use 'components/kbd';
 @use 'components/loaders';
 
@@ -28,12 +27,11 @@
 @include alerts.alerts;
 @include links.links;
 @include buttons.buttons;
+@include dropdowns.dropdowns;
 @include forms.forms;
 @include inputs.inputs;
 @include selects.selects;
 @include options.options;
 @include checkboxes.checkboxes;
-@include menu.menu;
-@include menu-items.menu-items;
 @include kbd.kbd;
 @include loaders.loaders;

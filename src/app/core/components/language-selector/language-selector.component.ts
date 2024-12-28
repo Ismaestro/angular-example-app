@@ -2,11 +2,11 @@ import type { OnInit } from '@angular/core';
 import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { UpperCasePipe } from '@angular/common';
+import { LanguageService } from '~core/services/language.service';
 
 import '@shoelace-style/shoelace/dist/components/dropdown/dropdown.js';
-import '@shoelace-style/shoelace/dist/components/menu/menu.js';
-import '@shoelace-style/shoelace/dist/components/menu-item/menu-item.js';
-import { LanguageService } from '~core/services/language.service';
+import { AUTH_URLS } from '~core/constants/urls.constants';
+import { translations } from '../../../../locale/translations';
 
 @Component({
   selector: 'app-language-selector',
@@ -24,4 +24,7 @@ export class LanguageSelectorComponent implements OnInit {
   ngOnInit() {
     this.localeIdText = this.languageService.convertLocaleToAcceptLanguage();
   }
+
+  protected readonly AUTH_URLS = AUTH_URLS;
+  protected readonly translations = translations;
 }

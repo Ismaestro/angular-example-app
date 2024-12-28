@@ -87,14 +87,10 @@
   --options-background-hover: color-mix(in srgb, var(--brand-color-primary) 20%, white 10%);
   --options-color: color-mix(in srgb, var(--brand-color-primary) 60%, white 70%);
 
-  // Menus
-  --menus-background: var(--octonary-contrast);
-  --menus-color: var(--full-contrast);
-
-  // Menu items
-  --menu-items-background: color-mix(in srgb, var(--brand-color-primary) 10%, white 2%);
-  --menu-items-background-hover: color-mix(in srgb, var(--brand-color-primary) 20%, white 10%);
-  --menu-items-color: color-mix(in srgb, var(--brand-color-primary) 60%, white 70%);
+  // Dropdowns
+  --dropdowns-background: var(--octonary-contrast);
+  --dropdown-items-background-hover: color-mix(in srgb, var(--brand-color-primary) 20%, white 10%);
+  --dropdown-items-color: color-mix(in srgb, var(--brand-color-primary) 60%, white 70%);
 
   // Cards
   --card-background-hover: var(--primitive-subtle-purple);
@@ -178,14 +174,10 @@
   --options-background-hover: color-mix(in srgb, var(--brand-color-primary) 20%, white 10%);
   --options-color: color-mix(in srgb, var(--brand-color-primary) 90%, white 70%);
 
-  // Menus
-  --menus-background: var(--octonary-contrast);
-  --menus-color: var(--full-contrast);
-
-  // Menu items
-  --menu-items-background: color-mix(in srgb, var(--brand-color-primary) 10%, white 2%);
-  --menu-items-background-hover: color-mix(in srgb, var(--brand-color-primary) 20%, white 10%);
-  --menu-items-color: color-mix(in srgb, var(--brand-color-primary) 60%, white 70%);
+  // Dropdowns
+  --dropdowns-background: var(--octonary-contrast);
+  --dropdown-items-background-hover: color-mix(in srgb, var(--brand-color-primary) 20%, white 10%);
+  --dropdown-items-color: color-mix(in srgb, var(--brand-color-primary) 60%, white 70%);
 
   // Cards
   --card-background-hover: var(--primitive-cotton-ball);
