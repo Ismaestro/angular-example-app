@@ -53,9 +53,9 @@
         <source> Skip to main content </source>
         <target state="new"> Saltar al contenido principal </target>
       </trans-unit>
-      <trans-unit id="4705896958282279066" datatype="html">
-        <source> This site uses Google Tag Manager and Google Analytics to make it work smoothly and also understand how people use it. </source>
-        <target state="new"> Este sitio utiliza Google Tag Manager y Google Analytics para que funcione sin problemas y también para entender cómo lo usan las personas. </target>
+      <trans-unit id="3382844245855508721" datatype="html">
+        <source> This site uses Google Tag Manager and Google Analytics to make it work smoothly and to understand user behavior. </source>
+        <target state="new"> Este sitio utiliza Google Tag Manager y Google Analytics para que funcione sin problemas y también para entender cómo se comportan los usuarios. </target>
       </trans-unit>
       <trans-unit id="5553776930806289663" datatype="html">
         <source>Ok, got it!</source>
@@ -263,11 +263,11 @@
       </trans-unit>
       <trans-unit id="5831080362044041624" datatype="html">
         <source> This project is a modern, real-world application designed as a foundation for creating new Angular-based projects and also a practical resource for learning. </source>
-        <target state="new"> Este proyecto es una aplicación moderna y real que está diseñada como base para crear nuevos proyectos basados en Angular y también como un recurso práctico para aprender. </target>
+        <target state="new"> Este proyecto es una aplicación actualizada y real que está diseñada como base para crear nuevos proyectos basados en Angular y también como un recurso para aprender. </target>
       </trans-unit>
       <trans-unit id="7358438134446811618" datatype="html">
         <source> It comes with features like internationalization, standalone components, a more logical folder structure, etc, making it a great starting point for building scalable Angular apps. </source>
-        <target state="new"> Viene con características como internacionalización, componentes independientes, una estructura de carpetas más lógica, etc., lo que lo convierte en un excelente punto de partida para crear aplicaciones escalables en Angular. </target>
+        <target state="new"> Incluye características como internacionalización, standalone components, una estructura de carpetas más lógica, etc., lo que lo convierte en un excelente punto de partida para crear aplicaciones en Angular que escalen con facilidad y sean mantenibles. </target>
       </trans-unit>
       <trans-unit id="8976378127227472342" datatype="html">
         <source> Whether you’re looking for a boilerplate or a solid base project, this setup is designed to help you create clean, maintainable code with ease. </source>
@@ -313,11 +313,11 @@
       </trans-unit>
       <trans-unit id="5505216764235661105" datatype="html">
         <source> 🎯 Nice catch, <x id="INTERPOLATION" equiv-text="{{user?.name}}"/>! You’re one step closer to being a Pokémon Master—keep it up! 🌟 </source>
-        <target state="new"> 🎯 Buen intento, <x id="INTERPOLATION" equiv-text="{{user?.name}}"/>! Estás un paso más cerca de ser un Maestro Pokémon—¡sigue así! 🌟 </target>
+        <target state="new"> 🎯 Bien atrapado, <x id="INTERPOLATION" equiv-text="{{user?.name}}"/>! Estás un paso más cerca de ser un Maestro Pokémon—¡sigue así! 🌟 </target>
       </trans-unit>
       <trans-unit id="1335130496718084363" datatype="html">
         <source>Already got this one, keep going!</source>
-        <target state="new">¡Ya tienes este, sigue adelante!</target>
+        <target state="new">¡Este ya lo tienes, sigue adelante!</target>
       </trans-unit>
       <trans-unit id="1000621969408641474" datatype="html">
         <source>Still gotta catch &apos;em all, this one&apos;s missing from your Pokédex!</source>
@@ -325,7 +325,7 @@
       </trans-unit>
       <trans-unit id="9030610327675553750" datatype="html">
         <source> POKEBALL </source>
-        <target state="new"> POKÉBOLA </target>
+        <target state="new"> POKÉBALL </target>
       </trans-unit>
       <trans-unit id="8844151061219581698" datatype="html">
         <source>Trainer frame 1</source>
@@ -389,7 +389,7 @@
       </trans-unit>
       <trans-unit id="7321419453389412321" datatype="html">
         <source>Find a pokemon</source>
-        <target state="new">Encontrar un Pokémon</target>
+        <target state="new">Encuentra un Pokémon</target>
       </trans-unit>
       <trans-unit id="4310922273540502870" datatype="html">
         <source>Account settings saved. You&apos;re all set!</source>
@@ -482,6 +482,42 @@
       <trans-unit id="1476832105912939227" datatype="html">
         <source>Session expired. Please log in.</source>
         <target state="new">La sesión ha caducado. Vuelve a hacer log in.</target>
+      </trans-unit>
+      <trans-unit id="2132215170094453288" datatype="html">
+        <source>avatar image</source>
+        <target state="new">avatar image</target>
+      </trans-unit>
+      <trans-unit id="7895937526865210291" datatype="html">
+        <source>pokemon pikachu</source>
+        <target state="new">pokemon pikachu</target>
+      </trans-unit>
+      <trans-unit id="6126453628105043246" datatype="html">
+        <source>pokemon haunter</source>
+        <target state="new">pokemon haunter</target>
+      </trans-unit>
+      <trans-unit id="1879618927361287924" datatype="html">
+        <source>pokeball</source>
+        <target state="new">pokeball</target>
+      </trans-unit>
+      <trans-unit id="4217645930317264796" datatype="html">
+        <source>ash and pikachu</source>
+        <target state="new">ash y pikachu</target>
+      </trans-unit>
+      <trans-unit id="832917636166100741" datatype="html">
+        <source>pokemon charizard</source>
+        <target state="new">pokemon charizard</target>
+      </trans-unit>
+      <trans-unit id="8621872426885426686" datatype="html">
+        <source>pokemon blastoise</source>
+        <target state="new">pokemon blastoise</target>
+      </trans-unit>
+      <trans-unit id="4142064481735747485" datatype="html">
+        <source>ash jumping with a pokeball</source>
+        <target state="new">ash saltando con una pokeball</target>
+      </trans-unit>
+      <trans-unit id="36896075149498959" datatype="html">
+        <source>pokemon</source>
+        <target state="new">pokemon</target>
       </trans-unit>
     </body>
   </file>

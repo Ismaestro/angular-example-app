@@ -165,8 +165,8 @@
       <trans-unit id="4583602242273481020" datatype="html">
         <source> Report Issues </source>
       </trans-unit>
-      <trans-unit id="4705896958282279066" datatype="html">
-        <source> This site uses Google Tag Manager and Google Analytics to make it work smoothly and also understand how people use it. </source>
+      <trans-unit id="3382844245855508721" datatype="html">
+        <source> This site uses Google Tag Manager and Google Analytics to make it work smoothly and to understand user behavior. </source>
       </trans-unit>
       <trans-unit id="4768749765465246664" datatype="html">
         <source>Email</source>
@@ -357,6 +357,33 @@
       </trans-unit>
       <trans-unit id="1476832105912939227" datatype="html">
         <source>Session expired. Please log in.</source>
+      </trans-unit>
+      <trans-unit id="1879618927361287924" datatype="html">
+        <source>pokeball</source>
+      </trans-unit>
+      <trans-unit id="2132215170094453288" datatype="html">
+        <source>avatar image</source>
+      </trans-unit>
+      <trans-unit id="36896075149498959" datatype="html">
+        <source>pokemon</source>
+      </trans-unit>
+      <trans-unit id="4142064481735747485" datatype="html">
+        <source>ash jumping with a pokeball</source>
+      </trans-unit>
+      <trans-unit id="4217645930317264796" datatype="html">
+        <source>ash and pikachu</source>
+      </trans-unit>
+      <trans-unit id="6126453628105043246" datatype="html">
+        <source>pokemon haunter</source>
+      </trans-unit>
+      <trans-unit id="7895937526865210291" datatype="html">
+        <source>pokemon pikachu</source>
+      </trans-unit>
+      <trans-unit id="832917636166100741" datatype="html">
+        <source>pokemon charizard</source>
+      </trans-unit>
+      <trans-unit id="8621872426885426686" datatype="html">
+        <source>pokemon blastoise</source>
       </trans-unit>
     </body>
   </file>
