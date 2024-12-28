@@ -8,18 +8,9 @@
 # You can see what browsers were selected by your queries by running:
 #   npx browserslist
 
-# Support the last 2 versions of all major browsers (including mobile)
-last 2 versions
-
 # Include the most recent version of Firefox and Chrome, as well as Safari and Edge
 Firefox >= 78
 Chrome >= 90
 Safari >= 14
 Edge >= 90
 
-# Include popular browsers in specific regions (e.g., China, India)
-> 0.5% in CN # For China
-> 0.5% in IN # For India
-
-# Ensure support for browsers used by a significant portion of users
-> 0.5% # Global browser market share greater than 0.5%
