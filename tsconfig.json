@@ -22,7 +22,6 @@
     "module": "ES2022",
     "lib": ["ES2022", "dom"],
     "paths": {
-      "~assets/*": ["src/assets/*"],
       "~environments/*": ["src/environments/*"],
       "~core/*": ["src/app/core/*"],
       "~features/*": ["src/app/features/*"]

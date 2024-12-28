@@ -10,7 +10,7 @@ export class LowercaseDirective {
   private readonly ngControl = inject(NgControl);
 
   @HostListener('keydown') onKeyDown() {
-    const {control} = this.ngControl;
+    const { control } = this.ngControl;
     if (control) {
       control.setValue(this.el.nativeElement.value.toLowerCase());
     }
