@@ -29,7 +29,7 @@ $battle-terrain-container-border-color: #444;
         width: 45px;
         height: auto;
         opacity: 0;
-        transition: opacity 0.5s ease-in-out;
+        transition: opacity 1s ease-in-out;
 
         @include mq.for-tablet-up {
           bottom: 0;
@@ -44,12 +44,12 @@ $battle-terrain-container-border-color: #444;
 
       &.animate .trainer-1 {
         animation:
-          trainer-throw-pokeball 0.3s 0s forwards,
+          trainer-throw-pokeball 0s 0.3s forwards,
           stay-visible 0s 0.9s forwards;
       }
 
       &.animate .trainer-2 {
-        animation: trainer-throw-pokeball 0.3s 0.2s forwards;
+        animation: trainer-throw-pokeball 0.3s 0.4s forwards;
       }
 
       &.animate .trainer-3 {
