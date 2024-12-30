@@ -28,7 +28,7 @@ export class AlertService {
   }
 
   createErrorAlert(message: string) {
-    this.createAlert({ message, type: AlertType.ERROR, duration: 10_000, hasCountdown: true });
+    this.createAlert({ message, type: AlertType.ERROR });
   }
 
   private createAlert(alert: Alert): void {
