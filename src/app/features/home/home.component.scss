@@ -27,9 +27,16 @@ $separator-margin: 0 10px 35px 0;
     grid-template-columns: repeat(1, 1fr);
     grid-gap: var(--spacing-r-xxl);
     margin-block: var(--spacing-r-xl);
+    margin-block-end: var(--spacing-r-5xl);
 
     @include mq.for-tablet-portrait-up {
       grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .real-time__container {
+    p {
+      text-align: center;
     }
   }
 
