@@ -2,7 +2,7 @@
   "name": "angularexampleapp",
   "version": "19.0.0",
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "npx husky install",
     "start": "ng serve --configuration=development-en --open",
     "start:es": "ng serve --configuration=development-es --open",
     "extract": "ng extract-i18n --format=xlf --output-path=src/locale",
@@ -12,12 +12,9 @@
     "test:watch": "ng test --code-coverage",
     "e2e": "npm run playwright:install && npm run playwright:test",
     "playwright:install": "npx playwright install && npx playwright install-deps",
-    "playwright:test": "playwright test",
+    "playwright:test": "npx playwright test",
     "build": "ng build && mv -v dist/angularexampleapp/browser/en/* dist/angularexampleapp/browser/ && rm -Rf dist/angularexampleapp/browser/en",
-    "bundle-report": "ng build --configuration=production-sourcemaps && source-map-explorer dist/angularexampleapp/browser/**/*.js",
-    "release:patch": "standard-version --release-as patch && git push --follow-tags origin master",
-    "release:minor": "standard-version --release-as minor && git push --follow-tags origin master",
-    "release:major": "standard-version --release-as major && git push --follow-tags origin master"
+    "bundle-report": "ng build --configuration=production-sourcemaps && source-map-explorer dist/angularexampleapp/browser/**/*.js"
   },
   "dependencies": {
     "@angular/animations": "19.0.5",
