@@ -37,6 +37,7 @@ export class ThemeButtonComponent {
 
   toggleTheme() {
     this.themeSelected =
+      // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
       this.themeManagerService.getThemeFromLocalStorageValue() === Theme.DARK ||
       this.themeSelected === null
         ? Theme.LIGHT
