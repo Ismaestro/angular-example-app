@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   fetchRealtimeUsers(): void {
     this.googleAnalyticsService.getRealtimeUsers().subscribe({
       next: (data) => {
-        this.activeUsers = Math.max(data.activeUsers, 1);
+        this.activeUsers = Math.max(data.activeUsers || 0, 1);
         this.changeDetectorRef.markForCheck();
       },
     });
