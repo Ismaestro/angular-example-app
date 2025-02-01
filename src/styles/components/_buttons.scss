@@ -86,8 +86,8 @@ $pokedex-button-border-color: #7d7897;
         left: var(--spacing-xs);
         content: '▶';
         opacity: 0;
-        transition: opacity 0.1s;
         transform: translateY(-50%);
+        transition: opacity 0.1s;
       }
 
       &:hover {

@@ -31,8 +31,8 @@ $page-max-width: 2560px;
     background: var(--primary-contrast);
     border: 1px solid var(--brand-color-tertiary);
     border-radius: var(--border-radius-sm);
-    transition: transform 0.3s ease-out;
     transform: translateY(-150%);
+    transition: transform 0.3s ease-out;
 
     &:focus {
       transform: translateY(0);
