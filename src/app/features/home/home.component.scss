@@ -35,6 +35,8 @@ $separator-margin: 0 10px 35px 0;
   }
 
   .real-time__container {
+    margin-block-start: var(--spacing-r-5xl);
+
     p {
       text-align: center;
     }
