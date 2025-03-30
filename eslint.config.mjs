@@ -139,6 +139,7 @@ export default tsEslint.config(
     files: ['**/*.html'],
     extends: [...angular.configs.templateAll],
     rules: {
+      '@angular-eslint/template/no-call-expression': 'off',
       '@angular-eslint/template/i18n': [
         'error',
         {

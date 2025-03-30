@@ -1,4 +1,4 @@
-<div class="pokedex__container" [class.closed]="isPokedexClosed">
+<div class="pokedex__container" [class.closed]="isPokedexClosed()">
   <div
     class="pokedex__top-part-container"
     tabindex="0"
@@ -10,10 +10,9 @@
       <figure class="pokedex__flap-back">
         <div i18n class="pokedex__top-data-container">
           <div class="pokedex__pokemon-image-container">
-            <app-pokemon-image [image]="pokemonImage" />
+            <app-pokemon-image [image]="pokemonImage()" />
           </div>
           <div class="pokedex__top-text-container">
-            <!-- eslint-disable-next-line @angular-eslint/template/no-call-expression -->
             @if (pokemon()) {
               <p class="pokemon__name-text">{{pokemon()?.name | firstTitleCase}}</p>
               <p>N.º: {{pokemon()?.order}}</p>
@@ -32,12 +31,12 @@
       <div class="pokedex__pad-circle"></div>
     </div>
     <div class="pokedex__bottom-data-container">
-      @if (userHasCaught) {
+      @if (userHasCaught()) {
         <p i18n>
           🎯 Nice catch, {{user?.name}}! You’re one step closer to being a Pokémon Master—keep it
           up! 🌟
         </p>
-      } @else if (userHasPokemon) {
+      } @else if (userHasPokemon()) {
         <p i18n>Already got this one, keep going!</p>
       } @else {
         <p i18n>Still gotta catch 'em all, this one's missing from your Pokédex!</p>
@@ -45,7 +44,7 @@
           <sl-button
             i18n
             class="button--pokemon-style"
-            [disabled]="isPokedexButtonDisabled"
+            [disabled]="isPokedexButtonDisabled()"
             (click)="catchPokemon()"
           >
             POKEBALL

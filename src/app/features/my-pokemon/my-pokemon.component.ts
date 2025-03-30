@@ -1,11 +1,11 @@
 import type { OnInit } from '@angular/core';
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
   DestroyRef,
   inject,
+  signal,
 } from '@angular/core';
 import { UserService } from '~features/authentication/services/user.service';
 import { PokemonCardComponent } from '~features/pokemon/components/pokemon-card/pokemon-card.component';
@@ -29,13 +29,13 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 export class MyPokemonComponent implements OnInit {
   private readonly userService = inject(UserService);
   private readonly pokemonService = inject(PokemonService);
-  private readonly changeDetectorRef = inject(ChangeDetectorRef);
   private readonly alertService = inject(AlertService);
   private readonly destroyRef = inject(DestroyRef);
 
   readonly translations = translations;
+  readonly userPokemons = signal<Pokemon[] | null>(null);
+
   user: User | undefined;
-  userPokemon: Pokemon[] | undefined;
 
   ngOnInit() {
     this.userService
@@ -50,16 +50,14 @@ export class MyPokemonComponent implements OnInit {
               .pipe(takeUntilDestroyed(this.destroyRef))
               .subscribe({
                 next: (pokemons) => {
-                  this.userPokemon = pokemons;
-                  this.changeDetectorRef.markForCheck();
+                  this.userPokemons.set(pokemons);
                 },
                 error: () => {
                   this.alertService.createErrorAlert(translations.genericErrorAlert);
                 },
               });
           } else {
-            this.userPokemon = [];
-            this.changeDetectorRef.markForCheck();
+            this.userPokemons.set([]);
           }
         },
       });

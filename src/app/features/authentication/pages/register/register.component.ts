@@ -1,12 +1,12 @@
 import type { OnInit } from '@angular/core';
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   computed,
   CUSTOM_ELEMENTS_SCHEMA,
   DestroyRef,
   inject,
+  signal,
 } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
@@ -21,13 +21,13 @@ import { merge } from 'rxjs';
 import { AppSlCheckboxControlDirective } from '~core/directives/sl-checkbox-control.directive';
 import { AuthenticationService } from '~features/authentication/services/authentication.service';
 import { NumberService } from '~core/services/number.service';
+import { AlertService } from '~core/services/alert.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/input/input.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import '@shoelace-style/shoelace/dist/components/checkbox/checkbox.js';
-import { AlertService } from '~core/services/alert.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-register',
@@ -44,7 +44,6 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class RegisterComponent implements OnInit {
-  private readonly changeDetectorRef = inject(ChangeDetectorRef);
   private readonly router = inject(Router);
   private readonly formBuilder = inject(FormBuilder);
   private readonly authService = inject(AuthenticationService);
@@ -54,6 +53,8 @@ export class RegisterComponent implements OnInit {
   private readonly destroyRef = inject(DestroyRef);
 
   readonly isPokemonValidating = computed(this.validatingPokemonValue);
+  readonly isButtonRegisterLoading = signal(false);
+  readonly registrationCompleted = signal(false);
 
   pokemonValidator = inject(PokemonValidator);
   translations = translations;
@@ -83,8 +84,6 @@ export class RegisterComponent implements OnInit {
     favouritePokemon: this.favouritePokemon,
     terms: this.terms,
   });
-  isButtonRegisterLoading = false;
-  registrationCompleted = false;
   confirmPasswordHelpText = '';
 
   ngOnInit() {
@@ -116,7 +115,7 @@ export class RegisterComponent implements OnInit {
   sendForm() {
     this.registerForm.markAllAsTouched();
     if (this.registerForm.valid) {
-      this.isButtonRegisterLoading = true;
+      this.isButtonRegisterLoading.set(true);
       const formValue = this.registerForm.getRawValue();
       this.authService
         .register({
@@ -132,9 +131,8 @@ export class RegisterComponent implements OnInit {
             this.playSoundAndNavigate();
           },
           error: () => {
-            this.isButtonRegisterLoading = false;
+            this.isButtonRegisterLoading.set(false);
             this.alertService.createErrorAlert(translations.genericRegisterError);
-            this.changeDetectorRef.markForCheck();
           },
         });
     }
@@ -144,8 +142,7 @@ export class RegisterComponent implements OnInit {
     this.pokemonAppearAudio
       .play()
       .then(() => {
-        this.registrationCompleted = true;
-        this.changeDetectorRef.markForCheck();
+        this.registrationCompleted.set(true);
         const ANIMATION_END_TIME = 2300;
         setTimeout(() => {
           const LAST_POKEMON_ID = 1025;

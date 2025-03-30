@@ -97,7 +97,6 @@
         [formControl]="favouritePokemon"
       >
         <sl-icon name="star" slot="prefix" />
-        <!-- eslint-disable-next-line @angular-eslint/template/no-call-expression -->
         @if (isPokemonValidating()) {
           <img
             class="loading__image"
@@ -128,9 +127,9 @@
         size="medium"
         pill
         type="submit"
-        [disabled]="isButtonRegisterLoading"
-        [class.pokemon-appear]="registrationCompleted"
-        [attr.loading]="isButtonRegisterLoading || null"
+        [disabled]="isButtonRegisterLoading()"
+        [class.pokemon-appear]="registrationCompleted()"
+        [attr.loading]="isButtonRegisterLoading() || null"
       >
         <ng-container i18n>Create account</ng-container>
       </sl-button>

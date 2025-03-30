@@ -1,13 +1,13 @@
 import {
   type AfterViewInit,
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   effect,
   type ElementRef,
   inject,
   input,
   output,
+  signal,
   type Signal,
   viewChild,
 } from '@angular/core';
@@ -22,16 +22,14 @@ import { NgStyle } from '@angular/common';
   imports: [NgStyle],
 })
 export class PokemonImageComponent implements AfterViewInit {
-  private readonly changeDetectorRef = inject(ChangeDetectorRef);
   private readonly cropImageService = inject(CropImageService);
 
   readonly loaded = output<boolean>();
   readonly canvas: Signal<ElementRef<HTMLCanvasElement> | undefined> = viewChild('canvas');
   readonly image = input<string>();
   readonly imageWidth = input<string>('100%');
-
-  croppedBase64Image!: string;
-  croppedImageLoaded = false;
+  readonly croppedBase64Image = signal('');
+  readonly croppedImageLoaded = signal(false);
 
   constructor() {
     effect(() => {
@@ -53,17 +51,15 @@ export class PokemonImageComponent implements AfterViewInit {
       void this.cropImageService
         .getCroppedImageURL(canvasElement.nativeElement, imageValue)
         .then((base64Image) => {
-          this.croppedBase64Image = base64Image;
+          this.croppedBase64Image.set(base64Image);
           this.loaded.emit(true);
-          this.changeDetectorRef.markForCheck();
           return base64Image;
         });
     }
   }
 
   private resetState() {
-    this.croppedBase64Image = '';
-    this.croppedImageLoaded = false;
-    this.changeDetectorRef.markForCheck();
+    this.croppedBase64Image.set('');
+    this.croppedImageLoaded.set(false);
   }
 }

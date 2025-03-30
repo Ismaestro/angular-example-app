@@ -2,10 +2,10 @@
   <h1 class="first-heading__title" i18n>My Pokemon</h1>
   <div class="my-pokemon__search-container">
     <app-pokemon-search
-      [title]="userPokemon?.length ? translations.findMore : translations.findPokemon"
+      [title]="userPokemons()?.length ? translations.findMore : translations.findPokemon"
     />
   </div>
-  @if (userPokemon === undefined) {
+  @if (!userPokemons()) {
     <ul class="my-pokemon__grid">
       <li>
         <app-pokemon-card [loading]="true" />
@@ -17,7 +17,7 @@
         <app-pokemon-card [loading]="true" />
       </li>
     </ul>
-  } @else if (!userPokemon.length) {
+  } @else if (!userPokemons()?.length) {
     <div class="pokemons-empty__container">
       <div>
         <p i18n>
@@ -38,7 +38,7 @@
     </div>
   } @else {
     <ul i18n class="my-pokemon__grid">
-      @for (pokemon of userPokemon; track pokemon.id) {
+      @for (pokemon of userPokemons(); track pokemon.id) {
         <li>
           <app-pokemon-card [pokemon]="pokemon" />
         </li>

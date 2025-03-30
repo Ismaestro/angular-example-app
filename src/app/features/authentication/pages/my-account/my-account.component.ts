@@ -1,11 +1,11 @@
 import type { OnInit } from '@angular/core';
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
   DestroyRef,
   inject,
+  signal,
 } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -21,15 +21,15 @@ import { AppSlSelectControlDirective } from '~core/directives/sl-select-control.
 import { ThemeButtonComponent } from '~core/components/theme-button/theme-button.component';
 import { NgOptimizedImage } from '@angular/common';
 import { AlertService } from '~core/services/alert.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { LanguageService } from '~core/services/language.service';
+import { AUTH_URLS } from '~core/constants/urls.constants';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/input/input.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import '@shoelace-style/shoelace/dist/components/select/select.js';
 import '@shoelace-style/shoelace/dist/components/option/option.js';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { LanguageService } from '~core/services/language.service';
-import { AUTH_URLS } from '~core/constants/urls.constants';
 
 @Component({
   selector: 'app-my-account',
@@ -48,7 +48,6 @@ import { AUTH_URLS } from '~core/constants/urls.constants';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class MyAccountComponent implements OnInit {
-  private readonly changeDetectorRef = inject(ChangeDetectorRef);
   private readonly formBuilder = inject(FormBuilder);
   private readonly userService = inject(UserService);
   private readonly pokemonService = inject(PokemonService);
@@ -56,10 +55,12 @@ export class MyAccountComponent implements OnInit {
   private readonly destroyRef = inject(DestroyRef);
   private readonly languageService = inject(LanguageService);
 
+  readonly isButtonUpdateUserFormLoading = signal(false);
+  readonly pokemonImage = signal('');
+
   translations = translations;
   user: User | undefined;
   userFavouritePokemon: Pokemon | undefined;
-  pokemonImage: string | undefined;
   name = new FormControl('', [Validators.required, Validators.minLength(2)]);
   email = new FormControl('');
   language = new FormControl<Language>(Language.EN_US, [Validators.required]);
@@ -68,7 +69,6 @@ export class MyAccountComponent implements OnInit {
     language: this.language,
     email: this.email,
   });
-  isButtonUpdateUserFormLoading = false;
 
   ngOnInit() {
     this.email.disable();
@@ -100,8 +100,7 @@ export class MyAccountComponent implements OnInit {
       .subscribe({
         next: (pokemon) => {
           this.userFavouritePokemon = pokemon;
-          this.pokemonImage = this.userFavouritePokemon.sprites.front_default;
-          this.changeDetectorRef.markForCheck();
+          this.pokemonImage.set(this.userFavouritePokemon.sprites.front_default);
         },
         error: () => {
           this.alertService.createErrorAlert(translations.genericErrorAlert);
@@ -112,7 +111,7 @@ export class MyAccountComponent implements OnInit {
   sendForm() {
     this.updateUserForm.markAllAsTouched();
     if (this.updateUserForm.valid) {
-      this.isButtonUpdateUserFormLoading = true;
+      this.isButtonUpdateUserFormLoading.set(true);
       this.updateUser();
     }
   }
@@ -127,15 +126,13 @@ export class MyAccountComponent implements OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: () => {
-          this.isButtonUpdateUserFormLoading = false;
           this.alertService.createSuccessAlert(translations.myAccountSuccessAlert);
-          this.changeDetectorRef.markForCheck();
           this.languageService.navigateWithUserLanguage(formValue.language!, AUTH_URLS.myAccount);
+          this.isButtonUpdateUserFormLoading.set(false);
         },
         error: () => {
-          this.isButtonUpdateUserFormLoading = false;
+          this.isButtonUpdateUserFormLoading.set(false);
           this.alertService.createErrorAlert(translations.genericErrorAlert);
-          this.changeDetectorRef.markForCheck();
         },
       });
   }

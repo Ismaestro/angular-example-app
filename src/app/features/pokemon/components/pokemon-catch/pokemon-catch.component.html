@@ -1,5 +1,5 @@
-@if (pokemonState !== 'disappear') {
-  <div class="pokemon__container" [@pokemonAnimation]="pokemonState">
+@if (pokemonState() !== 'disappear') {
+  <div class="pokemon__container" [@pokemonAnimation]="pokemonState()">
     <ng-content select="image" />
   </div>
 }
@@ -12,11 +12,11 @@
   i18n-alt
   height="100"
   width="100"
-  [@pokeballAnimation]="pokeballState"
+  [@pokeballAnimation]="pokeballState()"
   [ngStyle]="{
-    '--pokeball-starting-point': pokeballStartingPoint,
-    '--pokeball-pokemon-x-point': pokeballPokemonXPoint,
-    '--pokeball-pokemon-y-point': pokeballPokemonYPoint,
-    '--pokeball-ground-y-point': pokeballGroundYPoint
+    '--pokeball-starting-point': pokeballStartingPoint(),
+    '--pokeball-pokemon-x-point': pokeballPokemonXPoint(),
+    '--pokeball-pokemon-y-point': pokeballPokemonYPoint(),
+    '--pokeball-ground-y-point': pokeballGroundYPoint()
   }"
 />

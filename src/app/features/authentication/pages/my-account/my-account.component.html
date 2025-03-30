@@ -54,9 +54,9 @@
     </div>
     <div class="form-control__container favourite-pokemon__container">
       <p i18n>Your favourite pokemon is:</p>
-      @if (pokemonImage) {
+      @if (pokemonImage()) {
         <div class="favourite-pokemon__image-container">
-          <app-pokemon-image [image]="pokemonImage" />
+          <app-pokemon-image [image]="pokemonImage()" />
         </div>
       }
     </div>
@@ -66,7 +66,7 @@
         size="medium"
         pill
         type="submit"
-        [attr.loading]="isButtonUpdateUserFormLoading || null"
+        [attr.loading]="isButtonUpdateUserFormLoading() || null"
       >
         <ng-container i18n>Save</ng-container>
       </sl-button>

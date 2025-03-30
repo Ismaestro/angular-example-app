@@ -48,8 +48,8 @@
         size="medium"
         pill
         type="submit"
-        [disabled]="isButtonLogInLoading"
-        [attr.loading]="isButtonLogInLoading || null"
+        [disabled]="isButtonLogInLoading()"
+        [attr.loading]="isButtonLogInLoading() || null"
       >
         <ng-container i18n>Enter</ng-container>
       </sl-button>

@@ -1,11 +1,10 @@
 import type { OnInit } from '@angular/core';
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   effect,
-  inject,
   input,
+  signal,
   type WritableSignal,
 } from '@angular/core';
 import { NgOptimizedImage, NgStyle } from '@angular/common';
@@ -38,17 +37,13 @@ enum PokemonState {
   },
 })
 export class PokemonCatchComponent implements OnInit {
-  private readonly changeDetectorRef = inject(ChangeDetectorRef);
-
   readonly pokemonBattleEvent = input.required<WritableSignal<BattleEvent>>();
-
-  pokeballState: PokeballState = PokeballState.Idle;
-  pokemonState: PokemonState = PokemonState.Idle;
-
-  pokeballStartingPoint!: string;
-  pokeballPokemonXPoint!: string;
-  pokeballPokemonYPoint!: string;
-  pokeballGroundYPoint!: string;
+  readonly pokeballStartingPoint = signal('');
+  readonly pokeballPokemonXPoint = signal('');
+  readonly pokeballPokemonYPoint = signal('');
+  readonly pokeballGroundYPoint = signal('');
+  readonly pokeballState = signal(PokeballState.Idle);
+  readonly pokemonState = signal(PokemonState.Idle);
 
   constructor() {
     effect(() => {
@@ -60,9 +55,8 @@ export class PokemonCatchComponent implements OnInit {
         pokemonBattleEvent() === BattleEvent.POKEMON_LOADED ||
         pokemonBattleEvent() === BattleEvent.RESET_BATTLE
       ) {
-        this.pokeballState = PokeballState.Idle;
-        this.pokemonState = PokemonState.Idle;
-        this.changeDetectorRef.markForCheck();
+        this.pokeballState.set(PokeballState.Idle);
+        this.pokemonState.set(PokemonState.Idle);
       }
     });
   }
@@ -72,29 +66,23 @@ export class PokemonCatchComponent implements OnInit {
   }
 
   startCatchAnimation() {
-    this.pokeballState = PokeballState.Catching;
-    this.changeDetectorRef.markForCheck();
+    this.pokeballState.set(PokeballState.Catching);
 
     setTimeout(() => {
-      this.pokemonState = PokemonState.Shining;
-      this.changeDetectorRef.markForCheck();
+      this.pokemonState.set(PokemonState.Shining);
     }, 500);
     setTimeout(() => {
-      this.pokemonState = PokemonState.Disappear;
-      this.changeDetectorRef.markForCheck();
+      this.pokemonState.set(PokemonState.Disappear);
     }, 1500);
     setTimeout(() => {
-      this.pokeballState = PokeballState.Falling;
-      this.changeDetectorRef.markForCheck();
+      this.pokeballState.set(PokeballState.Falling);
     }, 1700);
     setTimeout(() => {
-      this.pokeballState = PokeballState.Shaking;
-      this.changeDetectorRef.markForCheck();
+      this.pokeballState.set(PokeballState.Shaking);
     }, 3000);
     setTimeout(() => {
-      this.pokeballState = PokeballState.Shining;
+      this.pokeballState.set(PokeballState.Shining);
       this.pokemonBattleEvent().set(BattleEvent.CATCH_ANIMATION_ENDED);
-      this.changeDetectorRef.markForCheck();
     }, 6500);
   }
 
@@ -104,20 +92,19 @@ export class PokemonCatchComponent implements OnInit {
     } else {
       this.setDesktopPositions();
     }
-    this.changeDetectorRef.markForCheck();
   }
 
   private setMobilePositions() {
-    this.pokeballStartingPoint = '0px, -80px';
-    this.pokeballPokemonXPoint = '105px';
-    this.pokeballPokemonYPoint = '-140px';
-    this.pokeballGroundYPoint = '-80px';
+    this.pokeballStartingPoint.set('0px, -80px');
+    this.pokeballPokemonXPoint.set('105px');
+    this.pokeballPokemonYPoint.set('-140px');
+    this.pokeballGroundYPoint.set('-80px');
   }
 
   private setDesktopPositions() {
-    this.pokeballStartingPoint = '80px, 15px';
-    this.pokeballPokemonXPoint = '260px';
-    this.pokeballPokemonYPoint = '-100px';
-    this.pokeballGroundYPoint = '-10px';
+    this.pokeballStartingPoint.set('80px, 15px');
+    this.pokeballPokemonXPoint.set('260px');
+    this.pokeballPokemonYPoint.set('-100px');
+    this.pokeballGroundYPoint.set('-10px');
   }
 }

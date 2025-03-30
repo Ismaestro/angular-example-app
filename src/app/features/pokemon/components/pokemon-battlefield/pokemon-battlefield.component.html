@@ -1,5 +1,5 @@
 <div class="pokemon-battlefield__container">
-  <div class="pokemon-battlefield__trainer-container" [class.animate]="startCatchAnimation">
+  <div class="pokemon-battlefield__trainer-container" [class.animate]="startCatchAnimation()">
     <img
       class="pokemon-battlefield__trainer-image trainer-1"
       ngSrc="angularexampleapp/assets/images/trainer-1.png"
@@ -34,12 +34,11 @@
       width="178"
     />
   </div>
-  <div class="pokemon-battlefield__pokemon-image-container" [class.loaded]="pokemonImageLoaded">
-    <!-- eslint-disable-next-line @angular-eslint/template/no-call-expression -->
+  <div class="pokemon-battlefield__pokemon-image-container" [class.loaded]="pokemonImageLoaded()">
     <app-pokemon-catch [pokemonBattleEvent]="pokemonBattleEvent()">
       <ng-container ngProjectAs="image">
         <app-pokemon-image
-          [image]="pokemonImage"
+          [image]="pokemonImage()"
           [imageWidth]="'170%'"
           (loaded)="startPokemonInitialAnimation($event)"
         />

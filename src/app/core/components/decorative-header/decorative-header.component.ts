@@ -1,11 +1,11 @@
 import type { OnInit } from '@angular/core';
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   DestroyRef,
   inject,
   input,
+  signal,
 } from '@angular/core';
 import type { SafeHtml } from '@angular/platform-browser';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -20,14 +20,12 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   standalone: true,
 })
 export class DecorativeHeaderComponent implements OnInit {
-  private readonly changeDetectorRef = inject(ChangeDetectorRef);
   private readonly fileService = inject(FileService);
   private readonly domSanitizer = inject(DomSanitizer);
   private readonly destroyRef = inject(DestroyRef);
 
   readonly svgUrl = input<string>('');
-
-  svgContent: SafeHtml | null = null;
+  readonly svgContent = signal<SafeHtml | null>(null);
 
   ngOnInit(): void {
     if (this.svgUrl()) {
@@ -36,8 +34,7 @@ export class DecorativeHeaderComponent implements OnInit {
         .pipe(takeUntilDestroyed(this.destroyRef))
         .subscribe({
           next: (svg) => {
-            this.svgContent = this.domSanitizer.bypassSecurityTrustHtml(svg);
-            this.changeDetectorRef.markForCheck();
+            this.svgContent.set(this.domSanitizer.bypassSecurityTrustHtml(svg));
           },
         });
     }

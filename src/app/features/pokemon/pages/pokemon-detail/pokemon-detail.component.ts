@@ -1,7 +1,6 @@
 import type { OnInit } from '@angular/core';
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
   DestroyRef,
@@ -29,17 +28,16 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   imports: [PokemonBattlefieldComponent, PokedexComponent],
 })
 export class PokemonDetailComponent implements OnInit {
-  private readonly changeDetectorRef = inject(ChangeDetectorRef);
   readonly router = inject(Router);
   private readonly destroyRef = inject(DestroyRef);
   private readonly activatedRoute = inject(ActivatedRoute);
   private readonly pokemonService = inject(PokemonService);
   private readonly alertService = inject(AlertService);
 
+  readonly pokemon = signal<Pokemon | null>(null);
+
   // eslint-disable-next-line @angular-eslint/prefer-signals
   pokemonBattleEvent = signal(BattleEvent.POKEMON_LOADED);
-
-  pokemon!: Pokemon;
 
   ngOnInit() {
     this.activatedRoute.paramMap.pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
@@ -62,9 +60,8 @@ export class PokemonDetailComponent implements OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (pokemon) => {
-          this.pokemon = pokemon;
+          this.pokemon.set(pokemon);
           this.pokemonBattleEvent.set(BattleEvent.RESET_BATTLE);
-          this.changeDetectorRef.markForCheck();
         },
         error: () => {
           this.alertService.createErrorAlert(translations.pokemonNotFoundError);

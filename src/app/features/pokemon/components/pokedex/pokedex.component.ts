@@ -1,13 +1,13 @@
 import type { OnInit, WritableSignal } from '@angular/core';
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
   DestroyRef,
   effect,
   inject,
   input,
+  signal,
 } from '@angular/core';
 import type { Pokemon } from '~features/pokemon/types/pokemon.type';
 import { PokemonImageComponent } from '~features/pokemon/components/pokemon-image/pokemon-image.component';
@@ -28,22 +28,21 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   imports: [PokemonImageComponent, FirstTitleCasePipe],
 })
 export class PokedexComponent implements OnInit {
-  private readonly changeDetectorRef = inject(ChangeDetectorRef);
   private readonly userService = inject(UserService);
   private readonly alertService = inject(AlertService);
   private readonly destroyRef = inject(DestroyRef);
 
   readonly pokemonBattleEvent = input.required<WritableSignal<BattleEvent>>();
-  readonly pokemon = input<Pokemon>();
+  readonly pokemon = input<Pokemon | null>();
+  readonly isPokedexClosed = signal(true);
+  readonly pokemonImage = signal('');
+  readonly userHasCaught = signal(false);
+  readonly userHasPokemon = signal(true);
+  readonly isPokedexButtonDisabled = signal(false);
 
   translations = translations;
   user: User | undefined;
   updatedUser: User | undefined;
-  userHasCaught = false;
-  userHasPokemon = true;
-  isPokedexClosed = true;
-  isPokedexButtonDisabled = false;
-  pokemonImage: string | undefined;
 
   constructor() {
     effect(() => {
@@ -61,11 +60,10 @@ export class PokedexComponent implements OnInit {
         .subscribe({
           next: (user: User) => {
             this.user = user;
-            this.pokemonImage = pokemonValue.sprites.front_default;
-            this.userHasPokemon = user.caughtPokemonIds.includes(pokemonValue.id);
+            this.pokemonImage.set(pokemonValue.sprites.front_default);
+            this.userHasPokemon.set(user.caughtPokemonIds.includes(pokemonValue.id));
             setTimeout(() => {
-              this.isPokedexClosed = false;
-              this.changeDetectorRef.markForCheck();
+              this.isPokedexClosed.set(false);
             }, 300);
           },
           error: () => {
@@ -76,18 +74,18 @@ export class PokedexComponent implements OnInit {
   }
 
   togglePokedex() {
-    this.isPokedexClosed = !this.isPokedexClosed;
+    this.isPokedexClosed.set(!this.isPokedexClosed());
   }
 
   notifyBattlefield() {
-    this.isPokedexButtonDisabled = true;
+    this.isPokedexButtonDisabled.set(true);
     (this.pokemonBattleEvent() as unknown as WritableSignal<BattleEvent>).set(
       BattleEvent.THROW_POKEBALL,
     );
   }
 
   catchPokemon() {
-    this.userHasCaught = false;
+    this.userHasCaught.set(false);
     const pokemonId = this.pokemon()?.id;
     if (pokemonId) {
       this.userService
@@ -105,9 +103,8 @@ export class PokedexComponent implements OnInit {
   private updatePokemonState(): void {
     const pokemonValue = this.pokemon();
     if (pokemonValue) {
-      this.pokemonImage = pokemonValue.sprites.front_default;
-      this.userHasPokemon = this.user?.caughtPokemonIds.includes(pokemonValue.id) ?? false;
-      this.changeDetectorRef.markForCheck();
+      this.pokemonImage.set(pokemonValue.sprites.front_default);
+      this.userHasPokemon.set(this.user?.caughtPokemonIds.includes(pokemonValue.id) ?? false);
     }
   }
 
@@ -131,18 +128,16 @@ export class PokedexComponent implements OnInit {
   private handleCatchAnimationEnded(): void {
     if (this.updatedUser) {
       this.user = this.updatedUser;
-      this.userHasCaught = true;
-      this.changeDetectorRef.markForCheck();
+      this.userHasCaught.set(true);
     }
   }
 
   private handleResetBattle(): void {
-    this.userHasCaught = false;
-    this.isPokedexButtonDisabled = false;
+    this.userHasCaught.set(false);
+    this.isPokedexButtonDisabled.set(false);
     const pokemonValue = this.pokemon();
     const pokemonId = pokemonValue?.id;
     const caughtPokemonIds = this.user?.caughtPokemonIds ?? [];
-    this.userHasPokemon = pokemonId ? caughtPokemonIds.includes(pokemonId) : true;
-    this.changeDetectorRef.markForCheck();
+    this.userHasPokemon.set(pokemonId ? caughtPokemonIds.includes(pokemonId) : true);
   }
 }
