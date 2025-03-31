@@ -1,11 +1,42 @@
 <main>
   <h1 class="first-heading__title" i18n>My Pokemon</h1>
-  <div class="my-pokemon__search-container">
-    <app-pokemon-search
-      [title]="userPokemons()?.length ? translations.findMore : translations.findPokemon"
-    />
-  </div>
-  @if (!userPokemons()) {
+  <ng-container *ngrxLet="userPokemons$ as userPokemons; suspenseTpl: loading">
+    <div class="my-pokemon__search-container">
+      <app-pokemon-search
+        [title]="userPokemons?.length ? translations.findMore : translations.findPokemon"
+      />
+    </div>
+
+    @if (!userPokemons?.length) {
+      <div class="pokemons-empty__container">
+        <div>
+          <p i18n>
+            Uh-oh, it looks like you haven’t caught any Pokémon yet! Need help finding a pokemon?
+            Try using the search bar to track them down. Gotta catch ‘em all!
+          </p>
+        </div>
+        <div>
+          <img
+            class="pokemons-empty__image"
+            alt="ash jumping with a pokeball"
+            i18n-alt
+            ngSrc="angularexampleapp/assets/images/ash-jumping.png"
+            width="675"
+            height="1280"
+          />
+        </div>
+      </div>
+    } @else {
+      <ul i18n class="my-pokemon__grid">
+        @for (pokemon of userPokemons$ | ngrxPush; track pokemon.id) {
+          <li>
+            <app-pokemon-card [pokemon]="pokemon" />
+          </li>
+        }
+      </ul>
+    }
+  </ng-container>
+  <ng-template #loading>
     <ul class="my-pokemon__grid">
       <li>
         <app-pokemon-card [loading]="true" />
@@ -17,32 +48,5 @@
         <app-pokemon-card [loading]="true" />
       </li>
     </ul>
-  } @else if (!userPokemons()?.length) {
-    <div class="pokemons-empty__container">
-      <div>
-        <p i18n>
-          Uh-oh, it looks like you haven’t caught any Pokémon yet! Need help finding a pokemon? Try
-          using the search bar to track them down. Gotta catch ‘em all!
-        </p>
-      </div>
-      <div>
-        <img
-          class="pokemons-empty__image"
-          alt="ash jumping with a pokeball"
-          i18n-alt
-          ngSrc="angularexampleapp/assets/images/ash-jumping.png"
-          width="675"
-          height="1280"
-        />
-      </div>
-    </div>
-  } @else {
-    <ul i18n class="my-pokemon__grid">
-      @for (pokemon of userPokemons(); track pokemon.id) {
-        <li>
-          <app-pokemon-card [pokemon]="pokemon" />
-        </li>
-      }
-    </ul>
-  }
+  </ng-template>
 </main>

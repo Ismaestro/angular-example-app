@@ -7,13 +7,13 @@ import { PokemonSearchComponent } from '~features/pokemon/components/pokemon-sea
 import { translations } from '../../../locale/translations';
 import { AlertService } from '~core/services/alert.service';
 import { catchError, of, switchMap } from 'rxjs';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { LetDirective, PushPipe } from '@ngrx/component';
 
 @Component({
   selector: 'app-my-pokemon',
   templateUrl: './my-pokemon.component.html',
   styleUrl: './my-pokemon.component.scss',
-  imports: [PokemonCardComponent, NgOptimizedImage, PokemonSearchComponent],
+  imports: [PokemonCardComponent, NgOptimizedImage, PokemonSearchComponent, PushPipe, LetDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
@@ -23,19 +23,16 @@ export class MyPokemonComponent {
   private readonly alertService = inject(AlertService);
 
   readonly translations = translations;
-  readonly userPokemons = toSignal(
-    this.userService.getMe({ cache: false }).pipe(
-      switchMap((user) => {
-        if (user.caughtPokemonIds.length === 0) {
-          return of([]);
-        }
-        return this.pokemonService.getPokemons(user.caughtPokemonIds);
-      }),
-      catchError(() => {
-        this.alertService.createErrorAlert(translations.genericErrorAlert);
+  readonly userPokemons$ = this.userService.getMe({ cache: false }).pipe(
+    switchMap((user) => {
+      if (user.caughtPokemonIds.length === 0) {
         return of([]);
-      }),
-    ),
-    { initialValue: null },
+      }
+      return this.pokemonService.getPokemons(user.caughtPokemonIds);
+    }),
+    catchError(() => {
+      this.alertService.createErrorAlert(translations.genericErrorAlert);
+      return of([]);
+    }),
   );
 }

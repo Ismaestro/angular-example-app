@@ -42,6 +42,7 @@
     "@commitlint/cli": "19.6.1",
     "@commitlint/config-conventional": "19.6.0",
     "@eslint/js": "9.19.0",
+    "@ngrx/component": "^19.0.1",
     "@playwright/test": "1.50.1",
     "@shoelace-style/shoelace": "2.19.1",
     "@types/jasmine": "5.1.5",
