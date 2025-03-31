@@ -1,22 +1,13 @@
-import type { OnInit } from '@angular/core';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  CUSTOM_ELEMENTS_SCHEMA,
-  DestroyRef,
-  inject,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
 import { UserService } from '~features/authentication/services/user.service';
 import { PokemonCardComponent } from '~features/pokemon/components/pokemon-card/pokemon-card.component';
-import type { User } from '~features/authentication/types/user.type';
 import { PokemonService } from '~features/pokemon/services/pokemon.service';
-import type { Pokemon } from '~features/pokemon/types/pokemon.type';
 import { NgOptimizedImage } from '@angular/common';
 import { PokemonSearchComponent } from '~features/pokemon/components/pokemon-search/pokemon-search.component';
 import { translations } from '../../../locale/translations';
 import { AlertService } from '~core/services/alert.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { catchError, of, switchMap } from 'rxjs';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-my-pokemon',
@@ -26,40 +17,25 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class MyPokemonComponent implements OnInit {
+export class MyPokemonComponent {
   private readonly userService = inject(UserService);
   private readonly pokemonService = inject(PokemonService);
   private readonly alertService = inject(AlertService);
-  private readonly destroyRef = inject(DestroyRef);
 
   readonly translations = translations;
-  readonly userPokemons = signal<Pokemon[] | null>(null);
-
-  user: User | undefined;
-
-  ngOnInit() {
-    this.userService
-      .getMe({ cache: false })
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe({
-        next: (user) => {
-          this.user = user;
-          if (this.user.caughtPokemonIds.length > 0) {
-            this.pokemonService
-              .getPokemons(this.user.caughtPokemonIds)
-              .pipe(takeUntilDestroyed(this.destroyRef))
-              .subscribe({
-                next: (pokemons) => {
-                  this.userPokemons.set(pokemons);
-                },
-                error: () => {
-                  this.alertService.createErrorAlert(translations.genericErrorAlert);
-                },
-              });
-          } else {
-            this.userPokemons.set([]);
-          }
-        },
-      });
-  }
+  readonly userPokemons = toSignal(
+    this.userService.getMe({ cache: false }).pipe(
+      switchMap((user) => {
+        if (user.caughtPokemonIds.length === 0) {
+          return of([]);
+        }
+        return this.pokemonService.getPokemons(user.caughtPokemonIds);
+      }),
+      catchError(() => {
+        this.alertService.createErrorAlert(translations.genericErrorAlert);
+        return of([]);
+      }),
+    ),
+    { initialValue: null },
+  );
 }
