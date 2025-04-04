@@ -133,6 +133,7 @@ export default tsEslint.config(
       'unicorn/prefer-top-level-await': 'off',
       'unicorn/no-null': 'off',
       'unicorn/prefer-global-this': 'off',
+      'unicorn/consistent-function-scoping': 'off',
     },
   },
   {
