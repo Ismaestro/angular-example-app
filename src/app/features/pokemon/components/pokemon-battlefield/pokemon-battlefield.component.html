@@ -38,8 +38,8 @@
     <app-pokemon-catch [pokemonBattleEvent]="pokemonBattleEvent()">
       <ng-container ngProjectAs="image">
         <app-pokemon-image
+          imageWidth="170%"
           [image]="pokemonImage()"
-          [imageWidth]="'170%'"
           (loaded)="startPokemonInitialAnimation($event)"
         />
       </ng-container>
