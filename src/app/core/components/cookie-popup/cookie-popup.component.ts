@@ -20,15 +20,7 @@ import '@shoelace-style/shoelace/dist/components/button/button.js';
 export class CookiePopupComponent {
   private readonly cookieConsentService = inject(CookieConsentService);
 
-  readonly hasAccepted = signal<boolean>(false);
-
-  constructor() {
-    try {
-      this.hasAccepted.set(this.cookieConsentService.getCookieState());
-    } catch {
-      this.hasAccepted.set(false);
-    }
-  }
+  readonly hasAccepted = signal<boolean>(this.cookieConsentService.getCookieState());
 
   acceptCookies(): void {
     const cookieSaved = this.cookieConsentService.setCookieConsent(ConsentState.GRANTED);

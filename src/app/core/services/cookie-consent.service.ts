@@ -27,7 +27,11 @@ export class CookieConsentService {
   }
 
   getCookieState(): boolean {
-    return this.localStorage?.getItem(CONSENT_COOKIE_KEY) === CONSENT_COOKIE_VALUE;
+    try {
+      return this.localStorage?.getItem(CONSENT_COOKIE_KEY) === CONSENT_COOKIE_VALUE;
+    } catch {
+      return false;
+    }
   }
 
   private setConsentInLocalStorage(): boolean {
