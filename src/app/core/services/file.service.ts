@@ -8,7 +8,7 @@ import type { Observable } from 'rxjs';
 export class FileService {
   private readonly httpClient = inject(HttpClient);
 
-  loadFile(filePath: string): Observable<string> {
-    return this.httpClient.get(filePath, { responseType: 'text' });
+  getFileAsText(fileUrl: string): Observable<string> {
+    return this.httpClient.get(fileUrl, { responseType: 'text' });
   }
 }

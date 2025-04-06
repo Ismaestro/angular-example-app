@@ -3,7 +3,6 @@ import { NgControl } from '@angular/forms';
 
 @Directive({
   selector: '[appTrim]',
-  standalone: true,
 })
 export class TrimDirective {
   private readonly el = inject(ElementRef);

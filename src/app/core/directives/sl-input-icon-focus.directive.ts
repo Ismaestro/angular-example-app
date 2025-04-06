@@ -2,7 +2,6 @@ import { Directive, ElementRef, HostListener, inject } from '@angular/core';
 
 @Directive({
   selector: '[appSlInputIconFocus]',
-  standalone: true,
 })
 export class SlInputIconFocusDirective {
   private readonly el = inject(ElementRef);

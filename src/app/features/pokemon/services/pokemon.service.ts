@@ -1,7 +1,8 @@
 import { inject, Injectable } from '@angular/core';
 import type { Observable } from 'rxjs';
 import { forkJoin, map } from 'rxjs';
-import { HttpClient, HttpContext, HttpParams } from '@angular/common/http';
+import type { HttpResourceRef } from '@angular/common/http';
+import { HttpClient, HttpContext, HttpParams, httpResource } from '@angular/common/http';
 import { CACHING_ENABLED } from '~core/interceptors/caching.interceptor';
 import type { Pokemon } from '~features/pokemon/types/pokemon.type';
 
@@ -22,6 +23,12 @@ export class PokemonService {
       params: new HttpParams().set('limit', '1'),
       context: new HttpContext().set(CACHING_ENABLED, true),
     });
+  }
+
+  getPokemonResource(pokemonName: () => string | undefined): HttpResourceRef<Pokemon | undefined> {
+    return httpResource<Pokemon>(() =>
+      pokemonName() ? `${POKEMON_API_HOST}/pokemon/${pokemonName()}` : undefined,
+    );
   }
 
   getPokemons(ids: number[]): Observable<Pokemon[]> {

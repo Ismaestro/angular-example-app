@@ -3,7 +3,6 @@ import { Pipe } from '@angular/core';
 
 @Pipe({
   name: 'firstTitleCase',
-  standalone: true,
 })
 export class FirstTitleCasePipe implements PipeTransform {
   transform(value: string | undefined): string {

@@ -11,7 +11,6 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
       multi: true,
     },
   ],
-  standalone: true,
   host: {
     '[attr.checked]': 'checked()',
     '(sl-change)': 'onSlChange()',

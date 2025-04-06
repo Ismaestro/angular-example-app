@@ -14,7 +14,6 @@ import '@shoelace-style/shoelace/dist/components/button/button.js';
   templateUrl: './cookie-popup.component.html',
   styleUrl: './cookie-popup.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CookiePopupComponent {

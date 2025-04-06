@@ -3,7 +3,6 @@ import { NgControl } from '@angular/forms';
 
 @Directive({
   selector: '[appLowercase]',
-  standalone: true,
 })
 export class LowercaseDirective {
   private readonly el = inject(ElementRef);
