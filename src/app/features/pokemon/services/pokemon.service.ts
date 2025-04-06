@@ -27,7 +27,7 @@ export class PokemonService {
     );
   }
 
-  getPokemons(ids: number[]): Observable<Pokemon[]> {
+  getPokemonByIds(ids: number[]): Observable<Pokemon[]> {
     const getPokemonRequests = ids.map((id) => this.getPokemon(id));
     return forkJoin(getPokemonRequests).pipe(
       map((pokemons: Pokemon[]) =>

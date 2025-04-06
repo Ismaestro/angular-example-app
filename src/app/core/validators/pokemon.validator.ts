@@ -7,35 +7,31 @@ import { PokemonService } from '~features/pokemon/services/pokemon.service';
 @Injectable({ providedIn: 'root' })
 export class PokemonValidator implements AsyncValidator {
   private readonly pokemonService = inject(PokemonService);
+  private readonly pokemonName = signal('');
 
-  private readonly isPokemonValidatingSignal = signal(false);
-  private pokemonValue = 0;
-
-  isPokemonValidating(): boolean {
-    return this.isPokemonValidatingSignal();
-  }
-
-  getPokemonValue(): number {
-    return this.pokemonValue;
-  }
+  readonly pokemonId = signal(-1);
+  readonly isPokemonValidating = signal(false);
 
   validate(control: AbstractControl): Observable<ValidationErrors | null> {
-    const pokemonName = control.value;
-    if (pokemonName) {
-      this.isPokemonValidatingSignal.set(true);
-      return this.pokemonService.getPokemon(pokemonName.toLowerCase()).pipe(
-        map((pokemon) => {
-          this.isPokemonValidatingSignal.set(false);
-          this.pokemonValue = pokemon.id;
-          return null;
-        }),
-        catchError(() => {
-          this.isPokemonValidatingSignal.set(false);
-          return of({ pokemonName: true });
-        }),
-      );
+    const pokemonName = (control.value ?? '').toLowerCase().trim();
+
+    if (!pokemonName) {
+      this.isPokemonValidating.set(false);
+      return of(null);
     }
-    this.isPokemonValidatingSignal.set(false);
-    return of(null);
+
+    this.pokemonName.set(pokemonName.toLowerCase());
+    this.isPokemonValidating.set(true);
+    return this.pokemonService.getPokemon(pokemonName.toLowerCase()).pipe(
+      map((pokemon) => {
+        this.isPokemonValidating.set(false);
+        this.pokemonId.set(pokemon.id);
+        return null;
+      }),
+      catchError(() => {
+        this.isPokemonValidating.set(false);
+        return of({ pokemonName: true });
+      }),
+    );
   }
 }

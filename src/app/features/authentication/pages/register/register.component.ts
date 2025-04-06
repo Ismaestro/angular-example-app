@@ -2,7 +2,6 @@ import type { OnInit } from '@angular/core';
 import {
   ChangeDetectionStrategy,
   Component,
-  computed,
   CUSTOM_ELEMENTS_SCHEMA,
   DestroyRef,
   inject,
@@ -53,14 +52,13 @@ export class RegisterComponent implements OnInit {
   private readonly authService = inject(AuthenticationService);
   private readonly numberService = inject(NumberService);
   private readonly alertService = inject(AlertService);
-  private readonly validatingPokemonValue = () => this.pokemonValidator.isPokemonValidating();
+  private readonly pokemonValidator = inject(PokemonValidator);
   private readonly destroyRef = inject(DestroyRef);
 
-  readonly isPokemonValidating = computed(this.validatingPokemonValue);
   readonly isButtonRegisterLoading = signal(false);
+  readonly isPokemonValidating = this.pokemonValidator.isPokemonValidating;
   readonly registrationCompleted = signal(false);
 
-  pokemonValidator = inject(PokemonValidator);
   translations = translations;
   pokemonAppearAudio!: HTMLAudioElement;
   authUrls = AUTH_URLS;
@@ -126,7 +124,7 @@ export class RegisterComponent implements OnInit {
           email: formValue.email!,
           password: formValue.password!,
           name: formValue.name!,
-          favouritePokemonId: this.pokemonValidator.getPokemonValue(),
+          favouritePokemonId: this.pokemonValidator.pokemonId(),
           terms: formValue.terms!,
         })
         .pipe(takeUntilDestroyed(this.destroyRef))

@@ -28,7 +28,7 @@ export class MyPokemonComponent {
       if (user.caughtPokemonIds.length === 0) {
         return of([]);
       }
-      return this.pokemonService.getPokemons(user.caughtPokemonIds);
+      return this.pokemonService.getPokemonByIds(user.caughtPokemonIds);
     }),
     catchError(() => {
       this.alertService.createErrorAlert(translations.genericErrorAlert);
