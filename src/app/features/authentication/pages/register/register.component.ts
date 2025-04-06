@@ -28,6 +28,7 @@ import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/input/input.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import '@shoelace-style/shoelace/dist/components/checkbox/checkbox.js';
+import { LowercaseDirective } from '~core/directives/lowercase.directive';
 
 @Component({
   selector: 'app-register',
@@ -40,6 +41,7 @@ import '@shoelace-style/shoelace/dist/components/checkbox/checkbox.js';
     NgOptimizedImage,
     SlInputIconFocusDirective,
     AppSlCheckboxControlDirective,
+    LowercaseDirective,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

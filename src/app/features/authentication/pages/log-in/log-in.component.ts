@@ -23,13 +23,20 @@ import { LanguageService } from '~core/services/language.service';
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/input/input.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
+import { LowercaseDirective } from '~core/directives/lowercase.directive';
 
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
   styleUrl: './log-in.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [ReactiveFormsModule, RouterModule, SlInputIconFocusDirective, NgOptimizedImage],
+  imports: [
+    ReactiveFormsModule,
+    RouterModule,
+    SlInputIconFocusDirective,
+    NgOptimizedImage,
+    LowercaseDirective,
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LogInComponent {
