@@ -30,6 +30,7 @@ import '@shoelace-style/shoelace/dist/components/input/input.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import '@shoelace-style/shoelace/dist/components/select/select.js';
 import '@shoelace-style/shoelace/dist/components/option/option.js';
+import { TrimDirective } from '~core/directives/trim.directive';
 
 @Component({
   selector: 'app-my-account',
@@ -44,6 +45,7 @@ import '@shoelace-style/shoelace/dist/components/option/option.js';
     AppSlSelectControlDirective,
     ThemeButtonComponent,
     NgOptimizedImage,
+    TrimDirective,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

@@ -29,6 +29,7 @@ import '@shoelace-style/shoelace/dist/components/input/input.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import '@shoelace-style/shoelace/dist/components/checkbox/checkbox.js';
 import { LowercaseDirective } from '~core/directives/lowercase.directive';
+import { TrimDirective } from '~core/directives/trim.directive';
 
 @Component({
   selector: 'app-register',
@@ -42,6 +43,7 @@ import { LowercaseDirective } from '~core/directives/lowercase.directive';
     SlInputIconFocusDirective,
     AppSlCheckboxControlDirective,
     LowercaseDirective,
+    TrimDirective,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

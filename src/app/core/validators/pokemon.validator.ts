@@ -23,7 +23,7 @@ export class PokemonValidator implements AsyncValidator {
     const pokemonName = control.value;
     if (pokemonName) {
       this.isPokemonValidatingSignal.set(true);
-      return this.pokemonService.getPokemon(pokemonName.trim().toLowerCase()).pipe(
+      return this.pokemonService.getPokemon(pokemonName.toLowerCase()).pipe(
         map((pokemon) => {
           this.isPokemonValidatingSignal.set(false);
           this.pokemonValue = pokemon.id;

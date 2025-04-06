@@ -15,6 +15,7 @@ import { NgOptimizedImage } from '@angular/common';
 import { translations } from '../../../../../locale/translations';
 import { AlertService } from '~core/services/alert.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { TrimDirective } from '~core/directives/trim.directive';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/input/input.js';
@@ -26,7 +27,7 @@ import '@shoelace-style/shoelace/dist/components/icon/icon.js';
   templateUrl: './pokemon-search.component.html',
   styleUrl: './pokemon-search.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [SlInputIconFocusDirective, NgOptimizedImage],
+  imports: [SlInputIconFocusDirective, NgOptimizedImage, TrimDirective],
 })
 export class PokemonSearchComponent {
   private readonly router = inject(Router);
@@ -39,7 +40,7 @@ export class PokemonSearchComponent {
   readonly pokemonLoading = signal(false);
 
   searchPokemon() {
-    const pokemonName = this.termValue().trim().toLowerCase();
+    const pokemonName = this.termValue().toLowerCase();
     if (pokemonName) {
       this.pokemonLoading.set(true);
       this.pokemonService

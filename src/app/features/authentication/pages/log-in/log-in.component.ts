@@ -24,6 +24,7 @@ import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/input/input.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import { LowercaseDirective } from '~core/directives/lowercase.directive';
+import { TrimDirective } from '~core/directives/trim.directive';
 
 @Component({
   selector: 'app-log-in',
@@ -36,6 +37,7 @@ import { LowercaseDirective } from '~core/directives/lowercase.directive';
     SlInputIconFocusDirective,
     NgOptimizedImage,
     LowercaseDirective,
+    TrimDirective,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
