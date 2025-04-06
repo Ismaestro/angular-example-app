@@ -1,5 +1,5 @@
 <sl-button class="button--icon" (click)="toggleTheme()">
-  @if (themeSelected === Theme.DARK || !themeSelected) {
+  @if (themeSelected() === Theme.DARK) {
     <sl-icon name="brightness-high-fill" />
   } @else {
     <sl-icon name="moon" />
