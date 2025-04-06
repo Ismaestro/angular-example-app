@@ -1,31 +1,35 @@
-import { Directive, ElementRef, HostListener, inject } from '@angular/core';
+import { Directive, ElementRef, inject } from '@angular/core';
 
 @Directive({
   selector: '[appSlInputIconFocus]',
+  host: {
+    '(mouseover)': 'onMouseOver()',
+    '(mouseout)': 'onMouseOut()',
+    '(focus)': 'onFocus()',
+    '(blur)': 'onBlur()',
+  },
 })
 export class SlInputIconFocusDirective {
   private readonly el = inject(ElementRef);
 
   private isFocused = false;
 
-  @HostListener('mouseover')
   onMouseOver() {
     this.el.nativeElement.querySelector('sl-icon').style.color = 'var(--primary-contrast)';
   }
 
-  @HostListener('mouseout')
   onMouseOut() {
     if (!this.isFocused) {
       this.el.nativeElement.querySelector('sl-icon').style.color = 'var(--quaternary-contrast)';
     }
   }
 
-  @HostListener('focus') onFocus() {
+  onFocus() {
     this.isFocused = true;
     this.el.nativeElement.querySelector('sl-icon').style.color = 'var(--primary-contrast)';
   }
 
-  @HostListener('blur') onBlur() {
+  onBlur() {
     this.isFocused = false;
     this.el.nativeElement.querySelector('sl-icon').style.color = 'var(--quaternary-contrast)';
   }
