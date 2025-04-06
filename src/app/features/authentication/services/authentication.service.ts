@@ -17,6 +17,7 @@ import type {
 } from '~features/authentication/types/register-response.type';
 import { LanguageService } from '~core/services/language.service';
 import type { User } from '~features/authentication/types/user.type';
+import { clearCache } from '~core/interceptors/caching.interceptor';
 
 export const ACCESS_TOKEN_KEY = 'access-token';
 export const REFRESH_TOKEN_KEY = 'refresh-token';
@@ -28,9 +29,9 @@ export class AuthenticationService {
   private readonly storageService = inject(LOCAL_STORAGE);
   private readonly httpClient = inject(HttpClient);
   private readonly languageService = inject(LanguageService);
-  private readonly isUserLoggedInSignal = signal(!!this.storageService?.getItem(ACCESS_TOKEN_KEY));
-
   private readonly apiUrl = environment.apiBaseUrl;
+
+  readonly isUserLoggedIn = signal(!!this.storageService?.getItem(ACCESS_TOKEN_KEY));
 
   register(registerRequest: RegisterRequest): Observable<RegisterResponseData> {
     const registerEndpoint = `${this.apiUrl}/v1/authentication`;
@@ -54,7 +55,7 @@ export class AuthenticationService {
         map((response: RegisterResponse) => {
           const { data } = response;
           this.saveTokens(data);
-          this.isUserLoggedInSignal.set(true);
+          this.isUserLoggedIn.set(true);
           return data;
         }),
       );
@@ -71,7 +72,7 @@ export class AuthenticationService {
         map((response: LoginResponse) => {
           const { data } = response;
           this.saveTokens(data);
-          this.isUserLoggedInSignal.set(true);
+          this.isUserLoggedIn.set(true);
           return data.user;
         }),
       );
@@ -93,12 +94,9 @@ export class AuthenticationService {
   }
 
   logOut() {
+    clearCache();
     this.removeTokens();
-    this.isUserLoggedInSignal.set(false);
-  }
-
-  isUserLoggedIn(): boolean {
-    return this.isUserLoggedInSignal();
+    this.isUserLoggedIn.set(false);
   }
 
   private saveTokens(data: { accessToken: string; refreshToken?: string }) {

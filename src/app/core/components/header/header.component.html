@@ -1,5 +1,5 @@
-<nav class="nav__container" [class.open]="menuOpen">
-  <div class="nav-mobile__container" [class.open]="menuOpen">
+<nav class="nav__container" [class.open]="menuOpen()">
+  <div class="nav-mobile__container" [class.open]="menuOpen()">
     <ng-container [ngTemplateOutlet]="logoNavItem" />
     <div class="nav__item">
       <sl-button class="button--icon nav__hamburger" (click)="toggleMenu()">
@@ -7,8 +7,8 @@
       </sl-button>
     </div>
   </div>
-  <div class="nav__items" [class.open]="menuOpen" [class.user-logged]="isUserLoggedIn">
-    @if (!menuOpen) {
+  <div class="nav__items" [class.open]="menuOpen()" [class.user-logged]="isUserLoggedIn()">
+    @if (!menuOpen()) {
       <ng-container [ngTemplateOutlet]="logoNavItem" />
     }
     <ng-template #logoNavItem>
@@ -41,7 +41,7 @@
     </div>
 
     <!-- LOGIN -->
-    @if (!isUserLoggedIn) {
+    @if (!isUserLoggedIn()) {
       <div class="nav__item">
         <a
           class="nav__link"
