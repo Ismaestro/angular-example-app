@@ -18,9 +18,9 @@ export class ThemeButtonComponent {
 
   toggleTheme() {
     if (this.themeSelected() === Theme.DARK) {
-      this.themeSelected.set(Theme.LIGHT);
+      this.themeManagerService.setTheme(Theme.LIGHT);
     } else {
-      this.themeSelected.set(Theme.DARK);
+      this.themeManagerService.setTheme(Theme.DARK);
     }
   }
 }

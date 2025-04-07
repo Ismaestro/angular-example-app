@@ -30,8 +30,9 @@ export class AuthenticationService {
   private readonly httpClient = inject(HttpClient);
   private readonly languageService = inject(LanguageService);
   private readonly apiUrl = environment.apiBaseUrl;
+  private readonly _isUserLoggedIn = signal(!!this.storageService?.getItem(ACCESS_TOKEN_KEY));
 
-  readonly isUserLoggedIn = signal(!!this.storageService?.getItem(ACCESS_TOKEN_KEY));
+  readonly isUserLoggedIn = this._isUserLoggedIn.asReadonly();
 
   register(registerRequest: RegisterRequest): Observable<RegisterResponseData> {
     const registerEndpoint = `${this.apiUrl}/v1/authentication`;
@@ -55,7 +56,7 @@ export class AuthenticationService {
         map((response: RegisterResponse) => {
           const { data } = response;
           this.saveTokens(data);
-          this.isUserLoggedIn.set(true);
+          this._isUserLoggedIn.set(true);
           return data;
         }),
       );
@@ -72,7 +73,7 @@ export class AuthenticationService {
         map((response: LoginResponse) => {
           const { data } = response;
           this.saveTokens(data);
-          this.isUserLoggedIn.set(true);
+          this._isUserLoggedIn.set(true);
           return data.user;
         }),
       );
@@ -96,7 +97,7 @@ export class AuthenticationService {
   logOut() {
     clearCache();
     this.removeTokens();
-    this.isUserLoggedIn.set(false);
+    this._isUserLoggedIn.set(false);
   }
 
   private saveTokens(data: { accessToken: string; refreshToken?: string }) {
