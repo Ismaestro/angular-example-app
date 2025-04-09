@@ -10,8 +10,7 @@ import { HeaderService } from '~core/services/header.service';
 import { ProgressBarComponent } from '~core/components/progress-bar/progress-bar.component';
 import { CookiePopupComponent } from '~core/components/cookie-popup/cookie-popup.component';
 import { toSignal } from '@angular/core/rxjs-interop';
-
-import '@shoelace-style/shoelace/dist/components/alert/alert.js';
+import { ToastStackComponent } from '~core/components/toast-stack/toast-stack.component';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +23,7 @@ import '@shoelace-style/shoelace/dist/components/alert/alert.js';
     FooterComponent,
     ProgressBarComponent,
     CookiePopupComponent,
+    ToastStackComponent,
   ],
 })
 export class AppComponent {

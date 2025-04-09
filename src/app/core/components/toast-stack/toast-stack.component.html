@@ -1,0 +1,14 @@
+@for (alert of alerts(); track alert.id) {
+  <sl-alert
+    #alertReference
+    i18n
+    closable
+    [id]="alert.id"
+    [attr.countdown]="alert.hasCountdown ? 'rtl' : null"
+    [attr.duration]="alert.duration?.toString() || null"
+    [attr.variant]="alert.type"
+    [class]="'alert--' + alert.type"
+    [innerHtml]="alert.message"
+    (sl-after-hide)="removeFromAlerts(alert)"
+  />
+}

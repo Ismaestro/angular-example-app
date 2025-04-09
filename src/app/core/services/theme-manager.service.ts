@@ -34,10 +34,10 @@ export class ThemeManagerService {
   setTheme(theme: Theme): void {
     this._themeSelected.set(theme);
     this.localStorage?.setItem(THEME_SELECTED_LOCAL_STORAGE_KEY, this.themeSelected());
-    this._setBodyClasses();
+    this.setBodyClasses();
   }
 
-  private _setBodyClasses(): void {
+  private setBodyClasses(): void {
     const documentClassList = this.document.documentElement.classList;
     if (this.themeSelected() === Theme.DARK) {
       documentClassList.add(DARK_THEME_CLASS_NAME);

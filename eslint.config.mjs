@@ -134,6 +134,7 @@ export default tsEslint.config(
       'unicorn/no-null': 'off',
       'unicorn/prefer-global-this': 'off',
       'unicorn/consistent-function-scoping': 'off',
+      'unicorn/prefer-dom-node-dataset': 'off',
     },
   },
   {
