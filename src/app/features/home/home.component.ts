@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/cor
 import { NgOptimizedImage } from '@angular/common';
 import { DecorativeHeaderComponent } from '~core/components/decorative-header/decorative-header.component';
 import { CardComponent } from '~core/components/card/card.component';
-import { GoogleAnalyticsService } from '~features/home/services/google-analitycs.service';
+import { GoogleAnalyticsService } from '~core/services/google-analitycs.service';
 import { interval } from 'rxjs';
 
 @Component({
