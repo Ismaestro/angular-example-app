@@ -11,8 +11,8 @@ import {
   type Signal,
   viewChild,
 } from '@angular/core';
-import { CropImageService } from '~core/services/crop-image.service';
 import { NgStyle } from '@angular/common';
+import { CropImageService } from '~features/pokemon/services/crop-image.service';
 
 @Component({
   selector: 'app-pokemon-image',
