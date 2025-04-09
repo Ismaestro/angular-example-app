@@ -19,16 +19,15 @@ import { translations } from '../../../../../locale/translations';
 import { merge } from 'rxjs';
 import { AppSlCheckboxControlDirective } from '~core/directives/sl-checkbox-control.directive';
 import { AuthenticationService } from '~features/authentication/services/authentication.service';
-import { NumberService } from '~core/services/number.service';
 import { AlertService } from '~core/services/alert.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { LowercaseDirective } from '~core/directives/lowercase.directive';
+import { TrimDirective } from '~core/directives/trim.directive';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/input/input.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import '@shoelace-style/shoelace/dist/components/checkbox/checkbox.js';
-import { LowercaseDirective } from '~core/directives/lowercase.directive';
-import { TrimDirective } from '~core/directives/trim.directive';
 
 @Component({
   selector: 'app-register',
@@ -50,7 +49,6 @@ export class RegisterComponent implements OnInit {
   private readonly router = inject(Router);
   private readonly formBuilder = inject(FormBuilder);
   private readonly authService = inject(AuthenticationService);
-  private readonly numberService = inject(NumberService);
   private readonly alertService = inject(AlertService);
   private readonly pokemonValidator = inject(PokemonValidator);
   private readonly destroyRef = inject(DestroyRef);
@@ -149,7 +147,7 @@ export class RegisterComponent implements OnInit {
         setTimeout(() => {
           const LAST_POKEMON_ID = 1025;
           void this.router.navigate([
-            POKEMON_URLS.detail(String(this.numberService.getRandomNumber(1, LAST_POKEMON_ID))),
+            POKEMON_URLS.detail(String(this.getRandomNumber(1, LAST_POKEMON_ID))),
           ]);
         }, ANIMATION_END_TIME);
         return true;
@@ -157,5 +155,9 @@ export class RegisterComponent implements OnInit {
       .catch(() => {
         void this.router.navigate([ROOT_URLS.myPokedex]);
       });
+  }
+
+  private getRandomNumber(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 }
