@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import type { Observable } from 'rxjs';
 import { map } from 'rxjs';
 import type { LoginRequest } from '~features/authentication/types/login-request.type';
-import { environment } from '~environments/environment';
 import type { LoginResponse } from '~features/authentication/types/login-response.type';
 import type {
   RefreshTokenResponse,
@@ -18,6 +17,7 @@ import type {
 import { LanguageService } from '~core/services/language.service';
 import type { User } from '~features/authentication/types/user.type';
 import { clearCache } from '~core/interceptors/caching.interceptor';
+import { AUTH_ENDPOINTS } from '~core/constants/endpoints.constants';
 
 export const ACCESS_TOKEN_KEY = 'access-token';
 export const REFRESH_TOKEN_KEY = 'refresh-token';
@@ -29,16 +29,14 @@ export class AuthenticationService {
   private readonly storageService = inject(LOCAL_STORAGE);
   private readonly httpClient = inject(HttpClient);
   private readonly languageService = inject(LanguageService);
-  private readonly apiUrl = environment.apiBaseUrl;
   private readonly _isUserLoggedIn = signal(!!this.storageService?.getItem(ACCESS_TOKEN_KEY));
 
   readonly isUserLoggedIn = this._isUserLoggedIn.asReadonly();
 
   register(registerRequest: RegisterRequest): Observable<RegisterResponseData> {
-    const registerEndpoint = `${this.apiUrl}/v1/authentication`;
     return this.httpClient
       .post<RegisterResponse>(
-        registerEndpoint,
+        AUTH_ENDPOINTS.V1.authentication,
         {
           email: registerRequest.email.toLowerCase(),
           password: registerRequest.password,
@@ -63,9 +61,8 @@ export class AuthenticationService {
   }
 
   logIn(loginRequest: LoginRequest): Observable<User> {
-    const loginEndpoint = `${this.apiUrl}/v1/authentication/login`;
     return this.httpClient
-      .post<LoginResponse>(loginEndpoint, {
+      .post<LoginResponse>(AUTH_ENDPOINTS.V1.login, {
         email: loginRequest.email.toLowerCase(),
         password: loginRequest.password,
       })
@@ -80,9 +77,8 @@ export class AuthenticationService {
   }
 
   refreshToken(): Observable<RefreshTokenResponseData> {
-    const refreshTokenEndpoint = `${this.apiUrl}/v1/authentication/token/refresh`;
     return this.httpClient
-      .post<RefreshTokenResponse>(refreshTokenEndpoint, {
+      .post<RefreshTokenResponse>(AUTH_ENDPOINTS.V1.refreshToken, {
         refreshToken: this.storageService?.getItem(REFRESH_TOKEN_KEY),
       })
       .pipe(
