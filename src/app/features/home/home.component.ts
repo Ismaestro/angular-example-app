@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/cor
 import { NgOptimizedImage } from '@angular/common';
 import { DecorativeHeaderComponent } from '~core/components/decorative-header/decorative-header.component';
 import { CardComponent } from '~core/components/card/card.component';
-import { GoogleAnalyticsService } from '~core/services/google-analitycs.service';
 import { interval } from 'rxjs';
+import { AnalyticsService } from '~core/services/analytics.service';
 
 @Component({
   selector: 'app-home',
@@ -14,8 +14,8 @@ import { interval } from 'rxjs';
   imports: [DecorativeHeaderComponent, NgOptimizedImage, CardComponent],
 })
 export class HomeComponent {
-  private readonly googleAnalyticsService = inject(GoogleAnalyticsService);
-  readonly activeUsersResource = this.googleAnalyticsService.getRealtimeUsersResource();
+  private readonly analyticsService = inject(AnalyticsService);
+  readonly activeUsersResource = this.analyticsService.getRealtimeUsersResource();
 
   constructor() {
     this.activeUsersResource.reload();

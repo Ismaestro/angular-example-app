@@ -5,7 +5,7 @@ import { environment } from '~environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class GoogleAnalyticsService {
+export class AnalyticsService {
   private readonly apiUrl = environment.apiBaseUrl;
 
   getRealtimeUsersResource(): HttpResourceRef<{ activeUsers: number }> {
