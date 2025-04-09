@@ -16,7 +16,6 @@ import type { CatchPokemonResponse } from '~features/authentication/types/catch-
 })
 export class UserService {
   private readonly httpClient = inject(HttpClient);
-
   private readonly apiUrl = environment.apiBaseUrl;
 
   getMe(options?: { cache: boolean }): Observable<User> {
