@@ -5,16 +5,17 @@ import type { HttpResourceRef } from '@angular/common/http';
 import { HttpClient, HttpContext, HttpParams, httpResource } from '@angular/common/http';
 import { CACHING_ENABLED } from '~core/interceptors/caching.interceptor';
 import type { Pokemon } from '~features/pokemon/types/pokemon.type';
-import { POKEMON_ENDPOINTS } from '~core/constants/endpoints.constants';
+import { getEndpoints } from '~core/constants/endpoints.constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PokemonService {
+  private readonly endpoints = getEndpoints();
   private readonly httpClient = inject(HttpClient);
 
   getPokemon(pokemonIdOrName: string | number): Observable<Pokemon> {
-    return this.httpClient.get<Pokemon>(POKEMON_ENDPOINTS.V2.pokemon(pokemonIdOrName), {
+    return this.httpClient.get<Pokemon>(this.endpoints.pokemon.v1.pokemon(pokemonIdOrName), {
       params: new HttpParams().set('limit', '1'),
       context: new HttpContext().set(CACHING_ENABLED, true),
     });
@@ -22,7 +23,7 @@ export class PokemonService {
 
   getPokemonResource(pokemonName: () => string | undefined): HttpResourceRef<Pokemon | undefined> {
     return httpResource<Pokemon>(() =>
-      pokemonName() ? POKEMON_ENDPOINTS.V2.pokemon(pokemonName()!) : undefined,
+      pokemonName() ? this.endpoints.pokemon.v1.pokemon(pokemonName()!) : undefined,
     );
   }
 

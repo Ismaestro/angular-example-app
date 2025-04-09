@@ -1,26 +1,34 @@
-import { environment } from '~environments/environment';
+import { inject } from '@angular/core';
+import type { Environment } from '~core/tokens/environment.token';
+import { ENVIRONMENT } from '~core/tokens/environment.token';
 
-const API_BASE_URL = environment.apiBaseUrl;
-const POKEMON_API_HOST = 'https://pokeapi.co/api';
-
-export const AUTH_ENDPOINTS = {
-  V1: {
-    authentication: `${API_BASE_URL}/v1/authentication`,
-    login: `${API_BASE_URL}/v1/authentication/login`,
-    refreshToken: `${API_BASE_URL}/v1/authentication/token/refresh`,
-  },
-};
-
-export const USER_ENDPOINTS = {
-  V1: {
-    user: `${API_BASE_URL}/v1/user`,
-    userPokemonCatch: `${API_BASE_URL}/v1/user/pokemon/catch`,
-  },
-};
-
-export const POKEMON_ENDPOINTS = {
-  V2: {
-    pokemon: (pokemonIdOrName: string | number) =>
-      `${POKEMON_API_HOST}/v2/pokemon/${pokemonIdOrName}`,
-  },
+export const getEndpoints = () => {
+  const environment = inject<Environment>(ENVIRONMENT);
+  const POKEMON_API_HOST = 'https://pokeapi.co/api';
+  return {
+    auth: {
+      v1: {
+        authentication: `${environment.apiBaseUrl}/v1/authentication`,
+        login: `${environment.apiBaseUrl}/v1/authentication/login`,
+        refreshToken: `${environment.apiBaseUrl}/v1/authentication/token/refresh`,
+      },
+    },
+    user: {
+      v1: {
+        user: `${environment.apiBaseUrl}/v1/user`,
+        pokemonCatch: `${environment.apiBaseUrl}/v1/user/pokemon/catch`,
+      },
+    },
+    pokemon: {
+      v1: {
+        pokemon: (pokemonIdOrName: string | number) =>
+          `${POKEMON_API_HOST}/v2/pokemon/${pokemonIdOrName}`,
+      },
+    },
+    analytics: {
+      v1: {
+        realtimeUsers: `${environment.apiBaseUrl}/v1/analytics/realtime-users`,
+      },
+    },
+  } as const;
 };

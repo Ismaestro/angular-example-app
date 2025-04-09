@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { httpResource, type HttpResourceRef } from '@angular/common/http';
-import { environment } from '~environments/environment';
+import { getEndpoints } from '~core/constants/endpoints.constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AnalyticsService {
-  private readonly apiUrl = environment.apiBaseUrl;
+  private readonly endpoints = getEndpoints();
 
   getRealtimeUsersResource(): HttpResourceRef<{ activeUsers: number }> {
-    return httpResource<{ activeUsers: number }>(`${this.apiUrl}/v1/analytics/realtime-users`, {
+    return httpResource<{ activeUsers: number }>(this.endpoints.analytics.v1.realtimeUsers, {
       defaultValue: { activeUsers: 1 },
     });
   }

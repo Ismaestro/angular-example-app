@@ -17,7 +17,7 @@ import type {
 import { LanguageService } from '~core/services/language.service';
 import type { User } from '~features/authentication/types/user.type';
 import { clearCache } from '~core/interceptors/caching.interceptor';
-import { AUTH_ENDPOINTS } from '~core/constants/endpoints.constants';
+import { getEndpoints } from '~core/constants/endpoints.constants';
 
 export const ACCESS_TOKEN_KEY = 'access-token';
 export const REFRESH_TOKEN_KEY = 'refresh-token';
@@ -26,6 +26,7 @@ export const REFRESH_TOKEN_KEY = 'refresh-token';
   providedIn: 'root',
 })
 export class AuthenticationService {
+  private readonly endpoints = getEndpoints();
   private readonly storageService = inject(LOCAL_STORAGE);
   private readonly httpClient = inject(HttpClient);
   private readonly languageService = inject(LanguageService);
@@ -36,7 +37,7 @@ export class AuthenticationService {
   register(registerRequest: RegisterRequest): Observable<RegisterResponseData> {
     return this.httpClient
       .post<RegisterResponse>(
-        AUTH_ENDPOINTS.V1.authentication,
+        this.endpoints.auth.v1.authentication,
         {
           email: registerRequest.email.toLowerCase(),
           password: registerRequest.password,
@@ -62,7 +63,7 @@ export class AuthenticationService {
 
   logIn(loginRequest: LoginRequest): Observable<User> {
     return this.httpClient
-      .post<LoginResponse>(AUTH_ENDPOINTS.V1.login, {
+      .post<LoginResponse>(this.endpoints.auth.v1.login, {
         email: loginRequest.email.toLowerCase(),
         password: loginRequest.password,
       })
@@ -78,7 +79,7 @@ export class AuthenticationService {
 
   refreshToken(): Observable<RefreshTokenResponseData> {
     return this.httpClient
-      .post<RefreshTokenResponse>(AUTH_ENDPOINTS.V1.refreshToken, {
+      .post<RefreshTokenResponse>(this.endpoints.auth.v1.refreshToken, {
         refreshToken: this.storageService?.getItem(REFRESH_TOKEN_KEY),
       })
       .pipe(
