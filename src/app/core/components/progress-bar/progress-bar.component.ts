@@ -33,7 +33,7 @@ export class ProgressBarComponent {
   private readonly router = inject(Router);
   private readonly progressBar: Signal<NgProgressRef | undefined> = viewChild(NgProgressRef);
   private readonly routerEvents = toSignal(
-    this.router.events.pipe(filter((event) => this._isNavigationEvent(event as RouterEvent))),
+    this.router.events.pipe(filter((event) => this.isNavigationEvent(event as RouterEvent))),
   ) as Signal<RouterEvent>;
   private readonly timeoutId = signal<number | null>(null);
 
@@ -49,7 +49,7 @@ export class ProgressBarComponent {
         this.timeoutId.set(id);
       }
 
-      if (this._isNavigationEndLike(event)) {
+      if (this.isNavigationEndLike(event)) {
         const id = this.timeoutId();
         if (id !== null) {
           clearTimeout(id);
@@ -60,11 +60,11 @@ export class ProgressBarComponent {
     });
   }
 
-  private _isNavigationEvent(event: RouterEvent): boolean {
-    return event instanceof NavigationStart || this._isNavigationEndLike(event);
+  private isNavigationEvent(event: RouterEvent): boolean {
+    return event instanceof NavigationStart || this.isNavigationEndLike(event);
   }
 
-  private _isNavigationEndLike(event: RouterEvent): boolean {
+  private isNavigationEndLike(event: RouterEvent): boolean {
     return (
       event instanceof NavigationEnd ||
       event instanceof NavigationCancel ||
