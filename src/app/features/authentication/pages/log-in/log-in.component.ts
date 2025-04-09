@@ -15,7 +15,7 @@ import { AuthenticationService } from '~features/authentication/services/authent
 import { SlInputIconFocusDirective } from '~core/directives/sl-input-icon-focus.directive';
 import { translations } from '../../../../../locale/translations';
 import { NgOptimizedImage } from '@angular/common';
-import { AlertService } from '~core/services/alert.service';
+import { AlertService } from '~core/services/ui/alert.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import type { User } from '~features/authentication/types/user.type';
 import { LanguageService } from '~core/services/language.service';

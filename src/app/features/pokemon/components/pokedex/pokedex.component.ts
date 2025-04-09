@@ -15,7 +15,7 @@ import { FirstTitleCasePipe } from '~core/pipes/first-title-case.pipe';
 import { UserService } from '~features/authentication/services/user.service';
 import type { User } from '~features/authentication/types/user.type';
 import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
-import { AlertService } from '~core/services/alert.service';
+import { AlertService } from '~core/services/ui/alert.service';
 import { translations } from '../../../../../locale/translations';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 

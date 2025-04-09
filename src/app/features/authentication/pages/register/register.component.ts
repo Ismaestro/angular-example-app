@@ -19,7 +19,7 @@ import { translations } from '../../../../../locale/translations';
 import { merge } from 'rxjs';
 import { AppSlCheckboxControlDirective } from '~core/directives/sl-checkbox-control.directive';
 import { AuthenticationService } from '~features/authentication/services/authentication.service';
-import { AlertService } from '~core/services/alert.service';
+import { AlertService } from '~core/services/ui/alert.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { LowercaseDirective } from '~core/directives/lowercase.directive';
 import { TrimDirective } from '~core/directives/trim.directive';

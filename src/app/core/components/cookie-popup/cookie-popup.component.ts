@@ -5,7 +5,7 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { ConsentState, CookieConsentService } from '~core/services/cookie-consent.service';
+import { ConsentState, CookieConsentService } from '~core/services/storage/cookie-consent.service';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 

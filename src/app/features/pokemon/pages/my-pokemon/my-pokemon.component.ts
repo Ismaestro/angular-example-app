@@ -5,7 +5,7 @@ import { PokemonService } from '~features/pokemon/services/pokemon.service';
 import { NgOptimizedImage } from '@angular/common';
 import { PokemonSearchComponent } from '~features/pokemon/components/pokemon-search/pokemon-search.component';
 import { translations } from '../../../../../locale/translations';
-import { AlertService } from '~core/services/alert.service';
+import { AlertService } from '~core/services/ui/alert.service';
 import { catchError, of, switchMap } from 'rxjs';
 import { LetDirective, PushPipe } from '@ngrx/component';
 

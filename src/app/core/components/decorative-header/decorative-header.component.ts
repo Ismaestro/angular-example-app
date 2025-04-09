@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import type { SafeHtml } from '@angular/platform-browser';
 import { DomSanitizer } from '@angular/platform-browser';
-import { FileService } from '~core/services/file.service';
+import { FileService } from '~core/services/storage/file.service';
 import { rxResource } from '@angular/core/rxjs-interop';
 
 @Component({

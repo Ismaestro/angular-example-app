@@ -17,7 +17,7 @@ import { AppError } from '~core/enums/app-error.enum';
 import { AUTH_URLS } from '~core/constants/urls.constants';
 import { LOCAL_STORAGE } from '~core/providers/local-storage';
 import { translations } from '../../../locale/translations';
-import { AlertService } from '~core/services/alert.service';
+import { AlertService } from '~core/services/ui/alert.service';
 
 const isRefreshing = new BehaviorSubject<boolean>(false);
 
