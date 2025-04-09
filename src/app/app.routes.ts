@@ -2,7 +2,7 @@ import { AUTHENTICATION_PATHS, POKEMON_PATHS, ROOT_PATHS } from '~core/constants
 import { Error404Component } from '~core/components/error-404/error-404.component';
 import type { Route } from '@angular/router';
 import { HomeComponent } from '~features/home/home.component';
-import { MyPokemonComponent } from '~features/my-pokemon/my-pokemon.component';
+import { MyPokemonComponent } from '~features/pokemon/pages/my-pokemon/my-pokemon.component';
 import { authenticationGuard } from '~core/guards/authentication.guard';
 
 export const appRoutes: Route[] = [
@@ -11,16 +11,16 @@ export const appRoutes: Route[] = [
     component: HomeComponent,
   },
   {
-    path: ROOT_PATHS.myPokemon,
-    component: MyPokemonComponent,
-    canActivate: [authenticationGuard],
-  },
-  {
     path: AUTHENTICATION_PATHS.base,
     loadChildren: async () =>
       import('./features/authentication/authentication.routes').then(
         (module_) => module_.AUTHENTICATION_ROUTES,
       ),
+  },
+  {
+    path: ROOT_PATHS.myPokemon,
+    component: MyPokemonComponent,
+    canActivate: [authenticationGuard],
   },
   {
     path: POKEMON_PATHS.base,
