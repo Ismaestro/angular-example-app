@@ -1,7 +1,6 @@
 <main>
   <h1 class="first-heading__title" i18n>¡Welcome back!</h1>
   <form
-    #loginFormRef="ngForm"
     class="form__container login__form"
     [formGroup]="logInForm"
     (ngSubmit)="sendForm()"
@@ -19,7 +18,7 @@
         appTrim
         required
         ngDefaultControl
-        [attr.help-text]="email.invalid && loginFormRef['submitted'] ? translations.emailHelpText : ''"
+        [attr.help-text]="emailError()"
         [formControl]="email"
       >
         <sl-icon name="person-circle" slot="prefix" />
@@ -38,7 +37,7 @@
         appSlInputIconFocus
         required
         ngDefaultControl
-        [attr.help-text]="password.invalid && loginFormRef['submitted'] ? translations.passwordHelpText : ''"
+        [attr.help-text]="passwordError()"
         [formControl]="password"
       >
         <sl-icon name="lock" slot="prefix" />
@@ -50,8 +49,8 @@
         size="medium"
         pill
         type="submit"
-        [disabled]="isButtonLogInLoading()"
-        [attr.loading]="isButtonLogInLoading() || null"
+        [disabled]="formState().isLoading"
+        [attr.loading]="formState().isLoading || null"
       >
         <ng-container i18n>Enter</ng-container>
       </sl-button>

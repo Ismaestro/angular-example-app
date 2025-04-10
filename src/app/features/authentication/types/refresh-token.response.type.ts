@@ -1,4 +1,4 @@
-import type { ApiResponse } from '~core/types/api-response.type';
+import type { ApiResponse } from '~core/types/api-response.types';
 
 export type RefreshTokenResponseData = {
   accessToken: string;

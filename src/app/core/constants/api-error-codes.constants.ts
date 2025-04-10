@@ -1,0 +1,3 @@
+export const API_ERROR_CODES = {
+  INVALID_CREDENTIALS_CODE: 2002,
+};
