@@ -35,7 +35,7 @@
     />
   </div>
   <div class="pokemon-battlefield__pokemon-image-container" [class.loaded]="pokemonImageLoaded()">
-    <app-pokemon-catch [pokemonBattleEvent]="pokemonBattleEvent()">
+    <app-catch-animation [pokemonBattleEvent]="pokemonBattleEvent()">
       <ng-container ngProjectAs="image">
         <app-pokemon-image
           imageWidth="170%"
@@ -43,6 +43,6 @@
           (loaded)="startPokemonInitialAnimation($event)"
         />
       </ng-container>
-    </app-pokemon-catch>
+    </app-catch-animation>
   </div>
 </div>

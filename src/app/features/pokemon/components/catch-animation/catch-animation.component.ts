@@ -8,8 +8,8 @@ import {
   type WritableSignal,
 } from '@angular/core';
 import { NgOptimizedImage, NgStyle } from '@angular/common';
-import { catchAnimations } from '~features/pokemon/components/pokemon-catch/pokemon-catch.animations';
 import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
+import { catchAnimations } from '~features/pokemon/components/catch-animation/catch.animations';
 
 enum PokeballState {
   Idle = 'idle',
@@ -26,9 +26,9 @@ enum PokemonState {
 }
 
 @Component({
-  selector: 'app-pokemon-catch',
-  templateUrl: './pokemon-catch.component.html',
-  styleUrl: './pokemon-catch.component.scss',
+  selector: 'app-catch-animation',
+  templateUrl: './catch-animation.component.html',
+  styleUrl: './catch-animation.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [catchAnimations],
   imports: [NgOptimizedImage, NgStyle],
@@ -36,7 +36,7 @@ enum PokemonState {
     '(window:resize)': 'loadAnimationPositions()',
   },
 })
-export class PokemonCatchComponent implements OnInit {
+export class CatchAnimationComponent implements OnInit {
   readonly pokemonBattleEvent = input.required<WritableSignal<BattleEvent>>();
   readonly pokeballStartingPoint = signal('');
   readonly pokeballPokemonXPoint = signal('');

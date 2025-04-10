@@ -2,7 +2,7 @@
   <h1 class="first-heading__title" i18n>My Pokemon</h1>
   <ng-container *ngrxLet="userPokemons$ as userPokemons; suspenseTpl: loading">
     <div class="my-pokemon__search-container">
-      <app-pokemon-search
+      <app-pokemon-search-input
         [title]="userPokemons?.length ? translations.findMore : translations.findPokemon"
       />
     </div>

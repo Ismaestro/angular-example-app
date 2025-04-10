@@ -2,16 +2,16 @@ import type { OnInit, WritableSignal } from '@angular/core';
 import { ChangeDetectionStrategy, Component, effect, input, signal } from '@angular/core';
 import type { Pokemon } from '~features/pokemon/types/pokemon.type';
 import { PokemonImageComponent } from '~features/pokemon/components/pokemon-image/pokemon-image.component';
-import { PokemonCatchComponent } from '~features/pokemon/components/pokemon-catch/pokemon-catch.component';
 import { NgOptimizedImage } from '@angular/common';
 import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
+import { CatchAnimationComponent } from '~features/pokemon/components/catch-animation/catch-animation.component';
 
 @Component({
   selector: 'app-pokemon-battlefield',
   templateUrl: './pokemon-battlefield.component.html',
   styleUrl: './pokemon-battlefield.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [PokemonImageComponent, PokemonCatchComponent, NgOptimizedImage],
+  imports: [PokemonImageComponent, CatchAnimationComponent, NgOptimizedImage],
 })
 export class PokemonBattlefieldComponent implements OnInit {
   readonly pokemonBattleEvent = input.required<WritableSignal<BattleEvent>>();

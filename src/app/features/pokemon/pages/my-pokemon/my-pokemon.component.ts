@@ -3,17 +3,23 @@ import { UserService } from '~features/authentication/services/user.service';
 import { PokemonCardComponent } from '~features/pokemon/components/pokemon-card/pokemon-card.component';
 import { PokemonService } from '~features/pokemon/services/pokemon.service';
 import { NgOptimizedImage } from '@angular/common';
-import { PokemonSearchComponent } from '~features/pokemon/components/pokemon-search/pokemon-search.component';
 import { translations } from '../../../../../locale/translations';
 import { AlertService } from '~core/services/ui/alert.service';
 import { catchError, of, switchMap } from 'rxjs';
 import { LetDirective, PushPipe } from '@ngrx/component';
+import { PokemonSearchInputComponent } from '~features/pokemon/components/pokemon-search-input/pokemon-search-input.component';
 
 @Component({
   selector: 'app-my-pokemon',
   templateUrl: './my-pokemon.component.html',
   styleUrl: './my-pokemon.component.scss',
-  imports: [PokemonCardComponent, NgOptimizedImage, PokemonSearchComponent, PushPipe, LetDirective],
+  imports: [
+    PokemonCardComponent,
+    NgOptimizedImage,
+    PushPipe,
+    LetDirective,
+    PokemonSearchInputComponent,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

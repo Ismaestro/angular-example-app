@@ -23,13 +23,13 @@ import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'app-pokemon-search',
-  templateUrl: './pokemon-search.component.html',
-  styleUrl: './pokemon-search.component.scss',
+  selector: 'app-pokemon-search-input',
+  templateUrl: './pokemon-search-input.component.html',
+  styleUrl: './pokemon-search-input.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [SlInputIconFocusDirective, NgOptimizedImage, TrimDirective],
 })
-export class PokemonSearchComponent {
+export class PokemonSearchInputComponent {
   private readonly router = inject(Router);
   private readonly pokemonService = inject(PokemonService);
   private readonly alertService = inject(AlertService);
