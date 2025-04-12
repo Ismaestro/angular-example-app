@@ -47,7 +47,7 @@ export class HeaderComponent {
   readonly AUTH_URLS = AUTH_URLS;
   readonly translations = translations;
   readonly avatarDropdown: Signal<ElementRef<SlDropdown> | undefined> = viewChild('avatarDropdown');
-  readonly isUserLoggedIn = this.authenticationService.isUserLoggedIn;
+  readonly isUserLoggedIn = () => this.authenticationService.authState().isLoggedIn;
   readonly menuOpen = signal(false);
 
   logOutUser() {

@@ -1,4 +1,4 @@
-import { inject, Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal, linkedSignal } from '@angular/core';
 import { LOCAL_STORAGE } from '~core/providers/local-storage';
 import { HttpClient } from '@angular/common/http';
 import type { Observable } from 'rxjs';
@@ -30,9 +30,21 @@ export class AuthenticationService {
   private readonly storageService = inject(LOCAL_STORAGE);
   private readonly httpClient = inject(HttpClient);
   private readonly languageService = inject(LanguageService);
-  private readonly _isUserLoggedIn = signal(!!this.storageService?.getItem(ACCESS_TOKEN_KEY));
 
-  readonly isUserLoggedIn = this._isUserLoggedIn.asReadonly();
+  private readonly authTokens = signal<{ accessToken?: string; refreshToken?: string }>({
+    accessToken: this.storageService?.getItem(ACCESS_TOKEN_KEY) ?? undefined,
+    refreshToken: this.storageService?.getItem(REFRESH_TOKEN_KEY) ?? undefined
+  });
+
+  readonly authState = linkedSignal({
+    source: this.authTokens,
+    computation: (tokens) => ({
+      isLoggedIn: !!tokens.accessToken,
+      hasRefreshToken: !!tokens.refreshToken,
+      accessToken: tokens.accessToken,
+      refreshToken: tokens.refreshToken
+    })
+  });
 
   register(registerRequest: RegisterFormValue): Observable<RegisterResponseData> {
     return this.httpClient
@@ -55,7 +67,6 @@ export class AuthenticationService {
         map((response: RegisterResponse) => {
           const { data } = response;
           this.saveTokens(data);
-          this._isUserLoggedIn.set(true);
           return data;
         }),
       );
@@ -71,7 +82,6 @@ export class AuthenticationService {
         map((response: LoginResponse) => {
           const { data } = response;
           this.saveTokens(data);
-          this._isUserLoggedIn.set(true);
           return data.user;
         }),
       );
@@ -94,7 +104,6 @@ export class AuthenticationService {
   logOut() {
     clearCache();
     this.removeTokens();
-    this._isUserLoggedIn.set(false);
   }
 
   private saveTokens(data: { accessToken: string; refreshToken?: string }) {
@@ -102,10 +111,15 @@ export class AuthenticationService {
     if (data.refreshToken) {
       this.storageService?.setItem(REFRESH_TOKEN_KEY, data.refreshToken);
     }
+    this.authTokens.set({
+      accessToken: data.accessToken,
+      refreshToken: data.refreshToken
+    });
   }
 
   private removeTokens() {
     this.storageService?.removeItem(ACCESS_TOKEN_KEY);
     this.storageService?.removeItem(REFRESH_TOKEN_KEY);
+    this.authTokens.set({});
   }
 }

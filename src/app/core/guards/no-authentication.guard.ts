@@ -3,12 +3,14 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '~features/authentication/services/authentication.service';
 import { ROOT_PATHS } from '~core/constants/paths.constants';
 
-export const noAuthenticationGuard = () => {
+export function noAuthenticationGuard(): boolean {
   const authenticationService = inject(AuthenticationService);
-  if (authenticationService.isUserLoggedIn()) {
-    const router = inject(Router);
-    void router.navigate([ROOT_PATHS.myPokemon]);
+  const router = inject(Router);
+
+  if (authenticationService.authState().isLoggedIn) {
+    void router.navigate([ROOT_PATHS.home]);
     return false;
   }
+
   return true;
-};
+}
