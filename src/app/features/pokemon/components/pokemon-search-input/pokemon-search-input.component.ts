@@ -5,6 +5,7 @@ import {
   DestroyRef,
   inject,
   input,
+  linkedSignal,
   signal,
 } from '@angular/core';
 import { PokemonService } from '~features/pokemon/services/pokemon.service';
@@ -38,6 +39,14 @@ export class PokemonSearchInputComponent {
   readonly title = input<string>(translations.findPokemon);
   readonly termValue = signal('');
   readonly pokemonLoading = signal(false);
+  readonly searchState = linkedSignal({
+    source: this.termValue,
+    computation: (term) => ({
+      term,
+      isLoading: term ? this.pokemonLoading() : false,
+      showButton: term && this.pokemonLoading()
+    })
+  });
 
   searchPokemon() {
     const pokemonName = this.termValue().toLowerCase();

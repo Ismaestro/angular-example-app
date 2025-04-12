@@ -6,15 +6,15 @@
     appSlInputIconFocus
     appTrim
     [placeholder]="title()"
-    [class.has-action]="termValue() && pokemonLoading()"
-    [value]="termValue()"
+    [class.has-action]="searchState().showButton"
+    [value]="searchState().term"
     (sl-input)="assignInputValue($event)"
     (keydown.enter)="searchPokemon()"
   >
     <sl-icon name="search" slot="prefix" />
   </sl-input>
 
-  @if (termValue() && pokemonLoading()) {
+  @if (searchState().showButton) {
     <sl-button class="button--image" slot="trigger" (click)="searchPokemon()">
       <img
         class="search__loading-image"
@@ -24,7 +24,7 @@
         i18n-alt
         width="100"
         height="100"
-        [class.loading__image]="pokemonLoading()"
+        [class.loading__image]="searchState().isLoading"
       />
     </sl-button>
   }
