@@ -25,10 +25,10 @@ import { LanguageService } from '~core/services/language.service';
 import { AuthenticationService } from '../../services/authentication.service';
 import type { User } from '~features/authentication/types/user.type';
 import type {
-  FormState,
-  LoginForm,
-  LoginFormControl,
-  LoginFormGroup,
+  LogInForm,
+  LogInFormControl,
+  LogInFormGroup,
+  LogInFormState,
 } from '~features/authentication/pages/log-in/log-in-form.types';
 import { translations } from '../../../../../locale/translations';
 
@@ -60,15 +60,13 @@ export class LogInComponent {
 
   readonly translations = translations;
   readonly authUrls = AUTH_URLS;
-
-  readonly formState = signal<FormState>({
+  readonly logInForm = this.createLoginForm();
+  readonly formState = signal<LogInFormState>({
     isLoading: false,
     isSubmitted: false,
     emailError: '',
     passwordError: '',
   });
-
-  readonly logInForm = this.createLoginForm();
 
   readonly emailError = computed<string>(() =>
     this.shouldShowFieldError(this.email) ? translations.emailHelpText : '',
@@ -78,12 +76,12 @@ export class LogInComponent {
     this.shouldShowFieldError(this.password) ? translations.passwordHelpText : '',
   );
 
-  get email(): LoginFormControl {
-    return this.logInForm.get('email') as LoginFormControl;
+  get email(): LogInFormControl {
+    return this.logInForm.get('email') as LogInFormControl;
   }
 
-  get password(): LoginFormControl {
-    return this.logInForm.get('password') as LoginFormControl;
+  get password(): LogInFormControl {
+    return this.logInForm.get('password') as LogInFormControl;
   }
 
   sendForm(): void {
@@ -95,7 +93,7 @@ export class LogInComponent {
     }
 
     this.updateFormState({ isLoading: true });
-    const formValue = this.logInForm.getRawValue() as LoginForm;
+    const formValue = this.logInForm.getRawValue() as LogInForm;
 
     this.authService
       .logIn(formValue)
@@ -116,7 +114,7 @@ export class LogInComponent {
       });
   }
 
-  private createLoginForm(): LoginFormGroup {
+  private createLoginForm(): LogInFormGroup {
     return this.formBuilder.group({
       email: new FormControl<string>('', {
         validators: [Validators.required, Validators.minLength(4), emailValidator()],
@@ -129,7 +127,7 @@ export class LogInComponent {
     });
   }
 
-  private shouldShowFieldError(control: LoginFormControl): boolean {
+  private shouldShowFieldError(control: LogInFormControl): boolean {
     return this.formState().isSubmitted && control.invalid;
   }
 
@@ -141,7 +139,7 @@ export class LogInComponent {
     this.alertService.createErrorAlert(errorMessage);
   }
 
-  private updateFormState(updates: Partial<FormState>): void {
+  private updateFormState(updates: Partial<LogInFormState>): void {
     this.formState.update((state) => ({ ...state, ...updates }));
   }
 }

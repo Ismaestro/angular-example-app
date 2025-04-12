@@ -9,7 +9,6 @@ import type {
   RefreshTokenResponse,
   RefreshTokenResponseData,
 } from '~features/authentication/types/refresh-token.response.type';
-import type { RegisterRequest } from '~features/authentication/types/register-request.type';
 import type {
   RegisterResponse,
   RegisterResponseData,
@@ -18,6 +17,7 @@ import { LanguageService } from '~core/services/language.service';
 import type { User } from '~features/authentication/types/user.type';
 import { clearCache } from '~core/interceptors/caching.interceptor';
 import { getEndpoints } from '~core/constants/endpoints.constants';
+import type { RegisterFormValue } from '~features/authentication/pages/register/register-form.types';
 
 export const ACCESS_TOKEN_KEY = 'access-token';
 export const REFRESH_TOKEN_KEY = 'refresh-token';
@@ -34,7 +34,7 @@ export class AuthenticationService {
 
   readonly isUserLoggedIn = this._isUserLoggedIn.asReadonly();
 
-  register(registerRequest: RegisterRequest): Observable<RegisterResponseData> {
+  register(registerRequest: RegisterFormValue): Observable<RegisterResponseData> {
     return this.httpClient
       .post<RegisterResponse>(
         this.endpoints.auth.v1.authentication,

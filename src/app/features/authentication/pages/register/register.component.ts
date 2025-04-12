@@ -9,20 +9,25 @@ import {
 } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { catchError, EMPTY, merge } from 'rxjs';
 import { AUTH_URLS, POKEMON_URLS, ROOT_URLS } from '~core/constants/urls.constants';
 import { emailValidator } from '~core/validators/email.validator';
 import { passwordValidator } from '~core/validators/password.validator';
 import { PokemonValidator } from '~core/validators/pokemon.validator';
-import { NgOptimizedImage } from '@angular/common';
 import { SlInputIconFocusDirective } from '~core/directives/sl-input-icon-focus.directive';
-import { translations } from '../../../../../locale/translations';
-import { merge } from 'rxjs';
 import { AppSlCheckboxControlDirective } from '~core/directives/sl-checkbox-control.directive';
-import { AuthenticationService } from '~features/authentication/services/authentication.service';
-import { AlertService } from '~core/services/ui/alert.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { LowercaseDirective } from '~core/directives/lowercase.directive';
 import { TrimDirective } from '~core/directives/trim.directive';
+import { AlertService } from '~core/services/ui/alert.service';
+import { AuthenticationService } from '../../services/authentication.service';
+import type {
+  RegisterFormGroup,
+  RegisterFormState,
+  RegisterFormValue,
+} from './register-form.types';
+import { translations } from '../../../../../locale/translations';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/input/input.js';
@@ -53,96 +58,119 @@ export class RegisterComponent implements OnInit {
   private readonly pokemonValidator = inject(PokemonValidator);
   private readonly destroyRef = inject(DestroyRef);
 
-  readonly isButtonRegisterLoading = signal(false);
-  readonly isPokemonValidating = this.pokemonValidator.isPokemonValidating;
-  readonly registrationCompleted = signal(false);
+  private readonly pokemonAppearAudio = new Audio(
+    'https://res.cloudinary.com/ismaestro/video/upload/v1735370897/angularexampleapp/assets/sounds/battle-effect_gqckbf.mp3',
+  );
 
-  translations = translations;
-  pokemonAppearAudio!: HTMLAudioElement;
-  authUrls = AUTH_URLS;
-  name = new FormControl('', [Validators.required, Validators.minLength(2)]);
-  email = new FormControl('', [Validators.required, Validators.minLength(4), emailValidator()]);
-  password = new FormControl('', {
-    validators: [Validators.required, passwordValidator()],
-    updateOn: 'change',
+  readonly translations = translations;
+  readonly authUrls = AUTH_URLS;
+  readonly registerForm = this.createRegisterForm();
+  readonly formControls = {
+    name: this.registerForm.get('name') as FormControl<string>,
+    email: this.registerForm.get('email') as FormControl<string>,
+    password: this.registerForm.get('password') as FormControl<string>,
+    confirmPassword: this.registerForm.get('confirmPassword') as FormControl<string>,
+    favouritePokemonId: this.registerForm.get('favouritePokemonId') as FormControl<string>,
+    terms: this.registerForm.get('terms') as FormControl<boolean | null>,
+  };
+  readonly formState = signal<RegisterFormState>({
+    isLoading: false,
+    isSubmitted: false,
+    isRegistrationCompleted: false,
+    passwordsMatch: false,
+    isPokemonValidating: this.pokemonValidator.isPokemonValidating,
   });
-  confirmPassword = new FormControl('', {
-    validators: [Validators.required, passwordValidator()],
-    updateOn: 'change',
-  });
-  favouritePokemon = new FormControl('', {
-    validators: [Validators.required, Validators.minLength(2)],
-    asyncValidators: [this.pokemonValidator.validate.bind(this.pokemonValidator)],
-    updateOn: 'change',
-  });
-  terms = new FormControl(null, [Validators.requiredTrue]);
-  registerForm = this.formBuilder.group({
-    name: this.name,
-    email: this.email,
-    password: this.password,
-    confirmPassword: this.confirmPassword,
-    favouritePokemon: this.favouritePokemon,
-    terms: this.terms,
-  });
-  confirmPasswordHelpText = '';
+
+  constructor() {
+    this.pokemonAppearAudio.volume = 0.1;
+    this.formControls.favouritePokemonId.setErrors({ pokemonName: true });
+  }
 
   ngOnInit() {
-    this.favouritePokemon.setErrors({ pokemonName: true });
-    merge(this.password.valueChanges, this.confirmPassword.valueChanges)
+    merge(this.formControls.password.valueChanges, this.formControls.confirmPassword.valueChanges)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {
         this.checkPasswords();
       });
-    this.pokemonAppearAudio = new Audio(
-      'https://res.cloudinary.com/ismaestro/video/upload/v1735370897/angularexampleapp/assets/sounds/battle-effect_gqckbf.mp3',
-    );
-    this.pokemonAppearAudio.volume = 0.1;
   }
 
-  checkPasswords() {
-    const areValuesEqual = this.password.value === this.confirmPassword.value;
-    if (areValuesEqual && this.confirmPassword.getRawValue()) {
-      this.confirmPasswordHelpText = '';
-      this.confirmPassword.setErrors(null);
+  sendForm(): void {
+    this.updateFormState({ isSubmitted: true });
+
+    if (this.registerForm.invalid) {
+      this.registerForm.markAllAsTouched();
+      return;
+    }
+
+    this.updateFormState({ isLoading: true });
+
+    this.authService
+      .register({
+        ...this.registerForm.getRawValue(),
+        favouritePokemonId: Number(this.pokemonValidator.pokemonId()),
+      } as RegisterFormValue)
+      .pipe(
+        takeUntilDestroyed(this.destroyRef),
+        catchError(() => {
+          this.handleRegistrationError();
+          return EMPTY;
+        }),
+      )
+      .subscribe(() => {
+        this.handleRegistrationSuccess();
+      });
+  }
+
+  // eslint-disable-next-line max-lines-per-function
+  private createRegisterForm(): RegisterFormGroup {
+    return this.formBuilder.group({
+      name: new FormControl<string>('', {
+        validators: [Validators.required, Validators.minLength(2)],
+        nonNullable: true,
+      }),
+      email: new FormControl<string>('', {
+        validators: [Validators.required, Validators.minLength(4), emailValidator()],
+        nonNullable: true,
+      }),
+      password: new FormControl<string>('', {
+        validators: [Validators.required, passwordValidator()],
+        updateOn: 'change',
+        nonNullable: true,
+      }),
+      confirmPassword: new FormControl<string>('', {
+        validators: [Validators.required, passwordValidator()],
+        updateOn: 'change',
+        nonNullable: true,
+      }),
+      favouritePokemonId: new FormControl<string>('', {
+        validators: [Validators.required, Validators.minLength(2)],
+        asyncValidators: [this.pokemonValidator.validate.bind(this.pokemonValidator)],
+        updateOn: 'change',
+        nonNullable: true,
+      }),
+      terms: new FormControl<boolean | null>(null, {
+        validators: [Validators.requiredTrue],
+      }),
+    });
+  }
+
+  private checkPasswords(): void {
+    if (this.formControls.password.value === this.formControls.confirmPassword.value) {
+      this.updateFormState({ passwordsMatch: true });
+      this.formControls.confirmPassword.setErrors(null);
     } else {
-      if (this.confirmPassword.touched) {
-        this.confirmPasswordHelpText = translations.confirmPasswordHelpText;
-      }
-      this.confirmPassword.setErrors({ mismatch: true });
+      this.updateFormState({
+        passwordsMatch: false,
+      });
+      this.formControls.confirmPassword.setErrors({ notEqual: true });
     }
   }
 
-  sendForm() {
-    this.registerForm.markAllAsTouched();
-    if (this.registerForm.valid) {
-      this.isButtonRegisterLoading.set(true);
-      const formValue = this.registerForm.getRawValue();
-      this.authService
-        .register({
-          email: formValue.email!,
-          password: formValue.password!,
-          name: formValue.name!,
-          favouritePokemonId: this.pokemonValidator.pokemonId(),
-          terms: formValue.terms!,
-        })
-        .pipe(takeUntilDestroyed(this.destroyRef))
-        .subscribe({
-          next: () => {
-            this.playSoundAndNavigate();
-          },
-          error: () => {
-            this.isButtonRegisterLoading.set(false);
-            this.alertService.createErrorAlert(translations.genericRegisterError);
-          },
-        });
-    }
-  }
-
-  private playSoundAndNavigate() {
+  private handleRegistrationSuccess() {
     this.pokemonAppearAudio
       .play()
       .then(() => {
-        this.registrationCompleted.set(true);
+        this.updateFormState({ isRegistrationCompleted: true });
         const ANIMATION_END_TIME = 2300;
         setTimeout(() => {
           const LAST_POKEMON_ID = 1025;
@@ -159,5 +187,14 @@ export class RegisterComponent implements OnInit {
 
   private getRandomNumber(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  private handleRegistrationError(): void {
+    this.alertService.createErrorAlert(translations.genericErrorAlert);
+    this.updateFormState({ isLoading: false });
+  }
+
+  private updateFormState(updates: Partial<RegisterFormState>): void {
+    this.formState.update((state) => ({ ...state, ...updates }));
   }
 }

@@ -353,7 +353,7 @@
         <source>Bring your UI to life with Angular Animations.</source>
       </trans-unit>
       <trans-unit id="381575201384767307" datatype="html">
-        <source>No real email validation. Field required. Format: example@domain.com</source>
+        <source>Field required. No real email validation. Format: example@domain.com</source>
       </trans-unit>
       <trans-unit id="1476832105912939227" datatype="html">
         <source>Session expired. Please log in.</source>
