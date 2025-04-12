@@ -1,63 +1,84 @@
-<div align="center" style="text-align: center; width: 70%; margin: 0 auto;">
-  <h1 align="center">Angular Example App</h1>
+<div align="center">
+  <h1>🚀 Angular Example App</h1>
 
-  <p align="center">
-    Base project with Angular 19 and i18n
-    <br>
-    <br>
-    A real-world app made with :heart: and dedication!. Showcasing CRUD operations, advanced patterns, and much more. Dive in and explore!
-    <br>
-    <br>
-    <img style="width: 15%; margin: 0 auto;" src="https://res.cloudinary.com/ismaestro/image/upload/angularexampleapp/assets/images/ash-pikachu.png" alt="Demo example"/>
-    <br>
-    <br>
-    <a href="https://angular-example-app.netlify.app/">DEMO HERE</a>
+  <p>
+    Your all-in-one <strong>real-world</strong> Angular starter — built for <strong>learning</strong>, <strong>productivity</strong>, and <strong>scaling</strong>.
+    <br><br>
+    Crafted with ❤️ to showcase real best practices in action: standalone components, signals, routing, i18n, authentication and more.
+    <br><br>
+    <a href="https://angular-example-app.netlify.app/" target="_blank"><strong>🔥 Live Demo</strong></a>
+    <br><br>
+    <img src="https://res.cloudinary.com/ismaestro/image/upload/angularexampleapp/assets/images/ash-pikachu.png" alt="Demo example" width="150"/>
   </p>
 </div>
 
-## Setup
+---
+
+## 📦 Why This Project?
+
+Whether you're just starting with Angular or looking for a solid base for your next app, this project has you covered.
+
+- ✅ **Beginner-friendly**: Clean code, best practices, and detailed structure.
+- ✅ **Production-ready**: Real APIs, authentication, modular architecture.
+- ✅ **Feature-rich**: Not just a to-do list! Real-world logic you’ll use in any serious project.
+- ✅ **Made with love**: Built by passionate developers, for the community.
+
+---
+
+## 🛠️ Getting Started
 
 ```bash
 npm i
 npm start
 ```
 
-## Status
+---
+
+## 🚨 Live Status
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f593abee-25b9-424a-bd54-6bc52aff7230/deploy-status)](https://app.netlify.com/sites/angular-example-app/deploys)
 
-## Server
+---
 
-This project is powered by a real application deployed on Fly.io. You can explore the codebase [here](https://github.com/Ismaestro/nestjs-example-app).
-The server is built with NestJS, Prisma, and Postgres, ensuring a robust and modern backend architecture.
+## 🌍 Backend API
 
-## What's included
+This app connects to a real backend powered by NestJS, PostgreSQL, and Prisma, deployed on Fly.io. You can explore the codebase [here](https://github.com/Ismaestro/nestjs-example-app).
 
-- [x] Strict ESLint Rules: Enforcing clean and consistent code quality.
-- [x] Standalone Components: Modern and modular Angular architecture.
-- [x] Functional Guards: Enhanced route protection with clean and reusable logic.
-- [x] Pokémon Fun!: Interact with Pokémon data via the PokeAPI.
-- [x] Authentication: Secure JWT-based authentication.
-- [x] Internationalization (i18n): Multilingual support with English and Spanish.
-- [x] Lazy Loading: Efficient module loading for improved performance.
-- [x] Logical Directory Structure: Easy-to-navigate, organized codebase.
-- [x] Best Practices: Adheres to the [Angular Style Guide](https://angular.io/guide/styleguide).
-- [x] Responsive Design: Built with CSS Grid and Flexbox for layouts.
-- [x] Accessible: Usage of [Shoelace](https://shoelace.style/), a forward-thinking library of web components.
-- [x] Optimized Images: Leveraging [NgOptimizedImage](https://angular.io/guide/image-directive) for performance.
-- [x] SASS & BEM Styles: Maintainable and scalable styling.
-- [x] Animations: Smooth and engaging UI interactions using Angular's powerful animations API.
-- [ ] Comprehensive Testing: Example tests for Components, Services, Interceptors, Directives, and Guards. [PENDING]
-- [ ] End-to-End Testing: Fully configured with Playwright. [PENDING]
+---
 
-## Bugs and feature requests
+## ✨ Features
 
-Found a bug or have a feature request? Before submitting, please check the issue guidelines and search through existing and closed issues. If your problem or idea hasn’t been addressed yet, [please open a new issue](https://github.com/Ismaestro/angular-example-app/issues/new).
+|                        |                                    |
+|------------------------|-------------------------------------------------|
+| ✅ Angular 19           | Using the latest version                        |
+| ✅ Internationalization | i18n with English and Spanish                   |
+| ✅ Authentication       | JWT-based, real login flow                      |
+| ✅ Routing & Guards     | Functional guards with lazy-loaded routes       |
+| ✅ Responsive Design    | Mobile-first layouts with Flexbox and Grid      |
+| ✅ APIs                 | Example integration with the PokeAPI            |
+| ✅ Shoelace Components  | Accessible and modern UI components             |
+| ✅ NgOptimizedImage     | Fast image loading with Angular's directive     |
+| ✅ Animations           | Smooth transitions with Angular Animations      |
+| ✅ Clean Architecture   | Modular folder structure following best practices |
+| ✅ SASS & BEM           | Maintainable and scalable styling               |
+| 🧪 Testing             | Unit & e2e testing (coming soon!)               |
 
-If you have an idea or you want to do something, tell me or just do it! I'm always happy to hear
-your feedback!
+---
 
-## Contributors
+## 🧩 Roadmap
+
+- [ ] Component & service testing with Angular Testing Library
+- [ ] End-to-End tests with Playwright
+
+---
+
+## 🐛 Found a bug? Got an idea?
+
+We love feedback! If something doesn't work or you think of a cool new feature, [open an issue](https://github.com/Ismaestro/angular-example-app/issues/new) or contribute directly with a PR.
+
+---
+
+## 🤝 Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -88,8 +109,8 @@ your feedback!
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-## Copyright and license
+---
 
-Code and documentation copyright 2025 to the authors.
+## License
 
-Code released under the [MIT License](https://github.com/Ismaestro/angular-example-app/blob/master/LICENSE).
+This project is licensed under the [MIT License](https://github.com/Ismaestro/angular-example-app/blob/master/LICENSE).
