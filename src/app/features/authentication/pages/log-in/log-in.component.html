@@ -1,10 +1,6 @@
 <main>
   <h1 class="first-heading__title" i18n>¡Welcome back!</h1>
-  <form
-    class="form__container login__form"
-    [formGroup]="logInForm"
-    (ngSubmit)="sendForm()"
-  >
+  <form class="form__container login__form" [formGroup]="logInForm" (ngSubmit)="sendForm()">
     <div class="form-control__container">
       <sl-input
         class="input--primary"
@@ -18,8 +14,8 @@
         appTrim
         required
         ngDefaultControl
-        [attr.help-text]="emailError()"
-        [formControl]="email"
+        [attr.help-text]="formState().isSubmitted && formControls.email.invalid ? translations.emailHelpText : ''"
+        [formControl]="formControls.email"
       >
         <sl-icon name="person-circle" slot="prefix" />
       </sl-input>
@@ -37,8 +33,8 @@
         appSlInputIconFocus
         required
         ngDefaultControl
-        [attr.help-text]="passwordError()"
-        [formControl]="password"
+        [attr.help-text]="formState().isSubmitted && formControls.password.invalid ? translations.passwordHelpText : ''"
+        [formControl]="formControls.password"
       >
         <sl-icon name="lock" slot="prefix" />
       </sl-input>

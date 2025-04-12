@@ -1,7 +1,6 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  computed,
   CUSTOM_ELEMENTS_SCHEMA,
   DestroyRef,
   inject,
@@ -25,8 +24,6 @@ import { LanguageService } from '~core/services/language.service';
 import { AuthenticationService } from '../../services/authentication.service';
 import type { User } from '~features/authentication/types/user.type';
 import type {
-  LogInForm,
-  LogInFormControl,
   LogInFormGroup,
   LogInFormState,
 } from '~features/authentication/pages/log-in/log-in-form.types';
@@ -61,28 +58,14 @@ export class LogInComponent {
   readonly translations = translations;
   readonly authUrls = AUTH_URLS;
   readonly logInForm = this.createLoginForm();
+  readonly formControls = {
+    email: this.logInForm.get('email') as FormControl<string>,
+    password: this.logInForm.get('password') as FormControl<string>,
+  };
   readonly formState = signal<LogInFormState>({
     isLoading: false,
     isSubmitted: false,
-    emailError: '',
-    passwordError: '',
   });
-
-  readonly emailError = computed<string>(() =>
-    this.shouldShowFieldError(this.email) ? translations.emailHelpText : '',
-  );
-
-  readonly passwordError = computed<string>(() =>
-    this.shouldShowFieldError(this.password) ? translations.passwordHelpText : '',
-  );
-
-  get email(): LogInFormControl {
-    return this.logInForm.get('email') as LogInFormControl;
-  }
-
-  get password(): LogInFormControl {
-    return this.logInForm.get('password') as LogInFormControl;
-  }
 
   sendForm(): void {
     this.updateFormState({ isSubmitted: true });
@@ -93,10 +76,8 @@ export class LogInComponent {
     }
 
     this.updateFormState({ isLoading: true });
-    const formValue = this.logInForm.getRawValue() as LogInForm;
-
     this.authService
-      .logIn(formValue)
+      .logIn(this.logInForm.getRawValue())
       .pipe(
         takeUntilDestroyed(this.destroyRef),
         finalize(() => {
@@ -125,10 +106,6 @@ export class LogInComponent {
         nonNullable: true,
       }),
     });
-  }
-
-  private shouldShowFieldError(control: LogInFormControl): boolean {
-    return this.formState().isSubmitted && control.invalid;
   }
 
   private handleLoginError(response: ApiErrorResponse): void {
