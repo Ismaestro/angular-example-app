@@ -146,5 +146,13 @@ $avatar-size: 40px;
       height: $avatar-size;
       border-radius: 50%;
     }
+
+    .github-logo__image {
+      opacity: 0.7;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
 }
