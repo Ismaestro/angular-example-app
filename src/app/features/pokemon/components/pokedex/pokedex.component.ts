@@ -15,7 +15,7 @@ import { FirstTitleCasePipe } from '~core/pipes/first-title-case.pipe';
 import { UserService } from '~features/authentication/services/user.service';
 import type { User } from '~features/authentication/types/user.type';
 import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
-import { AlertService } from '~core/services/ui/alert.service';
+import { AlertStore } from '~core/services/ui/alert-store.service';
 import { translations } from '../../../../../locale/translations';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
@@ -29,7 +29,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 })
 export class PokedexComponent implements OnInit {
   private readonly userService = inject(UserService);
-  private readonly alertService = inject(AlertService);
+  private readonly alertStore = inject(AlertStore);
   private readonly destroyRef = inject(DestroyRef);
 
   readonly pokemonBattleEvent = input.required<WritableSignal<BattleEvent>>();
@@ -67,7 +67,7 @@ export class PokedexComponent implements OnInit {
             }, 300);
           },
           error: () => {
-            this.alertService.createErrorAlert(translations.genericErrorAlert);
+            this.alertStore.createErrorAlert(translations.genericErrorAlert);
           },
         });
     }

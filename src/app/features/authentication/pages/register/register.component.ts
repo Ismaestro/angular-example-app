@@ -20,7 +20,7 @@ import { SlInputIconFocusDirective } from '~core/directives/sl-input-icon-focus.
 import { AppSlCheckboxControlDirective } from '~core/directives/sl-checkbox-control.directive';
 import { LowercaseDirective } from '~core/directives/lowercase.directive';
 import { TrimDirective } from '~core/directives/trim.directive';
-import { AlertService } from '~core/services/ui/alert.service';
+import { AlertStore } from '~core/services/ui/alert-store.service';
 import { AuthenticationService } from '../../services/authentication.service';
 import type {
   RegisterFormGroup,
@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
   private readonly router = inject(Router);
   private readonly formBuilder = inject(FormBuilder);
   private readonly authService = inject(AuthenticationService);
-  private readonly alertService = inject(AlertService);
+  private readonly alertStore = inject(AlertStore);
   private readonly pokemonValidator = inject(PokemonValidator);
   private readonly destroyRef = inject(DestroyRef);
 
@@ -190,7 +190,7 @@ export class RegisterComponent implements OnInit {
   }
 
   private handleRegistrationError(): void {
-    this.alertService.createErrorAlert(translations.genericErrorAlert);
+    this.alertStore.createErrorAlert(translations.genericErrorAlert);
     this.updateFormState({ isLoading: false });
   }
 

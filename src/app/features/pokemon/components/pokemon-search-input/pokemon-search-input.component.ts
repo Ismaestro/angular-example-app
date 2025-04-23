@@ -1,11 +1,10 @@
 import {
   ChangeDetectionStrategy,
-  Component,
+  Component, computed,
   CUSTOM_ELEMENTS_SCHEMA,
   DestroyRef,
   inject,
   input,
-  linkedSignal,
   signal,
 } from '@angular/core';
 import { PokemonService } from '~features/pokemon/services/pokemon.service';
@@ -14,7 +13,7 @@ import { POKEMON_URLS } from '~core/constants/urls.constants';
 import { Router } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { translations } from '../../../../../locale/translations';
-import { AlertService } from '~core/services/ui/alert.service';
+import { AlertStore } from '~core/services/ui/alert-store.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { TrimDirective } from '~core/directives/trim.directive';
 
@@ -33,20 +32,16 @@ import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 export class PokemonSearchInputComponent {
   private readonly router = inject(Router);
   private readonly pokemonService = inject(PokemonService);
-  private readonly alertService = inject(AlertService);
+  private readonly alertStore = inject(AlertStore);
   private readonly destroyRef = inject(DestroyRef);
 
   readonly title = input<string>(translations.findPokemon);
   readonly termValue = signal('');
   readonly pokemonLoading = signal(false);
-  readonly searchState = linkedSignal({
-    source: this.termValue,
-    computation: (term) => ({
-      term,
-      isLoading: term ? this.pokemonLoading() : false,
-      showButton: term && this.pokemonLoading()
-    })
-  });
+  readonly searchState = computed(() => ({
+    isLoading: this.termValue() ? this.pokemonLoading() : false,
+    showButton: this.termValue() && this.pokemonLoading()
+  }));
 
   searchPokemon() {
     const pokemonName = this.termValue().toLowerCase();
@@ -63,7 +58,7 @@ export class PokemonSearchInputComponent {
           },
           error: () => {
             this.pokemonLoading.set(false);
-            this.alertService.createErrorAlert(translations.pokemonNotFoundError);
+            this.alertStore.createErrorAlert(translations.pokemonNotFoundError);
           },
         });
     }

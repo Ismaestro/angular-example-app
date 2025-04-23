@@ -7,7 +7,7 @@ import {
   inject,
   viewChildren,
 } from '@angular/core';
-import { AlertService } from '~core/services/ui/alert.service';
+import { AlertStore } from '~core/services/ui/alert-store.service';
 import type { Alert } from '~core/constants/alerts.constants';
 
 import '@shoelace-style/shoelace/dist/components/alert/alert.js';
@@ -19,11 +19,11 @@ import '@shoelace-style/shoelace/dist/components/alert/alert.js';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ToastStackComponent {
-  private readonly alertService = inject(AlertService);
+  private readonly alertStore = inject(AlertStore);
   private readonly toastedAlertIds = new Set<string>();
   private readonly alertElements = viewChildren<ElementRef>('alertReference');
 
-  readonly alerts = this.alertService.alerts;
+  readonly alerts = this.alertStore.alerts;
 
   constructor() {
     effect(() => {
@@ -39,6 +39,6 @@ export class ToastStackComponent {
   }
 
   removeFromAlerts(alert: Alert) {
-    this.alertService.removeAlert(alert);
+    this.alertStore.removeAlert(alert);
   }
 }

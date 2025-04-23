@@ -13,7 +13,7 @@ import { PokemonBattlefieldComponent } from '~features/pokemon/components/pokemo
 import { PokedexComponent } from '~features/pokemon/components/pokedex/pokedex.component';
 import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
 import { translations } from '../../../../../locale/translations';
-import { AlertService } from '~core/services/ui/alert.service';
+import { AlertStore } from '~core/services/ui/alert-store.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
 
@@ -28,7 +28,7 @@ import { map } from 'rxjs';
 export class PokemonDetailComponent {
   private readonly activatedRoute = inject(ActivatedRoute);
   private readonly pokemonService = inject(PokemonService);
-  private readonly alertService = inject(AlertService);
+  private readonly alertStore = inject(AlertStore);
 
   readonly pokemonId = toSignal(
     this.activatedRoute.paramMap.pipe(map((parameters) => parameters.get('pokemonId') ?? '')),
@@ -46,7 +46,7 @@ export class PokemonDetailComponent {
         this.pokemonBattleEvent.set(BattleEvent.RESET_BATTLE);
       }
       if (this.pokemonResource.error()) {
-        this.alertService.createErrorAlert(translations.pokemonNotFoundError);
+        this.alertStore.createErrorAlert(translations.pokemonNotFoundError);
       }
     });
   }

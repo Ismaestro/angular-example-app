@@ -20,7 +20,7 @@ import { PokemonImageComponent } from '~features/pokemon/components/pokemon-imag
 import { AppSlSelectControlDirective } from '~core/directives/sl-select-control.directive';
 import { ThemeButtonComponent } from '~core/components/theme-button/theme-button.component';
 import { NgOptimizedImage } from '@angular/common';
-import { AlertService } from '~core/services/ui/alert.service';
+import { AlertStore } from '~core/services/ui/alert-store.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { LanguageService } from '~core/services/language.service';
 import { AUTH_URLS } from '~core/constants/urls.constants';
@@ -53,7 +53,7 @@ export class MyAccountComponent implements OnInit {
   private readonly formBuilder = inject(FormBuilder);
   private readonly userService = inject(UserService);
   private readonly pokemonService = inject(PokemonService);
-  private readonly alertService = inject(AlertService);
+  private readonly alertStore = inject(AlertStore);
   private readonly destroyRef = inject(DestroyRef);
   private readonly languageService = inject(LanguageService);
 
@@ -90,7 +90,7 @@ export class MyAccountComponent implements OnInit {
           this.loadPokemonImage();
         },
         error: () => {
-          this.alertService.createErrorAlert(translations.genericErrorAlert);
+          this.alertStore.createErrorAlert(translations.genericErrorAlert);
         },
       });
   }
@@ -105,7 +105,7 @@ export class MyAccountComponent implements OnInit {
           this.pokemonImage.set(this.userFavouritePokemon.sprites.front_default);
         },
         error: () => {
-          this.alertService.createErrorAlert(translations.genericErrorAlert);
+          this.alertStore.createErrorAlert(translations.genericErrorAlert);
         },
       });
   }
@@ -128,13 +128,13 @@ export class MyAccountComponent implements OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: () => {
-          this.alertService.createSuccessAlert(translations.myAccountSuccessAlert);
+          this.alertStore.createSuccessAlert(translations.myAccountSuccessAlert);
           this.languageService.navigateWithUserLanguage(formValue.language!, AUTH_URLS.myAccount);
           this.isButtonUpdateUserFormLoading.set(false);
         },
         error: () => {
           this.isButtonUpdateUserFormLoading.set(false);
-          this.alertService.createErrorAlert(translations.genericErrorAlert);
+          this.alertStore.createErrorAlert(translations.genericErrorAlert);
         },
       });
   }

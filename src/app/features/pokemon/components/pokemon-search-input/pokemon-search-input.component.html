@@ -7,7 +7,7 @@
     appTrim
     [placeholder]="title()"
     [class.has-action]="searchState().showButton"
-    [value]="searchState().term"
+    [value]="termValue()"
     (sl-input)="assignInputValue($event)"
     (keydown.enter)="searchPokemon()"
   >

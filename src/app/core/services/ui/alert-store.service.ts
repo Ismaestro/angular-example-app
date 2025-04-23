@@ -3,7 +3,7 @@ import type { Alert } from '~core/constants/alerts.constants';
 import { AlertType } from '~core/constants/alerts.constants';
 
 @Injectable({ providedIn: 'root' })
-export class AlertService {
+export class AlertStore {
   private readonly _alerts = signal<Alert[]>([]);
 
   readonly alerts = this._alerts.asReadonly();

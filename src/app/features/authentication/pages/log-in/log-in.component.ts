@@ -19,7 +19,7 @@ import { LowercaseDirective } from '~core/directives/lowercase.directive';
 import { TrimDirective } from '~core/directives/trim.directive';
 import type { ApiErrorResponse } from '~core/types/api-response.types';
 import { API_ERROR_CODES } from '~core/constants/api-error-codes.constants';
-import { AlertService } from '~core/services/ui/alert.service';
+import { AlertStore } from '~core/services/ui/alert-store.service';
 import { LanguageService } from '~core/services/language.service';
 import { AuthenticationService } from '../../services/authentication.service';
 import type { User } from '~features/authentication/types/user.type';
@@ -49,7 +49,7 @@ import '@shoelace-style/shoelace/dist/components/icon/icon.js';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LogInComponent {
-  private readonly alertService = inject(AlertService);
+  private readonly alertStore = inject(AlertStore);
   private readonly formBuilder = inject(FormBuilder);
   private readonly authService = inject(AuthenticationService);
   private readonly languageService = inject(LanguageService);
@@ -113,7 +113,7 @@ export class LogInComponent {
       response.error.internalCode === API_ERROR_CODES.INVALID_CREDENTIALS_CODE
         ? translations.loginCredentialsError
         : translations.genericErrorAlert;
-    this.alertService.createErrorAlert(errorMessage);
+    this.alertStore.createErrorAlert(errorMessage);
   }
 
   private updateFormState(updates: Partial<LogInFormState>): void {
