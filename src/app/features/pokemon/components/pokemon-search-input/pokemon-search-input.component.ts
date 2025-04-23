@@ -13,7 +13,7 @@ import { POKEMON_URLS } from '~core/constants/urls.constants';
 import { Router } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { translations } from '../../../../../locale/translations';
-import { AlertStore } from '~core/services/ui/alert-store.service';
+import { AlertStore } from '~core/services/ui/alert.store';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { TrimDirective } from '~core/directives/trim.directive';
 

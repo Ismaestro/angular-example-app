@@ -20,7 +20,7 @@ import { SlInputIconFocusDirective } from '~core/directives/sl-input-icon-focus.
 import { AppSlCheckboxControlDirective } from '~core/directives/sl-checkbox-control.directive';
 import { LowercaseDirective } from '~core/directives/lowercase.directive';
 import { TrimDirective } from '~core/directives/trim.directive';
-import { AlertStore } from '~core/services/ui/alert-store.service';
+import { AlertStore } from '~core/services/ui/alert.store';
 import { AuthenticationService } from '../../services/authentication.service';
 import type {
   RegisterFormGroup,

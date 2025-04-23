@@ -13,7 +13,7 @@ import { PokemonBattlefieldComponent } from '~features/pokemon/components/pokemo
 import { PokedexComponent } from '~features/pokemon/components/pokedex/pokedex.component';
 import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
 import { translations } from '../../../../../locale/translations';
-import { AlertStore } from '~core/services/ui/alert-store.service';
+import { AlertStore } from '~core/services/ui/alert.store';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
 

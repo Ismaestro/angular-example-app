@@ -7,7 +7,7 @@ import {
   inject,
   viewChildren,
 } from '@angular/core';
-import { AlertStore } from '~core/services/ui/alert-store.service';
+import { AlertStore } from '~core/services/ui/alert.store';
 import type { Alert } from '~core/constants/alerts.constants';
 
 import '@shoelace-style/shoelace/dist/components/alert/alert.js';

@@ -19,7 +19,7 @@ import { LowercaseDirective } from '~core/directives/lowercase.directive';
 import { TrimDirective } from '~core/directives/trim.directive';
 import type { ApiErrorResponse } from '~core/types/api-response.types';
 import { API_ERROR_CODES } from '~core/constants/api-error-codes.constants';
-import { AlertStore } from '~core/services/ui/alert-store.service';
+import { AlertStore } from '~core/services/ui/alert.store';
 import { LanguageService } from '~core/services/language.service';
 import { AuthenticationService } from '../../services/authentication.service';
 import type { User } from '~features/authentication/types/user.type';
