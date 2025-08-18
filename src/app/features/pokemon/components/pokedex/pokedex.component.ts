@@ -55,7 +55,7 @@ export class PokedexComponent implements OnInit {
     const pokemonValue = this.pokemon();
     if (pokemonValue) {
       this.userService
-        .getMe()
+        .getMe({ cache: false })
         .pipe(takeUntilDestroyed(this.destroyRef))
         .subscribe({
           next: (user: User) => {
