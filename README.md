@@ -48,20 +48,20 @@ This app connects to a real backend powered by NestJS, PostgreSQL, and Prisma, d
 
 ## ✨ Features
 
-|                        |                                    |
-|------------------------|-------------------------------------------------|
-| ✅ Angular 19           | Using the latest version                        |
-| ✅ Internationalization | i18n with English and Spanish                   |
-| ✅ Authentication       | JWT-based, real login flow                      |
-| ✅ Routing & Guards     | Functional guards with lazy-loaded routes       |
-| ✅ Responsive Design    | Mobile-first layouts with Flexbox and Grid      |
-| ✅ APIs                 | Example integration with the PokeAPI            |
-| ✅ Shoelace Components  | Accessible and modern UI components             |
-| ✅ NgOptimizedImage     | Fast image loading with Angular's directive     |
-| ✅ Animations           | Smooth transitions with Angular Animations      |
+|                         |                                                   |
+| ----------------------- | ------------------------------------------------- |
+| ✅ Angular 19           | Using the latest version                          |
+| ✅ Internationalization | i18n with English and Spanish                     |
+| ✅ Authentication       | JWT-based, real login flow                        |
+| ✅ Routing & Guards     | Functional guards with lazy-loaded routes         |
+| ✅ Responsive Design    | Mobile-first layouts with Flexbox and Grid        |
+| ✅ APIs                 | Example integration with the PokeAPI              |
+| ✅ Shoelace Components  | Accessible and modern UI components               |
+| ✅ NgOptimizedImage     | Fast image loading with Angular's directive       |
+| ✅ Animations           | Smooth transitions with Angular Animations        |
 | ✅ Clean Architecture   | Modular folder structure following best practices |
-| ✅ SASS & BEM           | Maintainable and scalable styling               |
-| 🧪 Testing             | Unit & e2e testing (coming soon!)               |
+| ✅ SASS & BEM           | Maintainable and scalable styling                 |
+| 🧪 Testing              | Unit & e2e testing (coming soon!)                 |
 
 ---
 
@@ -98,7 +98,8 @@ We love feedback! If something doesn't work or you think of a cool new feature, 
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/scip92"><img src="https://avatars.githubusercontent.com/u/15237896?v=4?s=100" width="100px;" alt="Max"/><br /><sub><b>Max</b></sub></a><br /><a href="#code-scip92" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/HerbertKarajan"><img src="https://avatars.githubusercontent.com/u/20851191?v=4?s=100" width="100px;" alt="Karajan"/><br /><sub><b>Karajan</b></sub></a><br /><a href="#code-HerbertKarajan" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/carlchandev"><img src="https://avatars.githubusercontent.com/u/34772941?v=4?s=100" width="100px;" alt="Carl Chan"/><br /><sub><b>Carl Chan</b></sub></a><br /><a href="#code-carlchandev" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/dyeimys"><img src="https://avatars.githubusercontent.com/u/4250372?v=4?s=100" width="100px;" alt="Dyeimys Franco Correa"/><br /><sub><b>Dyeimys Franco Correa</b></sub></a><br /><a href="#code-dyeimys" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/OrlPep"><img src="https://avatars.githubusercontent.com/u/171474908?v=4?s=100" width="100px;" alt="OrlPep"/><br /><sub><b>OrlPep</b></sub></a><br /><a href="#orlpep" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://anartz-mugika.com/qwik-book/es/"><img src="https://avatars.githubusercontent.com/u/5081970?v=4?s=100" width="100px;" alt="Anartz Mugika Ledo"/><br /><sub><b>Anartz Mugika Ledo</b></sub></a><br /><a href="#code-mugan86" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://anartz-mugika.com/qwik-book/es/"><img src="https://avatars.githubusercontent.com/u/5081970?v=4?s=100" width="100px;" alt="Anartz Mugika Ledo"/><br /><sub><b>Anartz Mugika Ledo</b></sub></a><br /><a href="#code-mugan86" title="Code">💻</a></td>
     </tr>
   </tbody>
