@@ -20,5 +20,5 @@ export const translations = {
   loginCredentialsError: $localize`Invalid credentials. Not very effective, try again!`,
   genericRegisterError: $localize`Register failed. This attempt wasn’t very effective, try again!`,
   pokemonNotFoundError: $localize`Pokémon not found. Double-check the name and try again!`,
-  sessionExpired: $localize`Session expired. Please log in.`,
+  sessionExpired: $localize`No session. Please log in.`,
 };

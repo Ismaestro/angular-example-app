@@ -479,10 +479,6 @@
         <source>Field required. No real email validation. Format: example@domain.com</source>
         <target state="new">Campo requerido. No hay validación real del correo. Formato: ejemplo@dominio.com</target>
       </trans-unit>
-      <trans-unit id="1476832105912939227" datatype="html">
-        <source>Session expired. Please log in.</source>
-        <target state="new">La sesión ha caducado. Vuelve a hacer log in.</target>
-      </trans-unit>
       <trans-unit id="2132215170094453288" datatype="html">
         <source>avatar image</source>
         <target state="new">avatar image</target>
@@ -530,6 +526,10 @@
       <trans-unit id="6973719636314914984" datatype="html">
         <source>An angular example app, so you can see best practices in action.</source>
         <target state="new">Una aplicación de ejemplo de Angular, para que puedas ver las mejores prácticas en acción.</target>
+      </trans-unit>
+      <trans-unit id="4584809804925421348" datatype="html">
+        <source>No session. Please log in.</source>
+        <target state="new">No tienes sesion. Por favor, haz login.</target>
       </trans-unit>
     </body>
   </file>

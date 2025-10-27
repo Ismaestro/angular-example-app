@@ -1,9 +1,7 @@
 @let pokemon = pokemonResource.value();
 @if (pokemon) {
   <app-pokemon-battlefield [pokemon]="pokemon" [pokemonBattleEvent]="pokemonBattleEvent" />
-  @if (isBrowser) {
-    <div class="pokedex__container">
-      <app-pokedex [pokemon]="pokemon" [pokemonBattleEvent]="pokemonBattleEvent" />
-    </div>
-  }
+  <div class="pokedex__container">
+    <app-pokedex [pokemon]="pokemon" [pokemonBattleEvent]="pokemonBattleEvent" />
+  </div>
 }

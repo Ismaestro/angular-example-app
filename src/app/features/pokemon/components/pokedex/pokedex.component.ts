@@ -18,6 +18,7 @@ import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-
 import { AlertStore } from '~core/services/ui/alert.store';
 import { translations } from '../../../../../locale/translations';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { AuthenticationService } from '~features/authentication/services/authentication.service';
 
 @Component({
   selector: 'app-pokedex',
@@ -31,6 +32,7 @@ export class PokedexComponent implements OnInit {
   private readonly userService = inject(UserService);
   private readonly alertStore = inject(AlertStore);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly authenticationService = inject(AuthenticationService);
 
   readonly pokemonBattleEvent = input.required<WritableSignal<BattleEvent>>();
   readonly pokemon = input<Pokemon | null>();
@@ -39,6 +41,7 @@ export class PokedexComponent implements OnInit {
   readonly userHasCaught = signal(false);
   readonly userHasPokemon = signal(true);
   readonly isPokedexButtonDisabled = signal(false);
+  readonly isUserLoggedIn = () => this.authenticationService.authState().isLoggedIn;
 
   translations = translations;
   user: User | undefined;
@@ -54,22 +57,30 @@ export class PokedexComponent implements OnInit {
   ngOnInit() {
     const pokemonValue = this.pokemon();
     if (pokemonValue) {
-      this.userService
-        .getMe({ cache: false })
-        .pipe(takeUntilDestroyed(this.destroyRef))
-        .subscribe({
-          next: (user: User) => {
-            this.user = user;
-            this.pokemonImage.set(pokemonValue.sprites.front_default);
-            this.userHasPokemon.set(user.caughtPokemonIds.includes(pokemonValue.id));
-            setTimeout(() => {
-              this.isPokedexClosed.set(false);
-            }, 300);
-          },
-          error: () => {
-            this.alertStore.createErrorAlert(translations.genericErrorAlert);
-          },
-        });
+      if (this.isUserLoggedIn()) {
+        this.userService
+          .getMe({ cache: false })
+          .pipe(takeUntilDestroyed(this.destroyRef))
+          .subscribe({
+            next: (user: User) => {
+              this.user = user;
+              this.pokemonImage.set(pokemonValue.sprites.front_default);
+              this.userHasPokemon.set(user.caughtPokemonIds.includes(pokemonValue.id));
+              setTimeout(() => {
+                this.isPokedexClosed.set(false);
+              }, 300);
+            },
+            error: () => {
+              this.alertStore.createErrorAlert(translations.genericErrorAlert);
+            },
+          });
+      } else {
+        this.userHasPokemon.set(false);
+        this.pokemonImage.set(pokemonValue.sprites.front_default);
+        setTimeout(() => {
+          this.isPokedexClosed.set(false);
+        }, 300);
+      }
     }
   }
 

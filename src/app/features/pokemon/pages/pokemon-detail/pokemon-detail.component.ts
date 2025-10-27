@@ -54,6 +54,4 @@ export class PokemonDetailComponent {
       }
     });
   }
-
-  protected readonly isPlatformBrowser = isPlatformBrowser;
 }

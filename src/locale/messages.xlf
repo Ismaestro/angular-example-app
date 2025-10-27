@@ -355,9 +355,6 @@
       <trans-unit id="6658258424216666202" datatype="html">
         <source>Field required. No real email validation. Format: example@domain.com</source>
       </trans-unit>
-      <trans-unit id="1476832105912939227" datatype="html">
-        <source>Session expired. Please log in.</source>
-      </trans-unit>
       <trans-unit id="1879618927361287924" datatype="html">
         <source>pokeball</source>
       </trans-unit>
@@ -393,6 +390,9 @@
       </trans-unit>
       <trans-unit id="6973719636314914984" datatype="html">
         <source>An angular example app, so you can see best practices in action.</source>
+      </trans-unit>
+      <trans-unit id="4584809804925421348" datatype="html">
+        <source>No session. Please log in.</source>
       </trans-unit>
     </body>
   </file>
