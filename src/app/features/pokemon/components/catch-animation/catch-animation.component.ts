@@ -7,8 +7,9 @@ import {
   input,
   signal,
   type WritableSignal,
+  DOCUMENT
 } from '@angular/core';
-import { DOCUMENT, NgOptimizedImage, NgStyle } from '@angular/common';
+import { NgOptimizedImage, NgStyle } from '@angular/common';
 import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
 import { catchAnimations } from '~features/pokemon/components/catch-animation/catch.animations';
 

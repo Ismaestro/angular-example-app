@@ -1,5 +1,6 @@
 import { animate, keyframes, state, style, transition, trigger } from '@angular/animations';
 
+/* eslint-disable @typescript-eslint/no-deprecated */
 export const catchAnimations = [
   trigger('pokeballAnimation', [
     state(

@@ -1,11 +1,7 @@
 import type { ComponentFixture } from '@angular/core/testing';
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import {
-  Component,
-  provideExperimentalZonelessChangeDetection,
-  ChangeDetectionStrategy,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, provideZonelessChangeDetection } from '@angular/core';
 import { HeaderService } from '~core/services/ui/header.service';
 import { ENVIRONMENT } from '~core/tokens/environment.token';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
@@ -28,12 +24,12 @@ describe('AppComponent', () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
       providers: [
-        provideExperimentalZonelessChangeDetection(),
+        provideZonelessChangeDetection(),
         provideHttpClient(),
         provideHttpClientTesting(),
         { provide: ENVIRONMENT, useValue: { domain: 'localhost' } },
         HeaderService,
-      ]
+      ],
     })
       .overrideComponent(AppComponent, {
         remove: {
@@ -41,7 +37,7 @@ describe('AppComponent', () => {
         },
         add: {
           imports: [HeaderStubComponent],
-        }
+        },
       })
       .compileComponents();
 

@@ -1,5 +1,5 @@
-import { DOCUMENT } from '@angular/common';
-import { inject, Injectable } from '@angular/core';
+
+import { inject, Injectable, DOCUMENT } from '@angular/core';
 import type { Environment } from '~core/tokens/environment.token';
 import { ENVIRONMENT } from '~core/tokens/environment.token';
 

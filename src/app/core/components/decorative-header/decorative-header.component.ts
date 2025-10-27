@@ -16,8 +16,8 @@ export class DecorativeHeaderComponent {
 
   readonly svgUrl = input<string>('');
   readonly svgResource = rxResource({
-    request: this.svgUrl,
-    loader: ({ request }) => this.fileService.getFileAsText(request),
+    params: this.svgUrl,
+    stream: ({ params }) => this.fileService.getFileAsText(params),
   });
   readonly svgContent = computed<SafeHtml>(() =>
     this.domSanitizer.bypassSecurityTrustHtml(this.svgResource.value()!),

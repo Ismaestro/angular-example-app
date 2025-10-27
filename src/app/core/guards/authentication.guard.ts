@@ -13,4 +13,4 @@ export function authenticationGuard(): boolean {
 
   void router.navigate([AUTH_URLS.logIn]);
   return false;
-};
+}

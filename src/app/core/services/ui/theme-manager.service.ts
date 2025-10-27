@@ -1,5 +1,5 @@
-import { DOCUMENT } from '@angular/common';
-import { inject, Injectable, signal } from '@angular/core';
+
+import { inject, Injectable, signal, DOCUMENT } from '@angular/core';
 import { LOCAL_STORAGE } from '~core/providers/local-storage';
 
 // Keep these constants in sync with the code in index.html

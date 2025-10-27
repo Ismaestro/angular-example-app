@@ -1,5 +1,5 @@
 import type { ApplicationConfig } from '@angular/core';
-import { inject, provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { inject, provideZonelessChangeDetection } from '@angular/core';
 import {
   createUrlTreeFromSnapshot,
   PreloadAllModules,
@@ -31,7 +31,7 @@ export const appConfig: ApplicationConfig = {
       provide: ENVIRONMENT,
       useValue: environment,
     },
-    provideExperimentalZonelessChangeDetection(),
+    provideZonelessChangeDetection(),
     provideRouter(
       appRoutes,
       withInMemoryScrolling(),
@@ -60,6 +60,7 @@ export const appConfig: ApplicationConfig = {
       withFetch(),
       withInterceptors([authenticationInterceptor, cachingInterceptor]),
     ),
+    // eslint-disable-next-line @typescript-eslint/no-deprecated
     provideAnimationsAsync(),
     provideCloudinaryLoader('https://res.cloudinary.com/ismaestro/'),
     provideClientHydration(withEventReplay(), withI18nSupport()),

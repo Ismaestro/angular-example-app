@@ -1,10 +1,10 @@
-import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, inject, DOCUMENT } from '@angular/core';
 import { translations } from '../locale/translations';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { HeaderComponent } from '~core/components/header/header.component';
 import { FooterComponent } from '~core/components/footer/footer.component';
-import { DOCUMENT } from '@angular/common';
+
 import { filter, map } from 'rxjs';
 import { HeaderService } from '~core/services/ui/header.service';
 import { ProgressBarComponent } from '~core/components/progress-bar/progress-bar.component';
