@@ -19,6 +19,11 @@ import { authenticationInterceptor } from '~core/interceptors/authentication.int
 import { provideCloudinaryLoader } from '@angular/common';
 import { ENVIRONMENT } from '~core/tokens/environment.token';
 import { environment } from '~environments/environment';
+import {
+  provideClientHydration,
+  withEventReplay,
+  withI18nSupport,
+} from '@angular/platform-browser';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -57,5 +62,6 @@ export const appConfig: ApplicationConfig = {
     ),
     provideAnimationsAsync(),
     provideCloudinaryLoader('https://res.cloudinary.com/ismaestro/'),
+    provideClientHydration(withEventReplay(), withI18nSupport()),
   ],
 };

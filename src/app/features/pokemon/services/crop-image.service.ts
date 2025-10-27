@@ -1,31 +1,37 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CropImageService {
+  private readonly platformId = inject(PLATFORM_ID);
+  readonly isBrowser = isPlatformBrowser(this.platformId);
+
   async getCroppedImageURL(canvas: HTMLCanvasElement, imageUrl: string): Promise<string> {
     return new Promise((resolve, reject) => {
-      const context = canvas.getContext('2d', { willReadFrequently: true });
-      if (!context) {
-        reject(new Error('Canvas context not found'));
-        return;
+      if (this.isBrowser) {
+        const context = canvas.getContext('2d', { willReadFrequently: true });
+        if (!context) {
+          reject(new Error('Canvas context not found'));
+          return;
+        }
+
+        const image = new Image();
+        image.crossOrigin = 'Anonymous';
+        image.src = imageUrl;
+        image.addEventListener('load', () => {
+          canvas.width = image.width;
+          canvas.height = image.height;
+          context.drawImage(image, 0, 0);
+          const croppedImageUrl = this.cropImageToFitContent({ context, image, canvas });
+          resolve(croppedImageUrl);
+        });
+
+        image.addEventListener('error', () => {
+          reject(new Error('Image failed to load'));
+        });
       }
-
-      const image = new Image();
-      image.crossOrigin = 'Anonymous';
-      image.src = imageUrl;
-      image.addEventListener('load', () => {
-        canvas.width = image.width;
-        canvas.height = image.height;
-        context.drawImage(image, 0, 0);
-        const croppedImageUrl = this.cropImageToFitContent({ context, image, canvas });
-        resolve(croppedImageUrl);
-      });
-
-      image.addEventListener('error', () => {
-        reject(new Error('Image failed to load'));
-      });
     });
   }
 

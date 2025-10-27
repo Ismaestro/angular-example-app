@@ -22,7 +22,9 @@
             "outputPath": "dist/angularexampleapp",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": ["@angular/localize/init"],
+            "polyfills": [
+              "@angular/localize/init"
+            ],
             "tsConfig": "tsconfig.app.json",
             "i18nMissingTranslation": "warning",
             "inlineStyleLanguage": "scss",
@@ -39,9 +41,16 @@
               "src/styles/global.scss"
             ],
             "stylePreprocessorOptions": {
-              "includePaths": ["src/styles"]
+              "includePaths": [
+                "src/styles"
+              ]
             },
-            "scripts": []
+            "scripts": [],
+            "server": "src/main.server.ts",
+            "outputMode": "static",
+            "ssr": {
+              "entry": "src/server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -143,12 +152,12 @@
       "i18n": {
         "sourceLocale": {
           "code": "en",
-          "baseHref": "/"
+          "subPath": ""
         },
         "locales": {
           "es": {
             "translation": "src/locale/messages.es.xlf",
-            "baseHref": "/es/"
+            "subPath": "es"
           }
         }
       }

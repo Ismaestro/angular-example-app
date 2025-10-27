@@ -1,6 +1,6 @@
 {
   "name": "angularexampleapp",
-  "version": "19.0.0",
+  "version": "19.1.0",
   "scripts": {
     "prepare": "npx husky",
     "start": "ng serve --configuration=development-en --open",
@@ -13,8 +13,9 @@
     "e2e": "npm run playwright:install && npm run playwright:test",
     "playwright:install": "npx playwright install && npx playwright install-deps",
     "playwright:test": "npx playwright test",
-    "build": "ng build && mv -v dist/angularexampleapp/browser/en/* dist/angularexampleapp/browser/ && rm -Rf dist/angularexampleapp/browser/en",
-    "bundle-report": "ng build --configuration=production-sourcemaps && source-map-explorer dist/angularexampleapp/browser/**/*.js"
+    "build": "ng build",
+    "bundle-report": "ng build --configuration=production-sourcemaps && source-map-explorer dist/angularexampleapp/browser/**/*.js",
+    "serve:ssr:angularexampleapp": "node dist/angularexampleapp/server/server.mjs"
   },
   "dependencies": {
     "@angular/animations": "19.2.5",
@@ -25,7 +26,10 @@
     "@angular/localize": "19.2.5",
     "@angular/platform-browser": "19.2.5",
     "@angular/platform-browser-dynamic": "19.2.5",
+    "@angular/platform-server": "19.2.5",
     "@angular/router": "19.2.5",
+    "@angular/ssr": "19.2.6",
+    "express": "4.18.2",
     "ngx-progressbar": "14.0.0",
     "rxjs": "7.8.2",
     "tslib": "2.8.1"
@@ -42,10 +46,12 @@
     "@commitlint/cli": "19.8.0",
     "@commitlint/config-conventional": "19.8.0",
     "@eslint/js": "9.23.0",
-    "@ngrx/component": "^19.1.0",
+    "@ngrx/component": "19.1.0",
     "@playwright/test": "1.51.1",
     "@shoelace-style/shoelace": "2.20.1",
+    "@types/express": "4.17.17",
     "@types/jasmine": "5.1.7",
+    "@types/node": "18.18.0",
     "@types/validator": "13.12.3",
     "@typescript-eslint/eslint-plugin": "8.29.0",
     "@typescript-eslint/parser": "8.29.0",

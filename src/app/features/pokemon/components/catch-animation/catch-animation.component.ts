@@ -3,11 +3,12 @@ import {
   ChangeDetectionStrategy,
   Component,
   effect,
+  inject,
   input,
   signal,
   type WritableSignal,
 } from '@angular/core';
-import { NgOptimizedImage, NgStyle } from '@angular/common';
+import { DOCUMENT, NgOptimizedImage, NgStyle } from '@angular/common';
 import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
 import { catchAnimations } from '~features/pokemon/components/catch-animation/catch.animations';
 
@@ -37,6 +38,8 @@ enum PokemonState {
   },
 })
 export class CatchAnimationComponent implements OnInit {
+  private readonly document = inject(DOCUMENT);
+
   readonly pokemonBattleEvent = input.required<WritableSignal<BattleEvent>>();
   readonly pokeballStartingPoint = signal('');
   readonly pokeballPokemonXPoint = signal('');
@@ -87,7 +90,8 @@ export class CatchAnimationComponent implements OnInit {
   }
 
   loadAnimationPositions() {
-    if (window.innerWidth <= 768) {
+    const innerWidth = this.document.defaultView?.innerWidth;
+    if (innerWidth && innerWidth <= 768) {
       this.setMobilePositions();
     } else {
       this.setDesktopPositions();

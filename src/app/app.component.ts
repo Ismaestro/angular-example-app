@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
 import { translations } from '../locale/translations';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { HeaderComponent } from '~core/components/header/header.component';
 import { FooterComponent } from '~core/components/footer/footer.component';
 import { DOCUMENT } from '@angular/common';
@@ -31,6 +31,7 @@ export class AppComponent {
   private readonly router = inject(Router);
   private readonly titleService = inject(Title);
   private readonly headerService = inject(HeaderService);
+  private readonly metaService = inject(Meta);
 
   readonly currentUrl = toSignal(
     this.router.events.pipe(
@@ -41,12 +42,35 @@ export class AppComponent {
   );
 
   constructor() {
-    this.titleService.setTitle(translations.title);
+    this._setMetaTags();
 
     effect(() => {
       const url = this.currentUrl();
       this.headerService.setCanonical(url);
     });
+  }
+
+  private _setMetaTags(): void {
+    const { seoTitle, seoDescription } = translations;
+    this.titleService.setTitle(seoTitle);
+    this.metaService.addTags([
+      {
+        name: 'og:title',
+        content: seoTitle,
+      },
+      {
+        name: 'twitter:title',
+        content: seoTitle,
+      },
+      {
+        name: 'og:description',
+        content: seoDescription,
+      },
+      {
+        name: 'twitter:description',
+        content: seoDescription,
+      },
+    ]);
   }
 
   focusFirstHeading(): void {

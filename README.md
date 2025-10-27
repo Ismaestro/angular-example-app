@@ -58,6 +58,7 @@ This app connects to a real backend powered by NestJS, PostgreSQL, and Prisma, d
 | ✅ APIs                 | Example integration with the PokeAPI              |
 | ✅ Shoelace Components  | Accessible and modern UI components               |
 | ✅ NgOptimizedImage     | Fast image loading with Angular's directive       |
+| ✅ SSG & Prerendering   | Static Site Generation for main and Pokémon pages |
 | ✅ Animations           | Smooth transitions with Angular Animations        |
 | ✅ Clean Architecture   | Modular folder structure following best practices |
 | ✅ SASS & BEM           | Maintainable and scalable styling                 |

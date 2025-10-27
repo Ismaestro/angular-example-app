@@ -1,5 +1,6 @@
 export const translations = {
-  title: $localize`Angular Example App`,
+  seoTitle: $localize`Angular Example App`,
+  seoDescription: $localize`An angular example app, so you can see best practices in action.`,
   home: $localize`Home`,
   logIn: $localize`Log in`,
   register: $localize`Register`,
