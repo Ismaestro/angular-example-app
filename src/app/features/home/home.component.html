@@ -41,89 +41,93 @@
     />
   </div>
 
-  <h2 i18n>Key features</h2>
+  @defer (on viewport) {
+    <h2 i18n>Key features</h2>
 
-  <div class="cards__grid-container">
-    <app-card href="https://angular.dev/guide/signals">
-      <ng-container i18n ngProjectAs="heading">
-        <h3>Angular Signals</h3>
-      </ng-container>
-      <ng-container ngProjectAs="body">
-        <p i18n>Unlock reactivity with Angular Signals.</p>
-        <p i18n>
-          Signals provide a declarative way to manage state and reactivity in your application,
-          simplifying data flow and improving performance.
-        </p>
-      </ng-container>
-      <ng-container ngProjectAs="link"><span i18n>Learn more about Signals</span></ng-container>
-    </app-card>
-    <app-card href="https://angular.dev/guide/i18n">
-      <ng-container i18n ngProjectAs="heading">
-        <h3>Internationalization</h3>
-      </ng-container>
-      <ng-container ngProjectAs="body">
-        <p i18n>Build apps for a global audience.</p>
-        <p i18n>
-          Angular’s internationalization tools make it seamless to localize your app, handle
-          translations, and format dates, numbers, and currencies for any locale.
-        </p>
-      </ng-container>
-      <ng-container ngProjectAs="link"><span i18n>Explore Internationalization</span></ng-container>
-    </app-card>
-    <app-card href="https://angular.dev/guide/forms">
-      <ng-container i18n ngProjectAs="heading">
-        <h3>Reactive Forms</h3>
-      </ng-container>
-      <ng-container ngProjectAs="body">
-        <p i18n>Effortless form handling and validation.</p>
-        <p i18n>
-          Reactive Forms empower you to create robust, dynamic forms with a model-driven approach,
-          making validation, dynamic updates, and testing a breeze.
-        </p>
-      </ng-container>
-      <ng-container ngProjectAs="link"><span i18n>Start with Reactive Forms</span></ng-container>
-    </app-card>
-    <app-card href="https://angular.dev/guide/animations">
-      <ng-container i18n ngProjectAs="heading">
-        <h3>Animations</h3>
-      </ng-container>
-      <ng-container ngProjectAs="body">
-        <p i18n>Bring your UI to life with Angular Animations.</p>
-        <p i18n>
-          Create smooth transitions and engaging effects with Angular’s powerful animation API,
-          making your application visually appealing and interactive.
-        </p>
-      </ng-container>
-      <ng-container ngProjectAs="link"><span i18n>Discover Angular Animations</span></ng-container>
-    </app-card>
-  </div>
-  <div class="decorative-image__container-1">
-    <img
-      alt="pokemon charizard"
-      i18n-alt
-      ngSrc="angularexampleapp/assets/images/charizard.png"
-      width="814"
-      height="858"
-      priority
-    />
-  </div>
-  <div class="decorative-image__container-2">
-    <img
-      alt="pokemon blastoise"
-      i18n-alt
-      ngSrc="angularexampleapp/assets/images/blastoise.png"
-      width="795"
-      height="809"
-      priority
-    />
-  </div>
-  @defer (hydrate on hover) {
+    <div class="cards__grid-container">
+      <app-card href="https://angular.dev/guide/signals">
+        <ng-container i18n ngProjectAs="heading">
+          <h3>Angular Signals</h3>
+        </ng-container>
+        <ng-container ngProjectAs="body">
+          <p i18n>Unlock reactivity with Angular Signals.</p>
+          <p i18n>
+            Signals provide a declarative way to manage state and reactivity in your application,
+            simplifying data flow and improving performance.
+          </p>
+        </ng-container>
+        <ng-container ngProjectAs="link"><span i18n>Learn more about Signals</span></ng-container>
+      </app-card>
+      <app-card href="https://angular.dev/guide/i18n">
+        <ng-container i18n ngProjectAs="heading">
+          <h3>Internationalization</h3>
+        </ng-container>
+        <ng-container ngProjectAs="body">
+          <p i18n>Build apps for a global audience.</p>
+          <p i18n>
+            Angular’s internationalization tools make it seamless to localize your app, handle
+            translations, and format dates, numbers, and currencies for any locale.
+          </p>
+        </ng-container>
+        <ng-container ngProjectAs="link"
+          ><span i18n>Explore Internationalization</span></ng-container
+        >
+      </app-card>
+      <app-card href="https://angular.dev/guide/forms">
+        <ng-container i18n ngProjectAs="heading">
+          <h3>Reactive Forms</h3>
+        </ng-container>
+        <ng-container ngProjectAs="body">
+          <p i18n>Effortless form handling and validation.</p>
+          <p i18n>
+            Reactive Forms empower you to create robust, dynamic forms with a model-driven approach,
+            making validation, dynamic updates, and testing a breeze.
+          </p>
+        </ng-container>
+        <ng-container ngProjectAs="link"><span i18n>Start with Reactive Forms</span></ng-container>
+      </app-card>
+      <app-card href="https://angular.dev/guide/animations">
+        <ng-container i18n ngProjectAs="heading">
+          <h3>Animations</h3>
+        </ng-container>
+        <ng-container ngProjectAs="body">
+          <p i18n>Bring your UI to life with Angular Animations.</p>
+          <p i18n>
+            Create smooth transitions and engaging effects with Angular’s powerful animation API,
+            making your application visually appealing and interactive.
+          </p>
+        </ng-container>
+        <ng-container ngProjectAs="link"
+          ><span i18n>Discover Angular Animations</span></ng-container
+        >
+      </app-card>
+    </div>
+    <div class="decorative-image__container-1">
+      <img
+        alt="pokemon charizard"
+        i18n-alt
+        ngSrc="angularexampleapp/assets/images/charizard.png"
+        width="814"
+        height="858"
+        priority
+      />
+    </div>
+    <div class="decorative-image__container-2">
+      <img
+        alt="pokemon blastoise"
+        i18n-alt
+        ngSrc="angularexampleapp/assets/images/blastoise.png"
+        width="795"
+        height="809"
+        priority
+      />
+    </div>
     <div class="real-time__container">
       <p i18n>Users seeing this page: {{ activeUsersResource.value().activeUsers }}</p>
     </div>
   } @placeholder {
     <div class="real-time__container">
-      <p i18n>Do you want to see the real-time number of users? Hover me! (defer view).</p>
+      <p i18n>Loading...</p>
     </div>
   }
 </main>

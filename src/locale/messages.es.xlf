@@ -531,9 +531,9 @@
         <source>No session. Please log in.</source>
         <target state="new">No tienes sesion. Por favor, haz login.</target>
       </trans-unit>
-      <trans-unit id="3410547210973057628" datatype="html">
-        <source>Do you want to see the real-time number of users? Hover me! (defer view).</source>
-        <target state="new">¿Quieres ver el número de usuarios en tiempo real? ¡Pasa el ratón por encima! (vista diferida).</target>
+      <trans-unit id="3894950702316166331" datatype="html">
+        <source>Loading...</source>
+        <target state="new">Cargando...</target>
       </trans-unit>
     </body>
   </file>
