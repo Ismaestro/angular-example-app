@@ -122,28 +122,11 @@
           }
         },
         "test": {
-          "builder": "@angular/build:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "polyfills": ["@angular/localize/init"],
             "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public",
-                "output": ""
-              }
-            ],
-            "styles": [
-              "normalize.css/normalize.css",
-              "@shoelace-style/shoelace/dist/themes/light.css",
-              "src/styles/global.scss"
-            ],
-            "stylePreprocessorOptions": {
-              "includePaths": ["src/styles"]
-            },
-            "scripts": []
+            "buildTarget": "::development-es",
+            "runner": "vitest"
           }
         },
         "lint": {

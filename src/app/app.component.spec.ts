@@ -7,6 +7,8 @@ import { ENVIRONMENT } from '~core/tokens/environment.token';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { HeaderComponent } from '~core/components/header/header.component';
+import type { Mock } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -18,7 +20,7 @@ class HeaderStubComponent {}
 describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
-  let setCanonicalSpy: jasmine.Spy;
+  let setCanonicalSpy: Mock<(absolutePath: string) => void>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -46,7 +48,7 @@ describe('AppComponent', () => {
     component = fixture.componentInstance;
 
     const headerService = TestBed.inject(HeaderService);
-    setCanonicalSpy = spyOn(headerService, 'setCanonical').and.returnValue();
+    setCanonicalSpy = vi.spyOn(headerService, 'setCanonical').mockReturnValue();
     await fixture.whenStable();
   });
 
