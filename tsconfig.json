@@ -32,6 +32,7 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true,
+    "typeCheckHostBindings": true,
     "strictStandalone": true
   }
 }
