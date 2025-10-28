@@ -27,6 +27,7 @@ import {
   provideClientHydration,
   withEventReplay,
   withI18nSupport,
+  withIncrementalHydration,
 } from '@angular/platform-browser';
 
 export const appConfig: ApplicationConfig = {
@@ -68,6 +69,6 @@ export const appConfig: ApplicationConfig = {
     // eslint-disable-next-line @typescript-eslint/no-deprecated
     provideAnimationsAsync(),
     provideCloudinaryLoader('https://res.cloudinary.com/ismaestro/'),
-    provideClientHydration(withEventReplay(), withI18nSupport()),
+    provideClientHydration(withEventReplay(), withI18nSupport(), withIncrementalHydration()),
   ],
 };

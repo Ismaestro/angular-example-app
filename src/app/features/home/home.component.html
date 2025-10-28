@@ -117,7 +117,13 @@
       priority
     />
   </div>
-  <div class="real-time__container">
-    <p i18n>Users seeing this page: {{ activeUsersResource.value().activeUsers }}</p>
-  </div>
+  @defer (hydrate on hover) {
+    <div class="real-time__container">
+      <p i18n>Users seeing this page: {{ activeUsersResource.value().activeUsers }}</p>
+    </div>
+  } @placeholder {
+    <div class="real-time__container">
+      <p i18n>Do you want to see the real-time number of users? Hover me! (defer view).</p>
+    </div>
+  }
 </main>
