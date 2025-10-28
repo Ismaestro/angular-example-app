@@ -14,8 +14,7 @@
     "playwright:install": "npx playwright install && npx playwright install-deps",
     "playwright:test": "npx playwright test",
     "build": "ng build",
-    "bundle-report": "ng build --configuration=production-sourcemaps && source-map-explorer dist/angularexampleapp/browser/**/*.js",
-    "serve:ssr:angularexampleapp": "node dist/angularexampleapp/server/server.mjs"
+    "bundle-report": "ng build --configuration=production-sourcemaps && source-map-explorer dist/angularexampleapp/browser/**/*.js"
   },
   "dependencies": {
     "@angular/animations": "20.3.7",
