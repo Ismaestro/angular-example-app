@@ -394,6 +394,9 @@
       <trans-unit id="4584809804925421348" datatype="html">
         <source>No session. Please log in.</source>
       </trans-unit>
+      <trans-unit id="3410547210973057628" datatype="html">
+        <source>Do you want to see the real-time number of users? Hover me! (defer view).</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

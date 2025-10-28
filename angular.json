@@ -114,7 +114,11 @@
             "buildTarget": "angularexampleapp:build",
             "format": "xlf",
             "outputPath": "src/locale",
-            "targetFiles": ["messages.es.xlf"]
+            "targetFiles": [
+              "messages.es.xlf"
+            ],
+            "prettyNestedTags": true,
+            "sort": "stableAppendNew"
           }
         },
         "test": {
