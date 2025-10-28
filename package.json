@@ -3,7 +3,7 @@
   "version": "19.1.0",
   "scripts": {
     "prepare": "npx husky",
-    "start": "ng serve --configuration=development-en --open --no-hmr",
+    "start": "ng serve --configuration=development-en --open",
     "start:es": "ng serve --configuration=development-es --open",
     "extract": "ng extract-i18n --format=xlf --output-path=src/locale",
     "lint": "ng lint && npm run stylelint",
