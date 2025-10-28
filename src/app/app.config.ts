@@ -1,5 +1,9 @@
 import type { ApplicationConfig } from '@angular/core';
-import { inject, provideZonelessChangeDetection } from '@angular/core';
+import {
+  inject,
+  provideBrowserGlobalErrorListeners,
+  provideZonelessChangeDetection,
+} from '@angular/core';
 import {
   createUrlTreeFromSnapshot,
   PreloadAllModules,
@@ -32,6 +36,7 @@ export const appConfig: ApplicationConfig = {
       useValue: environment,
     },
     provideZonelessChangeDetection(),
+    provideBrowserGlobalErrorListeners(),
     provideRouter(
       appRoutes,
       withInMemoryScrolling(),
