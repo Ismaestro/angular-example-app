@@ -11,9 +11,9 @@ import type { Mock } from 'vitest';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-header',
   template: '',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 class HeaderStubComponent {}
 

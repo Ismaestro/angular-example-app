@@ -11,8 +11,6 @@ import { PokemonSearchInputComponent } from '~features/pokemon/components/pokemo
 
 @Component({
   selector: 'app-my-pokemon',
-  templateUrl: './my-pokemon.component.html',
-  styleUrl: './my-pokemon.component.scss',
   imports: [
     PokemonCardComponent,
     NgOptimizedImage,
@@ -20,6 +18,8 @@ import { PokemonSearchInputComponent } from '~features/pokemon/components/pokemo
     LetDirective,
     PokemonSearchInputComponent,
   ],
+  templateUrl: './my-pokemon.component.html',
+  styleUrl: './my-pokemon.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

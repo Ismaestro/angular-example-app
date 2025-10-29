@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
-  Component, computed,
+  Component,
+  computed,
   CUSTOM_ELEMENTS_SCHEMA,
   DestroyRef,
   inject,
@@ -22,12 +23,12 @@ import '@shoelace-style/shoelace/dist/components/input/input.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-pokemon-search-input',
+  imports: [SlInputIconFocusDirective, NgOptimizedImage, TrimDirective],
   templateUrl: './pokemon-search-input.component.html',
   styleUrl: './pokemon-search-input.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [SlInputIconFocusDirective, NgOptimizedImage, TrimDirective],
 })
 export class PokemonSearchInputComponent {
   private readonly router = inject(Router);
@@ -40,7 +41,7 @@ export class PokemonSearchInputComponent {
   readonly pokemonLoading = signal(false);
   readonly searchState = computed(() => ({
     isLoading: this.termValue() ? this.pokemonLoading() : false,
-    showButton: this.termValue() && this.pokemonLoading()
+    showButton: this.termValue() && this.pokemonLoading(),
   }));
 
   searchPokemon() {

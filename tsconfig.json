@@ -18,9 +18,9 @@
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
     "importHelpers": true,
-    "target": "ES2022",
+    "target": "ES2023",
     "module": "ES2022",
-    "lib": ["ES2022", "dom"],
+    "lib": ["ES2023", "dom"],
     "paths": {
       "~environments/*": ["src/environments/*"],
       "~core/*": ["src/app/core/*"],

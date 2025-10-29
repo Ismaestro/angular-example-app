@@ -13,9 +13,9 @@ import '@shoelace-style/shoelace/dist/components/dropdown/dropdown.js';
 
 @Component({
   selector: 'app-language-selector',
+  imports: [UpperCasePipe],
   templateUrl: './language-selector.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [UpperCasePipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LanguageSelectorComponent {

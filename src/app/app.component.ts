@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, effect, inject, DOCUMENT } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DOCUMENT, effect, inject } from '@angular/core';
 import { translations } from '../locale/translations';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
@@ -14,9 +14,6 @@ import { ToastStackComponent } from '~core/components/toast-stack/toast-stack.co
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     RouterOutlet,
     HeaderComponent,
@@ -25,6 +22,9 @@ import { ToastStackComponent } from '~core/components/toast-stack/toast-stack.co
     CookiePopupComponent,
     ToastStackComponent,
   ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
   private readonly document = inject(DOCUMENT);

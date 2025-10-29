@@ -6,11 +6,10 @@ import {
 } from '@angular/ssr/node';
 import express from 'express';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 
-const { dirname, resolve } = path;
+const { resolve } = path;
 
-const serverDistributionFolder = dirname(fileURLToPath(import.meta.url));
+const serverDistributionFolder = import.meta.dirname;
 const browserDistributionFolder = resolve(serverDistributionFolder, '../browser');
 
 const app = express();

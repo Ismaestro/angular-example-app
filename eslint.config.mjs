@@ -106,6 +106,8 @@ export default tsEslint.config(
       'no-implicit-coercion': 'off',
       'no-ternary': 'off',
       'no-implicit-globals': 'off',
+      '@angular-eslint/no-experimental': 'off',
+      '@angular-eslint/no-developer-preview': 'off',
       '@angular-eslint/prefer-standalone': 'off',
       '@angular-eslint/prefer-standalone-component': 'off',
       '@angular-eslint/runtime-localize': 'off',
@@ -148,6 +150,7 @@ export default tsEslint.config(
     extends: [...angular.configs.templateAll],
     rules: {
       '@angular-eslint/template/no-call-expression': 'off',
+      '@angular-eslint/template/prefer-template-literal': 'off',
       '@angular-eslint/template/i18n': [
         'error',
         {

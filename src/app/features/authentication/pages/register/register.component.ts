@@ -36,9 +36,6 @@ import '@shoelace-style/shoelace/dist/components/checkbox/checkbox.js';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrl: './register.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     RouterModule,
     ReactiveFormsModule,
@@ -48,6 +45,9 @@ import '@shoelace-style/shoelace/dist/components/checkbox/checkbox.js';
     LowercaseDirective,
     TrimDirective,
   ],
+  templateUrl: './register.component.html',
+  styleUrl: './register.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class RegisterComponent implements OnInit {
@@ -107,7 +107,7 @@ export class RegisterComponent implements OnInit {
     this.authService
       .register({
         ...this.registerForm.getRawValue(),
-        favouritePokemonId: Number(this.pokemonValidator.pokemonId()),
+        favouritePokemonId: this.pokemonValidator.pokemonId() satisfies number,
       } as RegisterFormValue)
       .pipe(
         takeUntilDestroyed(this.destroyRef),

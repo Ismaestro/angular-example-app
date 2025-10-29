@@ -7,11 +7,11 @@ import { AnalyticsService } from '~core/services/analytics.service';
 
 @Component({
   selector: 'app-home',
+  imports: [DecorativeHeaderComponent, NgOptimizedImage, CardComponent],
+  standalone: true,
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [DecorativeHeaderComponent, NgOptimizedImage, CardComponent],
 })
 export class HomeComponent {
   private readonly analyticsService = inject(AnalyticsService);

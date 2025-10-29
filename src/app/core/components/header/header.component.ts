@@ -24,9 +24,6 @@ import '@shoelace-style/shoelace/dist/components/dropdown/dropdown.js';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     RouterLink,
     RouterLinkActive,
@@ -36,6 +33,9 @@ import '@shoelace-style/shoelace/dist/components/dropdown/dropdown.js';
     ThemeButtonComponent,
     PokemonSearchInputComponent,
   ],
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HeaderComponent {

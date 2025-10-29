@@ -2,12 +2,12 @@ import type { OnInit } from '@angular/core';
 import {
   ChangeDetectionStrategy,
   Component,
+  DOCUMENT,
   effect,
   inject,
   input,
   signal,
   type WritableSignal,
-  DOCUMENT
 } from '@angular/core';
 import { NgOptimizedImage, NgStyle } from '@angular/common';
 import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
@@ -29,14 +29,14 @@ enum PokemonState {
 
 @Component({
   selector: 'app-catch-animation',
+  imports: [NgOptimizedImage, NgStyle],
   templateUrl: './catch-animation.component.html',
   styleUrl: './catch-animation.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [catchAnimations],
-  imports: [NgOptimizedImage, NgStyle],
   host: {
     '(window:resize)': 'loadAnimationPositions()',
   },
+  animations: [catchAnimations],
 })
 export class CatchAnimationComponent implements OnInit {
   private readonly document = inject(DOCUMENT);

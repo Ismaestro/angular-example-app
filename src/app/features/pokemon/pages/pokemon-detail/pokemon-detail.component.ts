@@ -21,11 +21,11 @@ import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-pokemon-detail',
+  imports: [PokemonBattlefieldComponent, PokedexComponent],
   templateUrl: './pokemon-detail.component.html',
   styleUrl: './pokemon-detail.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [PokemonBattlefieldComponent, PokedexComponent],
 })
 export class PokemonDetailComponent {
   private readonly activatedRoute = inject(ActivatedRoute);

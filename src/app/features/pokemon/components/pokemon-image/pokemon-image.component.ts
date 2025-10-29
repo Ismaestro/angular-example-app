@@ -16,10 +16,10 @@ import { CropImageService } from '~features/pokemon/services/crop-image.service'
 
 @Component({
   selector: 'app-pokemon-image',
+  imports: [NgStyle],
   templateUrl: './pokemon-image.component.html',
   styleUrl: './pokemon-image.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [NgStyle],
 })
 export class PokemonImageComponent implements AfterViewInit {
   private readonly cropImageService = inject(CropImageService);

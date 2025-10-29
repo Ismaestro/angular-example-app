@@ -35,9 +35,6 @@ import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 
 @Component({
   selector: 'app-log-in',
-  templateUrl: './log-in.component.html',
-  styleUrl: './log-in.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     ReactiveFormsModule,
     RouterModule,
@@ -46,6 +43,9 @@ import '@shoelace-style/shoelace/dist/components/icon/icon.js';
     LowercaseDirective,
     TrimDirective,
   ],
+  templateUrl: './log-in.component.html',
+  styleUrl: './log-in.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LogInComponent {

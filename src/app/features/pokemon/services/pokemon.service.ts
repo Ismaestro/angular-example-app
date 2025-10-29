@@ -31,7 +31,7 @@ export class PokemonService {
     const getPokemonRequests = ids.map((id) => this.getPokemon(id));
     return forkJoin(getPokemonRequests).pipe(
       map((pokemons: Pokemon[]) =>
-        pokemons.sort((pokemonA, pokemonB) => Number(pokemonA.order) - Number(pokemonB.order)),
+        pokemons.toSorted((pokemonA, pokemonB) => Number(pokemonA.order) - Number(pokemonB.order)),
       ),
     );
   }

@@ -8,10 +8,10 @@ import '@shoelace-style/shoelace/dist/components/skeleton/skeleton.js';
 
 @Component({
   selector: 'app-pokemon-card',
+  imports: [CardComponent, FirstTitleCasePipe],
   templateUrl: './pokemon-card.component.html',
   styleUrl: './pokemon-card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CardComponent, FirstTitleCasePipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PokemonCardComponent implements OnInit {

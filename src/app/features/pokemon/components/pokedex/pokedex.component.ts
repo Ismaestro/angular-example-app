@@ -22,11 +22,11 @@ import { AuthenticationService } from '~features/authentication/services/authent
 
 @Component({
   selector: 'app-pokedex',
+  imports: [PokemonImageComponent, FirstTitleCasePipe],
   templateUrl: './pokedex.component.html',
   styleUrls: ['./pokedex.component.scss', './pokedex-pads.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [PokemonImageComponent, FirstTitleCasePipe],
 })
 export class PokedexComponent implements OnInit {
   private readonly userService = inject(UserService);

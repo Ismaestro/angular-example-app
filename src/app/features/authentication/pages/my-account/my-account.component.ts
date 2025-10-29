@@ -34,9 +34,6 @@ import { TrimDirective } from '~core/directives/trim.directive';
 
 @Component({
   selector: 'app-my-account',
-  templateUrl: './my-account.component.html',
-  styleUrl: './my-account.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     RouterModule,
     ReactiveFormsModule,
@@ -47,6 +44,9 @@ import { TrimDirective } from '~core/directives/trim.directive';
     NgOptimizedImage,
     TrimDirective,
   ],
+  templateUrl: './my-account.component.html',
+  styleUrl: './my-account.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class MyAccountComponent implements OnInit {

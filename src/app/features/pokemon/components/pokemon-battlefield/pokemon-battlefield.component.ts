@@ -8,10 +8,10 @@ import { CatchAnimationComponent } from '~features/pokemon/components/catch-anim
 
 @Component({
   selector: 'app-pokemon-battlefield',
+  imports: [PokemonImageComponent, CatchAnimationComponent, NgOptimizedImage],
   templateUrl: './pokemon-battlefield.component.html',
   styleUrl: './pokemon-battlefield.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [PokemonImageComponent, CatchAnimationComponent, NgOptimizedImage],
 })
 export class PokemonBattlefieldComponent implements OnInit {
   readonly pokemonBattleEvent = input.required<WritableSignal<BattleEvent>>();

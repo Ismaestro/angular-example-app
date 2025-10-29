@@ -39,8 +39,8 @@ $pokedex-text-dark: #032d28;
       height: 100%;
       transform: rotateX(360deg);
       transform-origin: 0 100%;
-      transition: transform 1s;
       transform-style: preserve-3d;
+      transition: transform 1s;
 
       figure {
         position: absolute;
