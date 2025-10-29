@@ -6,6 +6,7 @@ import { HttpClient, HttpContext, HttpParams, httpResource } from '@angular/comm
 import { CACHING_ENABLED } from '~core/interceptors/caching.interceptor';
 import type { Pokemon } from '~features/pokemon/types/pokemon.type';
 import { getEndpoints } from '~core/constants/endpoints.constants';
+import type { LastUpdatedPokemonIdsResponse } from '~features/pokemon/types/last-updated-pokemon-ids-response.type';
 
 @Injectable({
   providedIn: 'root',
@@ -34,5 +35,16 @@ export class PokemonService {
         pokemons.toSorted((pokemonA, pokemonB) => Number(pokemonA.order) - Number(pokemonB.order)),
       ),
     );
+  }
+
+  getLastUpdatedPokemonIds(): Observable<string[]> {
+    return this.httpClient
+      .get<LastUpdatedPokemonIdsResponse>(this.endpoints.pokemon.v1.lastUpdated)
+      .pipe(
+        map((response: LastUpdatedPokemonIdsResponse) => {
+          const { data } = response;
+          return data.pokemonIds;
+        }),
+      );
   }
 }

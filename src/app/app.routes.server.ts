@@ -1,5 +1,8 @@
 import type { ServerRoute } from '@angular/ssr';
 import { RenderMode } from '@angular/ssr';
+import { inject } from '@angular/core';
+import { PokemonService } from '~features/pokemon/services/pokemon.service';
+import { firstValueFrom } from 'rxjs';
 
 export const serverRoutes: ServerRoute[] = [
   {
@@ -9,9 +12,10 @@ export const serverRoutes: ServerRoute[] = [
   {
     path: 'pokemon/:pokemonId',
     renderMode: RenderMode.Prerender,
-    // eslint-disable-next-line @typescript-eslint/require-await
     async getPrerenderParams() {
-      return [{ pokemonId: 'pikachu' }];
+      const pokemonService = inject(PokemonService);
+      const pokemonIds = await firstValueFrom(pokemonService.getLastUpdatedPokemonIds());
+      return pokemonIds.map((pokemonId) => ({ pokemonId }));
     },
   },
   {
