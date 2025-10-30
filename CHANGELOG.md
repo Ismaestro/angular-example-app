@@ -5,7 +5,7 @@
 ### Angular 20
 
 | Type | Description                  |
-|------|------------------------------|
+| ---- | ---------------------------- |
 | feat | update angular version to 20 |
 
 ---
@@ -16,8 +16,8 @@
 
 ### app
 
-| Type | Description |
-|------|--------------|
+| Type | Description                                                                                                                            |
+| ---- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | feat | add support for **SSG (Static Site Generation)**, prerendering the main path `/` and individual Pokémon routes like `/pokemon/pikachu` |
 
 ---
@@ -29,7 +29,7 @@
 ### app
 
 | Type | Description                                    |
-| -- |------------------------------------------------|
+| ---- | ---------------------------------------------- |
 | feat | add number of real time users inside home page |
 
 ---

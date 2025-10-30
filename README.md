@@ -48,8 +48,8 @@ This app connects to a real backend powered by NestJS, PostgreSQL, and Prisma, d
 
 ## ✨ Features
 
-|                        |                                                   |
-|------------------------| ------------------------------------------------- |
+|                         |                                                   |
+| ----------------------- | ------------------------------------------------- |
 | ✅ Angular 20           | Using the latest version                          |
 | ✅ Internationalization | i18n with English and Spanish                     |
 | ✅ Authentication       | JWT-based, real login flow                        |
@@ -62,7 +62,7 @@ This app connects to a real backend powered by NestJS, PostgreSQL, and Prisma, d
 | ✅ Animations           | Smooth transitions with Angular Animations        |
 | ✅ Clean Architecture   | Modular folder structure following best practices |
 | ✅ SASS & BEM           | Maintainable and scalable styling                 |
-| 🧪 Testing             | Unit & e2e testing (coming soon!)                 |
+| 🧪 Testing              | Unit & e2e testing (coming soon!)                 |
 
 ---
 

@@ -1,4 +1,3 @@
-
 import { inject, Injectable, DOCUMENT } from '@angular/core';
 import type { Environment } from '~core/tokens/environment.token';
 import { ENVIRONMENT } from '~core/tokens/environment.token';

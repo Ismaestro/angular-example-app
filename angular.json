@@ -22,9 +22,7 @@
             "outputPath": "dist/angularexampleapp",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-              "@angular/localize/init"
-            ],
+            "polyfills": ["@angular/localize/init"],
             "tsConfig": "tsconfig.app.json",
             "i18nMissingTranslation": "warning",
             "inlineStyleLanguage": "scss",
@@ -41,9 +39,7 @@
               "src/styles/global.scss"
             ],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "src/styles"
-              ]
+              "includePaths": ["src/styles"]
             },
             "scripts": [],
             "server": "src/main.server.ts",
@@ -114,9 +110,7 @@
             "buildTarget": "angularexampleapp:build",
             "format": "xlf",
             "outputPath": "src/locale",
-            "targetFiles": [
-              "messages.es.xlf"
-            ],
+            "targetFiles": ["messages.es.xlf"],
             "prettyNestedTags": true,
             "sort": "stableAppendNew"
           }

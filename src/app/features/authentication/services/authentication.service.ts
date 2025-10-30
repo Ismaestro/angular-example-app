@@ -33,7 +33,7 @@ export class AuthenticationService {
 
   private readonly authTokens = signal<{ accessToken?: string; refreshToken?: string }>({
     accessToken: this.storageService?.getItem(ACCESS_TOKEN_KEY) ?? undefined,
-    refreshToken: this.storageService?.getItem(REFRESH_TOKEN_KEY) ?? undefined
+    refreshToken: this.storageService?.getItem(REFRESH_TOKEN_KEY) ?? undefined,
   });
 
   readonly authState = linkedSignal({
@@ -42,8 +42,8 @@ export class AuthenticationService {
       isLoggedIn: !!tokens.accessToken,
       hasRefreshToken: !!tokens.refreshToken,
       accessToken: tokens.accessToken,
-      refreshToken: tokens.refreshToken
-    })
+      refreshToken: tokens.refreshToken,
+    }),
   });
 
   register(registerRequest: RegisterFormValue): Observable<RegisterResponseData> {
@@ -113,7 +113,7 @@ export class AuthenticationService {
     }
     this.authTokens.set({
       accessToken: data.accessToken,
-      refreshToken: data.refreshToken
+      refreshToken: data.refreshToken,
     });
   }
 
