@@ -1,8 +1,8 @@
 import type { OnInit } from '@angular/core';
 import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, input } from '@angular/core';
 import type { Pokemon } from '~features/pokemon/types/pokemon.type';
-import { CardComponent } from '~core/components/card/card.component';
-import { FirstTitleCasePipe } from '~core/pipes/first-title-case.pipe';
+import { CardComponent } from '~shared/components/card/card.component';
+import { FirstTitleCasePipe } from '~shared/pipes/first-title-case.pipe';
 
 import '@shoelace-style/shoelace/dist/components/skeleton/skeleton.js';
 

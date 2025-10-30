@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
-import { DecorativeHeaderComponent } from '~core/components/decorative-header/decorative-header.component';
-import { CardComponent } from '~core/components/card/card.component';
+import { DecorativeHeaderComponent } from '~shared/components/decorative-header/decorative-header.component';
+import { CardComponent } from '~shared/components/card/card.component';
 import { interval } from 'rxjs';
 import { AnalyticsService } from '~core/services/analytics.service';
 

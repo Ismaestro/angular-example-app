@@ -4,7 +4,7 @@ import { PokemonCardComponent } from '~features/pokemon/components/pokemon-card/
 import { PokemonService } from '~features/pokemon/services/pokemon.service';
 import { NgOptimizedImage } from '@angular/common';
 import { translations } from '../../../../../locale/translations';
-import { AlertStore } from '~core/services/ui/alert.store';
+import { AlertService } from '~core/services/ui/alert.service';
 import { catchError, of, switchMap } from 'rxjs';
 import { LetDirective, PushPipe } from '@ngrx/component';
 import { PokemonSearchInputComponent } from '~features/pokemon/components/pokemon-search-input/pokemon-search-input.component';
@@ -26,7 +26,7 @@ import { PokemonSearchInputComponent } from '~features/pokemon/components/pokemo
 export class MyPokemonComponent {
   private readonly userService = inject(UserService);
   private readonly pokemonService = inject(PokemonService);
-  private readonly alertStore = inject(AlertStore);
+  private readonly alertService = inject(AlertService);
 
   readonly translations = translations;
   readonly userPokemons$ = this.userService.getMe({ cache: false }).pipe(
@@ -37,7 +37,7 @@ export class MyPokemonComponent {
       return this.pokemonService.getPokemonByIds(user.caughtPokemonIds);
     }),
     catchError(() => {
-      this.alertStore.createErrorAlert(translations.genericErrorAlert);
+      this.alertService.createErrorAlert(translations.genericErrorAlert);
       return of([]);
     }),
   );

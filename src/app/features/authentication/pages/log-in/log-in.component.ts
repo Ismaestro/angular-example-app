@@ -11,15 +11,15 @@ import { RouterModule } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { catchError, EMPTY, finalize } from 'rxjs';
-import { emailValidator } from '~core/validators/email.validator';
+import { emailValidator } from '~shared/validators/email.validator';
 import { AUTH_URLS, ROOT_URLS } from '~core/constants/urls.constants';
-import { passwordValidator } from '~core/validators/password.validator';
-import { SlInputIconFocusDirective } from '~core/directives/sl-input-icon-focus.directive';
-import { LowercaseDirective } from '~core/directives/lowercase.directive';
-import { TrimDirective } from '~core/directives/trim.directive';
-import type { ApiErrorResponse } from '~core/types/api-response.types';
+import { passwordValidator } from '~shared/validators/password.validator';
+import { SlInputIconFocusDirective } from '~shared/directives/sl-input-icon-focus.directive';
+import { LowercaseDirective } from '~shared/directives/lowercase.directive';
+import { TrimDirective } from '~shared/directives/trim.directive';
+import type { ApiErrorResponse } from '~shared/types/api-response.types';
 import { API_ERROR_CODES } from '~core/constants/api-error-codes.constants';
-import { AlertStore } from '~core/services/ui/alert.store';
+import { AlertService } from '~core/services/ui/alert.service';
 import { LanguageService } from '~core/services/language.service';
 import { AuthenticationService } from '../../services/authentication.service';
 import type { User } from '~features/authentication/types/user.type';
@@ -49,7 +49,7 @@ import '@shoelace-style/shoelace/dist/components/icon/icon.js';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LogInComponent {
-  private readonly alertStore = inject(AlertStore);
+  private readonly alertService = inject(AlertService);
   private readonly formBuilder = inject(FormBuilder);
   private readonly authService = inject(AuthenticationService);
   private readonly languageService = inject(LanguageService);
@@ -113,7 +113,7 @@ export class LogInComponent {
       response.error.internalCode === API_ERROR_CODES.INVALID_CREDENTIALS_CODE
         ? translations.loginCredentialsError
         : translations.genericErrorAlert;
-    this.alertStore.createErrorAlert(errorMessage);
+    this.alertService.createErrorAlert(errorMessage);
   }
 
   private updateFormState(updates: Partial<LogInFormState>): void {

@@ -12,15 +12,15 @@ import { RouterModule } from '@angular/router';
 import { translations } from '../../../../../locale/translations';
 import { UserService } from '~features/authentication/services/user.service';
 import { Language } from '~core/enums/language.enum';
-import { SlInputIconFocusDirective } from '~core/directives/sl-input-icon-focus.directive';
+import { SlInputIconFocusDirective } from '~shared/directives/sl-input-icon-focus.directive';
 import type { User } from '~features/authentication/types/user.type';
 import { PokemonService } from '~features/pokemon/services/pokemon.service';
 import type { Pokemon } from '~features/pokemon/types/pokemon.type';
 import { PokemonImageComponent } from '~features/pokemon/components/pokemon-image/pokemon-image.component';
-import { AppSlSelectControlDirective } from '~core/directives/sl-select-control.directive';
-import { ThemeButtonComponent } from '~core/components/theme-button/theme-button.component';
+import { AppSlSelectControlDirective } from '~shared/directives/sl-select-control.directive';
+import { ThemeButtonComponent } from '~shared/components/theme-button/theme-button.component';
 import { NgOptimizedImage } from '@angular/common';
-import { AlertStore } from '~core/services/ui/alert.store';
+import { AlertService } from '~core/services/ui/alert.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { LanguageService } from '~core/services/language.service';
 import { AUTH_URLS } from '~core/constants/urls.constants';
@@ -30,7 +30,7 @@ import '@shoelace-style/shoelace/dist/components/input/input.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 import '@shoelace-style/shoelace/dist/components/select/select.js';
 import '@shoelace-style/shoelace/dist/components/option/option.js';
-import { TrimDirective } from '~core/directives/trim.directive';
+import { TrimDirective } from '~shared/directives/trim.directive';
 
 @Component({
   selector: 'app-my-account',
@@ -53,7 +53,7 @@ export class MyAccountComponent implements OnInit {
   private readonly formBuilder = inject(FormBuilder);
   private readonly userService = inject(UserService);
   private readonly pokemonService = inject(PokemonService);
-  private readonly alertStore = inject(AlertStore);
+  private readonly alertService = inject(AlertService);
   private readonly destroyRef = inject(DestroyRef);
   private readonly languageService = inject(LanguageService);
 
@@ -90,7 +90,7 @@ export class MyAccountComponent implements OnInit {
           this.loadPokemonImage();
         },
         error: () => {
-          this.alertStore.createErrorAlert(translations.genericErrorAlert);
+          this.alertService.createErrorAlert(translations.genericErrorAlert);
         },
       });
   }
@@ -105,7 +105,7 @@ export class MyAccountComponent implements OnInit {
           this.pokemonImage.set(this.userFavouritePokemon.sprites.front_default);
         },
         error: () => {
-          this.alertStore.createErrorAlert(translations.genericErrorAlert);
+          this.alertService.createErrorAlert(translations.genericErrorAlert);
         },
       });
   }
@@ -128,13 +128,13 @@ export class MyAccountComponent implements OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: () => {
-          this.alertStore.createSuccessAlert(translations.myAccountSuccessAlert);
+          this.alertService.createSuccessAlert(translations.myAccountSuccessAlert);
           this.languageService.navigateWithUserLanguage(formValue.language!, AUTH_URLS.myAccount);
           this.isButtonUpdateUserFormLoading.set(false);
         },
         error: () => {
           this.isButtonUpdateUserFormLoading.set(false);
-          this.alertStore.createErrorAlert(translations.genericErrorAlert);
+          this.alertService.createErrorAlert(translations.genericErrorAlert);
         },
       });
   }

@@ -2,15 +2,15 @@ import { ChangeDetectionStrategy, Component, DOCUMENT, effect, inject } from '@a
 import { translations } from '../locale/translations';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
-import { HeaderComponent } from '~core/components/header/header.component';
-import { FooterComponent } from '~core/components/footer/footer.component';
+import { HeaderComponent } from '~shared/components/header/header.component';
+import { FooterComponent } from '~shared/components/footer/footer.component';
 
 import { filter, map } from 'rxjs';
 import { HeaderService } from '~core/services/ui/header.service';
-import { ProgressBarComponent } from '~core/components/progress-bar/progress-bar.component';
-import { CookiePopupComponent } from '~core/components/cookie-popup/cookie-popup.component';
+import { ProgressBarComponent } from '~shared/components/progress-bar/progress-bar.component';
+import { CookiePopupComponent } from '~shared/components/cookie-popup/cookie-popup.component';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { ToastStackComponent } from '~core/components/toast-stack/toast-stack.component';
+import { ToastStackComponent } from '~shared/components/toast-stack/toast-stack.component';
 
 @Component({
   selector: 'app-root',

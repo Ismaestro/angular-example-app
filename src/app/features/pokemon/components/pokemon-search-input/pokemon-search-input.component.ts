@@ -9,14 +9,14 @@ import {
   signal,
 } from '@angular/core';
 import { PokemonService } from '~features/pokemon/services/pokemon.service';
-import { SlInputIconFocusDirective } from '~core/directives/sl-input-icon-focus.directive';
+import { SlInputIconFocusDirective } from '~shared/directives/sl-input-icon-focus.directive';
 import { POKEMON_URLS } from '~core/constants/urls.constants';
 import { Router } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { translations } from '../../../../../locale/translations';
-import { AlertStore } from '~core/services/ui/alert.store';
+import { AlertService } from '~core/services/ui/alert.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { TrimDirective } from '~core/directives/trim.directive';
+import { TrimDirective } from '~shared/directives/trim.directive';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/input/input.js';
@@ -33,7 +33,7 @@ import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 export class PokemonSearchInputComponent {
   private readonly router = inject(Router);
   private readonly pokemonService = inject(PokemonService);
-  private readonly alertStore = inject(AlertStore);
+  private readonly alertService = inject(AlertService);
   private readonly destroyRef = inject(DestroyRef);
 
   readonly title = input<string>(translations.findPokemon);
@@ -59,7 +59,7 @@ export class PokemonSearchInputComponent {
           },
           error: () => {
             this.pokemonLoading.set(false);
-            this.alertStore.createErrorAlert(translations.pokemonNotFoundError);
+            this.alertService.createErrorAlert(translations.pokemonNotFoundError);
           },
         });
     }

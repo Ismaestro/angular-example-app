@@ -17,7 +17,7 @@ import { AppError } from '~core/enums/app-error.enum';
 import { AUTH_URLS } from '~core/constants/urls.constants';
 import { LOCAL_STORAGE } from '~core/providers/local-storage';
 import { translations } from '../../../locale/translations';
-import { AlertStore } from '~core/services/ui/alert.store';
+import { AlertService } from '~core/services/ui/alert.service';
 
 const isRefreshing = new BehaviorSubject<boolean>(false);
 
@@ -26,7 +26,7 @@ export function authenticationInterceptor(
   next: HttpHandlerFn,
 ): Observable<HttpEvent<unknown>> {
   const authenticationService = inject(AuthenticationService);
-  const alertStore = inject(AlertStore);
+  const alertService = inject(AlertService);
   const storageService = inject(LOCAL_STORAGE);
   const router = inject(Router);
 
@@ -35,7 +35,7 @@ export function authenticationInterceptor(
     request: clonedRequest,
     next,
     authenticationService,
-    alertStore,
+    alertService,
     storageService,
     router,
   });
@@ -58,7 +58,7 @@ function handleRequest(parameters: {
   request: HttpRequest<unknown>;
   next: HttpHandlerFn;
   authenticationService: AuthenticationService;
-  alertStore: AlertStore;
+  alertService: AlertService;
   storageService: Storage | null;
   router: Router;
 }): Observable<HttpEvent<unknown>> {
@@ -76,7 +76,7 @@ function handleErrors(parameters: {
   request: HttpRequest<unknown>;
   next: HttpHandlerFn;
   authenticationService: AuthenticationService;
-  alertStore: AlertStore;
+  alertService: AlertService;
   storageService: Storage | null;
   router: Router;
   errorResponse: HttpErrorResponse;
@@ -116,7 +116,7 @@ function tryRefreshToken(parameters: {
   request: HttpRequest<unknown>;
   next: HttpHandlerFn;
   authenticationService: AuthenticationService;
-  alertStore: AlertStore;
+  alertService: AlertService;
   storageService: Storage | null;
   router: Router;
 }): Observable<HttpEvent<unknown>> {
@@ -131,7 +131,7 @@ function handleTokenRefresh(parameters: {
   request: HttpRequest<unknown>;
   next: HttpHandlerFn;
   authenticationService: AuthenticationService;
-  alertStore: AlertStore;
+  alertService: AlertService;
   storageService: Storage | null;
   router: Router;
 }): Observable<HttpEvent<unknown>> {
@@ -178,10 +178,10 @@ function retryRequestWithRefreshedToken(parameters: {
 
 function handleRefreshError(parameters: {
   authenticationService: AuthenticationService;
-  alertStore: AlertStore;
+  alertService: AlertService;
   router: Router;
 }): void {
   parameters.authenticationService.logOut();
-  parameters.alertStore.createErrorAlert(translations.sessionExpired);
+  parameters.alertService.createErrorAlert(translations.sessionExpired);
   void parameters.router.navigate([AUTH_URLS.logIn]);
 }

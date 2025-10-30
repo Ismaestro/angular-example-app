@@ -6,7 +6,7 @@ import { HeaderService } from '~core/services/ui/header.service';
 import { ENVIRONMENT } from '~core/tokens/environment.token';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
-import { HeaderComponent } from '~core/components/header/header.component';
+import { HeaderComponent } from '~shared/components/header/header.component';
 import type { Mock } from 'vitest';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 

@@ -1,5 +1,5 @@
 import type { User } from '~features/authentication/types/user.type';
-import type { ApiResponse } from '~core/types/api-response.types';
+import type { ApiResponse } from '~shared/types/api-response.types';
 
 export type UpdateUserResponseData = {
   user: User;

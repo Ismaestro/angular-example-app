@@ -13,14 +13,13 @@ import { NgOptimizedImage } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { catchError, EMPTY, merge } from 'rxjs';
 import { AUTH_URLS, POKEMON_URLS, ROOT_URLS } from '~core/constants/urls.constants';
-import { emailValidator } from '~core/validators/email.validator';
-import { passwordValidator } from '~core/validators/password.validator';
-import { PokemonValidator } from '~core/validators/pokemon.validator';
-import { SlInputIconFocusDirective } from '~core/directives/sl-input-icon-focus.directive';
-import { AppSlCheckboxControlDirective } from '~core/directives/sl-checkbox-control.directive';
-import { LowercaseDirective } from '~core/directives/lowercase.directive';
-import { TrimDirective } from '~core/directives/trim.directive';
-import { AlertStore } from '~core/services/ui/alert.store';
+import { emailValidator } from '~shared/validators/email.validator';
+import { passwordValidator } from '~shared/validators/password.validator';
+import { SlInputIconFocusDirective } from '~shared/directives/sl-input-icon-focus.directive';
+import { AppSlCheckboxControlDirective } from '~shared/directives/sl-checkbox-control.directive';
+import { LowercaseDirective } from '~shared/directives/lowercase.directive';
+import { TrimDirective } from '~shared/directives/trim.directive';
+import { AlertService } from '~core/services/ui/alert.service';
 import { AuthenticationService } from '../../services/authentication.service';
 import type {
   RegisterFormGroup,
@@ -28,6 +27,7 @@ import type {
   RegisterFormValue,
 } from './register-form.types';
 import { translations } from '../../../../../locale/translations';
+import { PokemonValidator } from '~features/pokemon/validators/pokemon.validator';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/input/input.js';
@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
   private readonly router = inject(Router);
   private readonly formBuilder = inject(FormBuilder);
   private readonly authService = inject(AuthenticationService);
-  private readonly alertStore = inject(AlertStore);
+  private readonly alertService = inject(AlertService);
   private readonly pokemonValidator = inject(PokemonValidator);
   private readonly destroyRef = inject(DestroyRef);
 
@@ -190,7 +190,7 @@ export class RegisterComponent implements OnInit {
   }
 
   private handleRegistrationError(): void {
-    this.alertStore.createErrorAlert(translations.genericErrorAlert);
+    this.alertService.createErrorAlert(translations.genericErrorAlert);
     this.updateFormState({ isLoading: false });
   }
 

@@ -1,5 +1,5 @@
 import { AUTHENTICATION_PATHS, POKEMON_PATHS, ROOT_PATHS } from '~core/constants/paths.constants';
-import { Error404Component } from '~core/components/error-404/error-404.component';
+import { Error404Component } from '~shared/components/error-404/error-404.component';
 import type { Route } from '@angular/router';
 import { HomeComponent } from '~features/home/home.component';
 import { MyPokemonComponent } from '~features/pokemon/pages/my-pokemon/my-pokemon.component';

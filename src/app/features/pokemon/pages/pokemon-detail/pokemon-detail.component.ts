@@ -14,7 +14,7 @@ import { PokemonBattlefieldComponent } from '~features/pokemon/components/pokemo
 import { PokedexComponent } from '~features/pokemon/components/pokedex/pokedex.component';
 import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
 import { translations } from '../../../../../locale/translations';
-import { AlertStore } from '~core/services/ui/alert.store';
+import { AlertService } from '~core/services/ui/alert.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
@@ -30,7 +30,7 @@ import { isPlatformBrowser } from '@angular/common';
 export class PokemonDetailComponent {
   private readonly activatedRoute = inject(ActivatedRoute);
   private readonly pokemonService = inject(PokemonService);
-  private readonly alertStore = inject(AlertStore);
+  private readonly alertService = inject(AlertService);
   private readonly platformId = inject(PLATFORM_ID);
 
   readonly isBrowser = isPlatformBrowser(this.platformId);
@@ -50,7 +50,7 @@ export class PokemonDetailComponent {
         this.pokemonBattleEvent.set(BattleEvent.RESET_BATTLE);
       }
       if (this.pokemonResource.error()) {
-        this.alertStore.createErrorAlert(translations.pokemonNotFoundError);
+        this.alertService.createErrorAlert(translations.pokemonNotFoundError);
       }
     });
   }
