@@ -38,7 +38,7 @@
     <!-- CSP -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src http://localhost:3000 https://nestjs-example-app.fly.dev https://res.cloudinary.com *.google-analytics.com *.googletagmanager.com 'self' data: *.googleapis.com *.gstatic.com *.jsdelivr.net pokeapi.co img.pokemondb.net *.githubusercontent.com; style-src 'self' 'unsafe-inline' *.googleapis.com; script-src 'self' 'unsafe-inline';"
+      content="default-src http://localhost:3000 https://nestjs-example-app.fly.dev https://res.cloudinary.com *.google-analytics.com *.googletagmanager.com 'self' data: *.googleapis.com *.gstatic.com *.jsdelivr.net pokeapi.co img.pokemondb.net *.githubusercontent.com; style-src 'self' 'unsafe-inline' *.googleapis.com *.jsdelivr.net; script-src 'self' 'unsafe-inline';"
     />
 
     <!-- Favicons -->
@@ -105,10 +105,15 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css"
+    />
 
     <!-- Preconnect -->
     <link rel="preconnect" href="https://raw.githubusercontent.com" />
     <link rel="preconnect" href="https://res.cloudinary.com" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   </head>
   <body>
     <app-root></app-root>

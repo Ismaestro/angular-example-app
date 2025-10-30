@@ -33,11 +33,7 @@
                 "output": ""
               }
             ],
-            "styles": [
-              "normalize.css/normalize.css",
-              "@shoelace-style/shoelace/dist/themes/light.css",
-              "src/styles/global.scss"
-            ],
+            "styles": ["@shoelace-style/shoelace/dist/themes/light.css", "src/styles/global.scss"],
             "stylePreprocessorOptions": {
               "includePaths": ["src/styles"]
             },
