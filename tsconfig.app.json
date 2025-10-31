@@ -5,6 +5,6 @@
     "outDir": "./out-tsc/app",
     "types": ["@angular/localize", "node"]
   },
-  "files": ["src/main.ts", "src/main.server.ts", "src/server.ts"],
+  "files": ["src/main.ts", "src/main.server.ts"],
   "include": ["src/**/*.d.ts"]
 }
