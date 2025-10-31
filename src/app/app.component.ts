@@ -4,7 +4,6 @@ import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { HeaderComponent } from '~shared/components/header/header.component';
 import { FooterComponent } from '~shared/components/footer/footer.component';
-
 import { filter, map } from 'rxjs';
 import { HeaderService } from '~core/services/ui/header.service';
 import { ProgressBarComponent } from '~shared/components/progress-bar/progress-bar.component';

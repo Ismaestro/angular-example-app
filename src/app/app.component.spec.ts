@@ -9,6 +9,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { HeaderComponent } from '~shared/components/header/header.component';
 import type { Mock } from 'vitest';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import axe from 'axe-core';
 
 @Component({
   selector: 'app-header',
@@ -55,5 +56,15 @@ describe('AppComponent', () => {
   it('should create', () => {
     expect(component).toBeDefined();
     expect(setCanonicalSpy).not.toHaveBeenCalled();
+  });
+
+  it('should have no accessibility violations', async () => {
+    const results = await axe.run(document, {
+      rules: {
+        'html-has-lang': { enabled: false },
+        'region': { enabled: false },
+      },
+    });
+    expect(results.violations.length).toBe(0);
   });
 });
