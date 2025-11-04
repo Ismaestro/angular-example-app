@@ -1,46 +1,24 @@
-import { devices, PlaywrightTestConfig } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test';
 
-const config: PlaywrightTestConfig = {
-  testDir: './e2e',
-  timeout: 30 * 1000,
+export default defineConfig({
+  testDir: './e2e/tests',
+  timeout: 30_000,
   expect: {
-    timeout: 5000,
+    timeout: 5_000,
   },
-  fullyParallel: false,
-  forbidOnly: true,
-  retries: 2,
-  workers: 1,
-  reporter: 'html',
+  fullyParallel: true,
+  reporter: [['list'], ['html', { open: 'never' }]],
   use: {
-    actionTimeout: 0,
+    baseURL: process.env['BASE_URL'] || 'https://angular-example-app.netlify.app',
+    headless: true,
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
     trace: 'on-first-retry',
   },
   projects: [
     {
-      name: 'Google Chrome',
-      use: {
-        channel: 'chrome',
-      },
-    },
-    {
-      name: 'Safari',
-      use: {
-        ...devices['Desktop Safari'],
-      },
-    },
-    {
-      name: 'Mobile Chrome',
-      use: {
-        ...devices['Pixel 5'],
-      },
-    },
-    {
-      name: 'Mobile Safari',
-      use: {
-        ...devices['iPhone 12'],
-      },
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
     },
   ],
-};
-
-export default config;
+});

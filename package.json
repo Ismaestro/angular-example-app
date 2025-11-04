@@ -12,9 +12,9 @@
     "stylelint": "npx stylelint \"**/*.{css,scss}\"",
     "test": "ng test --no-code-coverage --no-watch",
     "test:watch": "ng test --no-code-coverage",
-    "e2e": "npm run playwright:install && npm run playwright:test",
+    "e2e:local": "BASE_URL=http://localhost:4200 npx playwright test --project=chromium",
+    "e2e:pro": "npx playwright test --project=chromium",
     "playwright:install": "npx playwright install && npx playwright install-deps",
-    "playwright:test": "npx playwright test",
     "build": "ng build",
     "build:stats": "ng build --configuration=production-sourcemaps --stats-json",
     "verify": "npm run extract && npm run lint && npm run test && npm run build:stats"

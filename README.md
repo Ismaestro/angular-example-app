@@ -48,21 +48,22 @@ This app connects to a real backend powered by NestJS, PostgreSQL, and Prisma, d
 
 ## ✨ Features
 
-|                         |                                                   |
-| ----------------------- | ------------------------------------------------- |
-| ✅ Angular 20           | Using the latest version                          |
-| ✅ Internationalization | i18n with English and Spanish                     |
-| ✅ Authentication       | JWT-based, real login flow                        |
-| ✅ Routing & Guards     | Functional guards with lazy-loaded routes         |
-| ✅ Responsive Design    | Mobile-first layouts with Flexbox and Grid        |
-| ✅ APIs                 | Example integration with the PokeAPI              |
-| ✅ Shoelace Components  | Accessible and modern UI components               |
-| ✅ NgOptimizedImage     | Fast image loading with Angular's directive       |
-| ✅ SSG & Prerendering   | Static Site Generation for main and Pokémon pages |
-| ✅ Animations           | Smooth transitions with Angular Animations        |
-| ✅ Clean Architecture   | Modular folder structure following best practices |
-| ✅ SASS & BEM           | Maintainable and scalable styling                 |
-| 🧪 Testing              | Unit & e2e testing (coming soon!)                 |
+|                         |                                                     |
+| ----------------------- | --------------------------------------------------- |
+| ✅ Angular 20           | Using the latest version                            |
+| ✅ Internationalization | i18n with English and Spanish                       |
+| ✅ Authentication       | JWT-based, real login flow                          |
+| ✅ Routing & Guards     | Functional guards with lazy-loaded routes           |
+| ✅ Responsive Design    | Mobile-first layouts with Flexbox and Grid          |
+| ✅ APIs                 | Example integration with the PokeAPI                |
+| ✅ Shoelace Components  | Accessible and modern UI components                 |
+| ✅ NgOptimizedImage     | Fast image loading with Angular's directive         |
+| ✅ SSG & Prerendering   | Static Site Generation for main and Pokémon pages   |
+| ✅ Animations           | Smooth transitions with Angular Animations          |
+| ✅ Clean Architecture   | Modular folder structure following best practices   |
+| ✅ SASS & BEM           | Maintainable and scalable styling                   |
+| ✅ Tests E2E            | Using Playwright and also with best practices (POM) |
+| 🧪 Testing              | Unit (coming soon!)                                 |
 
 ---
 

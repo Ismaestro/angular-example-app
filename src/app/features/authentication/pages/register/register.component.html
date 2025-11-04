@@ -1,5 +1,7 @@
 <main>
-  <h1 class="first-heading__title" i18n>¡Register and complete your Pokédex!</h1>
+  <h1 class="first-heading__title" i18n data-testid="register-title">
+    ¡Register and complete your Pokédex!
+  </h1>
   <form class="form__container register__form" [formGroup]="registerForm" (ngSubmit)="sendForm()">
     <img
       class="register-form__image"
