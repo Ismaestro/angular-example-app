@@ -17,7 +17,8 @@
     "playwright:install": "npx playwright install && npx playwright install-deps",
     "build": "ng build",
     "build:stats": "ng build --configuration=production-sourcemaps --stats-json",
-    "verify": "npm run extract && npm run lint && npm run test && npm run build:stats"
+    "lighthouse": "node scripts/lighthouse.mjs",
+    "verify": "npm run extract && npm run lint && npm run test && npm run build:stats && npm run lighthouse"
   },
   "dependencies": {
     "@angular/animations": "20.3.7",
@@ -60,6 +61,7 @@
     "@vitest/coverage-v8": "4.0.4",
     "angular-eslint": "20.5.0",
     "axe-core": "4.11.0",
+    "chrome-launcher": "1.2.1",
     "eslint": "9.38.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-eslint-comments": "3.2.0",
@@ -68,12 +70,14 @@
     "eslint-plugin-unicorn": "62.0.0",
     "husky": "9.1.7",
     "jsdom": "27.0.1",
+    "lighthouse": "12.8.2",
     "lint-staged": "16.2.6",
     "ng-extract-i18n-merge": "3.1.0",
     "playwright": "1.56.1",
     "postcss-scss": "4.0.9",
     "prettier": "3.6.2",
     "prettier-eslint": "16.4.2",
+    "serve": "14.2.5",
     "stylelint": "16.25.0",
     "stylelint-config-recess-order": "7.4.0",
     "stylelint-config-standard-scss": "16.0.0",

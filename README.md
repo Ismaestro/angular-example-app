@@ -63,6 +63,7 @@ This app connects to a real backend powered by NestJS, PostgreSQL, and Prisma, d
 | ✅ Clean Architecture   | Modular folder structure following best practices   |
 | ✅ SASS & BEM           | Maintainable and scalable styling                   |
 | ✅ Tests E2E            | Using Playwright and also with best practices (POM) |
+| ✅ Lighthouse           | Verifying web performance with defined thresholds   |
 | 🧪 Testing              | Unit (coming soon!)                                 |
 
 ---

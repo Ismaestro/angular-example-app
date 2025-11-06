@@ -1,0 +1,11 @@
+{
+  "distPath": "dist/angularexampleapp/browser",
+  "reportPath": "dist/lighthouse-report.html",
+  "port": 4200,
+  "thresholds": {
+    "performance": 73,
+    "accessibility": 95,
+    "best-practices": 100,
+    "seo": 92
+  }
+}
