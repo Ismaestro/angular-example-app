@@ -6,7 +6,9 @@
 <div class="app__main-container">
   <app-header />
   <div class="app__page-container">
-    <app-cookie-popup />
+    @if (showCookieBanner()) {
+      <app-cookie-popup />
+    }
     <router-outlet />
   </div>
   <app-footer />

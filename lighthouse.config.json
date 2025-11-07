@@ -3,9 +3,9 @@
   "reportPath": "dist/lighthouse-report.html",
   "port": 4200,
   "thresholds": {
-    "performance": 73,
-    "accessibility": 95,
+    "performance": 95,
+    "accessibility": 100,
     "best-practices": 100,
-    "seo": 92
+    "seo": 100
   }
 }

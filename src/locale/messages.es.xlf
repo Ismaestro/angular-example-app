@@ -229,9 +229,9 @@
         <source>ash standing</source>
         <target state="new">ash de pie</target>
       </trans-unit>
-      <trans-unit id="686712156074129473" datatype="html">
-        <source>¡Register and complete your Pokédex!</source>
-        <target state="new">¡Regístrate y completa tu Pokédex!</target>
+      <trans-unit id="5418525007522184600" datatype="html">
+        <source> ¡Register and complete your Pokédex! </source>
+        <target state="new"> ¡Regístrate y completa tu Pokédex! </target>
       </trans-unit>
       <trans-unit id="3129358389635860873" datatype="html">
         <source>Retype the password</source>
@@ -534,6 +534,10 @@
       <trans-unit id="3894950702316166331" datatype="html">
         <source>Loading...</source>
         <target state="new">Cargando...</target>
+      </trans-unit>
+      <trans-unit id="8469070228767591171" datatype="html">
+        <source>Open navigation menu</source>
+        <target state="new">Abrir el menú de navegación</target>
       </trans-unit>
     </body>
   </file>

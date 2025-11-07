@@ -1,4 +1,13 @@
-import { ChangeDetectionStrategy, Component, DOCUMENT, effect, inject } from '@angular/core';
+import type { OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  DOCUMENT,
+  effect,
+  inject,
+  PLATFORM_ID,
+  signal,
+} from '@angular/core';
 import { translations } from '../locale/translations';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
@@ -10,6 +19,8 @@ import { ProgressBarComponent } from '~shared/components/progress-bar/progress-b
 import { CookiePopupComponent } from '~shared/components/cookie-popup/cookie-popup.component';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ToastStackComponent } from '~shared/components/toast-stack/toast-stack.component';
+import { AnalyticsService } from '~core/services/analytics.service';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -25,13 +36,17 @@ import { ToastStackComponent } from '~shared/components/toast-stack/toast-stack.
   styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   private readonly document = inject(DOCUMENT);
   private readonly router = inject(Router);
   private readonly titleService = inject(Title);
   private readonly headerService = inject(HeaderService);
   private readonly metaService = inject(Meta);
+  private readonly analyticsService = inject(AnalyticsService);
+  private readonly platformId = inject(PLATFORM_ID);
 
+  readonly isBrowser = isPlatformBrowser(this.platformId);
+  readonly showCookieBanner = signal(false);
   readonly currentUrl = toSignal(
     this.router.events.pipe(
       filter((event): event is NavigationEnd => event instanceof NavigationEnd),
@@ -49,6 +64,17 @@ export class AppComponent {
     });
   }
 
+  ngOnInit() {
+    if (this.isBrowser) {
+      this.analyticsService.loadGA4Script();
+
+      const COOKIES_BANNER_DELAY = 1500;
+      setTimeout(() => {
+        this.showCookieBanner.set(true);
+      }, COOKIES_BANNER_DELAY);
+    }
+  }
+
   private _setMetaTags(): void {
     const { seoTitle, seoDescription } = translations;
     this.titleService.setTitle(seoTitle);
@@ -60,6 +86,10 @@ export class AppComponent {
       {
         name: 'twitter:title',
         content: seoTitle,
+      },
+      {
+        name: 'description',
+        content: seoDescription,
       },
       {
         name: 'og:description',

@@ -3,7 +3,6 @@
 <html lang="en" class="theme-light--mode theme-dark--mode">
   <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9SZHZ6B85Z"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -38,8 +37,15 @@
     <!-- CSP -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src http://localhost:3000 https://nestjs-example-app.fly.dev https://res.cloudinary.com *.google-analytics.com *.googletagmanager.com 'self' data: *.googleapis.com *.gstatic.com *.jsdelivr.net pokeapi.co img.pokemondb.net *.githubusercontent.com; style-src 'self' 'unsafe-inline' *.googleapis.com *.jsdelivr.net; script-src 'self' 'unsafe-inline';"
+      content="default-src http://localhost:3000 https://nestjs-example-app.fly.dev https://res.cloudinary.com *.google-analytics.com *.googletagmanager.com 'self' data: *.googleapis.com *.gstatic.com *.jsdelivr.net pokeapi.co img.pokemondb.net *.githubusercontent.com; style-src 'self' 'unsafe-inline' *.googleapis.com *.jsdelivr.net; script-src 'self' 'unsafe-inline' *.googletagmanager.com;"
     />
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://res.cloudinary.com" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+
+    <link rel="canonical" href="https://angular-example-app.netlify.app" />
 
     <!-- Favicons -->
     <link
@@ -74,13 +80,11 @@
       rel="shortcut icon"
       href="https://res.cloudinary.com/ismaestro/image/upload/angularexampleapp/assets/icons/favicon.ico"
     />
-    <link rel="canonical" href="https://angular-example-app.netlify.app" />
 
+    <!-- Open Graph -->
     <meta name="apple-mobile-web-app-title" content="Angular Example App" />
     <meta name="application-name" content="Angular Example App" />
     <meta name="theme-color" content="#ffffff" />
-
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://angular-example-app.netlify.app/" />
     <meta
@@ -98,22 +102,53 @@
 
     <!-- Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600&family=Inter:wght@400;500;600&family=DM+Mono:ital@0;1&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600&display=swap"
     />
     <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600&display=swap"
+      />
+    </noscript>
+    <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
-      rel="stylesheet"
     />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+      />
+    </noscript>
 
-    <!-- Preconnect -->
-    <link rel="preconnect" href="https://raw.githubusercontent.com" />
-    <link rel="preconnect" href="https://res.cloudinary.com" />
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <!-- Modern-normalize -->
+    <link
+      rel="preload"
+      href="https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css"
+      />
+    </noscript>
   </head>
   <body>
     <app-root></app-root>

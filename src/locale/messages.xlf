@@ -216,8 +216,8 @@
       <trans-unit id="6692431734660320901" datatype="html">
         <source> ©2016-2025. Code licensed under a <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://opensource.org/license/mit&quot; target=&quot;_blank&quot; title=&quot;License text&quot; i18n-title &gt;"/>MIT License<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a &gt;"/></source>
       </trans-unit>
-      <trans-unit id="686712156074129473" datatype="html">
-        <source>¡Register and complete your Pokédex!</source>
+      <trans-unit id="5418525007522184600" datatype="html">
+        <source> ¡Register and complete your Pokédex! </source>
       </trans-unit>
       <trans-unit id="7023829683035637619" datatype="html">
         <source>Angular blog</source>
@@ -396,6 +396,9 @@
       </trans-unit>
       <trans-unit id="3894950702316166331" datatype="html">
         <source>Loading...</source>
+      </trans-unit>
+      <trans-unit id="8469070228767591171" datatype="html">
+        <source>Open navigation menu</source>
       </trans-unit>
     </body>
   </file>

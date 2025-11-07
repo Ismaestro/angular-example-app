@@ -24,7 +24,7 @@
             "browser": "src/main.ts",
             "polyfills": ["@angular/localize/init"],
             "tsConfig": "tsconfig.app.json",
-            "i18nMissingTranslation": "warning",
+            "i18nMissingTranslation": "error",
             "inlineStyleLanguage": "scss",
             "assets": [
               {
