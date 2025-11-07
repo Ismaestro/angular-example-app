@@ -1,5 +1,6 @@
 import {
   AUTHENTICATION_PATHS,
+  ERROR_PATHS,
   POKEMON_PATHS,
   ROOT_PATHS,
   USER_PATHS,
@@ -7,7 +8,6 @@ import {
 
 export const ROOT_URLS = {
   home: `/${ROOT_PATHS.home}`,
-  error404: `/${ROOT_PATHS.error404}`,
 };
 
 export const AUTH_URLS = {
@@ -22,4 +22,8 @@ export const POKEMON_URLS = {
 
 export const USER_URLS = {
   myPokemon: `/${USER_PATHS.base}/${USER_PATHS.myPokemon}`,
+};
+
+export const ERROR_URLS = {
+  notFound: `/${ERROR_PATHS.base}/${ERROR_PATHS.notFound}`,
 };

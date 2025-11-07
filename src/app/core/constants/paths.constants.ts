@@ -1,6 +1,5 @@
 export const ROOT_PATHS = {
   home: '',
-  error404: '404',
 };
 
 export const AUTHENTICATION_PATHS = {
@@ -17,4 +16,9 @@ export const POKEMON_PATHS = {
 export const USER_PATHS = {
   base: 'user',
   myPokemon: 'my-pokemon',
+};
+
+export const ERROR_PATHS = {
+  base: 'error',
+  notFound: '404',
 };

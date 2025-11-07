@@ -1,12 +1,13 @@
 import {
   AUTHENTICATION_PATHS,
+  ERROR_PATHS,
   POKEMON_PATHS,
   ROOT_PATHS,
   USER_PATHS,
 } from '~core/constants/paths.constants';
-import { Error404Component } from '~shared/components/error-404/error-404.component';
 import type { Route } from '@angular/router';
 import { HomeComponent } from '~features/home/home.component';
+import { ERROR_URLS } from '~core/constants/urls.constants';
 
 export const appRoutes: Route[] = [
   {
@@ -30,6 +31,10 @@ export const appRoutes: Route[] = [
     loadChildren: async () =>
       import('./features/pokemon/pokemon.routes').then((module_) => module_.POKEMON_ROUTES),
   },
-  { path: '404', component: Error404Component },
-  { path: '**', redirectTo: '404' },
+  {
+    path: ERROR_PATHS.base,
+    loadChildren: async () =>
+      import('./features/error/error.routes').then((module_) => module_.ERROR_ROUTES),
+  },
+  { path: '**', redirectTo: ERROR_URLS.notFound },
 ];
