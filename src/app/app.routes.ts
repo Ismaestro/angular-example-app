@@ -6,13 +6,13 @@ import {
   USER_PATHS,
 } from '~core/constants/paths.constants';
 import type { Route } from '@angular/router';
-import { HomeComponent } from '~features/home/home.component';
 import { ERROR_URLS } from '~core/constants/urls.constants';
 
 export const appRoutes: Route[] = [
   {
     path: ROOT_PATHS.home,
-    component: HomeComponent,
+    loadChildren: async () =>
+      import('./features/home/home.routes').then((module_) => module_.HOME_ROUTES),
   },
   {
     path: AUTHENTICATION_PATHS.base,
