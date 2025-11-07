@@ -1,6 +1,6 @@
 {
   "name": "angularexampleapp",
-  "version": "19.1.0",
+  "version": "20.0.0",
   "scripts": {
     "prepare": "npx husky",
     "start": "ng serve --configuration=development-en --open",
