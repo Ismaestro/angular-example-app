@@ -4,7 +4,7 @@ import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'node:path';
 
-const configPath = path.resolve('lighthouse.config.json');
+const configPath = path.resolve('scripts/lighthouse.config.json');
 const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 const distPath = path.resolve(config.distPath);
 const reportPath = path.resolve(config.reportPath);
