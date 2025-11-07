@@ -19,7 +19,7 @@
     "build:stats": "ng build --configuration=production-sourcemaps --stats-json",
     "run:e2e:local": "node scripts/e2e.mjs",
     "lighthouse": "node scripts/lighthouse.mjs",
-    "verify": "npm run extract && npm run lint && npm run test && npm run build:stats && npm run lighthouse"
+    "verify": "npm run format:check && npm run test && npm run run:e2e:local && npm run build && npm run lighthouse"
   },
   "dependencies": {
     "@angular/animations": "20.3.7",

@@ -20,7 +20,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
     console.log('⚡ Running Playwright E2E tests...');
     execSync('npx playwright test --project=chromium', { stdio: 'inherit' });
-    console.log('✅ Playwright tests completed successfully');
+    console.log('🟢 Playwright tests completed successfully');
   } catch (err) {
     console.error('🔴 Error during E2E execution:', err);
     process.exitCode = 1;
@@ -28,7 +28,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     if (ngProcess) {
       console.log('🧹 Stopping Angular server...');
       ngProcess.kill('SIGINT');
-      await sleep(1000); // darle tiempo a cerrar
+      await sleep(1000);
     }
   }
 })();

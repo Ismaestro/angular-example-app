@@ -88,7 +88,6 @@ async function runLighthouseAudit() {
     onlyCategories: Object.keys(thresholds),
   };
 
-  // Simple spinner animation (moving dots)
   process.stdout.write('⚡ Running Lighthouse audit   \n');
   const spinner = createSpinner();
   spinner.start();
