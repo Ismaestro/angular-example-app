@@ -13,10 +13,10 @@ import { SlInputIconFocusDirective } from '~shared/directives/sl-input-icon-focu
 import { POKEMON_URLS } from '~core/constants/urls.constants';
 import { Router } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
-import { translations } from '../../../../../locale/translations';
 import { AlertService } from '~core/services/ui/alert.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { TrimDirective } from '~shared/directives/trim.directive';
+import { translations } from '~locale/translations';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/input/input.js';

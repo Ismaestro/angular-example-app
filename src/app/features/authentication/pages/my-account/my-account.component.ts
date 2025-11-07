@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { translations } from '../../../../../locale/translations';
+import { translations } from '~locale/translations';
 import { UserService } from '~features/authentication/services/user.service';
 import { Language } from '~core/enums/language.enum';
 import { SlInputIconFocusDirective } from '~shared/directives/sl-input-icon-focus.directive';

@@ -8,7 +8,7 @@ import {
   PLATFORM_ID,
   signal,
 } from '@angular/core';
-import { translations } from '../locale/translations';
+import { translations } from '~locale/translations';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { HeaderComponent } from '~shared/components/header/header.component';

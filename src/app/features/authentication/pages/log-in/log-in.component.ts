@@ -12,7 +12,7 @@ import { NgOptimizedImage } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { catchError, EMPTY, finalize } from 'rxjs';
 import { emailValidator } from '~shared/validators/email.validator';
-import { AUTH_URLS, ROOT_URLS } from '~core/constants/urls.constants';
+import { AUTH_URLS, USER_URLS } from '~core/constants/urls.constants';
 import { passwordValidator } from '~shared/validators/password.validator';
 import { SlInputIconFocusDirective } from '~shared/directives/sl-input-icon-focus.directive';
 import { LowercaseDirective } from '~shared/directives/lowercase.directive';
@@ -27,8 +27,7 @@ import type {
   LogInFormGroup,
   LogInFormState,
 } from '~features/authentication/pages/log-in/log-in-form.types';
-import { translations } from '../../../../../locale/translations';
-
+import { translations } from '~locale/translations';
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/input/input.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
@@ -90,7 +89,7 @@ export class LogInComponent {
       )
       .subscribe({
         next: (user: User) => {
-          this.languageService.navigateWithUserLanguage(user.language, ROOT_URLS.myPokedex);
+          this.languageService.navigateWithUserLanguage(user.language, USER_URLS.myPokemon);
         },
       });
   }

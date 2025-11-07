@@ -1,13 +1,13 @@
 import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
 import { UserService } from '~features/authentication/services/user.service';
-import { PokemonCardComponent } from '~features/pokemon/components/pokemon-card/pokemon-card.component';
 import { PokemonService } from '~features/pokemon/services/pokemon.service';
 import { NgOptimizedImage } from '@angular/common';
-import { translations } from '../../../../../locale/translations';
 import { AlertService } from '~core/services/ui/alert.service';
 import { catchError, of, switchMap } from 'rxjs';
 import { LetDirective, PushPipe } from '@ngrx/component';
-import { PokemonSearchInputComponent } from '~features/pokemon/components/pokemon-search-input/pokemon-search-input.component';
+import { PokemonCardComponent } from '~features/user/my-pokemon/components/pokemon-card/pokemon-card.component';
+import { translations } from '~locale/translations';
+import { PokemonSearchInputComponent } from '~shared/components/pokemon-search-input/pokemon-search-input.component';
 
 @Component({
   selector: 'app-my-pokemon',

@@ -4,7 +4,6 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
   effect,
   inject,
-  PLATFORM_ID,
   signal,
 } from '@angular/core';
 import { PokemonService } from '~features/pokemon/services/pokemon.service';
@@ -13,11 +12,10 @@ import { ActivatedRoute } from '@angular/router';
 import { PokemonBattlefieldComponent } from '~features/pokemon/components/pokemon-battlefield/pokemon-battlefield.component';
 import { PokedexComponent } from '~features/pokemon/components/pokedex/pokedex.component';
 import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
-import { translations } from '../../../../../locale/translations';
+import { translations } from '~locale/translations';
 import { AlertService } from '~core/services/ui/alert.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
-import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-pokemon-detail',
@@ -31,9 +29,7 @@ export class PokemonDetailComponent {
   private readonly activatedRoute = inject(ActivatedRoute);
   private readonly pokemonService = inject(PokemonService);
   private readonly alertService = inject(AlertService);
-  private readonly platformId = inject(PLATFORM_ID);
 
-  readonly isBrowser = isPlatformBrowser(this.platformId);
   readonly pokemonId = toSignal(
     this.activatedRoute.paramMap.pipe(map((parameters) => parameters.get('pokemonId') ?? '')),
     { initialValue: '' },

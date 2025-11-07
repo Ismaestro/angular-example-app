@@ -12,7 +12,7 @@ import { Router, RouterModule } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { catchError, EMPTY, merge } from 'rxjs';
-import { AUTH_URLS, POKEMON_URLS, ROOT_URLS } from '~core/constants/urls.constants';
+import { AUTH_URLS, POKEMON_URLS, USER_URLS } from '~core/constants/urls.constants';
 import { emailValidator } from '~shared/validators/email.validator';
 import { passwordValidator } from '~shared/validators/password.validator';
 import { SlInputIconFocusDirective } from '~shared/directives/sl-input-icon-focus.directive';
@@ -26,7 +26,7 @@ import type {
   RegisterFormState,
   RegisterFormValue,
 } from './register-form.types';
-import { translations } from '../../../../../locale/translations';
+import { translations } from '~locale/translations';
 import { PokemonValidator } from '~features/pokemon/validators/pokemon.validator';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
@@ -181,7 +181,7 @@ export class RegisterComponent implements OnInit {
         return true;
       })
       .catch(() => {
-        void this.router.navigate([ROOT_URLS.myPokedex]);
+        void this.router.navigate([USER_URLS.myPokemon]);
       });
   }
 

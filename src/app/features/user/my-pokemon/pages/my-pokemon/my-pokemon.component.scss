@@ -1,5 +1,5 @@
-@use '../../../../../styles/base/media-queries' as mq;
-@use '../../../../../styles/components/pages';
+@use '../styles/base/media-queries' as mq;
+@use '../styles/components/pages';
 
 $grid-columns: 3;
 $empty-image-width: 200px;

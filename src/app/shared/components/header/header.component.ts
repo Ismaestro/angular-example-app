@@ -7,16 +7,15 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
-import { AUTH_URLS, ROOT_URLS } from '~core/constants/urls.constants';
+import { AUTH_URLS, ROOT_URLS, USER_URLS } from '~core/constants/urls.constants';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { NgOptimizedImage, NgTemplateOutlet } from '@angular/common';
 import { AuthenticationService } from '~features/authentication/services/authentication.service';
 import { LanguageSelectorComponent } from '~shared/components/language-selector/language-selector.component';
 import { ThemeButtonComponent } from '~shared/components/theme-button/theme-button.component';
-import { ROOT_PATHS } from '~core/constants/paths.constants';
-import { translations } from '../../../../locale/translations';
 import type { SlDropdown } from '@shoelace-style/shoelace';
-import { PokemonSearchInputComponent } from '~features/pokemon/components/pokemon-search-input/pokemon-search-input.component';
+import { PokemonSearchInputComponent } from '~shared/components/pokemon-search-input/pokemon-search-input.component';
+import { translations } from '~locale/translations';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
@@ -42,7 +41,7 @@ export class HeaderComponent {
   private readonly authenticationService = inject(AuthenticationService);
   private readonly router = inject(Router);
 
-  readonly ROOT_PATHS = ROOT_PATHS;
+  readonly USER_URLS = USER_URLS;
   readonly ROOT_URLS = ROOT_URLS;
   readonly AUTH_URLS = AUTH_URLS;
   readonly translations = translations;

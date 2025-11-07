@@ -23,6 +23,7 @@
     "lib": ["ES2023", "dom"],
     "paths": {
       "~environments/*": ["src/environments/*"],
+      "~locale/*": ["src/locale/*"],
       "~core/*": ["src/app/core/*"],
       "~shared/*": ["src/app/shared/*"],
       "~features/*": ["src/app/features/*"]
