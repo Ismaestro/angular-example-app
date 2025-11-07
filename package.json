@@ -78,7 +78,6 @@
     "postcss-scss": "4.0.9",
     "prettier": "3.6.2",
     "prettier-eslint": "16.4.2",
-    "serve": "14.2.5",
     "stylelint": "16.25.0",
     "stylelint-config-recess-order": "7.4.0",
     "stylelint-config-standard-scss": "16.0.0",
