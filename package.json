@@ -17,6 +17,7 @@
     "playwright:install": "npx playwright install && npx playwright install-deps",
     "build": "ng build",
     "build:stats": "ng build --configuration=production-sourcemaps --stats-json",
+    "run:e2e:local": "node scripts/e2e.mjs",
     "lighthouse": "node scripts/lighthouse.mjs",
     "verify": "npm run extract && npm run lint && npm run test && npm run build:stats && npm run lighthouse"
   },
@@ -85,7 +86,8 @@
     "ts-loader": "9.5.4",
     "typescript": "5.9.3",
     "typescript-eslint": "8.46.2",
-    "vitest": "4.0.4"
+    "vitest": "4.0.4",
+    "wait-on": "9.0.1"
   },
   "private": true
 }
