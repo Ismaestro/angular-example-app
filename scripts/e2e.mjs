@@ -19,7 +19,9 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     console.log('🟢 Angular app is ready');
 
     console.log('⚡ Running Playwright E2E tests...');
-    execSync('npx playwright test --project=chromium', { stdio: 'inherit' });
+    execSync('BASE_URL=http://localhost:4200 npx playwright test --project=chromium', {
+      stdio: 'inherit',
+    });
     console.log('🟢 Playwright tests completed successfully');
   } catch (err) {
     console.error('🔴 Error during E2E execution:', err);
