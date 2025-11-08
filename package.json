@@ -3,8 +3,8 @@
   "version": "20.0.0",
   "scripts": {
     "prepare": "npx husky",
-    "start": "ng serve --configuration=development-en --open",
-    "start:es": "ng serve --configuration=development-es --open",
+    "start": "ng serve --configuration=localhost-en --open",
+    "start:es": "ng serve --configuration=localhost-es --open",
     "extract": "ng extract-i18n --format=xlf --output-path=src/locale",
     "format:check": "prettier --check \"**/*.{ts,js,json,html,css,scss,md,mdx}\"",
     "format:fix": "prettier --write \"**/*.{ts,js,json,html,css,scss,md,mdx}\"",

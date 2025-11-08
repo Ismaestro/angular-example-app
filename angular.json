@@ -20,10 +20,15 @@
           "builder": "@angular/build:application",
           "options": {
             "outputPath": "dist/angularexampleapp",
+            "outputHashing": "all",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "outputMode": "static",
+            "server": "src/main.server.ts",
+            "ssr": false,
             "polyfills": ["@angular/localize/init"],
             "tsConfig": "tsconfig.app.json",
+            "localize": ["es", "en"],
             "i18nMissingTranslation": "error",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -37,47 +42,50 @@
             "stylePreprocessorOptions": {
               "includePaths": ["src/styles"]
             },
-            "outputMode": "static",
-            "server": "src/main.server.ts",
-            "ssr": false
+            "budgets": [
+              {
+                "type": "initial",
+                "maximumWarning": "500kB",
+                "maximumError": "1MB"
+              },
+              {
+                "type": "anyComponentStyle",
+                "maximumWarning": "2kB",
+                "maximumError": "4kB"
+              }
+            ]
           },
           "configurations": {
             "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
-                }
-              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.production.ts"
                 }
-              ],
-              "outputHashing": "all",
-              "localize": ["es", "en"]
+              ]
             },
             "production-sourcemaps": {
               "sourceMap": true,
-              "outputHashing": "all"
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.production.ts"
+                }
+              ]
             },
-            "development-en": {
+            "localhost-en": {
+              "outputHashing": "none",
               "optimization": false,
-              "extractLicenses": false,
-              "sourceMap": true
-            },
-            "development-es": {
-              "optimization": false,
-              "extractLicenses": false,
               "sourceMap": true,
-              "localize": ["es"]
+              "localize": ["en"],
+              "budgets": []
+            },
+            "localhost-es": {
+              "outputHashing": "none",
+              "optimization": false,
+              "sourceMap": true,
+              "localize": ["es"],
+              "budgets": []
             }
           },
           "defaultConfiguration": "production"
@@ -85,17 +93,14 @@
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
-            "production": {
-              "buildTarget": "angularexampleapp:build:production"
+            "localhost-en": {
+              "buildTarget": "angularexampleapp:build:localhost-en"
             },
-            "development-en": {
-              "buildTarget": "angularexampleapp:build:development-en"
-            },
-            "development-es": {
-              "buildTarget": "angularexampleapp:build:development-es"
+            "localhost-es": {
+              "buildTarget": "angularexampleapp:build:localhost-es"
             }
           },
-          "defaultConfiguration": "development-en"
+          "defaultConfiguration": "localhost-en"
         },
         "extract-i18n": {
           "builder": "ng-extract-i18n-merge:ng-extract-i18n-merge",
