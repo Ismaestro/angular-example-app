@@ -9,7 +9,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
   try {
     console.log('🚀 Starting Angular app with ng serve...');
-    ngProcess = spawn('npx', ['ng', 'serve', '--configuration=development-en'], {
+    ngProcess = spawn('npx', ['ng', 'serve', '--configuration=localhost-en'], {
       stdio: 'inherit',
       shell: true,
     });
