@@ -1,12 +1,5 @@
 import type { OnInit } from '@angular/core';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  DOCUMENT,
-  effect,
-  inject,
-  PLATFORM_ID,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, inject, PLATFORM_ID } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '~shared/components/header/header.component';
 import { FooterComponent } from '~shared/components/footer/footer.component';
@@ -35,7 +28,6 @@ import { SeoService } from '~core/services/seo.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
-  private readonly document = inject(DOCUMENT);
   private readonly router = inject(Router);
   private readonly headerService = inject(HeaderService);
   private readonly seoService = inject(SeoService);
@@ -63,10 +55,5 @@ export class AppComponent implements OnInit {
     if (this.isBrowser) {
       this.analyticsService.loadGA4Script();
     }
-  }
-
-  focusFirstHeading(): void {
-    const h1 = this.document.querySelector<HTMLHeadingElement>('h1');
-    h1?.focus();
   }
 }
