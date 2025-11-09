@@ -6,7 +6,7 @@
 <div class="app__main-container">
   <app-header />
   <div class="app__page-container">
-    @if (showCookieBanner()) {
+    @defer (on timer(1500)) {
       <app-cookie-popup />
     }
     <router-outlet />
