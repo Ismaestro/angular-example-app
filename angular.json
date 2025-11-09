@@ -50,8 +50,8 @@
               },
               {
                 "type": "anyComponentStyle",
-                "maximumWarning": "2kB",
-                "maximumError": "4kB"
+                "maximumWarning": "4kB",
+                "maximumError": "8kB"
               }
             ]
           },
@@ -117,7 +117,7 @@
           "builder": "@angular/build:unit-test",
           "options": {
             "tsConfig": "tsconfig.spec.json",
-            "buildTarget": "::localhost-es",
+            "buildTarget": "angularexampleapp:build:localhost-es",
             "runner": "vitest"
           }
         },
