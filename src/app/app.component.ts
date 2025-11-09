@@ -1,5 +1,11 @@
-import type { OnInit } from '@angular/core';
-import { ChangeDetectionStrategy, Component, effect, inject, PLATFORM_ID } from '@angular/core';
+import {
+  afterNextRender,
+  ChangeDetectionStrategy,
+  Component,
+  effect,
+  inject,
+  PLATFORM_ID,
+} from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '~shared/components/header/header.component';
 import { FooterComponent } from '~shared/components/footer/footer.component';
@@ -27,7 +33,7 @@ import { SeoService } from '~core/services/seo.service';
   styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   private readonly router = inject(Router);
   private readonly headerService = inject(HeaderService);
   private readonly seoService = inject(SeoService);
@@ -49,11 +55,10 @@ export class AppComponent implements OnInit {
       const url = this.currentUrl();
       this.headerService.setCanonical(url);
     });
-  }
-
-  ngOnInit() {
     if (this.isBrowser) {
-      this.analyticsService.loadGA4Script();
+      afterNextRender(() => {
+        this.analyticsService.loadGA4Script();
+      });
     }
   }
 }
