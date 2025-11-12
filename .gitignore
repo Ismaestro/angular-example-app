@@ -3,6 +3,7 @@
 # Compiled output
 /dist
 /test-results
+/e2e/results
 /tmp
 /out-tsc
 /bazel-out
