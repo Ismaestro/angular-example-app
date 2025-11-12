@@ -19,7 +19,8 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 export class AppSlCheckboxControlDirective implements ControlValueAccessor {
   private readonly el = inject(ElementRef);
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-function,@typescript-eslint/no-unused-vars
+  // @ts-expect-error - value used by angular forms
+  // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
   private onChangeFn = (value: boolean) => {};
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function

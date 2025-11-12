@@ -1,4 +1,4 @@
-import { inject, Injectable, signal, linkedSignal } from '@angular/core';
+import { inject, Injectable, linkedSignal, signal } from '@angular/core';
 import { LOCAL_STORAGE } from '~core/providers/local-storage';
 import { HttpClient } from '@angular/common/http';
 import type { Observable } from 'rxjs';
@@ -31,7 +31,10 @@ export class AuthenticationService {
   private readonly httpClient = inject(HttpClient);
   private readonly languageService = inject(LanguageService);
 
-  private readonly authTokens = signal<{ accessToken?: string; refreshToken?: string }>({
+  private readonly authTokens = signal<{
+    accessToken?: string | undefined;
+    refreshToken?: string | undefined;
+  }>({
     accessToken: this.storageService?.getItem(ACCESS_TOKEN_KEY) ?? undefined,
     refreshToken: this.storageService?.getItem(REFRESH_TOKEN_KEY) ?? undefined,
   });

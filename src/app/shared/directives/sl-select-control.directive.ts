@@ -19,6 +19,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 export class AppSlSelectControlDirective implements ControlValueAccessor {
   private readonly el = inject(ElementRef);
 
+  // @ts-expect-error - value used by angular forms
   // eslint-disable-next-line @typescript-eslint/no-empty-function,@typescript-eslint/no-unused-vars
   private onChangeFn = (value: unknown) => {};
 

@@ -4,7 +4,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
-    "types": ["@angular/localize"]
+    "types": ["vitest/globals", "@angular/localize"]
   },
   "include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
 }
