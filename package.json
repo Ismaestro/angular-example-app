@@ -1,6 +1,7 @@
 {
   "name": "angularexampleapp",
   "version": "20.0.0",
+  "type": "module",
   "scripts": {
     "prepare": "husky",
     "postinstall": "npm run playwright:install",
@@ -18,9 +19,9 @@
     "playwright:install": "playwright install && playwright install-deps",
     "build": "ng build",
     "build:stats": "ng build --configuration=production-sourcemaps --stats-json",
-    "run:e2e:local": "node scripts/e2e.mjs",
-    "lighthouse": "node scripts/lighthouse.mjs",
-    "verify": "npm run format:check && npm run test && npm run run:e2e:local && npm run build && npm run lighthouse"
+    "script:e2e:local": "node scripts/e2e.js",
+    "script:lighthouse": "node scripts/lighthouse.js",
+    "verify": "npm run format:check && npm run test && npm run script:e2e:local && npm run build && npm run script:lighthouse"
   },
   "dependencies": {
     "@angular/animations": "20.3.7",

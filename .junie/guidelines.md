@@ -98,7 +98,7 @@ These notes capture project-specific conventions and commands so advanced contri
 - Commands
   - Local against already running dev server: `npm run e2e:local`
     - Sets `BASE_URL=http://localhost:4200` and runs Chromium tests.
-  - Programmatic local flow (start server → wait → run E2E → stop): `npm run run:e2e:local`
+  - Programmatic local flow (start server → wait → run E2E → stop): `npm run script:e2e:local`
     - Script: `scripts/e2e.mjs` spawns `ng serve --configuration=localhost-en`, waits for `http://localhost:4200` (30s timeout), runs tests, then stops the server.
   - CI/prod-like against default base URL: `npm run e2e:pro`
 
@@ -151,7 +151,7 @@ These notes capture project-specific conventions and commands so advanced contri
   - `npm test` (single run) or `npm run test:watch`
 
 - Run E2E end-to-end locally
-  - `npm run run:e2e:local` (server managed automatically)
+  - `npm run script:e2e:local` (server managed automatically)
 
 - Full verification
   - `npm run verify`
@@ -169,4 +169,4 @@ These notes capture project-specific conventions and commands so advanced contri
 - Unit tests complain about missing DOM APIs (e.g., `HTMLCanvasElement.getContext`)
   - Install and configure appropriate polyfills or mock the API in the spec.
 - Playwright tests fail locally
-  - Ensure `BASE_URL` points to the correct server and that the dev server is up (use `run:e2e:local` to manage this automatically).
+  - Ensure `BASE_URL` points to the correct server and that the dev server is up (use `script:e2e:local` to manage this automatically).
