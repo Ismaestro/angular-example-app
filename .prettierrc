@@ -13,7 +13,7 @@
   "arrowParens": "always",
   "overrides": [
     {
-      "files": "*.json",
+      "files": ".prettierrc",
       "options": { "parser": "json" }
     }
   ]
