@@ -27,7 +27,7 @@
         </div>
       </div>
     } @else {
-      <ul i18n class="my-pokemon__grid">
+      <ul class="my-pokemon__grid">
         @for (pokemon of userPokemons$ | ngrxPush; track pokemon.id) {
           <li>
             <app-pokemon-card [pokemon]="pokemon" />

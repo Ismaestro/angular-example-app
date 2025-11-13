@@ -49,10 +49,6 @@
         <source>pokemon image</source>
         <target state="new">imagen de pokemon</target>
       </trans-unit>
-      <trans-unit id="3906374096707451187" datatype="html">
-        <source> Skip to main content </source>
-        <target state="new"> Saltar al contenido principal </target>
-      </trans-unit>
       <trans-unit id="3382844245855508721" datatype="html">
         <source> This site uses Google Tag Manager and Google Analytics to make it work smoothly and to understand user behavior. </source>
         <target state="new"> Este sitio utiliza Google Tag Manager y Google Analytics para que funcione sin problemas y también para entender cómo se comportan los usuarios. </target>
@@ -285,34 +281,12 @@
         <source>My Pokemon</source>
         <target state="new">Mis Pokémon</target>
       </trans-unit>
-      <trans-unit id="933803439276929125" datatype="html">
-        <source>
-          <x id="START_BLOCK_FOR" equiv-text="@for (pokemon of userPokemons$ | ngrxPush; track pokemon.id) {"/>
-          <x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li&gt;"/>
-          <x id="START_TAG_APP_POKEMON_CARD" ctype="x-app_pokemon_card" equiv-text="&lt;app-pokemon-card [pokemon]=&quot;pokemon&quot; /&gt;"/>
-          <x id="CLOSE_TAG_APP_POKEMON_CARD" ctype="x-app_pokemon_card" equiv-text="&lt;app-pokemon-card [pokemon]=&quot;pokemon&quot; /&gt;"/>
-          <x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li&gt;"/>
-          <x id="CLOSE_BLOCK_FOR" equiv-text="}"/>
-        </source>
-        <target state="new">
-          <x id="START_BLOCK_FOR" equiv-text="@for (pokemon of userPokemons$ | ngrxPush; track pokemon.id) {"/>
-          <x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li&gt;"/>
-          <x id="START_TAG_APP_POKEMON_CARD" ctype="x-app_pokemon_card" equiv-text="&lt;app-pokemon-card [pokemon]=&quot;pokemon&quot; /&gt;"/>
-          <x id="CLOSE_TAG_APP_POKEMON_CARD" ctype="x-app_pokemon_card" equiv-text="&lt;app-pokemon-card [pokemon]=&quot;pokemon&quot; /&gt;"/>
-          <x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li&gt;"/>
-          <x id="CLOSE_BLOCK_FOR" equiv-text="}"/>
-        </target>
-      </trans-unit>
       <trans-unit id="8314391617152635292" datatype="html">
         <source> Uh-oh, it looks like you haven’t caught any Pokémon yet! Need help finding a pokemon? Try using the search bar to track them down. Gotta catch ‘em all! </source>
         <target state="new"> ¡Vaya, parece que no has atrapado ningún Pokémon aún! ¿Necesitas ayuda para encontrar uno? Intenta usar la barra de búsqueda para rastrearlos. ¡Hay que atraparlos a todos! </target>
       </trans-unit>
-      <trans-unit id="1415797238546551663" datatype="html">
-        <source><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;pokedex__pokemon-image-container&quot;&gt;"/><x id="START_TAG_APP_POKEMON_IMAGE" ctype="x-app_pokemon_image" equiv-text="&lt;app-pokemon-image [image]=&quot;pokemonImage()&quot; /&gt;"/><x id="CLOSE_TAG_APP_POKEMON_IMAGE" ctype="x-app_pokemon_image" equiv-text="&lt;app-pokemon-image [image]=&quot;pokemonImage()&quot; /&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/><x id="START_TAG_DIV_1" ctype="x-div_1" equiv-text="&lt;div class=&quot;pokedex__top-text-container&quot;&gt;"/><x id="START_BLOCK_IF" equiv-text="@if (pokemon()) {"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p class=&quot;pokemon__name-text&quot;&gt;"/><x id="INTERPOLATION" equiv-text="{{pokemon()?.name | firstTitleCase}}"/><x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH_1" equiv-text="&lt;p&gt;"/>N.º: <x id="INTERPOLATION_1" equiv-text="{{pokemon()?.order}}"/><x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH_1" equiv-text="&lt;p&gt;"/>Height: <x id="INTERPOLATION_2" equiv-text="{{pokemon()?.height}}"/> dm<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH_1" equiv-text="&lt;p&gt;"/>Weight: <x id="INTERPOLATION_3" equiv-text="{{pokemon()?.weight}}"/> hg<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="CLOSE_BLOCK_IF" equiv-text="}"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/></source>
-        <target state="new"><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;pokedex__pokemon-image-container&quot;&gt;"/><x id="START_TAG_APP_POKEMON_IMAGE" ctype="x-app_pokemon_image" equiv-text="&lt;app-pokemon-image [image]=&quot;pokemonImage&quot; /&gt;"/><x id="CLOSE_TAG_APP_POKEMON_IMAGE" ctype="x-app_pokemon_image" equiv-text="&lt;app-pokemon-image [image]=&quot;pokemonImage&quot; /&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/><x id="START_TAG_DIV_1" ctype="x-div_1" equiv-text="&lt;div class=&quot;pokedex__top-text-container&quot;&gt;"/><x id="START_BLOCK_IF" equiv-text="@if (pokemon()) {"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p class=&quot;pokemon__name-text&quot;&gt;"/><x id="INTERPOLATION" equiv-text="{{pokemon()?.name | firstTitleCase}}"/><x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH_1" equiv-text="&lt;p&gt;"/>N.º: <x id="INTERPOLATION_1" equiv-text="{{pokemon()?.order}}"/><x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH_1" equiv-text="&lt;p&gt;"/>Altura: <x id="INTERPOLATION_2" equiv-text="{{pokemon()?.height}}"/> dm<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH_1" equiv-text="&lt;p&gt;"/>Peso: <x id="INTERPOLATION_3" equiv-text="{{pokemon()?.weight}}"/> hg<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="CLOSE_BLOCK_IF" equiv-text="}"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/></target>
-      </trans-unit>
       <trans-unit id="5505216764235661105" datatype="html">
-        <source> 🎯 Nice catch, <x id="INTERPOLATION" equiv-text="{{user?.name}}"/>! You’re one step closer to being a Pokémon Master—keep it up! 🌟 </source>
+        <source> 🎯 Nice catch, <x id="INTERPOLATION" equiv-text="{{ user?.name }}"/>! You’re one step closer to being a Pokémon Master—keep it up! 🌟 </source>
         <target state="new"> 🎯 Bien atrapado, <x id="INTERPOLATION" equiv-text="{{user?.name}}"/>! Estás un paso más cerca de ser un Maestro Pokémon—¡sigue así! 🌟 </target>
       </trans-unit>
       <trans-unit id="1335130496718084363" datatype="html">
@@ -343,28 +317,16 @@
         <source>Trainer frame 4</source>
         <target state="new">Marco del entrenador 4</target>
       </trans-unit>
-      <trans-unit id="1273051304087206603" datatype="html">
-        <source>
-          <x id="START_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;h2 class=&quot;card__heading&quot;&gt;"/>
-          <x id="INTERPOLATION" equiv-text="{{ pokemon()?.name | firstTitleCase }}"/>
-          <x id="CLOSE_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;/h2&gt;"/>
-        </source>
-        <target state="new">
-          <x id="START_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;h2 class=&quot;card__heading&quot;&gt;"/>
-          <x id="INTERPOLATION" equiv-text="{{ pokemon()?.name | firstTitleCase }}"/>
-          <x id="CLOSE_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;/h2&gt;"/>
-        </target>
-      </trans-unit>
       <trans-unit id="3616505908279277966" datatype="html">
-        <source>N.º: <x id="INTERPOLATION" equiv-text="{{pokemon()?.order}}"/></source>
-        <target state="new">N.º: <x id="INTERPOLATION" equiv-text="{{pokemon()?.order}}"/></target>
+        <source>N.º: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.order }}"/></source>
+        <target state="new">N.º: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.order }}"/></target>
       </trans-unit>
       <trans-unit id="5157210307460756815" datatype="html">
-        <source>Height: <x id="INTERPOLATION" equiv-text="{{pokemon()?.height}}"/> dm</source>
+        <source>Height: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.height }}"/> dm</source>
         <target state="new">Altura: <x id="INTERPOLATION" equiv-text="{{pokemon()?.height}}"/> dm</target>
       </trans-unit>
       <trans-unit id="1651947138133669" datatype="html">
-        <source>Weight: <x id="INTERPOLATION" equiv-text="{{pokemon()?.weight}}"/> hg</source>
+        <source>Weight: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.weight }}"/> hg</source>
         <target state="new">Peso: <x id="INTERPOLATION" equiv-text="{{pokemon()?.weight}}"/> hg</target>
       </trans-unit>
       <trans-unit id="4377004748613683272" datatype="html">
@@ -411,10 +373,6 @@
         <source>Pokémon not found. Double-check the name and try again!</source>
         <target state="new">Pokémon no encontrado. ¡Verifica el nombre y vuelve a intentarlo!</target>
       </trans-unit>
-      <trans-unit id="3164493940889051124" datatype="html">
-        <source><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Angular Signals<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></source>
-        <target state="new"><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Angular Signals<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></target>
-      </trans-unit>
       <trans-unit id="7680046165638889668" datatype="html">
         <source>Unlock reactivity with Angular Signals.</source>
         <target state="new">Desbloquea la reactividad con Angular Signals.</target>
@@ -426,10 +384,6 @@
       <trans-unit id="7755502772624126238" datatype="html">
         <source>Learn more about Signals</source>
         <target state="new">Aprende más sobre Signals</target>
-      </trans-unit>
-      <trans-unit id="3509701308598634542" datatype="html">
-        <source><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Internationalization<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></source>
-        <target state="new"><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Internationalization<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></target>
       </trans-unit>
       <trans-unit id="5371828026227187692" datatype="html">
         <source>Build apps for a global audience.</source>
@@ -458,10 +412,6 @@
       <trans-unit id="4869980192320162230" datatype="html">
         <source>Start with Reactive Forms</source>
         <target state="new">Comienza con Reactive Forms</target>
-      </trans-unit>
-      <trans-unit id="2657017183893383482" datatype="html">
-        <source><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Animations<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></source>
-        <target state="new"><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Animations<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></target>
       </trans-unit>
       <trans-unit id="998113163585598828" datatype="html">
         <source>Bring your UI to life with Angular Animations.</source>
@@ -538,6 +488,18 @@
       <trans-unit id="8469070228767591171" datatype="html">
         <source>Open navigation menu</source>
         <target state="new">Abrir el menú de navegación</target>
+      </trans-unit>
+      <trans-unit id="2707140231864019490" datatype="html">
+        <source>Angular Signals</source>
+        <target state="new">Angular Signals</target>
+      </trans-unit>
+      <trans-unit id="7373613501758200135" datatype="html">
+        <source>Internationalization</source>
+        <target state="new">Internacionalización</target>
+      </trans-unit>
+      <trans-unit id="2709889076680757048" datatype="html">
+        <source>Animations</source>
+        <target state="new">Animaciones</target>
       </trans-unit>
     </body>
   </file>

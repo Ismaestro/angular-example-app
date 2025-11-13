@@ -1,6 +1,6 @@
 @if (!loading()) {
   <app-card>
-    <ng-container i18n ngProjectAs="heading">
+    <ng-container ngProjectAs="heading">
       <h2 class="card__heading">{{ pokemon()?.name | firstTitleCase }}</h2>
     </ng-container>
     <ng-container ngProjectAs="body">

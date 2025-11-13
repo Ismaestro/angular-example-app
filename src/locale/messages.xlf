@@ -44,18 +44,8 @@
       <trans-unit id="1206520795340730278" datatype="html">
         <source>English (US)</source>
       </trans-unit>
-      <trans-unit id="1273051304087206603" datatype="html">
-        <source>
-          <x id="START_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;h2 class=&quot;card__heading&quot;&gt;"/>
-          <x id="INTERPOLATION" equiv-text="{{ pokemon()?.name | firstTitleCase }}"/>
-          <x id="CLOSE_HEADING_LEVEL2" ctype="x-h2" equiv-text="&lt;/h2&gt;"/>
-        </source>
-      </trans-unit>
       <trans-unit id="1335130496718084363" datatype="html">
         <source>Already got this one, keep going!</source>
-      </trans-unit>
-      <trans-unit id="1415797238546551663" datatype="html">
-        <source><x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div class=&quot;pokedex__pokemon-image-container&quot;&gt;"/><x id="START_TAG_APP_POKEMON_IMAGE" ctype="x-app_pokemon_image" equiv-text="&lt;app-pokemon-image [image]=&quot;pokemonImage()&quot; /&gt;"/><x id="CLOSE_TAG_APP_POKEMON_IMAGE" ctype="x-app_pokemon_image" equiv-text="&lt;app-pokemon-image [image]=&quot;pokemonImage()&quot; /&gt;"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/><x id="START_TAG_DIV_1" ctype="x-div_1" equiv-text="&lt;div class=&quot;pokedex__top-text-container&quot;&gt;"/><x id="START_BLOCK_IF" equiv-text="@if (pokemon()) {"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p class=&quot;pokemon__name-text&quot;&gt;"/><x id="INTERPOLATION" equiv-text="{{pokemon()?.name | firstTitleCase}}"/><x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH_1" equiv-text="&lt;p&gt;"/>N.º: <x id="INTERPOLATION_1" equiv-text="{{pokemon()?.order}}"/><x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH_1" equiv-text="&lt;p&gt;"/>Height: <x id="INTERPOLATION_2" equiv-text="{{pokemon()?.height}}"/> dm<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH_1" equiv-text="&lt;p&gt;"/>Weight: <x id="INTERPOLATION_3" equiv-text="{{pokemon()?.weight}}"/> hg<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="CLOSE_BLOCK_IF" equiv-text="}"/><x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/></source>
       </trans-unit>
       <trans-unit id="1448946353661594760" datatype="html">
         <source>Español (España)</source>
@@ -70,7 +60,7 @@
         <source>Passwords do not match.</source>
       </trans-unit>
       <trans-unit id="1651947138133669" datatype="html">
-        <source>Weight: <x id="INTERPOLATION" equiv-text="{{pokemon()?.weight}}"/> hg</source>
+        <source>Weight: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.weight }}"/> hg</source>
       </trans-unit>
       <trans-unit id="1711725680914111687" datatype="html">
         <source>Pokémon not found. Double-check the name and try again!</source>
@@ -121,7 +111,7 @@
         <source>Post issues and suggestions on github.</source>
       </trans-unit>
       <trans-unit id="3616505908279277966" datatype="html">
-        <source>N.º: <x id="INTERPOLATION" equiv-text="{{pokemon()?.order}}"/></source>
+        <source>N.º: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.order }}"/></source>
       </trans-unit>
       <trans-unit id="3768927257183755959" datatype="html">
         <source>Save</source>
@@ -131,9 +121,6 @@
       </trans-unit>
       <trans-unit id="3792117578788899429" datatype="html">
         <source>Invalid credentials. Not very effective, try again!</source>
-      </trans-unit>
-      <trans-unit id="3906374096707451187" datatype="html">
-        <source> Skip to main content </source>
       </trans-unit>
       <trans-unit id="3959583247915483678" datatype="html">
         <source>Page load progress</source>
@@ -178,10 +165,10 @@
         <source>Key features</source>
       </trans-unit>
       <trans-unit id="5157210307460756815" datatype="html">
-        <source>Height: <x id="INTERPOLATION" equiv-text="{{pokemon()?.height}}"/> dm</source>
+        <source>Height: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.height }}"/> dm</source>
       </trans-unit>
       <trans-unit id="5505216764235661105" datatype="html">
-        <source> 🎯 Nice catch, <x id="INTERPOLATION" equiv-text="{{user?.name}}"/>! You’re one step closer to being a Pokémon Master—keep it up! 🌟 </source>
+        <source> 🎯 Nice catch, <x id="INTERPOLATION" equiv-text="{{ user?.name }}"/>! You’re one step closer to being a Pokémon Master—keep it up! 🌟 </source>
       </trans-unit>
       <trans-unit id="5553776930806289663" datatype="html">
         <source>Ok, got it!</source>
@@ -288,16 +275,6 @@
       <trans-unit id="9030610327675553750" datatype="html">
         <source> POKEBALL </source>
       </trans-unit>
-      <trans-unit id="933803439276929125" datatype="html">
-        <source>
-          <x id="START_BLOCK_FOR" equiv-text="@for (pokemon of userPokemons$ | ngrxPush; track pokemon.id) {"/>
-          <x id="START_LIST_ITEM" ctype="x-li" equiv-text="&lt;li&gt;"/>
-          <x id="START_TAG_APP_POKEMON_CARD" ctype="x-app_pokemon_card" equiv-text="&lt;app-pokemon-card [pokemon]=&quot;pokemon&quot; /&gt;"/>
-          <x id="CLOSE_TAG_APP_POKEMON_CARD" ctype="x-app_pokemon_card" equiv-text="&lt;app-pokemon-card [pokemon]=&quot;pokemon&quot; /&gt;"/>
-          <x id="CLOSE_LIST_ITEM" ctype="x-li" equiv-text="&lt;/li&gt;"/>
-          <x id="CLOSE_BLOCK_FOR" equiv-text="}"/>
-        </source>
-      </trans-unit>
       <trans-unit id="971297184908956530" datatype="html">
         <source>Trainer frame 4</source>
       </trans-unit>
@@ -310,17 +287,8 @@
       <trans-unit id="19928707238720227" datatype="html">
         <source>Explore Internationalization</source>
       </trans-unit>
-      <trans-unit id="2657017183893383482" datatype="html">
-        <source><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Animations<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></source>
-      </trans-unit>
       <trans-unit id="2976285442101094791" datatype="html">
         <source> Create smooth transitions and engaging effects with Angular’s powerful animation API, making your application visually appealing and interactive. </source>
-      </trans-unit>
-      <trans-unit id="3164493940889051124" datatype="html">
-        <source><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Angular Signals<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></source>
-      </trans-unit>
-      <trans-unit id="3509701308598634542" datatype="html">
-        <source><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Internationalization<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></source>
       </trans-unit>
       <trans-unit id="4667572349058874775" datatype="html">
         <source> Angular’s internationalization tools make it seamless to localize your app, handle translations, and format dates, numbers, and currencies for any locale. </source>
@@ -399,6 +367,15 @@
       </trans-unit>
       <trans-unit id="8469070228767591171" datatype="html">
         <source>Open navigation menu</source>
+      </trans-unit>
+      <trans-unit id="2707140231864019490" datatype="html">
+        <source>Angular Signals</source>
+      </trans-unit>
+      <trans-unit id="2709889076680757048" datatype="html">
+        <source>Animations</source>
+      </trans-unit>
+      <trans-unit id="7373613501758200135" datatype="html">
+        <source>Internationalization</source>
       </trans-unit>
     </body>
   </file>

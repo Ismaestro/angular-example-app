@@ -8,16 +8,16 @@
     <div class="pokedex__flap-container">
       <figure class="pokedex__flap-front"></figure>
       <figure class="pokedex__flap-back">
-        <div i18n class="pokedex__top-data-container">
+        <div class="pokedex__top-data-container">
           <div class="pokedex__pokemon-image-container">
             <app-pokemon-image [image]="pokemonImage()" />
           </div>
           <div class="pokedex__top-text-container">
             @if (pokemon()) {
               <p class="pokemon__name-text">{{ pokemon()?.name | firstTitleCase }}</p>
-              <p>N.º: {{ pokemon()?.order }}</p>
-              <p>Height: {{ pokemon()?.height }} dm</p>
-              <p>Weight: {{ pokemon()?.weight }} hg</p>
+              <p i18n>N.º: {{ pokemon()?.order }}</p>
+              <p i18n>Height: {{ pokemon()?.height }} dm</p>
+              <p i18n>Weight: {{ pokemon()?.weight }} hg</p>
             }
           </div>
         </div>
