@@ -1,36 +1,7 @@
 <!doctype html>
 <!-- We set all theme classes to allow critters to inline the theme styles and prevent flickering -->
-<html lang="en" class="theme-light--mode theme-dark--mode">
+<html lang="en" class="theme-dark--mode">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-
-      gtag('config', 'G-9SZHZ6B85Z');
-    </script>
-    <script>
-      // This logic must execute early, so that we set the necessary
-      // CSS classes to the document node and avoid unstyled content
-      // from appearing on the page.
-      const THEME_SELECTED_LOCAL_STORAGE_KEY = 'theme';
-      const DARK_THEME_CLASS_NAME = 'theme-dark--mode';
-      const LIGHT_THEME_CLASS_NAME = 'theme-light--mode';
-
-      const theme = localStorage.getItem(THEME_SELECTED_LOCAL_STORAGE_KEY) ?? 'dark';
-      const documentClassList = this.document.documentElement.classList;
-
-      // clearing classes before setting them.
-      this.document.documentElement.className = '';
-      if (theme === 'dark') {
-        documentClassList.add(DARK_THEME_CLASS_NAME);
-      } else {
-        documentClassList.add(LIGHT_THEME_CLASS_NAME);
-      }
-    </script>
     <meta charset="utf-8" />
     <title i18n>Angular Example App</title>
     <base href="/" />
@@ -154,5 +125,36 @@
   </head>
   <body>
     <app-root></app-root>
+    <script>
+      // This logic must execute early, so that we set the necessary
+      // CSS classes to the document node and avoid unstyled content
+      // from appearing on the page.
+      const THEME_SELECTED_LOCAL_STORAGE_KEY = 'theme';
+      const DARK_THEME_CLASS_NAME = 'theme-dark--mode';
+      const LIGHT_THEME_CLASS_NAME = 'theme-light--mode';
+
+      const theme = localStorage.getItem(THEME_SELECTED_LOCAL_STORAGE_KEY) ?? 'dark';
+      const documentClassList = this.document.documentElement.classList;
+
+      // clearing classes before setting them.
+      this.document.documentElement.className = '';
+      if (theme === 'dark') {
+        documentClassList.add(DARK_THEME_CLASS_NAME);
+      } else {
+        documentClassList.add(LIGHT_THEME_CLASS_NAME);
+      }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-9SZHZ6B85Z');
+    </script>
+    <!-- eslint-disable-next-line @angular-eslint/template/i18n -->
+    <noscript>Please enable JavaScript to view this app.</noscript>
   </body>
 </html>
