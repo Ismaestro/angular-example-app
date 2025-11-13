@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import {
   createUrlTreeFromSnapshot,
-  PreloadAllModules,
+  NoPreloading,
   provideRouter,
   Router,
   withComponentInputBinding,
@@ -38,6 +38,10 @@ export const appConfig: ApplicationConfig = {
     },
     provideZonelessChangeDetection(),
     provideBrowserGlobalErrorListeners(),
+    provideHttpClient(
+      withFetch(),
+      withInterceptors([authenticationInterceptor, cachingInterceptor]),
+    ),
     provideRouter(
       appRoutes,
       withInMemoryScrolling(),
@@ -60,11 +64,7 @@ export const appConfig: ApplicationConfig = {
       }),
       withComponentInputBinding(),
       withRouterConfig({ paramsInheritanceStrategy: 'always', onSameUrlNavigation: 'reload' }),
-      withPreloading(PreloadAllModules),
-    ),
-    provideHttpClient(
-      withFetch(),
-      withInterceptors([authenticationInterceptor, cachingInterceptor]),
+      withPreloading(NoPreloading),
     ),
     // eslint-disable-next-line @typescript-eslint/no-deprecated
     provideAnimationsAsync(),
