@@ -1,4 +1,5 @@
-import { Directive, ElementRef, inject } from '@angular/core';
+import { Directive, effect, inject, signal } from '@angular/core';
+import { NgControl } from '@angular/forms';
 
 @Directive({
   selector: '[appTrim]',
@@ -7,9 +8,23 @@ import { Directive, ElementRef, inject } from '@angular/core';
   },
 })
 export class TrimDirective {
-  private readonly el = inject(ElementRef);
+  private readonly ngControl = inject(NgControl);
+  private readonly trimmedValue = signal('');
+
+  constructor() {
+    effect(() => {
+      const { control } = this.ngControl;
+      if (control && this.trimmedValue()) {
+        control.setValue(this.trimmedValue(), { emitEvent: false });
+      }
+    });
+  }
 
   onBlur() {
-    this.el.nativeElement.value = this.el.nativeElement.value.trim();
+    const { control } = this.ngControl;
+    if (control) {
+      const updatedValue = (control.value ?? '').toString().trim();
+      this.trimmedValue.set(updatedValue);
+    }
   }
 }
