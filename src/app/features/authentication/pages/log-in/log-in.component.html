@@ -14,7 +14,9 @@
         appTrim
         required
         ngDefaultControl
-        [attr.help-text]="formState().isSubmitted && formControls.email.invalid ? translations.emailHelpText : ''"
+        [attr.help-text]="
+          formState().isSubmitted && formControls.email.invalid ? translations.emailHelpText : ''
+        "
         [formControl]="formControls.email"
       >
         <sl-icon name="person-circle" slot="prefix" />
@@ -33,7 +35,11 @@
         appSlInputIconFocus
         required
         ngDefaultControl
-        [attr.help-text]="formState().isSubmitted && formControls.password.invalid ? translations.passwordHelpText : ''"
+        [attr.help-text]="
+          formState().isSubmitted && formControls.password.invalid
+            ? translations.passwordHelpText
+            : ''
+        "
         [formControl]="formControls.password"
       >
         <sl-icon name="lock" slot="prefix" />

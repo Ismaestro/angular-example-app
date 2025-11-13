@@ -99,7 +99,11 @@
         appTrim
         ngDefaultControl
         required
-        [attr.help-text]="formControls.favouritePokemonId['touched'] && !formControls.favouritePokemonId['valid'] ? translations.pokemonHelpText : ''"
+        [attr.help-text]="
+          formControls.favouritePokemonId['touched'] && !formControls.favouritePokemonId['valid']
+            ? translations.pokemonHelpText
+            : ''
+        "
         [formControl]="formControls.favouritePokemonId"
       >
         <sl-icon name="star" slot="prefix" />
@@ -121,7 +125,11 @@
         class="checkbox--primary"
         i18n
         appSlCheckboxControl
-        [attr.help-text]="formControls.terms['touched'] && !formControls.terms['valid'] ? translations.fieldRequired : ''"
+        [attr.help-text]="
+          formControls.terms['touched'] && !formControls.terms['valid']
+            ? translations.fieldRequired
+            : ''
+        "
         [formControl]="formControls.terms"
       >
         I’ve caught 'em all (the terms and privacy policy) and I’m cool with them!

@@ -72,7 +72,6 @@
     "husky": "9.1.7",
     "jsdom": "27.0.1",
     "lighthouse": "12.8.2",
-    "lint-staged": "16.2.6",
     "ng-extract-i18n-merge": "3.1.0",
     "playwright": "1.56.1",
     "postcss-scss": "4.0.9",
