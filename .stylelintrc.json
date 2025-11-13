@@ -1,12 +1,14 @@
 {
   "extends": ["stylelint-config-standard-scss", "stylelint-config-recess-order"],
   "customSyntax": "postcss-scss",
-  "plugins": ["stylelint-order"],
   "rules": {
     "import-notation": null,
     "function-no-unknown": null,
     "no-descending-specificity": null,
     "at-rule-no-unknown": null,
+    "selector-max-id": 0,
+    "max-nesting-depth": 5,
+    "color-hex-length": "short",
     "selector-class-pattern": "^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*(__[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*)?(--[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*)?$"
   }
 }
