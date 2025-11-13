@@ -1,16 +1,19 @@
 <nav class="nav__container" [class.open]="menuOpen()">
   <div class="nav-mobile__container" [class.open]="menuOpen()">
     <ng-container [ngTemplateOutlet]="logoNavItem" />
+
     <div class="nav__item">
       <sl-button class="button--icon nav__hamburger" (click)="toggleMenu()">
         <sl-icon name="list" i18n-label label="Open navigation menu" />
       </sl-button>
     </div>
   </div>
+
   <div class="nav__items" [class.open]="menuOpen()" [class.user-logged]="isUserLoggedIn()">
     @if (!menuOpen()) {
       <ng-container [ngTemplateOutlet]="logoNavItem" />
     }
+
     <ng-template #logoNavItem>
       <div class="nav__item">
         <a class="nav__link" [routerLink]="ROOT_URLS.home">
@@ -40,8 +43,8 @@
       </a>
     </div>
 
-    <!-- LOGIN -->
     @if (!isUserLoggedIn()) {
+      <!-- LOGIN -->
       <div class="nav__item">
         <a
           class="nav__link"
@@ -69,6 +72,7 @@
         </a>
       </div>
 
+      <!-- GITHUB -->
       <div class="nav__item">
         <a
           class="nav__link"
@@ -128,6 +132,7 @@
               priority
             />
           </sl-button>
+
           <div class="dropdown__content-container">
             <div class="dropdown__item-container">
               <a
@@ -140,6 +145,7 @@
                 {{ translations.myAccount }}
               </a>
             </div>
+
             <div class="dropdown__item-container">
               <sl-button class="button__as-link--primary" size="medium" (click)="logOutUser()">
                 <ng-container i18n>Log out</ng-container>
