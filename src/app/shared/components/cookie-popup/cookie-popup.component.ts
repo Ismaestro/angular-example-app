@@ -5,7 +5,7 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { ConsentState, CookieConsentService } from '~core/services/storage/cookie-consent.service';
+import { CookieConsentService } from '~core/services/storage/cookie-consent.service';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 
@@ -19,11 +19,11 @@ import '@shoelace-style/shoelace/dist/components/button/button.js';
 export class CookiePopupComponent {
   private readonly cookieConsentService = inject(CookieConsentService);
 
-  readonly hasAccepted = signal<boolean>(this.cookieConsentService.getCookieState());
+  readonly hasAccepted = signal(this.cookieConsentService.getCookieState());
 
   acceptCookies(): void {
-    const cookieSaved = this.cookieConsentService.setCookieConsent(ConsentState.GRANTED);
-    if (cookieSaved) {
+    const areCookiesAccepted = this.cookieConsentService.acceptCookies();
+    if (areCookiesAccepted) {
       this.hasAccepted.set(true);
     }
   }

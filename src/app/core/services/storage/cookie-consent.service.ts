@@ -13,17 +13,12 @@ export enum ConsentState {
   GRANTED = 'granted',
 }
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class CookieConsentService {
   private readonly localStorage: Storage | null = inject(LOCAL_STORAGE);
 
-  setCookieConsent(state: ConsentState): boolean {
-    if (!this.setConsentInLocalStorage()) {
-      return false;
-    }
-    return this.updateGtagConsent(state);
+  acceptCookies(): boolean {
+    return this.setConsent(ConsentState.GRANTED);
   }
 
   getCookieState(): boolean {
@@ -32,6 +27,11 @@ export class CookieConsentService {
     } catch {
       return false;
     }
+  }
+
+  private setConsent(state: ConsentState): boolean {
+    if (!this.setConsentInLocalStorage()) return false;
+    return this.updateGtagConsent(state);
   }
 
   private setConsentInLocalStorage(): boolean {
@@ -43,29 +43,30 @@ export class CookieConsentService {
     }
   }
 
+  private buildGtagConsentOptions(state: ConsentState) {
+    return {
+      /* eslint-disable camelcase */
+      ad_user_data: state,
+      ad_personalization: state,
+      ad_storage: state,
+      analytics_storage: state,
+      /* eslint-enable camelcase */
+    };
+  }
+
   private updateGtagConsent(state: ConsentState): boolean {
     try {
-      if (window.gtag) {
-        const consentOptions = {
-          /* eslint-disable camelcase*/
-          ad_user_data: state,
-          ad_personalization: state,
-          ad_storage: state,
-          analytics_storage: state,
-        };
+      if (!window.gtag) return true;
 
-        if (state === ConsentState.DENIED) {
-          window.gtag('consent', 'default', {
-            ...consentOptions,
-            wait_for_update: 500,
-            /* eslint-enable camelcase*/
-          });
-        } else {
-          window.gtag('consent', 'update', {
-            ...consentOptions,
-          });
-        }
+      const options = this.buildGtagConsentOptions(state);
+
+      if (state === ConsentState.DENIED) {
+        // eslint-disable-next-line camelcase
+        window.gtag('consent', 'default', { ...options, wait_for_update: 500 });
+      } else {
+        window.gtag('consent', 'update', options);
       }
+
       return true;
     } catch {
       return false;
