@@ -4,7 +4,6 @@
   "type": "module",
   "scripts": {
     "prepare": "husky",
-    "postinstall": "npm run playwright:install",
     "start": "ng serve --configuration=localhost-en --open",
     "start:es": "ng serve --configuration=localhost-es --open",
     "extract": "ng extract-i18n --format=xlf --output-path=src/locale",
