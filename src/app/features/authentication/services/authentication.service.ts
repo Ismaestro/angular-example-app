@@ -1,8 +1,10 @@
 import { inject, Injectable, linkedSignal, signal } from '@angular/core';
-import { LOCAL_STORAGE } from '~core/providers/local-storage';
 import { HttpClient } from '@angular/common/http';
-import type { Observable } from 'rxjs';
-import { map } from 'rxjs';
+import { map, type Observable } from 'rxjs';
+import { LOCAL_STORAGE } from '~core/providers/local-storage';
+import { LanguageService } from '~core/services/language.service';
+import { clearCache } from '~core/interceptors/caching.interceptor';
+import { getEndpoints } from '~core/constants/endpoints.constants';
 import type { LoginRequest } from '~features/authentication/types/login-request.type';
 import type { LoginResponse } from '~features/authentication/types/login-response.type';
 import type {
@@ -13,11 +15,9 @@ import type {
   RegisterResponse,
   RegisterResponseData,
 } from '~features/authentication/types/register-response.type';
-import { LanguageService } from '~core/services/language.service';
-import type { User } from '~features/authentication/types/user.type';
-import { clearCache } from '~core/interceptors/caching.interceptor';
-import { getEndpoints } from '~core/constants/endpoints.constants';
 import type { RegisterFormValue } from '~features/authentication/pages/register/register-form.types';
+import type { User } from '~features/authentication/types/user.type';
+import type { AuthTokens } from '~features/authentication/types/authentication.types';
 
 export const ACCESS_TOKEN_KEY = 'access-token';
 export const REFRESH_TOKEN_KEY = 'refresh-token';
@@ -27,14 +27,11 @@ export const REFRESH_TOKEN_KEY = 'refresh-token';
 })
 export class AuthenticationService {
   private readonly endpoints = getEndpoints();
-  private readonly storageService = inject(LOCAL_STORAGE);
   private readonly httpClient = inject(HttpClient);
+  private readonly storageService = inject(LOCAL_STORAGE);
   private readonly languageService = inject(LanguageService);
 
-  private readonly authTokens = signal<{
-    accessToken?: string | undefined;
-    refreshToken?: string | undefined;
-  }>({
+  private readonly authTokens = signal<AuthTokens>({
     accessToken: this.storageService?.getItem(ACCESS_TOKEN_KEY) ?? undefined,
     refreshToken: this.storageService?.getItem(REFRESH_TOKEN_KEY) ?? undefined,
   });
@@ -50,58 +47,39 @@ export class AuthenticationService {
   });
 
   register(registerRequest: RegisterFormValue): Observable<RegisterResponseData> {
-    return this.httpClient
-      .post<RegisterResponse>(
-        this.endpoints.auth.v1.authentication,
-        {
-          email: registerRequest.email.toLowerCase(),
-          password: registerRequest.password,
-          name: registerRequest.name,
-          favouritePokemonId: registerRequest.favouritePokemonId,
-          terms: registerRequest.terms,
+    const payload = {
+      ...registerRequest,
+      email: registerRequest.email.toLowerCase(),
+    };
+
+    return this.handleAuthResponse(
+      this.httpClient.post<RegisterResponse>(this.endpoints.auth.v1.authentication, payload, {
+        headers: {
+          'Accept-Language': this.languageService.convertLocaleToAcceptLanguage(),
         },
-        {
-          headers: {
-            'Accept-Language': this.languageService.convertLocaleToAcceptLanguage(),
-          },
-        },
-      )
-      .pipe(
-        map((response: RegisterResponse) => {
-          const { data } = response;
-          this.saveTokens(data);
-          return data;
-        }),
-      );
+      }),
+    );
   }
 
   logIn(loginRequest: LoginRequest): Observable<User> {
-    return this.httpClient
-      .post<LoginResponse>(this.endpoints.auth.v1.login, {
-        email: loginRequest.email.toLowerCase(),
-        password: loginRequest.password,
-      })
-      .pipe(
-        map((response: LoginResponse) => {
-          const { data } = response;
-          this.saveTokens(data);
-          return data.user;
-        }),
-      );
+    const payload = {
+      email: loginRequest.email.toLowerCase(),
+      password: loginRequest.password,
+    };
+
+    return this.handleAuthResponse(
+      this.httpClient.post<LoginResponse>(this.endpoints.auth.v1.login, payload),
+    ).pipe(map((data) => data.user));
   }
 
   refreshToken(): Observable<RefreshTokenResponseData> {
-    return this.httpClient
-      .post<RefreshTokenResponse>(this.endpoints.auth.v1.refreshToken, {
-        refreshToken: this.storageService?.getItem(REFRESH_TOKEN_KEY),
-      })
-      .pipe(
-        map((response: RefreshTokenResponse) => {
-          const { data } = response;
-          this.saveTokens(data);
-          return data;
-        }),
-      );
+    const refreshToken = this.storageService?.getItem(REFRESH_TOKEN_KEY);
+
+    return this.handleAuthResponse(
+      this.httpClient.post<RefreshTokenResponse>(this.endpoints.auth.v1.refreshToken, {
+        refreshToken,
+      }),
+    );
   }
 
   logOut() {
@@ -109,20 +87,32 @@ export class AuthenticationService {
     this.removeTokens();
   }
 
-  private saveTokens(data: { accessToken: string; refreshToken?: string }) {
-    this.storageService?.setItem(ACCESS_TOKEN_KEY, data.accessToken);
-    if (data.refreshToken) {
-      this.storageService?.setItem(REFRESH_TOKEN_KEY, data.refreshToken);
-    }
-    this.authTokens.set({
-      accessToken: data.accessToken,
-      refreshToken: data.refreshToken,
-    });
+  private handleAuthResponse<T extends { data: { accessToken: string; refreshToken?: string } }>(
+    request$: Observable<T>,
+  ): Observable<T['data']> {
+    return request$.pipe(
+      map((response) => {
+        this.saveTokens(response.data);
+        return response.data;
+      }),
+    );
   }
 
-  private removeTokens() {
+  private saveTokens({
+    accessToken,
+    refreshToken,
+  }: {
+    accessToken: string;
+    refreshToken?: string;
+  }): void {
+    this.storageService?.setItem(ACCESS_TOKEN_KEY, accessToken);
+    this.storageService?.setItem(REFRESH_TOKEN_KEY, refreshToken ?? '');
+    this.authTokens.set({ accessToken, refreshToken });
+  }
+
+  private removeTokens(): void {
     this.storageService?.removeItem(ACCESS_TOKEN_KEY);
     this.storageService?.removeItem(REFRESH_TOKEN_KEY);
-    this.authTokens.set({});
+    this.authTokens.set({ accessToken: undefined, refreshToken: undefined });
   }
 }
