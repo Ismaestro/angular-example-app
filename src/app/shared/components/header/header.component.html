@@ -29,6 +29,27 @@
       </div>
     </ng-template>
 
+    <ng-template #githubNavItem>
+      <!-- GITHUB -->
+      <div class="nav__item">
+        <a
+          class="nav__link"
+          href="https://github.com/Ismaestro/angular-example-app"
+          target="_blank"
+        >
+          <img
+            class="github-logo__image"
+            ngSrc="angularexampleapp/assets/icons/github-mark-white_nkewl9.png"
+            alt="github logo"
+            i18n-alt
+            height="32"
+            width="32"
+            priority
+          />
+        </a>
+      </div>
+    </ng-template>
+
     <!-- HOME -->
     <div class="nav__item">
       <a
@@ -72,24 +93,7 @@
         </a>
       </div>
 
-      <!-- GITHUB -->
-      <div class="nav__item">
-        <a
-          class="nav__link"
-          href="https://github.com/Ismaestro/angular-example-app"
-          target="_blank"
-        >
-          <img
-            class="github-logo__image"
-            ngSrc="angularexampleapp/assets/icons/github-mark-white_nkewl9.png"
-            alt="github logo"
-            i18n-alt
-            height="32"
-            width="32"
-            priority
-          />
-        </a>
-      </div>
+      <ng-container [ngTemplateOutlet]="githubNavItem" />
 
       <div class="nav__item">
         <app-language-selector />
@@ -112,6 +116,8 @@
           {{ translations.myPokemon }}
         </a>
       </div>
+
+      <ng-container [ngTemplateOutlet]="githubNavItem" />
 
       <!-- SEARCH -->
       <div class="nav__item">
