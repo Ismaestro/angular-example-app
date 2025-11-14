@@ -11,7 +11,6 @@ import { HeaderComponent } from '~shared/components/header/header.component';
 import { FooterComponent } from '~shared/components/footer/footer.component';
 import { filter, map } from 'rxjs';
 import { HeaderService } from '~core/services/ui/header.service';
-import { ProgressBarComponent } from '~shared/components/progress-bar/progress-bar.component';
 import { CookiePopupComponent } from '~shared/components/cookie-popup/cookie-popup.component';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ToastStackComponent } from '~shared/components/toast-stack/toast-stack.component';
@@ -25,7 +24,6 @@ import { SeoService } from '~core/services/seo.service';
     RouterOutlet,
     HeaderComponent,
     FooterComponent,
-    ProgressBarComponent,
     CookiePopupComponent,
     ToastStackComponent,
   ],
