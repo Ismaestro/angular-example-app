@@ -1,52 +1,48 @@
 <main>
   <h1 class="first-heading__title" i18n>My Pokemon</h1>
-  <ng-container *ngrxLet="userPokemons$ as userPokemons; suspenseTpl: loading">
+
+  @if (userPokemons().length >= 0) {
     <div class="my-pokemon__search-container">
       <app-pokemon-search-input
-        [title]="userPokemons?.length ? translations.findMore : translations.findPokemon"
+        [title]="userPokemons().length ? translations.findMore : translations.findPokemon"
       />
     </div>
+  }
 
-    @if (!userPokemons?.length) {
-      <div class="pokemons-empty__container">
-        <div>
-          <p i18n>
-            Uh-oh, it looks like you haven’t caught any Pokémon yet! Need help finding a pokemon?
-            Try using the search bar to track them down. Gotta catch ‘em all!
-          </p>
-        </div>
-        <div>
-          <img
-            class="pokemons-empty__image"
-            alt="ash jumping with a pokeball"
-            i18n-alt
-            ngSrc="angularexampleapp/assets/images/ash-jumping.png"
-            width="675"
-            height="1280"
-          />
-        </div>
+  @if (!userPokemons().length) {
+    <div class="pokemons-empty__container">
+      <div>
+        <p i18n>
+          Uh-oh, it looks like you haven’t caught any Pokémon yet! Need help finding a pokemon? Try
+          using the search bar to track them down. Gotta catch ‘em all!
+        </p>
       </div>
-    } @else {
-      <ul class="my-pokemon__grid">
-        @for (pokemon of userPokemons$ | ngrxPush; track pokemon.id) {
-          <li>
-            <app-pokemon-card [pokemon]="pokemon" />
-          </li>
-        }
-      </ul>
-    }
-  </ng-container>
-  <ng-template #loading>
+      <div>
+        <img
+          class="pokemons-empty__image"
+          alt="ash jumping with a pokeball"
+          i18n-alt
+          ngSrc="angularexampleapp/assets/images/ash-jumping.png"
+          width="675"
+          height="1280"
+        />
+      </div>
+    </div>
+  } @else {
     <ul class="my-pokemon__grid">
-      <li>
-        <app-pokemon-card [loading]="true" />
-      </li>
-      <li>
-        <app-pokemon-card [loading]="true" />
-      </li>
-      <li>
-        <app-pokemon-card [loading]="true" />
-      </li>
+      @for (pokemon of userPokemons(); track pokemon.id) {
+        <li>
+          <app-pokemon-card [pokemon]="pokemon" />
+        </li>
+      }
     </ul>
-  </ng-template>
+  }
+
+  @if (loading()) {
+    <ul class="my-pokemon__grid">
+      <li><app-pokemon-card [loading]="true" /></li>
+      <li><app-pokemon-card [loading]="true" /></li>
+      <li><app-pokemon-card [loading]="true" /></li>
+    </ul>
+  }
 </main>
