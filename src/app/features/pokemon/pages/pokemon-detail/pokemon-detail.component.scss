@@ -8,6 +8,10 @@ $pokedex-container-offset: 60px;
 
   align-items: center;
 
+  .pokemon-search-input__container {
+    margin: 0 0 var(--spacing-r-4xl) 0;
+  }
+
   .pokedex__container {
     margin: var(--spacing-r-4xl) 0;
 

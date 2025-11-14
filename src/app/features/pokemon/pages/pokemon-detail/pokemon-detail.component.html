@@ -1,5 +1,8 @@
 @let pokemon = pokemonResource.value();
 @if (pokemon) {
+  <div class="pokemon-search-input__container">
+    <app-pokemon-search-input />
+  </div>
   <app-pokemon-battlefield [pokemon]="pokemon" [pokemonBattleEvent]="pokemonBattleEvent" />
   <div class="pokedex__container">
     <app-pokedex [pokemon]="pokemon" [pokemonBattleEvent]="pokemonBattleEvent" />

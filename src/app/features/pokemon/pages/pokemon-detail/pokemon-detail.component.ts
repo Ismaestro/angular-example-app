@@ -16,10 +16,11 @@ import { translations } from '~locale/translations';
 import { AlertService } from '~core/services/ui/alert.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
+import { PokemonSearchInputComponent } from '~shared/components/pokemon-search-input/pokemon-search-input.component';
 
 @Component({
   selector: 'app-pokemon-detail',
-  imports: [PokemonBattlefieldComponent, PokedexComponent],
+  imports: [PokemonBattlefieldComponent, PokedexComponent, PokemonSearchInputComponent],
   templateUrl: './pokemon-detail.component.html',
   styleUrl: './pokemon-detail.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

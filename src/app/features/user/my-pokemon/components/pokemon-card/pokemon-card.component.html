@@ -1,18 +1,20 @@
 @if (!loading()) {
-  <app-card>
-    <ng-container ngProjectAs="heading">
-      <h2 class="card__heading">{{ pokemon()?.name | firstTitleCase }}</h2>
-    </ng-container>
-    <ng-container ngProjectAs="body">
-      <div class="pokemon__image-container">
-        <!-- eslint-disable-next-line @angular-eslint/template/prefer-ngsrc -->
-        <img alt="pokemon" i18n-alt width="100" height="100" [src]="pokemonImage || ''" />
-      </div>
-      <p i18n>N.º: {{ pokemon()?.order }}</p>
-      <p i18n>Height: {{ pokemon()?.height }} dm</p>
-      <p i18n>Weight: {{ pokemon()?.weight }} hg</p>
-    </ng-container>
-  </app-card>
+  <a class="pokemon__link" [routerLink]="POKEMON_URLS.detail(pokemonId())">
+    <app-card>
+      <ng-container ngProjectAs="heading">
+        <h2 class="card__heading">{{ pokemon()?.name | firstTitleCase }}</h2>
+      </ng-container>
+      <ng-container ngProjectAs="body">
+        <div class="pokemon__image-container">
+          <!-- eslint-disable-next-line @angular-eslint/template/prefer-ngsrc -->
+          <img alt="pokemon" i18n-alt width="100" height="100" [src]="pokemonImage || ''" />
+        </div>
+        <p i18n>N.º: {{ pokemon()?.order }}</p>
+        <p i18n>Height: {{ pokemon()?.height }} dm</p>
+        <p i18n>Weight: {{ pokemon()?.weight }} hg</p>
+      </ng-container>
+    </app-card>
+  </a>
 } @else {
   <app-card>
     <ng-container ngProjectAs="heading">
