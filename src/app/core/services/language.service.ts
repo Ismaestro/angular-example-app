@@ -1,4 +1,4 @@
-import { inject, Injectable, LOCALE_ID } from '@angular/core';
+import { DOCUMENT, inject, Injectable, LOCALE_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { Language } from '~core/enums/language.enum';
 import { Locale } from '~core/enums/locale.enum';
@@ -9,6 +9,7 @@ import { DEFAULT_LOCALE } from '~core/constants/language.constants';
 })
 export class LanguageService {
   private readonly localeId = inject(LOCALE_ID);
+  private readonly document = inject(DOCUMENT);
   private readonly router = inject(Router);
 
   convertLocaleToAcceptLanguage(): Language {
@@ -20,7 +21,10 @@ export class LanguageService {
 
   navigateWithUserLanguage(language: Language, pathToRedirect: string) {
     if (this.doesLocaleMatchLanguage(language)) {
-      void this.router.navigate([pathToRedirect]);
+      void this.router.navigate([pathToRedirect]).then(() => {
+        // eslint-disable-next-line promise/always-return
+        this.document.defaultView?.scrollTo({ top: 0, behavior: 'smooth' });
+      });
     } else {
       const localeToRedirect = this.getLocaleFromLanguage(language);
       window.location.href =
