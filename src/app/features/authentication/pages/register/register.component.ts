@@ -104,9 +104,12 @@ export class RegisterComponent implements OnInit {
 
     this.updateFormState({ isLoading: true });
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { confirmPassword, ...formValue } = this.registerForm.getRawValue();
+
     this.authService
       .register({
-        ...this.registerForm.getRawValue(),
+        ...formValue,
         favouritePokemonId: this.pokemonValidator.pokemonId() satisfies number,
       } as RegisterFormValue)
       .pipe(
