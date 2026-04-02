@@ -1,15 +1,11 @@
-import { inject, Injectable, signal, DOCUMENT } from '@angular/core';
+import { DOCUMENT, inject, Injectable, signal } from '@angular/core';
 import { LOCAL_STORAGE } from '~core/providers/local-storage';
-
-// Keep these constants in sync with the code in index.html
-const DARK_THEME_CLASS_NAME = 'theme-dark--mode',
-  LIGHT_THEME_CLASS_NAME = 'theme-light--mode',
-  THEME_SELECTED_LOCAL_STORAGE_KEY = 'theme';
-
-export enum Theme {
-  DARK = 'dark',
-  LIGHT = 'light',
-}
+import { Theme } from '~core/enums/theme.enums';
+import {
+  DARK_THEME_CLASS_NAME,
+  LIGHT_THEME_CLASS_NAME,
+  THEME_SELECTED_LOCAL_STORAGE_KEY,
+} from '~core/constants/theme.constants';
 
 @Injectable({
   providedIn: 'root',
@@ -17,17 +13,14 @@ export enum Theme {
 export class ThemeManagerService {
   private readonly document = inject(DOCUMENT);
   private readonly localStorage: Storage | null = inject(LOCAL_STORAGE);
-  private readonly _themeSelected = signal<Theme>(Theme.DARK);
+  private readonly _themeSelected = signal<Theme>(
+    (this.localStorage?.getItem(THEME_SELECTED_LOCAL_STORAGE_KEY) as Theme | null) ?? Theme.DARK,
+  );
 
   readonly themeSelected = this._themeSelected.asReadonly();
 
   constructor() {
-    const themeFromLocalStorage = this.localStorage?.getItem(
-      THEME_SELECTED_LOCAL_STORAGE_KEY,
-    ) as Theme | null;
-    if (themeFromLocalStorage) {
-      this.setTheme(themeFromLocalStorage);
-    }
+    this.setBodyClasses();
   }
 
   setTheme(theme: Theme): void {

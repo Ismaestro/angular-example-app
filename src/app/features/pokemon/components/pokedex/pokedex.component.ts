@@ -9,11 +9,11 @@ import {
   input,
   signal,
 } from '@angular/core';
-import type { Pokemon } from '~features/pokemon/types/pokemon.type';
+import type { Pokemon } from '~features/pokemon/types/pokemon.types';
 import { PokemonImageComponent } from '~features/pokemon/components/pokemon-image/pokemon-image.component';
 import { FirstTitleCasePipe } from '~shared/pipes/first-title-case.pipe';
 import { UserService } from '~features/authentication/services/user.service';
-import type { User } from '~features/authentication/types/user.type';
+import type { User } from '~features/authentication/types/user.types';
 import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
 import { AlertService } from '~core/services/ui/alert.service';
 import { translations } from '~locale/translations';
@@ -43,16 +43,14 @@ export class PokedexComponent implements OnInit {
   readonly isPokedexButtonDisabled = signal(false);
   readonly isUserLoggedIn = () => this.authenticationService.authState().isLoggedIn;
 
+  readonly pokedexEffect = effect(() => {
+    this.updatePokemonState();
+    this.handleBattleEvents();
+  });
+
   translations = translations;
   user: User | undefined;
   updatedUser: User | undefined;
-
-  constructor() {
-    effect(() => {
-      this.updatePokemonState();
-      this.handleBattleEvents();
-    });
-  }
 
   ngOnInit() {
     const pokemonValue = this.pokemon();

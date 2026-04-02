@@ -6,7 +6,7 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
   input,
 } from '@angular/core';
-import type { Pokemon } from '~features/pokemon/types/pokemon.type';
+import type { Pokemon } from '~features/pokemon/types/pokemon.types';
 import { CardComponent } from '~shared/components/card/card.component';
 import { POKEMON_URLS } from '~core/constants/urls.constants';
 import { FirstTitleCasePipe } from '~shared/pipes/first-title-case.pipe';

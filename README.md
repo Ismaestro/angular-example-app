@@ -14,7 +14,7 @@
 
 ---
 
-## 📦 Why This Project?
+## Why This Project?
 
 Whether you're just starting with Angular or looking for a solid base for your next app, this project has you covered.
 
@@ -25,32 +25,37 @@ Whether you're just starting with Angular or looking for a solid base for your n
 
 ---
 
-## 🛠️ Getting Started
+## Getting Started
 
 ```bash
 npm i
 npm start
 ```
 
+## Verification & Quality
+
+```bash
+npm run verify:all      # Run lint, stylelint, tests, build, e2e, and lighthouse
+npm run lint           # Run ESLint
+npm run stylelint:fix  # Fix SCSS styles
+npm run prettier:write # Format all code
+npm run test           # Run Unit Tests (Vitest)
+npm run test:coverage  # Run Tests with coverage
+```
+
 ---
 
-## 🚨 Live Status
+## Live Status
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f593abee-25b9-424a-bd54-6bc52aff7230/deploy-status)](https://app.netlify.com/sites/angular-example-app/deploys)
 
 ---
 
-## 🌍 Backend API
-
-This app connects to a real backend powered by NestJS, PostgreSQL, and Prisma, deployed on Fly.io. You can explore the codebase [here](https://github.com/Ismaestro/nestjs-example-app).
-
----
-
-## ✨ Features
+## Features
 
 |                         |                                                     |
 | ----------------------- | --------------------------------------------------- |
-| ✅ Angular 21           | Using the latest version                            |
+| ✅ Angular 21           | Using latest features (Zoneless, Signals, OnPush)   |
 | ✅ Internationalization | i18n with English and Spanish                       |
 | ✅ Authentication       | JWT-based, real login flow                          |
 | ✅ Routing & Guards     | Functional guards with lazy-loaded routes           |
@@ -63,24 +68,33 @@ This app connects to a real backend powered by NestJS, PostgreSQL, and Prisma, d
 | ✅ Clean Architecture   | Modular folder structure following best practices   |
 | ✅ SASS & BEM           | Maintainable and scalable styling                   |
 | ✅ Tests E2E            | Using Playwright and also with best practices (POM) |
+| ✅ Unit Tests           | Using Vitest with high coverage (>95%)              |
 | ✅ Lighthouse           | Verifying web performance with defined thresholds   |
-| 🧪 Testing              | Unit (coming soon!)                                 |
+| ✅ Modern Quality       | ESLint, Prettier, Stylelint and Husky               |
 
 ---
 
-## 🧩 Roadmap
+## Roadmap
 
-- [ ] Component & service testing with Vitest!
+- [x] Component & service testing with Vitest!
+- [x] Implement incremental hydration with Angular 21
+- [ ] Opened issues?
 
 ---
 
-## 🐛 Found a bug? Got an idea?
+## Backend API
+
+This app connects to a real backend powered by NestJS, PostgreSQL, and Prisma, deployed on Fly.io. You can explore the codebase [here](https://github.com/Ismaestro/nestjs-example-app).
+
+---
+
+## Found a bug? Got an idea?
 
 We love feedback! If something doesn't work or you think of a cool new feature, [open an issue](https://github.com/Ismaestro/angular-example-app/issues/new) or contribute directly with a PR.
 
 ---
 
-## 🤝 Contributors
+## Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->

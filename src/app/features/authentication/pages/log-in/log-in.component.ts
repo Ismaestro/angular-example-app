@@ -22,7 +22,7 @@ import { API_ERROR_CODES } from '~core/constants/api-error-codes.constants';
 import { AlertService } from '~core/services/ui/alert.service';
 import { LanguageService } from '~core/services/language.service';
 import { AuthenticationService } from '../../services/authentication.service';
-import type { User } from '~features/authentication/types/user.type';
+import type { User } from '~features/authentication/types/user.types';
 import type {
   LogInFormGroup,
   LogInFormState,

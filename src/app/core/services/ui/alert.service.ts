@@ -1,6 +1,6 @@
 import { Injectable, signal } from '@angular/core';
-import type { Alert } from '~core/constants/alerts.constants';
-import { AlertType } from '~core/constants/alerts.constants';
+import type { Alert } from '~core/types/alerts.types';
+import { AlertType } from '~core/enums/alerts.enums';
 
 @Injectable({ providedIn: 'root' })
 export class AlertService {

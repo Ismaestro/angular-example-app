@@ -7,7 +7,7 @@ import {
   signal,
 } from '@angular/core';
 import { PokemonService } from '~features/pokemon/services/pokemon.service';
-import type { Pokemon } from '~features/pokemon/types/pokemon.type';
+import type { Pokemon } from '~features/pokemon/types/pokemon.types';
 import { ActivatedRoute } from '@angular/router';
 import { PokemonBattlefieldComponent } from '~features/pokemon/components/pokemon-battlefield/pokemon-battlefield.component';
 import { PokedexComponent } from '~features/pokemon/components/pokedex/pokedex.component';
@@ -41,14 +41,12 @@ export class PokemonDetailComponent {
   // eslint-disable-next-line @angular-eslint/prefer-signals
   pokemonBattleEvent = signal(BattleEvent.POKEMON_LOADED);
 
-  constructor() {
-    effect(() => {
-      if (this.pokemonResource.value()) {
-        this.pokemonBattleEvent.set(BattleEvent.RESET_BATTLE);
-      }
-      if (this.pokemonResource.error()) {
-        this.alertService.createErrorAlert(translations.pokemonNotFoundError);
-      }
-    });
-  }
+  readonly pokemonDetailEffect = effect(() => {
+    if (this.pokemonResource.value()) {
+      this.pokemonBattleEvent.set(BattleEvent.RESET_BATTLE);
+    }
+    if (this.pokemonResource.error()) {
+      this.alertService.createErrorAlert(translations.pokemonNotFoundError);
+    }
+  });
 }

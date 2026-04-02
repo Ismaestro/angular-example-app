@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
-import { Theme, ThemeManagerService } from '~core/services/ui/theme-manager.service';
+import { ThemeManagerService } from '~core/services/ui/theme-manager.service';
+import { Theme } from '~core/enums/theme.enums';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';

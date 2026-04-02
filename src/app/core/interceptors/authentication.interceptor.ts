@@ -9,15 +9,13 @@ import { BehaviorSubject, throwError } from 'rxjs';
 import { catchError, filter, switchMap, take } from 'rxjs/operators';
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
-import {
-  ACCESS_TOKEN_KEY,
-  AuthenticationService,
-} from '~features/authentication/services/authentication.service';
-import { AppError } from '~core/enums/app-error.enum';
+import { AuthenticationService } from '~features/authentication/services/authentication.service';
+import { AppError } from '~core/enums/app-error.enums';
 import { AUTH_URLS } from '~core/constants/urls.constants';
 import { LOCAL_STORAGE } from '~core/providers/local-storage';
 import { translations } from '~locale/translations';
 import { AlertService } from '~core/services/ui/alert.service';
+import { ACCESS_TOKEN_KEY } from '~features/authentication/constants/authentication.constants';
 
 const isRefreshing = new BehaviorSubject<boolean>(false);
 

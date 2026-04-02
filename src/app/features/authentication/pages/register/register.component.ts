@@ -81,12 +81,9 @@ export class RegisterComponent implements OnInit {
     isPokemonValidating: this.pokemonValidator.isPokemonValidating,
   });
 
-  constructor() {
+  ngOnInit() {
     this.pokemonAppearAudio.volume = 0.1;
     this.formControls.favouritePokemonId.setErrors({ pokemonName: true });
-  }
-
-  ngOnInit() {
     merge(this.formControls.password.valueChanges, this.formControls.confirmPassword.valueChanges)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {

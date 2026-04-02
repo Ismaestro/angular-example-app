@@ -47,12 +47,13 @@ export class AppComponent {
     { initialValue: this.router.url },
   );
 
+  readonly canonicalEffect = effect(() => {
+    const url = this.currentUrl();
+    this.headerService.setCanonical(url);
+  });
+
   constructor() {
     this.seoService.setBasicTags();
-    effect(() => {
-      const url = this.currentUrl();
-      this.headerService.setCanonical(url);
-    });
     if (this.isBrowser) {
       afterNextRender(() => {
         this.analyticsService.loadGA4Script();

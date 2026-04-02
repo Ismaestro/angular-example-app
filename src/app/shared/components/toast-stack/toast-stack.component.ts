@@ -8,7 +8,7 @@ import {
   viewChildren,
 } from '@angular/core';
 import { AlertService } from '~core/services/ui/alert.service';
-import type { Alert } from '~core/constants/alerts.constants';
+import type { Alert } from '~core/types/alerts.types';
 
 import '@shoelace-style/shoelace/dist/components/alert/alert.js';
 
@@ -25,18 +25,16 @@ export class ToastStackComponent {
 
   readonly alerts = this.alertService.alerts;
 
-  constructor() {
-    effect(() => {
-      for (const element of this.alertElements()) {
-        const native = element.nativeElement as HTMLElement & { toast?: () => void };
-        const alertId = native.getAttribute('id');
-        if (alertId && !this.toastedAlertIds.has(alertId)) {
-          native.toast?.();
-          this.toastedAlertIds.add(alertId);
-        }
+  readonly toastEffect = effect(() => {
+    for (const element of this.alertElements()) {
+      const native = element.nativeElement as HTMLElement & { toast?: () => void };
+      const alertId = native.getAttribute('id');
+      if (alertId && !this.toastedAlertIds.has(alertId)) {
+        native.toast?.();
+        this.toastedAlertIds.add(alertId);
       }
-    });
-  }
+    }
+  });
 
   removeFromAlerts(alert: Alert) {
     this.alertService.removeAlert(alert);

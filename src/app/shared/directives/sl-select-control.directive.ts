@@ -1,4 +1,4 @@
-import { Directive, ElementRef, inject, model } from '@angular/core';
+import { Directive, ElementRef, forwardRef, inject, model } from '@angular/core';
 import type { ControlValueAccessor } from '@angular/forms';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -7,7 +7,8 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: AppSlSelectControlDirective,
+      // eslint-disable-next-line @angular-eslint/no-forward-ref
+      useExisting: forwardRef(() => AppSlSelectControlDirective),
       multi: true,
     },
   ],

@@ -1,6 +1,6 @@
 import lighthouse from 'lighthouse';
 import * as chromeLauncher from 'chrome-launcher';
-import { execSync } from 'child_process';
+import { spawnSync } from 'child_process';
 import fs from 'fs';
 import path from 'node:path';
 
@@ -46,7 +46,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function startNginx(containerName) {
   try {
-    execSync('docker info', { stdio: 'ignore' });
+    spawnSync('docker', ['info'], { stdio: 'ignore' });
   } catch {
     throw new Error('🔴 Docker is not running. Please start Docker before continuing.');
   }
@@ -54,11 +54,20 @@ async function startNginx(containerName) {
   process.stdout.write(`🚀 Starting Nginx on port ${port}   \n`);
   const spinner = createSpinner();
   spinner.start();
-  execSync(
-    `docker run -d --rm --name ${containerName} -p ${port}:80 -v ${path.resolve(
-      distPath,
-    )}:/usr/share/nginx/html:ro -v ${nginxConfPath}:/etc/nginx/nginx.conf:ro nginx:alpine`,
-  );
+  spawnSync('docker', [
+    'run',
+    '-d',
+    '--rm',
+    '--name',
+    containerName,
+    '-p',
+    `${port}:80`,
+    '-v',
+    `${path.resolve(distPath)}:/usr/share/nginx/html:ro`,
+    '-v',
+    `${nginxConfPath}:/etc/nginx/nginx.conf:ro`,
+    'nginx:alpine',
+  ]);
   await sleep(2000);
   spinner.stop(true);
   console.log(`🟢 Nginx server is running at ${urlToAnalyze}`);
@@ -88,6 +97,7 @@ async function runLighthouseAudit() {
     onlyCategories: Object.keys(thresholds),
   };
 
+  // Simple spinner animation (moving dots)
   process.stdout.write('⚡ Running Lighthouse audit   \n');
   const spinner = createSpinner();
   spinner.start();
@@ -115,7 +125,11 @@ function saveReport(report) {
 function stopNginx(containerName) {
   console.log('🧹 Stopping Docker container...');
   try {
-    execSync(`docker stop $(docker ps -q --filter "name=${containerName}")`);
+    // NOSONAR - Docker command is intentionally resolved via PATH
+    spawnSync('docker', ['stop', containerName], {
+      shell: false,
+      stdio: 'ignore',
+    });
   } catch {}
 }
 

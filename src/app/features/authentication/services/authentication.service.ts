@@ -5,22 +5,24 @@ import { LOCAL_STORAGE } from '~core/providers/local-storage';
 import { LanguageService } from '~core/services/language.service';
 import { clearCache } from '~core/interceptors/caching.interceptor';
 import { getEndpoints } from '~core/constants/endpoints.constants';
-import type { LoginRequest } from '~features/authentication/types/login-request.type';
-import type { LoginResponse } from '~features/authentication/types/login-response.type';
+import type { LoginRequest } from '~features/authentication/types/login-request.types';
+import type { LoginResponse } from '~features/authentication/types/login-response.types';
 import type {
   RefreshTokenResponse,
   RefreshTokenResponseData,
-} from '~features/authentication/types/refresh-token.response.type';
+} from '~features/authentication/types/refresh-token.response.types';
 import type {
   RegisterResponse,
   RegisterResponseData,
-} from '~features/authentication/types/register-response.type';
+} from '~features/authentication/types/register-response.types';
 import type { RegisterFormValue } from '~features/authentication/pages/register/register-form.types';
-import type { User } from '~features/authentication/types/user.type';
+import type { User } from '~features/authentication/types/user.types';
 import type { AuthTokens } from '~features/authentication/types/authentication.types';
 
-export const ACCESS_TOKEN_KEY = 'access-token';
-export const REFRESH_TOKEN_KEY = 'refresh-token';
+import {
+  ACCESS_TOKEN_KEY,
+  REFRESH_TOKEN_KEY,
+} from '~features/authentication/constants/authentication.constants';
 
 @Injectable({
   providedIn: 'root',

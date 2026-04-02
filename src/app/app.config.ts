@@ -51,6 +51,7 @@ export const appConfig: ApplicationConfig = {
           const toTree = createUrlTreeFromSnapshot(to, []);
           // Skip the transition if the only thing changing is the fragment and queryParams
           if (
+            // eslint-disable-next-line @typescript-eslint/no-deprecated
             router.isActive(toTree, {
               paths: 'exact',
               matrixParams: 'exact',

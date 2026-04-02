@@ -49,21 +49,19 @@ export class CatchAnimationComponent implements OnInit {
   readonly pokeballState = signal(PokeballState.Idle);
   readonly pokemonState = signal(PokemonState.Idle);
 
-  constructor() {
-    effect(() => {
-      const pokemonBattleEvent = this.pokemonBattleEvent();
-      if (pokemonBattleEvent() === BattleEvent.THROW_POKEBALL) {
-        this.startCatchAnimation();
-      }
-      if (
-        pokemonBattleEvent() === BattleEvent.POKEMON_LOADED ||
-        pokemonBattleEvent() === BattleEvent.RESET_BATTLE
-      ) {
-        this.pokeballState.set(PokeballState.Idle);
-        this.pokemonState.set(PokemonState.Idle);
-      }
-    });
-  }
+  readonly catchEffect = effect(() => {
+    const pokemonBattleEvent = this.pokemonBattleEvent();
+    if (pokemonBattleEvent() === BattleEvent.THROW_POKEBALL) {
+      this.startCatchAnimation();
+    }
+    if (
+      pokemonBattleEvent() === BattleEvent.POKEMON_LOADED ||
+      pokemonBattleEvent() === BattleEvent.RESET_BATTLE
+    ) {
+      this.pokeballState.set(PokeballState.Idle);
+      this.pokemonState.set(PokemonState.Idle);
+    }
+  });
 
   ngOnInit() {
     this.loadAnimationPositions();

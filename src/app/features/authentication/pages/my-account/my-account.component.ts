@@ -11,11 +11,11 @@ import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angu
 import { RouterModule } from '@angular/router';
 import { translations } from '~locale/translations';
 import { UserService } from '~features/authentication/services/user.service';
-import { Language } from '~core/enums/language.enum';
+import { Language } from '~core/enums/language.enums';
 import { SlInputIconFocusDirective } from '~shared/directives/sl-input-icon-focus.directive';
-import type { User } from '~features/authentication/types/user.type';
+import type { User } from '~features/authentication/types/user.types';
 import { PokemonService } from '~features/pokemon/services/pokemon.service';
-import type { Pokemon } from '~features/pokemon/types/pokemon.type';
+import type { Pokemon } from '~features/pokemon/types/pokemon.types';
 import { PokemonImageComponent } from '~features/pokemon/components/pokemon-image/pokemon-image.component';
 import { AppSlSelectControlDirective } from '~shared/directives/sl-select-control.directive';
 import { ThemeButtonComponent } from '~shared/components/theme-button/theme-button.component';

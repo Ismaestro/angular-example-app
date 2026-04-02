@@ -2,15 +2,12 @@
   "printWidth": 100,
   "tabWidth": 2,
   "useTabs": false,
-  "embeddedLanguageFormatting": "auto",
+  "embeddedLanguageFormatting": "off",
   "singleQuote": true,
   "semi": true,
   "quoteProps": "preserve",
   "bracketSpacing": true,
   "trailingComma": "all",
-  "endOfLine": "lf",
-  "proseWrap": "preserve",
-  "arrowParens": "always",
   "overrides": [
     {
       "files": ".prettierrc",

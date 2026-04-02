@@ -1,4 +1,4 @@
-import type { Language } from '~core/enums/language.enum';
+import type { Language } from '~core/enums/language.enums';
 
 export type User = {
   id: string;

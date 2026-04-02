@@ -57,6 +57,10 @@
           },
           "configurations": {
             "production": {
+              "outputPath": {
+                "base": "dist/pro",
+                "browser": ""
+              },
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -64,7 +68,18 @@
                 }
               ]
             },
+            "lighthouse": {
+              "outputPath": {
+                "base": "dist/lighthouse",
+                "browser": ""
+              },
+              "deployUrl": ""
+            },
             "production-sourcemaps": {
+              "outputPath": {
+                "base": "dist/pro-stats",
+                "browser": ""
+              },
               "sourceMap": true,
               "fileReplacements": [
                 {
@@ -72,6 +87,28 @@
                   "with": "src/environments/environment.production.ts"
                 }
               ]
+            },
+            "preproduction": {
+              "outputPath": {
+                "base": "dist/pre",
+                "browser": ""
+              },
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.production.ts"
+                }
+              ]
+            },
+            "development": {
+              "outputPath": {
+                "base": "dist/dev",
+                "browser": ""
+              },
+              "optimization": false,
+              "sourceMap": true,
+              "localize": ["en"],
+              "budgets": []
             },
             "localhost-en": {
               "outputHashing": "none",
@@ -98,6 +135,9 @@
             },
             "localhost-es": {
               "buildTarget": "angularexampleapp:build:localhost-es"
+            },
+            "development": {
+              "buildTarget": "angularexampleapp:build:development"
             }
           },
           "defaultConfiguration": "localhost-en"
@@ -110,7 +150,8 @@
             "outputPath": "src/locale",
             "targetFiles": ["messages.es.xlf"],
             "prettyNestedTags": true,
-            "sort": "stableAppendNew"
+            "sort": "stableAppendNew",
+            "includeContext": "all"
           }
         },
         "test": {
@@ -118,7 +159,15 @@
           "options": {
             "tsConfig": "tsconfig.spec.json",
             "buildTarget": "angularexampleapp:build:localhost-es",
-            "runner": "vitest"
+            "runner": "vitest",
+            "runnerConfig": "vitest.config.ts",
+            "coverageReporters": ["html", "lcov", "text-summary"],
+            "coverageThresholds": {
+              "statements": 50,
+              "branches": 50,
+              "functions": 50,
+              "lines": 50
+            }
           }
         },
         "lint": {

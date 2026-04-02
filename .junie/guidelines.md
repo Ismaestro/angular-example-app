@@ -1,172 +1,109 @@
-### Angular Example App — Project Guidelines (Angular 21)
+# Project Guidelines: Angular Example App
 
-These notes capture project-specific conventions and commands so advanced contributors can be productive quickly. This app uses Angular v20 with standalone components, signals-first patterns, Vitest for unit tests (via the experimental Angular unit-test builder), and Playwright for E2E.
+Este documento detalla la arquitectura, el stack tecnológico y los estándares de codificación para la **Angular Example App**, una aplicación moderna construida con Angular 21 que implementa las mejores prácticas de desarrollo web.
 
----
+## 1. Project Overview
 
-### Build and Configuration
+**Project Name:** Angular Example App
+**Type:** Angular Web Application (Educational/Reference Implementation)
+**Core Goal:** Una aplicación robusta que demuestra patrones avanzados en Angular, incluyendo gestión de estado con Signals, arquitectura de componentes standalone, renderizado optimizado (SSG) y pruebas automatizadas integrales.
 
-- Angular CLI/build
-  - Builder: `@angular/build:application` with `outputMode: "static"` and SSR disabled (`ssr: false`). See `angular.json > projects.angularexampleapp.architect.build.options`.
-  - Index/browser/server entries:
-    - `index`: `src/index.html`
-    - `browser`: `src/main.ts`
-    - `server`: `src/main.server.ts` (not used for SSR in this project)
-  - Polyfills: `@angular/localize/init` is included for i18n.
-  - Styles: global SCSS at `src/styles/global.scss` with Sass `@use` modules and `stylePreprocessorOptions.includePaths: ["src/styles"]` so imports like `@use 'base/reset'` resolve without relative paths.
-  - Third-party CSS: Shoelace theme included globally: `@shoelace-style/shoelace/dist/themes/light.css`.
-  - i18n: Build is localized for `en` and `es` with strict missing-translation errors. Local serve configs for a single locale:
-    - `localhost-en` and `localhost-es` disable output hashing/optimization and set `localize` to the given locale.
-  - Budgets: initial bundle warnings at 500 kB, errors at 1 MB; per-component styles warnings at 2 kB, errors at 4 kB.
+## 2. Technology Stack
 
-- Commands (package.json)
-  - Dev server (English): `npm start` → `ng serve --configuration=localhost-en --open`
-  - Dev server (Spanish): `npm run start:es` → `ng serve --configuration=localhost-es --open`
-  - Production build: `npm run build`
-  - Build with stats (source maps and `--stats-json`): `npm run build:stats`
-  - i18n extraction/merge: `npm run extract` outputs to `src/locale`
-  - Formatting and linting: `npm run format:check`, `npm run format:fix`, `npm run lint` (Angular ESLint) and `npm run stylelint`
-  - Full CI-style verification: `npm run verify` (format → unit tests → e2e → build → lighthouse)
+### Core Technologies
 
-- TypeScript/Angular versions
-  - Angular packages pinned to 20.3.x, TypeScript `5.9.3`.
-  - The repo uses ESLint 9 with `@angular-eslint` 20 and Stylelint 16.
+- **Angular:** 21.1.5 (Zoneless change detection, OnPush strategy, Standalone components)
+- **TypeScript:** 5.9.3 (Strict mode, ES2023 target)
+- **RxJS:** 7.8.2
+- **Node.js/npm:** >=22.19 (Engine requirement)
 
-- Environment/DI notes
-  - DI token `ENVIRONMENT` is used (see unit tests) for environment-specific values like `domain`.
-  - Zoneless change detection is used in tests via `provideZonelessChangeDetection()` when appropriate.
+### SSG & Hydration
 
----
+- **@angular/ssr:** 21.1.4
+- **Hydration:** Configurada con `provideClientHydration(withEventReplay(), withI18nSupport(), withIncrementalHydration())`
+- **Output:** Modo estático (`static` en `angular.json`)
+- **Safety:** Uso obligatorio de `isPlatformBrowser(PLATFORM_ID)` para acceder a APIs del navegador (window, localStorage, etc.).
 
-### Unit Testing (Vitest via Angular experimental unit-test builder)
+### Styling & UI
 
-- Runner: Vitest, executed through Angular’s experimental `@angular/build:unit-test` builder. See `angular.json > architect.test.options.runner: "vitest"`.
-- Default commands:
-  - Run once (CI-friendly): `npm test` → `ng test --no-code-coverage --no-watch`
-  - Watch mode: `npm run test:watch`
-- Specs are discovered from `tsconfig.spec.json` includes: `src/**/*.spec.ts` and `src/**/*.d.ts`.
-- Example patterns used in existing tests:
-  - Angular TestBed with standalone components and zoneless CD:
-    ```ts
-    await TestBed.configureTestingModule({
-      imports: [AppComponent],
-      providers: [
-        provideZonelessChangeDetection(),
-        provideHttpClient(),
-        provideHttpClientTesting(),
-        { provide: ENVIRONMENT, useValue: { domain: 'localhost' } },
-        HeaderService,
-      ],
-    })
-      .overrideComponent(AppComponent, {
-        remove: { imports: [HeaderComponent] },
-        add: { imports: [HeaderStubComponent] },
-      })
-      .compileComponents();
-    ```
-  - Accessibility checks use `axe-core` directly inside Vitest.
+- **SCSS/Sass:** Lenguaje principal de estilos. Directorio `src/styles` incluido en `includePaths`.
+- **Shoelace:** 2.20.1 (Sistema de diseño basado en Web Components).
+- **Stylelint:** 17.3.0 (Linting estricto de SCSS con ordenación `recess-order`).
 
-- Adding a new test (unit)
-  - Create a file under `src/**/your-feature.spec.ts`. Example minimal spec that we validated locally:
+### Testing & Quality
 
-    ```ts
-    import { describe, it, expect } from 'vitest';
+- **Vitest:** 4.0.18 (Pruebas unitarias con entorno jsdom).
+- **Playwright:** 1.58.2 (Pruebas E2E, enfocado en Chromium).
+- **ESLint:** 9.39.2 (Configuración Flat, reglas estrictas para Angular y TypeScript).
+- **Prettier:** 3.8.1 (Formateo de código obligatorio).
+- **Lighthouse:** 13.0.3 (Métricas de rendimiento y accesibilidad).
 
-    describe('math', () => {
-      it('adds numbers', () => {
-        const add = (a: number, b: number) => a + b;
-        expect(add(2, 3)).toBe(5);
-      });
-    });
-    ```
+## 3. Architecture & Patterns
 
-  - Run `npm test` or `npm run test:watch` to execute it.
+### Directory Structure
 
-- Notes
-  - The Angular unit-test builder is marked EXPERIMENTAL; treat large-scale configuration changes with care.
-  - Some DOM APIs (e.g., `HTMLCanvasElement.getContext`) are not implemented in the default JSDOM environment; mock or install the relevant polyfills when needed.
+- `src/app/core/`: Servicios singleton, interceptores HTTP, tokens globales y configuraciones transversales.
+- `src/app/features/`: Módulos de dominio (p. ej., `authentication`, `pokemon`, `user`). Carga perezosa (lazy-loading) mediante `loadChildren`.
+- `src/app/shared/`: Componentes, pipes y directivas reutilizables en toda la aplicación.
+- `src/environments/`: Configuraciones específicas por entorno.
+- `src/locale/`: Archivos de internacionalización (XLF).
+- `scripts/`: Scripts de automatización para build, E2E y Lighthouse.
 
----
+### Critical Patterns
 
-### End-to-End Testing (Playwright)
+- **Standalone Components:** Uso exclusivo de componentes, directivas y pipes standalone (sin `NgModules`).
+- **OnPush Strategy:** Obligatorio en todos los componentes para mejorar el rendimiento.
+- **Signals:** Uso preferente de Angular Signals para la gestión de estado local y compartido. Uso de `linkedSignal` para estados derivados.
+- **Path Aliases:** Uso de prefijos `~core/*`, `~shared/*`, `~features/*`, etc., para importaciones absolutas.
+- **Dependency Injection:** Preferencia por la función `inject()` sobre la inyección vía constructor.
+- **Platform Awareness:** Siempre verificar la plataforma antes de usar objetos globales del navegador.
 
-- Config: `playwright.config.ts`
-  - Test directory: `e2e/tests`
-  - Project: Chromium desktop, fully parallel, HTML report (saved under `playwright-report`)
-  - Base URL is read from `process.env.BASE_URL` and defaults to the deployed demo (`https://angular-example-app.netlify.app`).
+### State Management
 
-- Commands
-  - Local against already running dev server: `npm run e2e:local`
-    - Sets `BASE_URL=http://localhost:4200` and runs Chromium tests.
-  - Programmatic local flow (start server → wait → run E2E → stop): `npm run script:e2e:local`
-    - Script: `scripts/e2e.mjs` spawns `ng serve --configuration=localhost-en`, waits for `http://localhost:4200` (30s timeout), runs tests, then stops the server.
-  - CI/prod-like against default base URL: `npm run e2e:pro`
+- **Local State:** Signals dentro del componente.
+- **Shared State:** Servicios con Signals o `BehaviorSubject` de RxJS para reactividad avanzada.
+- **Persistence:** Uso del provider `LOCAL_STORAGE` (wrapper seguro de `localStorage`).
 
-- Tips
-  - When adding E2E specs, prefer test IDs over brittle selectors.
-  - Keep tests parallel-safe; avoid test order dependencies.
+## 4. Coding Standards
 
----
+### Linting & Formatting
 
-### Development Practices (Angular v20)
+- **ESLint:** Ejecución vía `npm run lint`. Reglas estrictas de complejidad (máx. 8), longitud de línea y patrones de Angular.
+- **Prettier:** Formateo automático obligatorio. Ejecución vía `npm run prettier:write`.
+- **Stylelint:** Verificación de estilos SCSS. Ejecución vía `npm run stylelint:check` o `npm run stylelint:fix`.
 
-- Standalone-first architecture
-  - Components/pipes/directives are standalone; imports/exports are at component level. The schematics are configured for standalone with `changeDetection: OnPush` by default.
+### Commit Workflow (Husky)
 
-- Signals and new control flow
-  - Prefer `signal()`/`computed()` for local state; avoid `mutate()`, use `set`/`update`.
-  - Use template control flow blocks `@if`, `@for`, `@switch` instead of structural directives.
-  - Prefer `input()` and `output()` functions for component inputs/outputs.
+- **commit-msg:** Validación de mensajes de commit convencionales.
+- **pre-commit:** Ejecución de `lint-staged` (ESLint, Prettier, Stylelint) sobre archivos modificados.
+- **pre-push:** Ejecución de `npm run lint` y `npm run test:coverage`.
 
-- Change detection
-  - OnPush everywhere; for host bindings/listeners, use the `host` metadata instead of decorators per the project’s style preferences.
-  - In tests, consider `provideZonelessChangeDetection()` to keep execution predictable and fast.
+## 5. Testing Strategy
 
-- Templates & styles
-  - Avoid `ngClass`/`ngStyle`; use property/class/style bindings.
-  - Import pipes explicitly if used in templates.
-  - Global SCSS is composed via Sass modules in `src/styles` and included from `src/styles/global.scss`.
+### Unit Testing (Vitest)
 
-- Images & performance
-  - Use `NgOptimizedImage` for static images.
-  - Watch bundle budgets in `angular.json`; use the `build:stats` variant with source maps and `--stats-json` when investigating size spikes.
+- Convención de nombres: `*.spec.ts`.
+- Enfoque en lógica de negocio, servicios e interacción de componentes.
+- Umbrales de cobertura obligatorios:
+  - Statements: 97%
+  - Branches: 93%
+  - Functions: 96%
+  - Lines: 97%
 
-- Linting/formatting & commits
-  - Run `npm run lint` and `npm run stylelint` locally before pushing.
-  - Use `npm run format:fix` to apply Prettier.
-  - Conventional commits are enforced via Commitlint + Husky; run `npm run prepare` after `npm i` if hooks are not active.
+### E2E Testing (Playwright)
 
----
+- Ubicación: `e2e/*.spec.ts`.
+- Cobertura de flujos críticos: Login, registro, búsqueda de Pokémon.
+- Ejecución local con `npm run test:e2e:local:serve`.
 
-### Quick Start Recipes
+## 6. Internationalization (i18n)
 
-- Fresh clone setup
-  1. `npm ci`
-  2. `npm run playwright:install` (first time only; installs browsers and OS deps)
+- **Extraction:** `npm run extract` para generar/actualizar archivos XLF.
+- **Locales:** Inglés (`en`) como base, Español (`es`) como traducción principal.
+- **Build:** Los errores de traducción faltante fallan la compilación de producción (`i18nMissingTranslation: error`).
 
-- Local dev (English)
-  - `npm start` → open http://localhost:4200
+## 7. Build & Deployment
 
-- Run unit tests
-  - `npm test` (single run) or `npm run test:watch`
-
-- Run E2E end-to-end locally
-  - `npm run script:e2e:local` (server managed automatically)
-
-- Full verification
-  - `npm run verify`
-
----
-
-### Verified Test Example
-
-- We validated a minimal Vitest spec that asserts `add(2, 3) === 5` and confirmed it runs with `npm test`. Remove demonstration specs after using them to keep the suite clean.
-
----
-
-### Troubleshooting
-
-- Unit tests complain about missing DOM APIs (e.g., `HTMLCanvasElement.getContext`)
-  - Install and configure appropriate polyfills or mock the API in the spec.
-- Playwright tests fail locally
-  - Ensure `BASE_URL` points to the correct server and that the dev server is up (use `script:e2e:local` to manage this automatically).
+- **Production Build:** `npm run build` (genera versiones localizadas en `dist/pro`).
+- **Configurations:** `development`, `preproduction`, `production`, `lighthouse`, `localhost-en`, `localhost-es`.
+- **Verification:** Ejecución obligatoria de `npm run verify:all` para validar calidad total antes de liberar.

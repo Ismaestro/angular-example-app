@@ -16,15 +16,13 @@ export class HomeComponent {
   private readonly analyticsService = inject(AnalyticsService);
   readonly activeUsersResource = this.analyticsService.getRealtimeUsersResource();
 
-  constructor() {
+  readonly reloadEffect = effect((onCleanup) => {
     this.activeUsersResource.reload();
-    effect(() => {
-      const sub = interval(5000).subscribe(() => {
-        this.activeUsersResource.reload();
-      });
-      return () => {
-        sub.unsubscribe();
-      };
+    const sub = interval(5000).subscribe(() => {
+      this.activeUsersResource.reload();
     });
-  }
+    onCleanup(() => {
+      sub.unsubscribe();
+    });
+  });
 }

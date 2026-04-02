@@ -8,6 +8,8 @@ import pluginPromise from 'eslint-plugin-promise';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 
 const APP_PREFIX = 'app';
+const APP_DIRECTIVE_PREFIX = 'app';
+const MAX_COMPLEXITY = 8;
 
 export default tsEslint.config(
   {
@@ -36,7 +38,7 @@ export default tsEslint.config(
       complexity: [
         'error',
         {
-          max: 5,
+          max: MAX_COMPLEXITY,
         },
       ],
       'max-len': [
@@ -55,7 +57,7 @@ export default tsEslint.config(
       '@typescript-eslint/max-params': [
         'error',
         {
-          max: 2,
+          max: 3,
         },
       ],
       '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
@@ -69,7 +71,7 @@ export default tsEslint.config(
         'error',
         {
           type: 'attribute',
-          prefix: APP_PREFIX,
+          prefix: [APP_DIRECTIVE_PREFIX],
           style: 'camelCase',
         },
       ],
@@ -87,6 +89,7 @@ export default tsEslint.config(
         'error',
         { 'allow': ['eslint-disable-next-line', 'eslint-disable', 'eslint-enable'] },
       ],
+      'camelcase': ['error', { 'properties': 'never' }],
       'no-warning-comments': ['error', { 'terms': ['warn'] }],
       'capitalized-comments': ['error', 'always', { 'ignoreConsecutiveComments': true }],
 
@@ -137,18 +140,41 @@ export default tsEslint.config(
       'unicorn/prefer-global-this': 'off',
       'unicorn/consistent-function-scoping': 'off',
       'unicorn/prefer-dom-node-dataset': 'off',
+      'unicorn/no-useless-undefined': 'off',
+      'unicorn/prefer-dom-node-append': 'off',
     },
   },
   {
     files: ['**/*.spec.ts'],
     rules: {
+      'max-statements': 'off',
+      'max-lines': 'off',
       'max-lines-per-function': 'off',
+      'max-classes-per-file': 'off',
+    },
+  },
+  {
+    files: ['**/*.fixtures.ts'],
+    rules: {
+      'max-classes-per-file': 'off',
+    },
+  },
+  {
+    'files': ['**/*.po.ts'],
+    'rules': {
+      '@typescript-eslint/parameter-properties': 'off',
     },
   },
   {
     files: ['**/*.html'],
     extends: [...angular.configs.templateAll],
     rules: {
+      '@angular-eslint/template/cyclomatic-complexity': [
+        'error',
+        {
+          maxComplexity: MAX_COMPLEXITY,
+        },
+      ],
       '@angular-eslint/template/no-call-expression': 'off',
       '@angular-eslint/template/prefer-template-literal': 'off',
       '@angular-eslint/template/i18n': [

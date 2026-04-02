@@ -1,7 +1,4 @@
-export enum AlertType {
-  SUCCESS = 'success',
-  ERROR = 'error',
-}
+import type { AlertType } from '~core/enums/alerts.enums';
 
 export type Alert = {
   id: string;

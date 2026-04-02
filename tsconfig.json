@@ -20,7 +20,6 @@
     "exactOptionalPropertyTypes": true,
     "useDefineForClassFields": true,
     "noUnusedParameters": true,
-    "experimentalDecorators": true,
     "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2023",

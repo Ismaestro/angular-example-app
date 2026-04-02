@@ -1,7 +1,7 @@
 import { DOCUMENT, inject, Injectable, LOCALE_ID } from '@angular/core';
 import { Router } from '@angular/router';
-import { Language } from '~core/enums/language.enum';
-import { Locale } from '~core/enums/locale.enum';
+import { Language } from '~core/enums/language.enums';
+import { Locale } from '~core/enums/locale.enums';
 import { DEFAULT_LOCALE } from '~core/constants/language.constants';
 
 @Injectable({

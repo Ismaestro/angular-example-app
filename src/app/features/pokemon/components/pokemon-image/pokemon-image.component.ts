@@ -31,14 +31,12 @@ export class PokemonImageComponent implements AfterViewInit {
   readonly croppedBase64Image = signal('');
   readonly croppedImageLoaded = signal(false);
 
-  constructor() {
-    effect(() => {
-      this.resetState();
-      if (this.canvas()) {
-        this.loadCroppedImage();
-      }
-    });
-  }
+  readonly imageEffect = effect(() => {
+    this.resetState();
+    if (this.canvas()) {
+      this.loadCroppedImage();
+    }
+  });
 
   ngAfterViewInit() {
     this.loadCroppedImage();

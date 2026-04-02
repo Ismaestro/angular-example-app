@@ -1,6 +1,6 @@
 import type { OnInit, WritableSignal } from '@angular/core';
 import { ChangeDetectionStrategy, Component, effect, input, signal } from '@angular/core';
-import type { Pokemon } from '~features/pokemon/types/pokemon.type';
+import type { Pokemon } from '~features/pokemon/types/pokemon.types';
 import { PokemonImageComponent } from '~features/pokemon/components/pokemon-image/pokemon-image.component';
 import { NgOptimizedImage } from '@angular/common';
 import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
@@ -20,13 +20,11 @@ export class PokemonBattlefieldComponent implements OnInit {
   readonly startCatchAnimation = signal(false);
   readonly pokemonImageLoaded = signal(false);
 
-  constructor() {
-    effect(() => {
-      this.updatePokemonImage();
-      this.handleThrowPokeballEvent();
-      this.handleResetBattleEvent();
-    });
-  }
+  readonly battlefieldEffect = effect(() => {
+    this.updatePokemonImage();
+    this.handleThrowPokeballEvent();
+    this.handleResetBattleEvent();
+  });
 
   ngOnInit(): void {
     this.pokemonImage.set(this.pokemon()?.sprites.front_default ?? '');

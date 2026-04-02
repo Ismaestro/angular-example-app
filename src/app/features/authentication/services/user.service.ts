@@ -3,12 +3,12 @@ import { HttpClient, HttpContext } from '@angular/common/http';
 import type { Observable } from 'rxjs';
 import { map } from 'rxjs';
 import { CACHING_ENABLED } from '~core/interceptors/caching.interceptor';
-import type { GetMeResponse } from '~features/authentication/types/get-me-response.type';
-import type { UpdateUserRequest } from '~features/authentication/types/update-user-request.type';
-import type { UpdateUserResponse } from '~features/authentication/types/update-user-response.type';
-import type { CatchPokemonRequest } from '~features/authentication/types/catch-pokemon-request.type';
-import type { CatchPokemonResponse } from '~features/authentication/types/catch-pokemon-response.type';
-import type { User } from '~features/authentication/types/user.type';
+import type { GetMeResponse } from '~features/authentication/types/get-me-response.types';
+import type { UpdateUserRequest } from '~features/authentication/types/update-user-request.types';
+import type { UpdateUserResponse } from '~features/authentication/types/update-user-response.types';
+import type { CatchPokemonRequest } from '~features/authentication/types/catch-pokemon-request.types';
+import type { CatchPokemonResponse } from '~features/authentication/types/catch-pokemon-response.types';
+import type { User } from '~features/authentication/types/user.types';
 import { getEndpoints } from '~core/constants/endpoints.constants';
 
 @Injectable({

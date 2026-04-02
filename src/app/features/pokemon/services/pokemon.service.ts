@@ -4,9 +4,9 @@ import { forkJoin, map } from 'rxjs';
 import type { HttpResourceRef } from '@angular/common/http';
 import { HttpClient, HttpContext, HttpParams, httpResource } from '@angular/common/http';
 import { CACHING_ENABLED } from '~core/interceptors/caching.interceptor';
-import type { Pokemon } from '~features/pokemon/types/pokemon.type';
+import type { Pokemon } from '~features/pokemon/types/pokemon.types';
 import { getEndpoints } from '~core/constants/endpoints.constants';
-import type { LastUpdatedPokemonIdsResponse } from '~features/pokemon/types/last-updated-pokemon-ids-response.type';
+import type { LastUpdatedPokemonIdsResponse } from '~features/pokemon/types/last-updated-pokemon-ids-response.types';
 
 @Injectable({
   providedIn: 'root',
