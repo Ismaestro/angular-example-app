@@ -1,7 +1,3 @@
-$pokedex-background-color: #f8f8f8;
-$pokedex-text-color: #4e4e4e;
-$pokedex-button-border-color: #7d7897;
-
 @mixin buttons() {
   sl-button {
     &::part(base) {
@@ -75,9 +71,9 @@ $pokedex-button-border-color: #7d7897;
       position: relative;
       min-height: 0;
       padding: var(--spacing-sm) var(--spacing-xl);
-      color: $pokedex-text-color;
-      background: $pokedex-background-color;
-      border: 3px solid $pokedex-button-border-color;
+      color: var(--primary-contrast);
+      background: var(--octonary-contrast);
+      border: 3px solid var(--senary-contrast);
       border-radius: var(--border-radius-sm);
 
       &::before {
@@ -91,7 +87,7 @@ $pokedex-button-border-color: #7d7897;
       }
 
       &:hover {
-        color: $pokedex-text-color;
+        color: var(--primary-contrast);
 
         &::before {
           opacity: 1;
@@ -99,7 +95,7 @@ $pokedex-button-border-color: #7d7897;
       }
 
       &:active {
-        color: $pokedex-text-color;
+        color: var(--primary-contrast);
       }
     }
 
