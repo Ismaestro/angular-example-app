@@ -22,6 +22,7 @@ export default defineConfig({
     },
   ],
   outputDir: './e2e/results',
+  snapshotPathTemplate: './e2e/tests/snapshots/{arg}{ext}',
   metadata: {
     project: {
       name: 'Angular Example App',

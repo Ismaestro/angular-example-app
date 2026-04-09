@@ -6,3 +6,5 @@ type AppFixtures = {
 };
 
 export const test = base.extend<AppFixtures>({});
+
+export { expect } from '@playwright/test';
