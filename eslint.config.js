@@ -152,6 +152,29 @@ export default tsEslint.config(
     },
   },
   {
+    files: ['src/app/core/**/*.ts'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['~features/*'],
+              message:
+                'Circular/incorrect dependency: Modules in "core" should not import from "features". Move shared logic to "core" or "shared".',
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    files: ['~features/authentication/**/*.*'],
+    rules: {
+      'no-restricted-imports': 'off',
+    },
+  },
+  {
     files: ['**/*.spec.ts'],
     rules: {
       'max-statements': 'off',

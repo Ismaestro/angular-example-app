@@ -1,5 +1,6 @@
 {
   "extends": ["stylelint-config-standard-scss", "stylelint-config-recess-order"],
+  "plugins": ["stylelint-declaration-block-no-ignored-properties"],
   "customSyntax": "postcss-scss",
   "rules": {
     "import-notation": null,
@@ -9,6 +10,7 @@
     "selector-max-id": 0,
     "max-nesting-depth": 5,
     "color-hex-length": "short",
-    "selector-class-pattern": "^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*(__[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*)?(--[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*)?$"
+    "selector-class-pattern": "^[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*(__[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*)?(--[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*)?$",
+    "plugin/declaration-block-no-ignored-properties": true
   }
 }
