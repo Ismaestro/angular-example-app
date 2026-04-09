@@ -10,12 +10,14 @@ describe('AnalyticsService', () => {
   let service: AnalyticsService;
   let mockDocument: {
     createElement: ReturnType<typeof vi.fn>;
+    getElementById: ReturnType<typeof vi.fn>;
     head: { appendChild: ReturnType<typeof vi.fn> };
   };
 
   beforeEach(() => {
     mockDocument = {
       createElement: vi.fn(),
+      getElementById: vi.fn(),
       head: {
         appendChild: vi.fn(),
       },
