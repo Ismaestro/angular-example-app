@@ -19,7 +19,7 @@ import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/
 import { cachingInterceptor } from '~core/interceptors/caching.interceptor';
 import { appRoutes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { authenticationInterceptor } from '~core/interceptors/authentication.interceptor';
+import { authenticationInterceptor } from '~features/authentication/authentication.interceptor';
 import { provideCloudinaryLoader } from '@angular/common';
 import { ENVIRONMENT } from '~core/tokens/environment.token';
 import { environment } from '~environments/environment';

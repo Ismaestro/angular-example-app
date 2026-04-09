@@ -4,12 +4,12 @@ import { TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { of, throwError } from 'rxjs';
-import { authenticationInterceptor } from './authentication.interceptor';
 import { AuthenticationService } from '~features/authentication/services/authentication.service';
 import { AlertService } from '~core/services/ui/alert.service';
 import { LOCAL_STORAGE } from '~core/providers/local-storage';
 import { AUTH_URLS } from '~core/constants/urls.constants';
 import { AppError } from '~core/enums/app-error.enums';
+import { authenticationInterceptor } from '~features/authentication/authentication.interceptor';
 
 describe('authenticationInterceptor', () => {
   let mockAuthService: { refreshToken: ReturnType<typeof vi.fn>; logOut: ReturnType<typeof vi.fn> };

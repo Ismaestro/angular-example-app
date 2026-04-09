@@ -7,7 +7,7 @@ import {
 } from '~core/constants/paths.constants';
 import type { Route } from '@angular/router';
 import { ERROR_URLS } from '~core/constants/urls.constants';
-import { authenticationGuard } from '~core/guards/authentication.guard';
+import { authenticationGuard } from '~features/authentication/guards/authentication.guard';
 
 export const appRoutes: Route[] = [
   {

@@ -1,9 +1,9 @@
 import { LogInComponent } from '~features/authentication/pages/log-in/log-in.component';
 import { RegisterComponent } from '~features/authentication/pages/register/register.component';
-import { noAuthenticationGuard } from '~core/guards/no-authentication.guard';
 import { AUTHENTICATION_PATHS } from '~core/constants/paths.constants';
-import { authenticationGuard } from '~core/guards/authentication.guard';
 import { MyAccountComponent } from '~features/authentication/pages/my-account/my-account.component';
+import { noAuthenticationGuard } from '~features/authentication/guards/no-authentication.guard';
+import { authenticationGuard } from '~features/authentication/guards/authentication.guard';
 
 export const AUTHENTICATION_ROUTES = [
   {
