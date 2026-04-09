@@ -6,6 +6,7 @@ import typescriptEslint from '@typescript-eslint/eslint-plugin';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import pluginPromise from 'eslint-plugin-promise';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
+import sonarjs from 'eslint-plugin-sonarjs';
 
 const APP_PREFIX = 'app';
 const APP_DIRECTIVE_PREFIX = 'app';
@@ -28,6 +29,7 @@ export default tsEslint.config(
       ...angular.configs.tsAll,
       eslintPluginUnicorn.configs['flat/all'],
       pluginPromise.configs['flat/recommended'],
+      sonarjs.configs.recommended,
     ],
     plugins: {
       typescriptEslint,
@@ -92,6 +94,8 @@ export default tsEslint.config(
       'camelcase': ['error', { 'properties': 'never' }],
       'no-warning-comments': ['error', { 'terms': ['warn'] }],
       'capitalized-comments': ['error', 'always', { 'ignoreConsecutiveComments': true }],
+      'sonarjs/cognitive-complexity': ['error', 15],
+      'sonarjs/no-identical-functions': 'error',
 
       // Off
       'max-params': 'off',
@@ -142,6 +146,9 @@ export default tsEslint.config(
       'unicorn/prefer-dom-node-dataset': 'off',
       'unicorn/no-useless-undefined': 'off',
       'unicorn/prefer-dom-node-append': 'off',
+      'sonarjs/deprecation': 'off',
+      'sonarjs/no-duplicate-string': 'off',
+      'sonarjs/pseudo-random': 'off',
     },
   },
   {

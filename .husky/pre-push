@@ -1,1 +1,1 @@
-npm run lint && npm run test:coverage
+npm run knip && npm run lint && npm run test:coverage

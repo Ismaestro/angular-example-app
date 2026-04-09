@@ -22,6 +22,7 @@ export class DecorativeHeaderComponent {
   });
   readonly svgContent = computed<SafeHtml | null>(() => {
     const svg = this.svgResource.value();
+    // eslint-disable-next-line sonarjs/no-angular-bypass-sanitization
     return svg ? this.domSanitizer.bypassSecurityTrustHtml(svg) : null;
   });
 }
