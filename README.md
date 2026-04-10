@@ -38,6 +38,7 @@ npm start
 npm run verify:all      # Run lint, stylelint, tests, build, e2e, and lighthouse
 npm run lint           # Run ESLint
 npm run stylelint:fix  # Fix SCSS styles
+npm run knip           # Run Knip (Unused files and dependencies)
 npm run prettier:write # Format all code
 npm run test           # Run Unit Tests (Vitest)
 npm run test:coverage  # Run Tests with coverage
@@ -53,24 +54,24 @@ npm run test:coverage  # Run Tests with coverage
 
 ## Features
 
-|                         |                                                     |
-| ----------------------- | --------------------------------------------------- |
-| ✅ Angular 21           | Using latest features (Zoneless, Signals, OnPush)   |
-| ✅ Internationalization | i18n with English and Spanish                       |
-| ✅ Authentication       | JWT-based, real login flow                          |
-| ✅ Routing & Guards     | Functional guards with lazy-loaded routes           |
-| ✅ Responsive Design    | Mobile-first layouts with Flexbox and Grid          |
-| ✅ APIs                 | Example integration with the PokeAPI                |
-| ✅ Shoelace Components  | Accessible and modern UI components                 |
-| ✅ NgOptimizedImage     | Fast image loading with Angular's directive         |
-| ✅ SSG & Prerendering   | Static Site Generation for index and Pokémon pages  |
-| ✅ Animations           | Smooth transitions with Angular Animations          |
-| ✅ Clean Architecture   | Modular folder structure following best practices   |
-| ✅ SASS & BEM           | Maintainable and scalable styling                   |
-| ✅ Tests E2E            | Using Playwright and also with best practices (POM) |
-| ✅ Unit Tests           | Using Vitest with high coverage (>95%)              |
-| ✅ Lighthouse           | Verifying web performance with defined thresholds   |
-| ✅ Modern Quality       | ESLint, Prettier, Stylelint and Husky               |
+|                         |                                                    |
+| ----------------------- | -------------------------------------------------- |
+| ✅ Angular 21           | Using latest features (Zoneless, Signals, OnPush)  |
+| ✅ Internationalization | i18n with English and Spanish                      |
+| ✅ Authentication       | JWT-based, real login flow                         |
+| ✅ Routing & Guards     | Functional guards with lazy-loaded routes          |
+| ✅ Responsive Design    | Mobile-first layouts with Flexbox and Grid         |
+| ✅ APIs                 | Example integration with the PokeAPI               |
+| ✅ Shoelace Components  | Accessible and modern UI components                |
+| ✅ NgOptimizedImage     | Fast image loading with Angular's directive        |
+| ✅ SSG & Prerendering   | Static Site Generation for index and Pokémon pages |
+| ✅ Animations           | Smooth transitions with Angular Animations         |
+| ✅ Clean Architecture   | Modular folder structure following best practices  |
+| ✅ SASS & BEM           | Maintainable and scalable styling                  |
+| ✅ Tests E2E            | Using Playwright (POM, Visual, Accessibility)      |
+| ✅ Unit Tests           | Using Vitest with high coverage (>95%)             |
+| ✅ Lighthouse           | Verifying web performance with defined thresholds  |
+| ✅ Modern Quality       | ESLint, Prettier, Stylelint, Husky, Knip, Release  |
 
 ---
 
