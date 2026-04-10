@@ -4,375 +4,958 @@
     <body>
       <trans-unit id="8083833302822858845" datatype="html">
         <source>¡Welcome back!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/log-in/log-in.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="1431416938026210429" datatype="html">
         <source>Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/log-in/log-in.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="7016790272435410171" datatype="html">
         <source>Enter</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/log-in/log-in.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="3301086086650990787" datatype="html">
         <source>Register</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="3706454661895788858" datatype="html">
         <source>Field required.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="9015979275910770507" datatype="html">
         <source>Must contain at least one lowercase letter, one uppercase letter and one number. No special characters.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="771984667796132675" datatype="html">
         <source>Angular Example App</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="2336550011721758066" datatype="html">
         <source>Log in</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="2821179408673282599" datatype="html">
         <source>Home</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="4763932744918921654" datatype="html">
         <source>What&apos;s your favourite pokemon?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
+          <context context-type="linenumber">94</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="7507948636555938109" datatype="html">
         <source>Log out</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">161</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="8563030151048628698" datatype="html">
         <source>pokemon image</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/pokemon/components/pokemon-image/pokemon-image.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="1000621969408641474" datatype="html">
         <source>Still gotta catch &apos;em all, this one&apos;s missing from your Pokédex!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/pokemon/components/pokedex/pokedex.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="1206520795340730278" datatype="html">
         <source>English (US)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/my-account/my-account.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="1335130496718084363" datatype="html">
         <source>Already got this one, keep going!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/pokemon/components/pokedex/pokedex.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="1448946353661594760" datatype="html">
         <source>Español (España)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/my-account/my-account.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="1463997545495016475" datatype="html">
         <source>Your favourite pokemon is:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/my-account/my-account.component.html</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="1534029177398918729" datatype="html">
         <source>GitHub</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="1543538730036692975" datatype="html">
         <source>Passwords do not match.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="1651947138133669" datatype="html">
         <source>Weight: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.weight }}"/> hg</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/pokemon/components/pokedex/pokedex.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/user/my-pokemon/components/pokemon-card/pokemon-card.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="1711725680914111687" datatype="html">
         <source>Pokémon not found. Double-check the name and try again!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="1944557953539728996" datatype="html">
         <source>Trainer frame 2</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/pokemon/components/pokemon-battlefield/pokemon-battlefield.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="1949800099101277248" datatype="html">
         <source>Languages</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">97</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="203827529942340818" datatype="html">
         <source>Enter your email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/log-in/log-in.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="2041654170011922770" datatype="html">
         <source>ash standing</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/my-account/my-account.component.html</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="2156635906230663334" datatype="html">
         <source> Contribute </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="2446117790692479672" datatype="html">
         <source>Resources</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="2772023564304193657" datatype="html">
         <source>Enter your password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/log-in/log-in.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="2820549809276148270" datatype="html">
         <source>EN-US</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/language-selector/language-selector.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="2826581353496868063" datatype="html">
         <source>Language</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/my-account/my-account.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="2995774437111770399" datatype="html">
         <source>X</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="2999632421041217652" datatype="html">
         <source>Contribute to Angular Example App</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="3129358389635860873" datatype="html">
         <source>Retype the password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="3264452655068017433" datatype="html">
         <source>Enter your name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/my-account/my-account.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="3385320857836800705" datatype="html">
         <source>Join the discussions at Angular Community Discord server.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="3570800946906329961" datatype="html">
         <source>Post issues and suggestions on github.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="3616505908279277966" datatype="html">
         <source>N.º: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.order }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/pokemon/components/pokedex/pokedex.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/user/my-pokemon/components/pokemon-card/pokemon-card.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="3768927257183755959" datatype="html">
         <source>Save</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/my-account/my-account.component.html</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="3782563238994348625" datatype="html">
         <source>Confirm password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="3792117578788899429" datatype="html">
         <source>Invalid credentials. Not very effective, try again!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="4022823352084662376" datatype="html">
         <source>Register failed. This attempt wasn’t very effective, try again!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="4176833090298296042" datatype="html">
         <source> Español (España)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">117</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="4182095487772075673" datatype="html">
         <source> Discord </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="4201846903475880496" datatype="html">
         <source>Find more!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="4310922273540502870" datatype="html">
         <source>Account settings saved. You&apos;re all set!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="4346349683507785886" datatype="html">
         <source> Angular Google Developer Experts </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="4377004748613683272" datatype="html">
         <source>Pokeball</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/pokemon/components/catch-animation/catch-animation.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="4480466648551521017" datatype="html">
         <source>Error 404: A Wild Error Appeared</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/error/pages/error-404/error-404.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="4583602242273481020" datatype="html">
         <source> Report Issues </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="3382844245855508721" datatype="html">
         <source> This site uses Google Tag Manager and Google Analytics to make it work smoothly and to understand user behavior. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/cookie-popup/cookie-popup.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="4768749765465246664" datatype="html">
         <source>Email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/log-in/log-in.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/my-account/my-account.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="4982761710982945838" datatype="html">
         <source>Stack Overflow: where the community answers your technical Angular questions.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="5023424198144676396" datatype="html">
         <source>Key features</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="5157210307460756815" datatype="html">
         <source>Height: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.height }}"/> dm</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/pokemon/components/pokedex/pokedex.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/user/my-pokemon/components/pokemon-card/pokemon-card.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="5505216764235661105" datatype="html">
         <source> 🎯 Nice catch, <x id="INTERPOLATION" equiv-text="{{ user?.name }}"/>! You’re one step closer to being a Pokémon Master—keep it up! 🌟 </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/pokemon/components/pokedex/pokedex.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="5553776930806289663" datatype="html">
         <source>Ok, got it!</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/cookie-popup/cookie-popup.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/cookie-popup/cookie-popup.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="5575467067123609782" datatype="html">
         <source>angular logo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="5831080362044041624" datatype="html">
         <source> This project is a modern, real-world application designed as a foundation for creating new Angular-based projects and also a practical resource for learning. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="5866254605255506989" datatype="html">
         <source>English</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">104</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="5907476126990913307" datatype="html">
         <source>Create account</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
+          <context context-type="linenumber">148</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="6066456905066879060" datatype="html">
         <source>ES-ES</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/language-selector/language-selector.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="6083403403631944991" datatype="html">
         <source>Trainer frame 3</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/pokemon/components/pokemon-battlefield/pokemon-battlefield.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="6448505059864540544" datatype="html">
         <source>ash and pikachu sad</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/error/pages/error-404/error-404.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="6470465744110022708" datatype="html">
         <source>Do you have an account? Log in</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
+          <context context-type="linenumber">154</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="6561048040308058569" datatype="html">
         <source> Stack Overflow </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="6692431734660320901" datatype="html">
         <source> ©2016-2025. Code licensed under a <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://opensource.org/license/mit&quot; target=&quot;_blank&quot; title=&quot;License text&quot; i18n-title &gt;"/>MIT License<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a &gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">124</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="5418525007522184600" datatype="html">
         <source> ¡Register and complete your Pokédex! </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="7023829683035637619" datatype="html">
         <source>Angular blog</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="7321419453389412321" datatype="html">
         <source>Find a pokemon</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="7358438134446811618" datatype="html">
         <source> It comes with features like internationalization, standalone components, a more logical folder structure, etc, making it a great starting point for building scalable Angular apps. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="7535527225967694107" datatype="html">
         <source>Español</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">114</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="7647115740628930372" datatype="html">
         <source>Type a pokemon</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="7751010942038334793" datatype="html">
         <source>Blog</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="8146468428782651144" datatype="html">
         <source>License text</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">125</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="8183540845277493557" datatype="html">
         <source>Don&apos;t have an account yet? Register</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/log-in/log-in.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="8192371491020855861" datatype="html">
         <source>Field required. PokeAPI does not found that pokemon name.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="8314391617152635292" datatype="html">
         <source> Uh-oh, it looks like you haven’t caught any Pokémon yet! Need help finding a pokemon? Try using the search bar to track them down. Gotta catch ‘em all! </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/user/my-pokemon/pages/my-pokemon/my-pokemon.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="8355236492226718944" datatype="html">
         <source>Oops! Something went wrong. Please try again later or leave an issue if it persists.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="8401085193044135025" datatype="html">
         <source>YouTube</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="8413653130434546022" datatype="html">
         <source>Angular</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="8461145943495811496" datatype="html">
         <source>My Pokemon</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/user/my-pokemon/pages/my-pokemon/my-pokemon.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="8515623719828483173" datatype="html">
         <source> Angular <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br /&gt;"/><x id="START_TAG_KBD" ctype="x-kbd" equiv-text="&lt;kbd class=&quot;home__heading-kbd&quot;&gt;"/>Example<x id="CLOSE_TAG_KBD" ctype="x-kbd" equiv-text="&lt;/kbd&gt;"/> App </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="8520351263082417377" datatype="html">
         <source>Angular Google Developer Experts</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
+          <context context-type="linenumber">87</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="8795992692534730306" datatype="html">
         <source> This project leverages the <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>PokeAPI<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/> to provide fun and practical examples, making it easier to understand key concepts in Angular development. By using data from the Pokémon universe, it offers a familiar and engaging way to showcase features like fetching data, handling API calls, and displaying dynamic content. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="8844151061219581698" datatype="html">
         <source>Trainer frame 1</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/pokemon/components/pokemon-battlefield/pokemon-battlefield.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="8893390761160292681" datatype="html">
         <source>My account</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/my-account/my-account.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="8953033926734869941" datatype="html">
         <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/my-account/my-account.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="8976378127227472342" datatype="html">
         <source> Whether you’re looking for a boilerplate or a solid base project, this setup is designed to help you create clean, maintainable code with ease. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="9023761150161723521" datatype="html">
         <source> I’ve caught &apos;em all (the terms and privacy policy) and I’m cool with them! </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
+          <context context-type="linenumber">135</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="9030610327675553750" datatype="html">
         <source> POKEBALL </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/pokemon/components/pokedex/pokedex.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="971297184908956530" datatype="html">
         <source>Trainer frame 4</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/pokemon/components/pokemon-battlefield/pokemon-battlefield.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="6820690424571383768" datatype="html">
         <source>My pokemon</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="1621780816147444852" datatype="html">
         <source><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Reactive Forms<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="19928707238720227" datatype="html">
         <source>Explore Internationalization</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="2976285442101094791" datatype="html">
         <source> Create smooth transitions and engaging effects with Angular’s powerful animation API, making your application visually appealing and interactive. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">96</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="4667572349058874775" datatype="html">
         <source> Angular’s internationalization tools make it seamless to localize your app, handle translations, and format dates, numbers, and currencies for any locale. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="4869980192320162230" datatype="html">
         <source>Start with Reactive Forms</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">87</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="4932058897590347667" datatype="html">
         <source>Discover Angular Animations</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">101</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="5028423997546001256" datatype="html">
         <source>Effortless form handling and validation.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="5371828026227187692" datatype="html">
         <source>Build apps for a global audience.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="7623666311824205556" datatype="html">
         <source> Signals provide a declarative way to manage state and reactivity in your application, simplifying data flow and improving performance. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="7680046165638889668" datatype="html">
         <source>Unlock reactivity with Angular Signals.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="7755502772624126238" datatype="html">
         <source>Learn more about Signals</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="8266707669188290771" datatype="html">
         <source> Reactive Forms empower you to create robust, dynamic forms with a model-driven approach, making validation, dynamic updates, and testing a breeze. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">83</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="998113163585598828" datatype="html">
         <source>Bring your UI to life with Angular Animations.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">94</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="6658258424216666202" datatype="html">
         <source>Field required. No real email validation. Format: example@domain.com</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="1879618927361287924" datatype="html">
         <source>pokeball</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
+          <context context-type="linenumber">113</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/pokemon-search-input/pokemon-search-input.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="2132215170094453288" datatype="html">
         <source>avatar image</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">137</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="36896075149498959" datatype="html">
         <source>pokemon</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/user/my-pokemon/components/pokemon-card/pokemon-card.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="4142064481735747485" datatype="html">
         <source>ash jumping with a pokeball</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/user/my-pokemon/pages/my-pokemon/my-pokemon.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="4217645930317264796" datatype="html">
         <source>ash and pikachu</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="6126453628105043246" datatype="html">
         <source>pokemon haunter</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="7895937526865210291" datatype="html">
         <source>pokemon pikachu</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/log-in/log-in.component.html</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="832917636166100741" datatype="html">
         <source>pokemon charizard</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">107</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="8621872426885426686" datatype="html">
         <source>pokemon blastoise</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">117</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="2260117472123115270" datatype="html">
         <source>github logo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="2667007583315577477" datatype="html">
         <source>Users seeing this page: <x id="INTERPOLATION" equiv-text="{{ activeUsersResource.value().activeUsers }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">126</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="6973719636314914984" datatype="html">
         <source>An angular example app, so you can see best practices in action.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="4584809804925421348" datatype="html">
         <source>No session. Please log in.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="3894950702316166331" datatype="html">
         <source>Loading...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">130</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="8469070228767591171" datatype="html">
         <source>Open navigation menu</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/components/header/header.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="2707140231864019490" datatype="html">
         <source>Angular Signals</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="2709889076680757048" datatype="html">
         <source>Animations</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="7373613501758200135" datatype="html">
         <source>Internationalization</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3157338228245949714" datatype="html">
+        <source>Toggle theme</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
       </trans-unit>
     </body>
   </file>

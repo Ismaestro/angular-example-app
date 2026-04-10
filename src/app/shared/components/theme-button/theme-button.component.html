@@ -1,4 +1,8 @@
-<sl-button class="button--icon" (click)="toggleTheme()">
+<sl-button
+  class="button--icon"
+  [attr.aria-label]="translations.toggleTheme"
+  (click)="toggleTheme()"
+>
   @if (themeSelected() === Theme.DARK) {
     <sl-icon name="brightness-high-fill" />
   } @else {

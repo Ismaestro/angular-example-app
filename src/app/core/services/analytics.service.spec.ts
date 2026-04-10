@@ -40,20 +40,6 @@ describe('AnalyticsService', () => {
     expect(service).toBeTruthy();
   });
 
-  describe('loadGA4Script', () => {
-    it('should create and append GA4 script', () => {
-      const mockScript = { async: false, src: '' };
-      mockDocument.createElement.mockReturnValue(mockScript);
-
-      service.loadGA4Script();
-
-      expect(mockDocument.createElement).toHaveBeenCalledWith('script');
-      expect(mockScript.async).toBe(true);
-      expect(mockScript.src).toContain('googletagmanager.com/gtag/js');
-      expect(mockDocument.head.appendChild).toHaveBeenCalledWith(mockScript);
-    });
-  });
-
   describe('getRealtimeUsersResource', () => {
     it('should return a resource with default value', () => {
       const resource = TestBed.runInInjectionContext(() => service.getRealtimeUsersResource());

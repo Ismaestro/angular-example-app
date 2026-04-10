@@ -127,7 +127,11 @@
       <!-- USER MENU -->
       <div class="nav__item">
         <sl-dropdown #avatarDropdown>
-          <sl-button class="dropdown-button--avatar" slot="trigger">
+          <sl-button
+            class="dropdown-button--avatar"
+            slot="trigger"
+            [attr.aria-label]="translations.myAccount"
+          >
             <img
               class="avatar__image"
               alt="avatar image"

@@ -1,1 +1,4 @@
-npm run knip && npm audit && npm run lint && npm run test:coverage
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npm run verify:all

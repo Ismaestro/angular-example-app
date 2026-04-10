@@ -497,6 +497,10 @@
         <source>Animations</source>
         <target state="new">Animaciones</target>
       </trans-unit>
+      <trans-unit id="3157338228245949714" datatype="html">
+        <source>Toggle theme</source>
+        <target state="new">Cambiar tema</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

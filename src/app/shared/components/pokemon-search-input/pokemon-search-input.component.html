@@ -15,7 +15,12 @@
   </sl-input>
 
   @if (searchState().showButton) {
-    <sl-button class="button--image" slot="trigger" (click)="searchPokemon()">
+    <sl-button
+      class="button--image"
+      slot="trigger"
+      [attr.aria-label]="title()"
+      (click)="searchPokemon()"
+    >
       <img
         class="search__loading-image"
         alt="pokeball"

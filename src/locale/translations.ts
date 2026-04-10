@@ -13,6 +13,7 @@ export const translations = {
   confirmPasswordHelpText: $localize`Passwords do not match.`,
   pokemonHelpText: $localize`Field required. PokeAPI does not found that pokemon name.`,
   logout: $localize`Log out`,
+  toggleTheme: $localize`Toggle theme`,
   findMore: $localize`Find more!`,
   findPokemon: $localize`Find a pokemon`,
   myAccountSuccessAlert: $localize`Account settings saved. You're all set!`,

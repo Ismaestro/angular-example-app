@@ -8,6 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { UpperCasePipe } from '@angular/common';
 import { LanguageService } from '~core/services/language.service';
+import { translations } from '~locale/translations';
 
 import '@shoelace-style/shoelace/dist/components/dropdown/dropdown.js';
 
@@ -21,6 +22,7 @@ import '@shoelace-style/shoelace/dist/components/dropdown/dropdown.js';
 export class LanguageSelectorComponent {
   private readonly languageService = inject(LanguageService);
 
+  readonly translations = translations;
   readonly router = inject(Router);
   readonly localeIdText = signal(this.languageService.convertLocaleToAcceptLanguage());
 }

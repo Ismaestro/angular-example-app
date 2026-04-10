@@ -151,7 +151,7 @@
             "targetFiles": ["messages.es.xlf"],
             "prettyNestedTags": true,
             "sort": "stableAppendNew",
-            "includeContext": "all"
+            "includeContext": "sourceFileOnly"
           }
         },
         "test": {
