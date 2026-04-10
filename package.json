@@ -1,6 +1,6 @@
 {
   "name": "angularexampleapp",
-  "version": "21.0.0",
+  "version": "21.1.0",
   "type": "module",
   "scripts": {
     "prepare": "husky",
@@ -30,7 +30,8 @@
     "update:es:base:href": "sed -i '' 's|<base href=\"/es/\">|<base href=\"/\">|g' dist/lighthouse/es/index.html",
     "lighthouse": "npm run build:lighthouse && npm run update:es:base:href && node scripts/lighthouse.mjs",
     "verify:test": "npm run lint && npm run test:coverage && npm run test:e2e:local:serve && npm run build",
-    "verify:all": "npm run verify:test && npm run lighthouse"
+    "verify:all": "npm run verify:test && npm run lighthouse",
+    "release": "standard-version"
   },
   "dependencies": {
     "@angular/animations": "21.2.8",
@@ -80,6 +81,7 @@
     "postcss-scss": "4.0.9",
     "prettier": "3.8.1",
     "serve": "^14.2.6",
+    "standard-version": "^9.5.0",
     "stylelint": "17.6.0",
     "stylelint-config-recess-order": "7.7.0",
     "stylelint-config-standard-scss": "17.0.0",
