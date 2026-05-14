@@ -12,7 +12,24 @@ $empty-image-width: 200px;
   .my-pokemon__search-container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: var(--spacing-r-m);
     margin-block-end: var(--spacing-r-5xl);
+  }
+
+  .my-pokemon__sort-btn {
+    padding: var(--spacing-r-xs) var(--spacing-r-m);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-m);
+    background: var(--color-surface);
+    color: var(--color-text);
+    cursor: pointer;
+    font-size: var(--font-size-s);
+    white-space: nowrap;
+
+    &:hover {
+      background: var(--color-surface-hover);
+    }
   }
 
   .my-pokemon__grid {

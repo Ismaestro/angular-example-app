@@ -6,6 +6,11 @@
       <app-pokemon-search-input
         [title]="userPokemons().length ? translations.findMore : translations.findPokemon"
       />
+      @if (userPokemons().length) {
+        <button class="my-pokemon__sort-btn" type="button" (click)="toggleSort()">
+          {{ sortOrder() === 'asc' ? 'A → Z' : 'Z → A' }}
+        </button>
+      }
     </div>
   }
 
@@ -30,7 +35,7 @@
     </div>
   } @else {
     <ul class="my-pokemon__grid">
-      @for (pokemon of userPokemons(); track pokemon.id) {
+      @for (pokemon of sortedPokemons(); track pokemon.id) {
         <li>
           <app-pokemon-card [pokemon]="pokemon" />
         </li>

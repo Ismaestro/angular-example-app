@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   CUSTOM_ELEMENTS_SCHEMA,
   inject,
   signal,
@@ -30,6 +31,7 @@ export class MyPokemonComponent {
 
   readonly translations = translations;
   readonly loading = signal(true);
+  readonly sortOrder = signal<'asc' | 'desc'>('asc');
 
   readonly userPokemons = toSignal(
     this.userService.getMe({ cache: false }).pipe(
@@ -51,4 +53,16 @@ export class MyPokemonComponent {
     ),
     { initialValue: [] },
   );
+
+  readonly sortedPokemons = computed(() => {
+    const list = [...this.userPokemons()];
+    const order = this.sortOrder();
+    return list.sort((a, b) =>
+      order === 'asc' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name),
+    );
+  });
+
+  toggleSort() {
+    this.sortOrder.update((current) => (current === 'asc' ? 'desc' : 'asc'));
+  }
 }
