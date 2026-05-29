@@ -85,7 +85,7 @@ npm run test:coverage  # Run Tests with coverage
 
 ## Backend API
 
-This app connects to a real backend powered by NestJS, PostgreSQL, and Prisma, deployed on Fly.io. You can explore the codebase [here](https://github.com/Ismaestro/nestjs-example-app).
+This app connects to a real backend powered by NestJS, PostgreSQL, and Prisma. You can explore the codebase [here](https://github.com/Ismaestro/nestjs-example-app).
 
 ---
 
