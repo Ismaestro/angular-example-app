@@ -93,8 +93,7 @@
     "wait-on": "9.0.4"
   },
   "engines": {
-    "node": ">=22.14 <24",
-    "npm": ">=9.0.0"
+    "node": "22.x"
   },
   "private": true
 }
