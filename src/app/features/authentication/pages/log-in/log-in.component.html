@@ -45,6 +45,38 @@
         <sl-icon name="lock" slot="prefix" />
       </sl-input>
     </div>
+    <div class="form-control__container login__captcha">
+      <sl-input
+        type="number"
+        inputmode="numeric"
+        class="input--primary"
+        placeholder="Captcha answer"
+        label="Security check"
+        size="medium"
+        appTrim
+        required
+        ngDefaultControl
+        [attr.help-text]="
+          formState().isSubmitted && formControls.captcha.invalid
+            ? 'Solve the captcha to continue.'
+            : ''
+        "
+        [formControl]="formControls.captcha"
+      >
+        <span slot="prefix">{{ captchaQuestion() }}</span>
+      </sl-input>
+      <sl-button
+        class="login__captcha-refresh"
+        size="medium"
+        circle
+        type="button"
+        aria-label="Refresh captcha"
+        [disabled]="formState().isLoading"
+        (click)="reloadCaptcha()"
+      >
+        <sl-icon name="arrow-clockwise" />
+      </sl-button>
+    </div>
     <div class="form-control__container">
       <sl-button
         class="button--primary"

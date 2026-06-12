@@ -1,12 +1,21 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   CUSTOM_ELEMENTS_SCHEMA,
   DestroyRef,
   inject,
   signal,
 } from '@angular/core';
-import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  type AbstractControl,
+  FormBuilder,
+  FormControl,
+  ReactiveFormsModule,
+  type ValidationErrors,
+  type ValidatorFn,
+  Validators,
+} from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -56,10 +65,15 @@ export class LogInComponent {
 
   readonly translations = translations;
   readonly authUrls = AUTH_URLS;
+  readonly captchaChallenge = signal(this.createCaptchaChallenge());
+  readonly captchaQuestion = computed(
+    () => `${this.captchaChallenge().left} + ${this.captchaChallenge().right}`,
+  );
   readonly logInForm = this.createLoginForm();
   readonly formControls = {
     email: this.logInForm.get('email') as FormControl<string>,
     password: this.logInForm.get('password') as FormControl<string>,
+    captcha: this.logInForm.get('captcha') as FormControl<string>,
   };
   readonly formState = signal<LogInFormState>({
     isLoading: false,
@@ -104,6 +118,10 @@ export class LogInComponent {
         validators: [Validators.required, Validators.minLength(6), passwordValidator()],
         nonNullable: true,
       }),
+      captcha: new FormControl<string>('', {
+        validators: [Validators.required, this.captchaValidator()],
+        nonNullable: true,
+      }),
     });
   }
 
@@ -113,9 +131,34 @@ export class LogInComponent {
         ? translations.loginCredentialsError
         : translations.genericErrorAlert;
     this.alertService.createErrorAlert(errorMessage);
+    this.reloadCaptcha();
   }
 
   private updateFormState(updates: Partial<LogInFormState>): void {
     this.formState.update((state) => ({ ...state, ...updates }));
+  }
+
+  reloadCaptcha(): void {
+    this.captchaChallenge.set(this.createCaptchaChallenge());
+    this.formControls.captcha.reset('');
+    this.formControls.captcha.updateValueAndValidity();
+  }
+
+  private captchaValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const value = String(control.value ?? '').trim();
+      if (!value) return null;
+      return Number(value) === this.captchaChallenge().answer ? null : { captcha: true };
+    };
+  }
+
+  private createCaptchaChallenge(): { left: number; right: number; answer: number } {
+    const left = this.getRandomCaptchaNumber();
+    const right = this.getRandomCaptchaNumber();
+    return { left, right, answer: left + right };
+  }
+
+  private getRandomCaptchaNumber(): number {
+    return Math.floor(Math.random() * 9) + 1;
   }
 }

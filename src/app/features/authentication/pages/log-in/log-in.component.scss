@@ -15,6 +15,17 @@ $login-form-max-width: 400px;
       padding-block-end: 1rem;
     }
 
+    .login__captcha {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--spacing-r-md);
+      align-items: end;
+    }
+
+    .login__captcha-refresh {
+      margin-block-end: 1px;
+    }
+
     .login__image-container {
       position: relative;
 
