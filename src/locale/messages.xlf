@@ -24,7 +24,7 @@
         <source>Enter</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/log-in/log-in.component.html</context>
-          <context context-type="linenumber">98</context>
+          <context context-type="linenumber">57</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3301086086650990787" datatype="html">
@@ -92,7 +92,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8563030151048628698" datatype="html">
@@ -156,7 +156,7 @@
         <source>Passwords do not match.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">14</context>
+          <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1651947138133669" datatype="html">
@@ -174,7 +174,7 @@
         <source>Pokémon not found. Double-check the name and try again!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1944557953539728996" datatype="html">
@@ -327,14 +327,14 @@
         <source>Invalid credentials. Not very effective, try again!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4022823352084662376" datatype="html">
         <source>Register failed. This attempt wasn’t very effective, try again!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4176833090298296042" datatype="html">
@@ -355,14 +355,14 @@
         <source>Find more!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4310922273540502870" datatype="html">
         <source>Account settings saved. You&apos;re all set!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">20</context>
+          <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4346349683507785886" datatype="html">
@@ -546,7 +546,7 @@
         <source>Find a pokemon</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7535527225967694107" datatype="html">
@@ -581,14 +581,14 @@
         <source>Don&apos;t have an account yet? Register</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/log-in/log-in.component.html</context>
-          <context context-type="linenumber">104</context>
+          <context context-type="linenumber">63</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8192371491020855861" datatype="html">
         <source>Field required. PokeAPI does not found that pokemon name.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8314391617152635292" datatype="html">
@@ -602,7 +602,7 @@
         <source>Oops! Something went wrong. Please try again later or leave an issue if it persists.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">21</context>
+          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8401085193044135025" datatype="html">
@@ -849,7 +849,7 @@
         <source>pokemon pikachu</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/log-in/log-in.component.html</context>
-          <context context-type="linenumber">111</context>
+          <context context-type="linenumber">70</context>
         </context-group>
       </trans-unit>
       <trans-unit id="832917636166100741" datatype="html">
@@ -891,7 +891,7 @@
         <source>No session. Please log in.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3894950702316166331" datatype="html">
@@ -933,49 +933,7 @@
         <source>Toggle theme</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="1102717806459547726" datatype="html">
-        <source>Refresh</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/authentication/pages/log-in/log-in.component.html</context>
-          <context context-type="linenumber">64</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2836889059662271204" datatype="html">
-        <source>Solve the captcha to continue.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">13</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3193553923800794912" datatype="html">
-        <source>Captcha answer</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/authentication/pages/log-in/log-in.component.html</context>
-          <context context-type="linenumber">72</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="5661817284429523575" datatype="html">
-        <source>Captcha challenge</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/authentication/pages/log-in/log-in.component.html</context>
-          <context context-type="linenumber">50</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6616031299505757585" datatype="html">
-        <source>Refresh captcha</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/authentication/pages/log-in/log-in.component.html</context>
-          <context context-type="linenumber">60</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6872198150464438665" datatype="html">
-        <source>Enter captcha answer</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/authentication/pages/log-in/log-in.component.html</context>
-          <context context-type="linenumber">71</context>
+          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
     </body>

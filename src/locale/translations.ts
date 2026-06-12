@@ -10,7 +10,6 @@ export const translations = {
   fieldRequired: $localize`Field required.`,
   emailHelpText: $localize`Field required. No real email validation. Format: example@domain.com`,
   passwordHelpText: $localize`Must contain at least one lowercase letter, one uppercase letter and one number. No special characters.`,
-  captchaHelpText: $localize`Solve the captcha to continue.`,
   confirmPasswordHelpText: $localize`Passwords do not match.`,
   pokemonHelpText: $localize`Field required. PokeAPI does not found that pokemon name.`,
   logout: $localize`Log out`,

@@ -489,30 +489,6 @@
         <source>Toggle theme</source>
         <target state="new">Cambiar tema</target>
       </trans-unit>
-      <trans-unit id="5661817284429523575" datatype="html">
-        <source>Captcha challenge</source>
-        <target>Desafío captcha</target>
-      </trans-unit>
-      <trans-unit id="6616031299505757585" datatype="html">
-        <source>Refresh captcha</source>
-        <target>Actualizar captcha</target>
-      </trans-unit>
-      <trans-unit id="1102717806459547726" datatype="html">
-        <source>Refresh</source>
-        <target>Actualizar</target>
-      </trans-unit>
-      <trans-unit id="6872198150464438665" datatype="html">
-        <source>Enter captcha answer</source>
-        <target>Introduce la respuesta del captcha</target>
-      </trans-unit>
-      <trans-unit id="3193553923800794912" datatype="html">
-        <source>Captcha answer</source>
-        <target>Respuesta del captcha</target>
-      </trans-unit>
-      <trans-unit id="2836889059662271204" datatype="html">
-        <source>Solve the captcha to continue.</source>
-        <target>Resuelve el captcha para continuar.</target>
-      </trans-unit>
     </body>
   </file>
 </xliff>
