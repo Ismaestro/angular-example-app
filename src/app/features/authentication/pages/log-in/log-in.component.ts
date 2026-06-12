@@ -7,6 +7,7 @@ import {
   signal,
 } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import type { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -32,6 +33,11 @@ import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/input/input.js';
 import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 
+type CaptchaChallenge = {
+  question: string;
+  answer: number;
+};
+
 @Component({
   selector: 'app-log-in',
   imports: [
@@ -56,15 +62,22 @@ export class LogInComponent {
 
   readonly translations = translations;
   readonly authUrls = AUTH_URLS;
+  readonly captchaChallenge = signal<CaptchaChallenge>(this.createCaptchaChallenge());
   readonly logInForm = this.createLoginForm();
   readonly formControls = {
     email: this.logInForm.get('email') as FormControl<string>,
     password: this.logInForm.get('password') as FormControl<string>,
+    captcha: this.logInForm.get('captcha') as FormControl<string>,
   };
   readonly formState = signal<LogInFormState>({
     isLoading: false,
     isSubmitted: false,
   });
+
+  refreshCaptcha(): void {
+    this.captchaChallenge.set(this.createCaptchaChallenge());
+    this.formControls.captcha.reset();
+  }
 
   sendForm(): void {
     this.updateFormState({ isSubmitted: true });
@@ -104,7 +117,35 @@ export class LogInComponent {
         validators: [Validators.required, Validators.minLength(6), passwordValidator()],
         nonNullable: true,
       }),
+      captcha: new FormControl<string>('', {
+        validators: [Validators.required, this.createCaptchaValidator()],
+        nonNullable: true,
+      }),
     });
+  }
+
+  private createCaptchaChallenge(): CaptchaChallenge {
+    const firstNumber = this.getRandomNumber();
+    const secondNumber = this.getRandomNumber();
+
+    return {
+      question: `${firstNumber} + ${secondNumber}`,
+      answer: firstNumber + secondNumber,
+    };
+  }
+
+  private createCaptchaValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const value = (control.value ?? '').toString().trim();
+
+      if (!value) return null;
+
+      return Number(value) === this.captchaChallenge().answer ? null : { captcha: true };
+    };
+  }
+
+  private getRandomNumber(): number {
+    return Math.floor(Math.random() * 9) + 1;
   }
 
   private handleLoginError(response: ApiErrorResponse): void {

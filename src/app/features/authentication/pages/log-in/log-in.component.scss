@@ -11,6 +11,34 @@ $login-form-max-width: 400px;
   .login__form {
     max-width: $login-form-max-width;
 
+    .captcha__container {
+      text-align: start;
+
+      .captcha__challenge {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: center;
+        justify-content: space-between;
+        margin-block-end: 0.5rem;
+      }
+
+      .captcha__label {
+        font-size: 0.875rem;
+        font-weight: 600;
+      }
+
+      .captcha__question {
+        padding: 0.25rem 0.75rem;
+        border: 1px dashed currentcolor;
+        border-radius: 999px;
+      }
+
+      .captcha__refresh-button::part(base) {
+        padding-inline: 0;
+      }
+    }
+
     .form-footer__paragraph {
       padding-block-end: 1rem;
     }

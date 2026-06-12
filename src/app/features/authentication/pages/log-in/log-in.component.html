@@ -45,6 +45,47 @@
         <sl-icon name="lock" slot="prefix" />
       </sl-input>
     </div>
+    <div class="form-control__container captcha__container">
+      <div class="captcha__challenge" aria-live="polite">
+        <span class="captcha__label" i18n>Captcha challenge</span>
+        <strong class="captcha__question" data-testid="login-captcha-question">
+          {{ captchaChallenge().question }} = ?
+        </strong>
+        <sl-button
+          class="captcha__refresh-button"
+          variant="text"
+          size="small"
+          type="button"
+          i18n-label
+          label="Refresh captcha"
+          (click)="refreshCaptcha()"
+        >
+          <sl-icon name="arrow-clockwise" slot="prefix" />
+          <ng-container i18n>Refresh</ng-container>
+        </sl-button>
+      </div>
+      <sl-input
+        class="input--primary"
+        type="number"
+        inputmode="numeric"
+        placeholder="Enter captcha answer"
+        label="Captcha answer"
+        size="medium"
+        i18n-label
+        i18n-placeholder
+        appSlInputIconFocus
+        required
+        ngDefaultControl
+        [attr.help-text]="
+          formState().isSubmitted && formControls.captcha.invalid
+            ? translations.captchaHelpText
+            : ''
+        "
+        [formControl]="formControls.captcha"
+      >
+        <sl-icon name="shield-lock" slot="prefix" />
+      </sl-input>
+    </div>
     <div class="form-control__container">
       <sl-button
         class="button--primary"

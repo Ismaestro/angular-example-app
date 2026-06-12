@@ -24,7 +24,7 @@
         <source>Enter</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/log-in/log-in.component.html</context>
-          <context context-type="linenumber">57</context>
+          <context context-type="linenumber">98</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3301086086650990787" datatype="html">
@@ -92,7 +92,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">16</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8563030151048628698" datatype="html">
@@ -156,7 +156,7 @@
         <source>Passwords do not match.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">13</context>
+          <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1651947138133669" datatype="html">
@@ -174,7 +174,7 @@
         <source>Pokémon not found. Double-check the name and try again!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1944557953539728996" datatype="html">
@@ -327,14 +327,14 @@
         <source>Invalid credentials. Not very effective, try again!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">21</context>
+          <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4022823352084662376" datatype="html">
         <source>Register failed. This attempt wasn’t very effective, try again!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4176833090298296042" datatype="html">
@@ -355,14 +355,14 @@
         <source>Find more!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4310922273540502870" datatype="html">
         <source>Account settings saved. You&apos;re all set!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4346349683507785886" datatype="html">
@@ -426,7 +426,7 @@
         <source>Key features</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">45</context>
+          <context context-type="linenumber">28</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5157210307460756815" datatype="html">
@@ -546,7 +546,7 @@
         <source>Find a pokemon</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7535527225967694107" datatype="html">
@@ -581,14 +581,14 @@
         <source>Don&apos;t have an account yet? Register</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/log-in/log-in.component.html</context>
-          <context context-type="linenumber">63</context>
+          <context context-type="linenumber">104</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8192371491020855861" datatype="html">
         <source>Field required. PokeAPI does not found that pokemon name.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">14</context>
+          <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8314391617152635292" datatype="html">
@@ -602,7 +602,7 @@
         <source>Oops! Something went wrong. Please try again later or leave an issue if it persists.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">20</context>
+          <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8401085193044135025" datatype="html">
@@ -705,91 +705,91 @@
         <source><x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>Reactive Forms<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">78</context>
+          <context context-type="linenumber">61</context>
         </context-group>
       </trans-unit>
       <trans-unit id="19928707238720227" datatype="html">
         <source>Explore Internationalization</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">73</context>
+          <context context-type="linenumber">56</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2976285442101094791" datatype="html">
         <source> Create smooth transitions and engaging effects with Angular’s powerful animation API, making your application visually appealing and interactive. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">96</context>
+          <context context-type="linenumber">79</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4667572349058874775" datatype="html">
         <source> Angular’s internationalization tools make it seamless to localize your app, handle translations, and format dates, numbers, and currencies for any locale. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">68</context>
+          <context context-type="linenumber">51</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4869980192320162230" datatype="html">
         <source>Start with Reactive Forms</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">87</context>
+          <context context-type="linenumber">70</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4932058897590347667" datatype="html">
         <source>Discover Angular Animations</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">101</context>
+          <context context-type="linenumber">84</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5028423997546001256" datatype="html">
         <source>Effortless form handling and validation.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">81</context>
+          <context context-type="linenumber">64</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5371828026227187692" datatype="html">
         <source>Build apps for a global audience.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">66</context>
+          <context context-type="linenumber">49</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7623666311824205556" datatype="html">
         <source> Signals provide a declarative way to manage state and reactivity in your application, simplifying data flow and improving performance. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">55</context>
+          <context context-type="linenumber">38</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7680046165638889668" datatype="html">
         <source>Unlock reactivity with Angular Signals.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">53</context>
+          <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7755502772624126238" datatype="html">
         <source>Learn more about Signals</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">59</context>
+          <context context-type="linenumber">42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8266707669188290771" datatype="html">
         <source> Reactive Forms empower you to create robust, dynamic forms with a model-driven approach, making validation, dynamic updates, and testing a breeze. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">83</context>
+          <context context-type="linenumber">66</context>
         </context-group>
       </trans-unit>
       <trans-unit id="998113163585598828" datatype="html">
         <source>Bring your UI to life with Angular Animations.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">94</context>
+          <context context-type="linenumber">77</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6658258424216666202" datatype="html">
@@ -835,7 +835,7 @@
         <source>ash and pikachu</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6126453628105043246" datatype="html">
@@ -849,21 +849,21 @@
         <source>pokemon pikachu</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/log-in/log-in.component.html</context>
-          <context context-type="linenumber">70</context>
+          <context context-type="linenumber">111</context>
         </context-group>
       </trans-unit>
       <trans-unit id="832917636166100741" datatype="html">
         <source>pokemon charizard</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">107</context>
+          <context context-type="linenumber">90</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8621872426885426686" datatype="html">
         <source>pokemon blastoise</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">117</context>
+          <context context-type="linenumber">100</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2260117472123115270" datatype="html">
@@ -877,7 +877,7 @@
         <source>Users seeing this page: <x id="INTERPOLATION" equiv-text="{{ activeUsersResource.value().activeUsers }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">126</context>
+          <context context-type="linenumber">109</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6973719636314914984" datatype="html">
@@ -891,14 +891,14 @@
         <source>No session. Please log in.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3894950702316166331" datatype="html">
         <source>Loading...</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">130</context>
+          <context context-type="linenumber">113</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8469070228767591171" datatype="html">
@@ -912,28 +912,70 @@
         <source>Angular Signals</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2709889076680757048" datatype="html">
         <source>Animations</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">91</context>
+          <context context-type="linenumber">74</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7373613501758200135" datatype="html">
         <source>Internationalization</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">63</context>
+          <context context-type="linenumber">46</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3157338228245949714" datatype="html">
         <source>Toggle theme</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1102717806459547726" datatype="html">
+        <source>Refresh</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/log-in/log-in.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2836889059662271204" datatype="html">
+        <source>Solve the captcha to continue.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3193553923800794912" datatype="html">
+        <source>Captcha answer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/log-in/log-in.component.html</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5661817284429523575" datatype="html">
+        <source>Captcha challenge</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/log-in/log-in.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6616031299505757585" datatype="html">
+        <source>Refresh captcha</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/log-in/log-in.component.html</context>
+          <context context-type="linenumber">60</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6872198150464438665" datatype="html">
+        <source>Enter captcha answer</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/features/authentication/pages/log-in/log-in.component.html</context>
+          <context context-type="linenumber">71</context>
         </context-group>
       </trans-unit>
     </body>
