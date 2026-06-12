@@ -549,13 +549,6 @@
           <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7358438134446811618" datatype="html">
-        <source> It comes with features like internationalization, standalone components, a more logical folder structure, etc, making it a great starting point for building scalable Angular apps. </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">17</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="7535527225967694107" datatype="html">
         <source>Español</source>
         <context-group purpose="location">
@@ -651,13 +644,6 @@
           <context context-type="linenumber">87</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8795992692534730306" datatype="html">
-        <source> This project leverages the <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>PokeAPI<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/> to provide fun and practical examples, making it easier to understand key concepts in Angular development. By using data from the Pokémon universe, it offers a familiar and engaging way to showcase features like fetching data, handling API calls, and displaying dynamic content. </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">27</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="8844151061219581698" datatype="html">
         <source>Trainer frame 1</source>
         <context-group purpose="location">
@@ -685,13 +671,6 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
           <context context-type="linenumber">19</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8976378127227472342" datatype="html">
-        <source> Whether you’re looking for a boilerplate or a solid base project, this setup is designed to help you create clean, maintainable code with ease. </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="9023761150161723521" datatype="html">

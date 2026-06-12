@@ -257,18 +257,6 @@
         <source> This project is a modern, real-world application designed as a foundation for creating new Angular-based projects and also a practical resource for learning. </source>
         <target state="new"> Este proyecto es una aplicación actualizada y real que está diseñada como base para crear nuevos proyectos basados en Angular y también como un recurso para aprender. </target>
       </trans-unit>
-      <trans-unit id="7358438134446811618" datatype="html">
-        <source> It comes with features like internationalization, standalone components, a more logical folder structure, etc, making it a great starting point for building scalable Angular apps. </source>
-        <target state="new"> Incluye características como internacionalización, standalone components, una estructura de carpetas más lógica, etc., lo que lo convierte en un excelente punto de partida para crear aplicaciones en Angular que escalen con facilidad y sean mantenibles. </target>
-      </trans-unit>
-      <trans-unit id="8976378127227472342" datatype="html">
-        <source> Whether you’re looking for a boilerplate or a solid base project, this setup is designed to help you create clean, maintainable code with ease. </source>
-        <target state="new"> Ya sea que busques una plantilla o un proyecto base sólido, esta configuración está diseñada para ayudarte a crear código limpio y mantenible con facilidad. </target>
-      </trans-unit>
-      <trans-unit id="8795992692534730306" datatype="html">
-        <source> This project leverages the <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>PokeAPI<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/> to provide fun and practical examples, making it easier to understand key concepts in Angular development. By using data from the Pokémon universe, it offers a familiar and engaging way to showcase features like fetching data, handling API calls, and displaying dynamic content. </source>
-        <target state="new"> Este proyecto aprovecha la <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>PokeAPI<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/> para proporcionar ejemplos divertidos y prácticos, facilitando la comprensión de conceptos clave en el desarrollo de Angular. Al usar datos del universo Pokémon, ofrece una forma familiar y atractiva de mostrar características como la obtención de datos, el manejo de llamadas API y la visualización de contenido dinámico. </target>
-      </trans-unit>
       <trans-unit id="5023424198144676396" datatype="html">
         <source>Key features</source>
         <target state="new">Características clave</target>
