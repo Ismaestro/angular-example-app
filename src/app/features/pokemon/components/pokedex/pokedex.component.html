@@ -13,12 +13,10 @@
             <app-pokemon-image [image]="pokemonImage()" />
           </div>
           <div class="pokedex__top-text-container">
-            @if (pokemon()) {
-              <p class="pokemon__name-text">{{ pokemon()?.name | firstTitleCase }}</p>
-              <p i18n>N.º: {{ pokemon()?.order }}</p>
-              <p i18n>Height: {{ pokemon()?.height }} dm</p>
-              <p i18n>Weight: {{ pokemon()?.weight }} hg</p>
-            }
+            <p class="pokemon__name-text">{{ pokemon().name | firstTitleCase }}</p>
+            <p i18n>N.º: {{ pokemon().order }}</p>
+            <p i18n>Height: {{ pokemon().height }} dm</p>
+            <p i18n>Weight: {{ pokemon().weight }} hg</p>
           </div>
         </div>
       </figure>
@@ -31,21 +29,22 @@
       <div class="pokedex__pad-circle"></div>
     </div>
     <div class="pokedex__bottom-data-container">
-      @if (userHasCaught()) {
+      @let pokedexStatus = status();
+      @if (pokedexStatus === 'caught') {
         <p i18n>
-          🎯 Nice catch, {{ user?.name }}! You’re one step closer to being a Pokémon Master—keep it
-          up! 🌟
+          🎯 Nice catch, {{ user()?.name }}! You’re one step closer to being a Pokémon Master—keep
+          it up! 🌟
         </p>
-      } @else if (userHasPokemon()) {
+      } @else if (pokedexStatus === 'owned') {
         <p i18n>Already got this one, keep going!</p>
-      } @else {
+      } @else if (pokedexStatus !== 'loading') {
         <p i18n>Still gotta catch 'em all, this one's missing from your Pokédex!</p>
         <div class="pokedex-actions__container">
           <sl-button
             i18n
             class="button--pokemon-style"
-            [disabled]="isPokedexButtonDisabled()"
-            (click)="catchPokemon()"
+            [disabled]="pokedexStatus === 'catching'"
+            (click)="pokeballThrow.emit()"
           >
             POKEBALL
           </sl-button>

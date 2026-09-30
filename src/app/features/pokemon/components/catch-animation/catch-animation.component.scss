@@ -1,6 +1,19 @@
 @use 'base/media-queries' as mq;
 
 :host {
+  // Consumed by the pokeball animation keyframes (see catch.animations.ts)
+  --pokeball-starting-point: 0, -80px;
+  --pokeball-pokemon-x-point: 105px;
+  --pokeball-pokemon-y-point: -140px;
+  --pokeball-ground-y-point: -80px;
+
+  @include mq.for-tablet-up {
+    --pokeball-starting-point: 80px, 15px;
+    --pokeball-pokemon-x-point: 260px;
+    --pokeball-pokemon-y-point: -100px;
+    --pokeball-ground-y-point: -10px;
+  }
+
   .pokemon__container {
     position: absolute;
     right: 45px;

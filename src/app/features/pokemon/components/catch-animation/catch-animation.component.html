@@ -4,7 +4,6 @@
   </div>
 }
 
-<!-- eslint-disable-next-line @angular-eslint/template/no-inline-styles -->
 <img
   ngSrc="angularexampleapp/assets/images/pokeball.png"
   alt="Pokeball"
@@ -13,10 +12,4 @@
   height="100"
   width="100"
   [@pokeballAnimation]="pokeballState()"
-  [ngStyle]="{
-    '--pokeball-starting-point': pokeballStartingPoint(),
-    '--pokeball-pokemon-x-point': pokeballPokemonXPoint(),
-    '--pokeball-pokemon-y-point': pokeballPokemonYPoint(),
-    '--pokeball-ground-y-point': pokeballGroundYPoint(),
-  }"
 />

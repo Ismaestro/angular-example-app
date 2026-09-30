@@ -1,52 +1,81 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  CUSTOM_ELEMENTS_SCHEMA,
+  computed,
+  DestroyRef,
   effect,
   inject,
-  signal,
+  input,
+  linkedSignal,
 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { PokemonService } from '~features/pokemon/services/pokemon.service';
 import type { Pokemon } from '~features/pokemon/types/pokemon.types';
-import { ActivatedRoute } from '@angular/router';
+import type { BattlePhase } from '~features/pokemon/types/battle-phase.types';
 import { PokemonBattlefieldComponent } from '~features/pokemon/components/pokemon-battlefield/pokemon-battlefield.component';
 import { PokedexComponent } from '~features/pokemon/components/pokedex/pokedex.component';
-import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
+import { UserStore } from '~features/authentication/services/user.store';
+import { AuthenticationService } from '~features/authentication/services/authentication.service';
 import { translations } from '~locale/translations';
 import { AlertService } from '~core/services/ui/alert.service';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { map } from 'rxjs';
 import { PokemonSearchInputComponent } from '~shared/components/pokemon-search-input/pokemon-search-input.component';
 
+/**
+ * Container of the battle: it owns the battle state and passes it down to its presentational
+ * children through inputs, which report back what happened through outputs.
+ */
 @Component({
   selector: 'app-pokemon-detail',
   imports: [PokemonBattlefieldComponent, PokedexComponent, PokemonSearchInputComponent],
   templateUrl: './pokemon-detail.component.html',
   styleUrl: './pokemon-detail.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PokemonDetailComponent {
-  private readonly activatedRoute = inject(ActivatedRoute);
   private readonly pokemonService = inject(PokemonService);
+  private readonly userStore = inject(UserStore);
+  private readonly authenticationService = inject(AuthenticationService);
   private readonly alertService = inject(AlertService);
+  private readonly destroyRef = inject(DestroyRef);
 
-  readonly pokemonId = toSignal(
-    this.activatedRoute.paramMap.pipe(map((parameters) => parameters.get('pokemonId') ?? '')),
-    { initialValue: '' },
-  );
+  readonly pokemonId = input.required<string>();
   readonly pokemonResource = this.pokemonService.getPokemonResource(this.pokemonId);
-  readonly pokemon = signal<Pokemon | null>(null);
 
-  // eslint-disable-next-line @angular-eslint/prefer-signals
-  pokemonBattleEvent = signal(BattleEvent.POKEMON_LOADED);
+  /** The battle starts over every time a different pokemon is loaded */
+  readonly battlePhase = linkedSignal<Pokemon | undefined, BattlePhase>({
+    source: this.pokemonResource.value,
+    computation: () => 'ready',
+  });
+  readonly pokeballThrown = computed(
+    () => this.battlePhase() === 'throwing' || this.battlePhase() === 'caught',
+  );
 
   readonly pokemonDetailEffect = effect(() => {
-    if (this.pokemonResource.value()) {
-      this.pokemonBattleEvent.set(BattleEvent.RESET_BATTLE);
-    }
     if (this.pokemonResource.error()) {
       this.alertService.createErrorAlert(translations.pokemonNotFoundError);
     }
   });
+
+  catchPokemon(pokemon: Pokemon): void {
+    this.battlePhase.set('catching');
+    this.userStore
+      .catchPokemon(pokemon.id)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: () => {
+          this.battlePhase.set('throwing');
+        },
+        error: () => {
+          this.battlePhase.set('ready');
+          // When the session has expired, the authentication interceptor already notifies the user
+          if (this.authenticationService.authState().isLoggedIn) {
+            this.alertService.createErrorAlert(translations.genericErrorAlert);
+          }
+        },
+      });
+  }
+
+  onCatchAnimationEnd(): void {
+    this.battlePhase.set('caught');
+  }
 }

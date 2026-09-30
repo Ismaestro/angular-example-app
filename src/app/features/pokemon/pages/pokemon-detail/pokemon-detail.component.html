@@ -3,8 +3,16 @@
   <div class="pokemon-search-input__container">
     <app-pokemon-search-input />
   </div>
-  <app-pokemon-battlefield [pokemon]="pokemon" [pokemonBattleEvent]="pokemonBattleEvent" />
+  <app-pokemon-battlefield
+    [pokemon]="pokemon"
+    [pokeballThrown]="pokeballThrown()"
+    (catchAnimationEnd)="onCatchAnimationEnd()"
+  />
   <div class="pokedex__container">
-    <app-pokedex [pokemon]="pokemon" [pokemonBattleEvent]="pokemonBattleEvent" />
+    <app-pokedex
+      [pokemon]="pokemon"
+      [battlePhase]="battlePhase()"
+      (pokeballThrow)="catchPokemon(pokemon)"
+    />
   </div>
 }

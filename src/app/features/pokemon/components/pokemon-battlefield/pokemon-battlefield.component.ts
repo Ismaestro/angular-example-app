@@ -1,9 +1,14 @@
-import type { OnInit, WritableSignal } from '@angular/core';
-import { ChangeDetectionStrategy, Component, effect, input, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  input,
+  linkedSignal,
+  output,
+} from '@angular/core';
 import type { Pokemon } from '~features/pokemon/types/pokemon.types';
 import { PokemonImageComponent } from '~features/pokemon/components/pokemon-image/pokemon-image.component';
 import { NgOptimizedImage } from '@angular/common';
-import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
 import { CatchAnimationComponent } from '~features/pokemon/components/catch-animation/catch-animation.component';
 
 @Component({
@@ -13,44 +18,19 @@ import { CatchAnimationComponent } from '~features/pokemon/components/catch-anim
   styleUrl: './pokemon-battlefield.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PokemonBattlefieldComponent implements OnInit {
-  readonly pokemonBattleEvent = input.required<WritableSignal<BattleEvent>>();
-  readonly pokemon = input<Pokemon | null>();
-  readonly pokemonImage = signal('');
-  readonly startCatchAnimation = signal(false);
-  readonly pokemonImageLoaded = signal(false);
+export class PokemonBattlefieldComponent {
+  readonly pokemon = input.required<Pokemon>();
+  readonly pokeballThrown = input(false);
+  readonly catchAnimationEnd = output();
 
-  readonly battlefieldEffect = effect(() => {
-    this.updatePokemonImage();
-    this.handleThrowPokeballEvent();
-    this.handleResetBattleEvent();
+  readonly pokemonImage = computed(() => this.pokemon().sprites.front_default);
+  /** Hidden again every time the pokemon changes, until its image has been loaded */
+  readonly pokemonImageLoaded = linkedSignal({
+    source: this.pokemon,
+    computation: () => false,
   });
 
-  ngOnInit(): void {
-    this.pokemonImage.set(this.pokemon()?.sprites.front_default ?? '');
-  }
-
-  startPokemonInitialAnimation(loaded: boolean) {
-    this.pokemonImageLoaded.set(loaded);
-  }
-
-  private updatePokemonImage(): void {
-    const pokemonValue = this.pokemon();
-    if (pokemonValue) {
-      this.pokemonImage.set(pokemonValue.sprites.front_default);
-    }
-  }
-
-  private handleThrowPokeballEvent(): void {
-    if ((this.pokemonBattleEvent()() as unknown as BattleEvent) === BattleEvent.THROW_POKEBALL) {
-      this.startCatchAnimation.set(true);
-    }
-  }
-
-  private handleResetBattleEvent(): void {
-    if ((this.pokemonBattleEvent()() as unknown as BattleEvent) === BattleEvent.RESET_BATTLE) {
-      this.startCatchAnimation.set(false);
-      this.pokemonImageLoaded.set(false);
-    }
+  onPokemonImageLoaded(): void {
+    this.pokemonImageLoaded.set(true);
   }
 }

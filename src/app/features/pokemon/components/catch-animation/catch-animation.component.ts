@@ -1,16 +1,12 @@
-import type { OnInit } from '@angular/core';
 import {
   ChangeDetectionStrategy,
   Component,
-  DOCUMENT,
   effect,
-  inject,
   input,
-  signal,
-  type WritableSignal,
+  linkedSignal,
+  output,
 } from '@angular/core';
-import { NgOptimizedImage, NgStyle } from '@angular/common';
-import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
+import { NgOptimizedImage } from '@angular/common';
 import { catchAnimations } from '~features/pokemon/components/catch-animation/catch.animations';
 
 enum PokeballState {
@@ -27,87 +23,73 @@ enum PokemonState {
   Disappear = 'disappear',
 }
 
+type CatchStep = {
+  delayMs: number;
+  pokeball?: PokeballState;
+  pokemon?: PokemonState;
+  isLast?: boolean;
+};
+
+const CATCH_SEQUENCE: readonly CatchStep[] = [
+  { delayMs: 500, pokemon: PokemonState.Shining },
+  { delayMs: 1500, pokemon: PokemonState.Disappear },
+  { delayMs: 1700, pokeball: PokeballState.Falling },
+  { delayMs: 3000, pokeball: PokeballState.Shaking },
+  { delayMs: 6500, pokeball: PokeballState.Shining, isLast: true },
+];
+
 @Component({
   selector: 'app-catch-animation',
-  imports: [NgOptimizedImage, NgStyle],
+  imports: [NgOptimizedImage],
   templateUrl: './catch-animation.component.html',
   styleUrl: './catch-animation.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
-    '(window:resize)': 'loadAnimationPositions()',
-  },
   animations: [catchAnimations],
 })
-export class CatchAnimationComponent implements OnInit {
-  private readonly document = inject(DOCUMENT);
+export class CatchAnimationComponent {
+  readonly pokeballThrown = input(false);
+  readonly catchAnimationEnd = output();
 
-  readonly pokemonBattleEvent = input.required<WritableSignal<BattleEvent>>();
-  readonly pokeballStartingPoint = signal('');
-  readonly pokeballPokemonXPoint = signal('');
-  readonly pokeballPokemonYPoint = signal('');
-  readonly pokeballGroundYPoint = signal('');
-  readonly pokeballState = signal(PokeballState.Idle);
-  readonly pokemonState = signal(PokemonState.Idle);
-
-  readonly catchEffect = effect(() => {
-    const pokemonBattleEvent = this.pokemonBattleEvent();
-    if (pokemonBattleEvent() === BattleEvent.THROW_POKEBALL) {
-      this.startCatchAnimation();
-    }
-    if (
-      pokemonBattleEvent() === BattleEvent.POKEMON_LOADED ||
-      pokemonBattleEvent() === BattleEvent.RESET_BATTLE
-    ) {
-      this.pokeballState.set(PokeballState.Idle);
-      this.pokemonState.set(PokemonState.Idle);
-    }
+  /** Both states start over every time the pokeball is thrown or the battle is reset */
+  readonly pokeballState = linkedSignal<PokeballState>(() =>
+    this.pokeballThrown() ? PokeballState.Catching : PokeballState.Idle,
+  );
+  readonly pokemonState = linkedSignal<boolean, PokemonState>({
+    source: this.pokeballThrown,
+    computation: () => PokemonState.Idle,
   });
 
-  ngOnInit() {
-    this.loadAnimationPositions();
+  constructor() {
+    // An effect is the right tool here: it schedules side effects (timers), it does not derive state
+    effect((onCleanup) => {
+      if (!this.pokeballThrown()) {
+        return;
+      }
+
+      const timeouts = CATCH_SEQUENCE.map((step) =>
+        setTimeout(() => {
+          this.runStep(step);
+        }, step.delayMs),
+      );
+
+      // Runs when the pokeball is reset or the component is destroyed: no timer outlives it
+      onCleanup(() => {
+        for (const timeout of timeouts) {
+          clearTimeout(timeout);
+        }
+      });
+    });
   }
 
-  startCatchAnimation() {
-    this.pokeballState.set(PokeballState.Catching);
-
-    setTimeout(() => {
-      this.pokemonState.set(PokemonState.Shining);
-    }, 500);
-    setTimeout(() => {
-      this.pokemonState.set(PokemonState.Disappear);
-    }, 1500);
-    setTimeout(() => {
-      this.pokeballState.set(PokeballState.Falling);
-    }, 1700);
-    setTimeout(() => {
-      this.pokeballState.set(PokeballState.Shaking);
-    }, 3000);
-    setTimeout(() => {
-      this.pokeballState.set(PokeballState.Shining);
-      this.pokemonBattleEvent().set(BattleEvent.CATCH_ANIMATION_ENDED);
-    }, 6500);
-  }
-
-  loadAnimationPositions() {
-    const innerWidth = this.document.defaultView?.innerWidth;
-    if (innerWidth && innerWidth <= 768) {
-      this.setMobilePositions();
-    } else {
-      this.setDesktopPositions();
+  private runStep({ pokeball, pokemon, isLast }: CatchStep): void {
+    if (pokeball) {
+      this.pokeballState.set(pokeball);
     }
-  }
-
-  private setMobilePositions() {
-    this.pokeballStartingPoint.set('0px, -80px');
-    this.pokeballPokemonXPoint.set('105px');
-    this.pokeballPokemonYPoint.set('-140px');
-    this.pokeballGroundYPoint.set('-80px');
-  }
-
-  private setDesktopPositions() {
-    this.pokeballStartingPoint.set('80px, 15px');
-    this.pokeballPokemonXPoint.set('260px');
-    this.pokeballPokemonYPoint.set('-100px');
-    this.pokeballGroundYPoint.set('-10px');
+    if (pokemon) {
+      this.pokemonState.set(pokemon);
+    }
+    if (isLast) {
+      this.catchAnimationEnd.emit();
+    }
   }
 }

@@ -1,24 +1,26 @@
-import type { OnInit, WritableSignal } from '@angular/core';
 import {
+  afterNextRender,
   ChangeDetectionStrategy,
   Component,
+  computed,
   CUSTOM_ELEMENTS_SCHEMA,
   DestroyRef,
-  effect,
   inject,
   input,
+  output,
   signal,
 } from '@angular/core';
 import type { Pokemon } from '~features/pokemon/types/pokemon.types';
+import type { BattlePhase } from '~features/pokemon/types/battle-phase.types';
 import { PokemonImageComponent } from '~features/pokemon/components/pokemon-image/pokemon-image.component';
 import { FirstTitleCasePipe } from '~shared/pipes/first-title-case.pipe';
-import { UserService } from '~features/authentication/services/user.service';
-import type { User } from '~features/authentication/types/user.types';
-import { BattleEvent } from '~features/pokemon/components/pokedex/enums/pokedex-action.enum';
-import { AlertService } from '~core/services/ui/alert.service';
-import { translations } from '~locale/translations';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { AuthenticationService } from '~features/authentication/services/authentication.service';
+import { UserStore } from '~features/authentication/services/user.store';
+
+import '@shoelace-style/shoelace/dist/components/button/button.js';
+
+type PokedexStatus = 'loading' | 'missing' | 'catching' | 'caught' | 'owned';
+
+const OPENING_DELAY_MS = 300;
 
 @Component({
   selector: 'app-pokedex',
@@ -28,125 +30,44 @@ import { AuthenticationService } from '~features/authentication/services/authent
   changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class PokedexComponent implements OnInit {
-  private readonly userService = inject(UserService);
-  private readonly alertService = inject(AlertService);
+export class PokedexComponent {
+  private readonly userStore = inject(UserStore);
   private readonly destroyRef = inject(DestroyRef);
-  private readonly authenticationService = inject(AuthenticationService);
 
-  readonly pokemonBattleEvent = input.required<WritableSignal<BattleEvent>>();
-  readonly pokemon = input<Pokemon | null>();
+  readonly pokemon = input.required<Pokemon>();
+  readonly battlePhase = input.required<BattlePhase>();
+  readonly pokeballThrow = output();
+
   readonly isPokedexClosed = signal(true);
-  readonly pokemonImage = signal('');
-  readonly userHasCaught = signal(false);
-  readonly userHasPokemon = signal(true);
-  readonly isPokedexButtonDisabled = signal(false);
-  readonly isUserLoggedIn = () => this.authenticationService.authState().isLoggedIn;
-
-  readonly pokedexEffect = effect(() => {
-    this.updatePokemonState();
-    this.handleBattleEvents();
+  readonly user = this.userStore.user.value;
+  readonly pokemonImage = computed(() => this.pokemon().sprites.front_default);
+  readonly status = computed<PokedexStatus>(() => {
+    const battlePhase = this.battlePhase();
+    if (battlePhase === 'caught') {
+      return 'caught';
+    }
+    if (battlePhase !== 'ready') {
+      return 'catching';
+    }
+    if (this.userStore.user.isLoading()) {
+      return 'loading';
+    }
+    return this.user()?.caughtPokemonIds.includes(this.pokemon().id) ? 'owned' : 'missing';
   });
 
-  translations = translations;
-  user: User | undefined;
-  updatedUser: User | undefined;
-
-  ngOnInit() {
-    const pokemonValue = this.pokemon();
-    if (pokemonValue) {
-      if (this.isUserLoggedIn()) {
-        this.userService
-          .getMe({ cache: false })
-          .pipe(takeUntilDestroyed(this.destroyRef))
-          .subscribe({
-            next: (user: User) => {
-              this.user = user;
-              this.pokemonImage.set(pokemonValue.sprites.front_default);
-              this.userHasPokemon.set(user.caughtPokemonIds.includes(pokemonValue.id));
-              setTimeout(() => {
-                this.isPokedexClosed.set(false);
-              }, 300);
-            },
-            error: () => {
-              this.alertService.createErrorAlert(translations.genericErrorAlert);
-            },
-          });
-      } else {
-        this.userHasPokemon.set(false);
-        this.pokemonImage.set(pokemonValue.sprites.front_default);
-        setTimeout(() => {
-          this.isPokedexClosed.set(false);
-        }, 300);
-      }
-    }
+  constructor() {
+    // Opened once rendered in the browser, so the opening transition can be seen
+    afterNextRender(() => {
+      const timeout = setTimeout(() => {
+        this.isPokedexClosed.set(false);
+      }, OPENING_DELAY_MS);
+      this.destroyRef.onDestroy(() => {
+        clearTimeout(timeout);
+      });
+    });
   }
 
   togglePokedex() {
-    this.isPokedexClosed.set(!this.isPokedexClosed());
-  }
-
-  notifyBattlefield() {
-    this.isPokedexButtonDisabled.set(true);
-    (this.pokemonBattleEvent() as unknown as WritableSignal<BattleEvent>).set(
-      BattleEvent.THROW_POKEBALL,
-    );
-  }
-
-  catchPokemon() {
-    this.userHasCaught.set(false);
-    const pokemonId = this.pokemon()?.id;
-    if (pokemonId) {
-      this.userService
-        .catchPokemon({ pokemonId })
-        .pipe(takeUntilDestroyed(this.destroyRef))
-        .subscribe({
-          next: (user) => {
-            this.notifyBattlefield();
-            this.updatedUser = user;
-          },
-        });
-    }
-  }
-
-  private updatePokemonState(): void {
-    const pokemonValue = this.pokemon();
-    if (pokemonValue) {
-      this.pokemonImage.set(pokemonValue.sprites.front_default);
-      this.userHasPokemon.set(this.user?.caughtPokemonIds.includes(pokemonValue.id) ?? false);
-    }
-  }
-
-  private handleBattleEvents(): void {
-    const event = this.pokemonBattleEvent()();
-    switch (event as unknown as BattleEvent) {
-      case BattleEvent.CATCH_ANIMATION_ENDED: {
-        this.handleCatchAnimationEnded();
-        break;
-      }
-      case BattleEvent.RESET_BATTLE: {
-        this.handleResetBattle();
-        break;
-      }
-      default: {
-        break;
-      }
-    }
-  }
-
-  private handleCatchAnimationEnded(): void {
-    if (this.updatedUser) {
-      this.user = this.updatedUser;
-      this.userHasCaught.set(true);
-    }
-  }
-
-  private handleResetBattle(): void {
-    this.userHasCaught.set(false);
-    this.isPokedexButtonDisabled.set(false);
-    const pokemonValue = this.pokemon();
-    const pokemonId = pokemonValue?.id;
-    const caughtPokemonIds = this.user?.caughtPokemonIds ?? [];
-    this.userHasPokemon.set(pokemonId ? caughtPokemonIds.includes(pokemonId) : true);
+    this.isPokedexClosed.update((isClosed) => !isClosed);
   }
 }
