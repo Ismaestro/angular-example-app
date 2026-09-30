@@ -106,7 +106,7 @@
         <source>Still gotta catch &apos;em all, this one&apos;s missing from your Pokédex!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/pokemon/components/pokedex/pokedex.component.html</context>
-          <context context-type="linenumber">42</context>
+          <context context-type="linenumber">41</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1206520795340730278" datatype="html">
@@ -124,7 +124,7 @@
         <source>Already got this one, keep going!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/pokemon/components/pokedex/pokedex.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1448946353661594760" datatype="html">
@@ -160,10 +160,10 @@
         </context-group>
       </trans-unit>
       <trans-unit id="1651947138133669" datatype="html">
-        <source>Weight: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.weight }}"/> hg</source>
+        <source>Weight: <x id="INTERPOLATION" equiv-text="{{ pokemon().weight }}"/> hg</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/pokemon/components/pokedex/pokedex.component.html</context>
-          <context context-type="linenumber">20</context>
+          <context context-type="linenumber">19</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/user/my-pokemon/components/pokemon-card/pokemon-card.component.html</context>
@@ -174,7 +174,7 @@
         <source>Pokémon not found. Double-check the name and try again!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">24</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1944557953539728996" datatype="html">
@@ -299,10 +299,10 @@
         </context-group>
       </trans-unit>
       <trans-unit id="3616505908279277966" datatype="html">
-        <source>N.º: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.order }}"/></source>
+        <source>N.º: <x id="INTERPOLATION" equiv-text="{{ pokemon().order }}"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/pokemon/components/pokedex/pokedex.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">17</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/user/my-pokemon/components/pokemon-card/pokemon-card.component.html</context>
@@ -327,14 +327,14 @@
         <source>Invalid credentials. Not very effective, try again!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">21</context>
+          <context context-type="linenumber">22</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4022823352084662376" datatype="html">
         <source>Register failed. This attempt wasn’t very effective, try again!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="linenumber">23</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4176833090298296042" datatype="html">
@@ -355,14 +355,14 @@
         <source>Find more!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="linenumber">18</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4310922273540502870" datatype="html">
         <source>Account settings saved. You&apos;re all set!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4346349683507785886" datatype="html">
@@ -376,7 +376,7 @@
         <source>Pokeball</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/pokemon/components/catch-animation/catch-animation.component.html</context>
-          <context context-type="linenumber">10</context>
+          <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4480466648551521017" datatype="html">
@@ -430,10 +430,10 @@
         </context-group>
       </trans-unit>
       <trans-unit id="5157210307460756815" datatype="html">
-        <source>Height: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.height }}"/> dm</source>
+        <source>Height: <x id="INTERPOLATION" equiv-text="{{ pokemon().height }}"/> dm</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/pokemon/components/pokedex/pokedex.component.html</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">18</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/user/my-pokemon/components/pokemon-card/pokemon-card.component.html</context>
@@ -441,10 +441,10 @@
         </context-group>
       </trans-unit>
       <trans-unit id="5505216764235661105" datatype="html">
-        <source> 🎯 Nice catch, <x id="INTERPOLATION" equiv-text="{{ user?.name }}"/>! You’re one step closer to being a Pokémon Master—keep it up! 🌟 </source>
+        <source> 🎯 Nice catch, <x id="INTERPOLATION" equiv-text="{{ user()?.name }}"/>! You’re one step closer to being a Pokémon Master—keep it up! 🌟 </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/pokemon/components/pokedex/pokedex.component.html</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="linenumber">35</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5553776930806289663" datatype="html">
@@ -546,7 +546,7 @@
         <source>Find a pokemon</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7358438134446811618" datatype="html">
@@ -609,7 +609,7 @@
         <source>Oops! Something went wrong. Please try again later or leave an issue if it persists.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">20</context>
+          <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8401085193044135025" datatype="html">
@@ -705,7 +705,7 @@
         <source> POKEBALL </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/pokemon/components/pokedex/pokedex.component.html</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">49</context>
         </context-group>
       </trans-unit>
       <trans-unit id="971297184908956530" datatype="html">
@@ -912,7 +912,7 @@
         <source>No session. Please log in.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3894950702316166331" datatype="html">
@@ -955,6 +955,13 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/locale/translations.ts</context>
           <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8197760814140039374" datatype="html">
+        <source>Select language</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/locale/translations.ts</context>
+          <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
     </body>

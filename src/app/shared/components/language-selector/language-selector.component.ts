@@ -1,13 +1,14 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   CUSTOM_ELEMENTS_SCHEMA,
   inject,
-  signal,
 } from '@angular/core';
-import { Router } from '@angular/router';
 import { UpperCasePipe } from '@angular/common';
 import { LanguageService } from '~core/services/language.service';
+import { injectCurrentUrl } from '~core/router/current-url';
+import { Locale } from '~core/enums/locale.enums';
 import { translations } from '~locale/translations';
 
 import '@shoelace-style/shoelace/dist/components/dropdown/dropdown.js';
@@ -23,6 +24,7 @@ export class LanguageSelectorComponent {
   private readonly languageService = inject(LanguageService);
 
   readonly translations = translations;
-  readonly router = inject(Router);
-  readonly localeIdText = signal(this.languageService.convertLocaleToAcceptLanguage());
+  readonly localeIdText = this.languageService.convertLocaleToAcceptLanguage();
+  readonly englishUrl = injectCurrentUrl();
+  readonly spanishUrl = computed(() => `/${Locale.ES}${this.englishUrl()}`);
 }

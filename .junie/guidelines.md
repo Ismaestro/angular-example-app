@@ -54,7 +54,10 @@ This document outlines the architecture, technology stack, and coding standards 
 
 - **Standalone Components:** Exclusive use of standalone components, directives, and pipes (no `NgModules`).
 - **OnPush Strategy:** Mandatory in all components for performance optimization.
-- **Signals:** Preferred use of Angular Signals for local and shared state management. Use `linkedSignal` for derived states.
+- **Signals:** Preferred use of Angular Signals for local and shared state management. Every piece of state read by a template must be a signal.
+  - `computed` for state derived from other signals (including inputs). Never copy an input into a field or a signal in `ngOnInit`.
+  - `linkedSignal` only when derived state must also be writable locally (e.g. it resets whenever its source changes).
+  - `effect` only for side effects that sync signals with non-reactive APIs (DOM, storage, timers, analytics), never to derive state.
 - **Path Aliases:** Use of prefixes `~core/*`, `~shared/*`, `~features/*`, etc., for absolute imports.
 - **Dependency Injection:** Preference for the `inject()` function over constructor injection.
 - **Platform Awareness:** Always verify the platform before using global browser objects.
@@ -62,7 +65,8 @@ This document outlines the architecture, technology stack, and coding standards 
 ### State Management
 
 - **Local State:** Signals within the component.
-- **Shared State:** Services with Signals or RxJS `BehaviorSubject` for advanced reactivity.
+- **Shared State:** Services exposing read-only signals (e.g. `UserStore`, `AuthenticationService.authState`).
+- **Component communication:** Data goes down through `input()` and events go up through `output()`. Never pass a `WritableSignal` through an input for a child to mutate its parent's state.
 - **Persistence:** Use of the `LOCAL_STORAGE` provider (safe wrapper for `localStorage`).
 
 ## 4. Shared Components Reference

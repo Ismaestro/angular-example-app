@@ -282,7 +282,7 @@
         <target state="new"> ¡Vaya, parece que no has atrapado ningún Pokémon aún! ¿Necesitas ayuda para encontrar uno? Intenta usar la barra de búsqueda para rastrearlos. ¡Hay que atraparlos a todos! </target>
       </trans-unit>
       <trans-unit id="5505216764235661105" datatype="html">
-        <source> 🎯 Nice catch, <x id="INTERPOLATION" equiv-text="{{ user?.name }}"/>! You’re one step closer to being a Pokémon Master—keep it up! 🌟 </source>
+        <source> 🎯 Nice catch, <x id="INTERPOLATION" equiv-text="{{ user()?.name }}"/>! You’re one step closer to being a Pokémon Master—keep it up! 🌟 </source>
         <target state="new"> 🎯 Bien atrapado, <x id="INTERPOLATION" equiv-text="{{user?.name}}"/>! Estás un paso más cerca de ser un Maestro Pokémon—¡sigue así! 🌟 </target>
       </trans-unit>
       <trans-unit id="1335130496718084363" datatype="html">
@@ -314,15 +314,15 @@
         <target state="new">Marco del entrenador 4</target>
       </trans-unit>
       <trans-unit id="3616505908279277966" datatype="html">
-        <source>N.º: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.order }}"/></source>
-        <target state="new">N.º: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.order }}"/></target>
+        <source>N.º: <x id="INTERPOLATION" equiv-text="{{ pokemon().order }}"/></source>
+        <target state="new">N.º: <x id="INTERPOLATION" equiv-text="{{ pokemon().order }}"/></target>
       </trans-unit>
       <trans-unit id="5157210307460756815" datatype="html">
-        <source>Height: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.height }}"/> dm</source>
+        <source>Height: <x id="INTERPOLATION" equiv-text="{{ pokemon().height }}"/> dm</source>
         <target state="new">Altura: <x id="INTERPOLATION" equiv-text="{{pokemon()?.height}}"/> dm</target>
       </trans-unit>
       <trans-unit id="1651947138133669" datatype="html">
-        <source>Weight: <x id="INTERPOLATION" equiv-text="{{ pokemon()?.weight }}"/> hg</source>
+        <source>Weight: <x id="INTERPOLATION" equiv-text="{{ pokemon().weight }}"/> hg</source>
         <target state="new">Peso: <x id="INTERPOLATION" equiv-text="{{pokemon()?.weight}}"/> hg</target>
       </trans-unit>
       <trans-unit id="4377004748613683272" datatype="html">
@@ -500,6 +500,10 @@
       <trans-unit id="3157338228245949714" datatype="html">
         <source>Toggle theme</source>
         <target state="new">Cambiar tema</target>
+      </trans-unit>
+      <trans-unit id="8197760814140039374" datatype="html">
+        <source>Select language</source>
+        <target state="new">Seleccionar idioma</target>
       </trans-unit>
     </body>
   </file>

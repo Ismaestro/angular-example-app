@@ -1,11 +1,11 @@
-<canvas #canvas></canvas>
-@if (croppedBase64Image()) {
-  <!-- eslint-disable @angular-eslint/template/prefer-ngsrc,@angular-eslint/template/no-inline-styles -->
+@if (croppedImage.hasValue()) {
+  <!-- NgOptimizedImage does not support data URLs -->
+  <!-- eslint-disable @angular-eslint/template/prefer-ngsrc -->
   <img
     class="pokemon__image"
     alt="pokemon image"
     i18n-alt
-    [ngStyle]="{ width: imageWidth() }"
-    [src]="croppedBase64Image()"
+    [src]="croppedImage.value()"
+    (load)="loaded.emit()"
   />
 }

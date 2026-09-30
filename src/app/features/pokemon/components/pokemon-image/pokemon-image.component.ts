@@ -1,63 +1,41 @@
 import {
-  type AfterViewInit,
   ChangeDetectionStrategy,
   Component,
-  effect,
-  type ElementRef,
   inject,
   input,
   output,
-  signal,
-  type Signal,
-  viewChild,
+  PLATFORM_ID,
+  resource,
 } from '@angular/core';
-import { NgStyle } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import { CropImageService } from '~features/pokemon/services/crop-image.service';
 
 @Component({
   selector: 'app-pokemon-image',
-  imports: [NgStyle],
   templateUrl: './pokemon-image.component.html',
   styleUrl: './pokemon-image.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '[style.--pokemon-image-width]': 'imageWidth()',
+  },
 })
-export class PokemonImageComponent implements AfterViewInit {
+export class PokemonImageComponent {
   private readonly cropImageService = inject(CropImageService);
+  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
-  readonly loaded = output<boolean>();
-  readonly canvas: Signal<ElementRef<HTMLCanvasElement> | undefined> = viewChild('canvas');
   readonly image = input<string>();
-  readonly imageWidth = input<string>('100%');
-  readonly croppedBase64Image = signal('');
-  readonly croppedImageLoaded = signal(false);
+  readonly imageWidth = input('100%');
+  readonly loaded = output();
 
-  readonly imageEffect = effect(() => {
-    this.resetState();
-    if (this.canvas()) {
-      this.loadCroppedImage();
-    }
+  /**
+   * Async derived state: it is recomputed every time the image changes, and a stale crop is
+   * discarded. Cropping needs a canvas, so on the server the resource stays idle.
+   */
+  readonly croppedImage = resource({
+    params: () => {
+      const image = this.image();
+      return this.isBrowser && image ? image : undefined;
+    },
+    loader: async ({ params }) => this.cropImageService.getCroppedImageUrl(params),
   });
-
-  ngAfterViewInit() {
-    this.loadCroppedImage();
-  }
-
-  loadCroppedImage() {
-    const canvasElement = this.canvas();
-    const imageValue = this.image();
-    if (canvasElement && imageValue) {
-      void this.cropImageService
-        .getCroppedImageURL(canvasElement.nativeElement, imageValue)
-        .then((base64Image) => {
-          this.croppedBase64Image.set(base64Image);
-          this.loaded.emit(true);
-          return base64Image;
-        });
-    }
-  }
-
-  private resetState() {
-    this.croppedBase64Image.set('');
-    this.croppedImageLoaded.set(false);
-  }
 }

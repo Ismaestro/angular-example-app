@@ -1,4 +1,3 @@
-import type { OnInit } from '@angular/core';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -22,15 +21,10 @@ import '@shoelace-style/shoelace/dist/components/skeleton/skeleton.js';
   changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class PokemonCardComponent implements OnInit {
+export class PokemonCardComponent {
   readonly pokemon = input<Pokemon>();
   readonly loading = input<boolean>();
-  readonly POKEMON_URLS = POKEMON_URLS;
-  readonly pokemonId = computed<string>(() => String(this.pokemon()?.id));
 
-  pokemonImage: string | undefined;
-
-  ngOnInit() {
-    this.pokemonImage = this.pokemon()?.sprites.front_default;
-  }
+  readonly detailUrl = computed(() => POKEMON_URLS.detail(String(this.pokemon()?.id)));
+  readonly pokemonImage = computed(() => this.pokemon()?.sprites.front_default ?? '');
 }

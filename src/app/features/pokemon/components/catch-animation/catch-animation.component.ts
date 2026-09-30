@@ -59,27 +59,25 @@ export class CatchAnimationComponent {
     computation: () => PokemonState.Idle,
   });
 
-  constructor() {
-    // An effect is the right tool here: it schedules side effects (timers), it does not derive state
-    effect((onCleanup) => {
-      if (!this.pokeballThrown()) {
-        return;
+  /** An effect is the right tool here: it schedules side effects (timers), it does not derive state */
+  readonly catchSequenceEffect = effect((onCleanup) => {
+    if (!this.pokeballThrown()) {
+      return;
+    }
+
+    const timeouts = CATCH_SEQUENCE.map((step) =>
+      setTimeout(() => {
+        this.runStep(step);
+      }, step.delayMs),
+    );
+
+    // Runs when the pokeball is reset or the component is destroyed: no timer outlives it
+    onCleanup(() => {
+      for (const timeout of timeouts) {
+        clearTimeout(timeout);
       }
-
-      const timeouts = CATCH_SEQUENCE.map((step) =>
-        setTimeout(() => {
-          this.runStep(step);
-        }, step.delayMs),
-      );
-
-      // Runs when the pokeball is reset or the component is destroyed: no timer outlives it
-      onCleanup(() => {
-        for (const timeout of timeouts) {
-          clearTimeout(timeout);
-        }
-      });
     });
-  }
+  });
 
   private runStep({ pokeball, pokemon, isLast }: CatchStep): void {
     if (pokeball) {

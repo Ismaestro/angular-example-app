@@ -13,8 +13,11 @@ apply: always
 - Return types are NOT required, but add them when they improve clarity.
 - **Dependency Injection:** Use the `inject()` function exclusively. Constructor-based injection is forbidden.
 - **Modern Angular Patterns:**
-  - Use **Signals** for local and shared state management.
-  - Use `linkedSignal` for derived state when necessary.
+  - Use **Signals** for local and shared state management. Every piece of state read by a template must be a signal (a plain mutable field is not tracked by zoneless change detection).
+  - Use `computed` for state derived from other signals (including inputs). Never copy an input into a field or a signal in `ngOnInit`.
+  - Use `linkedSignal` only when derived state must also be writable locally (e.g. it resets whenever its source changes).
+  - Use `effect` only for side effects that sync signals with non-reactive APIs (DOM, storage, timers, analytics), never to derive or copy state between signals.
+  - Components communicate through `input()` (data down) and `output()` (events up). Never pass a `WritableSignal` through an input for a child to mutate its parent's state.
   - **Effects** (`effect`) must be declared as class properties (`readonly myEffect = effect(...)`) to ensure proper lifecycle management. Avoid calling `effect()` inside constructors.
   - Mandatory use of `ChangeDetectionStrategy.OnPush` in all components.
   - Follow **Zoneless** principles; avoid `NgZone` and rely on Signals for change detection.

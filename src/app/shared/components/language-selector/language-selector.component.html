@@ -3,17 +3,17 @@
     class="dropdown-button--primary"
     slot="trigger"
     caret
-    [attr.aria-label]="translations.findMore"
+    [attr.aria-label]="translations.selectLanguage"
     >{{
-    localeIdText() | uppercase
+    localeIdText | uppercase
     }}</sl-button
   >
   <div class="dropdown__content-container">
     <div class="dropdown__item-container">
-      <a i18n [href]="'/es' + router.url">ES-ES</a>
+      <a i18n [href]="spanishUrl()">ES-ES</a>
     </div>
     <div class="dropdown__item-container">
-      <a i18n [href]="router.url">EN-US</a>
+      <a i18n [href]="englishUrl()">EN-US</a>
     </div>
   </div>
 </sl-dropdown>

@@ -2,14 +2,11 @@
 
 :host {
   .pokemon__image {
+    width: var(--pokemon-image-width, 100%);
     height: auto;
 
     @include mq.for-phone-only {
-      width: 100% !important;
+      width: 100%;
     }
-  }
-
-  canvas {
-    display: none;
   }
 }
