@@ -1,16 +1,13 @@
-import { inject, Injectable, linkedSignal, signal } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map, type Observable } from 'rxjs';
+import { computed, inject, Injectable, signal } from '@angular/core';
+import { HttpClient, HttpContext } from '@angular/common/http';
+import { finalize, map, shareReplay, type Observable } from 'rxjs';
 import { LOCAL_STORAGE } from '~core/providers/local-storage';
 import { LanguageService } from '~core/services/language.service';
-import { clearCache } from '~core/interceptors/caching.interceptor';
+import { HttpCacheService } from '~core/services/http-cache.service';
 import { getEndpoints } from '~core/constants/endpoints.constants';
 import type { LoginRequest } from '~features/authentication/types/login-request.types';
 import type { LoginResponse } from '~features/authentication/types/login-response.types';
-import type {
-  RefreshTokenResponse,
-  RefreshTokenResponseData,
-} from '~features/authentication/types/refresh-token.response.types';
+import type { RefreshTokenResponse } from '~features/authentication/types/refresh-token.response.types';
 import type {
   RegisterResponse,
   RegisterResponseData,
@@ -22,6 +19,7 @@ import type { AuthTokens } from '~features/authentication/types/authentication.t
 import {
   ACCESS_TOKEN_KEY,
   REFRESH_TOKEN_KEY,
+  SKIP_AUTHENTICATION,
 } from '~features/authentication/constants/authentication.constants';
 
 @Injectable({
@@ -32,20 +30,23 @@ export class AuthenticationService {
   private readonly http = inject(HttpClient);
   private readonly storageService = inject(LOCAL_STORAGE);
   private readonly languageService = inject(LanguageService);
+  private readonly httpCache = inject(HttpCacheService);
 
   private readonly authTokens = signal<AuthTokens>({
     accessToken: this.storageService?.getItem(ACCESS_TOKEN_KEY) ?? undefined,
     refreshToken: this.storageService?.getItem(REFRESH_TOKEN_KEY) ?? undefined,
   });
 
-  readonly authState = linkedSignal({
-    source: this.authTokens,
-    computation: (tokens) => ({
-      isLoggedIn: !!tokens.accessToken,
-      hasRefreshToken: !!tokens.refreshToken,
-      accessToken: tokens.accessToken,
-      refreshToken: tokens.refreshToken,
-    }),
+  private accessTokenRefresh$: Observable<string> | undefined;
+
+  readonly authState = computed(() => {
+    const { accessToken, refreshToken } = this.authTokens();
+    return {
+      isLoggedIn: !!accessToken,
+      hasRefreshToken: !!refreshToken,
+      accessToken,
+      refreshToken,
+    };
   });
 
   register(registerRequest: RegisterFormValue): Observable<RegisterResponseData> {
@@ -74,18 +75,30 @@ export class AuthenticationService {
     ).pipe(map((data) => data.user));
   }
 
-  refreshToken(): Observable<RefreshTokenResponseData> {
-    const refreshToken = this.storageService?.getItem(REFRESH_TOKEN_KEY);
-
-    return this.handleAuthResponse(
-      this.http.post<RefreshTokenResponse>(this.endpoints.auth.v1.refreshToken, {
-        refreshToken,
+  /**
+   * Requests a new access token and returns it. Concurrent callers share the same in-flight
+   * request, so a burst of 401 responses results in a single refresh.
+   */
+  refreshAccessToken(): Observable<string> {
+    this.accessTokenRefresh$ ??= this.handleAuthResponse(
+      this.http.post<RefreshTokenResponse>(
+        this.endpoints.auth.v1.refreshToken,
+        { refreshToken: this.authTokens().refreshToken },
+        { context: new HttpContext().set(SKIP_AUTHENTICATION, true) },
+      ),
+    ).pipe(
+      map(({ accessToken }) => accessToken),
+      finalize(() => {
+        this.accessTokenRefresh$ = undefined;
       }),
+      shareReplay({ bufferSize: 1, refCount: false }),
     );
+
+    return this.accessTokenRefresh$;
   }
 
   logOut() {
-    clearCache();
+    this.httpCache.clear();
     this.removeTokens();
   }
 
@@ -108,8 +121,14 @@ export class AuthenticationService {
     refreshToken?: string;
   }): void {
     this.storageService?.setItem(ACCESS_TOKEN_KEY, accessToken);
-    this.storageService?.setItem(REFRESH_TOKEN_KEY, refreshToken ?? '');
-    this.authTokens.set({ accessToken, refreshToken });
+    // The refresh endpoint only returns a new access token: the current refresh token must be kept
+    if (refreshToken) {
+      this.storageService?.setItem(REFRESH_TOKEN_KEY, refreshToken);
+    }
+    this.authTokens.update((tokens) => ({
+      accessToken,
+      refreshToken: refreshToken ?? tokens.refreshToken,
+    }));
   }
 
   private removeTokens(): void {

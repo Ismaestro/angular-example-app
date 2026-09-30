@@ -1,34 +1,27 @@
-import type { HttpEvent, HttpHandlerFn, HttpRequest } from '@angular/common/http';
+import type { HttpInterceptorFn } from '@angular/common/http';
 import { HttpContextToken, HttpResponse } from '@angular/common/http';
-import type { Observable } from 'rxjs';
+import { inject } from '@angular/core';
 import { of, tap } from 'rxjs';
+import { HttpCacheService } from '~core/services/http-cache.service';
 
 export const CACHING_ENABLED = new HttpContextToken<boolean>(() => false);
 
-const cache = new Map<string, HttpResponse<unknown>>();
-
-export function cachingInterceptor(
-  request: HttpRequest<unknown>,
-  next: HttpHandlerFn,
-): Observable<HttpEvent<unknown>> {
-  if (request.context.get(CACHING_ENABLED)) {
-    const cachedResponse = cache.get(request.urlWithParams);
-    if (cachedResponse) {
-      return of(cachedResponse.clone());
-    }
-
-    return next(request).pipe(
-      tap((event) => {
-        if (event instanceof HttpResponse) {
-          cache.set(request.urlWithParams, event.clone());
-        }
-      }),
-    );
+export const cachingInterceptor: HttpInterceptorFn = (request, next) => {
+  if (!request.context.get(CACHING_ENABLED)) {
+    return next(request);
   }
 
-  return next(request);
-}
+  const httpCache = inject(HttpCacheService);
+  const cachedResponse = httpCache.get(request.urlWithParams);
+  if (cachedResponse) {
+    return of(cachedResponse);
+  }
 
-export function clearCache() {
-  cache.clear();
-}
+  return next(request).pipe(
+    tap((event) => {
+      if (event instanceof HttpResponse) {
+        httpCache.set(request.urlWithParams, event);
+      }
+    }),
+  );
+};

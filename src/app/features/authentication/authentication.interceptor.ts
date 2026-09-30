@@ -1,185 +1,83 @@
-import type {
-  HttpErrorResponse,
-  HttpEvent,
-  HttpHandlerFn,
-  HttpRequest,
-} from '@angular/common/http';
-import type { Observable } from 'rxjs';
-import { BehaviorSubject, throwError } from 'rxjs';
-import { catchError, filter, switchMap, take } from 'rxjs/operators';
+import type { HttpInterceptorFn, HttpRequest } from '@angular/common/http';
+import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
+import { catchError, switchMap, throwError } from 'rxjs';
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '~features/authentication/services/authentication.service';
 import { AppError } from '~core/enums/app-error.enums';
 import { AUTH_URLS } from '~core/constants/urls.constants';
-import { LOCAL_STORAGE } from '~core/providers/local-storage';
+import { ENVIRONMENT } from '~core/tokens/environment.token';
 import { translations } from '~locale/translations';
 import { AlertService } from '~core/services/ui/alert.service';
-import { ACCESS_TOKEN_KEY } from '~features/authentication/constants/authentication.constants';
+import { SKIP_AUTHENTICATION } from '~features/authentication/constants/authentication.constants';
 
-const isRefreshing = new BehaviorSubject<boolean>(false);
+const ACCESS_TOKEN_ERRORS: ReadonlySet<AppError> = new Set([
+  AppError.ACCESS_TOKEN_NOT_FOUND,
+  AppError.ACCESS_TOKEN_EXPIRED,
+]);
 
-export function authenticationInterceptor(
-  request: HttpRequest<unknown>,
-  next: HttpHandlerFn,
-): Observable<HttpEvent<unknown>> {
+/**
+ * Attaches the access token to the requests sent to our API, and only to our API: third-party
+ * services (PokeAPI, Cloudinary...) must never receive it. When the API reports that the access
+ * token is missing or expired, it refreshes it once and retries the original request.
+ */
+export const authenticationInterceptor: HttpInterceptorFn = (request, next) => {
+  const { apiBaseUrl } = inject(ENVIRONMENT);
+  if (request.context.get(SKIP_AUTHENTICATION) || !request.url.startsWith(apiBaseUrl)) {
+    return next(request);
+  }
+
+  const authenticationService = inject(AuthenticationService);
+  const endSession = injectEndSession();
+  const sendWithToken = (accessToken: string | undefined) =>
+    next(withAccessToken(request, accessToken));
+
+  return sendWithToken(authenticationService.authState().accessToken).pipe(
+    catchError((error: unknown) => {
+      if (!isAccessTokenError(error)) {
+        return throwError(() => error);
+      }
+
+      return authenticationService.refreshAccessToken().pipe(
+        catchError((refreshError: unknown) => {
+          endSession();
+          return throwError(() => refreshError);
+        }),
+        switchMap(sendWithToken),
+      );
+    }),
+  );
+};
+
+function withAccessToken<T>(request: HttpRequest<T>, accessToken: string | undefined) {
+  return accessToken
+    ? request.clone({ setHeaders: { Authorization: `Bearer ${accessToken}` } })
+    : request;
+}
+
+function isAccessTokenError(error: unknown): boolean {
+  if (
+    !(error instanceof HttpErrorResponse) ||
+    error.status !== (HttpStatusCode.Unauthorized as number)
+  ) {
+    return false;
+  }
+  const { internalCode } = (error.error ?? {}) as { internalCode?: AppError };
+  return internalCode !== undefined && ACCESS_TOKEN_ERRORS.has(internalCode);
+}
+
+/**
+ * Dependencies are injected upfront because `inject()` only works in an injection context,
+ * and RxJS callbacks run outside of it.
+ */
+function injectEndSession(): () => void {
   const authenticationService = inject(AuthenticationService);
   const alertService = inject(AlertService);
-  const storageService = inject(LOCAL_STORAGE);
   const router = inject(Router);
 
-  const clonedRequest = attachAccessToken(request, storageService);
-  return handleRequest({
-    request: clonedRequest,
-    next,
-    authenticationService,
-    alertService,
-    storageService,
-    router,
-  });
-}
-
-function attachAccessToken(
-  request: HttpRequest<unknown>,
-  storageService: Storage | null,
-): HttpRequest<unknown> {
-  const accessToken = storageService?.getItem(ACCESS_TOKEN_KEY);
-  if (accessToken) {
-    return request.clone({
-      setHeaders: { Authorization: `Bearer ${accessToken}` },
-    });
-  }
-  return request;
-}
-
-function handleRequest(parameters: {
-  request: HttpRequest<unknown>;
-  next: HttpHandlerFn;
-  authenticationService: AuthenticationService;
-  alertService: AlertService;
-  storageService: Storage | null;
-  router: Router;
-}): Observable<HttpEvent<unknown>> {
-  return parameters.next(parameters.request).pipe(
-    catchError((errorResponse: HttpErrorResponse) =>
-      handleErrors({
-        errorResponse,
-        ...parameters,
-      }),
-    ),
-  );
-}
-
-function handleErrors(parameters: {
-  request: HttpRequest<unknown>;
-  next: HttpHandlerFn;
-  authenticationService: AuthenticationService;
-  alertService: AlertService;
-  storageService: Storage | null;
-  router: Router;
-  errorResponse: HttpErrorResponse;
-}): Observable<HttpEvent<unknown>> {
-  if (isAccessTokenError(parameters.errorResponse)) {
-    return tryRefreshToken(parameters);
-  }
-
-  if (isRefreshTokenError(parameters.errorResponse)) {
-    parameters.authenticationService.logOut();
-    void parameters.router.navigate([AUTH_URLS.logIn]);
-    return throwError(() => new Error('Session expired. Please log in again.'));
-  }
-
-  return throwError(() => parameters.errorResponse);
-}
-
-function isAccessTokenError(errorResponse: HttpErrorResponse): boolean {
-  return (
-    errorResponse.status === 401 &&
-    [AppError.ACCESS_TOKEN_NOT_FOUND, AppError.ACCESS_TOKEN_EXPIRED].includes(
-      errorResponse.error.internalCode,
-    )
-  );
-}
-
-function isRefreshTokenError(errorResponse: HttpErrorResponse): boolean {
-  return (
-    errorResponse.status === 401 &&
-    [AppError.REFRESH_TOKEN_NOT_FOUND, AppError.REFRESH_TOKEN_EXPIRED].includes(
-      errorResponse.error.internalCode,
-    )
-  );
-}
-
-function tryRefreshToken(parameters: {
-  request: HttpRequest<unknown>;
-  next: HttpHandlerFn;
-  authenticationService: AuthenticationService;
-  alertService: AlertService;
-  storageService: Storage | null;
-  router: Router;
-}): Observable<HttpEvent<unknown>> {
-  if (!isRefreshing.getValue()) {
-    return handleTokenRefresh(parameters);
-  }
-
-  return waitForTokenRefresh(parameters);
-}
-
-function handleTokenRefresh(parameters: {
-  request: HttpRequest<unknown>;
-  next: HttpHandlerFn;
-  authenticationService: AuthenticationService;
-  alertService: AlertService;
-  storageService: Storage | null;
-  router: Router;
-}): Observable<HttpEvent<unknown>> {
-  isRefreshing.next(true);
-
-  return parameters.authenticationService.refreshToken().pipe(
-    switchMap(() => {
-      isRefreshing.next(false);
-      return retryRequestWithRefreshedToken(parameters);
-    }),
-    catchError((error: HttpErrorResponse) => {
-      isRefreshing.next(false);
-      handleRefreshError(parameters);
-      return throwError(() => error);
-    }),
-  );
-}
-
-function waitForTokenRefresh(parameters: {
-  request: HttpRequest<unknown>;
-  next: HttpHandlerFn;
-  storageService: Storage | null;
-}): Observable<HttpEvent<unknown>> {
-  return isRefreshing.pipe(
-    filter((refreshing) => !refreshing),
-    take(1),
-    switchMap(() => retryRequestWithRefreshedToken(parameters)),
-  );
-}
-
-function retryRequestWithRefreshedToken(parameters: {
-  request: HttpRequest<unknown>;
-  next: HttpHandlerFn;
-  storageService: Storage | null;
-}): Observable<HttpEvent<unknown>> {
-  const refreshedToken = parameters.storageService?.getItem(ACCESS_TOKEN_KEY);
-  const clonedRequest = refreshedToken
-    ? parameters.request.clone({
-        setHeaders: { Authorization: `Bearer ${refreshedToken}` },
-      })
-    : parameters.request;
-  return parameters.next(clonedRequest);
-}
-
-function handleRefreshError(parameters: {
-  authenticationService: AuthenticationService;
-  alertService: AlertService;
-  router: Router;
-}): void {
-  parameters.authenticationService.logOut();
-  parameters.alertService.createErrorAlert(translations.sessionExpired);
-  void parameters.router.navigate([AUTH_URLS.logIn]);
+  return () => {
+    authenticationService.logOut();
+    alertService.createErrorAlert(translations.sessionExpired);
+    void router.navigate([AUTH_URLS.logIn]);
+  };
 }

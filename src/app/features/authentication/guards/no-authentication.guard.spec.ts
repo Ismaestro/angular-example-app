@@ -1,45 +1,34 @@
+import { signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { Router } from '@angular/router';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { provideRouter, Router, UrlTree } from '@angular/router';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { noAuthenticationGuard } from './no-authentication.guard';
 import { AuthenticationService } from '~features/authentication/services/authentication.service';
-import { ROOT_PATHS } from '~core/constants/paths.constants';
+import { ROOT_URLS } from '~core/constants/urls.constants';
 
 describe('noAuthenticationGuard', () => {
-  let mockAuthService: { authState: ReturnType<typeof vi.fn> };
-  let mockRouter: { navigate: ReturnType<typeof vi.fn> };
+  const authState = signal({ isLoggedIn: false });
 
   beforeEach(() => {
-    mockAuthService = {
-      authState: vi.fn(),
-    };
-    mockRouter = {
-      navigate: vi.fn(),
-    };
-
     TestBed.configureTestingModule({
-      providers: [
-        { provide: AuthenticationService, useValue: mockAuthService },
-        { provide: Router, useValue: mockRouter },
-      ],
+      providers: [provideRouter([]), { provide: AuthenticationService, useValue: { authState } }],
     });
   });
 
-  it('should return true if user is NOT logged in', () => {
-    mockAuthService.authState.mockReturnValue({ isLoggedIn: false });
+  it('should allow the navigation if the user is NOT logged in', () => {
+    authState.set({ isLoggedIn: false });
 
     const result = TestBed.runInInjectionContext(() => noAuthenticationGuard());
 
     expect(result).toBe(true);
-    expect(mockRouter.navigate).not.toHaveBeenCalled();
   });
 
-  it('should redirect to home and return false if user is logged in', () => {
-    mockAuthService.authState.mockReturnValue({ isLoggedIn: true });
+  it('should redirect to home if the user is already logged in', () => {
+    authState.set({ isLoggedIn: true });
 
     const result = TestBed.runInInjectionContext(() => noAuthenticationGuard());
 
-    expect(result).toBe(false);
-    expect(mockRouter.navigate).toHaveBeenCalledWith([ROOT_PATHS.home]);
+    expect(result).toBeInstanceOf(UrlTree);
+    expect(TestBed.inject(Router).serializeUrl(result as UrlTree)).toBe(ROOT_URLS.home);
   });
 });
