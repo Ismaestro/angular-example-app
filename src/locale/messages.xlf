@@ -77,7 +77,7 @@
         <source>What&apos;s your favourite pokemon?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
-          <context context-type="linenumber">94</context>
+          <context context-type="linenumber">98</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7507948636555938109" datatype="html">
@@ -113,7 +113,7 @@
         <source>English (US)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/my-account/my-account.component.html</context>
-          <context context-type="linenumber">55</context>
+          <context context-type="linenumber">54</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
@@ -131,14 +131,14 @@
         <source>Español (España)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/my-account/my-account.component.html</context>
-          <context context-type="linenumber">56</context>
+          <context context-type="linenumber">55</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1463997545495016475" datatype="html">
         <source>Your favourite pokemon is:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/my-account/my-account.component.html</context>
-          <context context-type="linenumber">60</context>
+          <context context-type="linenumber">59</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1534029177398918729" datatype="html">
@@ -206,7 +206,7 @@
         <source>ash standing</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/my-account/my-account.component.html</context>
-          <context context-type="linenumber">83</context>
+          <context context-type="linenumber">82</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2156635906230663334" datatype="html">
@@ -313,7 +313,7 @@
         <source>Save</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/my-account/my-account.component.html</context>
-          <context context-type="linenumber">75</context>
+          <context context-type="linenumber">74</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3782563238994348625" datatype="html">
@@ -483,7 +483,7 @@
         <source>Create account</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
-          <context context-type="linenumber">148</context>
+          <context context-type="linenumber">150</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6066456905066879060" datatype="html">
@@ -511,7 +511,7 @@
         <source>Do you have an account? Log in</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
-          <context context-type="linenumber">154</context>
+          <context context-type="linenumber">156</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6561048040308058569" datatype="html">
@@ -567,7 +567,7 @@
         <source>Type a pokemon</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
-          <context context-type="linenumber">93</context>
+          <context context-type="linenumber">97</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7751010942038334793" datatype="html">
@@ -698,7 +698,7 @@
         <source> I’ve caught &apos;em all (the terms and privacy policy) and I’m cool with them! </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
-          <context context-type="linenumber">135</context>
+          <context context-type="linenumber">137</context>
         </context-group>
       </trans-unit>
       <trans-unit id="9030610327675553750" datatype="html">
@@ -824,11 +824,11 @@
         <source>pokeball</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
-          <context context-type="linenumber">113</context>
+          <context context-type="linenumber">117</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/pokemon-search-input/pokemon-search-input.component.html</context>
-          <context context-type="linenumber">26</context>
+          <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2132215170094453288" datatype="html">

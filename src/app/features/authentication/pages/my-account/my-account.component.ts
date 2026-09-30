@@ -1,4 +1,3 @@
-import type { OnInit } from '@angular/core';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -9,7 +8,7 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { translations } from '~locale/translations';
 import { UserStore } from '~features/authentication/services/user.store';
@@ -49,8 +48,8 @@ import { TrimDirective } from '~shared/directives/trim.directive';
   changeDetection: ChangeDetectionStrategy.OnPush,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class MyAccountComponent implements OnInit {
-  private readonly formBuilder = inject(FormBuilder);
+export class MyAccountComponent {
+  private readonly formBuilder = inject(NonNullableFormBuilder);
   private readonly userStore = inject(UserStore);
   private readonly pokemonService = inject(PokemonService);
   private readonly alertService = inject(AlertService);
@@ -66,14 +65,11 @@ export class MyAccountComponent implements OnInit {
   );
   readonly isButtonUpdateUserFormLoading = signal(false);
 
-  translations = translations;
-  name = new FormControl('', [Validators.required, Validators.minLength(2)]);
-  email = new FormControl('');
-  language = new FormControl<Language>(Language.EN_US, [Validators.required]);
-  updateUserForm = this.formBuilder.group({
-    name: this.name,
-    language: this.language,
-    email: this.email,
+  readonly translations = translations;
+  readonly updateUserForm = this.formBuilder.group({
+    name: ['', [Validators.required, Validators.minLength(2)]],
+    email: [{ value: '', disabled: true }],
+    language: this.formBuilder.control<Language>(Language.EN_US, Validators.required),
   });
 
   /** Reactive forms are not signal-based: syncing the user into the form is a legit effect */
@@ -84,10 +80,6 @@ export class MyAccountComponent implements OnInit {
     }
   });
 
-  ngOnInit() {
-    this.email.disable();
-  }
-
   sendForm() {
     this.updateUserForm.markAllAsTouched();
     if (this.updateUserForm.valid) {
@@ -97,17 +89,14 @@ export class MyAccountComponent implements OnInit {
   }
 
   updateUser() {
-    const formValue = this.updateUserForm.getRawValue();
+    const { name, language } = this.updateUserForm.getRawValue();
     this.userStore
-      .updateUser({
-        name: formValue.name!,
-        language: formValue.language!,
-      })
+      .updateUser({ name, language })
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: () => {
           this.alertService.createSuccessAlert(translations.myAccountSuccessAlert);
-          this.languageService.navigateWithUserLanguage(formValue.language!, AUTH_URLS.myAccount);
+          this.languageService.navigateWithUserLanguage(language, AUTH_URLS.myAccount);
           this.isButtonUpdateUserFormLoading.set(false);
         },
         error: () => {

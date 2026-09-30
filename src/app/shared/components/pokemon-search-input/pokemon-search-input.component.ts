@@ -15,7 +15,6 @@ import { Router } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { AlertService } from '~core/services/ui/alert.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { TrimDirective } from '~shared/directives/trim.directive';
 import { translations } from '~locale/translations';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
@@ -24,7 +23,7 @@ import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 
 @Component({
   selector: 'app-pokemon-search-input',
-  imports: [SlInputIconFocusDirective, NgOptimizedImage, TrimDirective],
+  imports: [SlInputIconFocusDirective, NgOptimizedImage],
   templateUrl: './pokemon-search-input.component.html',
   styleUrl: './pokemon-search-input.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -45,7 +44,7 @@ export class PokemonSearchInputComponent {
   }));
 
   searchPokemon() {
-    const pokemonName = this.termValue().toLowerCase();
+    const pokemonName = this.termValue().trim().toLowerCase();
     if (pokemonName) {
       this.pokemonLoading.set(true);
       this.pokemonService

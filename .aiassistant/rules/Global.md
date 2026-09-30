@@ -18,6 +18,8 @@ apply: always
   - Use `linkedSignal` only when derived state must also be writable locally (e.g. it resets whenever its source changes).
   - Use `effect` only for side effects that sync signals with non-reactive APIs (DOM, storage, timers, analytics), never to derive or copy state between signals.
   - Components communicate through `input()` (data down) and `output()` (events up). Never pass a `WritableSignal` through an input for a child to mutate its parent's state.
+  - Read async data with `resource`, `httpResource` or `rxResource` (not with manual subscriptions plus loading flags). Render their `isLoading()`/`error()` states and guard `value()` with `hasValue()`, since `value()` throws in the error state. Writes (POST/PATCH) stay as Observables subscribed in the event handler.
+  - Reactive forms: inject `NonNullableFormBuilder`, let TypeScript infer the form type and read controls through `form.controls` (no `.get()` casts). Cross-field validation belongs to a `FormGroup` validator. Async validators are stateless functions (no side channels). Directives that modify a value must go through the `NgControl`, never through the DOM element.
   - **Effects** (`effect`) must be declared as class properties (`readonly myEffect = effect(...)`) to ensure proper lifecycle management. Avoid calling `effect()` inside constructors.
   - Mandatory use of `ChangeDetectionStrategy.OnPush` in all components.
   - Follow **Zoneless** principles; avoid `NgZone` and rely on Signals for change detection.

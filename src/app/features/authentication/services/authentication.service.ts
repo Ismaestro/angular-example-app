@@ -12,7 +12,7 @@ import type {
   RegisterResponse,
   RegisterResponseData,
 } from '~features/authentication/types/register-response.types';
-import type { RegisterFormValue } from '~features/authentication/pages/register/register-form.types';
+import type { RegisterRequest } from '~features/authentication/types/register-request.types';
 import type { User } from '~features/authentication/types/user.types';
 import type { AuthTokens } from '~features/authentication/types/authentication.types';
 
@@ -49,7 +49,7 @@ export class AuthenticationService {
     };
   });
 
-  register(registerRequest: RegisterFormValue): Observable<RegisterResponseData> {
+  register(registerRequest: RegisterRequest): Observable<RegisterResponseData> {
     const payload = {
       ...registerRequest,
       email: registerRequest.email.toLowerCase(),

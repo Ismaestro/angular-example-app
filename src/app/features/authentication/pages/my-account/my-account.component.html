@@ -23,8 +23,8 @@
         appTrim
         required
         ngDefaultControl
+        formControlName="name"
         [attr.help-text]="translations.fieldRequired"
-        [formControl]="name"
       >
         <sl-icon name="person" slot="prefix" />
       </sl-input>
@@ -37,7 +37,7 @@
         i18n-label
         required
         ngDefaultControl
-        [formControl]="email"
+        formControlName="email"
       >
         <sl-icon name="person-circle" slot="prefix" />
       </sl-input>
@@ -46,11 +46,10 @@
       <sl-select
         label="Language"
         class="select--primary"
-        ngDefaultControl
         appSlSelectControl
         size="medium"
         i18n-label
-        [formControl]="language"
+        formControlName="language"
       >
         <sl-option class="sl-option--primary" i18n value="en-US">English (US)</sl-option>
         <sl-option class="sl-option--primary" i18n value="es-ES">Español (España)</sl-option>

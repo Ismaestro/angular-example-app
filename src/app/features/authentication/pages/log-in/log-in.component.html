@@ -14,10 +14,10 @@
         appTrim
         required
         ngDefaultControl
+        formControlName="email"
         [attr.help-text]="
-          formState().isSubmitted && formControls.email.invalid ? translations.emailHelpText : ''
+          controls.email.touched && controls.email.invalid ? translations.emailHelpText : ''
         "
-        [formControl]="formControls.email"
       >
         <sl-icon name="person-circle" slot="prefix" />
       </sl-input>
@@ -35,12 +35,12 @@
         appSlInputIconFocus
         required
         ngDefaultControl
+        formControlName="password"
         [attr.help-text]="
-          formState().isSubmitted && formControls.password.invalid
+          controls.password.touched && controls.password.invalid
             ? translations.passwordHelpText
             : ''
         "
-        [formControl]="formControls.password"
       >
         <sl-icon name="lock" slot="prefix" />
       </sl-input>
@@ -51,8 +51,8 @@
         size="medium"
         pill
         type="submit"
-        [disabled]="formState().isLoading"
-        [attr.loading]="formState().isLoading || null"
+        [disabled]="isLoading()"
+        [attr.loading]="isLoading() || null"
       >
         <ng-container i18n>Enter</ng-container>
       </sl-button>

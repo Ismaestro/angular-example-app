@@ -67,6 +67,8 @@ This document outlines the architecture, technology stack, and coding standards 
 - **Local State:** Signals within the component.
 - **Shared State:** Services exposing read-only signals (e.g. `UserStore`, `AuthenticationService.authState`).
 - **Component communication:** Data goes down through `input()` and events go up through `output()`. Never pass a `WritableSignal` through an input for a child to mutate its parent's state.
+- **Async data:** `resource`, `httpResource` or `rxResource` for reads, rendering their loading/error states. Guard `value()` with `hasValue()`, as it throws in the error state.
+- **Forms:** Typed reactive forms built with `NonNullableFormBuilder` and read through `form.controls`. Cross-field validators on the `FormGroup`; stateless async validators.
 - **Persistence:** Use of the `LOCAL_STORAGE` provider (safe wrapper for `localStorage`).
 
 ## 4. Shared Components Reference
