@@ -122,8 +122,9 @@
         priority
       />
     </div>
+    <!-- Only created (and polling) once the deferred block is rendered in the browser -->
     <div class="real-time__container">
-      <p i18n>Users seeing this page: {{ activeUsersResource.value().activeUsers }}</p>
+      <app-realtime-users />
     </div>
   } @placeholder {
     <div class="real-time__container">

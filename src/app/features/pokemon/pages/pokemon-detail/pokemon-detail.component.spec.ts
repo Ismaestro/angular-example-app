@@ -146,4 +146,17 @@ describe('PokemonDetailComponent', () => {
     expect(pokedex().battlePhase()).toBe('ready');
     expect(battlefield().pokeballThrown()).toBe(false);
   });
+
+  it('should show an error when the pokemon does not exist', async () => {
+    fixture.componentRef.setInput('pokemonId', 'missingno');
+    TestBed.tick();
+    httpTesting
+      .expectOne(`${POKE_API_URL}/missingno`)
+      .flush('Not Found', { status: 404, statusText: 'Not Found' });
+    await fixture.whenStable();
+
+    const element = fixture.nativeElement as HTMLElement;
+    expect(element.querySelector('.pokemon-detail__error-text')).not.toBeNull();
+    expect(fixture.debugElement.query(By.directive(PokedexStubComponent))).toBeNull();
+  });
 });

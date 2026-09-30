@@ -39,7 +39,10 @@ export class PokedexComponent {
   readonly pokeballThrow = output();
 
   readonly isPokedexClosed = signal(true);
-  readonly user = this.userStore.user.value;
+  // `value()` throws while the resource is in an error state, `hasValue()` guards against it
+  readonly user = computed(() =>
+    this.userStore.user.hasValue() ? this.userStore.user.value() : undefined,
+  );
   readonly pokemonImage = computed(() => this.pokemon().sprites.front_default);
   readonly status = computed<PokedexStatus>(() => {
     const battlePhase = this.battlePhase();

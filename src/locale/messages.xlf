@@ -113,7 +113,7 @@
         <source>English (US)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/my-account/my-account.component.html</context>
-          <context context-type="linenumber">52</context>
+          <context context-type="linenumber">55</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/components/footer/footer.component.html</context>
@@ -131,14 +131,14 @@
         <source>Español (España)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/my-account/my-account.component.html</context>
-          <context context-type="linenumber">53</context>
+          <context context-type="linenumber">56</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1463997545495016475" datatype="html">
         <source>Your favourite pokemon is:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/my-account/my-account.component.html</context>
-          <context context-type="linenumber">57</context>
+          <context context-type="linenumber">60</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1534029177398918729" datatype="html">
@@ -206,7 +206,7 @@
         <source>ash standing</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/my-account/my-account.component.html</context>
-          <context context-type="linenumber">80</context>
+          <context context-type="linenumber">83</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2156635906230663334" datatype="html">
@@ -245,7 +245,7 @@
         <source>Language</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/my-account/my-account.component.html</context>
-          <context context-type="linenumber">44</context>
+          <context context-type="linenumber">47</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2995774437111770399" datatype="html">
@@ -277,7 +277,7 @@
         <source>Enter your name</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/my-account/my-account.component.html</context>
-          <context context-type="linenumber">14</context>
+          <context context-type="linenumber">17</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
@@ -313,7 +313,7 @@
         <source>Save</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/my-account/my-account.component.html</context>
-          <context context-type="linenumber">72</context>
+          <context context-type="linenumber">75</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3782563238994348625" datatype="html">
@@ -408,7 +408,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/my-account/my-account.component.html</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">36</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
@@ -602,7 +602,7 @@
         <source> Uh-oh, it looks like you haven’t caught any Pokémon yet! Need help finding a pokemon? Try using the search bar to track them down. Gotta catch ‘em all! </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/user/my-pokemon/pages/my-pokemon/my-pokemon.component.html</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8355236492226718944" datatype="html">
@@ -680,7 +680,7 @@
         <source>Name</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/my-account/my-account.component.html</context>
-          <context context-type="linenumber">16</context>
+          <context context-type="linenumber">19</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/authentication/pages/register/register.component.html</context>
@@ -849,7 +849,7 @@
         <source>ash jumping with a pokeball</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/user/my-pokemon/pages/my-pokemon/my-pokemon.component.html</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4217645930317264796" datatype="html">
@@ -895,10 +895,10 @@
         </context-group>
       </trans-unit>
       <trans-unit id="2667007583315577477" datatype="html">
-        <source>Users seeing this page: <x id="INTERPOLATION" equiv-text="{{ activeUsersResource.value().activeUsers }}"/></source>
+        <source>Users seeing this page: <x id="INTERPOLATION" equiv-text="{{ realtimeUsers.value().activeUsers }}"/></source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">126</context>
+          <context context-type="sourcefile">src/app/features/home/components/realtime-users/realtime-users.component.html</context>
+          <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6973719636314914984" datatype="html">
@@ -919,7 +919,7 @@
         <source>Loading...</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/features/home/home.component.html</context>
-          <context context-type="linenumber">130</context>
+          <context context-type="linenumber">131</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8469070228767591171" datatype="html">

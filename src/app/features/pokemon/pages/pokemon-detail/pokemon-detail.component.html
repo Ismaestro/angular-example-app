@@ -1,8 +1,9 @@
-@let pokemon = pokemonResource.value();
+<div class="pokemon-search-input__container">
+  <app-pokemon-search-input />
+</div>
+
+@let pokemon = loadedPokemon();
 @if (pokemon) {
-  <div class="pokemon-search-input__container">
-    <app-pokemon-search-input />
-  </div>
   <app-pokemon-battlefield
     [pokemon]="pokemon"
     [pokeballThrown]="pokeballThrown()"
@@ -15,4 +16,6 @@
       (pokeballThrow)="catchPokemon(pokemon)"
     />
   </div>
+} @else if (pokemonResource.error()) {
+  <p class="pokemon-detail__error-text">{{ translations.pokemonNotFoundError }}</p>
 }

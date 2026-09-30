@@ -1,6 +1,12 @@
-import { DOCUMENT, inject, Injectable } from '@angular/core';
-import { httpResource, type HttpResourceRef } from '@angular/common/http';
+import { DOCUMENT, inject, Injectable, type ResourceRef } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { rxResource } from '@angular/core/rxjs-interop';
+import { catchError, EMPTY, switchMap, timer } from 'rxjs';
 import { getEndpoints } from '~core/constants/endpoints.constants';
+
+type RealtimeUsers = { activeUsers: number };
+
+const REALTIME_USERS_REFRESH_MS = 5000;
 
 @Injectable({
   providedIn: 'root',
@@ -8,6 +14,7 @@ import { getEndpoints } from '~core/constants/endpoints.constants';
 export class AnalyticsService {
   private readonly endpoints = getEndpoints();
   private readonly document = inject(DOCUMENT);
+  private readonly http = inject(HttpClient);
 
   loadGtmScript() {
     // eslint-disable-next-line no-multi-assign
@@ -19,12 +26,22 @@ export class AnalyticsService {
     this.document.head.appendChild(script);
   }
 
-  getRealtimeUsersResource(): HttpResourceRef<{ activeUsers: number }> {
-    return httpResource<{ activeUsers: number }>(
-      () => ({ url: this.endpoints.analytics.v1.realtimeUsers }),
-      {
-        defaultValue: { activeUsers: 1 },
-      },
-    );
+  /**
+   * A streaming resource: its value is updated on every poll, and polling stops when the
+   * component that created it is destroyed. Must be called in an injection context.
+   */
+  getRealtimeUsersResource(refreshMs = REALTIME_USERS_REFRESH_MS): ResourceRef<RealtimeUsers> {
+    return rxResource({
+      stream: () =>
+        timer(0, refreshMs).pipe(
+          switchMap(() =>
+            // A failed poll keeps the last known value instead of stopping the polling
+            this.http
+              .get<RealtimeUsers>(this.endpoints.analytics.v1.realtimeUsers)
+              .pipe(catchError(() => EMPTY)),
+          ),
+        ),
+      defaultValue: { activeUsers: 1 },
+    });
   }
 }

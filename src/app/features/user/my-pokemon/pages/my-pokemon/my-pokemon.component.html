@@ -1,15 +1,19 @@
 <main>
   <h1 class="first-heading__title" i18n>My Pokemon</h1>
 
-  @if (userPokemons().length >= 0) {
-    <div class="my-pokemon__search-container">
-      <app-pokemon-search-input
-        [title]="userPokemons().length ? translations.findMore : translations.findPokemon"
-      />
-    </div>
-  }
+  <div class="my-pokemon__search-container">
+    <app-pokemon-search-input [title]="searchTitle()" />
+  </div>
 
-  @if (!userPokemons().length) {
+  @if (isLoading()) {
+    <ul class="my-pokemon__grid">
+      <li><app-pokemon-card [loading]="true" /></li>
+      <li><app-pokemon-card [loading]="true" /></li>
+      <li><app-pokemon-card [loading]="true" /></li>
+    </ul>
+  } @else if (hasError()) {
+    <p>{{ translations.genericErrorAlert }}</p>
+  } @else if (pokemons().length === 0) {
     <div class="pokemons-empty__container">
       <div>
         <p i18n>
@@ -30,19 +34,11 @@
     </div>
   } @else {
     <ul class="my-pokemon__grid">
-      @for (pokemon of userPokemons(); track pokemon.id) {
+      @for (pokemon of pokemons(); track pokemon.id) {
         <li>
           <app-pokemon-card [pokemon]="pokemon" />
         </li>
       }
-    </ul>
-  }
-
-  @if (loading()) {
-    <ul class="my-pokemon__grid">
-      <li><app-pokemon-card [loading]="true" /></li>
-      <li><app-pokemon-card [loading]="true" /></li>
-      <li><app-pokemon-card [loading]="true" /></li>
     </ul>
   }
 </main>

@@ -1,16 +1,9 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  CUSTOM_ELEMENTS_SCHEMA,
-  inject,
-  signal,
-} from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { UserService } from '~features/authentication/services/user.service';
-import { PokemonService } from '~features/pokemon/services/pokemon.service';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
+import { rxResource } from '@angular/core/rxjs-interop';
 import { NgOptimizedImage } from '@angular/common';
-import { AlertService } from '~core/services/ui/alert.service';
-import { catchError, map, of, startWith, switchMap } from 'rxjs';
+import { of } from 'rxjs';
+import { UserStore } from '~features/authentication/services/user.store';
+import { PokemonService } from '~features/pokemon/services/pokemon.service';
 import { PokemonCardComponent } from '~features/user/my-pokemon/components/pokemon-card/pokemon-card.component';
 import { translations } from '~locale/translations';
 import { PokemonSearchInputComponent } from '~shared/components/pokemon-search-input/pokemon-search-input.component';
@@ -21,34 +14,31 @@ import { PokemonSearchInputComponent } from '~shared/components/pokemon-search-i
   templateUrl: './my-pokemon.component.html',
   styleUrl: './my-pokemon.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class MyPokemonComponent {
-  private readonly userService = inject(UserService);
+  private readonly userStore = inject(UserStore);
   private readonly pokemonService = inject(PokemonService);
-  private readonly alertService = inject(AlertService);
 
   readonly translations = translations;
-  readonly loading = signal(true);
 
-  readonly userPokemons = toSignal(
-    this.userService.getMe({ cache: false }).pipe(
-      switchMap((user) => {
-        if (user.caughtPokemonIds.length === 0) {
-          return of([]);
-        }
-        return this.pokemonService.getPokemonByIds(user.caughtPokemonIds);
-      }),
-      catchError(() => {
-        this.alertService.createErrorAlert(translations.genericErrorAlert);
-        return of([]);
-      }),
-      startWith([]),
-      map((result) => {
-        this.loading.set(false);
-        return result;
-      }),
-    ),
-    { initialValue: [] },
+  /** Reloaded automatically whenever the caught pokemon of the user change */
+  readonly userPokemons = rxResource({
+    params: () =>
+      this.userStore.user.hasValue() ? this.userStore.user.value().caughtPokemonIds : undefined,
+    stream: ({ params: pokemonIds }) =>
+      pokemonIds.length > 0 ? this.pokemonService.getPokemonByIds(pokemonIds) : of([]),
+    defaultValue: [],
+  });
+
+  readonly isLoading = computed(
+    () => this.userStore.user.isLoading() || this.userPokemons.isLoading(),
+  );
+  readonly hasError = computed(() => !!this.userStore.user.error() || !!this.userPokemons.error());
+  // `value()` throws while the resource is in an error state, `hasValue()` guards against it
+  readonly pokemons = computed(() =>
+    this.userPokemons.hasValue() ? this.userPokemons.value() : [],
+  );
+  readonly searchTitle = computed(() =>
+    this.pokemons().length > 0 ? translations.findMore : translations.findPokemon,
   );
 }

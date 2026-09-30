@@ -1,4 +1,7 @@
 {
   "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": ["@angular/localize", "node", "vitest/globals"]
+  },
   "include": ["src/**/*.*", "e2e/**/*.*", "scripts/**/*.*", "*.config.*", "*.rc.*"]
 }

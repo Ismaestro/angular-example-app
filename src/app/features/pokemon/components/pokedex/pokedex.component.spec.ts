@@ -47,7 +47,12 @@ describe('PokedexComponent', () => {
       imports: [PokedexComponent],
       providers: [
         provideZonelessChangeDetection(),
-        { provide: UserStore, useValue: { user: { value: user, isLoading: isUserLoading } } },
+        {
+          provide: UserStore,
+          useValue: {
+            user: { value: user, isLoading: isUserLoading, hasValue: () => user() !== undefined },
+          },
+        },
       ],
     }).overrideComponent(PokedexComponent, {
       remove: { imports: [PokemonImageComponent] },

@@ -1,8 +1,7 @@
 import { inject, Injectable } from '@angular/core';
-import { HttpClient, HttpContext } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import type { Observable } from 'rxjs';
 import { map } from 'rxjs';
-import { CACHING_ENABLED } from '~core/interceptors/caching.interceptor';
 import type { GetMeResponse } from '~features/authentication/types/get-me-response.types';
 import type { UpdateUserRequest } from '~features/authentication/types/update-user-request.types';
 import type { UpdateUserResponse } from '~features/authentication/types/update-user-response.types';
@@ -18,14 +17,8 @@ export class UserService {
   private readonly http = inject(HttpClient);
   private readonly endpoints = getEndpoints();
 
-  getMe(options?: { cache?: boolean }): Observable<User> {
-    const cache = options?.cache ?? true;
-
-    return this.http
-      .get<GetMeResponse>(this.endpoints.user.v1.user, {
-        context: this.createCacheContext(cache),
-      })
-      .pipe(this.extractUser());
+  getMe(): Observable<User> {
+    return this.http.get<GetMeResponse>(this.endpoints.user.v1.user).pipe(this.extractUser());
   }
 
   updateUser(updateUserRequest: UpdateUserRequest): Observable<User> {
@@ -42,9 +35,5 @@ export class UserService {
 
   private extractUser<T extends { data: { user: User } }>() {
     return map((response: T) => response.data.user);
-  }
-
-  private createCacheContext(cache: boolean): HttpContext {
-    return new HttpContext().set(CACHING_ENABLED, cache);
   }
 }

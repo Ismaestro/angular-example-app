@@ -1,28 +1,14 @@
-import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { DecorativeHeaderComponent } from '~shared/components/decorative-header/decorative-header.component';
 import { CardComponent } from '~shared/components/card/card.component';
-import { interval } from 'rxjs';
-import { AnalyticsService } from '~core/services/analytics.service';
+import { RealtimeUsersComponent } from '~features/home/components/realtime-users/realtime-users.component';
 
 @Component({
   selector: 'app-home',
-  imports: [DecorativeHeaderComponent, NgOptimizedImage, CardComponent],
+  imports: [DecorativeHeaderComponent, NgOptimizedImage, CardComponent, RealtimeUsersComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent {
-  private readonly analyticsService = inject(AnalyticsService);
-  readonly activeUsersResource = this.analyticsService.getRealtimeUsersResource();
-
-  readonly reloadEffect = effect((onCleanup) => {
-    this.activeUsersResource.reload();
-    const sub = interval(5000).subscribe(() => {
-      this.activeUsersResource.reload();
-    });
-    onCleanup(() => {
-      sub.unsubscribe();
-    });
-  });
-}
+export class HomeComponent {}

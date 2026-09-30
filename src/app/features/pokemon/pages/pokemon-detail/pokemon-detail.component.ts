@@ -3,7 +3,6 @@ import {
   Component,
   computed,
   DestroyRef,
-  effect,
   inject,
   input,
   linkedSignal,
@@ -38,23 +37,22 @@ export class PokemonDetailComponent {
   private readonly alertService = inject(AlertService);
   private readonly destroyRef = inject(DestroyRef);
 
+  readonly translations = translations;
   readonly pokemonId = input.required<string>();
   readonly pokemonResource = this.pokemonService.getPokemonResource(this.pokemonId);
+  // `value()` throws while the resource is in an error state, `hasValue()` guards against it
+  readonly loadedPokemon = computed(() =>
+    this.pokemonResource.hasValue() ? this.pokemonResource.value() : undefined,
+  );
 
   /** The battle starts over every time a different pokemon is loaded */
   readonly battlePhase = linkedSignal<Pokemon | undefined, BattlePhase>({
-    source: this.pokemonResource.value,
+    source: this.loadedPokemon,
     computation: () => 'ready',
   });
   readonly pokeballThrown = computed(
     () => this.battlePhase() === 'throwing' || this.battlePhase() === 'caught',
   );
-
-  readonly pokemonDetailEffect = effect(() => {
-    if (this.pokemonResource.error()) {
-      this.alertService.createErrorAlert(translations.pokemonNotFoundError);
-    }
-  });
 
   catchPokemon(pokemon: Pokemon): void {
     this.battlePhase.set('catching');

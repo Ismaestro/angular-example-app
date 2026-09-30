@@ -466,7 +466,7 @@
         <target state="new">logo de github</target>
       </trans-unit>
       <trans-unit id="2667007583315577477" datatype="html">
-        <source>Users seeing this page: <x id="INTERPOLATION" equiv-text="{{ activeUsersResource.value().activeUsers }}"/></source>
+        <source>Users seeing this page: <x id="INTERPOLATION" equiv-text="{{ realtimeUsers.value().activeUsers }}"/></source>
         <target state="new">Usuarios viendo esta página: <x id="INTERPOLATION" equiv-text="{{ activeUsersResource.value().activeUsers }}"/></target>
       </trans-unit>
       <trans-unit id="6973719636314914984" datatype="html">

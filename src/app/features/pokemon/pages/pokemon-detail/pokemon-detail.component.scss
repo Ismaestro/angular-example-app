@@ -12,6 +12,10 @@ $pokedex-container-offset: 60px;
     margin: 0 0 var(--spacing-r-4xl) 0;
   }
 
+  .pokemon-detail__error-text {
+    text-align: center;
+  }
+
   .pokedex__container {
     margin: var(--spacing-r-4xl) 0;
 

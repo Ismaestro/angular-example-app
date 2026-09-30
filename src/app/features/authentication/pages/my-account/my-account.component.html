@@ -1,5 +1,8 @@
 <main>
   <h1 class="first-heading__title" i18n>My account</h1>
+  @if (user.error()) {
+    <p>{{ translations.genericErrorAlert }}</p>
+  }
   <form
     class="form__container update-user__form"
     [formGroup]="updateUserForm"
