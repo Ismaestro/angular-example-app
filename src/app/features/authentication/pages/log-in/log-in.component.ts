@@ -2,27 +2,24 @@ import {
   ChangeDetectionStrategy,
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
-  DestroyRef,
   inject,
   signal,
 } from '@angular/core';
-import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { form, FormField, FormRoot, minLength, required } from '@angular/forms/signals';
 import { RouterLink } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { catchError, EMPTY, finalize } from 'rxjs';
-import { emailValidator } from '~shared/validators/email.validator';
+import { firstValueFrom } from 'rxjs';
+import { validateEmail } from '~shared/validators/email.validator';
 import { AUTH_URLS, USER_URLS } from '~core/constants/urls.constants';
-import { passwordValidator } from '~shared/validators/password.validator';
+import { validatePasswordStrength } from '~shared/validators/password.validator';
 import { SlInputIconFocusDirective } from '~shared/directives/sl-input-icon-focus.directive';
-import { LowercaseDirective } from '~shared/directives/lowercase.directive';
-import { TrimDirective } from '~shared/directives/trim.directive';
+import { AppSlInputControlDirective } from '~shared/directives/sl-input-control.directive';
 import type { ApiErrorResponse } from '~shared/types/api-response.types';
 import { API_ERROR_CODES } from '~core/constants/api-error-codes.constants';
 import { AlertService } from '~core/services/ui/alert.service';
 import { LanguageService } from '~core/services/language.service';
 import { AuthenticationService } from '~features/authentication/services/authentication.service';
-import type { User } from '~features/authentication/types/user.types';
+import type { LoginRequest } from '~features/authentication/types/login-request.types';
 import { translations } from '~locale/translations';
 import '@shoelace-style/shoelace/dist/components/button/button.js';
 import '@shoelace-style/shoelace/dist/components/input/input.js';
@@ -31,12 +28,12 @@ import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 @Component({
   selector: 'app-log-in',
   imports: [
-    ReactiveFormsModule,
+    FormField,
+    FormRoot,
     RouterLink,
     SlInputIconFocusDirective,
+    AppSlInputControlDirective,
     NgOptimizedImage,
-    LowercaseDirective,
-    TrimDirective,
   ],
   templateUrl: './log-in.component.html',
   styleUrl: './log-in.component.scss',
@@ -45,44 +42,35 @@ import '@shoelace-style/shoelace/dist/components/icon/icon.js';
 })
 export class LogInComponent {
   private readonly alertService = inject(AlertService);
-  private readonly formBuilder = inject(NonNullableFormBuilder);
   private readonly authService = inject(AuthenticationService);
   private readonly languageService = inject(LanguageService);
-  private readonly destroyRef = inject(DestroyRef);
 
   readonly translations = translations;
   readonly authUrls = AUTH_URLS;
-  readonly isLoading = signal(false);
-  readonly logInForm = this.formBuilder.group({
-    email: ['', [Validators.required, Validators.minLength(4), emailValidator()]],
-    password: ['', [Validators.required, Validators.minLength(6), passwordValidator()]],
-  });
-  readonly controls = this.logInForm.controls;
 
-  sendForm(): void {
-    if (this.logInForm.invalid) {
-      this.logInForm.markAllAsTouched();
-      return;
+  private readonly logInModel = signal<LoginRequest>({ email: '', password: '' });
+  readonly logInForm = form(
+    this.logInModel,
+    (path) => {
+      required(path.email);
+      minLength(path.email, 4);
+      validateEmail(path.email);
+      required(path.password);
+      minLength(path.password, 6);
+      validatePasswordStrength(path.password);
+    },
+    // Only runs when the form is valid. `[formRoot]` calls it on submit
+    { submission: { action: async () => this.logIn() } },
+  );
+  readonly isLoading = this.logInForm().submitting;
+
+  private async logIn(): Promise<void> {
+    try {
+      const user = await firstValueFrom(this.authService.logIn(this.logInModel()));
+      this.languageService.navigateWithUserLanguage(user.language, USER_URLS.myPokemon);
+    } catch (error) {
+      this.handleLoginError(error as ApiErrorResponse);
     }
-
-    this.isLoading.set(true);
-    this.authService
-      .logIn(this.logInForm.getRawValue())
-      .pipe(
-        takeUntilDestroyed(this.destroyRef),
-        finalize(() => {
-          this.isLoading.set(false);
-        }),
-        catchError((error: ApiErrorResponse) => {
-          this.handleLoginError(error);
-          return EMPTY;
-        }),
-      )
-      .subscribe({
-        next: (user: User) => {
-          this.languageService.navigateWithUserLanguage(user.language, USER_URLS.myPokemon);
-        },
-      });
   }
 
   private handleLoginError(response: ApiErrorResponse): void {

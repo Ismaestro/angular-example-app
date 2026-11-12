@@ -21,7 +21,7 @@ describe('RegisterComponent', () => {
   let register: ReturnType<typeof vi.fn>;
 
   const fillForm = (overrides: Partial<{ confirmPassword: string }> = {}) => {
-    component.registerForm.setValue({
+    component.registerForm().value.set({
       name: 'Ash',
       email: 'ash@pallet.com',
       password: 'Pikachu123',
@@ -55,15 +55,25 @@ describe('RegisterComponent', () => {
     vi.useRealTimers();
   });
 
-  it('should register the user with the id of the validated favourite pokemon', () => {
+  const submit = async () => {
+    (fixture.nativeElement as HTMLElement)
+      .querySelector('form')!
+      .dispatchEvent(new Event('submit', { cancelable: true }));
+    await vi.advanceTimersByTimeAsync(0);
+  };
+
+  it('should register the user with the id of the validated favourite pokemon', async () => {
+    fixture.detectChanges();
     fillForm();
-    expect(component.controls.favouritePokemonName.pending).toBe(true);
+    await vi.advanceTimersByTimeAsync(0);
+    expect(component.registerForm.favouritePokemonName().pending()).toBe(true);
 
-    vi.advanceTimersByTime(500);
+    await vi.advanceTimersByTimeAsync(500);
     httpTesting.expectOne(PIKACHU_URL).flush(PIKACHU);
-    expect(component.registerForm.valid).toBe(true);
+    await vi.advanceTimersByTimeAsync(0);
+    expect(component.registerForm().valid()).toBe(true);
 
-    component.sendForm();
+    await submit();
     // The lookup made by the validator is not repeated: it is served by the HTTP cache
     httpTesting.expectNone(PIKACHU_URL);
 
@@ -77,22 +87,25 @@ describe('RegisterComponent', () => {
     expect(component.isLoading()).toBe(true);
   });
 
-  it('should not register the user when the passwords do not match', () => {
+  it('should not register the user when the passwords do not match', async () => {
+    fixture.detectChanges();
     fillForm({ confirmPassword: 'Raichu123' });
-    vi.advanceTimersByTime(500);
+    await vi.advanceTimersByTimeAsync(500);
     httpTesting.expectOne(PIKACHU_URL).flush(PIKACHU);
 
-    component.sendForm();
+    await submit();
 
-    expect(component.registerForm.hasError('passwordsMismatch')).toBe(true);
-    expect(component.controls.confirmPassword.touched).toBe(true);
+    expect(component.isPasswordsMismatch()).toBe(true);
+    expect(component.registerForm.confirmPassword().touched()).toBe(true);
     expect(register).not.toHaveBeenCalled();
   });
 
-  it('should not register the user while the favourite pokemon is being validated', () => {
+  it('should not register the user while the favourite pokemon is being validated', async () => {
+    fixture.detectChanges();
     fillForm();
+    await vi.advanceTimersByTimeAsync(0);
 
-    component.sendForm();
+    await submit();
 
     expect(register).not.toHaveBeenCalled();
   });

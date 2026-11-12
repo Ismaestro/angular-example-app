@@ -3,11 +3,7 @@
   @if (user.error()) {
     <p>{{ translations.genericErrorAlert }}</p>
   }
-  <form
-    class="form__container update-user__form"
-    [formGroup]="updateUserForm"
-    (ngSubmit)="sendForm()"
-  >
+  <form class="form__container update-user__form" [formRoot]="updateUserForm">
     <div class="theme-button__container">
       <app-theme-button />
     </div>
@@ -20,10 +16,10 @@
         i18n-label
         i18n-placeholder
         appSlInputIconFocus
-        appTrim
+        appSlInputControl
+        trim
         required
-        ngDefaultControl
-        formControlName="name"
+        [formField]="updateUserForm.name"
         [attr.help-text]="translations.fieldRequired"
       >
         <sl-icon name="person" slot="prefix" />
@@ -35,9 +31,9 @@
         label="Email"
         size="medium"
         i18n-label
+        appSlInputControl
         required
-        ngDefaultControl
-        formControlName="email"
+        [formField]="updateUserForm.email"
       >
         <sl-icon name="person-circle" slot="prefix" />
       </sl-input>
@@ -49,7 +45,7 @@
         appSlSelectControl
         size="medium"
         i18n-label
-        formControlName="language"
+        [formField]="updateUserForm.language"
       >
         <sl-option class="sl-option--primary" i18n value="en-US">English (US)</sl-option>
         <sl-option class="sl-option--primary" i18n value="es-ES">Español (España)</sl-option>

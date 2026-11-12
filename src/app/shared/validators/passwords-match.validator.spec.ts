@@ -1,30 +1,40 @@
-import { FormControl, FormGroup } from '@angular/forms';
+import { signal } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
+import { form } from '@angular/forms/signals';
 import { describe, expect, it } from 'vitest';
-import { passwordsMatchValidator } from './passwords-match.validator';
+import { validatePasswordsMatch } from './passwords-match.validator';
 
-describe('passwordsMatchValidator', () => {
-  const createForm = (password: string, confirmPassword: string) =>
-    new FormGroup(
-      { password: new FormControl(password), confirmPassword: new FormControl(confirmPassword) },
-      { validators: [passwordsMatchValidator('password', 'confirmPassword')] },
+describe('validatePasswordsMatch', () => {
+  const createForm = (password: string, confirmPassword: string) => {
+    const model = signal({ password, confirmPassword });
+    const passwordsForm = TestBed.runInInjectionContext(() =>
+      form(model, (path) => {
+        validatePasswordsMatch(path.confirmPassword, path.password);
+      }),
     );
+    return { model, passwordsForm };
+  };
 
   it('should be valid when both passwords match', () => {
-    expect(createForm('Pikachu123', 'Pikachu123').errors).toBeNull();
+    const { passwordsForm } = createForm('Pikachu123', 'Pikachu123');
+
+    expect(passwordsForm().valid()).toBe(true);
   });
 
-  it('should add the error to the group, without touching the errors of the controls', () => {
-    const form = createForm('Pikachu123', 'Raichu123');
+  it('should add the error to the confirmation field only', () => {
+    const { passwordsForm } = createForm('Pikachu123', 'Raichu123');
 
-    expect(form.errors).toEqual({ passwordsMismatch: true });
-    expect(form.controls.confirmPassword.errors).toBeNull();
+    expect(passwordsForm.confirmPassword().errors()).toEqual([
+      expect.objectContaining({ kind: 'passwordsMismatch' }),
+    ]);
+    expect(passwordsForm.password().errors()).toEqual([]);
   });
 
   it('should be re-evaluated when any of the passwords changes', () => {
-    const form = createForm('Pikachu123', 'Raichu123');
+    const { model, passwordsForm } = createForm('Pikachu123', 'Raichu123');
 
-    form.controls.password.setValue('Raichu123');
+    model.update((value) => ({ ...value, password: 'Raichu123' }));
 
-    expect(form.errors).toBeNull();
+    expect(passwordsForm().valid()).toBe(true);
   });
 });

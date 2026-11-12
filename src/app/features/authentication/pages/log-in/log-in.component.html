@@ -1,6 +1,6 @@
 <main>
   <h1 class="first-heading__title" i18n data-testid="login-title">¡Welcome back!</h1>
-  <form class="form__container login__form" [formGroup]="logInForm" (ngSubmit)="sendForm()">
+  <form class="form__container login__form" [formRoot]="logInForm">
     <div class="form-control__container">
       <sl-input
         class="input--primary"
@@ -10,13 +10,15 @@
         i18n-label
         i18n-placeholder
         appSlInputIconFocus
-        appLowercase
-        appTrim
+        appSlInputControl
+        lowercase
+        trim
         required
-        ngDefaultControl
-        formControlName="email"
+        [formField]="logInForm.email"
         [attr.help-text]="
-          controls.email.touched && controls.email.invalid ? translations.emailHelpText : ''
+          logInForm.email().touched() && logInForm.email().invalid()
+            ? translations.emailHelpText
+            : ''
         "
       >
         <sl-icon name="person-circle" slot="prefix" />
@@ -33,11 +35,11 @@
         i18n-label
         i18n-placeholder
         appSlInputIconFocus
+        appSlInputControl
         required
-        ngDefaultControl
-        formControlName="password"
+        [formField]="logInForm.password"
         [attr.help-text]="
-          controls.password.touched && controls.password.invalid
+          logInForm.password().touched() && logInForm.password().invalid()
             ? translations.passwordHelpText
             : ''
         "

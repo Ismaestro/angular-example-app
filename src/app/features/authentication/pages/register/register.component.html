@@ -2,7 +2,7 @@
   <h1 class="first-heading__title" i18n data-testid="register-title">
     ¡Register and complete your Pokédex!
   </h1>
-  <form class="form__container register__form" [formGroup]="registerForm" (ngSubmit)="sendForm()">
+  <form class="form__container register__form" [formRoot]="registerForm">
     <img
       class="register-form__image"
       alt="pokemon haunter"
@@ -20,10 +20,10 @@
         i18n-label
         i18n-placeholder
         appSlInputIconFocus
-        appTrim
+        trim
         required
-        ngDefaultControl
-        formControlName="name"
+        appSlInputControl
+        [formField]="registerForm.name"
         [attr.help-text]="translations.fieldRequired"
       >
         <sl-icon name="person" slot="prefix" />
@@ -38,11 +38,11 @@
         i18n-label
         i18n-placeholder
         appSlInputIconFocus
-        appLowercase
-        appTrim
+        lowercase
+        trim
         required
-        ngDefaultControl
-        formControlName="email"
+        appSlInputControl
+        [formField]="registerForm.email"
         [attr.help-text]="translations.emailHelpText"
       >
         <sl-icon name="person-circle" slot="prefix" />
@@ -60,8 +60,8 @@
         i18n-placeholder
         appSlInputIconFocus
         required
-        ngDefaultControl
-        formControlName="password"
+        appSlInputControl
+        [formField]="registerForm.password"
         [attr.help-text]="translations.passwordHelpText"
       >
         <sl-icon name="lock" slot="prefix" />
@@ -79,10 +79,10 @@
         i18n-placeholder
         appSlInputIconFocus
         required
-        ngDefaultControl
-        formControlName="confirmPassword"
+        appSlInputControl
+        [formField]="registerForm.confirmPassword"
         [attr.help-text]="
-          controls.confirmPassword.touched && registerForm.hasError('passwordsMismatch')
+          registerForm.confirmPassword().touched() && isPasswordsMismatch()
             ? translations.confirmPasswordHelpText
             : ''
         "
@@ -100,18 +100,18 @@
         i18n-label
         i18n-placeholder
         appSlInputIconFocus
-        appTrim
-        ngDefaultControl
+        trim
+        appSlInputControl
         required
-        formControlName="favouritePokemonName"
+        [formField]="registerForm.favouritePokemonName"
         [attr.help-text]="
-          controls.favouritePokemonName.touched && controls.favouritePokemonName.invalid
+          registerForm.favouritePokemonName().touched() && registerForm.favouritePokemonName().invalid()
             ? translations.pokemonHelpText
             : ''
         "
       >
         <sl-icon name="star" slot="prefix" />
-        @if (controls.favouritePokemonName.pending) {
+        @if (registerForm.favouritePokemonName().pending()) {
           <img
             class="loading__image"
             alt="pokeball"
@@ -129,9 +129,9 @@
         class="checkbox--primary"
         i18n
         appSlCheckboxControl
-        formControlName="terms"
+        [formField]="registerForm.terms"
         [attr.help-text]="
-          controls.terms.touched && controls.terms.invalid ? translations.fieldRequired : ''
+          registerForm.terms().touched() && registerForm.terms().invalid() ? translations.fieldRequired : ''
         "
       >
         I’ve caught 'em all (the terms and privacy policy) and I’m cool with them!

@@ -1,16 +1,15 @@
-import type { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import type { SchemaPath } from '@angular/forms/signals';
+import { validate } from '@angular/forms/signals';
 
 /**
- * Cross-field validator: it belongs to the FormGroup, not to one of its controls, so it runs
- * whenever any of the two passwords changes and it never overwrites the errors of a control.
+ * Cross-field validator: the error is reported on the confirmation field. `valueOf` reads the
+ * other password reactively, so it is re-evaluated whenever any of the two passwords changes.
  */
-export function passwordsMatchValidator(
-  passwordControlName: string,
-  confirmPasswordControlName: string,
-): ValidatorFn {
-  return (group: AbstractControl): ValidationErrors | null => {
-    const password: unknown = group.get(passwordControlName)?.value;
-    const confirmPassword: unknown = group.get(confirmPasswordControlName)?.value;
-    return password === confirmPassword ? null : { passwordsMismatch: true };
-  };
+export function validatePasswordsMatch(
+  confirmPasswordPath: SchemaPath<string>,
+  passwordPath: SchemaPath<string>,
+): void {
+  validate(confirmPasswordPath, ({ value, valueOf }) =>
+    value() === valueOf(passwordPath) ? null : { kind: 'passwordsMismatch' },
+  );
 }

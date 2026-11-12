@@ -1,28 +1,29 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   CUSTOM_ELEMENTS_SCHEMA,
   DestroyRef,
   inject,
   signal,
 } from '@angular/core';
-import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import type { SchemaPathTree } from '@angular/forms/signals';
+import { form, FormField, FormRoot, minLength, required } from '@angular/forms/signals';
 import { Router, RouterLink } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { switchMap, timer } from 'rxjs';
+import { firstValueFrom, switchMap, timer } from 'rxjs';
 import { AUTH_URLS, POKEMON_URLS, USER_URLS } from '~core/constants/urls.constants';
-import { emailValidator } from '~shared/validators/email.validator';
-import { passwordValidator } from '~shared/validators/password.validator';
-import { passwordsMatchValidator } from '~shared/validators/passwords-match.validator';
+import { validateEmail } from '~shared/validators/email.validator';
+import { validatePasswordStrength } from '~shared/validators/password.validator';
+import { validatePasswordsMatch } from '~shared/validators/passwords-match.validator';
 import { SlInputIconFocusDirective } from '~shared/directives/sl-input-icon-focus.directive';
 import { AppSlCheckboxControlDirective } from '~shared/directives/sl-checkbox-control.directive';
-import { LowercaseDirective } from '~shared/directives/lowercase.directive';
-import { TrimDirective } from '~shared/directives/trim.directive';
+import { AppSlInputControlDirective } from '~shared/directives/sl-input-control.directive';
 import { AlertService } from '~core/services/ui/alert.service';
 import { AuthenticationService } from '~features/authentication/services/authentication.service';
 import { PokemonService } from '~features/pokemon/services/pokemon.service';
-import { pokemonNameValidator } from '~features/pokemon/validators/pokemon-name.validator';
+import { validatePokemonName } from '~features/pokemon/validators/pokemon-name.validator';
 import { translations } from '~locale/translations';
 
 import '@shoelace-style/shoelace/dist/components/button/button.js';
@@ -35,16 +36,49 @@ const POKEMON_APPEAR_SOUND_URL =
 const POKEMON_APPEAR_ANIMATION_MS = 2300;
 const LAST_POKEMON_ID = 1025;
 
+type RegisterFormModel = {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  favouritePokemonName: string;
+  terms: boolean;
+};
+
+function validateAccount(path: SchemaPathTree<RegisterFormModel>): void {
+  required(path.name);
+  minLength(path.name, 2);
+  required(path.email);
+  minLength(path.email, 4);
+  validateEmail(path.email);
+  required(path.password);
+  validatePasswordStrength(path.password);
+  required(path.confirmPassword);
+  validatePasswordStrength(path.confirmPassword);
+  validatePasswordsMatch(path.confirmPassword, path.password);
+}
+
+function validateFavouritePokemon(
+  path: SchemaPathTree<RegisterFormModel>,
+  pokemonService: PokemonService,
+): void {
+  required(path.favouritePokemonName);
+  minLength(path.favouritePokemonName, 2);
+  validatePokemonName(path.favouritePokemonName, pokemonService);
+  // `required` also rejects `false`, so the terms must be accepted
+  required(path.terms);
+}
+
 @Component({
   selector: 'app-register',
   imports: [
     RouterLink,
-    ReactiveFormsModule,
+    FormField,
+    FormRoot,
     NgOptimizedImage,
     SlInputIconFocusDirective,
+    AppSlInputControlDirective,
     AppSlCheckboxControlDirective,
-    LowercaseDirective,
-    TrimDirective,
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
@@ -53,7 +87,6 @@ const LAST_POKEMON_ID = 1025;
 })
 export class RegisterComponent {
   private readonly router = inject(Router);
-  private readonly formBuilder = inject(NonNullableFormBuilder);
   private readonly authService = inject(AuthenticationService);
   private readonly pokemonService = inject(PokemonService);
   private readonly alertService = inject(AlertService);
@@ -61,52 +94,54 @@ export class RegisterComponent {
 
   readonly translations = translations;
   readonly authUrls = AUTH_URLS;
-  readonly isLoading = signal(false);
   readonly isRegistrationCompleted = signal(false);
 
-  // The form type is inferred: no casts nor hand-written FormGroup types are needed
-  readonly registerForm = this.formBuilder.group(
-    {
-      name: ['', [Validators.required, Validators.minLength(2)]],
-      email: ['', [Validators.required, Validators.minLength(4), emailValidator()]],
-      password: ['', [Validators.required, passwordValidator()]],
-      confirmPassword: ['', [Validators.required, passwordValidator()]],
-      favouritePokemonName: [
-        '',
-        {
-          validators: [Validators.required, Validators.minLength(2)],
-          asyncValidators: [pokemonNameValidator(this.pokemonService)],
-        },
-      ],
-      terms: [false, [Validators.requiredTrue]],
+  private readonly registerModel = signal<RegisterFormModel>({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    favouritePokemonName: '',
+    terms: false,
+  });
+  readonly registerForm = form(
+    this.registerModel,
+    (path) => {
+      validateAccount(path);
+      validateFavouritePokemon(path, this.pokemonService);
     },
-    { validators: [passwordsMatchValidator('password', 'confirmPassword')] },
+    {
+      submission: {
+        action: async () => this.register(),
+        // Wait for the async validation of the pokemon name instead of submitting while it runs
+        ignoreValidators: 'none',
+      },
+    },
   );
-  readonly controls = this.registerForm.controls;
+  // Stays on after the request ends: the user is about to be redirected
+  readonly isLoading = computed(
+    () => this.registerForm().submitting() || this.isRegistrationCompleted(),
+  );
 
-  sendForm(): void {
-    // `valid` (not `!invalid`): a form is neither valid nor invalid while an async validator runs
-    if (!this.registerForm.valid) {
-      this.registerForm.markAllAsTouched();
+  readonly isPasswordsMismatch = computed(() =>
+    this.registerForm
+      .confirmPassword()
+      .errors()
+      .some((error) => error.kind === 'passwordsMismatch'),
+  );
+
+  private async register(): Promise<void> {
+    try {
+      await firstValueFrom(this.registerUser());
+    } catch {
+      this.alertService.createErrorAlert(translations.genericErrorAlert);
       return;
     }
-
-    this.isLoading.set(true);
-    this.registerUser()
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe({
-        next: () => {
-          void this.celebrateRegistration();
-        },
-        error: () => {
-          this.isLoading.set(false);
-          this.alertService.createErrorAlert(translations.genericErrorAlert);
-        },
-      });
+    await this.celebrateRegistration();
   }
 
   private registerUser() {
-    const { name, email, password, terms, favouritePokemonName } = this.registerForm.getRawValue();
+    const { name, email, password, terms, favouritePokemonName } = this.registerModel();
     return (
       this.pokemonService
         // Already validated (and cached by the HTTP cache): this only resolves the pokemon id
