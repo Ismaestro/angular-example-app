@@ -6,8 +6,6 @@
     <br><br>
     Crafted with ❤️ to showcase real best practices in action: standalone components, signals, routing, i18n, authentication and more.
     <br><br>
-    <a href="https://angular-example-app.ismaestro.com/" target="_blank"><strong>🔥 Live Demo</strong></a>
-    <br><br>
     <img src="https://res.cloudinary.com/ismaestro/image/upload/angularexampleapp/assets/images/ash-pikachu.png" alt="Demo example" width="150"/>
   </p>
 </div>
@@ -27,10 +25,20 @@ Whether you're just starting with Angular or looking for a solid base for your n
 
 ## Getting Started
 
+There is no public demo: run the app locally. It works on its own (with the PokeAPI and a remote backend) or with the local backend described in [Backend API](#backend-api).
+
 ```bash
 npm i
-npm start
+npm start   # opens http://localhost:4200 in English (npm run start:es for Spanish)
 ```
+
+## Running with the local backend
+
+1. Start the NestJS API from [nestjs-example-app](https://github.com/Ismaestro/nestjs-example-app) (`npm run setup` there) so it listens on `http://localhost:3000`.
+2. In `src/environments/environment.ts`, change `apiBaseUrl` to `'http://localhost:3000'`. The file currently points to the production API, and the commented line above it shows the local value.
+3. Run `npm start` again.
+
+Do not commit that change unless you mean to.
 
 ## Verification & Quality
 
@@ -43,12 +51,6 @@ npm run prettier:write # Format all code
 npm run test           # Run Unit Tests (Vitest)
 npm run test:coverage  # Run Tests with coverage
 ```
-
----
-
-## Live Status
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f593abee-25b9-424a-bd54-6bc52aff7230/deploy-status)](https://app.netlify.com/sites/angular-example-app/deploys)
 
 ---
 
